@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ACD4C7731657158D0025F3F5 /* JASidePanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD4C7721657158D0025F3F5 /* JASidePanelController.m */; };
+		ACD4C776165716810025F3F5 /* LeftSidePanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD4C775165716810025F3F5 /* LeftSidePanelController.m */; };
+		ACD4C77C16571A5D0025F3F5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACD4C77B16571A5D0025F3F5 /* QuartzCore.framework */; };
 		ACEBDC6616570CBE00CEFFE5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACEBDC6516570CBE00CEFFE5 /* UIKit.framework */; };
 		ACEBDC6816570CBE00CEFFE5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACEBDC6716570CBE00CEFFE5 /* Foundation.framework */; };
 		ACEBDC6A16570CBE00CEFFE5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACEBDC6916570CBE00CEFFE5 /* CoreGraphics.framework */; };
@@ -16,12 +19,17 @@
 		ACEBDC7816570CBE00CEFFE5 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = ACEBDC7716570CBE00CEFFE5 /* Default.png */; };
 		ACEBDC7A16570CBE00CEFFE5 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ACEBDC7916570CBE00CEFFE5 /* Default@2x.png */; };
 		ACEBDC7C16570CBE00CEFFE5 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ACEBDC7B16570CBE00CEFFE5 /* Default-568h@2x.png */; };
-		ACEBDC7F16570CBF00CEFFE5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACEBDC7E16570CBE00CEFFE5 /* ViewController.m */; };
-		ACEBDC8216570CBF00CEFFE5 /* ViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACEBDC8016570CBF00CEFFE5 /* ViewController_iPhone.xib */; };
-		ACEBDC8516570CBF00CEFFE5 /* ViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACEBDC8316570CBF00CEFFE5 /* ViewController_iPad.xib */; };
+		ACEBDC7F16570CBF00CEFFE5 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACEBDC7E16570CBE00CEFFE5 /* HomeViewController.m */; };
+		ACEBDC8216570CBF00CEFFE5 /* HomeViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACEBDC8016570CBF00CEFFE5 /* HomeViewController_iPhone.xib */; };
+		ACEBDC8516570CBF00CEFFE5 /* HomeViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACEBDC8316570CBF00CEFFE5 /* HomeViewController_iPad.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		ACD4C7711657158D0025F3F5 /* JASidePanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JASidePanelController.h; sourceTree = "<group>"; };
+		ACD4C7721657158D0025F3F5 /* JASidePanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JASidePanelController.m; sourceTree = "<group>"; };
+		ACD4C774165716810025F3F5 /* LeftSidePanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftSidePanelController.h; sourceTree = "<group>"; };
+		ACD4C775165716810025F3F5 /* LeftSidePanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftSidePanelController.m; sourceTree = "<group>"; };
+		ACD4C77B16571A5D0025F3F5 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		ACEBDC6116570CBE00CEFFE5 /* ClubMedici.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClubMedici.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACEBDC6516570CBE00CEFFE5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		ACEBDC6716570CBE00CEFFE5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -35,10 +43,10 @@
 		ACEBDC7716570CBE00CEFFE5 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		ACEBDC7916570CBE00CEFFE5 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		ACEBDC7B16570CBE00CEFFE5 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		ACEBDC7D16570CBE00CEFFE5 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		ACEBDC7E16570CBE00CEFFE5 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		ACEBDC8116570CBF00CEFFE5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController_iPhone.xib; sourceTree = "<group>"; };
-		ACEBDC8416570CBF00CEFFE5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController_iPad.xib; sourceTree = "<group>"; };
+		ACEBDC7D16570CBE00CEFFE5 /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		ACEBDC7E16570CBE00CEFFE5 /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		ACEBDC8116570CBF00CEFFE5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/HomeViewController_iPhone.xib; sourceTree = "<group>"; };
+		ACEBDC8416570CBF00CEFFE5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/HomeViewController_iPad.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACD4C77C16571A5D0025F3F5 /* QuartzCore.framework in Frameworks */,
 				ACEBDC6616570CBE00CEFFE5 /* UIKit.framework in Frameworks */,
 				ACEBDC6816570CBE00CEFFE5 /* Foundation.framework in Frameworks */,
 				ACEBDC6A16570CBE00CEFFE5 /* CoreGraphics.framework in Frameworks */,
@@ -55,6 +64,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		ACD4C76F165715460025F3F5 /* Librerie esterne */ = {
+			isa = PBXGroup;
+			children = (
+				ACD4C7711657158D0025F3F5 /* JASidePanelController.h */,
+				ACD4C7721657158D0025F3F5 /* JASidePanelController.m */,
+			);
+			name = "Librerie esterne";
+			sourceTree = "<group>";
+		};
 		ACEBDC5616570CBE00CEFFE5 = {
 			isa = PBXGroup;
 			children = (
@@ -75,6 +93,7 @@
 		ACEBDC6416570CBE00CEFFE5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				ACD4C77B16571A5D0025F3F5 /* QuartzCore.framework */,
 				ACEBDC6516570CBE00CEFFE5 /* UIKit.framework */,
 				ACEBDC6716570CBE00CEFFE5 /* Foundation.framework */,
 				ACEBDC6916570CBE00CEFFE5 /* CoreGraphics.framework */,
@@ -87,10 +106,13 @@
 			children = (
 				ACEBDC7416570CBE00CEFFE5 /* AppDelegate.h */,
 				ACEBDC7516570CBE00CEFFE5 /* AppDelegate.m */,
-				ACEBDC7D16570CBE00CEFFE5 /* ViewController.h */,
-				ACEBDC7E16570CBE00CEFFE5 /* ViewController.m */,
-				ACEBDC8016570CBF00CEFFE5 /* ViewController_iPhone.xib */,
-				ACEBDC8316570CBF00CEFFE5 /* ViewController_iPad.xib */,
+				ACEBDC7D16570CBE00CEFFE5 /* HomeViewController.h */,
+				ACEBDC7E16570CBE00CEFFE5 /* HomeViewController.m */,
+				ACEBDC8016570CBF00CEFFE5 /* HomeViewController_iPhone.xib */,
+				ACEBDC8316570CBF00CEFFE5 /* HomeViewController_iPad.xib */,
+				ACD4C774165716810025F3F5 /* LeftSidePanelController.h */,
+				ACD4C775165716810025F3F5 /* LeftSidePanelController.m */,
+				ACD4C76F165715460025F3F5 /* Librerie esterne */,
 				ACEBDC6C16570CBE00CEFFE5 /* Supporting Files */,
 			);
 			path = ClubMedici;
@@ -165,8 +187,8 @@
 				ACEBDC7816570CBE00CEFFE5 /* Default.png in Resources */,
 				ACEBDC7A16570CBE00CEFFE5 /* Default@2x.png in Resources */,
 				ACEBDC7C16570CBE00CEFFE5 /* Default-568h@2x.png in Resources */,
-				ACEBDC8216570CBF00CEFFE5 /* ViewController_iPhone.xib in Resources */,
-				ACEBDC8516570CBF00CEFFE5 /* ViewController_iPad.xib in Resources */,
+				ACEBDC8216570CBF00CEFFE5 /* HomeViewController_iPhone.xib in Resources */,
+				ACEBDC8516570CBF00CEFFE5 /* HomeViewController_iPad.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -179,7 +201,9 @@
 			files = (
 				ACEBDC7216570CBE00CEFFE5 /* main.m in Sources */,
 				ACEBDC7616570CBE00CEFFE5 /* AppDelegate.m in Sources */,
-				ACEBDC7F16570CBF00CEFFE5 /* ViewController.m in Sources */,
+				ACEBDC7F16570CBF00CEFFE5 /* HomeViewController.m in Sources */,
+				ACD4C7731657158D0025F3F5 /* JASidePanelController.m in Sources */,
+				ACD4C776165716810025F3F5 /* LeftSidePanelController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,20 +218,20 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		ACEBDC8016570CBF00CEFFE5 /* ViewController_iPhone.xib */ = {
+		ACEBDC8016570CBF00CEFFE5 /* HomeViewController_iPhone.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				ACEBDC8116570CBF00CEFFE5 /* en */,
 			);
-			name = ViewController_iPhone.xib;
+			name = HomeViewController_iPhone.xib;
 			sourceTree = "<group>";
 		};
-		ACEBDC8316570CBF00CEFFE5 /* ViewController_iPad.xib */ = {
+		ACEBDC8316570CBF00CEFFE5 /* HomeViewController_iPad.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				ACEBDC8416570CBF00CEFFE5 /* en */,
 			);
-			name = ViewController_iPad.xib;
+			name = HomeViewController_iPad.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -308,6 +332,7 @@
 				ACEBDC8A16570CBF00CEFFE5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
