@@ -22,7 +22,15 @@
     self.viewController.shouldDelegateAutorotateToVisiblePanel = NO;
     
 	self.viewController.leftPanel = [[LeftSidePanelController alloc] init];
-	self.viewController.centerPanel = [[UINavigationController alloc] initWithRootViewController:[[HomeViewController alloc] init]];
+    
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+      self.viewController.centerPanel = [[UINavigationController alloc] initWithRootViewController:[[HomeViewController alloc] initWithNibName:@"HomeViewController_iPhone" bundle:nil]];
+    }
+    else {
+       self.viewController.centerPanel = [[UINavigationController alloc] initWithRootViewController:[[HomeViewController alloc] initWithNibName:@"HomeViewController_iPad" bundle:nil]];	  	
+    }
+    
+	
 	//self.viewController.rightPanel = [[JARightViewController alloc] init];
 
     
