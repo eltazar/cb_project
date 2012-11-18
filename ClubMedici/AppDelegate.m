@@ -8,7 +8,9 @@
 
 #import "AppDelegate.h"
 
-#import "ViewController.h"
+#import "HomeViewController.h"
+#import "JASidePanelController.h"
+#import "LeftSidePanelController.h"
 
 @implementation AppDelegate
 
@@ -17,10 +19,18 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        self.viewController = [[ViewController alloc] initWithNibName:@"ViewController_iPhone" bundle:nil];
+        self.viewController = [[HomeViewController alloc] initWithNibName:@"ViewController_iPhone" bundle:nil];
     } else {
-        self.viewController = [[ViewController alloc] initWithNibName:@"ViewController_iPad" bundle:nil];
+        self.viewController = [[HomeViewController alloc] initWithNibName:@"ViewController_iPad" bundle:nil];
     }
+    self.viewController = [[JASidePanelController alloc] init];
+    self.viewController.shouldDelegateAutorotateToVisiblePanel = NO;
+    
+	self.viewController.leftPanel = [[LeftSidePanelController alloc] init];
+	self.viewController.centerPanel = [[UINavigationController alloc] initWithRootViewController:[[HomeViewController alloc] init]];
+	//self.viewController.rightPanel = [[JARightViewController alloc] init];
+
+    
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
     return YES;
