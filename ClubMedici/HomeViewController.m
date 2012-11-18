@@ -21,6 +21,12 @@
     
 }
 
+//lasciare vuoto per levare effetto shadow nel  container
+- (void)styleContainer:(UIView *)container animate:(BOOL)animate duration:(NSTimeInterval)duration{
+    
+}
+
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
