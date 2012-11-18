@@ -8,9 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		ACD4C7731657158D0025F3F5 /* JASidePanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD4C7721657158D0025F3F5 /* JASidePanelController.m */; };
-		ACD4C776165716810025F3F5 /* LeftSidePanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD4C775165716810025F3F5 /* LeftSidePanelController.m */; };
 		ACD4C77C16571A5D0025F3F5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACD4C77B16571A5D0025F3F5 /* QuartzCore.framework */; };
 		ACE03DCD16593B71009B6B0D /* UIViewController+JASidePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE03DCC16593B71009B6B0D /* UIViewController+JASidePanel.m */; };
+		ACE03DD71659462C009B6B0D /* SideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE03DD51659462C009B6B0D /* SideMenu.m */; };
+		ACE03DD81659462C009B6B0D /* SideMenu_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACE03DD61659462C009B6B0D /* SideMenu_iPad.xib */; };
+		ACE03DDA16594922009B6B0D /* SideMenu_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACE03DD916594922009B6B0D /* SideMenu_iPhone.xib */; };
 		ACEBDC6616570CBE00CEFFE5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACEBDC6516570CBE00CEFFE5 /* UIKit.framework */; };
 		ACEBDC6816570CBE00CEFFE5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACEBDC6716570CBE00CEFFE5 /* Foundation.framework */; };
 		ACEBDC6A16570CBE00CEFFE5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACEBDC6916570CBE00CEFFE5 /* CoreGraphics.framework */; };
@@ -28,11 +30,13 @@
 /* Begin PBXFileReference section */
 		ACD4C7711657158D0025F3F5 /* JASidePanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JASidePanelController.h; sourceTree = "<group>"; };
 		ACD4C7721657158D0025F3F5 /* JASidePanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JASidePanelController.m; sourceTree = "<group>"; };
-		ACD4C774165716810025F3F5 /* LeftSidePanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftSidePanelController.h; sourceTree = "<group>"; };
-		ACD4C775165716810025F3F5 /* LeftSidePanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftSidePanelController.m; sourceTree = "<group>"; };
 		ACD4C77B16571A5D0025F3F5 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		ACE03DCB16593B71009B6B0D /* UIViewController+JASidePanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+JASidePanel.h"; sourceTree = "<group>"; };
 		ACE03DCC16593B71009B6B0D /* UIViewController+JASidePanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+JASidePanel.m"; sourceTree = "<group>"; };
+		ACE03DD41659462C009B6B0D /* SideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideMenu.h; sourceTree = "<group>"; };
+		ACE03DD51659462C009B6B0D /* SideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideMenu.m; sourceTree = "<group>"; };
+		ACE03DD61659462C009B6B0D /* SideMenu_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SideMenu_iPad.xib; sourceTree = "<group>"; };
+		ACE03DD916594922009B6B0D /* SideMenu_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SideMenu_iPhone.xib; sourceTree = "<group>"; };
 		ACEBDC6116570CBE00CEFFE5 /* ClubMedici.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClubMedici.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACEBDC6516570CBE00CEFFE5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		ACEBDC6716570CBE00CEFFE5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -115,8 +119,10 @@
 				ACEBDC7E16570CBE00CEFFE5 /* HomeViewController.m */,
 				ACEBDC8016570CBF00CEFFE5 /* HomeViewController_iPhone.xib */,
 				ACEBDC8316570CBF00CEFFE5 /* HomeViewController_iPad.xib */,
-				ACD4C774165716810025F3F5 /* LeftSidePanelController.h */,
-				ACD4C775165716810025F3F5 /* LeftSidePanelController.m */,
+				ACE03DD41659462C009B6B0D /* SideMenu.h */,
+				ACE03DD51659462C009B6B0D /* SideMenu.m */,
+				ACE03DD61659462C009B6B0D /* SideMenu_iPad.xib */,
+				ACE03DD916594922009B6B0D /* SideMenu_iPhone.xib */,
 				ACD4C76F165715460025F3F5 /* Librerie esterne */,
 				ACEBDC6C16570CBE00CEFFE5 /* Supporting Files */,
 			);
@@ -194,6 +200,8 @@
 				ACEBDC7C16570CBE00CEFFE5 /* Default-568h@2x.png in Resources */,
 				ACEBDC8216570CBF00CEFFE5 /* HomeViewController_iPhone.xib in Resources */,
 				ACEBDC8516570CBF00CEFFE5 /* HomeViewController_iPad.xib in Resources */,
+				ACE03DD81659462C009B6B0D /* SideMenu_iPad.xib in Resources */,
+				ACE03DDA16594922009B6B0D /* SideMenu_iPhone.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,8 +216,8 @@
 				ACEBDC7616570CBE00CEFFE5 /* AppDelegate.m in Sources */,
 				ACEBDC7F16570CBF00CEFFE5 /* HomeViewController.m in Sources */,
 				ACD4C7731657158D0025F3F5 /* JASidePanelController.m in Sources */,
-				ACD4C776165716810025F3F5 /* LeftSidePanelController.m in Sources */,
 				ACE03DCD16593B71009B6B0D /* UIViewController+JASidePanel.m in Sources */,
+				ACE03DD71659462C009B6B0D /* SideMenu.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
