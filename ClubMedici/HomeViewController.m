@@ -6,6 +6,7 @@
 //  Copyright (c) 2012 mario greco. All rights reserved.
 //
 
+#import <QuartzCore/QuartzCore.h>
 #import "HomeViewController.h"
 
 @interface HomeViewController ()
@@ -17,10 +18,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    //se commento da qui in poi il menu laterale salta fuori solo premendo il bottone e non più con la gesture
+    
     CGFloat red = (CGFloat)arc4random() / 0x100000000;
     CGFloat green = (CGFloat)arc4random() / 0x100000000;
     CGFloat blue = (CGFloat)arc4random() / 0x100000000;
-    self.view.backgroundColor = [UIColor colorWithRed:red green:green blue:blue alpha:1.0f];
+    self.view.backgroundColor = [UIColor whiteColor];
     
 //    UILabel *label  = [[UILabel alloc] init];
 //    label.font = [UIFont boldSystemFontOfSize:20.0f];

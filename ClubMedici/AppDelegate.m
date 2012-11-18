@@ -17,12 +17,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        self.viewController = [[HomeViewController alloc] initWithNibName:@"ViewController_iPhone" bundle:nil];
-    } else {
-        self.viewController = [[HomeViewController alloc] initWithNibName:@"ViewController_iPad" bundle:nil];
-    }
+   
     self.viewController = [[JASidePanelController alloc] init];
     self.viewController.shouldDelegateAutorotateToVisiblePanel = NO;
     
