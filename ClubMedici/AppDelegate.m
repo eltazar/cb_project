@@ -10,8 +10,7 @@
 
 #import "HomeViewController.h"
 #import "JASidePanelController.h"
-#import "LeftSidePanelController.h"
-
+#import "SideMenu.h"
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -21,13 +20,15 @@
     self.viewController = [[JASidePanelController alloc] init];
     self.viewController.shouldDelegateAutorotateToVisiblePanel = NO;
     
-	self.viewController.leftPanel = [[LeftSidePanelController alloc] init];
+	
     
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-      self.viewController.centerPanel = [[UINavigationController alloc] initWithRootViewController:[[HomeViewController alloc] initWithNibName:@"HomeViewController_iPhone" bundle:nil]];
+        self.viewController.leftPanel = [[UINavigationController alloc] initWithRootViewController:[[SideMenu alloc] initWithNibName:@"SideMenu_iPhone" bundle:nil]];
+        self.viewController.centerPanel = [[UINavigationController alloc] initWithRootViewController:[[HomeViewController alloc] initWithNibName:@"HomeViewController_iPhone" bundle:nil]];
     }
     else {
-       self.viewController.centerPanel = [[UINavigationController alloc] initWithRootViewController:[[HomeViewController alloc] initWithNibName:@"HomeViewController_iPad" bundle:nil]];	  	
+        self.viewController.leftPanel = [[UINavigationController alloc] initWithRootViewController:[[SideMenu alloc] initWithNibName:@"SideMenu_iPad" bundle:nil]];
+        self.viewController.centerPanel = [[UINavigationController alloc] initWithRootViewController:[[HomeViewController alloc] initWithNibName:@"HomeViewController_iPad" bundle:nil]];	  	
     }
     
 	
