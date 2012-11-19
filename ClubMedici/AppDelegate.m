@@ -14,8 +14,6 @@
 #import "SideMenuController_iPad.h"
 #import "HomeViewController_iPad.h"
 
-
-
 #import "JASidePanelController.h"
 
 @implementation AppDelegate
@@ -24,45 +22,28 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
    
-    
-    
-	
-    
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        
-        self.viewController = [[JASidePanelController alloc] init];
-        self.viewController.shouldDelegateAutorotateToVisiblePanel = NO;
-        self.viewController.leftPanel = [[UINavigationController alloc] initWithRootViewController:[[SideMenuController_iPhone alloc] initWithNibName:@"SideMenuController_iPhone" bundle:nil]];
-        self.viewController.centerPanel = [[UINavigationController alloc] initWithRootViewController:[[HomeViewController_iPhone alloc] initWithNibName:@"HomeViewController_iPhone" bundle:nil]];
-        self.window.rootViewController = self.viewController;
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+        self.sideMenuController = [[UINavigationController alloc] initWithRootViewController:[[SideMenuController_iPhone alloc] initWithNibName:@"SideMenuController_iPhone" bundle:nil]];
+        self.detailViewController = [[UINavigationController alloc] initWithRootViewController:[[HomeViewController_iPhone alloc] initWithNibName:@"HomeViewController_iPhone" bundle:nil]];
+        JASidePanelController *jasSidePanelController = [[JASidePanelController alloc] init];
+        jasSidePanelController.leftPanel = self.sideMenuController;
+        jasSidePanelController.centerPanel = self.detailViewController;
+        jasSidePanelController.shouldDelegateAutorotateToVisiblePanel = NO;
+        self.window.rootViewController = jasSidePanelController;
     }
     else {
-
-        //ipad
-        // Override point for customization after app launch.
-        self.splitViewController =[[UISplitViewController alloc]init];
+        self.sideMenuController = [[SideMenuController_iPad alloc] initWithNibName:@"SideMenuController_iPad" bundle:nil];
+        self.detailViewController = [[HomeViewController_iPad alloc] initWithNibName:@"HomeViewController_iPad" bundle:nil];
+        UINavigationController *menuNav= [[UINavigationController alloc] initWithRootViewController:self.sideMenuController];
+        UINavigationController *detailNav = [[UINavigationController alloc]initWithRootViewController:self.detailViewController];
         
-        self.sideMenuController_ipad = [[SideMenuController_iPad alloc] initWithNibName:@"SideMenuController_iPad" bundle:nil];
-        self.homeViewController_ipad = [[HomeViewController_iPad alloc] initWithNibName:@"HomeViewController_iPad" bundle:nil];
-        
-        
-        
-        UINavigationController *rootNav=[[UINavigationController alloc]initWithRootViewController:self.sideMenuController_ipad];
-        UINavigationController *detailNav=[[UINavigationController alloc]initWithRootViewController:self.homeViewController_ipad];
-
-        self.splitViewController.viewControllers=[NSArray arrayWithObjects:rootNav,detailNav,nil];
-        self.splitViewController.delegate = self.homeViewController_ipad;
-//        
-//        // Add the split view controller's view to the window and display.
-        //[self.window addSubview:self.splitViewController.view];
-        self.window.rootViewController = self.splitViewController;
-//        [window makeKeyAndVisible];    
+        UISplitViewController *splitViewController = [[UISplitViewController alloc] init];
+        splitViewController.viewControllers = [NSArray arrayWithObjects:menuNav, detailNav, nil];
+        splitViewController.delegate = (HomeViewController_iPad *)self.detailViewController;
+        // Add the split view controller's view to the window and display.
+        // [self.window addSubview:self.splitViewController.view];
+        self.window.rootViewController = splitViewController;
     }
-    
-	
-	//self.viewController.rightPanel = [[JARightViewController alloc] init];
-
-    
     
     [self.window makeKeyAndVisible];
     return YES;

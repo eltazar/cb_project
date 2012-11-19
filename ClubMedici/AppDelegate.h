@@ -14,9 +14,7 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
-@property (strong, nonatomic) JASidePanelController *viewController;
-@property (strong, nonatomic) UISplitViewController *splitViewController;
-@property (strong, nonatomic) HomeViewController_iPad *homeViewController_ipad;
-@property (strong, nonatomic) SideMenuController_iPad *sideMenuController_ipad;
+@property (strong, nonatomic) UIViewController *sideMenuController;
+@property (strong, nonatomic) UIViewController *detailViewController;
 
 @end
