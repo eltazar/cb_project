@@ -35,4 +35,25 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - UISplitViewControllerDelegate
+
+- (void)splitViewController:(UISplitViewController*)svc
+     willHideViewController:(UIViewController *)aViewController
+          withBarButtonItem:(UIBarButtonItem*)barButtonItem
+       forPopoverController:(UIPopoverController*)pc
+{
+    [barButtonItem setTitle:@"Menu"];
+    [[self navigationItem] setLeftBarButtonItem:barButtonItem];
+   // [self setPopoverController:pc];
+}
+
+
+- (void)splitViewController:(UISplitViewController*)svc
+     willShowViewController:(UIViewController *)aViewController
+  invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem
+{
+    [[self navigationItem] setLeftBarButtonItem:nil];
+    //[self setPopoverController:nil];
+}
+
 @end
