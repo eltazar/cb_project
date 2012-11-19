@@ -24,13 +24,14 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
    
-    self.viewController = [[JASidePanelController alloc] init];
-    self.viewController.shouldDelegateAutorotateToVisiblePanel = NO;
+    
     
 	
     
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
         
+        self.viewController = [[JASidePanelController alloc] init];
+        self.viewController.shouldDelegateAutorotateToVisiblePanel = NO;
         self.viewController.leftPanel = [[UINavigationController alloc] initWithRootViewController:[[SideMenuController_iPhone alloc] initWithNibName:@"SideMenuController_iPhone" bundle:nil]];
         self.viewController.centerPanel = [[UINavigationController alloc] initWithRootViewController:[[HomeViewController_iPhone alloc] initWithNibName:@"HomeViewController_iPhone" bundle:nil]];
         self.window.rootViewController = self.viewController;
@@ -54,7 +55,7 @@
 //        
 //        // Add the split view controller's view to the window and display.
         //[self.window addSubview:self.splitViewController.view];
-        //self.window.rootViewController = self.splitViewController;
+        self.window.rootViewController = self.splitViewController;
 //        [window makeKeyAndVisible];    
     }
     
