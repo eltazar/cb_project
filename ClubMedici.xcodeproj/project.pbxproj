@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ACBE63AD165A865000F64CDA /* SideMenuController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBE63AC165A865000F64CDA /* SideMenuController_iPhone.m */; };
+		ACBE63B4165A874900F64CDA /* SideMenuController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBE63B3165A874900F64CDA /* SideMenuController_iPad.m */; };
+		ACBE63B8165A87A800F64CDA /* HomeViewController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBE63B7165A87A800F64CDA /* HomeViewController_iPhone.m */; };
+		ACBE63BC165A87E500F64CDA /* HomeViewController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBE63BB165A87E500F64CDA /* HomeViewController_iPad.m */; };
 		ACD4C7731657158D0025F3F5 /* JASidePanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD4C7721657158D0025F3F5 /* JASidePanelController.m */; };
 		ACD4C77C16571A5D0025F3F5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACD4C77B16571A5D0025F3F5 /* QuartzCore.framework */; };
 		ACE03DCD16593B71009B6B0D /* UIViewController+JASidePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE03DCC16593B71009B6B0D /* UIViewController+JASidePanel.m */; };
@@ -28,6 +32,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		ACBE63AB165A865000F64CDA /* SideMenuController_iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideMenuController_iPhone.h; sourceTree = "<group>"; };
+		ACBE63AC165A865000F64CDA /* SideMenuController_iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideMenuController_iPhone.m; sourceTree = "<group>"; };
+		ACBE63B2165A874900F64CDA /* SideMenuController_iPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideMenuController_iPad.h; sourceTree = "<group>"; };
+		ACBE63B3165A874900F64CDA /* SideMenuController_iPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideMenuController_iPad.m; sourceTree = "<group>"; };
+		ACBE63B6165A87A800F64CDA /* HomeViewController_iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController_iPhone.h; sourceTree = "<group>"; };
+		ACBE63B7165A87A800F64CDA /* HomeViewController_iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController_iPhone.m; sourceTree = "<group>"; };
+		ACBE63BA165A87E500F64CDA /* HomeViewController_iPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController_iPad.h; sourceTree = "<group>"; };
+		ACBE63BB165A87E500F64CDA /* HomeViewController_iPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController_iPad.m; sourceTree = "<group>"; };
 		ACD4C7711657158D0025F3F5 /* JASidePanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JASidePanelController.h; sourceTree = "<group>"; };
 		ACD4C7721657158D0025F3F5 /* JASidePanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JASidePanelController.m; sourceTree = "<group>"; };
 		ACD4C77B16571A5D0025F3F5 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -71,6 +83,46 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		ACBE63A9165A861900F64CDA /* SideMenuController_iPhone */ = {
+			isa = PBXGroup;
+			children = (
+				ACBE63AB165A865000F64CDA /* SideMenuController_iPhone.h */,
+				ACBE63AC165A865000F64CDA /* SideMenuController_iPhone.m */,
+				ACE03DD916594922009B6B0D /* SideMenuController_iPhone.xib */,
+			);
+			name = SideMenuController_iPhone;
+			sourceTree = "<group>";
+		};
+		ACBE63AE165A866000F64CDA /* SideMenuController_iPad */ = {
+			isa = PBXGroup;
+			children = (
+				ACBE63B2165A874900F64CDA /* SideMenuController_iPad.h */,
+				ACBE63B3165A874900F64CDA /* SideMenuController_iPad.m */,
+				ACE03DD61659462C009B6B0D /* SideMenuController_iPad.xib */,
+			);
+			name = SideMenuController_iPad;
+			sourceTree = "<group>";
+		};
+		ACBE63B5165A878A00F64CDA /* HomeViewController_iPhone */ = {
+			isa = PBXGroup;
+			children = (
+				ACBE63B6165A87A800F64CDA /* HomeViewController_iPhone.h */,
+				ACBE63B7165A87A800F64CDA /* HomeViewController_iPhone.m */,
+				ACEBDC8016570CBF00CEFFE5 /* HomeViewController_iPhone.xib */,
+			);
+			name = HomeViewController_iPhone;
+			sourceTree = "<group>";
+		};
+		ACBE63B9165A87C900F64CDA /* HomeViewController_iPad */ = {
+			isa = PBXGroup;
+			children = (
+				ACBE63BA165A87E500F64CDA /* HomeViewController_iPad.h */,
+				ACBE63BB165A87E500F64CDA /* HomeViewController_iPad.m */,
+				ACEBDC8316570CBF00CEFFE5 /* HomeViewController_iPad.xib */,
+			);
+			name = HomeViewController_iPad;
+			sourceTree = "<group>";
+		};
 		ACD4C76F165715460025F3F5 /* Librerie esterne */ = {
 			isa = PBXGroup;
 			children = (
@@ -80,12 +132,15 @@
 				ACD4C7721657158D0025F3F5 /* JASidePanelController.m */,
 			);
 			name = "Librerie esterne";
+			path = ClubMedici;
 			sourceTree = "<group>";
 		};
 		ACEBDC5616570CBE00CEFFE5 = {
 			isa = PBXGroup;
 			children = (
 				ACEBDC6B16570CBE00CEFFE5 /* ClubMedici */,
+				ACEBDC6C16570CBE00CEFFE5 /* Supporting Files */,
+				ACD4C76F165715460025F3F5 /* Librerie esterne */,
 				ACEBDC6416570CBE00CEFFE5 /* Frameworks */,
 				ACEBDC6216570CBE00CEFFE5 /* Products */,
 			);
@@ -117,14 +172,12 @@
 				ACEBDC7516570CBE00CEFFE5 /* AppDelegate.m */,
 				ACEBDC7D16570CBE00CEFFE5 /* HomeViewController.h */,
 				ACEBDC7E16570CBE00CEFFE5 /* HomeViewController.m */,
-				ACEBDC8016570CBF00CEFFE5 /* HomeViewController_iPhone.xib */,
-				ACEBDC8316570CBF00CEFFE5 /* HomeViewController_iPad.xib */,
+				ACBE63B5165A878A00F64CDA /* HomeViewController_iPhone */,
+				ACBE63B9165A87C900F64CDA /* HomeViewController_iPad */,
 				ACE03DD41659462C009B6B0D /* SideMenuController.h */,
 				ACE03DD51659462C009B6B0D /* SideMenuController.m */,
-				ACE03DD61659462C009B6B0D /* SideMenuController_iPad.xib */,
-				ACE03DD916594922009B6B0D /* SideMenuController_iPhone.xib */,
-				ACD4C76F165715460025F3F5 /* Librerie esterne */,
-				ACEBDC6C16570CBE00CEFFE5 /* Supporting Files */,
+				ACBE63AE165A866000F64CDA /* SideMenuController_iPad */,
+				ACBE63A9165A861900F64CDA /* SideMenuController_iPhone */,
 			);
 			path = ClubMedici;
 			sourceTree = "<group>";
@@ -141,6 +194,7 @@
 				ACEBDC7B16570CBE00CEFFE5 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			path = ClubMedici;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -218,6 +272,10 @@
 				ACD4C7731657158D0025F3F5 /* JASidePanelController.m in Sources */,
 				ACE03DCD16593B71009B6B0D /* UIViewController+JASidePanel.m in Sources */,
 				ACE03DD71659462C009B6B0D /* SideMenuController.m in Sources */,
+				ACBE63AD165A865000F64CDA /* SideMenuController_iPhone.m in Sources */,
+				ACBE63B4165A874900F64CDA /* SideMenuController_iPad.m in Sources */,
+				ACBE63B8165A87A800F64CDA /* HomeViewController_iPhone.m in Sources */,
+				ACBE63BC165A87E500F64CDA /* HomeViewController_iPad.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

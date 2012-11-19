@@ -9,8 +9,11 @@
 #import "AppDelegate.h"
 
 #import "HomeViewController.h"
-#import "JASidePanelController.h"
 #import "SideMenuController_iPhone.h"
+
+
+#import "JASidePanelController.h"
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -28,9 +31,8 @@
         self.viewController.centerPanel = [[UINavigationController alloc] initWithRootViewController:[[HomeViewController alloc] initWithNibName:@"HomeViewController_iPhone" bundle:nil]];
     }
     else {
-        
-        self.viewController.leftPanel = [[UINavigationController alloc] initWithRootViewController:[[SideMenuController alloc] initWithNibName:@"SideMenu_iPad" bundle:nil]];
-        self.viewController.centerPanel = [[UINavigationController alloc] initWithRootViewController:[[HomeViewController alloc] initWithNibName:@"HomeViewController_iPad" bundle:nil]];	  	
+
+        //ipad
     }
     
 	
