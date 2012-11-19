@@ -8,6 +8,6 @@
 
 #import "HomeViewController.h"
 
-@interface HomeViewController_iPad : HomeViewController
+@interface HomeViewController_iPad : HomeViewController <UISplitViewControllerDelegate>
 
 @end
