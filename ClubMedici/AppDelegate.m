@@ -41,20 +41,20 @@
         // Override point for customization after app launch.
         self.splitViewController =[[UISplitViewController alloc]init];
         
-        SideMenuController_iPad *sideMenuController_ipad = [[SideMenuController_iPad alloc] initWithNibName:@"SideMenuController_iPad" bundle:nil];
-        HomeViewController_iPad *homeViewController_ipad = [[HomeViewController_iPad alloc] initWithNibName:@"HomeViewController_iPad" bundle:nil];
+        self.sideMenuController_ipad = [[SideMenuController_iPad alloc] initWithNibName:@"SideMenuController_iPad" bundle:nil];
+        self.homeViewController_ipad = [[HomeViewController_iPad alloc] initWithNibName:@"HomeViewController_iPad" bundle:nil];
         
         
         
-        UINavigationController *rootNav=[[UINavigationController alloc]initWithRootViewController:sideMenuController_ipad];
-        UINavigationController *detailNav=[[UINavigationController alloc]initWithRootViewController:homeViewController_ipad];
+        UINavigationController *rootNav=[[UINavigationController alloc]initWithRootViewController:self.sideMenuController_ipad];
+        UINavigationController *detailNav=[[UINavigationController alloc]initWithRootViewController:self.homeViewController_ipad];
 
         self.splitViewController.viewControllers=[NSArray arrayWithObjects:rootNav,detailNav,nil];
-        self.splitViewController.delegate = homeViewController_ipad;
+        self.splitViewController.delegate = self.homeViewController_ipad;
 //        
 //        // Add the split view controller's view to the window and display.
         //[self.window addSubview:self.splitViewController.view];
-        self.window.rootViewController = self.splitViewController;
+        //self.window.rootViewController = self.splitViewController;
 //        [window makeKeyAndVisible];    
     }
     
