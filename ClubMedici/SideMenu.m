@@ -32,6 +32,51 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    //creo le sezioni
+    NSMutableArray *secFinArea = [[NSMutableArray alloc] init];
+    NSMutableArray *secAssicArea = [[NSMutableArray alloc] init];
+    NSMutableArray *secTravelArea = [[NSMutableArray alloc] init];
+    
+    
+    [secFinArea insertObject:[[NSDictionary alloc] initWithObjectsAndKeys:
+                         @"finanziaria",              @"DataKey",
+                         @"Area finanziaria",  @"label",
+                         @"",                  @"img",
+                         [NSString stringWithFormat:@"%d", UITableViewCellStyleDefault], @"style",
+                         nil] atIndex: 0];
+    
+    [secFinArea insertObject:[[NSDictionary alloc] initWithObjectsAndKeys:
+                         @"cure",             @"DataKey",
+                         @"Cure mediche rateali",      @"label",
+                         @"",         @"img",
+                         [NSString stringWithFormat:@"%d", UITableViewCellStyleDefault], @"style",
+                         nil] atIndex: 1];
+    
+    [secFinArea insertObject:[[NSDictionary alloc] initWithObjectsAndKeys:
+                         @"leasing",            @"DataKey",
+                         @"Leasing e noleggio",       @"label",
+                         @"",         @"img",
+                         [NSString stringWithFormat:@"%d", UITableViewCellStyleDefault], @"style",
+                         nil]  atIndex: 2];
+    
+    [secAssicArea insertObject:[[NSDictionary alloc] initWithObjectsAndKeys:
+                         @"assicurativa",             @"DataKey",
+                         @"Area assicurativa",   @"label",
+                         @"",                 @"img",
+                         [NSString stringWithFormat:@"%d", UITableViewCellStyleDefault], @"style",
+                         nil] atIndex: 0];
+    [secTravelArea insertObject:[[NSDictionary alloc] initWithObjectsAndKeys:
+                                @"viaggi",             @"DataKey",
+                                @"Viaggi e turismo",   @"label",
+                                @"",                 @"img",
+                                [NSString stringWithFormat:@"%d", UITableViewCellStyleDefault], @"style",
+                                nil] atIndex: 0];
+    
+    
+    self.sectionData = [[NSArray alloc] initWithObjects:secFinArea, secAssicArea,secTravelArea, nil];
+    self.sectionDescription = [[NSArray alloc] initWithObjects:@"Area finanziaria",@"Area assicurativa",@"Area viaggi e turismo",nil];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,20 +89,22 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return self.sectionDescription.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return [[self.sectionData objectAtIndex:section] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSArray *sec = [self.sectionData objectAtIndex:indexPath.section];
+    NSDictionary *rowDesc = [sec objectAtIndex:indexPath.row];
+    //NSString *dataKey = [rowDesc objectForKey:@"DataKey"];
+    
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
@@ -66,8 +113,16 @@
     
     // Configure the cell...
     
+    cell.textLabel.text = [rowDesc objectForKey:@"label"];
+    
     return cell;
 }
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return [self.sectionDescription objectAtIndex:section];
+}
+
 
 /*
 // Override to support conditional editing of the table view.
