@@ -15,5 +15,6 @@
 @property (strong, nonatomic) UIWindow *window;
 
 @property (strong, nonatomic) JASidePanelController *viewController;
+@property (strong, nonatomic) UISplitViewController *splitViewController;
 
 @end

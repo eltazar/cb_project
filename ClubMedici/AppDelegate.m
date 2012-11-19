@@ -8,8 +8,12 @@
 
 #import "AppDelegate.h"
 
-#import "HomeViewController.h"
+#import "HomeViewController_iPhone.h"
+#import "HomeViewController_iPad.h"
 #import "SideMenuController_iPhone.h"
+#import "SideMenuController_iPad.h"
+#import "HomeViewController_iPad.h"
+
 
 
 #import "JASidePanelController.h"
@@ -28,18 +32,37 @@
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
         
         self.viewController.leftPanel = [[UINavigationController alloc] initWithRootViewController:[[SideMenuController_iPhone alloc] initWithNibName:@"SideMenuController_iPhone" bundle:nil]];
-        self.viewController.centerPanel = [[UINavigationController alloc] initWithRootViewController:[[HomeViewController alloc] initWithNibName:@"HomeViewController_iPhone" bundle:nil]];
+        self.viewController.centerPanel = [[UINavigationController alloc] initWithRootViewController:[[HomeViewController_iPhone alloc] initWithNibName:@"HomeViewController_iPhone" bundle:nil]];
+        self.window.rootViewController = self.viewController;
     }
     else {
 
         //ipad
+        // Override point for customization after app launch.
+        self.splitViewController =[[UISplitViewController alloc]init];
+        
+        SideMenuController_iPad *sideMenuController_ipad = [[SideMenuController_iPad alloc] initWithNibName:@"SideMenuController_iPad" bundle:nil];
+        HomeViewController_iPad *homeViewController_ipad = [[HomeViewController_iPad alloc] initWithNibName:@"HomeViewController_iPad" bundle:nil];
+        
+        
+        
+        UINavigationController *rootNav=[[UINavigationController alloc]initWithRootViewController:sideMenuController_ipad];
+        UINavigationController *detailNav=[[UINavigationController alloc]initWithRootViewController:homeViewController_ipad];
+
+        self.splitViewController.viewControllers=[NSArray arrayWithObjects:rootNav,detailNav,nil];
+        self.splitViewController.delegate = homeViewController_ipad;
+//        
+//        // Add the split view controller's view to the window and display.
+        //[self.window addSubview:self.splitViewController.view];
+        self.window.rootViewController = self.splitViewController;
+//        [window makeKeyAndVisible];    
     }
     
 	
 	//self.viewController.rightPanel = [[JARightViewController alloc] init];
 
     
-    self.window.rootViewController = self.viewController;
+    
     [self.window makeKeyAndVisible];
     return YES;
 }
