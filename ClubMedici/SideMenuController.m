@@ -6,13 +6,13 @@
 //  Copyright (c) 2012 mario greco. All rights reserved.
 //
 
-#import "SideMenu.h"
+#import "SideMenuController.h"
 
-@interface SideMenu()
+@interface SideMenuController()
 
 @end
 
-@implementation SideMenu
+@implementation SideMenuController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -27,6 +27,9 @@
 {
     [super viewDidLoad];
 
+    //TODO: da sistemare la sua posizione nella navBar
+    self.title = @"ClubMedici";
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SideMenu : UITableViewController
+@interface SideMenuController : UITableViewController
 
 
 @property(nonatomic, strong) NSArray *sectionData;
