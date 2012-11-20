@@ -11,6 +11,8 @@
 @interface AreaFinanziaria : AreaBase
 
 //numero di pdf è dato dummy
-@property(nonatomic) NSInteger *numeroDiPdf;
+@property(nonatomic, strong) NSString *emailMutuo;
+@property(nonatomic, strong) NSString *emailPrestito;
+@property(nonatomic) NSInteger numeroDiPdf;
 @property(nonatomic, strong) NSMutableDictionary *pdfList;
 @end

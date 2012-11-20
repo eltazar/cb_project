@@ -13,6 +13,5 @@
 @property(nonatomic, strong) NSString *titolo;
 @property(nonatomic, strong) NSString *descrizione;
 @property(nonatomic, strong) NSString *img;
-@property(nonatomic, strong) NSString *email;
 @property(nonatomic, strong) NSString *tel;
 @end

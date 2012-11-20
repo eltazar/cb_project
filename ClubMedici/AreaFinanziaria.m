@@ -9,7 +9,7 @@
 #import "AreaFinanziaria.h"
 
 @implementation AreaFinanziaria
-@synthesize numeroDiPdf, pdfList;
+@synthesize numeroDiPdf, pdfList,emailMutuo,emailPrestito;
 
 -(id)init{
     
@@ -21,10 +21,13 @@
         
         self.img =@"xxxxx";
         self.tel = @"06/8607891";
-        self.email = @"prestiti@clubmedici.it";
+        self.emailPrestito = @"prestiti@clubmedici.it";
+        self.emailMutuo = @"mutui@clubmedici.it";
         numeroDiPdf = 3;
     }
     return self;
 }
+
+
 
 @end

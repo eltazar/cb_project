@@ -10,7 +10,7 @@
 
 @implementation AreaBase
 
-@synthesize titolo, descrizione, img,tel,email;
+@synthesize titolo, descrizione, img,tel;
 
 -(id)init{
 
