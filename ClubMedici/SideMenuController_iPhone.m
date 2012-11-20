@@ -53,10 +53,10 @@
     
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
   
-     AreaBase *area = [[AreaBase alloc] init];
-    
-    JASidePanelController *jasPanelController = (JASidePanelController*)appDelegate.window.rootViewController;
-    [(UINavigationController*)jasPanelController.centerPanel pushViewController:[[AreaBaseController alloc] initWithArea:area] animated:YES];
+    AreaBase *area = [[AreaBase alloc] init];
+    [appDelegate.detailViewNavController pushViewController:[[AreaBaseController alloc] initWithArea:area] animated:YES];
+    /*JASidePanelController *jasPanelController = (JASidePanelController*)appDelegate.window.rootViewController;
+    [(UINavigationController*)jasPanelController.centerPanel pushViewController:[[AreaBaseController alloc] initWithArea:area] animated:YES];*/
 
 }
 

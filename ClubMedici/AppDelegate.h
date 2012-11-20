@@ -14,7 +14,7 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
-@property (strong, nonatomic) UIViewController *sideMenuController;
-@property (strong, nonatomic) UIViewController *detailViewController;
+@property (strong, nonatomic) UINavigationController *sideMenuNavController;
+@property (strong, nonatomic) UINavigationController *detailViewNavController;
 
 @end
