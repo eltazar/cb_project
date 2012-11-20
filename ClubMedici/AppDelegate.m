@@ -77,9 +77,9 @@
 }
 
 - (void)addPanGestureToNavigationController:(UINavigationController *)navCon
-                                   target:(id<UIGestureRecognizerDelegate>) delegate {
+                                   target:(id<UIGestureRecognizerDelegate>) target {
     NSLog(@"addPanGestureToView");
-    UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:delegate action:@selector(_handlePan:)];
+    UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:target action:@selector(_handlePan:)];
     panGesture.delegate = [DummyGestureRecognizerDelegate sharedInstance];
     panGesture.maximumNumberOfTouches = 1;
     panGesture.minimumNumberOfTouches = 1;
