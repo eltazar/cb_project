@@ -10,7 +10,7 @@
 
 @implementation AreaBase
 
-@synthesize titolo, descrizione, img,tel;
+@synthesize titolo, descrizione, img,tel, pdfList;
 
 -(id)init{
 

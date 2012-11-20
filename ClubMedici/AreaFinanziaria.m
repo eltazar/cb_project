@@ -9,7 +9,7 @@
 #import "AreaFinanziaria.h"
 
 @implementation AreaFinanziaria
-@synthesize numeroDiPdf, pdfList,emailMutuo,emailPrestito;
+@synthesize numeroDiPdf,emailMutuo,emailPrestito;
 
 -(id)init{
     

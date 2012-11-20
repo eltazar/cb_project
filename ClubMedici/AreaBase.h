@@ -14,4 +14,6 @@
 @property(nonatomic, strong) NSString *descrizione;
 @property(nonatomic, strong) NSString *img;
 @property(nonatomic, strong) NSString *tel;
+@property(nonatomic, strong) NSMutableDictionary *pdfList;
+
 @end

@@ -14,5 +14,4 @@
 @property(nonatomic, strong) NSString *emailMutuo;
 @property(nonatomic, strong) NSString *emailPrestito;
 @property(nonatomic) NSInteger numeroDiPdf;
-@property(nonatomic, strong) NSMutableDictionary *pdfList;
 @end
