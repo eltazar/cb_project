@@ -7,6 +7,10 @@
 //
 
 #import "SideMenuController_iPhone.h"
+#import "AppDelegate.h"
+#import "AreaBaseController.h"
+#import "AreaBase.h"
+#import "JASidePanelController.h"
 
 @interface SideMenuController_iPhone ()
 
@@ -34,5 +38,27 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark - Table view delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Navigation logic may go here. Create and push another view controller.
+    /*
+     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
+     // ...
+     // Pass the selected object to the new view controller.
+     [self.navigationController pushViewController:detailViewController animated:YES];
+     */
+    
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+  
+     AreaBase *area = [[AreaBase alloc] init];
+    
+    JASidePanelController *jasPanelController = (JASidePanelController*)appDelegate.window.rootViewController;
+    [(UINavigationController*)jasPanelController.centerPanel pushViewController:[[AreaBaseController alloc] initWithArea:area] animated:YES];
+
+}
+
 
 @end
