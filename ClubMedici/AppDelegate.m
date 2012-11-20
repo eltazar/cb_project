@@ -16,6 +16,7 @@
 
 #import "JASidePanelController.h"
 
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -30,6 +31,7 @@
         jasSidePanelController.centerPanel = self.detailViewNavController;
         jasSidePanelController.shouldDelegateAutorotateToVisiblePanel = NO;
         self.window.rootViewController = jasSidePanelController;
+        [self addPanGestureToNavigationController:self.detailViewNavController target:jasSidePanelController];
     }
     else {
         UIViewController *detailViewController = [[HomeViewController_iPad alloc] initWithNibName:@"HomeViewController_iPad" bundle:nil];
@@ -74,4 +76,48 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+- (void)addPanGestureToNavigationController:(UINavigationController *)navCon
+                                   target:(id<UIGestureRecognizerDelegate>) delegate {
+    NSLog(@"addPanGestureToView");
+    UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:delegate action:@selector(_handlePan:)];
+    panGesture.delegate = [DummyGestureRecognizerDelegate sharedInstance];
+    panGesture.maximumNumberOfTouches = 1;
+    panGesture.minimumNumberOfTouches = 1;
+    [navCon.view addGestureRecognizer:panGesture];
+}
+
+
 @end
+
+
+
+@implementation DummyGestureRecognizerDelegate
+// Sta roba volendo si può anche spostare :D
+
+static DummyGestureRecognizerDelegate *__sharedInstance;
+
++ (id)alloc {
+    NSAssert(__sharedInstance == nil, @"Attempted to allocate a second instance of a singleton.");
+    __sharedInstance = [super alloc];
+    return __sharedInstance;
+}
+
+
++ (DummyGestureRecognizerDelegate *)sharedInstance {
+    if (!__sharedInstance) {
+        __sharedInstance = [[DummyGestureRecognizerDelegate alloc] init];
+    }
+    return __sharedInstance;
+}
+
+
+#pragma mark - Gesture Recognizer Delegate
+
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
+    // TODO: investigare se sto YES a prescindere influisce su comportamenti vari.
+    return YES;
+}
+
+
+@end
+

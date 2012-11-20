@@ -18,3 +18,9 @@
 @property (strong, nonatomic) UINavigationController *detailViewNavController;
 
 @end
+
+
+
+@interface DummyGestureRecognizerDelegate : NSObject<UIGestureRecognizerDelegate>
++ (DummyGestureRecognizerDelegate *)sharedInstance;
+@end
