@@ -54,6 +54,7 @@
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
   
     AreaBase *area = [[AreaBase alloc] init];
+    [appDelegate.detailViewNavController popToRootViewControllerAnimated:NO];
     [appDelegate.detailViewNavController pushViewController:[[AreaBaseController alloc] initWithArea:area] animated:YES];
     /*JASidePanelController *jasPanelController = (JASidePanelController*)appDelegate.window.rootViewController;
     [(UINavigationController*)jasPanelController.centerPanel pushViewController:[[AreaBaseController alloc] initWithArea:area] animated:YES];*/
