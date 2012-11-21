@@ -22,6 +22,7 @@
 		AC2629B5165D334200510092 /* phone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC2629B3165D334200510092 /* phone@2x.png */; };
 		AC2629C0165D52BD00510092 /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2629BF165D52BD00510092 /* Common.m */; };
 		AC2629C3165D537100510092 /* CustomCellBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2629C2165D537100510092 /* CustomCellBackground.m */; };
+		AC2629CA165D561D00510092 /* CustomHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2629C9165D561D00510092 /* CustomHeader.m */; };
 		ACBE63AD165A865000F64CDA /* SideMenuController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBE63AC165A865000F64CDA /* SideMenuController_iPhone.m */; };
 		ACBE63B4165A874900F64CDA /* SideMenuController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBE63B3165A874900F64CDA /* SideMenuController_iPad.m */; };
 		ACBE63B8165A87A800F64CDA /* HomeViewController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBE63B7165A87A800F64CDA /* HomeViewController_iPhone.m */; };
@@ -73,6 +74,8 @@
 		AC2629BF165D52BD00510092 /* Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Common.m; path = ClubMedici/Common.m; sourceTree = "<group>"; };
 		AC2629C1165D537100510092 /* CustomCellBackground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomCellBackground.h; path = ClubMedici/CustomCellBackground.h; sourceTree = "<group>"; };
 		AC2629C2165D537100510092 /* CustomCellBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomCellBackground.m; path = ClubMedici/CustomCellBackground.m; sourceTree = "<group>"; };
+		AC2629C8165D561D00510092 /* CustomHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomHeader.h; path = ClubMedici/CustomHeader.h; sourceTree = "<group>"; };
+		AC2629C9165D561D00510092 /* CustomHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomHeader.m; path = ClubMedici/CustomHeader.m; sourceTree = "<group>"; };
 		ACBE63AB165A865000F64CDA /* SideMenuController_iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideMenuController_iPhone.h; sourceTree = "<group>"; };
 		ACBE63AC165A865000F64CDA /* SideMenuController_iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideMenuController_iPhone.m; sourceTree = "<group>"; };
 		ACBE63B2165A874900F64CDA /* SideMenuController_iPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideMenuController_iPad.h; sourceTree = "<group>"; };
@@ -149,6 +152,8 @@
 				AC2629C2165D537100510092 /* CustomCellBackground.m */,
 				AC2629BE165D52BD00510092 /* Common.h */,
 				AC2629BF165D52BD00510092 /* Common.m */,
+				AC2629C8165D561D00510092 /* CustomHeader.h */,
+				AC2629C9165D561D00510092 /* CustomHeader.m */,
 			);
 			name = Graphics;
 			sourceTree = "<group>";
@@ -413,6 +418,7 @@
 				AC2629A1165D2A5300510092 /* AreaBaseController_iPad.m in Sources */,
 				AC2629C0165D52BD00510092 /* Common.m in Sources */,
 				AC2629C3165D537100510092 /* CustomCellBackground.m in Sources */,
+				AC2629CA165D561D00510092 /* CustomHeader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
