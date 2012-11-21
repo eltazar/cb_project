@@ -747,6 +747,11 @@ static char ja_kvoContext;
     }    
 }
 
+#pragma mark - Hiding Panels
+- (void)hideLeftPanel:(id)sender{
+    [self toggleLeftPanel:sender];
+}
+
 #pragma mark - Showing Panels
 
 - (void)_showLeftPanel:(BOOL)animated bounce:(BOOL)shouldBounce {
