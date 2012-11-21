@@ -507,11 +507,15 @@
 		ACEBDC8916570CBF00CEFFE5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Mario Greco (AJKP6QLLR2)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Mario Greco (AJKP6QLLR2)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ClubMedici/ClubMedici-Prefix.pch";
 				INFOPLIST_FILE = "ClubMedici/ClubMedici-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "A6FDED87-B65E-486A-9C1A-192A8F69EF2F";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A6FDED87-B65E-486A-9C1A-192A8F69EF2F";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -519,11 +523,15 @@
 		ACEBDC8A16570CBF00CEFFE5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Mario Greco (AJKP6QLLR2)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Mario Greco (AJKP6QLLR2)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ClubMedici/ClubMedici-Prefix.pch";
 				INFOPLIST_FILE = "ClubMedici/ClubMedici-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "A6FDED87-B65E-486A-9C1A-192A8F69EF2F";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A6FDED87-B65E-486A-9C1A-192A8F69EF2F";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
