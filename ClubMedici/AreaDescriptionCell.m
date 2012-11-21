@@ -158,8 +158,8 @@
 
 - (void)buildAlphaMask {
     _alphaMask = [CAGradientLayer layer];
-    CGColorRef topColor = [UIColor colorWithWhite:1.0 alpha:1.0].CGColor;
-    CGColorRef bottomColor = [UIColor colorWithWhite:1.0 alpha:0.0].CGColor;
+    CGColorRef topColor = CGColorRetain([UIColor colorWithWhite:1.0 alpha:1.0].CGColor);
+    CGColorRef bottomColor = CGColorRetain([UIColor colorWithWhite:1.0 alpha:0.0].CGColor);
     _alphaMask.colors = [NSArray arrayWithObjects:
                         (__bridge id)topColor,
                         (__bridge id)topColor,
@@ -171,6 +171,9 @@
     _alphaMask.bounds = CGRectMake(0, 0,
                                   _label.frame.size.width, self.frame.size.height);
     _alphaMask.anchorPoint = CGPointZero;
+    
+    CGColorRelease(topColor);
+    CGColorRelease(bottomColor);
 }
 
 @end
