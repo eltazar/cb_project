@@ -16,6 +16,7 @@
 
     self = [super init];
     if (self) {
+        NSLog(@"AREA BASE ALLOCATO");
         // dati dummy
         
     }

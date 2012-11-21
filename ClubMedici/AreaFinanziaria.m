@@ -15,6 +15,7 @@
     
     self = [super init];
     if (self) {
+        NSLog(@"AREA FINANZ ALLOCATO");
         // dati dummy
         self.titolo = @"Area finanziaria";
         self.descrizione = @"L’area finanziaria di Club Medici è costituita da un team di specialisti informati e disponibili, pronti a consigliare l’offerta più adatta alle vostre necessità e a seguirvi, passo dopo passo, nel corso del processo di approvazione della vostra richiesta.\n L’area finanziaria di Club Medici offre servizio di consulenza per: mutui, prestiti personali e cessione del quinto per medici ospedalieri, di base, pediatri, sumaisti e pensionati. ";
