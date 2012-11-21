@@ -16,8 +16,8 @@
     CGRect _paperRect;
 }
 
-@property (retain) UILabel *titleLabel;
-@property (retain) UIColor *lightColor;
-@property (retain) UIColor *darkColor;
+@property (nonatomic, strong) UILabel *titleLabel;
+@property (nonatomic, strong) UIColor *lightColor;
+@property (nonatomic, strong) UIColor *darkColor;
 
 @end

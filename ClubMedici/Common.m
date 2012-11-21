@@ -15,8 +15,8 @@ CGRect rectFor1PxStroke(CGRect rect) {
 void drawLinearGradient(CGContextRef context, CGRect rect, CGColorRef startColor, CGColorRef  endColor) {
     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
     CGFloat locations[] = { 0.0, 1.0 };
-    
-    NSArray *colors = [NSArray arrayWithObjects:(id)CFBridgingRelease(startColor), (id)CFBridgingRelease(endColor), nil];
+    //(id)[color1 CGColor]
+    NSArray *colors = [NSArray arrayWithObjects:(__bridge id)(startColor), (__bridge id)(endColor), nil];
     
     CGGradientRef gradient = CGGradientCreateWithColors(colorSpace, (CFArrayRef) CFBridgingRetain(colors), locations);
     
@@ -50,11 +50,14 @@ void drawGlossAndGradient(CGContextRef context, CGRect rect, CGColorRef startCol
     
     drawLinearGradient(context, rect, startColor, endColor);
     
-    CGColorRef glossColor1 = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.35].CGColor;
-    CGColorRef glossColor2 = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.1].CGColor;
+    CGColorRef glossColor1 = CGColorRetain([UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.35].CGColor);
+    CGColorRef glossColor2 = CGColorRetain([UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.1].CGColor);
     
     CGRect topHalf = CGRectMake(rect.origin.x, rect.origin.y, rect.size.width, rect.size.height/2);
     
     drawLinearGradient(context, topHalf, glossColor1, glossColor2);
+    
+    CGColorRelease (glossColor1);
+    CGColorRelease (glossColor2);
     
 }

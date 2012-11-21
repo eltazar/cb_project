@@ -77,10 +77,10 @@
         
     CGContextRef context = UIGraphicsGetCurrentContext();    
 
-    CGColorRef whiteColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0].CGColor;
+    CGColorRef whiteColor = CGColorRetain([UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0].CGColor);
     CGColorRef lightColor = _lightColor.CGColor;
     CGColorRef darkColor = _darkColor.CGColor;
-    CGColorRef shadowColor = [UIColor colorWithRed:0.2 green:0.2 blue:0.2 alpha:0.5].CGColor;   
+    CGColorRef shadowColor = CGColorRetain([UIColor colorWithRed:0.2 green:0.2 blue:0.2 alpha:0.5].CGColor);
         
     // Draw paper
     CGContextSetFillColorWithColor(context, whiteColor);
@@ -101,6 +101,9 @@
     CGContextSetLineWidth(context, 1.0);    
     CGContextStrokeRect(context, rectFor1PxStroke(_coloredBoxRect));    
     
+    
+    CGColorRelease (whiteColor);
+    CGColorRelease (shadowColor);
 }
 
 
