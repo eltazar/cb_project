@@ -13,6 +13,9 @@
 		AC26298E165D1E2400510092 /* PDFviewerController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC26298B165D1E2400510092 /* PDFviewerController.m */; };
 		AC26298F165D1E2400510092 /* PDFviewerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC26298C165D1E2400510092 /* PDFviewerController.xib */; };
 		AC262992165D1E4900510092 /* AreaBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC262991165D1E4900510092 /* AreaBaseController.m */; };
+		AC262998165D26A400510092 /* AreaBaseController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = AC262996165D26A300510092 /* AreaBaseController_iPad.m */; };
+		AC262999165D26A400510092 /* AreaBaseController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC262997165D26A300510092 /* AreaBaseController_iPad.xib */; };
+		AC26299D165D296100510092 /* ActionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC26299C165D296100510092 /* ActionCell.m */; };
 		ACBE63AD165A865000F64CDA /* SideMenuController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBE63AC165A865000F64CDA /* SideMenuController_iPhone.m */; };
 		ACBE63B4165A874900F64CDA /* SideMenuController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBE63B3165A874900F64CDA /* SideMenuController_iPad.m */; };
 		ACBE63B8165A87A800F64CDA /* HomeViewController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBE63B7165A87A800F64CDA /* HomeViewController_iPhone.m */; };
@@ -52,6 +55,11 @@
 		AC26298C165D1E2400510092 /* PDFviewerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PDFviewerController.xib; path = ClubMedici/PDFviewerController.xib; sourceTree = "<group>"; };
 		AC262990165D1E4900510092 /* AreaBaseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AreaBaseController.h; path = ClubMedici/AreaBaseController.h; sourceTree = "<group>"; };
 		AC262991165D1E4900510092 /* AreaBaseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AreaBaseController.m; path = ClubMedici/AreaBaseController.m; sourceTree = "<group>"; };
+		AC262995165D26A300510092 /* AreaBaseController_iPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreaBaseController_iPad.h; sourceTree = "<group>"; };
+		AC262996165D26A300510092 /* AreaBaseController_iPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaBaseController_iPad.m; sourceTree = "<group>"; };
+		AC262997165D26A300510092 /* AreaBaseController_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AreaBaseController_iPad.xib; sourceTree = "<group>"; };
+		AC26299B165D296100510092 /* ActionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionCell.h; sourceTree = "<group>"; };
+		AC26299C165D296100510092 /* ActionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionCell.m; sourceTree = "<group>"; };
 		ACBE63AB165A865000F64CDA /* SideMenuController_iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideMenuController_iPhone.h; sourceTree = "<group>"; };
 		ACBE63AC165A865000F64CDA /* SideMenuController_iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideMenuController_iPhone.m; sourceTree = "<group>"; };
 		ACBE63B2165A874900F64CDA /* SideMenuController_iPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideMenuController_iPad.h; sourceTree = "<group>"; };
@@ -110,6 +118,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AC26299A165D293300510092 /* Custom cells */ = {
+			isa = PBXGroup;
+			children = (
+				D9B04DD7165C63A9005EF35B /* AreaDescriptionCell.h */,
+				D9B04DD8165C63A9005EF35B /* AreaDescriptionCell.m */,
+				AC262989165D1E2400510092 /* AreaDescriptionCell.xib */,
+				AC26299B165D296100510092 /* ActionCell.h */,
+				AC26299C165D296100510092 /* ActionCell.m */,
+			);
+			name = "Custom cells";
+			sourceTree = "<group>";
+		};
 		ACBE63A9165A861900F64CDA /* SideMenuController_iPhone */ = {
 			isa = PBXGroup;
 			children = (
@@ -171,12 +191,13 @@
 			children = (
 				AC262990165D1E4900510092 /* AreaBaseController.h */,
 				AC262991165D1E4900510092 /* AreaBaseController.m */,
+				AC262995165D26A300510092 /* AreaBaseController_iPad.h */,
+				AC262996165D26A300510092 /* AreaBaseController_iPad.m */,
+				AC262997165D26A300510092 /* AreaBaseController_iPad.xib */,
 				AC26298A165D1E2400510092 /* PDFviewerController.h */,
 				AC26298B165D1E2400510092 /* PDFviewerController.m */,
 				AC26298C165D1E2400510092 /* PDFviewerController.xib */,
-				D9B04DD7165C63A9005EF35B /* AreaDescriptionCell.h */,
-				D9B04DD8165C63A9005EF35B /* AreaDescriptionCell.m */,
-				AC262989165D1E2400510092 /* AreaDescriptionCell.xib */,
+				AC26299A165D293300510092 /* Custom cells */,
 			);
 			name = "Area controllers";
 			sourceTree = "<group>";
@@ -328,6 +349,7 @@
 				ACCDDA54165C153A0097C00C /* finanziariaImg.jpg in Resources */,
 				AC26298D165D1E2400510092 /* AreaDescriptionCell.xib in Resources */,
 				AC26298F165D1E2400510092 /* PDFviewerController.xib in Resources */,
+				AC262999165D26A400510092 /* AreaBaseController_iPad.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,6 +377,8 @@
 				AC262980165D07F100510092 /* AreaLeasing.m in Sources */,
 				AC26298E165D1E2400510092 /* PDFviewerController.m in Sources */,
 				AC262992165D1E4900510092 /* AreaBaseController.m in Sources */,
+				AC262998165D26A400510092 /* AreaBaseController_iPad.m in Sources */,
+				AC26299D165D296100510092 /* ActionCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
