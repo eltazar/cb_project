@@ -59,7 +59,7 @@
     NSMutableDictionary *dataModel = [[NSMutableDictionary alloc] init];
     
     //array di dati  per le varie sezioni
-    NSMutableArray *data = [[NSMutableArray alloc] initWithCapacity:2];
+    NSMutableArray *data = [[NSMutableArray alloc] initWithCapacity:3];
     
     //array di titoli sezione
     [dataModel setObject:[NSArray arrayWithObjects:@"Informazioni",@"Documenti",@"Richiesta preventivo", nil] forKey:@"sections"];
