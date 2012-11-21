@@ -201,8 +201,13 @@
      */
     
     if(indexPath.section == 1){
-            PDFviewerController *pdfViewer = [[PDFviewerController alloc]initWithNibName:@"PDFviewerController" bundle:nil];
-        [self.navigationController pushViewController:pdfViewer animated:YES];
+        NSArray *arrayData = [dataModel objectForKey:@"data"];
+        NSArray *data = [arrayData objectAtIndex:indexPath.section];
+
+        PDFviewerController *pdfViewer = [[PDFviewerController alloc]initWithTitle:[[[data objectAtIndex:indexPath.row] allKeys] objectAtIndex:0] url:nil];
+        //[self.navigationController pushViewController:pdfViewer animated:YES];
+        
+        [self.navigationController presentViewController:pdfViewer animated:YES completion:nil];
     }
 }
 
@@ -221,7 +226,6 @@
     return [super tableView:tableView heightForRowAtIndexPath:indexPath];
 }
 
-// Add new methods
 - (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     CustomHeader *header = [[CustomHeader alloc] init] ;
     header.titleLabel.text = [self tableView:tableView titleForHeaderInSection:section];

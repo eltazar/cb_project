@@ -10,4 +10,8 @@
 
 @interface PDFviewerController : UIViewController<UIWebViewDelegate>
 @property(nonatomic, strong) IBOutlet UIWebView *webView;
+@property(nonatomic, strong) IBOutlet UINavigationBar *navBar;
+
+-(id)initWithTitle:(NSString*)aTitle url:(NSString*)url;
+-(IBAction)doneButtonPressed:(id)sender;
 @end
