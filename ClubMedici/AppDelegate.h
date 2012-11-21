@@ -16,6 +16,7 @@
 
 @property (strong, nonatomic) UINavigationController *sideMenuNavController;
 @property (strong, nonatomic) UINavigationController *detailViewNavController;
+@property (readonly,strong, nonatomic) JASidePanelController *jasSidePanelController;
 
 @end
 

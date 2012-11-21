@@ -18,6 +18,7 @@
 
 
 @implementation AppDelegate
+@synthesize jasSidePanelController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -26,7 +27,7 @@
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
         self.sideMenuNavController = [[UINavigationController alloc] initWithRootViewController:[[SideMenuController_iPhone alloc] initWithNibName:@"SideMenuController_iPhone" bundle:nil]];
         self.detailViewNavController = [[UINavigationController alloc] initWithRootViewController:[[HomeViewController_iPhone alloc] initWithNibName:@"HomeViewController_iPhone" bundle:nil]];
-        JASidePanelController *jasSidePanelController = [[JASidePanelController alloc] init];
+        jasSidePanelController = [[JASidePanelController alloc] init];
         jasSidePanelController.leftPanel = self.sideMenuNavController;
         jasSidePanelController.centerPanel = self.detailViewNavController;
         jasSidePanelController.shouldDelegateAutorotateToVisiblePanel = NO;
