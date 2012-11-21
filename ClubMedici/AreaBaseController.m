@@ -10,6 +10,8 @@
 #import "AreaDescriptionCell.h"
 #import "AreaBase.h"
 #import "PDFviewerController.h"
+#import "CustomCellBackground.h"
+#import "CustomHeader.h"
 
 @interface AreaBaseController () {
     AreaDescriptionCell *_areaDescriptionCell;
@@ -90,9 +92,14 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {    
     UITableViewCell *cell = nil;
-    NSString *cellIdentifier;
+    //NSString *cellIdentifier;
     
     if (indexPath.section == 0 && indexPath.row == 0) {
+        _areaDescriptionCell.backgroundView = [[CustomCellBackground alloc] init];
+        _areaDescriptionCell.selectedBackgroundView = [[CustomCellBackground alloc] init];
+        
+        // At end of function, right before return cell:
+        _areaDescriptionCell.textLabel.backgroundColor = [UIColor clearColor];
         return _areaDescriptionCell;
     }
     
@@ -132,6 +139,12 @@
         
         
     }
+    
+    cell.backgroundView = [[CustomCellBackground alloc] init];
+    //cell.selectedBackgroundView = [[CustomCellBackground alloc] init];
+    
+    // At end of function, right before return cell:
+    cell.textLabel.backgroundColor = [UIColor clearColor];
     
     return cell;
 }
@@ -206,6 +219,17 @@
         return [cell getHeight];
     }
     return [super tableView:tableView heightForRowAtIndexPath:indexPath];
+}
+
+// Add new methods
+- (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    CustomHeader *header = [[CustomHeader alloc] init] ;
+    header.titleLabel.text = [self tableView:tableView titleForHeaderInSection:section];
+    return header;
+}
+
+-(CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 25;
 }
 
 @end
