@@ -34,12 +34,11 @@
         [self addPanGestureToNavigationController:self.detailViewNavController target:jasSidePanelController];
     }
     else {
-        UIViewController *detailViewController = [[HomeViewController_iPad alloc] initWithNibName:@"HomeViewController_iPad" bundle:nil];
         self.sideMenuNavController = [[UINavigationController alloc] initWithRootViewController:[[SideMenuController_iPad alloc] initWithNibName:@"SideMenuController_iPad" bundle:nil]];;
-        self.detailViewNavController = [[UINavigationController alloc]initWithRootViewController:detailViewController];;
+        self.detailViewNavController = [[UINavigationController alloc] initWithRootViewController:[[HomeViewController_iPad alloc] initWithNibName:@"HomeViewController_iPad" bundle:nil]];
         UISplitViewController *splitViewController = [[UISplitViewController alloc] init];
-        splitViewController.viewControllers = [NSArray arrayWithObjects:self.sideMenuNavController, self.sideMenuNavController, nil];
-        splitViewController.delegate = (HomeViewController_iPad *)detailViewController;
+        splitViewController.viewControllers = [NSArray arrayWithObjects:self.sideMenuNavController, self.detailViewNavController, nil];
+        splitViewController.delegate = (HomeViewController_iPad *)[self.detailViewNavController.viewControllers objectAtIndex:0];
         // Add the split view controller's view to the window and display.
         // [self.window addSubview:self.splitViewController.view];
         self.window.rootViewController = splitViewController;
