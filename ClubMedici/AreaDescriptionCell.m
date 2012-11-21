@@ -7,13 +7,16 @@
 //
 
 #import "AreaDescriptionCell.h"
+#import "QuartzCore/QuartzCore.h"
 
 #define DEFAULT_HEIGHT 131
 
 @interface AreaDescriptionCell() {
     UILabel *_label;
-    NSInteger _height;
+    UILabel *_label_full;
     BOOL _isExpanded;
+    CAGradientLayer *_alphaMask;
+    UIView *_expandIndicator;
 }
 @end
 
@@ -33,21 +36,15 @@
 }
 
 - (void)initialize {
+    _isExpanded = FALSE;
+    
     UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap)];
     [self addGestureRecognizer:tapGestureRecognizer];
     
-    /* Regoliamo le dimensioni ottimali della label: la larghezza è quella impostata nello xib,
-     * l'altezza gliela facciamo calcolare in modod che includa tutto il testo.*/
-    _label = (UILabel *)[self viewWithTag:1];
-    CGRect oldLblFrame = _label.frame;
-    _label.numberOfLines = 0;
-    [_label sizeToFit];
-    /* Dopo il sizeToFit la cella risulta allargata, quindi prendiamo semplicemente il vecchio
-     * frame e ci settiamo sopra la nuova altezza. */
-    oldLblFrame.size.height = _label.frame.size.height;
-    _label.frame = oldLblFrame;
-    
-    _isExpanded = FALSE;
+    [self setUpLabel];
+    [self addExpandIndicator];
+    [self buildAlphaMask];
+    _label.layer.mask = _alphaMask;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -73,15 +70,106 @@
 # pragma mark - Private Methods
 
 - (void)handleTap {
-    _isExpanded =  !_isExpanded;
-    if ([self.superview isKindOfClass:[UITableView class]]) {
+    /*   Da: WWDC 2010, Mastering Table Views.
+     * un blocco begin/end updates, eventualmente vuoto fa si che la tableView
+     * ricalcoli la sua geometria, aggiornando quindi l'altezza di questa cella.*/
+    [UIView animateWithDuration:0.2 animations:^{
         UITableView *tableView = (UITableView *)self.superview;
-        /* Da: WWDC 2010, Mastering Table Views.
-         * il blocco begin/end updates vuoto fa si che la tableView ricalcoli la sua geometria,
-         * aggiornando quindi l'altezza di questa cella. */
+        if (![tableView isKindOfClass:[UITableView class]]) {
+            tableView = nil;
+        }
         [tableView beginUpdates];
+        
+        if (_isExpanded) {
+            _label.alpha = 1;
+            _label_full.alpha = 0;
+            _expandIndicator.transform = CGAffineTransformIdentity;
+        }
+        else {
+            _label.alpha = 0;
+            _label_full.alpha = 1;
+            _expandIndicator.transform = CGAffineTransformMakeRotation(M_PI);
+        }
+        _isExpanded =  !_isExpanded;
+        
         [tableView endUpdates];
-    }
+    }];
+}
+
+- (void)setUpLabel {
+    /* Regoliamo le dimensioni ottimali della label: la larghezza è quella impostata nello xib,
+     * l'altezza gliela facciamo calcolare in modod che includa tutto il testo.*/
+    _label = (UILabel *)[self viewWithTag:1];
+    CGRect oldLblFrame = _label.frame;
+    _label.numberOfLines = 0;
+    [_label sizeToFit];
+    /* Dopo il sizeToFit la cella risulta allargata, quindi prendiamo semplicemente il vecchio
+     * frame e ci settiamo sopra la nuova altezza. */
+    oldLblFrame.size.height = _label.frame.size.height;
+    _label.frame = oldLblFrame;
+    
+    _label_full = [[UILabel alloc] initWithFrame:_label.frame];
+    _label_full.text = _label.text;
+    _label_full.font = _label.font;
+    _label_full.numberOfLines = _label.numberOfLines;
+    _label_full.baselineAdjustment = _label.baselineAdjustment;
+    _label_full.backgroundColor = _label.backgroundColor;
+    _label_full.alpha = 0;
+    [self addSubview: _label_full];
+}
+
+- (void)addExpandIndicator {
+    CGSize size = CGSizeMake(13, 10.0);
+    CGPoint origin = CGPointMake(0, 0);
+    CGRect rect = CGRectMake(origin.x, origin.y, size.width, size.height);
+    CGFloat padding = 5;
+    CGFloat t = 4;
+    
+    UIGraphicsBeginImageContextWithOptions(size, NO, 0.0f);
+    CGMutablePathRef path = CGPathCreateMutable();
+    CGPoint points[6];
+    points[0].x = 0;
+    points[0].y = size.height - size.width / 2;
+    points[1].x = t*pow(cos(M_PI/4),2);
+    points[1].y = size.height - size.width / 2 - t*pow(cos(M_PI/4),2);
+    points[2].x = size.width / 2;
+    points[2].y = size.height - t;
+    points[3].x = size.width - t*pow(cos(M_PI/4),2);
+    points[3].y = size.height - size.width / 2 - t*pow(cos(M_PI/4),2);
+    points[4].x = size.width;
+    points[4].y = size.height - size.width / 2;
+    points[5].x = size.width / 2;
+    points[5].y = size.height;
+    CGPathAddLines(path, nil, points, 6);
+    [[UIColor  colorWithRed:127/255.0 green:127/255.0 blue:127/255.0 alpha:1] setFill];
+    [[UIBezierPath bezierPathWithCGPath:path] fill];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    CGRect imageFrame = rect;
+    imageFrame.origin.x = self.frame.size.width - rect.size.width - padding;
+    imageFrame.origin.y = self.frame.size.height - rect.size.height- padding;
+    _expandIndicator = [[UIImageView alloc] initWithFrame:imageFrame];
+    _expandIndicator.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleTopMargin;
+    [(UIImageView *)_expandIndicator setImage:image];
+    [self addSubview:_expandIndicator];
+}
+
+- (void)buildAlphaMask {
+    _alphaMask = [CAGradientLayer layer];
+    CGColorRef topColor = [UIColor colorWithWhite:1.0 alpha:1.0].CGColor;
+    CGColorRef bottomColor = [UIColor colorWithWhite:1.0 alpha:0.0].CGColor;
+    _alphaMask.colors = [NSArray arrayWithObjects:
+                        (__bridge id)topColor,
+                        (__bridge id)topColor,
+                        (__bridge id)bottomColor, nil];
+    _alphaMask.locations = [NSArray arrayWithObjects:
+                           [NSNumber numberWithFloat:0.0],
+                           [NSNumber numberWithFloat:0.6],
+                           [NSNumber numberWithFloat:(self.frame.size.height-2*_label.frame.origin.y)/self.frame.size.height], nil];
+    _alphaMask.bounds = CGRectMake(0, 0,
+                                  _label.frame.size.width, self.frame.size.height);
+    _alphaMask.anchorPoint = CGPointZero;
 }
 
 @end
