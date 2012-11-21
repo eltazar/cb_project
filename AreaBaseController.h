@@ -12,7 +12,6 @@
 @interface AreaBaseController : UITableViewController
 
 @property(nonatomic, strong) AreaBase *area;
-@property (nonatomic, assign) IBOutlet UITableViewCell *areaDescriptionCell;
 
 - (id) initWithArea:(AreaBase*)area;
 @end

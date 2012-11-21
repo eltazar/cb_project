@@ -7,13 +7,15 @@
 //
 
 #import "AreaBaseController.h"
+#import "AreaDescriptionCell.h"
 
-@interface AreaBaseController ()
+@interface AreaBaseController () {
+    AreaDescriptionCell *_areaDescriptionCell;
+}
 
 @end
 
 @implementation AreaBaseController
-@synthesize areaDescriptionCell;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -38,7 +40,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    _areaDescriptionCell = [[[NSBundle mainBundle] loadNibNamed:@"AreaDescriptionCell"
+                                                          owner:nil
+                                                        options:nil] objectAtIndex:0];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -84,32 +88,22 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {    
     UITableViewCell *cell;
+    NSString *cellIdentifier;
     
-    if(indexPath.section == 0 && indexPath.row == 0){
-        static NSString * cellIdentifier = @"DescriptionCell";
-        cell = [tableView dequeueReusableCellWithIdentifier: cellIdentifier];
-        if (cell == nil) {
-            [[NSBundle mainBundle] loadNibNamed:@"AreaDescriptionCell" owner:self options:nil];
-            cell = areaDescriptionCell;
-            // Configure the cell
-            
-            self.areaDescriptionCell = nil;
-        }
-        // Configure the cell
-
+    if (indexPath.section == 0 && indexPath.row == 0) {
+        return _areaDescriptionCell;
     }
-    else{
     
-        static NSString *CellIdentifier = @"Cell";
-        cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-        if (cell == nil) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    else {
+        cellIdentifier = @"Cell";
+        cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+        if (!cell) {
+            NSLog(@"Attanziò: sto creando una cella normale");
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
         }
         cell.textLabel.text = @"ciao";
     }
-
-    // Configure the cell...
-
+    
     return cell;
 }
 
@@ -169,10 +163,13 @@
 {
     return @"";
 }
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(indexPath.section == 0 && indexPath.row == 0)
-        return 131;
+    if (indexPath.section == 0 && indexPath.row == 0) {
+        AreaDescriptionCell *cell = (AreaDescriptionCell *)[self tableView:tableView cellForRowAtIndexPath:indexPath];
+        return [cell getHeight];
+    }
     return [super tableView:tableView heightForRowAtIndexPath:indexPath];
 }
 

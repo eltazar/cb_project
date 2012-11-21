@@ -34,6 +34,7 @@
 		ACEBDC7F16570CBF00CEFFE5 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACEBDC7E16570CBE00CEFFE5 /* HomeViewController.m */; };
 		ACEBDC8216570CBF00CEFFE5 /* HomeViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACEBDC8016570CBF00CEFFE5 /* HomeViewController_iPhone.xib */; };
 		ACEBDC8516570CBF00CEFFE5 /* HomeViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACEBDC8316570CBF00CEFFE5 /* HomeViewController_iPad.xib */; };
+		D9B04DD9165C63A9005EF35B /* AreaDescriptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D9B04DD8165C63A9005EF35B /* AreaDescriptionCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +80,8 @@
 		ACEBDC7E16570CBE00CEFFE5 /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		ACEBDC8116570CBF00CEFFE5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/HomeViewController_iPhone.xib; sourceTree = "<group>"; };
 		ACEBDC8416570CBF00CEFFE5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/HomeViewController_iPad.xib; sourceTree = "<group>"; };
+		D9B04DD7165C63A9005EF35B /* AreaDescriptionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AreaDescriptionCell.h; path = ClubMedici/AreaDescriptionCell.h; sourceTree = "<group>"; };
+		D9B04DD8165C63A9005EF35B /* AreaDescriptionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AreaDescriptionCell.m; path = ClubMedici/AreaDescriptionCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +156,8 @@
 			children = (
 				ACBFD64A165BC2DC00DD7991 /* AreaBaseController.h */,
 				ACBFD64B165BC2DC00DD7991 /* AreaBaseController.m */,
+				D9B04DD7165C63A9005EF35B /* AreaDescriptionCell.h */,
+				D9B04DD8165C63A9005EF35B /* AreaDescriptionCell.m */,
 				ACCDDA59165C17E60097C00C /* AreaDescriptionCell.xib */,
 			);
 			name = "Area controllers";
@@ -327,6 +332,7 @@
 				ACBFD645165BBEE600DD7991 /* AreaBase.m in Sources */,
 				ACBFD648165BC0B100DD7991 /* AreaFinanziaria.m in Sources */,
 				ACBFD64D165BC2DC00DD7991 /* AreaBaseController.m in Sources */,
+				D9B04DD9165C63A9005EF35B /* AreaDescriptionCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

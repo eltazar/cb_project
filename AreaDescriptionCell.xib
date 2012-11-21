@@ -33,7 +33,7 @@
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 			</object>
 			<object class="IBUITableViewCell" id="545394163">
-				<nil key="NSNextResponder"/>
+				<reference key="NSNextResponder"/>
 				<int key="NSvFlags">292</int>
 				<array class="NSMutableArray" key="NSSubviews">
 					<object class="IBUIView" id="130146411">
@@ -45,6 +45,7 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{9, 9}, {84, 65}}</string>
 								<reference key="NSSuperview" ref="130146411"/>
+								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="95168040"/>
 								<object class="NSColor" key="IBUIBackgroundColor">
 									<int key="NSColorSpace">1</int>
@@ -60,11 +61,13 @@
 							<object class="IBUILabel" id="95168040">
 								<reference key="NSNextResponder" ref="130146411"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{101, 9}, {210, 108}}</string>
+								<string key="NSFrame">{{101, 9}, {210, 115}}</string>
 								<reference key="NSSuperview" ref="130146411"/>
+								<reference key="NSWindow"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<int key="IBUIContentMode">7</int>
+								<int key="IBUITag">1</int>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<string type="base64-UTF8" key="IBUIText">TOKAmWFyZWEgZmluYW56aWFyaWEgZGkgQ2x1YiBNZWRpY2kgw6ggY29zdGl0dWl0YSBkYSB1biB0ZWFt
@@ -87,6 +90,7 @@ YXRyaSwgc3VtYWlzdGkgZSBwZW5zaW9uYXRpLiAKA</string>
 								<int key="IBUIBaselineAdjustment">1</int>
 								<float key="IBUIMinimumFontSize">10</float>
 								<int key="IBUINumberOfLines">52</int>
+								<int key="IBUILineBreakMode">0</int>
 								<object class="IBUIFontDescription" key="IBUIFontDescription">
 									<string key="name">Helvetica</string>
 									<string key="family">Helvetica</string>
@@ -103,6 +107,7 @@ YXRyaSwgc3VtYWlzdGkgZSBwZW5zaW9uYXRpLiAKA</string>
 						</array>
 						<string key="NSFrameSize">{320, 130}</string>
 						<reference key="NSSuperview" ref="545394163"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="372563240"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">3</int>
@@ -116,28 +121,22 @@ YXRyaSwgc3VtYWlzdGkgZSBwZW5zaW9uYXRpLiAKA</string>
 					</object>
 				</array>
 				<string key="NSFrameSize">{320, 131}</string>
+				<reference key="NSSuperview"/>
+				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="130146411"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">1</int>
 					<bytes key="NSRGB">MC45MDE5NjA3OTAyIDAuOTAxOTYwNzkwMiAwLjkwMTk2MDc5MDIAA</bytes>
 				</object>
+				<bool key="IBUIClipsSubviews">YES</bool>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 				<reference key="IBUIContentView" ref="130146411"/>
-				<string key="IBUIReuseIdentifier">DescriptionCell</string>
+				<string key="IBUIReuseIdentifier">AreaDescriptionCell</string>
 				<real value="131" key="IBUIRowHeight"/>
 			</object>
 		</array>
 		<object class="IBObjectContainer" key="IBDocument.Objects">
-			<array class="NSMutableArray" key="connectionRecords">
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">areaDescriptionCell</string>
-						<reference key="source" ref="841351856"/>
-						<reference key="destination" ref="545394163"/>
-					</object>
-					<int key="connectionID">32</int>
-				</object>
-			</array>
+			<array class="NSMutableArray" key="connectionRecords"/>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<array key="orderedObjects">
 					<object class="IBObjectRecord">
@@ -185,6 +184,7 @@ YXRyaSwgc3VtYWlzdGkgZSBwZW5zaW9uYXRpLiAKA</string>
 				<string key="-1.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="-2.CustomClassName">UIResponder</string>
 				<string key="-2.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="14.CustomClassName">AreaDescriptionCell</string>
 				<string key="14.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="15.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="16.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -195,7 +195,26 @@ YXRyaSwgc3VtYWlzdGkgZSBwZW5zaW9uYXRpLiAKA</string>
 			<nil key="sourceID"/>
 			<int key="maxID">32</int>
 		</object>
-		<object class="IBClassDescriber" key="IBDocument.Classes"/>
+		<object class="IBClassDescriber" key="IBDocument.Classes">
+			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
+				<object class="IBPartialClassDescription">
+					<string key="className">AreaBaseController</string>
+					<string key="superclassName">UITableViewController</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/AreaBaseController.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">AreaDescriptionCell</string>
+					<string key="superclassName">UITableViewCell</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/AreaDescriptionCell.h</string>
+					</object>
+				</object>
+			</array>
+		</object>
 		<int key="IBDocument.localizationMode">0</int>
 		<string key="IBDocument.TargetRuntimeIdentifier">IBCocoaTouchFramework</string>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
