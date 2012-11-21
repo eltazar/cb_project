@@ -83,7 +83,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {    
-    UITableViewCell *cell;
+    UITableViewCell *cell = nil;
     NSString *cellIdentifier;
     
     if (indexPath.section == 0 && indexPath.row == 0) {
@@ -94,30 +94,31 @@
         
         NSArray *arrayData = [dataModel objectForKey:@"data"];
         NSArray *data = [arrayData objectAtIndex:indexPath.section];
-                
-        cellIdentifier = @"Cell";
-        cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-        if (!cell) {
-            NSLog(@"Attanziò: sto creando una cella normale");
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-        }
         
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-                
+        cell = [tableView dequeueReusableCellWithIdentifier:@"ActionCell"];
+        if (!cell) {
+            cell = [[[NSBundle mainBundle] loadNibNamed:@"ActionCell" owner:self options:NULL] objectAtIndex:0];
+        }
+        UILabel *label   = (UILabel *)[cell viewWithTag:1];
+		UIImageView *img        = (UIImageView *)[cell viewWithTag:2];
+		                
         switch (indexPath.section) {
             case 0:
-                cell.textLabel.text = [data objectAtIndex:indexPath.row];
+                label.text = [data objectAtIndex:indexPath.row];
                 //TODO aggiungere icona telefono e mail
+                [img setImage:[UIImage imageNamed:@"phone"]];
                 break;
             case 1:
                 //prendo l'array di dati per la sezione 1
                 //prendo l'iesimo dizionario
                 //ottengo l'array di kiavi, che in questo caso x ogni dizionario è 1 sola, e scelgo la prima chiave = titolo del pdf
-                cell.textLabel.text = [[[data objectAtIndex:indexPath.row] allKeys] objectAtIndex:0];
-                //TODO: aggiungere immagine PDF più  
+                label.text = [[[data objectAtIndex:indexPath.row] allKeys] objectAtIndex:0];
+                //TODO: aggiungere immagine PDF
+                [img setImage:[UIImage imageNamed:@"pdf"]];
                 break;
             case 2:
-                cell.textLabel.text = [data objectAtIndex:indexPath.row];
+                label.text = [data objectAtIndex:indexPath.row];
+                
                 break;
             default:
                 break;
