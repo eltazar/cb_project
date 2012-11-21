@@ -59,9 +59,10 @@
      */
     //creo controller per l'area desiderata passandogli l'oggetto della logica di business
     AreaBaseController *areaController = [[AreaBaseController alloc] initWithArea:[[theClass alloc]init] ];
-    [appDelegate.jasSidePanelController showCenterPanel:NO];
+
     [appDelegate.detailViewNavController popToRootViewControllerAnimated:NO];
-    [appDelegate.detailViewNavController pushViewController:areaController animated:YES];
+    [appDelegate.detailViewNavController pushViewController:areaController animated:NO];
+    [appDelegate.jasSidePanelController hideLeftPanel:self];
     
     
     
