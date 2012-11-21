@@ -14,6 +14,8 @@
 @property(nonatomic, strong) NSString *descrizione;
 @property(nonatomic, strong) NSString *img;
 @property(nonatomic, strong) NSString *tel;
-@property(nonatomic, strong) NSMutableDictionary *pdfList;
+//la sezione viaggi non ha pdf nella view generale.. nella classe specializzata possiamo ignorare sta ivar
+@property(nonatomic, strong) NSMutableArray *pdfList;
 
+-(NSMutableDictionary *) getDataModel;
 @end

@@ -22,4 +22,8 @@
     return self;  
 }
 
+-(NSMutableDictionary *) getDataModel{
+    return nil;
+}
+
 @end

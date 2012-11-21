@@ -9,7 +9,7 @@
 #import "AreaFinanziaria.h"
 
 @implementation AreaFinanziaria
-@synthesize numeroDiPdf,emailMutuo,emailPrestito;
+@synthesize emailMutuo,emailPrestito;
 
 -(id)init{
     
@@ -23,11 +23,70 @@
         self.tel = @"06/8607891";
         self.emailPrestito = @"prestiti@clubmedici.it";
         self.emailMutuo = @"mutui@clubmedici.it";
-        numeroDiPdf = 3;
+        
+        //SUPPONENDO CHE I LINK PDF LI STRUTTURIAMO COSì DOPO LA QUERY
+        //array di dati per la sezione 1
+        self.pdfList = [[NSMutableArray alloc] init];
+        [self.pdfList addObject:[[NSDictionary alloc] initWithObjectsAndKeys:@"link1",@"Titolo1", nil]];
+        [self.pdfList addObject:[[NSDictionary alloc] initWithObjectsAndKeys:@"link2",@"Titolo2", nil]];
+        [self.pdfList addObject:[[NSDictionary alloc] initWithObjectsAndKeys:@"link3",@"Titolo3", nil]];
+
     }
     return self;
 }
 
-
+-(NSMutableDictionary *) getDataModel{
+    
+    
+    /*
+        STRUTTURA:
+     
+     DIZIONARIO DATA MODEL:
+                k -> sections
+                v -> titolo delle sezioni
+                k -> data
+                v -> array di dati per ogni sezione
+     
+     per la chiave DATA: ho array tale che:
+        indice 0 -> sezione 0:
+                elementi sono stringhe come: descrizione, telefono,  mail....
+        indice 1 -> sezione 1:
+                elementi sono dizionari: k -> titolo del link
+                                         v -> url
+     */
+    
+    
+    //data model totale
+    NSMutableDictionary *dataModel = [[NSMutableDictionary alloc] init];
+    
+    //array di dati  per le varie sezioni
+    NSMutableArray *data = [[NSMutableArray alloc] initWithCapacity:2];
+    
+    //array di titoli sezione
+    [dataModel setObject:[NSArray arrayWithObjects:@"Informazioni",@"Documenti", nil] forKey:@"sections"];
+    
+    //array di dati per la sezione 0
+    NSMutableArray *info = [[NSMutableArray alloc] init];
+   
+    if(self.descrizione != nil)
+        [info addObject:self.descrizione];
+    if(self.tel != nil)
+       [info addObject:self.tel];
+    if(self.emailMutuo != nil)
+       [info addObject:self.emailMutuo];
+    if(self.emailPrestito != nil)
+        [info addObject:self.emailPrestito];
+    
+    [data insertObject:info atIndex:0];
+    
+        
+    [data insertObject:self.pdfList atIndex:1];
+    
+    [dataModel setObject:data forKey:@"data"];
+    
+    //NSLog(@"DATA MODEL = %@",dataModel);
+    
+    return dataModel;
+}
 
 @end
