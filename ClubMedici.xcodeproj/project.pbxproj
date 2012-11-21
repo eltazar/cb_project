@@ -20,6 +20,8 @@
 		AC2629B1165D319A00510092 /* pdf@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC2629AF165D319A00510092 /* pdf@2x.png */; };
 		AC2629B4165D334200510092 /* phone.png in Resources */ = {isa = PBXBuildFile; fileRef = AC2629B2165D334100510092 /* phone.png */; };
 		AC2629B5165D334200510092 /* phone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC2629B3165D334200510092 /* phone@2x.png */; };
+		AC2629C0165D52BD00510092 /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2629BF165D52BD00510092 /* Common.m */; };
+		AC2629C3165D537100510092 /* CustomCellBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2629C2165D537100510092 /* CustomCellBackground.m */; };
 		ACBE63AD165A865000F64CDA /* SideMenuController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBE63AC165A865000F64CDA /* SideMenuController_iPhone.m */; };
 		ACBE63B4165A874900F64CDA /* SideMenuController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBE63B3165A874900F64CDA /* SideMenuController_iPad.m */; };
 		ACBE63B8165A87A800F64CDA /* HomeViewController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBE63B7165A87A800F64CDA /* HomeViewController_iPhone.m */; };
@@ -67,6 +69,10 @@
 		AC2629AF165D319A00510092 /* pdf@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pdf@2x.png"; path = "img/pdf@2x.png"; sourceTree = SOURCE_ROOT; };
 		AC2629B2165D334100510092 /* phone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = phone.png; path = img/phone.png; sourceTree = SOURCE_ROOT; };
 		AC2629B3165D334200510092 /* phone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "phone@2x.png"; path = "img/phone@2x.png"; sourceTree = SOURCE_ROOT; };
+		AC2629BE165D52BD00510092 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Common.h; path = ClubMedici/Common.h; sourceTree = "<group>"; };
+		AC2629BF165D52BD00510092 /* Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Common.m; path = ClubMedici/Common.m; sourceTree = "<group>"; };
+		AC2629C1165D537100510092 /* CustomCellBackground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomCellBackground.h; path = ClubMedici/CustomCellBackground.h; sourceTree = "<group>"; };
+		AC2629C2165D537100510092 /* CustomCellBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomCellBackground.m; path = ClubMedici/CustomCellBackground.m; sourceTree = "<group>"; };
 		ACBE63AB165A865000F64CDA /* SideMenuController_iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideMenuController_iPhone.h; sourceTree = "<group>"; };
 		ACBE63AC165A865000F64CDA /* SideMenuController_iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideMenuController_iPhone.m; sourceTree = "<group>"; };
 		ACBE63B2165A874900F64CDA /* SideMenuController_iPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideMenuController_iPad.h; sourceTree = "<group>"; };
@@ -134,6 +140,17 @@
 				AC2629AC165D2F4500510092 /* ActionCell.xib */,
 			);
 			name = "Custom cells";
+			sourceTree = "<group>";
+		};
+		AC2629B6165D50BB00510092 /* Graphics */ = {
+			isa = PBXGroup;
+			children = (
+				AC2629C1165D537100510092 /* CustomCellBackground.h */,
+				AC2629C2165D537100510092 /* CustomCellBackground.m */,
+				AC2629BE165D52BD00510092 /* Common.h */,
+				AC2629BF165D52BD00510092 /* Common.m */,
+			);
+			name = Graphics;
 			sourceTree = "<group>";
 		};
 		ACBE63A9165A861900F64CDA /* SideMenuController_iPhone */ = {
@@ -238,6 +255,7 @@
 				ACEBDC6B16570CBE00CEFFE5 /* ClubMedici */,
 				ACBFD641165BBEBB00DD7991 /* Business logic */,
 				ACBFD649165BC27E00DD7991 /* Area controllers */,
+				AC2629B6165D50BB00510092 /* Graphics */,
 				ACEBDC6C16570CBE00CEFFE5 /* Supporting Files */,
 				ACD4C76F165715460025F3F5 /* Librerie esterne */,
 				ACEBDC6416570CBE00CEFFE5 /* Frameworks */,
@@ -393,6 +411,8 @@
 				AC26298E165D1E2400510092 /* PDFviewerController.m in Sources */,
 				AC262992165D1E4900510092 /* AreaBaseController.m in Sources */,
 				AC2629A1165D2A5300510092 /* AreaBaseController_iPad.m in Sources */,
+				AC2629C0165D52BD00510092 /* Common.m in Sources */,
+				AC2629C3165D537100510092 /* CustomCellBackground.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
