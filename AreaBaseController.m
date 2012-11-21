@@ -8,7 +8,7 @@
 
 #import "AreaBaseController.h"
 #import "AreaDescriptionCell.h"
-#import "AreaFinanziaria.h"
+#import "AreaBase.h"
 
 @interface AreaBaseController () {
     AreaDescriptionCell *_areaDescriptionCell;
@@ -28,7 +28,7 @@
     return self;
 }
 
-- (id) initWithArea:(AreaFinanziaria*)area{
+- (id) initWithArea:(AreaBase*)area{
    
     self = [super init];
   
@@ -52,6 +52,7 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     dataModel = [self.area getDataModel];
+    self.title = [self.area titolo];
 }
 
 - (void)didReceiveMemoryWarning
@@ -65,13 +66,13 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    NSLog(@"NUMERO SEZIONI = %d",[[dataModel objectForKey:@"sections"] count]);
+    //NSLog(@"NUMERO SEZIONI = %d",[[dataModel objectForKey:@"sections"] count]);
     return [[dataModel objectForKey:@"sections"] count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSLog(@"NUMERO RIGHE = %d, sezione  = %d",[[[dataModel objectForKey:@"data"] objectAtIndex:section] count], section);
+    //NSLog(@"NUMERO RIGHE = %d, sezione  = %d",[[[dataModel objectForKey:@"data"] objectAtIndex:section] count], section);
     // Return the number of rows in the section.
     return [[[dataModel objectForKey:@"data"] objectAtIndex:section] count];
 }
@@ -98,8 +99,7 @@
         }
         
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-
-        
+                
         switch (indexPath.section) {
             case 0:
                 cell.textLabel.text = [data objectAtIndex:indexPath.row];
@@ -111,6 +111,9 @@
                 //ottengo l'array di kiavi, che in questo caso x ogni dizionario è 1 sola, e scelgo la prima chiave = titolo del pdf
                 cell.textLabel.text = [[[data objectAtIndex:indexPath.row] allKeys] objectAtIndex:0];
                 //TODO: aggiungere immagine PDF più  
+                break;
+            case 2:
+                cell.textLabel.text = [data objectAtIndex:indexPath.row];
                 break;
             default:
                 break;
@@ -176,7 +179,7 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    NSLog(@"SEZIONE = %@",[[dataModel objectForKey:@"sections"] objectAtIndex:section]);
+    //NSLog(@"SEZIONE = %@",[[dataModel objectForKey:@"sections"] objectAtIndex:section]);
     return [[dataModel objectForKey:@"sections"] objectAtIndex:section];
 }
 
