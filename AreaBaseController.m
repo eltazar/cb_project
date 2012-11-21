@@ -9,6 +9,7 @@
 #import "AreaBaseController.h"
 #import "AreaDescriptionCell.h"
 #import "AreaBase.h"
+#import "PDFviewerController.h"
 
 @interface AreaBaseController () {
     AreaDescriptionCell *_areaDescriptionCell;
@@ -175,6 +176,11 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
+    
+    if(indexPath.section == 1){
+            PDFviewerController *pdfViewer = [[PDFviewerController alloc]initWithNibName:@"PDFviewerController" bundle:nil];
+        [self.navigationController pushViewController:pdfViewer animated:YES];
+    }
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
