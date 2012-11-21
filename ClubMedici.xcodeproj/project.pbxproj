@@ -9,15 +9,17 @@
 /* Begin PBXBuildFile section */
 		AC26297D165D01EE00510092 /* AreaCureMediche.m in Sources */ = {isa = PBXBuildFile; fileRef = AC26297C165D01EE00510092 /* AreaCureMediche.m */; };
 		AC262980165D07F100510092 /* AreaLeasing.m in Sources */ = {isa = PBXBuildFile; fileRef = AC26297F165D07F100510092 /* AreaLeasing.m */; };
+		AC26298D165D1E2400510092 /* AreaDescriptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC262989165D1E2400510092 /* AreaDescriptionCell.xib */; };
+		AC26298E165D1E2400510092 /* PDFviewerController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC26298B165D1E2400510092 /* PDFviewerController.m */; };
+		AC26298F165D1E2400510092 /* PDFviewerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC26298C165D1E2400510092 /* PDFviewerController.xib */; };
+		AC262992165D1E4900510092 /* AreaBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC262991165D1E4900510092 /* AreaBaseController.m */; };
 		ACBE63AD165A865000F64CDA /* SideMenuController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBE63AC165A865000F64CDA /* SideMenuController_iPhone.m */; };
 		ACBE63B4165A874900F64CDA /* SideMenuController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBE63B3165A874900F64CDA /* SideMenuController_iPad.m */; };
 		ACBE63B8165A87A800F64CDA /* HomeViewController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBE63B7165A87A800F64CDA /* HomeViewController_iPhone.m */; };
 		ACBE63BC165A87E500F64CDA /* HomeViewController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBE63BB165A87E500F64CDA /* HomeViewController_iPad.m */; };
 		ACBFD645165BBEE600DD7991 /* AreaBase.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBFD644165BBEE600DD7991 /* AreaBase.m */; };
 		ACBFD648165BC0B100DD7991 /* AreaFinanziaria.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBFD647165BC0B100DD7991 /* AreaFinanziaria.m */; };
-		ACBFD64D165BC2DC00DD7991 /* AreaBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBFD64B165BC2DC00DD7991 /* AreaBaseController.m */; };
 		ACCDDA54165C153A0097C00C /* finanziariaImg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ACCDDA53165C153A0097C00C /* finanziariaImg.jpg */; };
-		ACCDDA5A165C17E60097C00C /* AreaDescriptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACCDDA59165C17E60097C00C /* AreaDescriptionCell.xib */; };
 		ACD4C7731657158D0025F3F5 /* JASidePanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD4C7721657158D0025F3F5 /* JASidePanelController.m */; };
 		ACD4C77C16571A5D0025F3F5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACD4C77B16571A5D0025F3F5 /* QuartzCore.framework */; };
 		ACE03DCD16593B71009B6B0D /* UIViewController+JASidePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE03DCC16593B71009B6B0D /* UIViewController+JASidePanel.m */; };
@@ -44,6 +46,12 @@
 		AC26297C165D01EE00510092 /* AreaCureMediche.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaCureMediche.m; sourceTree = "<group>"; };
 		AC26297E165D07F100510092 /* AreaLeasing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreaLeasing.h; sourceTree = "<group>"; };
 		AC26297F165D07F100510092 /* AreaLeasing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaLeasing.m; sourceTree = "<group>"; };
+		AC262989165D1E2400510092 /* AreaDescriptionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AreaDescriptionCell.xib; path = ClubMedici/AreaDescriptionCell.xib; sourceTree = "<group>"; };
+		AC26298A165D1E2400510092 /* PDFviewerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDFviewerController.h; path = ClubMedici/PDFviewerController.h; sourceTree = "<group>"; };
+		AC26298B165D1E2400510092 /* PDFviewerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PDFviewerController.m; path = ClubMedici/PDFviewerController.m; sourceTree = "<group>"; };
+		AC26298C165D1E2400510092 /* PDFviewerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PDFviewerController.xib; path = ClubMedici/PDFviewerController.xib; sourceTree = "<group>"; };
+		AC262990165D1E4900510092 /* AreaBaseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AreaBaseController.h; path = ClubMedici/AreaBaseController.h; sourceTree = "<group>"; };
+		AC262991165D1E4900510092 /* AreaBaseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AreaBaseController.m; path = ClubMedici/AreaBaseController.m; sourceTree = "<group>"; };
 		ACBE63AB165A865000F64CDA /* SideMenuController_iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideMenuController_iPhone.h; sourceTree = "<group>"; };
 		ACBE63AC165A865000F64CDA /* SideMenuController_iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideMenuController_iPhone.m; sourceTree = "<group>"; };
 		ACBE63B2165A874900F64CDA /* SideMenuController_iPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideMenuController_iPad.h; sourceTree = "<group>"; };
@@ -56,10 +64,7 @@
 		ACBFD644165BBEE600DD7991 /* AreaBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaBase.m; sourceTree = "<group>"; };
 		ACBFD646165BC0B100DD7991 /* AreaFinanziaria.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreaFinanziaria.h; sourceTree = "<group>"; };
 		ACBFD647165BC0B100DD7991 /* AreaFinanziaria.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaFinanziaria.m; sourceTree = "<group>"; };
-		ACBFD64A165BC2DC00DD7991 /* AreaBaseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreaBaseController.h; sourceTree = "<group>"; };
-		ACBFD64B165BC2DC00DD7991 /* AreaBaseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaBaseController.m; sourceTree = "<group>"; };
 		ACCDDA53165C153A0097C00C /* finanziariaImg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = finanziariaImg.jpg; path = img/finanziariaImg.jpg; sourceTree = SOURCE_ROOT; };
-		ACCDDA59165C17E60097C00C /* AreaDescriptionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AreaDescriptionCell.xib; sourceTree = "<group>"; };
 		ACD4C7711657158D0025F3F5 /* JASidePanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JASidePanelController.h; sourceTree = "<group>"; };
 		ACD4C7721657158D0025F3F5 /* JASidePanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JASidePanelController.m; sourceTree = "<group>"; };
 		ACD4C77B16571A5D0025F3F5 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -164,11 +169,14 @@
 		ACBFD649165BC27E00DD7991 /* Area controllers */ = {
 			isa = PBXGroup;
 			children = (
-				ACBFD64A165BC2DC00DD7991 /* AreaBaseController.h */,
-				ACBFD64B165BC2DC00DD7991 /* AreaBaseController.m */,
+				AC262990165D1E4900510092 /* AreaBaseController.h */,
+				AC262991165D1E4900510092 /* AreaBaseController.m */,
+				AC26298A165D1E2400510092 /* PDFviewerController.h */,
+				AC26298B165D1E2400510092 /* PDFviewerController.m */,
+				AC26298C165D1E2400510092 /* PDFviewerController.xib */,
 				D9B04DD7165C63A9005EF35B /* AreaDescriptionCell.h */,
 				D9B04DD8165C63A9005EF35B /* AreaDescriptionCell.m */,
-				ACCDDA59165C17E60097C00C /* AreaDescriptionCell.xib */,
+				AC262989165D1E2400510092 /* AreaDescriptionCell.xib */,
 			);
 			name = "Area controllers";
 			sourceTree = "<group>";
@@ -318,7 +326,8 @@
 				ACE03DD81659462C009B6B0D /* SideMenuController_iPad.xib in Resources */,
 				ACE03DDA16594922009B6B0D /* SideMenuController_iPhone.xib in Resources */,
 				ACCDDA54165C153A0097C00C /* finanziariaImg.jpg in Resources */,
-				ACCDDA5A165C17E60097C00C /* AreaDescriptionCell.xib in Resources */,
+				AC26298D165D1E2400510092 /* AreaDescriptionCell.xib in Resources */,
+				AC26298F165D1E2400510092 /* PDFviewerController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,10 +350,11 @@
 				ACBE63BC165A87E500F64CDA /* HomeViewController_iPad.m in Sources */,
 				ACBFD645165BBEE600DD7991 /* AreaBase.m in Sources */,
 				ACBFD648165BC0B100DD7991 /* AreaFinanziaria.m in Sources */,
-				ACBFD64D165BC2DC00DD7991 /* AreaBaseController.m in Sources */,
 				D9B04DD9165C63A9005EF35B /* AreaDescriptionCell.m in Sources */,
 				AC26297D165D01EE00510092 /* AreaCureMediche.m in Sources */,
 				AC262980165D07F100510092 /* AreaLeasing.m in Sources */,
+				AC26298E165D1E2400510092 /* PDFviewerController.m in Sources */,
+				AC262992165D1E4900510092 /* AreaBaseController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
