@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@class AreaBase;
+@class AreaFinanziaria;
 @interface AreaBaseController : UITableViewController
 
-@property(nonatomic, strong) AreaBase *area;
+@property(nonatomic, strong) AreaFinanziaria *area;
 
-- (id) initWithArea:(AreaBase*)area;
+- (id) initWithArea:(AreaFinanziaria*)area;
 @end

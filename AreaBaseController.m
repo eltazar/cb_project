@@ -8,9 +8,11 @@
 
 #import "AreaBaseController.h"
 #import "AreaDescriptionCell.h"
+#import "AreaFinanziaria.h"
 
 @interface AreaBaseController () {
     AreaDescriptionCell *_areaDescriptionCell;
+    NSMutableDictionary *dataModel;
 }
 
 @end
@@ -26,7 +28,7 @@
     return self;
 }
 
-- (id) initWithArea:(AreaBase*)area{
+- (id) initWithArea:(AreaFinanziaria*)area{
    
     self = [super init];
   
@@ -48,6 +50,8 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    dataModel = [self.area getDataModel];
 }
 
 - (void)didReceiveMemoryWarning
@@ -60,29 +64,16 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 1;
+    NSLog(@"NUMERO SEZIONI = %d",[[dataModel objectForKey:@"sections"] count]);
+    return [[dataModel objectForKey:@"sections"] count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    NSLog(@"NUMERO RIGHE = %d, sezione  = %d",[[[dataModel objectForKey:@"data"] objectAtIndex:section] count], section);
     // Return the number of rows in the section.
-    switch (section) {
-        case 0:
-            return 2;
-            break;
-        case 1:
-            return 1;
-            break;
-        case 2:
-            return 1;
-            break;
-        default:
-            return 0;
-            break;
-    }
-
+    return [[[dataModel objectForKey:@"data"] objectAtIndex:section] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -95,13 +86,37 @@
     }
     
     else {
+        
+        NSArray *arrayData = [dataModel objectForKey:@"data"];
+        NSArray *data = [arrayData objectAtIndex:indexPath.section];
+                
         cellIdentifier = @"Cell";
         cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
         if (!cell) {
             NSLog(@"Attanziò: sto creando una cella normale");
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
         }
-        cell.textLabel.text = @"ciao";
+        
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+
+        
+        switch (indexPath.section) {
+            case 0:
+                cell.textLabel.text = [data objectAtIndex:indexPath.row];
+                //TODO aggiungere icona telefono e mail
+                break;
+            case 1:
+                //prendo l'array di dati per la sezione 1
+                //prendo l'iesimo dizionario
+                //ottengo l'array di kiavi, che in questo caso x ogni dizionario è 1 sola, e scelgo la prima chiave = titolo del pdf
+                cell.textLabel.text = [[[data objectAtIndex:indexPath.row] allKeys] objectAtIndex:0];
+                //TODO: aggiungere immagine PDF più  
+                break;
+            default:
+                break;
+        }
+        
+        
     }
     
     return cell;
@@ -161,7 +176,8 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    return @"";
+    NSLog(@"SEZIONE = %@",[[dataModel objectForKey:@"sections"] objectAtIndex:section]);
+    return [[dataModel objectForKey:@"sections"] objectAtIndex:section];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
