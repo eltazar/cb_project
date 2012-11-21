@@ -73,7 +73,7 @@
     /*   Da: WWDC 2010, Mastering Table Views.
      * un blocco begin/end updates, eventualmente vuoto fa si che la tableView
      * ricalcoli la sua geometria, aggiornando quindi l'altezza di questa cella.*/
-    [UIView animateWithDuration:0.2 animations:^{
+    [UIView animateWithDuration:0.3 animations:^{
         UITableView *tableView = (UITableView *)self.superview;
         if (![tableView isKindOfClass:[UITableView class]]) {
             tableView = nil;
@@ -114,6 +114,7 @@
     _label_full.numberOfLines = _label.numberOfLines;
     _label_full.baselineAdjustment = _label.baselineAdjustment;
     _label_full.backgroundColor = _label.backgroundColor;
+    _label_full.opaque = _label.opaque;
     _label_full.alpha = 0;
     [self addSubview: _label_full];
 }
