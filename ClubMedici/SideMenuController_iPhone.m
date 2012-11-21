@@ -9,7 +9,7 @@
 #import "SideMenuController_iPhone.h"
 #import "AppDelegate.h"
 #import "AreaBaseController.h"
-#import "AreaBase.h"
+#import "AreaFinanziaria.h"
 #import "JASidePanelController.h"
 
 @interface SideMenuController_iPhone ()
@@ -53,7 +53,7 @@
     
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
   
-    AreaBase *area = [[AreaBase alloc] init];
+    AreaFinanziaria *area = [[AreaFinanziaria alloc] init];
     [appDelegate.detailViewNavController popToRootViewControllerAnimated:NO];
     [appDelegate.detailViewNavController pushViewController:[[AreaBaseController alloc] initWithArea:area] animated:YES];
     /*JASidePanelController *jasPanelController = (JASidePanelController*)appDelegate.window.rootViewController;
