@@ -51,14 +51,25 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
     
+    NSArray *sec = [self.sectionData objectAtIndex:indexPath.section];
+    NSDictionary *rowDesc = [sec objectAtIndex:indexPath.row];
+    
+    //Ottengo la classe dell'oggetto della business logic da instanziare
+    NSString *classNameStr = [rowDesc objectForKey:@"DataKey"];
+    Class theClass = NSClassFromString(classNameStr);
+//    id myObject = [[theClass alloc] init];
+    
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-  
-    AreaFinanziaria *area = [[AreaFinanziaria alloc] init];
+   
+    
+    /*NOTA:
+     per ora instanzio il base controller in maniera specifica. andando avanti dovrò  fare una cosa simile a prima ricavandomi il nome della classe dalla stringa datakey, aggiungerci "Controller" e quindi instanziare un controller dinamicamente in base al datakey.. es: id theController = [theClassController alloc] init:.......];
+     */
+    //creo controller per l'area desiderata passandogli l'oggetto della logica di business
+    AreaBaseController *areaController = [[AreaBaseController alloc] initWithArea:[[theClass alloc]init] ];
     [appDelegate.detailViewNavController popToRootViewControllerAnimated:NO];
-    [appDelegate.detailViewNavController pushViewController:[[AreaBaseController alloc] initWithArea:area] animated:YES];
-    /*JASidePanelController *jasPanelController = (JASidePanelController*)appDelegate.window.rootViewController;
-    [(UINavigationController*)jasPanelController.centerPanel pushViewController:[[AreaBaseController alloc] initWithArea:area] animated:YES];*/
-
+    [appDelegate.detailViewNavController pushViewController:areaController animated:YES];
+    
 }
 
 
