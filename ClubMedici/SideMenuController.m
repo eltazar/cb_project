@@ -43,34 +43,34 @@
     
     
     [secFinArea insertObject:[[NSDictionary alloc] initWithObjectsAndKeys:
-                         @"finanziaria",              @"DataKey",
+                         @"AreaFinanziaria",              @"DataKey",
                          @"Area finanziaria",  @"label",
                          @"",                  @"img",
                          [NSString stringWithFormat:@"%d", UITableViewCellStyleDefault], @"style",
                          nil] atIndex: 0];
     
     [secFinArea insertObject:[[NSDictionary alloc] initWithObjectsAndKeys:
-                         @"cure",             @"DataKey",
+                         @"AreaCureMediche",             @"DataKey",
                          @"Cure mediche rateali",      @"label",
                          @"",         @"img",
                          [NSString stringWithFormat:@"%d", UITableViewCellStyleDefault], @"style",
                          nil] atIndex: 1];
     
     [secFinArea insertObject:[[NSDictionary alloc] initWithObjectsAndKeys:
-                         @"leasing",            @"DataKey",
+                         @"AreaLeasing",            @"DataKey",
                          @"Leasing e noleggio",       @"label",
                          @"",         @"img",
                          [NSString stringWithFormat:@"%d", UITableViewCellStyleDefault], @"style",
                          nil]  atIndex: 2];
     
     [secAssicArea insertObject:[[NSDictionary alloc] initWithObjectsAndKeys:
-                         @"assicurativa",             @"DataKey",
+                         @"AreaAssicurativa",             @"DataKey",
                          @"Area assicurativa",   @"label",
                          @"",                 @"img",
                          [NSString stringWithFormat:@"%d", UITableViewCellStyleDefault], @"style",
                          nil] atIndex: 0];
     [secTravelArea insertObject:[[NSDictionary alloc] initWithObjectsAndKeys:
-                                @"viaggi",             @"DataKey",
+                                @"AreaViaggi",             @"DataKey",
                                 @"Viaggi e turismo",   @"label",
                                 @"",                 @"img",
                                 [NSString stringWithFormat:@"%d", UITableViewCellStyleDefault], @"style",
