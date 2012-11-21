@@ -80,6 +80,9 @@
     self.sectionData = [[NSArray alloc] initWithObjects:secFinArea, secAssicArea,secTravelArea, nil];
     self.sectionDescription = [[NSArray alloc] initWithObjects:@"Area finanziaria",@"Area assicurativa",@"Area viaggi e turismo",nil];
     
+    //rimuove celle extra
+    self.tableView.tableFooterView = [[UIView alloc] init];
+    
 }
 
 - (void)didReceiveMemoryWarning

@@ -54,6 +54,9 @@
     
     dataModel = [self.area getDataModel];
     self.title = [self.area titolo];
+    
+    //rimuove celle extra
+    self.tableView.tableFooterView = [[UIView alloc] init];
 }
 
 - (void)didReceiveMemoryWarning
