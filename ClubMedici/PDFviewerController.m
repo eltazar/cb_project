@@ -12,6 +12,7 @@
 {
     NSString *title;
     NSString *url;
+    NSTimer *timer;
 }
 @end
 
@@ -54,6 +55,8 @@
     
     UITapGestureRecognizer *tapRec = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTap:)];
     [self.webView addGestureRecognizer:tapRec];
+    [timer invalidate];
+    timer = nil;
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -90,7 +93,10 @@
                      }
     ];
     //NSTimer *timer = [NSTimer timerWithTimeInterval:3.0 target:self selector:@selector(hideTabBar:) userInfo:nil repeats:NO];
-    [NSTimer scheduledTimerWithTimeInterval:2.0
+    [timer invalidate];
+    timer = nil;
+    
+    timer = [NSTimer scheduledTimerWithTimeInterval:2.0
                                      target:self
                                    selector:@selector(hideTabBar:)
                                    userInfo:nil
