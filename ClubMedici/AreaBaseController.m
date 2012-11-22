@@ -57,6 +57,8 @@
     dataModel = [self.area getDataModel];
     self.title = [self.area titolo];
     
+    [self setupBackgroundView];
+    
     //rimuove celle extra
     self.tableView.tableFooterView = [[UIView alloc] init];
 }
@@ -234,6 +236,29 @@
 
 -(CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return 25;
+}
+
+# pragma mark - Private Methods
+
+- (void)setupBackgroundView {
+    UIImage *image = [UIImage imageNamed:@"finanziariaImg.jpg"];
+    UIView *backgroundView = [[UIView alloc] init];
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+    
+    CGFloat tableViewWidth = self.tableView.frame.size.width;
+    imageView.frame = CGRectMake(0, 0,
+                                 tableViewWidth,
+                                 tableViewWidth * (image.size.height / image.size.width)
+                                 );
+    [backgroundView addSubview:imageView];
+    self.tableView.backgroundView = backgroundView;
+    self.tableView.tableHeaderView =
+                    [[UIView alloc] initWithFrame:
+                          CGRectMake(0, 0,
+                                     tableViewWidth,
+                                     0.9 * imageView.frame.size.height
+                                     )
+                    ];
 }
 
 @end
