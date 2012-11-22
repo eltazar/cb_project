@@ -267,7 +267,7 @@
                     [[UIView alloc] initWithFrame:
                           CGRectMake(0, 0,
                                      tableViewWidth,
-                                     0.9 * imageView.frame.size.height
+                                     0.6 * imageView.frame.size.height
                                      )
                     ];
 }
