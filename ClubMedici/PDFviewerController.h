@@ -12,9 +12,11 @@
 @property(nonatomic, strong) IBOutlet UIWebView *webView;
 @property(nonatomic, strong) IBOutlet UINavigationBar *navBar;
 @property(nonatomic, strong) IBOutlet UIBarButtonItem *actionButton;
+@property(nonatomic, strong) IBOutlet UIToolbar *tabBar;
 
 
 -(id)initWithTitle:(NSString*)aTitle url:(NSString*)url;
 -(IBAction)doneButtonPressed:(id)sender;
 -(IBAction)actionButtonPressed:(id)sender;
+-(IBAction)openIn:(id)sender;
 @end

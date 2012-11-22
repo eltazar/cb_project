@@ -16,7 +16,7 @@
 @end
 
 @implementation PDFviewerController
-@synthesize webView, navBar,actionButton;
+@synthesize webView, navBar,actionButton,tabBar;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -48,6 +48,12 @@
     [self.webView loadRequest:request];
     
     navBar.topItem.title = title;
+    
+//    tabBar.frame = CGRectMake(0,0, self.tabBar.frame.size.width, self.tabBar.frame.size.height);
+//    [self.webView addSubview:self.tabBar];
+    
+    UITapGestureRecognizer *tapRec = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTap:)];
+    [self.webView addGestureRecognizer:tapRec];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -74,13 +80,38 @@
 
 
 #pragma mark - Button methods 
+
+-(void)didTap:(id)sender{
+    
+    
+    [UIView animateWithDuration:0.4
+                     animations:^void{
+                         self.tabBar.alpha = 1.0;
+                     }
+    ];
+    //NSTimer *timer = [NSTimer timerWithTimeInterval:3.0 target:self selector:@selector(hideTabBar:) userInfo:nil repeats:NO];
+    [NSTimer scheduledTimerWithTimeInterval:2.0
+                                     target:self
+                                   selector:@selector(hideTabBar:)
+                                   userInfo:nil
+                                    repeats:NO];
+}
+
+-(void)hideTabBar:(id)sender{
+    [UIView animateWithDuration:0.4
+                     animations:^void{
+                         self.tabBar.alpha = 0.0;
+                     }
+     ];
+}
+
 -(IBAction)doneButtonPressed:(id)sender{
     [self dismissModalViewControllerAnimated:YES];
 }
 -(IBAction)actionButtonPressed:(id)sender{
    
     
-    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:@"Cancel Button" destructiveButtonTitle:nil otherButtonTitles:@"Stampa",nil];
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:@"Annulla" destructiveButtonTitle:nil otherButtonTitles:@"Stampa",nil,nil];
     
     actionSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
     
@@ -88,21 +119,26 @@
         [actionSheet showFromBarButtonItem:self.actionButton animated:YES];
     } else {
         [actionSheet showInView:self.view];
-    }
-
-
-    
+    }    
 }
 
+-(IBAction)openIn:(id)sender
+{
+    //use the UIDocInteractionController API to get list of devices that support the file type
+    
+    UIDocumentInteractionController *docController = [UIDocumentInteractionController interactionControllerWithURL:[NSURL URLWithString:@"http://www.clubmedici.it/nuovo/download/finanziario/leasing/leasing.pdf"]];
+    
+    //present a drop down list of the apps that support the file type, click an item in the list will open that app while passing in the file.
+    [docController presentOpenInMenuFromRect:CGRectMake(0, 0, 300, 300) inView:self.view animated:YES];
+}
 #pragma mark - ActionSheetDelegate
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+    NSLog(@"INDEX = %d",buttonIndex);
     
     if(buttonIndex == 0){
         //stampa
         [self printWebView:self];
-    }
-    else if(buttonIndex == 1){
-        //cancel
     }
 }
 #pragma mark - AirPrint
