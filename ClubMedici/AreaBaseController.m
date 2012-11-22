@@ -6,6 +6,8 @@
 //  Copyright (c) 2012 mario greco. All rights reserved.
 //
 
+#include <QuartzCore/QuartzCore.h>
+
 #import "AreaBaseController.h"
 #import "AreaDescriptionCell.h"
 #import "AreaBase.h"
@@ -250,6 +252,15 @@
                                  tableViewWidth,
                                  tableViewWidth * (image.size.height / image.size.width)
                                  );
+    
+    //per fare in modo che l'immagine nell'header diventi trasparente gradualmente verso la fine dell'immagine stessa
+    CAGradientLayer *l = [CAGradientLayer layer];
+    l.frame = imageView.bounds;
+    l.colors = [NSArray arrayWithObjects:(id)[UIColor whiteColor].CGColor, (id)[UIColor clearColor].CGColor, nil];
+    l.startPoint = CGPointMake(1.0f, .6f);
+    l.endPoint = CGPointMake(1.0f, 1.0f);
+    imageView.layer.mask = l;
+    
     [backgroundView addSubview:imageView];
     self.tableView.backgroundView = backgroundView;
     self.tableView.tableHeaderView =
