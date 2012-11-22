@@ -12,7 +12,7 @@
 @property(nonatomic, strong) IBOutlet UIWebView *webView;
 @property(nonatomic, strong) IBOutlet UINavigationBar *navBar;
 @property(nonatomic, strong) IBOutlet UIBarButtonItem *actionButton;
-@property(nonatomic, strong) IBOutlet UIToolbar *tabBar;
+@property(nonatomic, strong) IBOutlet UINavigationBar *toolBar;
 
 
 -(id)initWithTitle:(NSString*)aTitle url:(NSString*)url;

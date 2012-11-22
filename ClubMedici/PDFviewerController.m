@@ -16,7 +16,7 @@
 @end
 
 @implementation PDFviewerController
-@synthesize webView, navBar,actionButton,tabBar;
+@synthesize webView, navBar,actionButton,toolBar;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -86,7 +86,7 @@
     
     [UIView animateWithDuration:0.4
                      animations:^void{
-                         self.tabBar.alpha = 1.0;
+                         self.toolBar.alpha = 1.0;
                      }
     ];
     //NSTimer *timer = [NSTimer timerWithTimeInterval:3.0 target:self selector:@selector(hideTabBar:) userInfo:nil repeats:NO];
@@ -100,7 +100,7 @@
 -(void)hideTabBar:(id)sender{
     [UIView animateWithDuration:0.4
                      animations:^void{
-                         self.tabBar.alpha = 0.0;
+                         self.toolBar.alpha = 0.0;
                      }
      ];
 }
