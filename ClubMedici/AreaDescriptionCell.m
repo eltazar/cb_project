@@ -6,9 +6,10 @@
 //  Copyright (c) 2012 mario greco. All rights reserved.
 //
 
-#import "AreaDescriptionCell.h"
 #import "QuartzCore/QuartzCore.h"
 
+#import "AreaDescriptionCell.h"
+#import "CustomCellBackground.h"
 
 @interface AreaDescriptionCell() {
     UILabel *_label;
@@ -53,6 +54,9 @@
     
     [self addSubview: _label_full];
     _label.layer.mask = _alphaMask;
+    
+    self.backgroundView = [[CustomCellBackground alloc] init];
+    self.selectedBackgroundView = [[CustomCellBackground alloc] init];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
