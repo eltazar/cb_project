@@ -26,9 +26,21 @@
         //SUPPONENDO CHE I LINK PDF LI STRUTTURIAMO COSì DOPO LA QUERY
         //array di dati per la sezione 1
         self.pdfList = [[NSMutableArray alloc] init];
-        [self.pdfList addObject:[[NSDictionary alloc] initWithObjectsAndKeys:@"link1",@"Titolo1", nil]];
-        [self.pdfList addObject:[[NSDictionary alloc] initWithObjectsAndKeys:@"link2",@"Titolo2", nil]];
-        [self.pdfList addObject:[[NSDictionary alloc] initWithObjectsAndKeys:@"link3",@"Titolo3", nil]];
+        [self.pdfList insertObject:[[NSDictionary alloc] initWithObjectsAndKeys:
+                                     @"pdf",    @"DataKey",
+                                     @"Titolo 1",   @"label",
+                                     @"url/ciao.it",  @"url",
+                                     nil] atIndex: 0];
+        [self.pdfList insertObject:[[NSDictionary alloc] initWithObjectsAndKeys:
+                                     @"pdf",    @"DataKey",
+                                     @"Titolo 2",   @"label",
+                                     @"url/ciao.it",  @"url",
+                                     nil] atIndex: 1];
+        [self.pdfList insertObject:[[NSDictionary alloc] initWithObjectsAndKeys:
+                                     @"pdf",    @"DataKey",
+                                     @"Titolo 3",   @"label",
+                                     @"url/ciao.it",  @"url",
+                                     nil] atIndex: 2];
         
     }
     return self;
@@ -51,7 +63,9 @@
      elementi sono stringhe come: descrizione, telefono,  mail....
      indice 1 -> sezione 1:
      elementi sono dizionari: k -> titolo del link
-     v -> url
+                              v -> url
+     indice 2 -> sezione 2:
+     array di stringhe
      */
     
     
@@ -85,7 +99,25 @@
     [preventivo addObject:@"Noleggio elettromedicale"];
     [preventivo addObject:@"Leasing elettromedicale"];
     
-    [data insertObject:preventivo atIndex:2];
+    NSMutableArray *tipoRichieste = [[NSMutableArray alloc] init];
+    
+    [tipoRichieste insertObject:[[NSDictionary alloc] initWithObjectsAndKeys:
+                            @"noleggioAuto",    @"DataKey",
+                            @"Noleggio auto",   @"label",
+                            nil] atIndex: 0];
+    [tipoRichieste insertObject:[[NSDictionary alloc] initWithObjectsAndKeys:
+                                 @"noleggioElettro",    @"DataKey",
+                                 @"Noleggio elettromedicale",   @"label",
+                                 nil] atIndex: 1];
+    
+    [tipoRichieste insertObject:[[NSDictionary alloc] initWithObjectsAndKeys:
+                                 @"leasingElettro",    @"DataKey",
+                                 @"Leasing elettromedicale",   @"label",
+                                 nil] atIndex: 2];
+    
+    
+    
+    [data insertObject:tipoRichieste atIndex:2];
     
     [dataModel setObject:data forKey:@"data"];
     

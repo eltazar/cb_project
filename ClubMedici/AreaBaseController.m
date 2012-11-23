@@ -130,12 +130,12 @@
                 //prendo l'array di dati per la sezione 1
                 //prendo l'iesimo dizionario
                 //ottengo l'array di kiavi, che in questo caso x ogni dizionario è 1 sola, e scelgo la prima chiave = titolo del pdf
-                label.text = [[[data objectAtIndex:indexPath.row] allKeys] objectAtIndex:0];
+                label.text = [[data objectAtIndex:indexPath.row] objectForKey:@"label"];
                 //TODO: aggiungere immagine PDF
                 [img setImage:[UIImage imageNamed:@"pdf"]];
                 break;
             case 2:
-                label.text = [data objectAtIndex:indexPath.row];
+                label.text = [[data objectAtIndex:indexPath.row] objectForKey:@"label"];
                 
                 break;
             default:
@@ -209,7 +209,7 @@
         NSArray *arrayData = [dataModel objectForKey:@"data"];
         NSArray *data = [arrayData objectAtIndex:indexPath.section];
 
-        PDFviewerController *pdfViewer = [[PDFviewerController alloc]initWithTitle:[[[data objectAtIndex:indexPath.row] allKeys] objectAtIndex:0] url:nil];
+        PDFviewerController *pdfViewer = [[PDFviewerController alloc]initWithTitle:[[data objectAtIndex:indexPath.row] objectForKey:@"label"] url:nil];
         //[self.navigationController pushViewController:pdfViewer animated:YES];
         
         [self.navigationController presentViewController:pdfViewer animated:YES completion:nil];

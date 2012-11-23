@@ -28,9 +28,21 @@
         //SUPPONENDO CHE I LINK PDF LI STRUTTURIAMO COSì DOPO LA QUERY
         //array di dati per la sezione 1
         self.pdfList = [[NSMutableArray alloc] init];
-        [self.pdfList addObject:[[NSDictionary alloc] initWithObjectsAndKeys:@"link1",@"Titolo1", nil]];
-        [self.pdfList addObject:[[NSDictionary alloc] initWithObjectsAndKeys:@"link2",@"Titolo2", nil]];
-        [self.pdfList addObject:[[NSDictionary alloc] initWithObjectsAndKeys:@"link3",@"Titolo3", nil]];
+        [self.pdfList insertObject:[[NSDictionary alloc] initWithObjectsAndKeys:
+                                    @"pdf",    @"DataKey",
+                                    @"Titolo 1",   @"label",
+                                    @"url/ciao.it",  @"url",
+                                    nil] atIndex: 0];
+        [self.pdfList insertObject:[[NSDictionary alloc] initWithObjectsAndKeys:
+                                    @"pdf",    @"DataKey",
+                                    @"Titolo 2",   @"label",
+                                    @"url/ciao.it",  @"url",
+                                    nil] atIndex: 1];
+        [self.pdfList insertObject:[[NSDictionary alloc] initWithObjectsAndKeys:
+                                    @"pdf",    @"DataKey",
+                                    @"Titolo 3",   @"label",
+                                    @"url/ciao.it",  @"url",
+                                    nil] atIndex: 2];
 
     }
     return self;
