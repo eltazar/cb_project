@@ -191,7 +191,7 @@
     if([[rowDesc objectForKey:@"DataKey"] isEqualToString:@"member"]){
         RichiestaIscrizioneController *richiestaController = [[RichiestaIscrizioneController alloc] initWithNibName:@"FormViewController" bundle:nil];
         [appDelegate.detailViewNavController popToRootViewControllerAnimated:NO];
-        [appDelegate.detailViewNavController pushViewController:richiestaController animated:NO];
+        [appDelegate.detailViewNavController pushViewController:richiestaController animated:YES];
     }
     else{
         //Ottengo la classe dell'oggetto della business logic da instanziare
