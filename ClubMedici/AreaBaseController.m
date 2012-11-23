@@ -114,7 +114,7 @@
             //ottengo l'array di kiavi, che in questo caso x ogni dizionario è 1 sola, e scelgo la prima chiave = titolo del pdf
             label.text = [[data objectAtIndex:indexPath.row] objectForKey:@"label"];
             //TODO: aggiungere immagine PDF
-            [img setImage:[UIImage imageNamed:@"pdf"]];
+            [img setImage:[UIImage imageNamed:@"pdfImage"]];
             break;
         case 2:
             label.text = [[data objectAtIndex:indexPath.row] objectForKey:@"label"];

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC23E62B1660049500818769 /* pdfImage.png in Resources */ = {isa = PBXBuildFile; fileRef = AC23E6291660049500818769 /* pdfImage.png */; };
+		AC23E62C1660049500818769 /* pdfImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC23E62A1660049500818769 /* pdfImage@2x.png */; };
 		AC26297D165D01EE00510092 /* AreaCureMediche.m in Sources */ = {isa = PBXBuildFile; fileRef = AC26297C165D01EE00510092 /* AreaCureMediche.m */; };
 		AC262980165D07F100510092 /* AreaLeasing.m in Sources */ = {isa = PBXBuildFile; fileRef = AC26297F165D07F100510092 /* AreaLeasing.m */; };
 		AC26298D165D1E2400510092 /* AreaDescriptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC262989165D1E2400510092 /* AreaDescriptionCell.xib */; };
@@ -62,6 +64,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AC23E6291660049500818769 /* pdfImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pdfImage.png; path = img/pdfImage.png; sourceTree = SOURCE_ROOT; };
+		AC23E62A1660049500818769 /* pdfImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pdfImage@2x.png"; path = "img/pdfImage@2x.png"; sourceTree = SOURCE_ROOT; };
 		AC26297B165D01EE00510092 /* AreaCureMediche.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreaCureMediche.h; sourceTree = "<group>"; };
 		AC26297C165D01EE00510092 /* AreaCureMediche.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaCureMediche.m; sourceTree = "<group>"; };
 		AC26297E165D07F100510092 /* AreaLeasing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreaLeasing.h; sourceTree = "<group>"; };
@@ -279,6 +283,8 @@
 		ACCDDA52165C15280097C00C /* img */ = {
 			isa = PBXGroup;
 			children = (
+				AC23E6291660049500818769 /* pdfImage.png */,
+				AC23E62A1660049500818769 /* pdfImage@2x.png */,
 				AC2629B2165D334100510092 /* phone.png */,
 				AC2629B3165D334200510092 /* phone@2x.png */,
 				AC2629AE165D319A00510092 /* pdf.png */,
@@ -442,6 +448,8 @@
 				AC31D7B6165EF1A100CCC001 /* FormViewController.xib in Resources */,
 				ACD24B97165F80AA00C97CD2 /* TextAreaCell.xib in Resources */,
 				ACD24BA3165FB59500C97CD2 /* AreaDescriptionCell_iPad.xib in Resources */,
+				AC23E62B1660049500818769 /* pdfImage.png in Resources */,
+				AC23E62C1660049500818769 /* pdfImage@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
