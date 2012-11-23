@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MessageUI/MessageUI.h>
+
 #import "UIViewController+InterfaceIdiom.h"
 
 @class AreaBase;
-@interface AreaBaseController : UITableViewController
+@interface AreaBaseController : UITableViewController <MFMailComposeViewControllerDelegate>
 {
     @protected
     AreaBase *area;

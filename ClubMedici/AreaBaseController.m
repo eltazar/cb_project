@@ -6,7 +6,6 @@
 //  Copyright (c) 2012 mario greco. All rights reserved.
 //
 
-
 #import "AreaBaseController.h"
 #import "AreaDescriptionCell.h"
 #import "AreaBase.h"
@@ -186,13 +185,17 @@
     else{
         
         if([dataKey isEqualToString:@"phone"]){
-            
+            NSLog(@"numero di telefono = %@",[[data objectAtIndex:indexPath.row] objectForKey:@"label"]);
+            [self callNumber: [[data objectAtIndex:indexPath.row] objectForKey:@"label"]];
         }
         else if([dataKey isEqualToString:@"pdf"]){
             PDFviewerController *pdfViewer = [[PDFviewerController alloc]initWithTitle:[[data objectAtIndex:indexPath.row] objectForKey:@"label"] url:nil];
             //[self.navigationController pushViewController:pdfViewer animated:YES];
             
             [self.navigationController presentViewController:pdfViewer animated:YES completion:nil];
+        }
+        else if([dataKey isEqualToString:@"email"]){
+            [self sendEmail:[[data objectAtIndex:indexPath.row] objectForKey:@"label"]];
         }
             
     }
@@ -215,5 +218,49 @@
 -(CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return 25;
 }
+
+
+#pragma mark - Private methods
+
+-(void) callNumber:(NSString*)number{
+    
+    //fa partire una chiamata
+    UIDevice *device = [UIDevice currentDevice];
+    if ([[device model] isEqualToString:@"iPhone"]){
+            NSString *phoneNumber = [NSString stringWithFormat:@"%@%@", @"tel://", number];
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumber
+                                                        ]];
+    }
+    else{
+        UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"Spiacenti" message:@"Questa funzione non è disponibile su questo dispositivo" delegate:nil cancelButtonTitle:@"Chiudi" otherButtonTitles:nil];
+        [alert show];
+    }
+}
+
+-(void) sendEmail:(NSString*)address{
+    MFMailComposeViewController *mail = [[MFMailComposeViewController alloc] init];
+    mail.mailComposeDelegate = self;
+    
+    if([MFMailComposeViewController canSendMail]){
+        [mail setToRecipients:[NSArray arrayWithObjects:address, nil]];
+        [mail setSubject:@"BLABLABLA"];
+        [mail setMessageBody:@"" isHTML:NO];
+        [self presentModalViewController:mail animated:YES];
+    }
+}
+
+#pragma mark - MFMailComposeViewControllerDelegate
+
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error{
+        
+    [self dismissModalViewControllerAnimated:YES];
+    
+	if (result == MFMailComposeResultFailed){
+		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Messaggio non inviato!" message:@"Non è stato possibile inviare la tua e-mail" delegate:self cancelButtonTitle:@"Chiudi" otherButtonTitles:nil];
+		[alert show];
+	}
+    
+}
+
 
 @end
