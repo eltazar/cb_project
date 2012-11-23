@@ -99,7 +99,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [super tableView:tableView cellForRowAtIndexPath:indexPath];;
+    return [super tableView:tableView cellForRowAtIndexPath:indexPath];
 }
 
 @end

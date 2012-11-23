@@ -10,6 +10,10 @@
 
 @class AreaBase;
 @interface AreaBaseController : UITableViewController
+{
+    @protected
+    AreaBase *area;
+}
 
 @property(nonatomic, strong) AreaBase *area;
 

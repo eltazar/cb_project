@@ -6,7 +6,6 @@
 //  Copyright (c) 2012 mario greco. All rights reserved.
 //
 
-#include <QuartzCore/QuartzCore.h>
 
 #import "AreaBaseController.h"
 #import "AreaDescriptionCell.h"
@@ -17,13 +16,14 @@
 #import "RichiestaNoleggioController.h"
 
 @interface AreaBaseController () {
-    AreaDescriptionCell *_areaDescriptionCell;
+    
     NSMutableDictionary *dataModel;
 }
 
 @end
 
 @implementation AreaBaseController
+@synthesize area;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -34,12 +34,12 @@
     return self;
 }
 
-- (id) initWithArea:(AreaBase*)area{
+- (id) initWithArea:(AreaBase*)a{
    
     self = [super init];
   
     if(self){
-        self.area = area;
+        self.area = a;
     }
     
     return self;
@@ -51,21 +51,8 @@
   
     self.title = [self.area titolo];
     
-    _areaDescriptionCell = [[[NSBundle mainBundle] loadNibNamed:@"AreaDescriptionCell"
-                                                          owner:nil
-                                                        options:nil] objectAtIndex:0];
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-  
-    
     //ottengo il dataModel per l'oggeto area
     dataModel = [self.area getDataModel];
-    
-    
-    [self setupBackgroundView];
     
     //rimuove celle extra
     self.tableView.tableFooterView = [[UIView alloc] init];
@@ -104,51 +91,41 @@
     UITableViewCell *cell = nil;
     //NSString *cellIdentifier;
     
-    if (indexPath.section == 0 && indexPath.row == 0) {
-        _areaDescriptionCell.backgroundView = [[CustomCellBackground alloc] init];
-        _areaDescriptionCell.selectedBackgroundView = [[CustomCellBackground alloc] init];
         
-        // At end of function, right before return cell:
-        _areaDescriptionCell.textLabel.backgroundColor = [UIColor clearColor];
-        return _areaDescriptionCell;
+    NSArray *arrayData = [dataModel objectForKey:@"data"];
+    NSArray *data = [arrayData objectAtIndex:indexPath.section];
+    
+    cell = [tableView dequeueReusableCellWithIdentifier:@"ActionCell"];
+    if (!cell) {
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"ActionCell" owner:self options:NULL] objectAtIndex:0];
+    }
+    UILabel *label   = (UILabel *)[cell viewWithTag:1];
+    UIImageView *img        = (UIImageView *)[cell viewWithTag:2];
+                    
+    switch (indexPath.section) {
+        case 0:
+            label.text = [data objectAtIndex:indexPath.row];
+            //TODO aggiungere icona telefono e mail
+            [img setImage:[UIImage imageNamed:@"phone"]];
+            break;
+        case 1:
+            //prendo l'array di dati per la sezione 1
+            //prendo l'iesimo dizionario
+            //ottengo l'array di kiavi, che in questo caso x ogni dizionario è 1 sola, e scelgo la prima chiave = titolo del pdf
+            label.text = [[data objectAtIndex:indexPath.row] objectForKey:@"label"];
+            //TODO: aggiungere immagine PDF
+            [img setImage:[UIImage imageNamed:@"pdf"]];
+            break;
+        case 2:
+            label.text = [[data objectAtIndex:indexPath.row] objectForKey:@"label"];
+            
+            break;
+        default:
+            break;
     }
     
-    else {
-        
-        NSArray *arrayData = [dataModel objectForKey:@"data"];
-        NSArray *data = [arrayData objectAtIndex:indexPath.section];
-        
-        cell = [tableView dequeueReusableCellWithIdentifier:@"ActionCell"];
-        if (!cell) {
-            cell = [[[NSBundle mainBundle] loadNibNamed:@"ActionCell" owner:self options:NULL] objectAtIndex:0];
-        }
-        UILabel *label   = (UILabel *)[cell viewWithTag:1];
-		UIImageView *img        = (UIImageView *)[cell viewWithTag:2];
-		                
-        switch (indexPath.section) {
-            case 0:
-                label.text = [data objectAtIndex:indexPath.row];
-                //TODO aggiungere icona telefono e mail
-                [img setImage:[UIImage imageNamed:@"phone"]];
-                break;
-            case 1:
-                //prendo l'array di dati per la sezione 1
-                //prendo l'iesimo dizionario
-                //ottengo l'array di kiavi, che in questo caso x ogni dizionario è 1 sola, e scelgo la prima chiave = titolo del pdf
-                label.text = [[data objectAtIndex:indexPath.row] objectForKey:@"label"];
-                //TODO: aggiungere immagine PDF
-                [img setImage:[UIImage imageNamed:@"pdf"]];
-                break;
-            case 2:
-                label.text = [[data objectAtIndex:indexPath.row] objectForKey:@"label"];
-                
-                break;
-            default:
-                break;
-        }
-        
-        
-    }
+    
+
     
     cell.backgroundView = [[CustomCellBackground alloc] init];
     //cell.selectedBackgroundView = [[CustomCellBackground alloc] init];
@@ -204,7 +181,11 @@
 {
     NSArray *arrayData = [dataModel objectForKey:@"data"];
     NSArray *data = [arrayData objectAtIndex:indexPath.section];
-    NSString *dataKey = [[data objectAtIndex:indexPath.row] objectForKey:@"DataKey"];
+    NSString *dataKey = nil;;
+    
+    if([[data objectAtIndex:indexPath.row] respondsToSelector:@selector(objectForKey:)]){
+        dataKey = [[data objectAtIndex:indexPath.row] objectForKey:@"DataKey"];
+    }
     
     //section 1 sono pdf
     if(indexPath.section == 1){
@@ -240,14 +221,7 @@
     return [[dataModel objectForKey:@"sections"] objectAtIndex:section];
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (indexPath.section == 0 && indexPath.row == 0) {
-        AreaDescriptionCell *cell = (AreaDescriptionCell *)[self tableView:tableView cellForRowAtIndexPath:indexPath];
-        return [cell getHeight];
-    }
-    return [super tableView:tableView heightForRowAtIndexPath:indexPath];
-}
+
 
 - (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     CustomHeader *header = [[CustomHeader alloc] init] ;
@@ -257,38 +231,6 @@
 
 -(CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return 25;
-}
-
-# pragma mark - Private Methods
-
-- (void)setupBackgroundView {
-    UIImage *image = [UIImage imageNamed:@"finanziariaImg.jpg"];
-    UIView *backgroundView = [[UIView alloc] init];
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
-    
-    CGFloat tableViewWidth = self.tableView.frame.size.width;
-    imageView.frame = CGRectMake(0, 0,
-                                 tableViewWidth,
-                                 tableViewWidth * (image.size.height / image.size.width)
-                                 );
-    
-    //per fare in modo che l'immagine nell'header diventi trasparente gradualmente verso la fine dell'immagine stessa
-    CAGradientLayer *l = [CAGradientLayer layer];
-    l.frame = imageView.bounds;
-    l.colors = [NSArray arrayWithObjects:(id)[UIColor whiteColor].CGColor, (id)[UIColor clearColor].CGColor, nil];
-    l.startPoint = CGPointMake(1.0f, .6f);
-    l.endPoint = CGPointMake(1.0f, 1.0f);
-    imageView.layer.mask = l;
-    
-    [backgroundView addSubview:imageView];
-    self.tableView.backgroundView = backgroundView;
-    self.tableView.tableHeaderView =
-                    [[UIView alloc] initWithFrame:
-                          CGRectMake(0, 0,
-                                     tableViewWidth,
-                                     0.6 * imageView.frame.size.height
-                                     )
-                    ];
 }
 
 @end
