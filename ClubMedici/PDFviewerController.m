@@ -42,19 +42,26 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.webView.delegate = self;
-    // Do any additional setup after loading the view from its nib.
-    NSURL *targetURL = [NSURL URLWithString:@"http://www.clubmedici.it/nuovo/download/finanziario/leasing/leasing.pdf"];
-    NSURLRequest *request = [NSURLRequest requestWithURL:targetURL cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:60.0];
-    [self.webView loadRequest:request];
     
     navBar.topItem.title = title;
     
-//    tabBar.frame = CGRectMake(0,0, self.tabBar.frame.size.width, self.tabBar.frame.size.height);
-//    [self.webView addSubview:self.tabBar];
+    self.webView.delegate = self;
     
+    NSURL *targetURL = [NSURL URLWithString:@"http://www.clubmedici.it/nuovo/download/finanziario/leasing/leasing.pdf"];
+    NSURLRequest *request = [NSURLRequest requestWithURL:targetURL cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:60.0];
+    [self.webView loadRequest:request];
+        
     UITapGestureRecognizer *tapRec = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTap:)];
-    [self.webView addGestureRecognizer:tapRec];
+    //semmai evitiamo di mostrare il pdf in un determinato reader
+    //[self.webView addGestureRecognizer:tapRec];
+    
+    /* \\TODO:
+     - scaricare il pdf localmente
+     - recuperare il path al file locale
+     - mostrarlo dentro la webview con "loadLocal.."
+     - ora premento "open in..." bisogna cercare quale app permette di leggere i pdf e mostrare la lista
+     */
+    
     [timer invalidate];
     timer = nil;
 }
