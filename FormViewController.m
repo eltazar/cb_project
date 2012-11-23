@@ -15,12 +15,12 @@
 {
     TextFieldCell *textFieldCell;
 }
-@property(nonatomic, strong) NSArray *sectionData;
-@property(nonatomic, strong) NSArray *sectionDescription;
+
 
 @end
 
 @implementation FormViewController
+
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -31,85 +31,20 @@
     return self;
 }
 
-
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 
-    self.title = @"Richiesta preventivo";
-    
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    //self.title = @"Richiesta preventivo";
     
     UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"Invia" style:UIBarButtonItemStylePlain target:self action:@selector(sendButtonPressed:)];
     self.navigationItem.rightBarButtonItem = button;
-    button = [[UIBarButtonItem alloc] initWithTitle:@"Annula" style:UIBarButtonItemStylePlain target:self action:@selector(cancelButtonPressed:)];
-    self.navigationItem.leftBarButtonItem = button;
 
+    
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     //per staccare un po la prima cella dal bordo superiore
     self.tableView.contentInset = UIEdgeInsetsMake(10.0f, 0.0f, 0.0f, 0.0f);
-    
-    //creo le sezioni
-    NSMutableArray *secUserData = [[NSMutableArray alloc] init];
-    NSMutableArray *infoData = [[NSMutableArray alloc] init];
-    
-    /*
-     @property(nonatomic, strong) NSString *ragioneSociale;
-     @property(nonatomic, strong) NSString *cellulare;
-     @property(nonatomic, strong) NSString *email;
-     @property(nonatomic, strong) NSString *citta;
-     @property(nonatomic, strong) NSString *tipologia;
-     @property(nonatomic, strong) NSString *prezzoImponibile;
-     @property(nonatomic, strong) NSArray *periodo;
-     */
-    
-    [infoData insertObject:[[NSDictionary alloc] initWithObjectsAndKeys:
-                               @"info",              @"DataKey",
-                               @"",                  @"img",
-                               nil] atIndex: 0];
-
-    
-    [secUserData insertObject:[[NSDictionary alloc] initWithObjectsAndKeys:
-                              @"ragSoc",              @"DataKey",
-                              @"Ragione sociale",  @"placeholder",
-                              @"",                  @"img",
-                              nil] atIndex: 0];
-    
-    [secUserData insertObject:[[NSDictionary alloc] initWithObjectsAndKeys:
-                               @"cell",              @"DataKey",
-                               @"Cellulare",  @"placeholder",
-                               @"",                  @"img",
-                               nil] atIndex: 1];
-    
-    [secUserData insertObject:[[NSDictionary alloc] initWithObjectsAndKeys:
-                               @"email",              @"DataKey",
-                               @"E-mail",  @"placeholder",
-                               @"",                  @"img",
-                               nil] atIndex: 2];
-  
-    [secUserData insertObject:[[NSDictionary alloc] initWithObjectsAndKeys:
-                               @"citta",              @"DataKey",
-                               @"Città",  @"placeholder",
-                               @"",                  @"img",
-                               nil] atIndex: 3];
-    
-    [secUserData insertObject:[[NSDictionary alloc] initWithObjectsAndKeys:
-                               @"tipo",              @"DataKey",
-                               @"Tipologia elettromedicale",  @"placeholder",
-                               @"",                  @"img",
-                               nil] atIndex: 4];
-    
-    [secUserData insertObject:[[NSDictionary alloc] initWithObjectsAndKeys:
-                               @"prezzo",              @"DataKey",
-                               @"Prezzo imponibile",  @"placeholder",
-                               @"",                  @"img",
-                               nil] atIndex: 5];
-    
-    self.sectionData = [[NSArray alloc] initWithObjects:secUserData, infoData, nil];
-    self.sectionDescription = [[NSArray alloc] initWithObjects:@"I tuoi dati",@"Informativa",nil];
-
-    
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;

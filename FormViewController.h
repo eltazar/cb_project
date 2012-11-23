@@ -9,6 +9,13 @@
 #import <UIKit/UIKit.h>
 
 @interface FormViewController : UITableViewController <UITextFieldDelegate>
+{
+    @protected
+    NSArray *sectionData;
+    NSArray *sectionDescription;
+}
 
--(id) initWithDataModel:(NSDictionary*)dataModel;
+@property(nonatomic, strong) NSArray *sectionData;
+@property(nonatomic, strong) NSArray *sectionDescription;
+
 @end
