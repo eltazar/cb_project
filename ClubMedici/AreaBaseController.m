@@ -14,6 +14,7 @@
 #import "PDFviewerController.h"
 #import "CustomCellBackground.h"
 #import "CustomHeader.h"
+#import "FormViewController.h"
 
 @interface AreaBaseController () {
     AreaDescriptionCell *_areaDescriptionCell;
@@ -212,6 +213,12 @@
         //[self.navigationController pushViewController:pdfViewer animated:YES];
         
         [self.navigationController presentViewController:pdfViewer animated:YES completion:nil];
+    }
+    else if(indexPath.section == 2){
+        FormViewController *formController = [[FormViewController alloc] initWithNibName:@"FormViewController" bundle:nil];
+        //[self.navigationController pushViewController:formController animated:YES];
+        [self.navigationController presentModalViewController:[[UINavigationController alloc] initWithRootViewController:formController]  animated:YES];
+    
     }
 }
 
