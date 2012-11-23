@@ -40,6 +40,7 @@
     NSMutableArray *secFinArea = [[NSMutableArray alloc] init];
     NSMutableArray *secAssicArea = [[NSMutableArray alloc] init];
     NSMutableArray *secTravelArea = [[NSMutableArray alloc] init];
+    NSMutableArray *secAltro = [[NSMutableArray alloc] init];
     
     
     [secFinArea insertObject:[[NSDictionary alloc] initWithObjectsAndKeys:
@@ -75,10 +76,15 @@
                                 @"",                 @"img",
                                 [NSString stringWithFormat:@"%d", UITableViewCellStyleDefault], @"style",
                                 nil] atIndex: 0];
+    [secAltro insertObject:[[NSDictionary alloc] initWithObjectsAndKeys:
+                                 @"member",             @"DataKey",
+                                 @"Diventa socio",   @"label",
+                                 @"",                 @"img",
+                                 [NSString stringWithFormat:@"%d", UITableViewCellStyleDefault], @"style",
+                                 nil] atIndex: 0];
     
-    
-    self.sectionData = [[NSArray alloc] initWithObjects:secFinArea, secAssicArea,secTravelArea, nil];
-    self.sectionDescription = [[NSArray alloc] initWithObjects:@"Area finanziaria",@"Area assicurativa",@"Area viaggi e turismo",nil];
+    self.sectionData = [[NSArray alloc] initWithObjects:secFinArea, secAssicArea,secTravelArea, secAltro, nil];
+    self.sectionDescription = [[NSArray alloc] initWithObjects:@"Area finanziaria",@"Area assicurativa",@"Area viaggi e turismo",@" ",nil];
     
     //rimuove celle extra
     self.tableView.tableFooterView = [[UIView alloc] init];
