@@ -8,11 +8,8 @@
 
 #import "AppDelegate.h"
 
-#import "HomeViewController_iPhone.h"
-#import "HomeViewController_iPad.h"
-#import "SideMenuController_iPhone.h"
-#import "SideMenuController_iPad.h"
-#import "HomeViewController_iPad.h"
+#import "SideMenuController.h"
+#import "HomeViewController.h"
 
 #import "JASidePanelController.h"
 
@@ -24,9 +21,11 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
    
+    
+    self.sideMenuNavController = [[UINavigationController alloc] initWithRootViewController:[SideMenuController idiomAllocInit]];
+    self.detailViewNavController = [[UINavigationController alloc] initWithRootViewController:[HomeViewController idiomAllocInit]];
+    
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
-        self.sideMenuNavController = [[UINavigationController alloc] initWithRootViewController:[[SideMenuController_iPhone alloc] initWithNibName:@"SideMenuController_iPhone" bundle:nil]];
-        self.detailViewNavController = [[UINavigationController alloc] initWithRootViewController:[[HomeViewController_iPhone alloc] initWithNibName:@"HomeViewController_iPhone" bundle:nil]];
         jasSidePanelController = [[JASidePanelController alloc] init];
         jasSidePanelController.leftPanel = self.sideMenuNavController;
         jasSidePanelController.centerPanel = self.detailViewNavController;
@@ -35,13 +34,9 @@
         [self addPanGestureToNavigationController:self.detailViewNavController target:jasSidePanelController];
     }
     else {
-        self.sideMenuNavController = [[UINavigationController alloc] initWithRootViewController:[[SideMenuController_iPad alloc] initWithNibName:@"SideMenuController_iPad" bundle:nil]];;
-        self.detailViewNavController = [[UINavigationController alloc] initWithRootViewController:[[HomeViewController_iPad alloc] initWithNibName:@"HomeViewController_iPad" bundle:nil]];
         UISplitViewController *splitViewController = [[UISplitViewController alloc] init];
         splitViewController.viewControllers = [NSArray arrayWithObjects:self.sideMenuNavController, self.detailViewNavController, nil];
-        splitViewController.delegate = (HomeViewController_iPad *)[self.detailViewNavController.viewControllers objectAtIndex:0];
-        // Add the split view controller's view to the window and display.
-        // [self.window addSubview:self.splitViewController.view];
+        splitViewController.delegate = [self.detailViewNavController.viewControllers objectAtIndex:0];
         self.window.rootViewController = splitViewController;
     }
     

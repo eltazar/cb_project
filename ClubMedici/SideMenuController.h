@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UIViewController+InterfaceIdiom.h"
 
 @interface SideMenuController : UITableViewController
 

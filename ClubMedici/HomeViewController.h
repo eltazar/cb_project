@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "JASidePanelController.h"
+#import "UIViewController+InterfaceIdiom.h"
 
 @interface HomeViewController : JASidePanelController
 

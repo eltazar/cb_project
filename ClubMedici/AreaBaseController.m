@@ -34,16 +34,6 @@
     return self;
 }
 
-- (id) initWithArea:(AreaBase*)a{
-   
-    self = [super init];
-  
-    if(self){
-        self.area = a;
-    }
-    
-    return self;
-}
 
 - (void)viewDidLoad
 {
@@ -64,7 +54,8 @@
     // Dispose of any resources that can be recreated.
 }
 
-//per ios 5
+# pragma mark - iOS 5 specific
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     
     return YES;

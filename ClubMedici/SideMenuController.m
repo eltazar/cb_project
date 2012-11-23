@@ -187,10 +187,6 @@
     NSArray *sec = [self.sectionData objectAtIndex:indexPath.section];
     NSDictionary *rowDesc = [sec objectAtIndex:indexPath.row];
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    //Ottengo la classe dell'oggetto della business logic da instanziare
-    NSString *classNameStr = [rowDesc objectForKey:@"DataKey"];
-    Class theClass = NSClassFromString(classNameStr);
-    //    id myObject = [[theClass alloc] init];
     
     if([[rowDesc objectForKey:@"DataKey"] isEqualToString:@"member"]){
         RichiestaIscrizioneController *richiestaController = [[RichiestaIscrizioneController alloc] initWithNibName:@"FormViewController" bundle:nil];
@@ -198,19 +194,21 @@
         [appDelegate.detailViewNavController pushViewController:richiestaController animated:NO];
     }
     else{
+        //Ottengo la classe dell'oggetto della business logic da instanziare
+        NSString *classNameStr = [rowDesc objectForKey:@"DataKey"];
+        Class areaClass = NSClassFromString(classNameStr);
         
         /*NOTA:
          per ora instanzio il base controller in maniera specifica. andando avanti dovrò  fare una cosa simile a prima ricavandomi il nome della classe dalla stringa datakey, aggiungerci "Controller" e quindi instanziare un controller dinamicamente in base al datakey.. es: id theController = [theClassController alloc] init:.......];
          */
             //creo controller per l'area desiderata passandogli l'oggetto della logica di business
         AreaBaseController *areaController = [AreaBaseController idiomAllocInit];
-        areaController.area = [[theClass alloc]init];
+        areaController.area = [[areaClass alloc]init];
         [appDelegate.detailViewNavController popToRootViewControllerAnimated:NO];
         [appDelegate.detailViewNavController pushViewController:areaController animated:YES];
     }
-    
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
-
+    [appDelegate.jasSidePanelController hideLeftPanel:self];
 }
 
 @end

@@ -35,7 +35,8 @@
     // Dispose of any resources that can be recreated.
 }
 
-//per ios 5
+# pragma mark - iOS 5 specific
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     
     return YES;

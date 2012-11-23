@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UIViewController+InterfaceIdiom.h"
 
 @class AreaBase;
 @interface AreaBaseController : UITableViewController
