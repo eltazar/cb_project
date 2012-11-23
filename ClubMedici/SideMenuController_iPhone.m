@@ -12,6 +12,7 @@
 #import "AreaFinanziaria.h"
 #import "JASidePanelController.h"
 #import "RichiestaIscrizioneController.h"
+#import "AreaController_iPhone.h"
 
 @interface SideMenuController_iPhone ()
 
@@ -65,7 +66,7 @@
          per ora instanzio il base controller in maniera specifica. andando avanti dovrò  fare una cosa simile a prima ricavandomi il nome della classe dalla stringa datakey, aggiungerci "Controller" e quindi instanziare un controller dinamicamente in base al datakey.. es: id theController = [theClassController alloc] init:.......];
          */
         //creo controller per l'area desiderata passandogli l'oggetto della logica di business
-        AreaBaseController *areaController = [[AreaBaseController alloc] initWithArea:[[theClass alloc]init] ];
+        AreaController_iPhone *areaController = [[AreaController_iPhone alloc] initWithArea:[[theClass alloc]init] ];
 
         [appDelegate.detailViewNavController popToRootViewControllerAnimated:NO];
         [appDelegate.detailViewNavController pushViewController:areaController animated:NO];
