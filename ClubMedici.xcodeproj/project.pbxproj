@@ -35,6 +35,8 @@
 		ACBFD648165BC0B100DD7991 /* AreaFinanziaria.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBFD647165BC0B100DD7991 /* AreaFinanziaria.m */; };
 		ACCDDA54165C153A0097C00C /* finanziariaImg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ACCDDA53165C153A0097C00C /* finanziariaImg.jpg */; };
 		ACD24B97165F80AA00C97CD2 /* TextAreaCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACD24B96165F80AA00C97CD2 /* TextAreaCell.xib */; };
+		ACD24B9B165F945F00C97CD2 /* RichiestaNoleggioController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD24B9A165F945F00C97CD2 /* RichiestaNoleggioController.m */; };
+		ACD24B9E165F967E00C97CD2 /* RichiestaIscrizioneController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD24B9D165F967E00C97CD2 /* RichiestaIscrizioneController.m */; };
 		ACD4C7731657158D0025F3F5 /* JASidePanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD4C7721657158D0025F3F5 /* JASidePanelController.m */; };
 		ACD4C77C16571A5D0025F3F5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACD4C77B16571A5D0025F3F5 /* QuartzCore.framework */; };
 		ACE03DCD16593B71009B6B0D /* UIViewController+JASidePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE03DCC16593B71009B6B0D /* UIViewController+JASidePanel.m */; };
@@ -101,6 +103,10 @@
 		ACBFD647165BC0B100DD7991 /* AreaFinanziaria.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaFinanziaria.m; sourceTree = "<group>"; };
 		ACCDDA53165C153A0097C00C /* finanziariaImg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = finanziariaImg.jpg; path = img/finanziariaImg.jpg; sourceTree = SOURCE_ROOT; };
 		ACD24B96165F80AA00C97CD2 /* TextAreaCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TextAreaCell.xib; path = ClubMedici/TextAreaCell.xib; sourceTree = "<group>"; };
+		ACD24B99165F945F00C97CD2 /* RichiestaNoleggioController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RichiestaNoleggioController.h; path = ClubMedici/RichiestaNoleggioController.h; sourceTree = "<group>"; };
+		ACD24B9A165F945F00C97CD2 /* RichiestaNoleggioController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RichiestaNoleggioController.m; path = ClubMedici/RichiestaNoleggioController.m; sourceTree = "<group>"; };
+		ACD24B9C165F967E00C97CD2 /* RichiestaIscrizioneController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RichiestaIscrizioneController.h; path = ClubMedici/RichiestaIscrizioneController.h; sourceTree = "<group>"; };
+		ACD24B9D165F967E00C97CD2 /* RichiestaIscrizioneController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RichiestaIscrizioneController.m; path = ClubMedici/RichiestaIscrizioneController.m; sourceTree = "<group>"; };
 		ACD4C7711657158D0025F3F5 /* JASidePanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JASidePanelController.h; sourceTree = "<group>"; };
 		ACD4C7721657158D0025F3F5 /* JASidePanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JASidePanelController.m; sourceTree = "<group>"; };
 		ACD4C77B16571A5D0025F3F5 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -180,6 +186,10 @@
 				AC31D7A6165ECEBB00CCC001 /* FormViewController.h */,
 				AC31D7A7165ECEBB00CCC001 /* FormViewController.m */,
 				AC31D7B5165EF1A100CCC001 /* FormViewController.xib */,
+				ACD24B99165F945F00C97CD2 /* RichiestaNoleggioController.h */,
+				ACD24B9A165F945F00C97CD2 /* RichiestaNoleggioController.m */,
+				ACD24B9C165F967E00C97CD2 /* RichiestaIscrizioneController.h */,
+				ACD24B9D165F967E00C97CD2 /* RichiestaIscrizioneController.m */,
 			);
 			name = "Form controllers";
 			sourceTree = "<group>";
@@ -451,6 +461,8 @@
 				AC2629CA165D561D00510092 /* CustomHeader.m in Sources */,
 				AC31D7A8165ECEBB00CCC001 /* FormViewController.m in Sources */,
 				AC31D7AD165EDDAC00CCC001 /* TextFieldCell.m in Sources */,
+				ACD24B9B165F945F00C97CD2 /* RichiestaNoleggioController.m in Sources */,
+				ACD24B9E165F967E00C97CD2 /* RichiestaIscrizioneController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
