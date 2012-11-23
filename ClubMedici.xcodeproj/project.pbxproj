@@ -37,6 +37,8 @@
 		ACD24B97165F80AA00C97CD2 /* TextAreaCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACD24B96165F80AA00C97CD2 /* TextAreaCell.xib */; };
 		ACD24B9B165F945F00C97CD2 /* RichiestaNoleggioController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD24B9A165F945F00C97CD2 /* RichiestaNoleggioController.m */; };
 		ACD24B9E165F967E00C97CD2 /* RichiestaIscrizioneController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD24B9D165F967E00C97CD2 /* RichiestaIscrizioneController.m */; };
+		ACD24BA1165FB34B00C97CD2 /* AreaController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD24BA0165FB34B00C97CD2 /* AreaController_iPhone.m */; };
+		ACD24BA3165FB59500C97CD2 /* AreaDescriptionCell_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACD24BA2165FB59400C97CD2 /* AreaDescriptionCell_iPad.xib */; };
 		ACD4C7731657158D0025F3F5 /* JASidePanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD4C7721657158D0025F3F5 /* JASidePanelController.m */; };
 		ACD4C77C16571A5D0025F3F5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACD4C77B16571A5D0025F3F5 /* QuartzCore.framework */; };
 		ACE03DCD16593B71009B6B0D /* UIViewController+JASidePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE03DCC16593B71009B6B0D /* UIViewController+JASidePanel.m */; };
@@ -107,6 +109,9 @@
 		ACD24B9A165F945F00C97CD2 /* RichiestaNoleggioController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RichiestaNoleggioController.m; path = ClubMedici/RichiestaNoleggioController.m; sourceTree = "<group>"; };
 		ACD24B9C165F967E00C97CD2 /* RichiestaIscrizioneController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RichiestaIscrizioneController.h; path = ClubMedici/RichiestaIscrizioneController.h; sourceTree = "<group>"; };
 		ACD24B9D165F967E00C97CD2 /* RichiestaIscrizioneController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RichiestaIscrizioneController.m; path = ClubMedici/RichiestaIscrizioneController.m; sourceTree = "<group>"; };
+		ACD24B9F165FB34B00C97CD2 /* AreaController_iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AreaController_iPhone.h; path = ClubMedici/AreaController_iPhone.h; sourceTree = "<group>"; };
+		ACD24BA0165FB34B00C97CD2 /* AreaController_iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AreaController_iPhone.m; path = ClubMedici/AreaController_iPhone.m; sourceTree = "<group>"; };
+		ACD24BA2165FB59400C97CD2 /* AreaDescriptionCell_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AreaDescriptionCell_iPad.xib; path = ClubMedici/AreaDescriptionCell_iPad.xib; sourceTree = "<group>"; };
 		ACD4C7711657158D0025F3F5 /* JASidePanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JASidePanelController.h; sourceTree = "<group>"; };
 		ACD4C7721657158D0025F3F5 /* JASidePanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JASidePanelController.m; sourceTree = "<group>"; };
 		ACD4C77B16571A5D0025F3F5 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -158,6 +163,7 @@
 				D9B04DD7165C63A9005EF35B /* AreaDescriptionCell.h */,
 				D9B04DD8165C63A9005EF35B /* AreaDescriptionCell.m */,
 				AC262989165D1E2400510092 /* AreaDescriptionCell.xib */,
+				ACD24BA2165FB59400C97CD2 /* AreaDescriptionCell_iPad.xib */,
 				AC2629AC165D2F4500510092 /* ActionCell.xib */,
 				AC31D7AB165EDDAC00CCC001 /* TextFieldCell.h */,
 				AC31D7AC165EDDAC00CCC001 /* TextFieldCell.m */,
@@ -255,6 +261,8 @@
 			children = (
 				AC262990165D1E4900510092 /* AreaBaseController.h */,
 				AC262991165D1E4900510092 /* AreaBaseController.m */,
+				ACD24B9F165FB34B00C97CD2 /* AreaController_iPhone.h */,
+				ACD24BA0165FB34B00C97CD2 /* AreaController_iPhone.m */,
 				AC26299E165D2A5300510092 /* AreaBaseController_iPad.h */,
 				AC26299F165D2A5300510092 /* AreaBaseController_iPad.m */,
 				AC2629A0165D2A5300510092 /* AreaBaseController_iPad.xib */,
@@ -428,6 +436,7 @@
 				AC31D7AA165ECF5A00CCC001 /* TextFieldCell.xib in Resources */,
 				AC31D7B6165EF1A100CCC001 /* FormViewController.xib in Resources */,
 				ACD24B97165F80AA00C97CD2 /* TextAreaCell.xib in Resources */,
+				ACD24BA3165FB59500C97CD2 /* AreaDescriptionCell_iPad.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -463,6 +472,7 @@
 				AC31D7AD165EDDAC00CCC001 /* TextFieldCell.m in Sources */,
 				ACD24B9B165F945F00C97CD2 /* RichiestaNoleggioController.m in Sources */,
 				ACD24B9E165F967E00C97CD2 /* RichiestaIscrizioneController.m in Sources */,
+				ACD24BA1165FB34B00C97CD2 /* AreaController_iPhone.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
