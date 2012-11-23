@@ -22,6 +22,10 @@
 		AC2629C0165D52BD00510092 /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2629BF165D52BD00510092 /* Common.m */; };
 		AC2629C3165D537100510092 /* CustomCellBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2629C2165D537100510092 /* CustomCellBackground.m */; };
 		AC2629CA165D561D00510092 /* CustomHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2629C9165D561D00510092 /* CustomHeader.m */; };
+		AC31D7A8165ECEBB00CCC001 /* FormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC31D7A7165ECEBB00CCC001 /* FormViewController.m */; };
+		AC31D7AA165ECF5A00CCC001 /* TextFieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC31D7A9165ECF5A00CCC001 /* TextFieldCell.xib */; };
+		AC31D7AD165EDDAC00CCC001 /* TextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC31D7AC165EDDAC00CCC001 /* TextFieldCell.m */; };
+		AC31D7B6165EF1A100CCC001 /* FormViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC31D7B5165EF1A100CCC001 /* FormViewController.xib */; };
 		AC93CE93165DA6F400ABA3C2 /* PDFviewerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC93CE92165DA6F400ABA3C2 /* PDFviewerController.xib */; };
 		ACBE63AD165A865000F64CDA /* SideMenuController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBE63AC165A865000F64CDA /* SideMenuController_iPhone.m */; };
 		ACBE63B4165A874900F64CDA /* SideMenuController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBE63B3165A874900F64CDA /* SideMenuController_iPad.m */; };
@@ -30,6 +34,7 @@
 		ACBFD645165BBEE600DD7991 /* AreaBase.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBFD644165BBEE600DD7991 /* AreaBase.m */; };
 		ACBFD648165BC0B100DD7991 /* AreaFinanziaria.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBFD647165BC0B100DD7991 /* AreaFinanziaria.m */; };
 		ACCDDA54165C153A0097C00C /* finanziariaImg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ACCDDA53165C153A0097C00C /* finanziariaImg.jpg */; };
+		ACD24B97165F80AA00C97CD2 /* TextAreaCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACD24B96165F80AA00C97CD2 /* TextAreaCell.xib */; };
 		ACD4C7731657158D0025F3F5 /* JASidePanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD4C7721657158D0025F3F5 /* JASidePanelController.m */; };
 		ACD4C77C16571A5D0025F3F5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACD4C77B16571A5D0025F3F5 /* QuartzCore.framework */; };
 		ACE03DCD16593B71009B6B0D /* UIViewController+JASidePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE03DCC16593B71009B6B0D /* UIViewController+JASidePanel.m */; };
@@ -75,6 +80,12 @@
 		AC2629C2165D537100510092 /* CustomCellBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomCellBackground.m; path = ClubMedici/CustomCellBackground.m; sourceTree = "<group>"; };
 		AC2629C8165D561D00510092 /* CustomHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomHeader.h; path = ClubMedici/CustomHeader.h; sourceTree = "<group>"; };
 		AC2629C9165D561D00510092 /* CustomHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomHeader.m; path = ClubMedici/CustomHeader.m; sourceTree = "<group>"; };
+		AC31D7A6165ECEBB00CCC001 /* FormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormViewController.h; sourceTree = "<group>"; };
+		AC31D7A7165ECEBB00CCC001 /* FormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormViewController.m; sourceTree = "<group>"; };
+		AC31D7A9165ECF5A00CCC001 /* TextFieldCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TextFieldCell.xib; path = ClubMedici/TextFieldCell.xib; sourceTree = "<group>"; };
+		AC31D7AB165EDDAC00CCC001 /* TextFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextFieldCell.h; sourceTree = "<group>"; };
+		AC31D7AC165EDDAC00CCC001 /* TextFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextFieldCell.m; sourceTree = "<group>"; };
+		AC31D7B5165EF1A100CCC001 /* FormViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FormViewController.xib; path = ClubMedici/FormViewController.xib; sourceTree = "<group>"; };
 		AC93CE92165DA6F400ABA3C2 /* PDFviewerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PDFviewerController.xib; path = ClubMedici/PDFviewerController.xib; sourceTree = "<group>"; };
 		ACBE63AB165A865000F64CDA /* SideMenuController_iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideMenuController_iPhone.h; sourceTree = "<group>"; };
 		ACBE63AC165A865000F64CDA /* SideMenuController_iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideMenuController_iPhone.m; sourceTree = "<group>"; };
@@ -89,6 +100,7 @@
 		ACBFD646165BC0B100DD7991 /* AreaFinanziaria.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreaFinanziaria.h; sourceTree = "<group>"; };
 		ACBFD647165BC0B100DD7991 /* AreaFinanziaria.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaFinanziaria.m; sourceTree = "<group>"; };
 		ACCDDA53165C153A0097C00C /* finanziariaImg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = finanziariaImg.jpg; path = img/finanziariaImg.jpg; sourceTree = SOURCE_ROOT; };
+		ACD24B96165F80AA00C97CD2 /* TextAreaCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TextAreaCell.xib; path = ClubMedici/TextAreaCell.xib; sourceTree = "<group>"; };
 		ACD4C7711657158D0025F3F5 /* JASidePanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JASidePanelController.h; sourceTree = "<group>"; };
 		ACD4C7721657158D0025F3F5 /* JASidePanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JASidePanelController.m; sourceTree = "<group>"; };
 		ACD4C77B16571A5D0025F3F5 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -141,6 +153,10 @@
 				D9B04DD8165C63A9005EF35B /* AreaDescriptionCell.m */,
 				AC262989165D1E2400510092 /* AreaDescriptionCell.xib */,
 				AC2629AC165D2F4500510092 /* ActionCell.xib */,
+				AC31D7AB165EDDAC00CCC001 /* TextFieldCell.h */,
+				AC31D7AC165EDDAC00CCC001 /* TextFieldCell.m */,
+				AC31D7A9165ECF5A00CCC001 /* TextFieldCell.xib */,
+				ACD24B96165F80AA00C97CD2 /* TextAreaCell.xib */,
 			);
 			name = "Custom cells";
 			sourceTree = "<group>";
@@ -156,6 +172,16 @@
 				AC2629C9165D561D00510092 /* CustomHeader.m */,
 			);
 			name = Graphics;
+			sourceTree = "<group>";
+		};
+		AC31D7A4165ECE8B00CCC001 /* Form controllers */ = {
+			isa = PBXGroup;
+			children = (
+				AC31D7A6165ECEBB00CCC001 /* FormViewController.h */,
+				AC31D7A7165ECEBB00CCC001 /* FormViewController.m */,
+				AC31D7B5165EF1A100CCC001 /* FormViewController.xib */,
+			);
+			name = "Form controllers";
 			sourceTree = "<group>";
 		};
 		ACBE63A9165A861900F64CDA /* SideMenuController_iPhone */ = {
@@ -225,7 +251,6 @@
 				AC26298A165D1E2400510092 /* PDFviewerController.h */,
 				AC26298B165D1E2400510092 /* PDFviewerController.m */,
 				AC93CE92165DA6F400ABA3C2 /* PDFviewerController.xib */,
-				AC26299A165D293300510092 /* Custom cells */,
 			);
 			name = "Area controllers";
 			sourceTree = "<group>";
@@ -260,6 +285,8 @@
 				ACEBDC6B16570CBE00CEFFE5 /* ClubMedici */,
 				ACBFD641165BBEBB00DD7991 /* Business logic */,
 				ACBFD649165BC27E00DD7991 /* Area controllers */,
+				AC31D7A4165ECE8B00CCC001 /* Form controllers */,
+				AC26299A165D293300510092 /* Custom cells */,
 				AC2629B6165D50BB00510092 /* Graphics */,
 				ACEBDC6C16570CBE00CEFFE5 /* Supporting Files */,
 				ACD4C76F165715460025F3F5 /* Librerie esterne */,
@@ -388,6 +415,9 @@
 				AC2629B4165D334200510092 /* phone.png in Resources */,
 				AC2629B5165D334200510092 /* phone@2x.png in Resources */,
 				AC93CE93165DA6F400ABA3C2 /* PDFviewerController.xib in Resources */,
+				AC31D7AA165ECF5A00CCC001 /* TextFieldCell.xib in Resources */,
+				AC31D7B6165EF1A100CCC001 /* FormViewController.xib in Resources */,
+				ACD24B97165F80AA00C97CD2 /* TextAreaCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,6 +449,8 @@
 				AC2629C0165D52BD00510092 /* Common.m in Sources */,
 				AC2629C3165D537100510092 /* CustomCellBackground.m in Sources */,
 				AC2629CA165D561D00510092 /* CustomHeader.m in Sources */,
+				AC31D7A8165ECEBB00CCC001 /* FormViewController.m in Sources */,
+				AC31D7AD165EDDAC00CCC001 /* TextFieldCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
