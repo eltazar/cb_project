@@ -81,11 +81,19 @@
     //array di dati per la sezione 0
     NSMutableArray *info = [[NSMutableArray alloc] init];
     
-    if(self.descrizione != nil)
-        [info addObject:self.descrizione];
-    if(self.tel != nil)
-        [info addObject:self.tel];
-
+    if(self.descrizione != nil){
+        [info insertObject:[[NSDictionary alloc] initWithObjectsAndKeys:
+                            @"description",    @"DataKey",
+                            self.descrizione,   @"label",
+                            nil] atIndex: 0];
+    }
+    
+    if(self.tel != nil){
+        [info insertObject:[[NSDictionary alloc] initWithObjectsAndKeys:
+                            @"phone",    @"DataKey",
+                            self.tel,   @"label",
+                            nil] atIndex: 1];
+    }
     
     [data insertObject:info atIndex:0];
     

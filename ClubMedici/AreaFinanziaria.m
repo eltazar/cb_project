@@ -80,15 +80,33 @@
     
     //array di dati per la sezione 0
     NSMutableArray *info = [[NSMutableArray alloc] init];
-   
-    if(self.descrizione != nil)
-        [info addObject:self.descrizione];
-    if(self.tel != nil)
-       [info addObject:self.tel];
-    if(self.emailMutuo != nil)
-       [info addObject:self.emailMutuo];
-    if(self.emailPrestito != nil)
-        [info addObject:self.emailPrestito];
+    
+    if(self.descrizione != nil){
+        [info insertObject:[[NSDictionary alloc] initWithObjectsAndKeys:
+                            @"description",    @"DataKey",
+                            self.descrizione,   @"label",
+                            nil] atIndex: 0];
+    }
+    
+    if(self.tel != nil){
+        [info insertObject:[[NSDictionary alloc] initWithObjectsAndKeys:
+                            @"phone",    @"DataKey",
+                            self.tel,   @"label",
+                            nil] atIndex: 1];
+    }
+    if(self.emailMutuo != nil){
+        [info insertObject:[[NSDictionary alloc] initWithObjectsAndKeys:
+                            @"email",    @"DataKey",
+                            self.emailMutuo,   @"label",
+                            nil] atIndex: 2];
+    }
+    
+    if(self.emailPrestito != nil){
+        [info insertObject:[[NSDictionary alloc] initWithObjectsAndKeys:
+                            @"email",    @"DataKey",
+                            self.emailPrestito,   @"label",
+                            nil] atIndex: 3];
+    }
     
     [data insertObject:info atIndex:0];
     
