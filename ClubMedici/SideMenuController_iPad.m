@@ -46,7 +46,7 @@
 
 #pragma mark - Table view delegate
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+/*- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
     NSArray *sec = [self.sectionData objectAtIndex:indexPath.section];
@@ -61,11 +61,11 @@
     
     /*NOTA:
      per ora instanzio il base controller in maniera specifica. andando avanti dovrò  fare una cosa simile a prima ricavandomi il nome della classe dalla stringa datakey, aggiungerci "Controller" e quindi instanziare un controller dinamicamente in base al datakey.. es: id theController = [theClassController alloc] init:.......];
-     */
+     *//*
     //creo controller per l'area desiderata passandogli l'oggetto della logica di business
     AreaBaseController_iPad *areaController = [[AreaBaseController_iPad alloc] initWithArea:[[theClass alloc]init] ];
     [appDelegate.detailViewNavController popToRootViewControllerAnimated:NO];
     [appDelegate.detailViewNavController pushViewController:areaController animated:YES];
     
-}
+}*/
 @end

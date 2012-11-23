@@ -8,6 +8,6 @@
 
 #import "AreaBaseController.h"
 
-@interface AreaController_iPhone : AreaBaseController
+@interface AreaBaseController_iPhone : AreaBaseController
 
 @end
