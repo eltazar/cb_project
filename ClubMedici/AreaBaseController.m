@@ -118,6 +118,7 @@
             break;
         case 2:
             label.text = [[data objectAtIndex:indexPath.row] objectForKey:@"label"];
+            [img setImage:nil];
             
             break;
         default:
