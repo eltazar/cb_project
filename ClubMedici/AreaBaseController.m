@@ -85,6 +85,11 @@
         
     NSArray *arrayData = [dataModel objectForKey:@"data"];
     NSArray *data = [arrayData objectAtIndex:indexPath.section];
+    NSString *dataKey = [[data objectAtIndex:indexPath.row] objectForKey:@"DataKey"];
+    
+//    if([[data objectAtIndex:indexPath.row] respondsToSelector:@selector(objectForKey:)]){
+//        dataKey = [[data objectAtIndex:indexPath.row] objectForKey:@"DataKey"];
+//    }
     
     cell = [tableView dequeueReusableCellWithIdentifier:@"ActionCell"];
     if (!cell) {
@@ -92,32 +97,18 @@
     }
     UILabel *label   = (UILabel *)[cell viewWithTag:1];
     UIImageView *img        = (UIImageView *)[cell viewWithTag:2];
-                    
-    switch (indexPath.section) {
-        case 0:
-            label.text = [data objectAtIndex:indexPath.row];
-            //TODO aggiungere icona telefono e mail
-            [img setImage:[UIImage imageNamed:@"phone"]];
-            break;
-        case 1:
-            //prendo l'array di dati per la sezione 1
-            //prendo l'iesimo dizionario
-            //ottengo l'array di kiavi, che in questo caso x ogni dizionario è 1 sola, e scelgo la prima chiave = titolo del pdf
-            label.text = [[data objectAtIndex:indexPath.row] objectForKey:@"label"];
-            //TODO: aggiungere immagine PDF
-            [img setImage:[UIImage imageNamed:@"pdfImage"]];
-            break;
-        case 2:
-            label.text = [[data objectAtIndex:indexPath.row] objectForKey:@"label"];
-            [img setImage:nil];
-            
-            break;
-        default:
-            break;
+    
+    label.text = [[data objectAtIndex:indexPath.row] objectForKey:@"label"];
+    
+    if([dataKey isEqualToString:@"pdf"]){
+        [img setImage:[UIImage imageNamed:@"pdfImage"]];  
     }
-    
-    
-
+    else if([dataKey isEqualToString:@"phone"]){
+        [img setImage:[UIImage imageNamed:@"phone"]];
+    }
+    else{
+        [img setImage:nil];
+    }
     
     cell.backgroundView = [[CustomCellBackground alloc] init];
     //cell.selectedBackgroundView = [[CustomCellBackground alloc] init];
@@ -173,22 +164,10 @@
 {
     NSArray *arrayData = [dataModel objectForKey:@"data"];
     NSArray *data = [arrayData objectAtIndex:indexPath.section];
-    NSString *dataKey = nil;;
+    NSString *dataKey = [[data objectAtIndex:indexPath.row] objectForKey:@"DataKey"];
     
-    if([[data objectAtIndex:indexPath.row] respondsToSelector:@selector(objectForKey:)]){
-        dataKey = [[data objectAtIndex:indexPath.row] objectForKey:@"DataKey"];
-    }
     
-    //section 1 sono pdf
-    if(indexPath.section == 1){
-        
-
-        PDFviewerController *pdfViewer = [[PDFviewerController alloc]initWithTitle:[[data objectAtIndex:indexPath.row] objectForKey:@"label"] url:nil];
-        //[self.navigationController pushViewController:pdfViewer animated:YES];
-        
-        [self.navigationController presentViewController:pdfViewer animated:YES completion:nil];
-    }
-    else if(indexPath.section == 2){
+    if(indexPath.section == 2){
         
         if([dataKey isEqualToString:@"cure"]){
             //FormViewController *formController = [[FormViewController alloc] initWithNibName:@"FormViewController" bundle:nil];
@@ -204,7 +183,19 @@
             [self.navigationController presentModalViewController:[[UINavigationController alloc] initWithRootViewController:formController]  animated:YES];
         }
     }
+    else{
         
+        if([dataKey isEqualToString:@"phone"]){
+            
+        }
+        else if([dataKey isEqualToString:@"pdf"]){
+            PDFviewerController *pdfViewer = [[PDFviewerController alloc]initWithTitle:[[data objectAtIndex:indexPath.row] objectForKey:@"label"] url:nil];
+            //[self.navigationController pushViewController:pdfViewer animated:YES];
+            
+            [self.navigationController presentViewController:pdfViewer animated:YES completion:nil];
+        }
+            
+    }
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
