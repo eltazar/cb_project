@@ -12,4 +12,7 @@
 
 - (NSInteger)getHeight;
 
+@property (nonatomic, assign) CGFloat collapsedHeight;
+@property (nonatomic) NSString *text;
+
 @end

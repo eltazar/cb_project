@@ -9,7 +9,6 @@
 #import "AreaDescriptionCell.h"
 #import "QuartzCore/QuartzCore.h"
 
-#define DEFAULT_HEIGHT 131
 
 @interface AreaDescriptionCell() {
     UILabel *_label;
@@ -17,11 +16,14 @@
     BOOL _isExpanded;
     CAGradientLayer *_alphaMask;
     UIView *_expandIndicator;
+    CGFloat _collapsedHeight;
 }
 @end
 
 
 @implementation AreaDescriptionCell
+
+@synthesize collapsedHeight = _collapsedHeight;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -37,6 +39,10 @@
 
 - (void)initialize {
     _isExpanded = FALSE;
+    _collapsedHeight = 60.0f;
+    _label_full = [[UILabel alloc] init];
+    
+    self.clipsToBounds = YES;
     
     UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap)];
     [self addGestureRecognizer:tapGestureRecognizer];
@@ -44,6 +50,8 @@
     [self setUpLabel];
     [self addExpandIndicator];
     [self buildAlphaMask];
+    
+    [self addSubview: _label_full];
     _label.layer.mask = _alphaMask;
 }
 
@@ -53,7 +61,29 @@
     // Configure the view for the selected state
 }
 
+
+# pragma mark - Property Methods
+
+
+- (void)setCollapsedHeight:(CGFloat)collapsedHeight {
+    _collapsedHeight = collapsedHeight;
+    [self buildAlphaMask];
+    _label.layer.mask = _alphaMask;
+}
+
+- (NSString *)text {
+    return _label.text;
+}
+
+- (void)setText:(NSString *)text {
+    _label.text = text;
+    [self setUpLabel];
+    NSLog(@"setText!");
+}
+
+
 # pragma mark - Public Methods
+
 
 - (NSInteger)getHeight {
     CGFloat height;
@@ -62,7 +92,7 @@
         height = frame.size.height + 2 * frame.origin.y; // La y fa da padding.
     }
     else {
-        height = DEFAULT_HEIGHT;
+        height = _collapsedHeight;
     }
     return height;
 }
@@ -108,15 +138,14 @@
     oldLblFrame.size.height = _label.frame.size.height;
     _label.frame = oldLblFrame;
     
-    _label_full = [[UILabel alloc] initWithFrame:_label.frame];
+    _label_full.frame = _label.frame;
     _label_full.text = _label.text;
     _label_full.font = _label.font;
     _label_full.numberOfLines = _label.numberOfLines;
     _label_full.baselineAdjustment = _label.baselineAdjustment;
     _label_full.backgroundColor = _label.backgroundColor;
     _label_full.opaque = _label.opaque;
-    _label_full.alpha = 0;
-    [self addSubview: _label_full];
+    _label_full.alpha = _isExpanded ? 1 : 0;
 }
 
 - (void)addExpandIndicator {
@@ -167,9 +196,9 @@
     _alphaMask.locations = [NSArray arrayWithObjects:
                            [NSNumber numberWithFloat:0.0],
                            [NSNumber numberWithFloat:0.6],
-                           [NSNumber numberWithFloat:(self.frame.size.height-2*_label.frame.origin.y)/self.frame.size.height], nil];
+                           [NSNumber numberWithFloat:(_collapsedHeight-2*_label.frame.origin.y)/_collapsedHeight], nil];
     _alphaMask.bounds = CGRectMake(0, 0,
-                                  _label.frame.size.width, self.frame.size.height);
+                                  _label.frame.size.width, _collapsedHeight);
     _alphaMask.anchorPoint = CGPointZero;
     
     CGColorRelease(topColor);
