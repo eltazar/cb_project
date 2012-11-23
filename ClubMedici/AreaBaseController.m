@@ -14,7 +14,7 @@
 #import "PDFviewerController.h"
 #import "CustomCellBackground.h"
 #import "CustomHeader.h"
-#import "FormViewController.h"
+#import "RichiestaNoleggioController.h"
 
 @interface AreaBaseController () {
     AreaDescriptionCell *_areaDescriptionCell;
@@ -48,6 +48,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+  
+    self.title = [self.area titolo];
+    
     _areaDescriptionCell = [[[NSBundle mainBundle] loadNibNamed:@"AreaDescriptionCell"
                                                           owner:nil
                                                         options:nil] objectAtIndex:0];
@@ -56,9 +59,11 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+  
     
+    //ottengo il dataModel per l'oggeto area
     dataModel = [self.area getDataModel];
-    self.title = [self.area titolo];
+    
     
     [self setupBackgroundView];
     
@@ -197,17 +202,13 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    NSArray *arrayData = [dataModel objectForKey:@"data"];
+    NSArray *data = [arrayData objectAtIndex:indexPath.section];
+    NSString *dataKey = [[data objectAtIndex:indexPath.row] objectForKey:@"DataKey"];
     
+    //section 1 sono pdf
     if(indexPath.section == 1){
-        NSArray *arrayData = [dataModel objectForKey:@"data"];
-        NSArray *data = [arrayData objectAtIndex:indexPath.section];
+        
 
         PDFviewerController *pdfViewer = [[PDFviewerController alloc]initWithTitle:[[data objectAtIndex:indexPath.row] objectForKey:@"label"] url:nil];
         //[self.navigationController pushViewController:pdfViewer animated:YES];
@@ -215,11 +216,22 @@
         [self.navigationController presentViewController:pdfViewer animated:YES completion:nil];
     }
     else if(indexPath.section == 2){
-        FormViewController *formController = [[FormViewController alloc] initWithNibName:@"FormViewController" bundle:nil];
-        //[self.navigationController pushViewController:formController animated:YES];
-        [self.navigationController presentModalViewController:[[UINavigationController alloc] initWithRootViewController:formController]  animated:YES];
-    
+        
+        if([dataKey isEqualToString:@"cure"]){
+            //FormViewController *formController = [[FormViewController alloc] initWithNibName:@"FormViewController" bundle:nil];
+            //[self.navigationController pushViewController:formController animated:YES];
+            NSLog(@"CELLA CURE MEDICHE ---> devo lanciare calcolatore php");
+            
+        }
+        else{
+            
+            NSLog(@" CELLA NOLEGGIO = %@",dataKey);
+            RichiestaNoleggioController *formController = [[RichiestaNoleggioController alloc] init:dataKey];
+            
+            [self.navigationController presentModalViewController:[[UINavigationController alloc] initWithRootViewController:formController]  animated:YES];
+        }
     }
+        
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
