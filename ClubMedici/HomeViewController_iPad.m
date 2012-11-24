@@ -14,8 +14,7 @@
 
 @implementation HomeViewController_iPad
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
@@ -23,14 +22,12 @@
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
@@ -38,7 +35,6 @@
 # pragma mark - iOS 5 specific
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    
     return YES;
 }
 
@@ -47,8 +43,7 @@
 - (void)splitViewController:(UISplitViewController*)svc
      willHideViewController:(UIViewController *)aViewController
           withBarButtonItem:(UIBarButtonItem*)barButtonItem
-       forPopoverController:(UIPopoverController*)pc
-{
+       forPopoverController:(UIPopoverController*)pc {
     [barButtonItem setTitle:@"Menu"];
     [[self navigationItem] setLeftBarButtonItem:barButtonItem];
    // [self setPopoverController:pc];
@@ -57,8 +52,7 @@
 
 - (void)splitViewController:(UISplitViewController*)svc
      willShowViewController:(UIViewController *)aViewController
-  invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem
-{
+  invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem {
     [[self navigationItem] setLeftBarButtonItem:nil];
     //[self setPopoverController:nil];
 }

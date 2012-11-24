@@ -15,20 +15,18 @@
 
 @implementation HomeViewController
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     
 }
 
 //lasciare vuoto per levare effetto shadow nel  container
-- (void)styleContainer:(UIView *)container animate:(BOOL)animate duration:(NSTimeInterval)duration{
+- (void)styleContainer:(UIView *)container animate:(BOOL)animate duration:(NSTimeInterval)duration {
     
 }
 
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }

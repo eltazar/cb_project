@@ -12,6 +12,4 @@
 
 @interface HomeViewController : JASidePanelController
 
-//@property(nonatomic, strong) LeftSidePanelController *leftPanel;
-
 @end

@@ -12,6 +12,6 @@
 
 @property(nonatomic, strong) NSString *kind;
 
--(id) init:(NSString*) kindRequest;
+-(id) init:(NSString*)kindRequest;
 
 @end

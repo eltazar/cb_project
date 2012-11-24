@@ -101,7 +101,9 @@
     return height;
 }
 
+
 # pragma mark - Private Methods
+
 
 - (void)handleTap {
     /*   Da: WWDC 2010, Mastering Table Views.

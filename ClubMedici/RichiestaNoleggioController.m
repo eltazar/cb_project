@@ -15,8 +15,7 @@
 @implementation RichiestaNoleggioController
 @synthesize kind;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:@"FormViewController" bundle:nil];
     if (self) {
         // Custom initialization
@@ -24,7 +23,7 @@
     return self;
 }
 
-- (id) init:(NSString *)kindRequest{
+- (id)init:(NSString *)kindRequest {
    
     self = [super initWithNibName:@"FormViewController" bundle:nil];
     if(self){
@@ -33,8 +32,8 @@
     return self;
 
 }
-- (void)viewDidLoad
-{
+
+- (void)viewDidLoad {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
@@ -44,7 +43,7 @@
     NSMutableArray *secUserData = [[NSMutableArray alloc] init];
     NSMutableArray *infoData = [[NSMutableArray alloc] init];
     
-   self.title = @"Richiedi  informazioni";
+    self.title = @"Richiedi  informazioni";
     
     
     [infoData insertObject:[[NSDictionary alloc] initWithObjectsAndKeys:
@@ -77,7 +76,7 @@
                                @"",                  @"img",
                                nil] atIndex: 3];
     
-    if([self.kind isEqualToString:@"noleggioAuto"]){
+    if ([self.kind isEqualToString:@"noleggioAuto"]) {
         
         [secUserData insertObject:[[NSDictionary alloc] initWithObjectsAndKeys:
                                    @"iva",              @"DataKey",
@@ -97,7 +96,7 @@
                                    nil] atIndex: 6];
         
     }
-    else{
+    else {
         [secUserData insertObject:[[NSDictionary alloc] initWithObjectsAndKeys:
                                    @"tipo",              @"DataKey",
                                    @"Tipologia elettromedicale",  @"placeholder",
@@ -116,16 +115,16 @@
 
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
+
 #pragma mark - DataSourceDelegate
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     return [super tableView:tableView cellForRowAtIndexPath:indexPath];;
 }
 

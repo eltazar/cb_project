@@ -12,8 +12,7 @@
 @implementation AreaFinanziaria
 @synthesize emailMutuo,emailPrestito;
 
--(id)init{
-    
+- (id)init {
     self = [super init];
     if (self) {
         NSLog(@"AREA FINANZ ALLOCATO");

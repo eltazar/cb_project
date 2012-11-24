@@ -8,8 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FormViewController : UITableViewController <UITextFieldDelegate>
-{
+@interface FormViewController : UITableViewController <UITextFieldDelegate> {
     @protected
     NSArray *sectionData;
     NSArray *sectionDescription;

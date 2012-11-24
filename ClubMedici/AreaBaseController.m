@@ -24,8 +24,7 @@
 @implementation AreaBaseController
 @synthesize area;
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
+- (id)initWithStyle:(UITableViewStyle)style {
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
@@ -34,8 +33,7 @@
 }
 
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
   
     self.title = [self.area titolo];
@@ -47,8 +45,7 @@
     self.tableView.tableFooterView = [[UIView alloc] init];
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
@@ -56,28 +53,24 @@
 # pragma mark - iOS 5 specific
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    
     return YES;
 }
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
     //NSLog(@"NUMERO SEZIONI = %d",[[dataModel objectForKey:@"sections"] count]);
     return [_dataModel numberOfSections];
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     //NSLog(@"NUMERO RIGHE = %d, sezione  = %d",[[[dataModel objectForKey:@"data"] objectAtIndex:section] count], section);
     // Return the number of rows in the section.
     return [_dataModel numberOfRowsInSection:section];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{    
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {    
     UITableViewCell *cell = nil;
     //NSString *cellIdentifier;
     NSString *dataKey = [_dataModel valueForKey:@"DATA_KEY" atIndexPath:indexPath];
@@ -113,8 +106,7 @@
 
 #pragma mark - Table view delegate
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *dataKey = [_dataModel valueForKey:@"DATA_KEY" atIndexPath:indexPath];
     
     if(indexPath.section == 2){
@@ -125,7 +117,7 @@
             NSLog(@"CELLA CURE MEDICHE ---> devo lanciare calcolatore php");
             
         }
-        else{
+        else {
             
             NSLog(@" CELLA NOLEGGIO = %@", dataKey);
             RichiestaNoleggioController *formController = [[RichiestaNoleggioController alloc] init:dataKey];
@@ -133,7 +125,7 @@
         }
     }
     
-    else{
+    else {
         if ([dataKey isEqualToString:@"phone"]) {
             NSLog(@"numero di telefono = %@",
                   [_dataModel valueForKey:@"LABEL" atIndexPath:indexPath]);
@@ -151,8 +143,7 @@
     }
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     //NSLog(@"SEZIONE = %@",[[dataModel objectForKey:@"sections"] objectAtIndex:section]);
     return [_dataModel titleForHeaderInSection:section];
 }
@@ -171,22 +162,21 @@
 
 #pragma mark - Private methods
 
--(void) callNumber:(NSString*)number{
-    
+- (void)callNumber:(NSString*)number {
     //fa partire una chiamata
     UIDevice *device = [UIDevice currentDevice];
-    if ([[device model] isEqualToString:@"iPhone"]){
+    if ([[device model] isEqualToString:@"iPhone"]) {
             NSString *phoneNumber = [NSString stringWithFormat:@"%@%@", @"tel://", number];
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumber
                                                         ]];
     }
-    else{
+    else {
         UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"Spiacenti" message:@"Questa funzione non è disponibile su questo dispositivo" delegate:nil cancelButtonTitle:@"Chiudi" otherButtonTitles:nil];
         [alert show];
     }
 }
 
--(void) sendEmail:(NSString*)address{
+- (void)sendEmail:(NSString*)address {
     MFMailComposeViewController *mail = [[MFMailComposeViewController alloc] init];
     mail.mailComposeDelegate = self;
     
@@ -198,9 +188,11 @@
     }
 }
 
+
 #pragma mark - MFMailComposeViewControllerDelegate
 
-- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error{
+
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
         
     [self dismissModalViewControllerAnimated:YES];
     
@@ -208,7 +200,6 @@
 		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Messaggio non inviato!" message:@"Non è stato possibile inviare la tua e-mail" delegate:self cancelButtonTitle:@"Chiudi" otherButtonTitles:nil];
 		[alert show];
 	}
-    
 }
 
 

@@ -9,6 +9,7 @@
 #import "UIViewController+InterfaceIdiom.h"
 
 @implementation UIViewController (InterfaceIdiom)
+
 + (id)idiomAllocInit {
     NSString *idiom;
     idiom = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)? @"_iPhone" : @"_iPad";
@@ -19,4 +20,5 @@
         NSLog(@"uh-oh");
     return viewController;
 }
+
 @end

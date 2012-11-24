@@ -12,18 +12,16 @@
 
 @synthesize titolo, descrizione, img,tel, pdfList;
 
--(id)init{
-
+- (id)init {
     self = [super init];
     if (self) {
         NSLog(@"AREA BASE ALLOCATO");
         // dati dummy
-        
     }
     return self;  
 }
 
--(NSMutableDictionary *) getDataModel{
+- (NSMutableDictionary *)getDataModel{
     return nil;
 }
 
