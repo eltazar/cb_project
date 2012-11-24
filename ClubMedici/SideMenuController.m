@@ -12,24 +12,25 @@
 #import "UIViewController+InterfaceIdiom.h"
 #import "JASidePanelController.h"
 #import "RichiestaIscrizioneController.h"
+#import "WMTableViewDataModel.h"
 
-@interface SideMenuController()
+@interface SideMenuController() {
+    WMTableViewDataModel *_dataModel;
+}
 
 @end
 
 @implementation SideMenuController
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
+- (id)initWithStyle:(UITableViewStyle)style {
     self = [super initWithStyle:style];
     if (self) {
-        // Custom initialization
+        _dataModel = [[WMTableViewDataModel alloc] initWithPList:@"SideMenu"];
     }
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
 
     //TODO: da sistemare la sua posizione nella navBar
@@ -41,169 +42,65 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    //creo le sezioni
-    NSMutableArray *secFinArea = [[NSMutableArray alloc] init];
-    NSMutableArray *secAssicArea = [[NSMutableArray alloc] init];
-    NSMutableArray *secTravelArea = [[NSMutableArray alloc] init];
-    NSMutableArray *secAltro = [[NSMutableArray alloc] init];
-    
-    
-    [secFinArea insertObject:[[NSDictionary alloc] initWithObjectsAndKeys:
-                         @"AreaFinanziaria",              @"DataKey",
-                         @"Area finanziaria",  @"label",
-                         @"",                  @"img",
-                         [NSString stringWithFormat:@"%d", UITableViewCellStyleDefault], @"style",
-                         nil] atIndex: 0];
-    
-    [secFinArea insertObject:[[NSDictionary alloc] initWithObjectsAndKeys:
-                         @"AreaCureMediche",             @"DataKey",
-                         @"Cure mediche rateali",      @"label",
-                         @"",         @"img",
-                         [NSString stringWithFormat:@"%d", UITableViewCellStyleDefault], @"style",
-                         nil] atIndex: 1];
-    
-    [secFinArea insertObject:[[NSDictionary alloc] initWithObjectsAndKeys:
-                         @"AreaLeasing",            @"DataKey",
-                         @"Leasing e noleggio",       @"label",
-                         @"",         @"img",
-                         [NSString stringWithFormat:@"%d", UITableViewCellStyleDefault], @"style",
-                         nil]  atIndex: 2];
-    
-    [secAssicArea insertObject:[[NSDictionary alloc] initWithObjectsAndKeys:
-                         @"AreaAssicurativa",             @"DataKey",
-                         @"Area assicurativa",   @"label",
-                         @"",                 @"img",
-                         [NSString stringWithFormat:@"%d", UITableViewCellStyleDefault], @"style",
-                         nil] atIndex: 0];
-    [secTravelArea insertObject:[[NSDictionary alloc] initWithObjectsAndKeys:
-                                @"AreaViaggi",             @"DataKey",
-                                @"Viaggi e turismo",   @"label",
-                                @"",                 @"img",
-                                [NSString stringWithFormat:@"%d", UITableViewCellStyleDefault], @"style",
-                                nil] atIndex: 0];
-    [secAltro insertObject:[[NSDictionary alloc] initWithObjectsAndKeys:
-                                 @"member",             @"DataKey",
-                                 @"Diventa socio",   @"label",
-                                 @"",                 @"img",
-                                 [NSString stringWithFormat:@"%d", UITableViewCellStyleDefault], @"style",
-                                 nil] atIndex: 0];
-    
-    self.sectionData = [[NSArray alloc] initWithObjects:secFinArea, secAssicArea,secTravelArea, secAltro, nil];
-    self.sectionDescription = [[NSArray alloc] initWithObjects:@"Area finanziaria",@"Area assicurativa",@"Area viaggi e turismo",@" ",nil];
-    
     //rimuove celle extra
     self.tableView.tableFooterView = [[UIView alloc] init];
     
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
-    return self.sectionDescription.count;
+    return [_dataModel numberOfSections];
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return [[self.sectionData objectAtIndex:section] count];
+    return [_dataModel numberOfRowsInSection:section];;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    NSArray *sec = [self.sectionData objectAtIndex:indexPath.section];
-    NSDictionary *rowDesc = [sec objectAtIndex:indexPath.row];
-    //NSString *dataKey = [rowDesc objectForKey:@"DataKey"];
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
-    
-    // Configure the cell...
-    
-    cell.textLabel.text = [rowDesc objectForKey:@"label"];
+        
+    cell.textLabel.text = [_dataModel valueForKey:@"LABEL" atIndexPath:indexPath];
     
     return cell;
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
-    return [self.sectionDescription objectAtIndex:section];
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    return [_dataModel titleForHeaderInSection:section];
 }
 
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 #pragma mark - Table view delegate
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    NSArray *sec = [self.sectionData objectAtIndex:indexPath.section];
-    NSDictionary *rowDesc = [sec objectAtIndex:indexPath.row];
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSString *dataKey    = [_dataModel valueForKey:@"DATA_KEY"   atIndexPath:indexPath];
+    NSString *controller = [_dataModel valueForKey:@"CONTROLLER" atIndexPath:indexPath];
     
-    if([[rowDesc objectForKey:@"DataKey"] isEqualToString:@"member"]){
+    if([dataKey isEqualToString:@"member"]){
         RichiestaIscrizioneController *richiestaController = [[RichiestaIscrizioneController alloc] initWithNibName:@"FormViewController" bundle:nil];
         [appDelegate.detailViewNavController popToRootViewControllerAnimated:NO];
         [appDelegate.detailViewNavController pushViewController:richiestaController animated:YES];
     }
     else{
         //Ottengo la classe dell'oggetto della business logic da instanziare
-        NSString *classNameStr = [rowDesc objectForKey:@"DataKey"];
-        Class areaClass = NSClassFromString(classNameStr);
+        Class areaClass = NSClassFromString(dataKey);
+        Class controllerClass = NSClassFromString(controller);
         
-        /*NOTA:
-         per ora instanzio il base controller in maniera specifica. andando avanti dovrò  fare una cosa simile a prima ricavandomi il nome della classe dalla stringa datakey, aggiungerci "Controller" e quindi instanziare un controller dinamicamente in base al datakey.. es: id theController = [theClassController alloc] init:.......];
-         */
-            //creo controller per l'area desiderata passandogli l'oggetto della logica di business
-        AreaBaseController *areaController = [AreaBaseController idiomAllocInit];
-        areaController.area = [[areaClass alloc]init];
+        AreaBaseController *areaController = [controllerClass idiomAllocInit];
+        areaController.area = [[areaClass alloc] init];
         [appDelegate.detailViewNavController popToRootViewControllerAnimated:NO];
         [appDelegate.detailViewNavController pushViewController:areaController animated:YES];
     }

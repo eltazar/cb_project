@@ -11,7 +11,4 @@
 
 @interface SideMenuController : UITableViewController
 
-
-@property(nonatomic, strong) NSArray *sectionData;
-@property(nonatomic, strong) NSArray *sectionDescription;
 @end

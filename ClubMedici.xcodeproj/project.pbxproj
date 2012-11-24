@@ -60,6 +60,8 @@
 		ACEBDC7F16570CBF00CEFFE5 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACEBDC7E16570CBE00CEFFE5 /* HomeViewController.m */; };
 		ACEBDC8216570CBF00CEFFE5 /* HomeViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACEBDC8016570CBF00CEFFE5 /* HomeViewController_iPhone.xib */; };
 		ACEBDC8516570CBF00CEFFE5 /* HomeViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACEBDC8316570CBF00CEFFE5 /* HomeViewController_iPad.xib */; };
+		D90EA9BB16611E0D00D29490 /* SideMenu.plist in Resources */ = {isa = PBXBuildFile; fileRef = D90EA9BA16611E0D00D29490 /* SideMenu.plist */; };
+		D90EA9BF1661217100D29490 /* WMTableViewDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D90EA9BE1661217100D29490 /* WMTableViewDataModel.m */; };
 		D9B04DD9165C63A9005EF35B /* AreaDescriptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D9B04DD8165C63A9005EF35B /* AreaDescriptionCell.m */; };
 		D9C6C518165FDBC400247448 /* UIViewController+InterfaceIdiom.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C6C517165FDBC400247448 /* UIViewController+InterfaceIdiom.m */; };
 /* End PBXBuildFile section */
@@ -145,6 +147,9 @@
 		ACEBDC7E16570CBE00CEFFE5 /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		ACEBDC8116570CBF00CEFFE5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/HomeViewController_iPhone.xib; sourceTree = "<group>"; };
 		ACEBDC8416570CBF00CEFFE5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/HomeViewController_iPad.xib; sourceTree = "<group>"; };
+		D90EA9BA16611E0D00D29490 /* SideMenu.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SideMenu.plist; sourceTree = "<group>"; };
+		D90EA9BD1661217100D29490 /* WMTableViewDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMTableViewDataModel.h; sourceTree = "<group>"; };
+		D90EA9BE1661217100D29490 /* WMTableViewDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMTableViewDataModel.m; sourceTree = "<group>"; };
 		D9B04DD7165C63A9005EF35B /* AreaDescriptionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AreaDescriptionCell.h; path = ClubMedici/AreaDescriptionCell.h; sourceTree = "<group>"; };
 		D9B04DD8165C63A9005EF35B /* AreaDescriptionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AreaDescriptionCell.m; path = ClubMedici/AreaDescriptionCell.m; sourceTree = "<group>"; };
 		D9C6C516165FDBC400247448 /* UIViewController+InterfaceIdiom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+InterfaceIdiom.h"; sourceTree = "<group>"; };
@@ -304,6 +309,8 @@
 				ACE03DCC16593B71009B6B0D /* UIViewController+JASidePanel.m */,
 				ACD4C7711657158D0025F3F5 /* JASidePanelController.h */,
 				ACD4C7721657158D0025F3F5 /* JASidePanelController.m */,
+				D90EA9BD1661217100D29490 /* WMTableViewDataModel.h */,
+				D90EA9BE1661217100D29490 /* WMTableViewDataModel.m */,
 			);
 			name = "Librerie esterne";
 			path = ClubMedici;
@@ -360,6 +367,7 @@
 				ACBE63A9165A861900F64CDA /* SideMenuController_iPhone */,
 				D9C6C516165FDBC400247448 /* UIViewController+InterfaceIdiom.h */,
 				D9C6C517165FDBC400247448 /* UIViewController+InterfaceIdiom.m */,
+				D90EA9BA16611E0D00D29490 /* SideMenu.plist */,
 			);
 			path = ClubMedici;
 			sourceTree = "<group>";
@@ -454,6 +462,7 @@
 				ACD24BA3165FB59500C97CD2 /* AreaDescriptionCell_iPad.xib in Resources */,
 				AC23E62B1660049500818769 /* pdfImage.png in Resources */,
 				AC23E62C1660049500818769 /* pdfImage@2x.png in Resources */,
+				D90EA9BB16611E0D00D29490 /* SideMenu.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -491,6 +500,7 @@
 				ACD24B9E165F967E00C97CD2 /* RichiestaIscrizioneController.m in Sources */,
 				ACD24BA1165FB34B00C97CD2 /* AreaBaseController_iPhone.m in Sources */,
 				D9C6C518165FDBC400247448 /* UIViewController+InterfaceIdiom.m in Sources */,
+				D90EA9BF1661217100D29490 /* WMTableViewDataModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

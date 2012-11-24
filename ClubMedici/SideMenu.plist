@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>SECTION_NAME</key>
+		<string>Area Finanziaria</string>
+		<key>SECTION_CONTENTS</key>
+		<array>
+			<dict>
+				<key>DATA_KEY</key>
+				<string>AreaFinanziaria</string>
+				<key>CONTROLLER</key>
+				<string>AreaBaseController</string>
+				<key>LABEL</key>
+				<string>Area Finanziaria</string>
+			</dict>
+			<dict>
+				<key>DATA_KEY</key>
+				<string>AreaCureMediche</string>
+				<key>CONTROLLER</key>
+				<string>AreaBaseController</string>
+				<key>LABEL</key>
+				<string>Cure mediche rateali </string>
+			</dict>
+			<dict>
+				<key>DATA_KEY</key>
+				<string>AreaLeasing</string>
+				<key>CONTROLLER</key>
+				<string>AreaBaseController</string>
+				<key>LABEL</key>
+				<string>Area Leasing e Noleggio</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>SECTION_NAME</key>
+		<string>Area Assicurativa</string>
+		<key>SECTION_CONTENTS</key>
+		<array>
+			<dict>
+				<key>DATA_KEY</key>
+				<string>AreaBase</string>
+				<key>CONTROLLER</key>
+				<string>AreaBaseController</string>
+				<key>LABEL</key>
+				<string>Area Assicurativa</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>SECTION_NAME</key>
+		<string>Area Viaggi e Turismo</string>
+		<key>SECTION_CONTENTS</key>
+		<array>
+			<dict>
+				<key>DATA_KEY</key>
+				<string>AreaViaggi</string>
+				<key>CONTROLLER</key>
+				<string>AreaBaseController</string>
+				<key>LABEL</key>
+				<string>Viaggi e Turismo</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>SECTION_NAME</key>
+		<string> </string>
+		<key>SECTION_CONTENTS</key>
+		<array>
+			<dict>
+				<key>DATA_KEY</key>
+				<string>member</string>
+				<key>CONTROLLER</key>
+				<string>AreaBaseController</string>
+				<key>LABEL</key>
+				<string>Viaggi e Turismo</string>
+			</dict>
+		</array>
+	</dict>
+</array>
+</plist>
