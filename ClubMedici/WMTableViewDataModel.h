@@ -11,6 +11,7 @@
 @interface WMTableViewDataModel : NSObject
 
 - (id) initWithPList:(NSString *)file;
+- (id) initWithArray:(NSArray *)array;
 
 - (NSInteger)numberOfSections;
 - (NSInteger)numberOfRowsInSection:(NSInteger)section;

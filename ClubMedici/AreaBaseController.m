@@ -13,10 +13,10 @@
 #import "CustomCellBackground.h"
 #import "CustomHeader.h"
 #import "RichiestaNoleggioController.h"
+#import "WMTableViewDataModel.h"
 
 @interface AreaBaseController () {
-    
-    NSMutableDictionary *dataModel;
+    WMTableViewDataModel *_dataModel;
 }
 
 @end
@@ -41,7 +41,7 @@
     self.title = [self.area titolo];
     
     //ottengo il dataModel per l'oggeto area
-    dataModel = [self.area getDataModel];
+    _dataModel = [self.area getDataModel];
     
     //rimuove celle extra
     self.tableView.tableFooterView = [[UIView alloc] init];
@@ -66,38 +66,30 @@
 {
     // Return the number of sections.
     //NSLog(@"NUMERO SEZIONI = %d",[[dataModel objectForKey:@"sections"] count]);
-    return [[dataModel objectForKey:@"sections"] count];
+    return [_dataModel numberOfSections];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     //NSLog(@"NUMERO RIGHE = %d, sezione  = %d",[[[dataModel objectForKey:@"data"] objectAtIndex:section] count], section);
     // Return the number of rows in the section.
-    return [[[dataModel objectForKey:@"data"] objectAtIndex:section] count];
+    return [_dataModel numberOfRowsInSection:section];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {    
     UITableViewCell *cell = nil;
     //NSString *cellIdentifier;
-    
-        
-    NSArray *arrayData = [dataModel objectForKey:@"data"];
-    NSArray *data = [arrayData objectAtIndex:indexPath.section];
-    NSString *dataKey = [[data objectAtIndex:indexPath.row] objectForKey:@"DataKey"];
-    
-//    if([[data objectAtIndex:indexPath.row] respondsToSelector:@selector(objectForKey:)]){
-//        dataKey = [[data objectAtIndex:indexPath.row] objectForKey:@"DataKey"];
-//    }
+    NSString *dataKey = [_dataModel valueForKey:@"DATA_KEY" atIndexPath:indexPath];
     
     cell = [tableView dequeueReusableCellWithIdentifier:@"ActionCell"];
     if (!cell) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"ActionCell" owner:self options:NULL] objectAtIndex:0];
     }
-    UILabel *label   = (UILabel *)[cell viewWithTag:1];
-    UIImageView *img        = (UIImageView *)[cell viewWithTag:2];
+    UILabel *label   = (UILabel *)    [cell viewWithTag:1];
+    UIImageView *img = (UIImageView *)[cell viewWithTag:2];
     
-    label.text = [[data objectAtIndex:indexPath.row] objectForKey:@"label"];
+    label.text = [_dataModel valueForKey:@"LABEL" atIndexPath:indexPath];
     
     if([dataKey isEqualToString:@"pdf"]){
         [img setImage:[UIImage imageNamed:@"pdfImage"]];  
@@ -111,60 +103,19 @@
     
     cell.backgroundView = [[CustomCellBackground alloc] init];
     //cell.selectedBackgroundView = [[CustomCellBackground alloc] init];
-    
     // At end of function, right before return cell:
     cell.textLabel.backgroundColor = [UIColor clearColor];
     
     return cell;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSArray *arrayData = [dataModel objectForKey:@"data"];
-    NSArray *data = [arrayData objectAtIndex:indexPath.section];
-    NSString *dataKey = [[data objectAtIndex:indexPath.row] objectForKey:@"DataKey"];
-    
+    NSString *dataKey = [_dataModel valueForKey:@"DATA_KEY" atIndexPath:indexPath];
     
     if(indexPath.section == 2){
         
@@ -176,26 +127,25 @@
         }
         else{
             
-            NSLog(@" CELLA NOLEGGIO = %@",dataKey);
+            NSLog(@" CELLA NOLEGGIO = %@", dataKey);
             RichiestaNoleggioController *formController = [[RichiestaNoleggioController alloc] init:dataKey];
-            
             [self.navigationController presentModalViewController:[[UINavigationController alloc] initWithRootViewController:formController]  animated:YES];
         }
     }
+    
     else{
-        
-        if([dataKey isEqualToString:@"phone"]){
-            NSLog(@"numero di telefono = %@",[[data objectAtIndex:indexPath.row] objectForKey:@"label"]);
-            [self callNumber: [[data objectAtIndex:indexPath.row] objectForKey:@"label"]];
+        if ([dataKey isEqualToString:@"phone"]) {
+            NSLog(@"numero di telefono = %@",
+                  [_dataModel valueForKey:@"LABEL" atIndexPath:indexPath]);
+            [self callNumber: [_dataModel valueForKey:@"LABEL" atIndexPath:indexPath]];
         }
-        else if([dataKey isEqualToString:@"pdf"]){
-            PDFviewerController *pdfViewer = [[PDFviewerController alloc]initWithTitle:[[data objectAtIndex:indexPath.row] objectForKey:@"label"] url:nil];
-            //[self.navigationController pushViewController:pdfViewer animated:YES];
-            
+        else if ([dataKey isEqualToString:@"pdf"]) {
+            NSString *title = [_dataModel valueForKey:@"LABEL" atIndexPath:indexPath];
+            PDFviewerController *pdfViewer = [[PDFviewerController alloc]initWithTitle:title                                                                      url:nil];
             [self.navigationController presentViewController:pdfViewer animated:YES completion:nil];
         }
-        else if([dataKey isEqualToString:@"email"]){
-            [self sendEmail:[[data objectAtIndex:indexPath.row] objectForKey:@"label"]];
+        else if ([dataKey isEqualToString:@"email"]) {
+            [self sendEmail:[_dataModel valueForKey:@"LABEL" atIndexPath:indexPath]];
         }
             
     }
@@ -204,9 +154,8 @@
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     //NSLog(@"SEZIONE = %@",[[dataModel objectForKey:@"sections"] objectAtIndex:section]);
-    return [[dataModel objectForKey:@"sections"] objectAtIndex:section];
+    return [_dataModel titleForHeaderInSection:section];
 }
-
 
 
 - (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {

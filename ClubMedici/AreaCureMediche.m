@@ -7,6 +7,7 @@
 //
 
 #import "AreaCureMediche.h"
+#import "WMTableViewDataModel.h"
 
 @implementation AreaCureMediche
 
@@ -27,19 +28,19 @@
         self.pdfList = [[NSMutableArray alloc] init];
         
         [self.pdfList insertObject:[[NSDictionary alloc] initWithObjectsAndKeys:
-                                   @"pdf",    @"DataKey",
-                                   @"Titolo 1",   @"label",
-                                   @"url/ciao.it",  @"url",
+                                   @"pdf",          @"DATA_KEY",
+                                   @"Titolo 1",     @"LABEL",
+                                   @"url/ciao.it",  @"URL",
                                    nil] atIndex: 0];
         [self.pdfList insertObject:[[NSDictionary alloc] initWithObjectsAndKeys:
-                                   @"pdf",    @"DataKey",
-                                   @"Titolo 2",   @"label",
-                                   @"url/ciao.it",  @"url",
+                                   @"pdf",          @"DATA_KEY",
+                                   @"Titolo 2",     @"LABEL",
+                                   @"url/ciao.it",  @"URL",
                                    nil] atIndex: 1];
         [self.pdfList insertObject:[[NSDictionary alloc] initWithObjectsAndKeys:
-                                   @"pdf",    @"DataKey",
-                                   @"Titolo 3",   @"label",
-                                   @"url/ciao.it",  @"url",
+                                   @"pdf",          @"DATA_KEY",
+                                   @"Titolo 3",     @"LABEL",
+                                   @"url/ciao.it",  @"URL",
                                    nil] atIndex: 2];
         
 //        [self.pdfList addObject:[[NSDictionary alloc] initWithObjectsAndKeys:@"link1",@"Titolo1", nil]];
@@ -49,7 +50,7 @@
     return self;
 }
 
--(NSMutableDictionary *) getDataModel{
+- (WMTableViewDataModel *)getDataModel {
     /*
      STRUTTURA:
      
@@ -67,67 +68,49 @@
      v -> url
      */
     
+    // Data model totale
+    NSMutableArray *dataModel = [[NSMutableArray alloc] initWithCapacity:3];
     
-    //data model totale
-    NSMutableDictionary *dataModel = [[NSMutableDictionary alloc] init];
+    // Dati per la sezione 0
+    NSMutableDictionary *informazioni    = [[NSMutableDictionary alloc] initWithCapacity:2];
+    NSMutableArray *informazioniContents = [[NSMutableArray alloc] initWithCapacity:3];
     
-    //array di dati  per le varie sezioni
-    NSMutableArray *data = [[NSMutableArray alloc] initWithCapacity:3];
+    if(self.descrizione != nil)
+        [informazioniContents addObject:[[NSDictionary alloc] initWithObjectsAndKeys:
+                                         @"description",        @"DATA_KEY",
+                                         self.descrizione,      @"LABEL", nil]];
+    if(self.tel != nil)
+        [informazioniContents addObject:[[NSDictionary alloc] initWithObjectsAndKeys:
+                                         @"phone",              @"DATA_KEY",
+                                         self.tel,              @"LABEL", nil]];
+     if(self.email != nil)
+         [informazioniContents addObject:[[NSDictionary alloc] initWithObjectsAndKeys:
+                                         @"email",              @"DATA_KEY",
+                                         self.email,            @"LABEL", nil]];
+       
+    [informazioni setObject:@"Informazioni"         forKey:@"SECTION_NAME"];
+    [informazioni setObject:informazioniContents    forKey:@"SECTION_CONTENTS"];
+    [dataModel addObject:informazioni];
     
-    //array di titoli sezione
-    [dataModel setObject:[NSArray arrayWithObjects:@"Informazioni",@"Documenti",@"Simulatore rate", nil] forKey:@"sections"];
+    // Dati per la sezione 1
+    NSMutableDictionary *documenti = [[NSMutableDictionary alloc] initWithCapacity:2];
+    [documenti setObject:@"Documenti" forKey:@"SECTION_NAME"];
+    [documenti setObject:self.pdfList forKey:@"SECTION_CONTENTS"];
+    [dataModel addObject:documenti];
     
-    //array di dati per la sezione 0
-    NSMutableArray *info = [[NSMutableArray alloc] init];
- 
-    if(self.descrizione != nil){
-        [info insertObject:[[NSDictionary alloc] initWithObjectsAndKeys:
-                            @"description",    @"DataKey",
-                            self.descrizione,   @"label",
-                            nil] atIndex: 0];
-    }
+    // Dati per la sezione 2
+    NSMutableDictionary *simulatoreRate    = [[NSMutableDictionary alloc] initWithCapacity:2];
+    NSMutableArray *simulatoreRateContents = [[NSMutableArray alloc] initWithCapacity:1];
+        
+    [simulatoreRateContents insertObject:[[NSDictionary alloc] initWithObjectsAndKeys:
+                                 @"cure",           @"DATA_KEY",
+                                 @"Calcola rata",   @"LABEL", nil] atIndex: 0];
     
-    if(self.tel != nil){
-        [info insertObject:[[NSDictionary alloc] initWithObjectsAndKeys:
-                            @"phone",    @"DataKey",
-                            self.tel,   @"label",
-                            nil] atIndex: 1];
-    }
-    if(self.email != nil){
-        [info insertObject:[[NSDictionary alloc] initWithObjectsAndKeys:
-                            @"email",    @"DataKey",
-                            self.email,   @"label",
-                            nil] atIndex: 2];
-    }
+    [simulatoreRate setObject:@"Simulatore Rate"        forKey:@"SECTION_NAME"];
+    [simulatoreRate setObject:simulatoreRateContents    forKey:@"SECTION_CONTENTS"];
+    [dataModel addObject:simulatoreRate];
     
-    
-    [data insertObject:info atIndex:0];
-    
-    //array di dati per la sezione 1
-    [data insertObject:self.pdfList atIndex:1];
-    
-    
-    //array di dati per la sezione 2
-    NSMutableArray *preventivo = [[NSMutableArray alloc] initWithCapacity:3];
-    [preventivo addObject:@"Calcola rata"];
-    
-    
-    NSMutableArray *tipoRichieste = [[NSMutableArray alloc] init];
-    
-    [tipoRichieste insertObject:[[NSDictionary alloc] initWithObjectsAndKeys:
-                                 @"cure",    @"DataKey",
-                                 @"Calcola rata",   @"label",
-                                 nil] atIndex: 0];
-
-    
-    [data insertObject:tipoRichieste atIndex:2];
-    
-    [dataModel setObject:data forKey:@"data"];
-    
-    NSLog(@"DATA MODEL = %@",dataModel);
-    
-    return dataModel;
-
+    return [[WMTableViewDataModel alloc] initWithArray: dataModel];
 }
 
 @end

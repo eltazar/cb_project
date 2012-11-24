@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class WMTableViewDataModel;
+
 @interface AreaBase : NSObject
 
 @property(nonatomic, strong) NSString *titolo;
@@ -17,5 +19,5 @@
 //la sezione viaggi non ha pdf nella view generale.. nella classe specializzata possiamo ignorare sta ivar
 @property(nonatomic, strong) NSMutableArray *pdfList;
 
--(NSMutableDictionary *) getDataModel;
+- (WMTableViewDataModel *)getDataModel;
 @end

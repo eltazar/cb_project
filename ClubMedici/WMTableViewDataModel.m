@@ -39,6 +39,14 @@ NSString *const SECTION_CONTENTS = @"SECTION_CONTENTS";
     return self;
 }
 
+- (id) initWithArray:(NSArray *)array {
+    self = [super init];
+    if (self) {
+        _data = array;
+    }
+    return self;
+}
+
 
 - (NSInteger)numberOfSections {
     return [_data count];

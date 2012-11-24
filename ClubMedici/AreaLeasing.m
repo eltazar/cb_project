@@ -7,11 +7,11 @@
 //
 
 #import "AreaLeasing.h"
+#import "WMTableViewDataModel.h"
 
 @implementation AreaLeasing
 
--(id)init{
-    
+- (id)init {
     self = [super init];
     if (self) {
         
@@ -27,28 +27,26 @@
         //array di dati per la sezione 1
         self.pdfList = [[NSMutableArray alloc] init];
         [self.pdfList insertObject:[[NSDictionary alloc] initWithObjectsAndKeys:
-                                     @"pdf",    @"DataKey",
-                                     @"Titolo 1",   @"label",
-                                     @"url/ciao.it",  @"url",
+                                     @"pdf",            @"DATA_KEY",
+                                     @"Titolo 1",       @"LABEL",
+                                     @"url/ciao.it",    @"URL",
                                      nil] atIndex: 0];
         [self.pdfList insertObject:[[NSDictionary alloc] initWithObjectsAndKeys:
-                                     @"pdf",    @"DataKey",
-                                     @"Titolo 2",   @"label",
-                                     @"url/ciao.it",  @"url",
+                                     @"pdf",            @"DATA_KEY",
+                                     @"Titolo 2",       @"LABEL",
+                                     @"url/ciao.it",    @"URL",
                                      nil] atIndex: 1];
         [self.pdfList insertObject:[[NSDictionary alloc] initWithObjectsAndKeys:
-                                     @"pdf",    @"DataKey",
-                                     @"Titolo 3",   @"label",
-                                     @"url/ciao.it",  @"url",
+                                     @"pdf",            @"DATA_KEY",
+                                     @"Titolo 3",       @"LABEL",
+                                     @"url/ciao.it",    @"URL",
                                      nil] atIndex: 2];
         
     }
     return self;
 }
 
--(NSMutableDictionary *) getDataModel{
-    
-    
+- (WMTableViewDataModel *)getDataModel {
     /*
      STRUTTURA:
      
@@ -69,69 +67,57 @@
      */
     
     
-    //data model totale
-    NSMutableDictionary *dataModel = [[NSMutableDictionary alloc] init];
+    // Data model totale
+    NSMutableArray *dataModel = [[NSMutableArray alloc] initWithCapacity:3];
     
-    //array di dati  per le varie sezioni
-    NSMutableArray *data = [[NSMutableArray alloc] initWithCapacity:3];
+    // Dati per la sezione 0
+    NSMutableDictionary *informazioni    = [[NSMutableDictionary alloc] initWithCapacity:2];
+    NSMutableArray *informazioniContents = [[NSMutableArray alloc] initWithCapacity:4];
     
-    //array di titoli sezione
-    [dataModel setObject:[NSArray arrayWithObjects:@"Informazioni",@"Documenti",@"Richiesta preventivo", nil] forKey:@"sections"];
+
+    if(self.descrizione != nil)
+        [informazioniContents addObject:[[NSDictionary alloc] initWithObjectsAndKeys:
+                                         @"description",         @"DATA_KEY",
+                                         self.descrizione,       @"LABEL", nil]];
+    if(self.tel != nil)
+        [informazioniContents addObject:[[NSDictionary alloc] initWithObjectsAndKeys:
+                                         @"phone",              @"DATA_KEY",
+                                         self.tel,              @"LABEL", nil]];
     
-    //array di dati per la sezione 0
-    NSMutableArray *info = [[NSMutableArray alloc] init];
+    [informazioni setObject:@"Informazioni"         forKey:@"SECTION_NAME"];
+    [informazioni setObject:informazioniContents    forKey:@"SECTION_CONTENTS"];
+    [dataModel addObject:informazioni];
     
-    if(self.descrizione != nil){
-        [info insertObject:[[NSDictionary alloc] initWithObjectsAndKeys:
-                            @"description",    @"DataKey",
-                            self.descrizione,   @"label",
+    // Dati per la sezione 1
+    NSMutableDictionary *documenti = [[NSMutableDictionary alloc] initWithCapacity:2];
+    [documenti setObject:@"Documenti" forKey:@"SECTION_NAME"];
+    [documenti setObject:self.pdfList forKey:@"SECTION_CONTENTS"];
+    [dataModel addObject:documenti];
+    
+        
+    // Dati per la sezione 2
+    NSMutableDictionary *preventivo    = [[NSMutableDictionary alloc] initWithCapacity:2];
+    NSMutableArray *preventivoContents = [[NSMutableArray alloc] initWithCapacity: 3];
+    
+    [preventivoContents insertObject:[[NSDictionary alloc] initWithObjectsAndKeys:
+                            @"noleggioAuto",                @"DATA_KEY",
+                            @"Noleggio auto",               @"LABEL",
                             nil] atIndex: 0];
-    }
-    
-    if(self.tel != nil){
-        [info insertObject:[[NSDictionary alloc] initWithObjectsAndKeys:
-                            @"phone",    @"DataKey",
-                            self.tel,   @"label",
+    [preventivoContents insertObject:[[NSDictionary alloc] initWithObjectsAndKeys:
+                            @"noleggioElettro",             @"DATA_KEY",
+                            @"Noleggio elettromedicale",    @"LABEL",
                             nil] atIndex: 1];
-    }
+    [preventivoContents insertObject:[[NSDictionary alloc] initWithObjectsAndKeys:
+                            @"leasingElettro",              @"DATA_KEY",
+                            @"Leasing elettromedicale",     @"LABEL",
+                            nil] atIndex: 2];
     
-    [data insertObject:info atIndex:0];
-    
-    //array di dati per la sezione 1
-    [data insertObject:self.pdfList atIndex:1];
-    
-    
-    //array di dati per la sezione 2
-    NSMutableArray *preventivo = [[NSMutableArray alloc] initWithCapacity:3];
-    [preventivo addObject:@"Noleggio auto"];
-    [preventivo addObject:@"Noleggio elettromedicale"];
-    [preventivo addObject:@"Leasing elettromedicale"];
-    
-    NSMutableArray *tipoRichieste = [[NSMutableArray alloc] init];
-    
-    [tipoRichieste insertObject:[[NSDictionary alloc] initWithObjectsAndKeys:
-                            @"noleggioAuto",    @"DataKey",
-                            @"Noleggio auto",   @"label",
-                            nil] atIndex: 0];
-    [tipoRichieste insertObject:[[NSDictionary alloc] initWithObjectsAndKeys:
-                                 @"noleggioElettro",    @"DataKey",
-                                 @"Noleggio elettromedicale",   @"label",
-                                 nil] atIndex: 1];
-    
-    [tipoRichieste insertObject:[[NSDictionary alloc] initWithObjectsAndKeys:
-                                 @"leasingElettro",    @"DataKey",
-                                 @"Leasing elettromedicale",   @"label",
-                                 nil] atIndex: 2];
+    [preventivo setObject:@"Richiesta Preventivo"   forKey:@"SECTION_NAME"];
+    [preventivo setObject:preventivoContents        forKey:@"SECTION_CONTENTS"];
+    [dataModel addObject:preventivo];
     
     
-    
-    [data insertObject:tipoRichieste atIndex:2];
-    
-    [dataModel setObject:data forKey:@"data"];
-    
-    NSLog(@"DATA MODEL = %@",dataModel);
-    
-    return dataModel;
+    return [[WMTableViewDataModel alloc] initWithArray: dataModel];
 }
 
 @end
