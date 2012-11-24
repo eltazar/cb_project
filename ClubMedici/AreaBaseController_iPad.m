@@ -8,6 +8,7 @@
 
 #import "AreaBaseController_iPad.h"
 #import "AreaBase.h"
+#import "WMTableViewDataModel.h"
 
 @interface AreaBaseController_iPad ()
 
@@ -36,8 +37,9 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = nil;
     //NSString *cellIdentifier;
+    NSString *dataKey = [_dataModel valueForKey:@"DATA_KEY" atIndexPath:indexPath];
     
-    if (indexPath.section == 0 && indexPath.row == 0) {
+    if ([dataKey isEqualToString:@"description"]) {
         cell = [tableView dequeueReusableCellWithIdentifier:@"DescriptionCellIpad"];
         if (!cell) {
             cell = [[[NSBundle mainBundle] loadNibNamed:@"AreaDescriptionCell_iPad" owner:self options:NULL] objectAtIndex:0];
@@ -47,7 +49,6 @@
         // UIImageView *imgView = (UIImageView*)[cell viewWithTag:1];
         
         label.text = self.area.descrizione;
-        
     }
     else {
         cell = [super tableView:tableView cellForRowAtIndexPath:indexPath];

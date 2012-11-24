@@ -69,8 +69,8 @@
    
     if(self.descrizione != nil) 
         [informazioniContents addObject:[[NSDictionary alloc] initWithObjectsAndKeys:
-                                        @"description",         @"DATA_KEY",
-                                        self.descrizione,       @"LABEL", nil]];
+                                         @"description",         @"DATA_KEY",
+                                         self.descrizione,       @"LABEL", nil]];
     if(self.tel != nil)
         [informazioniContents addObject:[[NSDictionary alloc] initWithObjectsAndKeys:
                                          @"phone",              @"DATA_KEY",

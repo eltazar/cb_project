@@ -11,10 +11,12 @@
 
 #import "UIViewController+InterfaceIdiom.h"
 
-@class AreaBase;
+@class AreaBase, WMTableViewDataModel;
+
 @interface AreaBaseController : UITableViewController <MFMailComposeViewControllerDelegate> {
     @protected
         AreaBase *area;
+        WMTableViewDataModel *_dataModel;
 }
 
 @property(nonatomic, strong) AreaBase *area;

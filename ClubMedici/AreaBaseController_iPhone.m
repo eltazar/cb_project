@@ -13,6 +13,7 @@
 #import "CustomCellBackground.h"
 #import "CustomHeader.h"
 #import "AreaBase.h"
+#import "WMTableViewDataModel.h"
 
 @interface AreaBaseController_iPhone () {
     AreaDescriptionCell *_areaDescriptionCell;
@@ -53,7 +54,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = nil;
     //NSString *cellIdentifier;
-    if (indexPath.section == 0 && indexPath.row == 0) {
+    NSString *dataKey = [_dataModel valueForKey:@"DATA_KEY" atIndexPath:indexPath];
+    if ([dataKey isEqualToString:@"description"]) {
         // _areaDescriptionCell.backgroundView = [[CustomCellBackground alloc] init];
         // _areaDescriptionCell.selectedBackgroundView = [[CustomCellBackground alloc] init];
         _areaDescriptionCell.collapsedHeight = 70;

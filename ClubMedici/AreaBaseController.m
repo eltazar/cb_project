@@ -15,9 +15,7 @@
 #import "RichiestaNoleggioController.h"
 #import "WMTableViewDataModel.h"
 
-@interface AreaBaseController () {
-    WMTableViewDataModel *_dataModel;
-}
+@interface AreaBaseController () {}
 
 @end
 
