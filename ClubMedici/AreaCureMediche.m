@@ -7,7 +7,7 @@
 //
 
 #import "AreaCureMediche.h"
-#import "WMTableViewDataModel.h"
+#import "WMTableViewDataSource.h"
 
 @implementation AreaCureMediche
 
@@ -50,7 +50,7 @@
     return self;
 }
 
-- (WMTableViewDataModel *)getDataModel {
+- (WMTableViewDataSource *)getDataModel {
     /*
      STRUTTURA:
      
@@ -110,7 +110,7 @@
     [simulatoreRate setObject:simulatoreRateContents    forKey:@"SECTION_CONTENTS"];
     [dataModel addObject:simulatoreRate];
     
-    return [[WMTableViewDataModel alloc] initWithArray: dataModel];
+    return [[WMTableViewDataSource alloc] initWithArray: dataModel];
 }
 
 @end

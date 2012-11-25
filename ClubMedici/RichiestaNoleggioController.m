@@ -7,7 +7,7 @@
 //
 
 #import "RichiestaNoleggioController.h"
-#import "WMTableViewDataModel.h"
+#import "WMTableViewDataSource.h"
 
 @interface RichiestaNoleggioController ()
 
@@ -42,11 +42,11 @@
     self.title = @"Richiedi informazioni";
     
     if ([self.kind isEqualToString:@"noleggioAuto"]) {
-        _dataModel = [[WMTableViewDataModel alloc]
+        _dataModel = [[WMTableViewDataSource alloc]
                       initWithPList:@"RichiestaNoleggioAuto"];
     }
     else { // self.kind == noleggioElettro || self.kind == leasingElettro
-        _dataModel = [[WMTableViewDataModel alloc]
+        _dataModel = [[WMTableViewDataSource alloc]
                       initWithPList:@"RichiestaNoleggioElettromedicale"];
     }
 }

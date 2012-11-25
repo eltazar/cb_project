@@ -6,14 +6,14 @@
 //  Copyright (c) 2012 mario greco. All rights reserved.
 //
 
-#import "WMTableViewDataModel.h"
+#import "WMTableViewDataSource.h"
 
-@interface WMTableViewDataModel() {
+@interface WMTableViewDataSource() {
     NSArray *_data;
 }
 @end
 
-@implementation WMTableViewDataModel
+@implementation WMTableViewDataSource
 
 NSString *const SECTION_NAME = @"SECTION_NAME";
 NSString *const SECTION_CONTENTS = @"SECTION_CONTENTS";

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface WMTableViewDataModel : NSObject
+@interface WMTableViewDataSource : NSObject
 
 - (id) initWithPList:(NSString *)file;
 - (id) initWithArray:(NSArray *)array;

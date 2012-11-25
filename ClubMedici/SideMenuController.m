@@ -12,10 +12,10 @@
 #import "UIViewController+InterfaceIdiom.h"
 #import "JASidePanelController.h"
 #import "RichiestaIscrizioneController.h"
-#import "WMTableViewDataModel.h"
+#import "WMTableViewDataSource.h"
 
 @interface SideMenuController() {
-    WMTableViewDataModel *_dataModel;
+    WMTableViewDataSource *_dataModel;
 }
 
 @end
@@ -25,7 +25,7 @@
 - (id)initWithStyle:(UITableViewStyle)style {
     self = [super initWithStyle:style];
     if (self) {
-        _dataModel = [[WMTableViewDataModel alloc] initWithPList:@"SideMenu"];
+        _dataModel = [[WMTableViewDataSource alloc] initWithPList:@"SideMenu"];
     }
     return self;
 }

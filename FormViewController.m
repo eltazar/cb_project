@@ -10,7 +10,7 @@
 
 #import "FormViewController.h"
 #import "TextFieldCell.h"
-#import "WMTableViewDataModel.h"
+#import "WMTableViewDataSource.h"
 
 @interface FormViewController () {
     TextFieldCell *textFieldCell;

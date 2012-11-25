@@ -13,7 +13,7 @@
 #import "CustomCellBackground.h"
 #import "CustomHeader.h"
 #import "RichiestaNoleggioController.h"
-#import "WMTableViewDataModel.h"
+#import "WMTableViewDataSource.h"
 
 @interface AreaBaseController () {}
 

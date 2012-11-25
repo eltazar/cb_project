@@ -7,7 +7,7 @@
 //
 
 #import "RichiestaIscrizioneController.h"
-#import "WMTableViewDataModel.h"
+#import "WMTableViewDataSource.h"
 
 @interface RichiestaIscrizioneController ()
 
@@ -34,7 +34,7 @@
     [super viewDidLoad];    
     self.title = @"Richiesta iscrizione";
     
-    _dataModel = [[WMTableViewDataModel alloc] initWithPList:@"RichiestaIscrizione"];
+    _dataModel = [[WMTableViewDataSource alloc] initWithPList:@"RichiestaIscrizione"];
 }
 
 - (void)didReceiveMemoryWarning {

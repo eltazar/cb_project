@@ -61,7 +61,7 @@
 		ACEBDC8216570CBF00CEFFE5 /* HomeViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACEBDC8016570CBF00CEFFE5 /* HomeViewController_iPhone.xib */; };
 		ACEBDC8516570CBF00CEFFE5 /* HomeViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACEBDC8316570CBF00CEFFE5 /* HomeViewController_iPad.xib */; };
 		D90EA9BB16611E0D00D29490 /* SideMenu.plist in Resources */ = {isa = PBXBuildFile; fileRef = D90EA9BA16611E0D00D29490 /* SideMenu.plist */; };
-		D90EA9BF1661217100D29490 /* WMTableViewDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D90EA9BE1661217100D29490 /* WMTableViewDataModel.m */; };
+		D90EA9BF1661217100D29490 /* WMTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D90EA9BE1661217100D29490 /* WMTableViewDataSource.m */; };
 		D90EA9D21661660300D29490 /* AreaTurismo.m in Sources */ = {isa = PBXBuildFile; fileRef = D90EA9D11661660300D29490 /* AreaTurismo.m */; };
 		D91B3838166237D2001E9384 /* AreaAssicurativa.m in Sources */ = {isa = PBXBuildFile; fileRef = D91B3837166237D2001E9384 /* AreaAssicurativa.m */; };
 		D91B383B16624322001E9384 /* RichiestaNoleggioAuto.plist in Resources */ = {isa = PBXBuildFile; fileRef = D91B383A16624322001E9384 /* RichiestaNoleggioAuto.plist */; };
@@ -153,8 +153,8 @@
 		ACEBDC8116570CBF00CEFFE5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/HomeViewController_iPhone.xib; sourceTree = "<group>"; };
 		ACEBDC8416570CBF00CEFFE5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/HomeViewController_iPad.xib; sourceTree = "<group>"; };
 		D90EA9BA16611E0D00D29490 /* SideMenu.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SideMenu.plist; sourceTree = "<group>"; };
-		D90EA9BD1661217100D29490 /* WMTableViewDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMTableViewDataModel.h; sourceTree = "<group>"; };
-		D90EA9BE1661217100D29490 /* WMTableViewDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMTableViewDataModel.m; sourceTree = "<group>"; };
+		D90EA9BD1661217100D29490 /* WMTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMTableViewDataSource.h; sourceTree = "<group>"; };
+		D90EA9BE1661217100D29490 /* WMTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMTableViewDataSource.m; sourceTree = "<group>"; };
 		D90EA9D01661660300D29490 /* AreaTurismo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreaTurismo.h; sourceTree = "<group>"; };
 		D90EA9D11661660300D29490 /* AreaTurismo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaTurismo.m; sourceTree = "<group>"; };
 		D91B3836166237D2001E9384 /* AreaAssicurativa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreaAssicurativa.h; sourceTree = "<group>"; };
@@ -328,8 +328,8 @@
 				ACE03DCC16593B71009B6B0D /* UIViewController+JASidePanel.m */,
 				ACD4C7711657158D0025F3F5 /* JASidePanelController.h */,
 				ACD4C7721657158D0025F3F5 /* JASidePanelController.m */,
-				D90EA9BD1661217100D29490 /* WMTableViewDataModel.h */,
-				D90EA9BE1661217100D29490 /* WMTableViewDataModel.m */,
+				D90EA9BD1661217100D29490 /* WMTableViewDataSource.h */,
+				D90EA9BE1661217100D29490 /* WMTableViewDataSource.m */,
 			);
 			name = "Librerie esterne";
 			path = ClubMedici;
@@ -522,7 +522,7 @@
 				ACD24B9E165F967E00C97CD2 /* RichiestaIscrizioneController.m in Sources */,
 				ACD24BA1165FB34B00C97CD2 /* AreaBaseController_iPhone.m in Sources */,
 				D9C6C518165FDBC400247448 /* UIViewController+InterfaceIdiom.m in Sources */,
-				D90EA9BF1661217100D29490 /* WMTableViewDataModel.m in Sources */,
+				D90EA9BF1661217100D29490 /* WMTableViewDataSource.m in Sources */,
 				D90EA9D21661660300D29490 /* AreaTurismo.m in Sources */,
 				D91B3838166237D2001E9384 /* AreaAssicurativa.m in Sources */,
 			);

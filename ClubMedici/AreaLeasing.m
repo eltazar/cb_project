@@ -7,7 +7,7 @@
 //
 
 #import "AreaLeasing.h"
-#import "WMTableViewDataModel.h"
+#import "WMTableViewDataSource.h"
 
 @implementation AreaLeasing
 
@@ -46,7 +46,7 @@
     return self;
 }
 
-- (WMTableViewDataModel *)getDataModel {
+- (WMTableViewDataSource *)getDataModel {
     /*
      STRUTTURA:
      
@@ -117,7 +117,7 @@
     [dataModel addObject:preventivo];
     
     
-    return [[WMTableViewDataModel alloc] initWithArray: dataModel];
+    return [[WMTableViewDataSource alloc] initWithArray: dataModel];
 }
 
 @end

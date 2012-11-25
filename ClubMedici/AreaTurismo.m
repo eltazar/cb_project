@@ -7,7 +7,7 @@
 //
 
 #import "AreaTurismo.h"
-#import "WMTableViewDataModel.h"
+#import "WMTableViewDataSource.h"
 
 
 @implementation AreaTurismo
@@ -54,7 +54,7 @@
     return self;
 }
 
-- (WMTableViewDataModel *)getDataModel {
+- (WMTableViewDataSource *)getDataModel {
     // Data model totale
     NSMutableArray *dataModel = [[NSMutableArray alloc] initWithCapacity:3];
     
@@ -86,7 +86,7 @@
     [dataModel addObject:categorie];
     
 
-    return [[WMTableViewDataModel alloc] initWithArray: dataModel];
+    return [[WMTableViewDataSource alloc] initWithArray: dataModel];
 }
 
 @end

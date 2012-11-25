@@ -7,7 +7,7 @@
 //
 
 #import "AreaFinanziaria.h"
-#import "WMTableViewDataModel.h"
+#import "WMTableViewDataSource.h"
 
 @implementation AreaFinanziaria
 @synthesize emailMutuo,emailPrestito;
@@ -48,7 +48,7 @@
     return self;
 }
 
-- (WMTableViewDataModel *)getDataModel{
+- (WMTableViewDataSource *)getDataModel{
     /*
      STRUTTURA:
      
@@ -94,7 +94,7 @@
     [documenti setObject:self.pdfList forKey:@"SECTION_CONTENTS"];
     [dataModel addObject:documenti];
     
-    return [[WMTableViewDataModel alloc] initWithArray: dataModel];
+    return [[WMTableViewDataSource alloc] initWithArray: dataModel];
 }
 
 @end

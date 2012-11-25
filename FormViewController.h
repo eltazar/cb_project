@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@class WMTableViewDataModel;
+@class WMTableViewDataSource;
 
 @interface FormViewController : UITableViewController <UITextFieldDelegate> {
     @protected
-    WMTableViewDataModel *_dataModel;
+    WMTableViewDataSource *_dataModel;
 }
 
 @end

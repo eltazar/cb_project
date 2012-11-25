@@ -8,7 +8,7 @@
 
 #import "AreaBaseController_iPad.h"
 #import "AreaBase.h"
-#import "WMTableViewDataModel.h"
+#import "WMTableViewDataSource.h"
 
 @interface AreaBaseController_iPad ()
 

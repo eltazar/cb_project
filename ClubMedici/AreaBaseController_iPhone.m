@@ -13,7 +13,7 @@
 #import "CustomCellBackground.h"
 #import "CustomHeader.h"
 #import "AreaBase.h"
-#import "WMTableViewDataModel.h"
+#import "WMTableViewDataSource.h"
 
 @interface AreaBaseController_iPhone () {
     AreaDescriptionCell *_areaDescriptionCell;
