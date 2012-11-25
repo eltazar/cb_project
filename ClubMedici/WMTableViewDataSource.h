@@ -8,16 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
-@interface WMTableViewDataSource : NSObject
+@interface WMTableViewDataSource : NSObject<UITableViewDataSource>
+
+@property (nonatomic, weak)   NSObject *cellFactory;
 @property (nonatomic, assign) BOOL showSectionHeaders;
 
 - (id) initWithPList:(NSString *)file;
 - (id) initWithArray:(NSArray *)array;
 
-- (NSInteger)numberOfSections;
-- (NSInteger)numberOfRowsInSection:(NSInteger)section;
-- (NSString *)titleForHeaderInSection:(NSInteger)section;
-- (NSString *)titleForFooterInSection:(NSInteger)section;
 - (NSString *)valueForKey:(NSString *)key atIndexPath:(NSIndexPath *)indexPath;
 
 @end

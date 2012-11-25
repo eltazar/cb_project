@@ -18,14 +18,14 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
-    }
+        _dataModel = [[WMTableViewDataSource alloc] initWithPList:@"RichiestaIscrizione"];    }
     return self;
 }
 
 - (id)init {
     self = [super initWithNibName:@"FormViewController" bundle:nil];
     if(self){
+        _dataModel = [[WMTableViewDataSource alloc] initWithPList:@"RichiestaIscrizione"];
     }
     return self;
 }
@@ -33,8 +33,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];    
     self.title = @"Richiesta iscrizione";
-    
-    _dataModel = [[WMTableViewDataSource alloc] initWithPList:@"RichiestaIscrizione"];
 }
 
 - (void)didReceiveMemoryWarning {

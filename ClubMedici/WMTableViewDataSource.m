@@ -49,16 +49,15 @@ NSString *const SECTION_CONTENTS = @"SECTION_CONTENTS";
 }
 
 
-- (NSInteger)numberOfSections {
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return [_data count];
 }
 
-- (NSInteger)numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [[[_data objectAtIndex:section] objectForKey:SECTION_CONTENTS] count];
 }
 
-
-- (NSString *)titleForHeaderInSection:(NSInteger)section {
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     if (self.showSectionHeaders) {
         return [[_data objectAtIndex:section] objectForKey:SECTION_NAME];
     }
@@ -66,8 +65,15 @@ NSString *const SECTION_CONTENTS = @"SECTION_CONTENTS";
         return nil;
 }
 
-- (NSString *)titleForFooterInSection:(NSInteger)section {
+- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section {
     return @"";
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if ([self.cellFactory respondsToSelector:@selector(tableView:cellForRowAtIndexPath:)])
+        return [(id)self.cellFactory tableView:tableView cellForRowAtIndexPath:indexPath];
+    else
+        return nil;
 }
 
 - (NSString *)valueForKey:(NSString *)key atIndexPath:(NSIndexPath *)indexPath {

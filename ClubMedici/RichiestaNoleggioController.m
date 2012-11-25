@@ -34,13 +34,6 @@
 }
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
-    
-    UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"Annula" style:UIBarButtonItemStylePlain target:self action:@selector(cancelButtonPressed:)];
-    self.navigationItem.leftBarButtonItem = button;
-    
-    self.title = @"Richiedi informazioni";
-    
     if ([self.kind isEqualToString:@"noleggioAuto"]) {
         _dataModel = [[WMTableViewDataSource alloc]
                       initWithPList:@"RichiestaNoleggioAuto"];
@@ -49,7 +42,14 @@
         _dataModel = [[WMTableViewDataSource alloc]
                       initWithPList:@"RichiestaNoleggioElettromedicale"];
     }
-}
+    [super viewDidLoad];
+    
+    UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"Annula" style:UIBarButtonItemStylePlain target:self action:@selector(cancelButtonPressed:)];
+    self.navigationItem.leftBarButtonItem = button;
+    
+    self.title = @"Richiedi informazioni";
+    
+    }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

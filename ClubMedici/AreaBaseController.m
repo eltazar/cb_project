@@ -41,6 +41,9 @@
     
     //rimuove celle extra
     self.tableView.tableFooterView = [[UIView alloc] init];
+    
+    self.tableView.dataSource = _dataModel;
+    _dataModel.cellFactory = self;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -54,19 +57,9 @@
     return YES;
 }
 
+
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    // Return the number of sections.
-    //NSLog(@"NUMERO SEZIONI = %d",[[dataModel objectForKey:@"sections"] count]);
-    return [_dataModel numberOfSections];
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    //NSLog(@"NUMERO RIGHE = %d, sezione  = %d",[[[dataModel objectForKey:@"data"] objectAtIndex:section] count], section);
-    // Return the number of rows in the section.
-    return [_dataModel numberOfRowsInSection:section];
-}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {    
     UITableViewCell *cell = nil;
@@ -101,8 +94,8 @@
 }
 
 
-
 #pragma mark - Table view delegate
+
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *dataKey = [_dataModel valueForKey:@"DATA_KEY" atIndexPath:indexPath];
@@ -141,12 +134,6 @@
     }
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    //NSLog(@"SEZIONE = %@",[[dataModel objectForKey:@"sections"] objectAtIndex:section]);
-    return [_dataModel titleForHeaderInSection:section];
-}
-
-
 - (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     CustomHeader *header = [[CustomHeader alloc] init] ;
     header.titleLabel.text = [self tableView:tableView titleForHeaderInSection:section];
@@ -159,6 +146,7 @@
 
 
 #pragma mark - Private methods
+
 
 - (void)callNumber:(NSString*)number {
     //fa partire una chiamata

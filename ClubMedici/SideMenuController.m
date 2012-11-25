@@ -45,23 +45,17 @@
     //rimuove celle extra
     self.tableView.tableFooterView = [[UIView alloc] init];
     
+    self.tableView.dataSource = _dataModel;
+    _dataModel.cellFactory = self;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
+
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    // Return the number of sections.
-    return [_dataModel numberOfSections];
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // Return the number of rows in the section.
-    return [_dataModel numberOfRowsInSection:section];;
-}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -74,10 +68,6 @@
     cell.textLabel.text = [_dataModel valueForKey:@"LABEL" atIndexPath:indexPath];
     
     return cell;
-}
-
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return [_dataModel titleForHeaderInSection:section];
 }
 
 
