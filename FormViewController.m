@@ -10,6 +10,7 @@
 
 #import "FormViewController.h"
 #import "TextFieldCell.h"
+#import "WMTableViewDataModel.h"
 
 @interface FormViewController () {
     TextFieldCell *textFieldCell;
@@ -19,9 +20,6 @@
 @end
 
 @implementation FormViewController
-
-@synthesize sectionData=sectionData, sectionDescription=sectionDescription;
-
 
 - (id)initWithStyle:(UITableViewStyle)style {
     self = [super initWithStyle:style];
@@ -78,9 +76,7 @@
         [[((TextFieldCell*)[self.tableView cellForRowAtIndexPath:nextIndexPath]) viewWithTag:1] becomeFirstResponder];
     else [textField resignFirstResponder];
     
-    NSLog(@"textFieldShouldReturn row = %d",indexPath
-          .row);
-    
+    NSLog(@"textFieldShouldReturn row = %d",indexPath.row);
     return YES;
 }
 
@@ -94,34 +90,20 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
-    return self.sectionDescription.count;
+    return [_dataModel numberOfSections];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return [[self.sectionData objectAtIndex:section] count];
+    return [_dataModel numberOfRowsInSection:section];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    NSArray *sec = [self.sectionData objectAtIndex:indexPath.section];
-    NSDictionary *rowDesc = [sec objectAtIndex:indexPath.row];
-    
     UITableViewCell *cell = nil;
+    NSString *dataKey = [_dataModel valueForKey:@"DATA_KEY" atIndexPath:indexPath];
     
-    if (indexPath.section == 0) {
-        
-        cell = [tableView dequeueReusableCellWithIdentifier:@"FormCell"];
-        if (!cell) {
-            cell = [[[NSBundle mainBundle] loadNibNamed:@"TextFieldCell" owner:self options:NULL] objectAtIndex:0];
-        }
-
-        UITextField *textField = (UITextField*) [cell viewWithTag:1];
-        textField.delegate = self;
-        textField.placeholder = [rowDesc objectForKey:@"placeholder"];
-    }
-    else if (indexPath.section == 1) {
-       
+    if ([dataKey isEqualToString:@"info"]) {
+        // Sezione 1
         cell = [tableView dequeueReusableCellWithIdentifier:@"TextArea"];
         if (!cell) {
             cell = [[[NSBundle mainBundle] loadNibNamed:@"TextAreaCell" owner:self options:NULL] objectAtIndex:0];
@@ -130,7 +112,20 @@
         CALayer *imageLayer = textView.layer;
         [imageLayer setCornerRadius:6];
         [imageLayer setBorderWidth:1];
-        imageLayer.borderColor=[[UIColor lightGrayColor] CGColor];
+        imageLayer.borderColor = [[UIColor lightGrayColor] CGColor];
+    }
+    else {
+        // Sezione 0
+        NSLog(@"FormCell %@", indexPath);
+        cell = [tableView dequeueReusableCellWithIdentifier:@"FormCell"];
+        if (!cell) {
+            cell = [[[NSBundle mainBundle] loadNibNamed:@"TextFieldCell" owner:self options:NULL] objectAtIndex:0];
+        }
+        
+        UITextField *textField = (UITextField*)[cell viewWithTag:1];
+        textField.delegate = self;
+        textField.placeholder = [_dataModel valueForKey:@"PLACEHOLDER" atIndexPath:indexPath];
+
     }
     return cell;
 }

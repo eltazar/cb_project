@@ -8,13 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@class WMTableViewDataModel;
+
 @interface FormViewController : UITableViewController <UITextFieldDelegate> {
     @protected
-    NSArray *sectionData;
-    NSArray *sectionDescription;
+    WMTableViewDataModel *_dataModel;
 }
-
-@property(nonatomic, strong) NSArray *sectionData;
-@property(nonatomic, strong) NSArray *sectionDescription;
 
 @end

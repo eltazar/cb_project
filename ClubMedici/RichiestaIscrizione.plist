@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>SECTION_NAME</key>
+		<string>I tuoi dati</string>
+		<key>SECTION_CONTENTS</key>
+		<array>
+			<dict>
+				<key>DATA_KEY</key>
+				<string>name</string>
+				<key>IMG</key>
+				<string></string>
+				<key>PLACEHOLDER</key>
+				<string>Nome</string>
+			</dict>
+			<dict>
+				<key>DATA_KEY</key>
+				<string>surname</string>
+				<key>IMG</key>
+				<string></string>
+				<key>PLACEHOLDER</key>
+				<string>Cognome</string>
+			</dict>
+			<dict>
+				<key>DATA_KEY</key>
+				<string>email</string>
+				<key>IMG</key>
+				<string></string>
+				<key>PLACEHOLDER</key>
+				<string>E-mail</string>
+			</dict>
+			<dict>
+				<key>DATA_KEY</key>
+				<string>phone</string>
+				<key>IMG</key>
+				<string></string>
+				<key>PLACEHOLDER</key>
+				<string>Telefono</string>
+			</dict>
+			<dict>
+				<key>DATA_KEY</key>
+				<string>data</string>
+				<key>IMG</key>
+				<string></string>
+				<key>PLACEHOLDER</key>
+				<string>Data di nascita</string>
+			</dict>
+			<dict>
+				<key>DATA_KEY</key>
+				<string>place</string>
+				<key>IMG</key>
+				<string></string>
+				<key>PLACEHOLDER</key>
+				<string>Luogo di nascita</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>SECTION_NAME</key>
+		<string>Informativa</string>
+		<key>SECTION_CONTENTS</key>
+		<array>
+			<dict>
+				<key>DATA_KEY</key>
+				<string>info</string>
+				<key>IMG</key>
+				<string></string>
+				<key>PLACEHOLDER</key>
+				<string></string>
+			</dict>
+		</array>
+	</dict>
+</array>
+</plist>

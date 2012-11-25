@@ -64,6 +64,9 @@
 		D90EA9BF1661217100D29490 /* WMTableViewDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D90EA9BE1661217100D29490 /* WMTableViewDataModel.m */; };
 		D90EA9D21661660300D29490 /* AreaTurismo.m in Sources */ = {isa = PBXBuildFile; fileRef = D90EA9D11661660300D29490 /* AreaTurismo.m */; };
 		D91B3838166237D2001E9384 /* AreaAssicurativa.m in Sources */ = {isa = PBXBuildFile; fileRef = D91B3837166237D2001E9384 /* AreaAssicurativa.m */; };
+		D91B383B16624322001E9384 /* RichiestaNoleggioAuto.plist in Resources */ = {isa = PBXBuildFile; fileRef = D91B383A16624322001E9384 /* RichiestaNoleggioAuto.plist */; };
+		D91B383D166245A2001E9384 /* RichiestaNoleggioElettromedicale.plist in Resources */ = {isa = PBXBuildFile; fileRef = D91B383C166245A1001E9384 /* RichiestaNoleggioElettromedicale.plist */; };
+		D91B383F16624986001E9384 /* RichiestaIscrizione.plist in Resources */ = {isa = PBXBuildFile; fileRef = D91B383E16624986001E9384 /* RichiestaIscrizione.plist */; };
 		D9B04DD9165C63A9005EF35B /* AreaDescriptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D9B04DD8165C63A9005EF35B /* AreaDescriptionCell.m */; };
 		D9C6C518165FDBC400247448 /* UIViewController+InterfaceIdiom.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C6C517165FDBC400247448 /* UIViewController+InterfaceIdiom.m */; };
 /* End PBXBuildFile section */
@@ -156,6 +159,9 @@
 		D90EA9D11661660300D29490 /* AreaTurismo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaTurismo.m; sourceTree = "<group>"; };
 		D91B3836166237D2001E9384 /* AreaAssicurativa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreaAssicurativa.h; sourceTree = "<group>"; };
 		D91B3837166237D2001E9384 /* AreaAssicurativa.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaAssicurativa.m; sourceTree = "<group>"; };
+		D91B383A16624322001E9384 /* RichiestaNoleggioAuto.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = RichiestaNoleggioAuto.plist; path = ClubMedici/RichiestaNoleggioAuto.plist; sourceTree = "<group>"; };
+		D91B383C166245A1001E9384 /* RichiestaNoleggioElettromedicale.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = RichiestaNoleggioElettromedicale.plist; path = ClubMedici/RichiestaNoleggioElettromedicale.plist; sourceTree = "<group>"; };
+		D91B383E16624986001E9384 /* RichiestaIscrizione.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = RichiestaIscrizione.plist; path = ClubMedici/RichiestaIscrizione.plist; sourceTree = "<group>"; };
 		D9B04DD7165C63A9005EF35B /* AreaDescriptionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AreaDescriptionCell.h; path = ClubMedici/AreaDescriptionCell.h; sourceTree = "<group>"; };
 		D9B04DD8165C63A9005EF35B /* AreaDescriptionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AreaDescriptionCell.m; path = ClubMedici/AreaDescriptionCell.m; sourceTree = "<group>"; };
 		D9C6C516165FDBC400247448 /* UIViewController+InterfaceIdiom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+InterfaceIdiom.h"; sourceTree = "<group>"; };
@@ -215,8 +221,11 @@
 				AC31D7B5165EF1A100CCC001 /* FormViewController.xib */,
 				ACD24B99165F945F00C97CD2 /* RichiestaNoleggioController.h */,
 				ACD24B9A165F945F00C97CD2 /* RichiestaNoleggioController.m */,
+				D91B383A16624322001E9384 /* RichiestaNoleggioAuto.plist */,
+				D91B383C166245A1001E9384 /* RichiestaNoleggioElettromedicale.plist */,
 				ACD24B9C165F967E00C97CD2 /* RichiestaIscrizioneController.h */,
 				ACD24B9D165F967E00C97CD2 /* RichiestaIscrizioneController.m */,
+				D91B383E16624986001E9384 /* RichiestaIscrizione.plist */,
 			);
 			name = "Form controllers";
 			sourceTree = "<group>";
@@ -373,11 +382,11 @@
 				ACBE63B9165A87C900F64CDA /* HomeViewController_iPad */,
 				ACE03DD41659462C009B6B0D /* SideMenuController.h */,
 				ACE03DD51659462C009B6B0D /* SideMenuController.m */,
+				D90EA9BA16611E0D00D29490 /* SideMenu.plist */,
 				ACBE63AE165A866000F64CDA /* SideMenuController_iPad */,
 				ACBE63A9165A861900F64CDA /* SideMenuController_iPhone */,
 				D9C6C516165FDBC400247448 /* UIViewController+InterfaceIdiom.h */,
 				D9C6C517165FDBC400247448 /* UIViewController+InterfaceIdiom.m */,
-				D90EA9BA16611E0D00D29490 /* SideMenu.plist */,
 			);
 			path = ClubMedici;
 			sourceTree = "<group>";
@@ -473,6 +482,9 @@
 				AC23E62B1660049500818769 /* pdfImage.png in Resources */,
 				AC23E62C1660049500818769 /* pdfImage@2x.png in Resources */,
 				D90EA9BB16611E0D00D29490 /* SideMenu.plist in Resources */,
+				D91B383B16624322001E9384 /* RichiestaNoleggioAuto.plist in Resources */,
+				D91B383D166245A2001E9384 /* RichiestaNoleggioElettromedicale.plist in Resources */,
+				D91B383F16624986001E9384 /* RichiestaIscrizione.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

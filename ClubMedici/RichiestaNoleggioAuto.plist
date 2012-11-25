@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>SECTION_NAME</key>
+		<string>I tuoi dati</string>
+		<key>SECTION_CONTENTS</key>
+		<array>
+			<dict>
+				<key>DATA_KEY</key>
+				<string>ragSoc</string>
+				<key>IMG</key>
+				<string></string>
+				<key>PLACEHOLDER</key>
+				<string>Ragione sociale</string>
+			</dict>
+			<dict>
+				<key>DATA_KEY</key>
+				<string>cell</string>
+				<key>IMG</key>
+				<string></string>
+				<key>PLACEHOLDER</key>
+				<string>Cellulare</string>
+			</dict>
+			<dict>
+				<key>DATA_KEY</key>
+				<string>email</string>
+				<key>IMG</key>
+				<string></string>
+				<key>PLACEHOLDER</key>
+				<string>E-mail</string>
+			</dict>
+			<dict>
+				<key>DATA_KEY</key>
+				<string>citta</string>
+				<key>IMG</key>
+				<string></string>
+				<key>PLACEHOLDER</key>
+				<string>Città</string>
+			</dict>
+			<dict>
+				<key>DATA_KEY</key>
+				<string>iva</string>
+				<key>IMG</key>
+				<string></string>
+				<key>PLACEHOLDER</key>
+				<string>Partita IVA</string>
+			</dict>
+			<dict>
+				<key>DATA_KEY</key>
+				<string>marca</string>
+				<key>IMG</key>
+				<string></string>
+				<key>PLACEHOLDER</key>
+				<string>Marca dell&apos;auto da quotare</string>
+			</dict>
+			<dict>
+				<key>DATA_KEY</key>
+				<string>modello</string>
+				<key>IMG</key>
+				<string></string>
+				<key>PLACEHOLDER</key>
+				<string>Modello auto</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>SECTION_NAME</key>
+		<string>Informativa</string>
+		<key>SECTION_CONTENTS</key>
+		<array>
+			<dict>
+				<key>DATA_KEY</key>
+				<string>info</string>
+				<key>IMG</key>
+				<string></string>
+				<key>PLACEHOLDER</key>
+				<string></string>
+			</dict>
+		</array>
+	</dict>
+</array>
+</plist>
