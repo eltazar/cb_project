@@ -16,8 +16,12 @@
 @property(nonatomic, strong) NSString *descrizione;
 @property(nonatomic, strong) NSString *img;
 @property(nonatomic, strong) NSString *tel;
-//la sezione viaggi non ha pdf nella view generale.. nella classe specializzata possiamo ignorare sta ivar
-@property(nonatomic, strong) NSMutableArray *pdfList;
+@property(nonatomic, strong) NSString *email1;
+@property(nonatomic, strong) NSString *email2;
+@property(nonatomic, strong) NSArray  *itemList;
 
 - (WMTableViewDataSource *)getDataModel;
+
+- (NSMutableArray *)_getDataModelArray;
+
 @end

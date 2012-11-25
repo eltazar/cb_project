@@ -10,5 +10,4 @@
 
 @interface AreaAssicurativa : AreaBase
 
-@property (nonatomic, strong) NSString *email;
 @end

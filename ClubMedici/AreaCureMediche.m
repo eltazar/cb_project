@@ -21,27 +21,23 @@
         
         self.img =@"xxxxx";
         self.tel = @"06/8607891";
-        self.email = @"prestiti@clubmedici.it";
+        self.email1 = @"prestiti@clubmedici.it";
         
         //SUPPONENDO CHE I LINK PDF LI STRUTTURIAMO COSì DOPO LA QUERY
         //array di dati per la sezione 1
-        self.pdfList = [[NSMutableArray alloc] init];
-        
-        [self.pdfList insertObject:[[NSDictionary alloc] initWithObjectsAndKeys:
+        self.itemList = [[NSArray alloc] initWithObjects:
+                         [[NSDictionary alloc] initWithObjectsAndKeys:
                                    @"pdf",          @"DATA_KEY",
                                    @"Titolo 1",     @"LABEL",
-                                   @"url/ciao.it",  @"URL",
-                                   nil] atIndex: 0];
-        [self.pdfList insertObject:[[NSDictionary alloc] initWithObjectsAndKeys:
+                                   @"url/ciao.it",  @"URL", nil],
+                         [[NSDictionary alloc] initWithObjectsAndKeys:
                                    @"pdf",          @"DATA_KEY",
                                    @"Titolo 2",     @"LABEL",
-                                   @"url/ciao.it",  @"URL",
-                                   nil] atIndex: 1];
-        [self.pdfList insertObject:[[NSDictionary alloc] initWithObjectsAndKeys:
+                                   @"url/ciao.it",  @"URL", nil],
+                         [[NSDictionary alloc] initWithObjectsAndKeys:
                                    @"pdf",          @"DATA_KEY",
                                    @"Titolo 3",     @"LABEL",
-                                   @"url/ciao.it",  @"URL",
-                                   nil] atIndex: 2];
+                                   @"url/ciao.it",  @"URL", nil], nil];
         
         // [self.pdfList addObject:[[NSDictionary alloc] initWithObjectsAndKeys:@"link1",@"Titolo1", nil]];
         // [self.pdfList addObject:[[NSDictionary alloc] initWithObjectsAndKeys:@"link2",@"Titolo2", nil]];
@@ -50,53 +46,8 @@
     return self;
 }
 
-- (WMTableViewDataSource *)getDataModel {
-    /*
-     STRUTTURA:
-     
-     DIZIONARIO DATA MODEL:
-     k -> sections
-     v -> titolo delle sezioni
-     k -> data
-     v -> array di dati per ogni sezione
-     
-     per la chiave DATA: ho array tale che:
-     indice 0 -> sezione 0:
-     elementi sono stringhe come: descrizione, telefono,  mail....
-     indice 1 -> sezione 1:
-     elementi sono dizionari: k -> titolo del link
-     v -> url
-     */
-    
-    // Data model totale
-    NSMutableArray *dataModel = [[NSMutableArray alloc] initWithCapacity:3];
-    
-    // Dati per la sezione 0
-    NSMutableDictionary *informazioni    = [[NSMutableDictionary alloc] initWithCapacity:2];
-    NSMutableArray *informazioniContents = [[NSMutableArray alloc] initWithCapacity:3];
-    
-    if(self.descrizione != nil)
-        [informazioniContents addObject:[[NSDictionary alloc] initWithObjectsAndKeys:
-                                         @"description",        @"DATA_KEY",
-                                         self.descrizione,      @"LABEL", nil]];
-    if(self.tel != nil)
-        [informazioniContents addObject:[[NSDictionary alloc] initWithObjectsAndKeys:
-                                         @"phone",              @"DATA_KEY",
-                                         self.tel,              @"LABEL", nil]];
-     if(self.email != nil)
-         [informazioniContents addObject:[[NSDictionary alloc] initWithObjectsAndKeys:
-                                         @"email",              @"DATA_KEY",
-                                         self.email,            @"LABEL", nil]];
-       
-    [informazioni setObject:@"Informazioni"         forKey:@"SECTION_NAME"];
-    [informazioni setObject:informazioniContents    forKey:@"SECTION_CONTENTS"];
-    [dataModel addObject:informazioni];
-    
-    // Dati per la sezione 1
-    NSMutableDictionary *documenti = [[NSMutableDictionary alloc] initWithCapacity:2];
-    [documenti setObject:@"Documenti" forKey:@"SECTION_NAME"];
-    [documenti setObject:self.pdfList forKey:@"SECTION_CONTENTS"];
-    [dataModel addObject:documenti];
+- (NSMutableArray *)_getDataModelArray {
+    NSMutableArray *dataModel = [super _getDataModelArray];
     
     // Dati per la sezione 2
     NSMutableDictionary *simulatoreRate    = [[NSMutableDictionary alloc] initWithCapacity:2];
@@ -110,7 +61,7 @@
     [simulatoreRate setObject:simulatoreRateContents    forKey:@"SECTION_CONTENTS"];
     [dataModel addObject:simulatoreRate];
     
-    return [[WMTableViewDataSource alloc] initWithArray: dataModel];
+    return dataModel;
 }
 
 @end

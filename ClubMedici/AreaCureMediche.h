@@ -9,5 +9,5 @@
 #import "AreaBase.h"
 
 @interface AreaCureMediche : AreaBase
-@property(nonatomic, retain) NSString *email;
+
 @end

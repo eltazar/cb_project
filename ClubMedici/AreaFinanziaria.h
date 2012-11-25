@@ -10,7 +10,4 @@
 
 @interface AreaFinanziaria : AreaBase
 
-//numero di pdf è dato dummy
-@property(nonatomic, strong) NSString *emailMutuo;
-@property(nonatomic, strong) NSString *emailPrestito;
 @end

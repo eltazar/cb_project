@@ -10,7 +10,4 @@
 
 @interface AreaTurismo : AreaBase
 
-@property (nonatomic, strong) NSArray *itemList;
-@property (nonatomic, strong) NSString *email;
-
 @end
