@@ -30,11 +30,9 @@ NSString *const SECTION_CONTENTS = @"SECTION_CONTENTS";
     self = [super init];
     if (self) {
         _data = [[NSArray alloc] initWithContentsOfFile:file];
-        NSLog(@"SideMenu data is: %@", _data);
         if (!_data) {
             _data = [[NSArray alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:file ofType:@"plist"]];
         }
-        NSLog(@"SideMenu data is: %@", _data);
     }
     return self;
 }
@@ -68,7 +66,6 @@ NSString *const SECTION_CONTENTS = @"SECTION_CONTENTS";
 - (NSString *)valueForKey:(NSString *)key atIndexPath:(NSIndexPath *)indexPath {
     NSArray *section = [[_data objectAtIndex:indexPath.section]
                              objectForKey:SECTION_CONTENTS];
-    NSLog(@"SideMenu section is: %@", section);
     return  [[section objectAtIndex:indexPath.row] objectForKey:key];
 }
 
