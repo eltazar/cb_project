@@ -25,7 +25,6 @@
 		AC2629C0165D52BD00510092 /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2629BF165D52BD00510092 /* Common.m */; };
 		AC2629C3165D537100510092 /* CustomCellBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2629C2165D537100510092 /* CustomCellBackground.m */; };
 		AC2629CA165D561D00510092 /* CustomHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2629C9165D561D00510092 /* CustomHeader.m */; };
-		AC31D7A8165ECEBB00CCC001 /* FormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC31D7A7165ECEBB00CCC001 /* FormViewController.m */; };
 		AC31D7AA165ECF5A00CCC001 /* TextFieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC31D7A9165ECF5A00CCC001 /* TextFieldCell.xib */; };
 		AC31D7AD165EDDAC00CCC001 /* TextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC31D7AC165EDDAC00CCC001 /* TextFieldCell.m */; };
 		AC31D7B6165EF1A100CCC001 /* FormViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC31D7B5165EF1A100CCC001 /* FormViewController.xib */; };
@@ -67,6 +66,7 @@
 		D91B383B16624322001E9384 /* RichiestaNoleggioAuto.plist in Resources */ = {isa = PBXBuildFile; fileRef = D91B383A16624322001E9384 /* RichiestaNoleggioAuto.plist */; };
 		D91B383D166245A2001E9384 /* RichiestaNoleggioElettromedicale.plist in Resources */ = {isa = PBXBuildFile; fileRef = D91B383C166245A1001E9384 /* RichiestaNoleggioElettromedicale.plist */; };
 		D91B383F16624986001E9384 /* RichiestaIscrizione.plist in Resources */ = {isa = PBXBuildFile; fileRef = D91B383E16624986001E9384 /* RichiestaIscrizione.plist */; };
+		D91B384216625919001E9384 /* FormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D91B384116625919001E9384 /* FormViewController.m */; };
 		D9B04DD9165C63A9005EF35B /* AreaDescriptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D9B04DD8165C63A9005EF35B /* AreaDescriptionCell.m */; };
 		D9C6C518165FDBC400247448 /* UIViewController+InterfaceIdiom.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C6C517165FDBC400247448 /* UIViewController+InterfaceIdiom.m */; };
 /* End PBXBuildFile section */
@@ -98,8 +98,6 @@
 		AC2629C2165D537100510092 /* CustomCellBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomCellBackground.m; path = ClubMedici/CustomCellBackground.m; sourceTree = "<group>"; };
 		AC2629C8165D561D00510092 /* CustomHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomHeader.h; path = ClubMedici/CustomHeader.h; sourceTree = "<group>"; };
 		AC2629C9165D561D00510092 /* CustomHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomHeader.m; path = ClubMedici/CustomHeader.m; sourceTree = "<group>"; };
-		AC31D7A6165ECEBB00CCC001 /* FormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormViewController.h; sourceTree = "<group>"; };
-		AC31D7A7165ECEBB00CCC001 /* FormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormViewController.m; sourceTree = "<group>"; };
 		AC31D7A9165ECF5A00CCC001 /* TextFieldCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TextFieldCell.xib; path = ClubMedici/TextFieldCell.xib; sourceTree = "<group>"; };
 		AC31D7AB165EDDAC00CCC001 /* TextFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextFieldCell.h; sourceTree = "<group>"; };
 		AC31D7AC165EDDAC00CCC001 /* TextFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextFieldCell.m; sourceTree = "<group>"; };
@@ -162,6 +160,8 @@
 		D91B383A16624322001E9384 /* RichiestaNoleggioAuto.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = RichiestaNoleggioAuto.plist; path = ClubMedici/RichiestaNoleggioAuto.plist; sourceTree = "<group>"; };
 		D91B383C166245A1001E9384 /* RichiestaNoleggioElettromedicale.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = RichiestaNoleggioElettromedicale.plist; path = ClubMedici/RichiestaNoleggioElettromedicale.plist; sourceTree = "<group>"; };
 		D91B383E16624986001E9384 /* RichiestaIscrizione.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = RichiestaIscrizione.plist; path = ClubMedici/RichiestaIscrizione.plist; sourceTree = "<group>"; };
+		D91B384016625919001E9384 /* FormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FormViewController.h; path = ClubMedici/FormViewController.h; sourceTree = "<group>"; };
+		D91B384116625919001E9384 /* FormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FormViewController.m; path = ClubMedici/FormViewController.m; sourceTree = "<group>"; };
 		D9B04DD7165C63A9005EF35B /* AreaDescriptionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AreaDescriptionCell.h; path = ClubMedici/AreaDescriptionCell.h; sourceTree = "<group>"; };
 		D9B04DD8165C63A9005EF35B /* AreaDescriptionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AreaDescriptionCell.m; path = ClubMedici/AreaDescriptionCell.m; sourceTree = "<group>"; };
 		D9C6C516165FDBC400247448 /* UIViewController+InterfaceIdiom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+InterfaceIdiom.h"; sourceTree = "<group>"; };
@@ -216,8 +216,8 @@
 		AC31D7A4165ECE8B00CCC001 /* Form controllers */ = {
 			isa = PBXGroup;
 			children = (
-				AC31D7A6165ECEBB00CCC001 /* FormViewController.h */,
-				AC31D7A7165ECEBB00CCC001 /* FormViewController.m */,
+				D91B384016625919001E9384 /* FormViewController.h */,
+				D91B384116625919001E9384 /* FormViewController.m */,
 				AC31D7B5165EF1A100CCC001 /* FormViewController.xib */,
 				ACD24B99165F945F00C97CD2 /* RichiestaNoleggioController.h */,
 				ACD24B9A165F945F00C97CD2 /* RichiestaNoleggioController.m */,
@@ -516,7 +516,6 @@
 				AC2629C0165D52BD00510092 /* Common.m in Sources */,
 				AC2629C3165D537100510092 /* CustomCellBackground.m in Sources */,
 				AC2629CA165D561D00510092 /* CustomHeader.m in Sources */,
-				AC31D7A8165ECEBB00CCC001 /* FormViewController.m in Sources */,
 				AC31D7AD165EDDAC00CCC001 /* TextFieldCell.m in Sources */,
 				ACD24B9B165F945F00C97CD2 /* RichiestaNoleggioController.m in Sources */,
 				ACD24B9E165F967E00C97CD2 /* RichiestaIscrizioneController.m in Sources */,
@@ -525,6 +524,7 @@
 				D90EA9BF1661217100D29490 /* WMTableViewDataSource.m in Sources */,
 				D90EA9D21661660300D29490 /* AreaTurismo.m in Sources */,
 				D91B3838166237D2001E9384 /* AreaAssicurativa.m in Sources */,
+				D91B384216625919001E9384 /* FormViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
