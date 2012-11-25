@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface WMTableViewDataSource : NSObject
+@property (nonatomic, assign) BOOL showSectionHeaders;
 
 - (id) initWithPList:(NSString *)file;
 - (id) initWithArray:(NSArray *)array;

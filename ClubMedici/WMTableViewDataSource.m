@@ -21,6 +21,7 @@ NSString *const SECTION_CONTENTS = @"SECTION_CONTENTS";
 - (id) init {
     self = [super init];
     if (self) {
+        self.showSectionHeaders = YES;
         _data = nil;
     }
     return self;
@@ -29,6 +30,7 @@ NSString *const SECTION_CONTENTS = @"SECTION_CONTENTS";
 - (id) initWithPList:(NSString *)file {
     self = [super init];
     if (self) {
+        self.showSectionHeaders = YES;
         _data = [[NSArray alloc] initWithContentsOfFile:file];
         if (!_data) {
             _data = [[NSArray alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:file ofType:@"plist"]];
@@ -40,6 +42,7 @@ NSString *const SECTION_CONTENTS = @"SECTION_CONTENTS";
 - (id) initWithArray:(NSArray *)array {
     self = [super init];
     if (self) {
+        self.showSectionHeaders = YES;
         _data = array;
     }
     return self;
@@ -56,7 +59,11 @@ NSString *const SECTION_CONTENTS = @"SECTION_CONTENTS";
 
 
 - (NSString *)titleForHeaderInSection:(NSInteger)section {
-    return [[_data objectAtIndex:section] objectForKey:SECTION_NAME];
+    if (self.showSectionHeaders) {
+        return [[_data objectAtIndex:section] objectForKey:SECTION_NAME];
+    }
+    else
+        return nil;
 }
 
 - (NSString *)titleForFooterInSection:(NSInteger)section {
