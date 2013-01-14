@@ -81,8 +81,8 @@
     else if([dataKey isEqualToString:@"phone"]){
         [img setImage:[UIImage imageNamed:@"phone"]];
     }
-    else{
-        [img setImage:nil];
+    else if([dataKey isEqualToString:@"email"]){
+        [img setImage:[UIImage imageNamed:@"mail"]];
     }
     
     cell.backgroundView = [[CustomCellBackground alloc] init];
