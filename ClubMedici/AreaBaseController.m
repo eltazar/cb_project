@@ -96,6 +96,9 @@
 
 #pragma mark - Table view delegate
 
+- (NSString*) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+    return [_dataModel tableView:tableView titleForHeaderInSection:section];
+}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *dataKey = [_dataModel valueForKey:@"DATA_KEY" atIndexPath:indexPath];
