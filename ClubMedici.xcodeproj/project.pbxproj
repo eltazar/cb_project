@@ -28,6 +28,8 @@
 		AC31D7AA165ECF5A00CCC001 /* TextFieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC31D7A9165ECF5A00CCC001 /* TextFieldCell.xib */; };
 		AC31D7B6165EF1A100CCC001 /* FormViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC31D7B5165EF1A100CCC001 /* FormViewController.xib */; };
 		AC93CE93165DA6F400ABA3C2 /* PDFviewerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC93CE92165DA6F400ABA3C2 /* PDFviewerController.xib */; };
+		ACB7DA7016A4AFC500B05178 /* mail.png in Resources */ = {isa = PBXBuildFile; fileRef = ACB7DA6E16A4AFC500B05178 /* mail.png */; };
+		ACB7DA7116A4AFC500B05178 /* mail@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ACB7DA6F16A4AFC500B05178 /* mail@2x.png */; };
 		ACBE63AD165A865000F64CDA /* SideMenuController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBE63AC165A865000F64CDA /* SideMenuController_iPhone.m */; };
 		ACBE63B4165A874900F64CDA /* SideMenuController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBE63B3165A874900F64CDA /* SideMenuController_iPad.m */; };
 		ACBE63B8165A87A800F64CDA /* HomeViewController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBE63B7165A87A800F64CDA /* HomeViewController_iPhone.m */; };
@@ -101,6 +103,8 @@
 		AC31D7A9165ECF5A00CCC001 /* TextFieldCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TextFieldCell.xib; path = ClubMedici/TextFieldCell.xib; sourceTree = "<group>"; };
 		AC31D7B5165EF1A100CCC001 /* FormViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FormViewController.xib; path = ClubMedici/FormViewController.xib; sourceTree = "<group>"; };
 		AC93CE92165DA6F400ABA3C2 /* PDFviewerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PDFviewerController.xib; path = ClubMedici/PDFviewerController.xib; sourceTree = "<group>"; };
+		ACB7DA6E16A4AFC500B05178 /* mail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mail.png; path = img/mail.png; sourceTree = SOURCE_ROOT; };
+		ACB7DA6F16A4AFC500B05178 /* mail@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "mail@2x.png"; path = "img/mail@2x.png"; sourceTree = SOURCE_ROOT; };
 		ACBE63AB165A865000F64CDA /* SideMenuController_iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideMenuController_iPhone.h; sourceTree = "<group>"; };
 		ACBE63AC165A865000F64CDA /* SideMenuController_iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideMenuController_iPhone.m; sourceTree = "<group>"; };
 		ACBE63B2165A874900F64CDA /* SideMenuController_iPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideMenuController_iPad.h; sourceTree = "<group>"; };
@@ -310,6 +314,8 @@
 		ACCDDA52165C15280097C00C /* img */ = {
 			isa = PBXGroup;
 			children = (
+				ACB7DA6E16A4AFC500B05178 /* mail.png */,
+				ACB7DA6F16A4AFC500B05178 /* mail@2x.png */,
 				AC23E6291660049500818769 /* pdfImage.png */,
 				AC23E62A1660049500818769 /* pdfImage@2x.png */,
 				AC2629B2165D334100510092 /* phone.png */,
@@ -485,6 +491,8 @@
 				D91B383B16624322001E9384 /* RichiestaNoleggioAuto.plist in Resources */,
 				D91B383D166245A2001E9384 /* RichiestaNoleggioElettromedicale.plist in Resources */,
 				D91B383F16624986001E9384 /* RichiestaIscrizione.plist in Resources */,
+				ACB7DA7016A4AFC500B05178 /* mail.png in Resources */,
+				ACB7DA7116A4AFC500B05178 /* mail@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
