@@ -20,7 +20,7 @@
 @implementation SideMenuController_iPhone
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super initWithNibName:@"SideMenuController_iPhone" bundle:nil];
     if (self) {
         // Custom initialization
     }
