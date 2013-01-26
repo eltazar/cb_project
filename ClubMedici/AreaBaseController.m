@@ -10,8 +10,6 @@
 #import "AreaDescriptionCell.h"
 #import "AreaBase.h"
 #import "PDFviewerController.h"
-#import "CustomCellBackground.h"
-#import "CustomHeader.h"
 #import "RichiestaNoleggioController.h"
 #import "WMTableViewDataSource.h"
 
@@ -85,10 +83,7 @@
         [img setImage:[UIImage imageNamed:@"mail"]];
     }
     
-    cell.backgroundView = [[CustomCellBackground alloc] init];
-    //cell.selectedBackgroundView = [[CustomCellBackground alloc] init];
     // At end of function, right before return cell:
-    cell.textLabel.backgroundColor = [UIColor clearColor];
     
     return cell;
 }

@@ -10,8 +10,6 @@
 
 #import "AreaDescriptionCell.h"
 #import "AreaBaseController_iPhone.h"
-#import "CustomCellBackground.h"
-#import "CustomHeader.h"
 #import "AreaBase.h"
 #import "WMTableViewDataSource.h"
 
