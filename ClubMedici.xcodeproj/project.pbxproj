@@ -22,9 +22,6 @@
 		AC2629B1165D319A00510092 /* pdf@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC2629AF165D319A00510092 /* pdf@2x.png */; };
 		AC2629B4165D334200510092 /* phone.png in Resources */ = {isa = PBXBuildFile; fileRef = AC2629B2165D334100510092 /* phone.png */; };
 		AC2629B5165D334200510092 /* phone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC2629B3165D334200510092 /* phone@2x.png */; };
-		AC2629C0165D52BD00510092 /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2629BF165D52BD00510092 /* Common.m */; };
-		AC2629C3165D537100510092 /* CustomCellBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2629C2165D537100510092 /* CustomCellBackground.m */; };
-		AC2629CA165D561D00510092 /* CustomHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2629C9165D561D00510092 /* CustomHeader.m */; };
 		AC31D7AA165ECF5A00CCC001 /* TextFieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC31D7A9165ECF5A00CCC001 /* TextFieldCell.xib */; };
 		AC31D7B6165EF1A100CCC001 /* FormViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC31D7B5165EF1A100CCC001 /* FormViewController.xib */; };
 		AC93CE93165DA6F400ABA3C2 /* PDFviewerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC93CE92165DA6F400ABA3C2 /* PDFviewerController.xib */; };
@@ -44,6 +41,8 @@
 		ACD24BA3165FB59500C97CD2 /* AreaDescriptionCell_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACD24BA2165FB59400C97CD2 /* AreaDescriptionCell_iPad.xib */; };
 		ACD4C7731657158D0025F3F5 /* JASidePanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD4C7721657158D0025F3F5 /* JASidePanelController.m */; };
 		ACD4C77C16571A5D0025F3F5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACD4C77B16571A5D0025F3F5 /* QuartzCore.framework */; };
+		ACDCC6E016B34A7900745FFB /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDCC6DF16B34A7900745FFB /* AsyncImageView.m */; };
+		ACDCC6E416B34B0900745FFB /* CachedAsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDCC6E316B34B0900745FFB /* CachedAsyncImageView.m */; };
 		ACE03DCD16593B71009B6B0D /* UIViewController+JASidePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE03DCC16593B71009B6B0D /* UIViewController+JASidePanel.m */; };
 		ACE03DD71659462C009B6B0D /* SideMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE03DD51659462C009B6B0D /* SideMenuController.m */; };
 		ACE03DD81659462C009B6B0D /* SideMenuController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACE03DD61659462C009B6B0D /* SideMenuController_iPad.xib */; };
@@ -94,12 +93,6 @@
 		AC2629AF165D319A00510092 /* pdf@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pdf@2x.png"; path = "img/pdf@2x.png"; sourceTree = SOURCE_ROOT; };
 		AC2629B2165D334100510092 /* phone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = phone.png; path = img/phone.png; sourceTree = SOURCE_ROOT; };
 		AC2629B3165D334200510092 /* phone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "phone@2x.png"; path = "img/phone@2x.png"; sourceTree = SOURCE_ROOT; };
-		AC2629BE165D52BD00510092 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Common.h; path = ClubMedici/Common.h; sourceTree = "<group>"; };
-		AC2629BF165D52BD00510092 /* Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Common.m; path = ClubMedici/Common.m; sourceTree = "<group>"; };
-		AC2629C1165D537100510092 /* CustomCellBackground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomCellBackground.h; path = ClubMedici/CustomCellBackground.h; sourceTree = "<group>"; };
-		AC2629C2165D537100510092 /* CustomCellBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomCellBackground.m; path = ClubMedici/CustomCellBackground.m; sourceTree = "<group>"; };
-		AC2629C8165D561D00510092 /* CustomHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomHeader.h; path = ClubMedici/CustomHeader.h; sourceTree = "<group>"; };
-		AC2629C9165D561D00510092 /* CustomHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomHeader.m; path = ClubMedici/CustomHeader.m; sourceTree = "<group>"; };
 		AC31D7A9165ECF5A00CCC001 /* TextFieldCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TextFieldCell.xib; path = ClubMedici/TextFieldCell.xib; sourceTree = "<group>"; };
 		AC31D7B5165EF1A100CCC001 /* FormViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FormViewController.xib; path = ClubMedici/FormViewController.xib; sourceTree = "<group>"; };
 		AC93CE92165DA6F400ABA3C2 /* PDFviewerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PDFviewerController.xib; path = ClubMedici/PDFviewerController.xib; sourceTree = "<group>"; };
@@ -129,6 +122,10 @@
 		ACD4C7711657158D0025F3F5 /* JASidePanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JASidePanelController.h; sourceTree = "<group>"; };
 		ACD4C7721657158D0025F3F5 /* JASidePanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JASidePanelController.m; sourceTree = "<group>"; };
 		ACD4C77B16571A5D0025F3F5 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		ACDCC6DE16B34A7900745FFB /* AsyncImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncImageView.h; sourceTree = "<group>"; };
+		ACDCC6DF16B34A7900745FFB /* AsyncImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncImageView.m; sourceTree = "<group>"; };
+		ACDCC6E216B34B0900745FFB /* CachedAsyncImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CachedAsyncImageView.h; sourceTree = "<group>"; };
+		ACDCC6E316B34B0900745FFB /* CachedAsyncImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CachedAsyncImageView.m; sourceTree = "<group>"; };
 		ACE03DCB16593B71009B6B0D /* UIViewController+JASidePanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+JASidePanel.h"; sourceTree = "<group>"; };
 		ACE03DCC16593B71009B6B0D /* UIViewController+JASidePanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+JASidePanel.m"; sourceTree = "<group>"; };
 		ACE03DD41659462C009B6B0D /* SideMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideMenuController.h; sourceTree = "<group>"; };
@@ -202,19 +199,6 @@
 				ACD24B96165F80AA00C97CD2 /* TextAreaCell.xib */,
 			);
 			name = "Custom cells";
-			sourceTree = "<group>";
-		};
-		AC2629B6165D50BB00510092 /* Graphics */ = {
-			isa = PBXGroup;
-			children = (
-				AC2629C1165D537100510092 /* CustomCellBackground.h */,
-				AC2629C2165D537100510092 /* CustomCellBackground.m */,
-				AC2629BE165D52BD00510092 /* Common.h */,
-				AC2629BF165D52BD00510092 /* Common.m */,
-				AC2629C8165D561D00510092 /* CustomHeader.h */,
-				AC2629C9165D561D00510092 /* CustomHeader.m */,
-			);
-			name = Graphics;
 			sourceTree = "<group>";
 		};
 		AC31D7A4165ECE8B00CCC001 /* Form controllers */ = {
@@ -336,6 +320,10 @@
 				ACD4C7721657158D0025F3F5 /* JASidePanelController.m */,
 				D90EA9BD1661217100D29490 /* WMTableViewDataSource.h */,
 				D90EA9BE1661217100D29490 /* WMTableViewDataSource.m */,
+				ACDCC6DE16B34A7900745FFB /* AsyncImageView.h */,
+				ACDCC6DF16B34A7900745FFB /* AsyncImageView.m */,
+				ACDCC6E216B34B0900745FFB /* CachedAsyncImageView.h */,
+				ACDCC6E316B34B0900745FFB /* CachedAsyncImageView.m */,
 			);
 			name = "Librerie esterne";
 			path = ClubMedici;
@@ -345,11 +333,10 @@
 			isa = PBXGroup;
 			children = (
 				ACEBDC6B16570CBE00CEFFE5 /* ClubMedici */,
-				ACBFD641165BBEBB00DD7991 /* Business logic */,
 				ACBFD649165BC27E00DD7991 /* Area controllers */,
+				ACBFD641165BBEBB00DD7991 /* Business logic */,
 				AC31D7A4165ECE8B00CCC001 /* Form controllers */,
 				AC26299A165D293300510092 /* Custom cells */,
-				AC2629B6165D50BB00510092 /* Graphics */,
 				ACEBDC6C16570CBE00CEFFE5 /* Supporting Files */,
 				ACD4C76F165715460025F3F5 /* Librerie esterne */,
 				ACEBDC6416570CBE00CEFFE5 /* Frameworks */,
@@ -521,9 +508,6 @@
 				AC26298E165D1E2400510092 /* PDFviewerController.m in Sources */,
 				AC262992165D1E4900510092 /* AreaBaseController.m in Sources */,
 				AC2629A1165D2A5300510092 /* AreaBaseController_iPad.m in Sources */,
-				AC2629C0165D52BD00510092 /* Common.m in Sources */,
-				AC2629C3165D537100510092 /* CustomCellBackground.m in Sources */,
-				AC2629CA165D561D00510092 /* CustomHeader.m in Sources */,
 				ACD24B9B165F945F00C97CD2 /* RichiestaNoleggioController.m in Sources */,
 				ACD24B9E165F967E00C97CD2 /* RichiestaIscrizioneController.m in Sources */,
 				ACD24BA1165FB34B00C97CD2 /* AreaBaseController_iPhone.m in Sources */,
@@ -533,6 +517,8 @@
 				D91B3838166237D2001E9384 /* AreaAssicurativa.m in Sources */,
 				D91B384216625919001E9384 /* FormViewController.m in Sources */,
 				D91B38451662598F001E9384 /* TextFieldCell.m in Sources */,
+				ACDCC6E016B34A7900745FFB /* AsyncImageView.m in Sources */,
+				ACDCC6E416B34B0900745FFB /* CachedAsyncImageView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
