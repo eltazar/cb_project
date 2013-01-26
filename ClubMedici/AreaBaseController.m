@@ -13,8 +13,9 @@
 #import "RichiestaNoleggioController.h"
 #import "WMTableViewDataSource.h"
 
-@interface AreaBaseController () {}
-
+@interface AreaBaseController () {
+    UIView *backgroundCellEmptyView;
+}
 @end
 
 @implementation AreaBaseController
@@ -34,6 +35,9 @@
   
     self.title = [self.area titolo];
     
+    backgroundCellEmptyView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 1, 1)];
+    backgroundCellEmptyView.opaque = YES;
+    backgroundCellEmptyView.backgroundColor = [UIColor orangeColor];
     //ottengo il dataModel per l'oggeto area
     _dataModel = [self.area getDataModel];
     
@@ -83,7 +87,12 @@
         [img setImage:[UIImage imageNamed:@"mail"]];
     }
     
+    UIView* bgview = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, 1)];
+    bgview.opaque = YES;
+    bgview.backgroundColor = [UIColor whiteColor];
+    [cell setBackgroundView:bgview];
     // At end of function, right before return cell:
+    //cell.textLabel.backgroundColor = [UIColor clearColor];
     
     return cell;
 }
@@ -132,11 +141,11 @@
     }
 }
 
-- (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    CustomHeader *header = [[CustomHeader alloc] init] ;
-    header.titleLabel.text = [self tableView:tableView titleForHeaderInSection:section];
-    return header;
-}
+//- (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+//    CustomHeader *header = [[CustomHeader alloc] init] ;
+//    header.titleLabel.text = [self tableView:tableView titleForHeaderInSection:section];
+//    return header;
+//}
 
 -(CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return 25;
