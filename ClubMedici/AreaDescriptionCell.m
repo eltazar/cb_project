@@ -54,6 +54,11 @@
     [self addSubview: _label_full];
     _label.layer.mask = _alphaMask;
     
+    UIView* bgview = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, 1)];
+    bgview.opaque = YES;
+    bgview.backgroundColor = [UIColor orangeColor];
+    [self setBackgroundView:bgview];
+
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
