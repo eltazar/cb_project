@@ -6,15 +6,17 @@
 //  Copyright (c) 2012 mario greco. All rights reserved.
 //
 
+#include <QuartzCore/QuartzCore.h>
+
 #import "AreaBaseController.h"
 #import "AreaDescriptionCell.h"
 #import "AreaBase.h"
 #import "PDFviewerController.h"
 #import "RichiestaNoleggioController.h"
 #import "WMTableViewDataSource.h"
+#import "CachedAsyncImageView.h"
 
 @interface AreaBaseController () {
-    UIView *backgroundCellEmptyView;
 }
 @end
 
@@ -34,10 +36,10 @@
     [super viewDidLoad];
   
     self.title = [self.area titolo];
+
+    NSLog(@"ViewDidLoad: AreaBaseController");
+
     
-    backgroundCellEmptyView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 1, 1)];
-    backgroundCellEmptyView.opaque = YES;
-    backgroundCellEmptyView.backgroundColor = [UIColor orangeColor];
     //ottengo il dataModel per l'oggeto area
     _dataModel = [self.area getDataModel];
     
@@ -46,6 +48,11 @@
     
     self.tableView.dataSource = _dataModel;
     _dataModel.cellFactory = self;
+    
+    NSURL *imageURL = [NSURL URLWithString:@"http://www.nightheaven.org/wp-content/gallery/boku_wa_tomodachi_ga_sukunai-wallpaper-01/boku_wa_tomodachi_ga_sukunai-wallpaper-06-2048_1536.jpg"];
+    imageView = [[CachedAsyncImageView alloc] init];
+    imageView.delegate = self;
+    [imageView loadImageFromURL:imageURL];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -196,6 +203,60 @@
     else if (result == MFMailComposeResultCancelled){
         [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
     }
+}
+
+#pragma mark - Private methods
+
+- (void)setupBackgroundView {
+    
+    NSLog(@"AREA BASE CONTROLLER: setup background view");
+    
+    CGFloat tableViewWidth = self.tableView.frame.size.width;
+    UIView *backgroundView = [[UIView alloc]init];
+    imageView.frame = CGRectMake(0, 0,
+                                 tableViewWidth,
+                  
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 tableViewWidth * (imageView.image.size.height / imageView.image.size.width)
+                                 );
+    [backgroundView addSubview:imageView];
+    self.tableView.backgroundView = backgroundView;
+    
+    //per fare in modo che l'immagine nell'header diventi trasparente gradualmente verso la fine dell'immagine stessaUIView *backgroundView = [[UIView alloc] init];
+    CAGradientLayer *l = [CAGradientLayer layer];
+    l.frame = imageView.bounds;
+    l.colors = [NSArray arrayWithObjects:(id)[UIColor whiteColor].CGColor, (id)[UIColor clearColor].CGColor, nil];
+    l.startPoint = CGPointMake(1.0f, .6f);
+    l.endPoint = CGPointMake(1.0f, 1.0f);
+    imageView.layer.mask = l;
+    
+    
+    //per far iniziare la tableView con un offset
+    [UIView animateWithDuration:.5
+                     animations:^(void) {
+                         self.tableView.tableHeaderView =
+                         [[UIView alloc] initWithFrame:
+                          CGRectMake(0, 0,
+                                     tableViewWidth,
+                                     0.6 * imageView.frame.size.height
+                                     )
+                          ];
+                     }
+     ];
+     NSLog(@"frame.width = %f, height = %f", tableViewWidth,backgroundView.frame.size.height);
+    
+}
+
+
+#pragma mark - CachedAsyncImageDelegate
+-(void)didFinishLoadingImage:(id)sender{
+    
+    NSLog(@"SCARICATA IMMAGINE IN AREA CONTROLLER");
+    [self setupBackgroundView];
 }
 
 

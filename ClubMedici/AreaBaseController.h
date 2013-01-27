@@ -10,13 +10,16 @@
 #import <MessageUI/MessageUI.h>
 
 #import "UIViewController+InterfaceIdiom.h"
+#import "CachedAsyncImageView.h"
 
 @class AreaBase, WMTableViewDataSource;
 
-@interface AreaBaseController : UITableViewController <MFMailComposeViewControllerDelegate> {
+@interface AreaBaseController : UITableViewController <MFMailComposeViewControllerDelegate, CachedAsyncImageViewDelegate> {
     @protected
         AreaBase *area;
         WMTableViewDataSource *_dataModel;
+        CachedAsyncImageView *imageView;
+
 }
 
 @property(nonatomic, strong) AreaBase *area;
