@@ -5,13 +5,17 @@
 //  Created by mario greco on 21/11/12.
 //  Copyright (c) 2012 mario greco. All rights reserved.
 //
+#include <QuartzCore/QuartzCore.h>
 
 #import "AreaBaseController_iPad.h"
 #import "AreaBase.h"
 #import "WMTableViewDataSource.h"
+#import "AreaDescriptionCell.h"
 
 @interface AreaBaseController_iPad ()
-
+{
+    AreaDescriptionCell *_areaDescriptionCell;
+}
 @end
 
 @implementation AreaBaseController_iPad
@@ -26,7 +30,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    NSLog(@"ViewDidLoad: AreaBaseController_iPad");
+
+    
     // Do any additional setup after loading the view from its nib.
+    _areaDescriptionCell = [[[NSBundle mainBundle] loadNibNamed:@"AreaDescriptionCell_iPad"
+                                                          owner:nil
+                                                        options:nil] objectAtIndex:0];    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -40,15 +51,10 @@
     NSString *dataKey = [_dataModel valueForKey:@"DATA_KEY" atIndexPath:indexPath];
     
     if ([dataKey isEqualToString:@"description"]) {
-        cell = [tableView dequeueReusableCellWithIdentifier:@"DescriptionCellIpad"];
-        if (!cell) {
-            cell = [[[NSBundle mainBundle] loadNibNamed:@"AreaDescriptionCell_iPad" owner:self options:NULL] objectAtIndex:0];
-        }
-        
-        UILabel *label = (UILabel*)[cell viewWithTag:2];
-        // UIImageView *imgView = (UIImageView*)[cell viewWithTag:1];
-        
-        label.text = self.area.descrizione;
+        _areaDescriptionCell.collapsedHeight = 120;
+        _areaDescriptionCell.text = self.area.descrizione;
+        return _areaDescriptionCell;
+
     }
     else {
         cell = [super tableView:tableView cellForRowAtIndexPath:indexPath];
@@ -59,11 +65,10 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0 && indexPath.row == 0) {
-        return 219.0f;
+        AreaDescriptionCell *cell = (AreaDescriptionCell *)[self tableView:tableView cellForRowAtIndexPath:indexPath];
+        return [cell getHeight];
     }
     return [super tableView:tableView heightForRowAtIndexPath:indexPath];
 }
-
-
 
 @end
