@@ -16,7 +16,6 @@
 		AC26298E165D1E2400510092 /* PDFviewerController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC26298B165D1E2400510092 /* PDFviewerController.m */; };
 		AC262992165D1E4900510092 /* AreaBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC262991165D1E4900510092 /* AreaBaseController.m */; };
 		AC2629A1165D2A5300510092 /* AreaBaseController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = AC26299F165D2A5300510092 /* AreaBaseController_iPad.m */; };
-		AC2629A2165D2A5300510092 /* AreaBaseController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC2629A0165D2A5300510092 /* AreaBaseController_iPad.xib */; };
 		AC2629AD165D2F4500510092 /* ActionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC2629AC165D2F4500510092 /* ActionCell.xib */; };
 		AC2629B0165D319A00510092 /* pdf.png in Resources */ = {isa = PBXBuildFile; fileRef = AC2629AE165D319A00510092 /* pdf.png */; };
 		AC2629B1165D319A00510092 /* pdf@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC2629AF165D319A00510092 /* pdf@2x.png */; };
@@ -87,7 +86,6 @@
 		AC262991165D1E4900510092 /* AreaBaseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AreaBaseController.m; path = ClubMedici/AreaBaseController.m; sourceTree = "<group>"; };
 		AC26299E165D2A5300510092 /* AreaBaseController_iPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AreaBaseController_iPad.h; path = ClubMedici/AreaBaseController_iPad.h; sourceTree = "<group>"; };
 		AC26299F165D2A5300510092 /* AreaBaseController_iPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AreaBaseController_iPad.m; path = ClubMedici/AreaBaseController_iPad.m; sourceTree = "<group>"; };
-		AC2629A0165D2A5300510092 /* AreaBaseController_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AreaBaseController_iPad.xib; path = ClubMedici/AreaBaseController_iPad.xib; sourceTree = "<group>"; };
 		AC2629AC165D2F4500510092 /* ActionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ActionCell.xib; path = ClubMedici/ActionCell.xib; sourceTree = "<group>"; };
 		AC2629AE165D319A00510092 /* pdf.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pdf.png; path = img/pdf.png; sourceTree = SOURCE_ROOT; };
 		AC2629AF165D319A00510092 /* pdf@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pdf@2x.png"; path = "img/pdf@2x.png"; sourceTree = SOURCE_ROOT; };
@@ -287,7 +285,6 @@
 				ACD24BA0165FB34B00C97CD2 /* AreaBaseController_iPhone.m */,
 				AC26299E165D2A5300510092 /* AreaBaseController_iPad.h */,
 				AC26299F165D2A5300510092 /* AreaBaseController_iPad.m */,
-				AC2629A0165D2A5300510092 /* AreaBaseController_iPad.xib */,
 				AC26298A165D1E2400510092 /* PDFviewerController.h */,
 				AC26298B165D1E2400510092 /* PDFviewerController.m */,
 				AC93CE92165DA6F400ABA3C2 /* PDFviewerController.xib */,
@@ -461,7 +458,6 @@
 				ACE03DDA16594922009B6B0D /* SideMenuController_iPhone.xib in Resources */,
 				ACCDDA54165C153A0097C00C /* finanziariaImg.jpg in Resources */,
 				AC26298D165D1E2400510092 /* AreaDescriptionCell.xib in Resources */,
-				AC2629A2165D2A5300510092 /* AreaBaseController_iPad.xib in Resources */,
 				AC2629AD165D2F4500510092 /* ActionCell.xib in Resources */,
 				AC2629B0165D319A00510092 /* pdf.png in Resources */,
 				AC2629B1165D319A00510092 /* pdf@2x.png in Resources */,
