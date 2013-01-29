@@ -210,5 +210,10 @@
     [self setupBackgroundView];
 }
 
+-(void)didErrorLoadingImage:(id)sender{
+    //TODO: riprovare a fare il download dell'immagine in automatico?
+    NSLog(@"Errore download cachedImg in area base controller");
+}
+
 
 @end
