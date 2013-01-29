@@ -74,6 +74,12 @@
 				<key>LABEL</key>
 				<string>Diventa Socio</string>
 			</dict>
+			<dict>
+				<key>DATA_KEY</key>
+				<string>contacts</string>
+				<key>LABEL</key>
+				<string>Contatti</string>
+			</dict>
 		</array>
 	</dict>
 </array>
