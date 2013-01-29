@@ -40,9 +40,11 @@
 # pragma mark - iOS 5 specific
 
 //
-//- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-//    return YES;
-//}
+//per gestire rotazione guardare qui: http://stackoverflow.com/questions/12536645/rotation-behaving-differently-on-ios6
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+    return NO;
+}
 
 
 #pragma mark - Table view data source
