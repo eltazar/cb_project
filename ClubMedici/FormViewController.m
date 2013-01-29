@@ -103,6 +103,13 @@
             cell = [[[NSBundle mainBundle] loadNibNamed:@"TextAreaCell" owner:self options:NULL] objectAtIndex:0];
         }
         UITextView *textView = (UITextView*)[cell viewWithTag:1];
+        
+        NSLog(@"DEVICE = %@",[UIDevice currentDevice].model);
+        //per ora messo qui, non so se conviene creare per ora un controller dedicato all'ipad
+        if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad){
+        textView.frame = CGRectMake(textView.frame.origin.x, textView.frame.origin.y, textView.frame.size.width, textView.frame.size.height+20);
+        }
+        
         CALayer *imageLayer = textView.layer;
         [imageLayer setCornerRadius:6];
         [imageLayer setBorderWidth:1];
