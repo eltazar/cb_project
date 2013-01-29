@@ -125,6 +125,8 @@
     CGFloat width = 0.0;
     CGFloat height = 0.0;
     
+    if(imageView.image.size.width == 0.0) return;
+    
     UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
     if (orientation == UIInterfaceOrientationPortrait || orientation == UIInterfaceOrientationPortraitUpsideDown) {
         NSLog(@"portrait");
