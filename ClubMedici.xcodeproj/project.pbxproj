@@ -23,6 +23,7 @@
 		AC2629B5165D334200510092 /* phone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC2629B3165D334200510092 /* phone@2x.png */; };
 		AC31D7AA165ECF5A00CCC001 /* TextFieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC31D7A9165ECF5A00CCC001 /* TextFieldCell.xib */; };
 		AC31D7B6165EF1A100CCC001 /* FormViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC31D7B5165EF1A100CCC001 /* FormViewController.xib */; };
+		AC9168E416B9EC1900AF402E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC9168E316B9EC1900AF402E /* CoreLocation.framework */; };
 		AC93CE93165DA6F400ABA3C2 /* PDFviewerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC93CE92165DA6F400ABA3C2 /* PDFviewerController.xib */; };
 		ACB7DA7016A4AFC500B05178 /* mail.png in Resources */ = {isa = PBXBuildFile; fileRef = ACB7DA6E16A4AFC500B05178 /* mail.png */; };
 		ACB7DA7116A4AFC500B05178 /* mail@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ACB7DA6F16A4AFC500B05178 /* mail@2x.png */; };
@@ -46,6 +47,13 @@
 		ACE03DD71659462C009B6B0D /* SideMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE03DD51659462C009B6B0D /* SideMenuController.m */; };
 		ACE03DD81659462C009B6B0D /* SideMenuController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACE03DD61659462C009B6B0D /* SideMenuController_iPad.xib */; };
 		ACE03DDA16594922009B6B0D /* SideMenuController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACE03DD916594922009B6B0D /* SideMenuController_iPhone.xib */; };
+		ACE683C016B86CE200530D22 /* ContattiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE683BF16B86CE200530D22 /* ContattiViewController.m */; };
+		ACE683C416B8757100530D22 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACE683C316B8757100530D22 /* MapKit.framework */; };
+		ACE683C816B8766300530D22 /* ContattiViewController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE683C616B8766300530D22 /* ContattiViewController_iPhone.m */; };
+		ACE683C916B8766300530D22 /* ContattiViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACE683C716B8766300530D22 /* ContattiViewController_iPhone.xib */; };
+		ACE9FF3F16B87F70002C8CE5 /* Contatti.plist in Resources */ = {isa = PBXBuildFile; fileRef = ACE9FF3E16B87F70002C8CE5 /* Contatti.plist */; };
+		ACE9FF4116B8814C002C8CE5 /* WebViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACE9FF4016B8814C002C8CE5 /* WebViewCell.xib */; };
+		ACE9FF5816B88D91002C8CE5 /* header_contatti.png in Resources */ = {isa = PBXBuildFile; fileRef = ACE9FF5716B88D91002C8CE5 /* header_contatti.png */; };
 		ACEBDC6616570CBE00CEFFE5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACEBDC6516570CBE00CEFFE5 /* UIKit.framework */; };
 		ACEBDC6816570CBE00CEFFE5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACEBDC6716570CBE00CEFFE5 /* Foundation.framework */; };
 		ACEBDC6A16570CBE00CEFFE5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACEBDC6916570CBE00CEFFE5 /* CoreGraphics.framework */; };
@@ -93,6 +101,7 @@
 		AC2629B3165D334200510092 /* phone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "phone@2x.png"; path = "img/phone@2x.png"; sourceTree = SOURCE_ROOT; };
 		AC31D7A9165ECF5A00CCC001 /* TextFieldCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TextFieldCell.xib; path = ClubMedici/TextFieldCell.xib; sourceTree = "<group>"; };
 		AC31D7B5165EF1A100CCC001 /* FormViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FormViewController.xib; path = ClubMedici/FormViewController.xib; sourceTree = "<group>"; };
+		AC9168E316B9EC1900AF402E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		AC93CE92165DA6F400ABA3C2 /* PDFviewerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PDFviewerController.xib; path = ClubMedici/PDFviewerController.xib; sourceTree = "<group>"; };
 		ACB7DA6E16A4AFC500B05178 /* mail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mail.png; path = img/mail.png; sourceTree = SOURCE_ROOT; };
 		ACB7DA6F16A4AFC500B05178 /* mail@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "mail@2x.png"; path = "img/mail@2x.png"; sourceTree = SOURCE_ROOT; };
@@ -130,6 +139,15 @@
 		ACE03DD51659462C009B6B0D /* SideMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideMenuController.m; sourceTree = "<group>"; };
 		ACE03DD61659462C009B6B0D /* SideMenuController_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SideMenuController_iPad.xib; sourceTree = "<group>"; };
 		ACE03DD916594922009B6B0D /* SideMenuController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SideMenuController_iPhone.xib; sourceTree = "<group>"; };
+		ACE683BE16B86CE200530D22 /* ContattiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContattiViewController.h; sourceTree = "<group>"; };
+		ACE683BF16B86CE200530D22 /* ContattiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContattiViewController.m; sourceTree = "<group>"; };
+		ACE683C316B8757100530D22 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		ACE683C516B8766300530D22 /* ContattiViewController_iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContattiViewController_iPhone.h; sourceTree = "<group>"; };
+		ACE683C616B8766300530D22 /* ContattiViewController_iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContattiViewController_iPhone.m; sourceTree = "<group>"; };
+		ACE683C716B8766300530D22 /* ContattiViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContattiViewController_iPhone.xib; sourceTree = "<group>"; };
+		ACE9FF3E16B87F70002C8CE5 /* Contatti.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Contatti.plist; sourceTree = "<group>"; };
+		ACE9FF4016B8814C002C8CE5 /* WebViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WebViewCell.xib; path = ClubMedici/WebViewCell.xib; sourceTree = "<group>"; };
+		ACE9FF5716B88D91002C8CE5 /* header_contatti.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = header_contatti.png; path = img/header_contatti.png; sourceTree = SOURCE_ROOT; };
 		ACEBDC6116570CBE00CEFFE5 /* ClubMedici.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClubMedici.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACEBDC6516570CBE00CEFFE5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		ACEBDC6716570CBE00CEFFE5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -172,6 +190,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC9168E416B9EC1900AF402E /* CoreLocation.framework in Frameworks */,
+				ACE683C416B8757100530D22 /* MapKit.framework in Frameworks */,
 				AC23E62F166025E400818769 /* MessageUI.framework in Frameworks */,
 				ACD4C77C16571A5D0025F3F5 /* QuartzCore.framework in Frameworks */,
 				ACEBDC6616570CBE00CEFFE5 /* UIKit.framework in Frameworks */,
@@ -191,6 +211,7 @@
 				AC262989165D1E2400510092 /* AreaDescriptionCell.xib */,
 				ACD24BA2165FB59400C97CD2 /* AreaDescriptionCell_iPad.xib */,
 				AC2629AC165D2F4500510092 /* ActionCell.xib */,
+				ACE9FF4016B8814C002C8CE5 /* WebViewCell.xib */,
 				D91B38431662598F001E9384 /* TextFieldCell.h */,
 				D91B38441662598F001E9384 /* TextFieldCell.m */,
 				AC31D7A9165ECF5A00CCC001 /* TextFieldCell.xib */,
@@ -295,6 +316,7 @@
 		ACCDDA52165C15280097C00C /* img */ = {
 			isa = PBXGroup;
 			children = (
+				ACE9FF5716B88D91002C8CE5 /* header_contatti.png */,
 				ACB7DA6E16A4AFC500B05178 /* mail.png */,
 				ACB7DA6F16A4AFC500B05178 /* mail@2x.png */,
 				AC23E6291660049500818769 /* pdfImage.png */,
@@ -326,12 +348,27 @@
 			path = ClubMedici;
 			sourceTree = "<group>";
 		};
+		ACE683B916B86C6F00530D22 /* Contatti ecc */ = {
+			isa = PBXGroup;
+			children = (
+				ACE683BE16B86CE200530D22 /* ContattiViewController.h */,
+				ACE683BF16B86CE200530D22 /* ContattiViewController.m */,
+				ACE683C516B8766300530D22 /* ContattiViewController_iPhone.h */,
+				ACE683C616B8766300530D22 /* ContattiViewController_iPhone.m */,
+				ACE683C716B8766300530D22 /* ContattiViewController_iPhone.xib */,
+				ACE9FF3E16B87F70002C8CE5 /* Contatti.plist */,
+			);
+			name = "Contatti ecc";
+			path = ClubMedici;
+			sourceTree = "<group>";
+		};
 		ACEBDC5616570CBE00CEFFE5 = {
 			isa = PBXGroup;
 			children = (
 				ACEBDC6B16570CBE00CEFFE5 /* ClubMedici */,
 				ACBFD649165BC27E00DD7991 /* Area controllers */,
 				ACBFD641165BBEBB00DD7991 /* Business logic */,
+				ACE683B916B86C6F00530D22 /* Contatti ecc */,
 				AC31D7A4165ECE8B00CCC001 /* Form controllers */,
 				AC26299A165D293300510092 /* Custom cells */,
 				ACEBDC6C16570CBE00CEFFE5 /* Supporting Files */,
@@ -352,6 +389,8 @@
 		ACEBDC6416570CBE00CEFFE5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AC9168E316B9EC1900AF402E /* CoreLocation.framework */,
+				ACE683C316B8757100530D22 /* MapKit.framework */,
 				AC23E62E166025E400818769 /* MessageUI.framework */,
 				ACD4C77B16571A5D0025F3F5 /* QuartzCore.framework */,
 				ACEBDC6516570CBE00CEFFE5 /* UIKit.framework */,
@@ -476,6 +515,10 @@
 				D91B383F16624986001E9384 /* RichiestaIscrizione.plist in Resources */,
 				ACB7DA7016A4AFC500B05178 /* mail.png in Resources */,
 				ACB7DA7116A4AFC500B05178 /* mail@2x.png in Resources */,
+				ACE683C916B8766300530D22 /* ContattiViewController_iPhone.xib in Resources */,
+				ACE9FF3F16B87F70002C8CE5 /* Contatti.plist in Resources */,
+				ACE9FF4116B8814C002C8CE5 /* WebViewCell.xib in Resources */,
+				ACE9FF5816B88D91002C8CE5 /* header_contatti.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -515,6 +558,8 @@
 				D91B38451662598F001E9384 /* TextFieldCell.m in Sources */,
 				ACDCC6E016B34A7900745FFB /* AsyncImageView.m in Sources */,
 				ACDCC6E416B34B0900745FFB /* CachedAsyncImageView.m in Sources */,
+				ACE683C016B86CE200530D22 /* ContattiViewController.m in Sources */,
+				ACE683C816B8766300530D22 /* ContattiViewController_iPhone.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
