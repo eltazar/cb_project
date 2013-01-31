@@ -13,6 +13,7 @@
 #import "JASidePanelController.h"
 #import "RichiestaIscrizioneController.h"
 #import "WMTableViewDataSource.h"
+#import "ContattiViewController.h"
 
 @interface SideMenuController() {
     WMTableViewDataSource *_dataModel;
@@ -83,6 +84,13 @@
         RichiestaIscrizioneController *richiestaController = [[RichiestaIscrizioneController alloc] initWithNibName:@"FormViewController" bundle:nil];
         [appDelegate.detailViewNavController popToRootViewControllerAnimated:NO];
         [appDelegate.detailViewNavController pushViewController:richiestaController animated:YES];
+    }
+    else if([dataKey isEqualToString:@"contacts"]){
+        //Class controllerClass = NSClassFromString(controller);
+        Class controllerClass = NSClassFromString(controller);
+        ContattiViewController *contattiController = [controllerClass idiomAllocInit];
+        [appDelegate.detailViewNavController popToRootViewControllerAnimated:NO];
+        [appDelegate.detailViewNavController pushViewController:contattiController animated:YES];
     }
     else{
         //Ottengo la classe dell'oggetto della business logic da instanziare
