@@ -42,9 +42,8 @@
 							<object class="IBUIWebView" id="463989722">
 								<reference key="NSNextResponder" ref="301839465"/>
 								<int key="NSvFlags">276</int>
-								<string key="NSFrame">{{14, 0}, {306, 97}}</string>
+								<string key="NSFrame">{{14, 0}, {306, 92}}</string>
 								<reference key="NSSuperview" ref="301839465"/>
-								<reference key="NSWindow"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<object class="NSColor" key="IBUIBackgroundColor">
 									<int key="NSColorSpace">1</int>
@@ -59,7 +58,6 @@
 						</array>
 						<string key="NSFrameSize">{320, 91}</string>
 						<reference key="NSSuperview" ref="371618639"/>
-						<reference key="NSWindow"/>
 						<string key="NSReuseIdentifierKey">_NS:11</string>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">3</int>
@@ -74,7 +72,6 @@
 				</array>
 				<string key="NSFrameSize">{320, 92}</string>
 				<reference key="NSSuperview"/>
-				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="301839465"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<object class="NSColor" key="IBUIBackgroundColor">
@@ -135,7 +132,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">12</int>
+			<int key="maxID">16</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes"/>
 		<int key="IBDocument.localizationMode">0</int>
