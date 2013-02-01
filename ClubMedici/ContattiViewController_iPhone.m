@@ -8,12 +8,14 @@
 
 #import "ContattiViewController_iPhone.h"
 
+#define CONTENT_OFFSET (self.tableView.frame.size.height - self.tableView.contentSize.height)
 @interface ContattiViewController_iPhone ()
 {
     CGFloat _lastContentOffset;
     CGRect mapOriginalFrame;
     CLLocationCoordinate2D originalCenterCoordinate;
     CGFloat deltaLatFor1px;
+    BOOL isTableVisible;
 }
 @end
 
@@ -30,25 +32,25 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
     
-    self.tableView.tableHeaderView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"header_contatti"]];
+    isTableVisible = YES;
     
-    self.tableView.contentInset = UIEdgeInsetsMake(200, 0, 0, 0);
-    
+    /*settaggi grafici della tabella
+     */
+    tableView.tableHeaderView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"header_contatti"]];
     tableView.backgroundColor = [UIColor clearColor];
-    
-    _lastContentOffset = -200.0;
-    mapOriginalFrame = mapView.frame;
-    originalCenterCoordinate = mapView.centerCoordinate;
     
     self.mapView = [[MKMapView alloc] initWithFrame:CGRectMake(0, 0, 320, 300)];
     [self.view insertSubview:mapView belowSubview:tableView];
 
-    NSLog(@"tab x = %f, y = %f \n w = %f, h = %f \n contentoffset y = %f, contentsize = %f",self.tableView.frame.origin.x, self.tableView.frame.origin.y,self.tableView.frame.size.width,self.tableView.frame.size.height,self.tableView.contentOffset.y,self.tableView.contentSize.height);
+    //NSLog(@"contentsize = %f \n Differenza(h-contentSize) = %f",self.tableView.contentSize.height,CONTENT_OFFSET);
     
-    //cosi la mappa mantiene il focus su una certa zona
-    //http://stackoverflow.com/questions/10979323/new-foursquare-venue-detail-map
+    /*settaggio mapview per far seguire il centro della mappa con lo scrolling della tab.
+     Cosi la mappa mantiene il focus su una certa zona.
+     http://stackoverflow.com/questions/10979323/new-foursquare-venue-detail-map
+     */
+  
+    originalCenterCoordinate = mapView.centerCoordinate;
     originalCenterCoordinate = CLLocationCoordinate2DMake(43.6010, 7.0774);
     mapView.region = MKCoordinateRegionMakeWithDistance(originalCenterCoordinate, 8000, 8000);
     mapView.centerCoordinate = originalCenterCoordinate;
@@ -56,6 +58,25 @@
     CLLocationCoordinate2D referencePosition2 = [mapView convertPoint:CGPointMake(0, 100) toCoordinateFromView:mapView];
     deltaLatFor1px = (referencePosition2.latitude - referencePosition.latitude)/100;
     
+    
+    //Tableview gesture recognizer
+    UITapGestureRecognizer *tapHeader = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideTable:)];
+    [self.tableView.tableHeaderView setUserInteractionEnabled:YES];
+    [self.tableView.tableHeaderView addGestureRecognizer:tapHeader];
+    
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+    //***nota: bisogna aspettare che la tab sia popolata prima di calcolare i giusti valori di offset
+    
+    //content offset: da dove inizia il contenuto della tabella
+     self.tableView.contentOffset = CGPointMake(0,-CONTENT_OFFSET);
+    //content inset: da dove inizia lo scrolling
+    self.tableView.contentInset = UIEdgeInsetsMake(CONTENT_OFFSET, 0, 0, 0);
+    //iniziallizzazione dell'offeset per la scrollview
+    _lastContentOffset = - CONTENT_OFFSET;
 }
 
 - (void)didReceiveMemoryWarning
@@ -110,13 +131,14 @@
 
 #pragma mark - UIScrollDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    //set the frame of MKMapView based on scrollView.contentOffset and make sure the pin is at center of the map view
-//
-    NSLog(@"y = %f", scrollView.contentOffset.y);
+    
+    
+    //NSLog(@"content offset y = %f ; inset top = %f", tableView.contentOffset.y, self.tableView.contentInset.top);
     CGRect mapFrame = self.mapView.frame;
 
     CGFloat addFloat;    
     
+    //set the frame of MKMapView based on scrollView.contentOffset and make sure the pin is at center of the map view
     if(scrollView.contentOffset.y < 0){
         double deltaLat = scrollView.contentOffset.y*deltaLatFor1px;
         //Move the center coordinate accordingly
@@ -126,12 +148,38 @@
     //se lo spostamento è verso l'alto riduco h mappa, se verso il basso aumento h mappa
     addFloat =  _lastContentOffset-scrollView.contentOffset.y;
     
-    NSLog(@"y = %f, last y = %f", scrollView.contentOffset.y, _lastContentOffset);
-    NSLog(@"add -> %f",addFloat);
+    //NSLog(@"y = %f, last y = %f", scrollView.contentOffset.y, _lastContentOffset);
+    //NSLog(@"add -> %f",addFloat);
     
     self.mapView.frame = CGRectMake(0, 0, mapFrame.size.width, mapFrame.size.height+addFloat);
     _lastContentOffset = scrollView.contentOffset.y;
+
+}
+
+#pragma mark - Gesture methods
+
+-(void) hideTable:(UITapGestureRecognizer*)tap{
     
+    if(isTableVisible){
+        //nascondo tabella
+        CGFloat paddingDown = -(CONTENT_OFFSET+self.tableView.contentSize.height-self.tableView.tableHeaderView.frame.size.height);
+        [UIView animateWithDuration:0.2
+                         animations:^(void){
+                             self.tableView.contentOffset = CGPointMake(0,paddingDown);
+                         }
+         ];
+        isTableVisible = NO;
+    }
+    else{
+        //mostro tabella
+        CGFloat paddingUp = self.tableView.contentOffset.y+self.tableView.contentSize.height-self.tableView.tableHeaderView.frame.size.height;
+        [UIView animateWithDuration:0.2
+                         animations:^(void){
+                             self.tableView.contentOffset = CGPointMake(0,paddingUp);
+                         }
+         ];
+        isTableVisible = YES;
+    }
 }
 
 @end
