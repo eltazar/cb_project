@@ -40,7 +40,8 @@
     tableView.tableHeaderView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"header_contatti"]];
     tableView.backgroundColor = [UIColor clearColor];
     
-    self.mapView = [[MKMapView alloc] initWithFrame:CGRectMake(0, 0, 320, 300)];
+    self.mapView = [[MKMapView alloc] initWithFrame:CGRectMake(0, 0, 320, 250)];
+    [self configureMap];
     [self.view insertSubview:mapView belowSubview:tableView];
 
     //NSLog(@"contentsize = %f \n Differenza(h-contentSize) = %f",self.tableView.contentSize.height,CONTENT_OFFSET);
@@ -49,20 +50,14 @@
      Cosi la mappa mantiene il focus su una certa zona.
      http://stackoverflow.com/questions/10979323/new-foursquare-venue-detail-map
      */
-  
-    originalCenterCoordinate = mapView.centerCoordinate;
-    originalCenterCoordinate = CLLocationCoordinate2DMake(43.6010, 7.0774);
-    mapView.region = MKCoordinateRegionMakeWithDistance(originalCenterCoordinate, 8000, 8000);
-    mapView.centerCoordinate = originalCenterCoordinate;
-    CLLocationCoordinate2D referencePosition = [mapView convertPoint:CGPointMake(0, 0) toCoordinateFromView:mapView];
-    CLLocationCoordinate2D referencePosition2 = [mapView convertPoint:CGPointMake(0, 100) toCoordinateFromView:mapView];
-    deltaLatFor1px = (referencePosition2.latitude - referencePosition.latitude)/100;
-    
     
     //Tableview gesture recognizer
-    UITapGestureRecognizer *tapHeader = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideTable:)];
+    UITapGestureRecognizer *tapTable = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideTable:)];
+    UITapGestureRecognizer *tapMap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideTable:)];
     [self.tableView.tableHeaderView setUserInteractionEnabled:YES];
-    [self.tableView.tableHeaderView addGestureRecognizer:tapHeader];
+    [self.tableView.tableHeaderView addGestureRecognizer:tapTable];
+    
+    [self.mapView addGestureRecognizer:tapMap];
     
 }
 
@@ -169,17 +164,39 @@
                          }
          ];
         isTableVisible = NO;
+        [self.tableView setUserInteractionEnabled:NO];
+        [self.tableView.tableHeaderView setUserInteractionEnabled:YES];
     }
     else{
-        //mostro tabella
-        CGFloat paddingUp = self.tableView.contentOffset.y+self.tableView.contentSize.height-self.tableView.tableHeaderView.frame.size.height;
-        [UIView animateWithDuration:0.2
-                         animations:^(void){
-                             self.tableView.contentOffset = CGPointMake(0,paddingUp);
-                         }
-         ];
-        isTableVisible = YES;
+        
+        CGPoint point = [tap locationInView:self.view];
+        if(point.y >= tableView.frame.size.height-tableView.tableHeaderView.frame.size.height){
+            //mostro tabella
+            CGFloat paddingUp = self.tableView.contentOffset.y+self.tableView.contentSize.height-self.tableView.tableHeaderView.frame.size.height;
+            [UIView animateWithDuration:0.2
+                             animations:^(void){
+                                 self.tableView.contentOffset = CGPointMake(0,paddingUp);
+                             }
+             ];
+            isTableVisible = YES;
+            [tableView setUserInteractionEnabled:YES];
+        }
     }
 }
 
+#pragma mark - metodi privati
+
+-(void) configureMap{
+    self.mapView.region = [self centerMap];
+    CLLocationCoordinate2D referencePosition = [mapView convertPoint:CGPointMake(0, 0) toCoordinateFromView:mapView];
+    CLLocationCoordinate2D referencePosition2 = [mapView convertPoint:CGPointMake(0, 100) toCoordinateFromView:mapView];
+    deltaLatFor1px = (referencePosition2.latitude - referencePosition.latitude)/100;
+}
+-(MKCoordinateRegion)centerMap{
+    originalCenterCoordinate = CLLocationCoordinate2DMake(41.871940, 12.567380);
+    mapView.centerCoordinate = originalCenterCoordinate;
+    MKCoordinateSpan span = MKCoordinateSpanMake(5,5);
+    MKCoordinateRegion region = MKCoordinateRegionMake(originalCenterCoordinate, span);
+    return region;
+}
 @end
