@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>NAME</key>
+		<string>Sede Nazionale</string>
+		<key>CITY</key>
+		<string>Roma</string>
+		<key>ADDRESS</key>
+		<string></string>
+		<key>LAT</key>
+		<string>41.9382745</string>
+		<key>LONG</key>
+		<string>12.54272320</string>
+	</dict>
+	<dict>
+		<key>NAME</key>
+		<string>Sede Interregionale Area Sud</string>
+		<key>CITY</key>
+		<string>Napoli</string>
+		<key>ADDRESS</key>
+		<string></string>
+		<key>LAT</key>
+		<string>40.85759150</string>
+		<key>LONG</key>
+		<string>14.27715340</string>
+	</dict>
+	<dict>
+		<key>NAME</key>
+		<string>Sede Provinciale</string>
+		<key>CITY</key>
+		<string>Brindisi</string>
+		<key>ADDRESS</key>
+		<string></string>
+		<key>LAT</key>
+		<string>40.63380850</string>
+		<key>LONG</key>
+		<string>17.93337160</string>
+	</dict>
+	<dict>
+		<key>NAME</key>
+		<string>Sede Provinciale</string>
+		<key>CITY</key>
+		<string>Padova</string>
+		<key>ADDRESS</key>
+		<string></string>
+		<key>LAT</key>
+		<string>45.41487990</string>
+		<key>LONG</key>
+		<string>11.85951760</string>
+	</dict>
+	<dict>
+		<key>NAME</key>
+		<string>Sede Provinciale</string>
+		<key>CITY</key>
+		<string>Palermo</string>
+		<key>ADDRESS</key>
+		<string></string>
+		<key>LAT</key>
+		<string>38.12751870</string>
+		<key>LONG</key>
+		<string>13.35512040</string>
+	</dict>
+	<dict>
+		<key>NAME</key>
+		<string>Sede Provinciale</string>
+		<key>CITY</key>
+		<string>Torino</string>
+		<key>ADDRESS</key>
+		<string></string>
+		<key>LAT</key>
+		<string>45.14159970</string>
+		<key>LONG</key>
+		<string>7.7543780</string>
+	</dict>
+	<dict>
+		<key>NAME</key>
+		<string>Sede comprensoriale</string>
+		<key>CITY</key>
+		<string>Castelli Romani</string>
+		<key>ADDRESS</key>
+		<string></string>
+		<key>LAT</key>
+		<string>41.68893930</string>
+		<key>LONG</key>
+		<string>12.77993640</string>
+	</dict>
+	<dict>
+		<key>NAME</key>
+		<string>Complesso &quot;Giovanni Center&quot; Nucleo Ind. di Pile</string>
+		<key>CITY</key>
+		<string>Abbruzzo</string>
+		<key>ADDRESS</key>
+		<string></string>
+		<key>LAT</key>
+		<string>42.04911760</string>
+		<key>LONG</key>
+		<string>13.42669020</string>
+	</dict>
+</array>
+</plist>
