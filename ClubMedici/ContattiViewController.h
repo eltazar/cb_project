@@ -9,13 +9,16 @@
 #import <UIKit/UIKit.h>
 #import "WMTableViewDataSource.h"
 #import <MapKit/MapKit.h>
+#import "Sede.h"
 
-@interface ContattiViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>{
+
+@interface ContattiViewController : UIViewController<UITableViewDataSource,UITableViewDelegate, MKMapViewDelegate>{
     
     @protected
     WMTableViewDataSource *_dataModel;
     MKMapView *mapView;
     UITableView *tableView;
+    NSMutableArray *sediPin;
 
 }
 @property(nonatomic, strong) IBOutlet UITableView *tableView;

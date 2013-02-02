@@ -7,7 +7,6 @@
 //
 
 #import "ContattiViewController.h"
-
 @interface ContattiViewController ()
 
 @end
@@ -37,6 +36,24 @@
 
     //rimuove celle extra
     self.tableView.tableFooterView = [[UIView alloc] init];
+    
+    NSArray *sedi = [[NSArray alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Sedi" ofType:@"plist"]];
+    sediPin = [[NSMutableArray alloc] init];
+    
+    for(NSDictionary *o in sedi){
+        CLLocationCoordinate2D c = CLLocationCoordinate2DMake([[o objectForKey:@"LAT"] floatValue],[[o objectForKey:@"LONG"]floatValue]);
+        Sede *s = [[Sede alloc] initWithCoordinate:c];
+        NSLog(@"lat = %f, long = %f", c.latitude, c.longitude);
+        [o objectForKey:@"LAT"];
+        s.name = [o objectForKey:@"NAME"];
+        s.city = [o objectForKey:@"CITY"];
+        [sediPin addObject:s];
+        NSLog(@"S = %@",s);
+    }
+    
+    self.mapView = [[MKMapView alloc] init];
+    self.mapView.delegate = self;
+    [mapView addAnnotations:sediPin];
 }
 
 - (void)didReceiveMemoryWarning
@@ -102,6 +119,31 @@
     UITableViewCell *cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
     
     return cell.frame.size.height;
+}
+
+#pragma mark - MapViewDelegate
+
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id )annotation
+{    
+    MKPinAnnotationView* pinView = (MKPinAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:@"pin"];
+    
+    if(pinView == nil){
+        
+        pinView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"pin"];
+        //setto colore, disclosure button ed animazione
+    }
+    pinView.canShowCallout = YES;
+    pinView.annotation = annotation;
+    return pinView;
+}
+
+//per gestire il tap sul disclosure
+- (void)mapView:(MKMapView *)_mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
+{
+}
+
+- (void)mapView:(MKMapView *)mapView didAddAnnotationViews:(NSArray *)views
+{
 }
 
 @end

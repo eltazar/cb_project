@@ -40,7 +40,7 @@
     tableView.tableHeaderView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"header_contatti"]];
     tableView.backgroundColor = [UIColor clearColor];
     
-    self.mapView = [[MKMapView alloc] initWithFrame:CGRectMake(0, 0, 320, 250)];
+    self.mapView.frame = CGRectMake(0, 0, 320, 250);
     [self configureMap];
     [self.view insertSubview:mapView belowSubview:tableView];
 
