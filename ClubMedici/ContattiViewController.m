@@ -123,17 +123,20 @@
 
 #pragma mark - MapViewDelegate
 
-- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id )annotation
+- (MKAnnotationView *)mapView:(MKMapView *)map viewForAnnotation:(id )annotation
 {    
-    MKPinAnnotationView* pinView = (MKPinAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:@"pin"];
+    MKPinAnnotationView* pinView = (MKPinAnnotationView *)[map dequeueReusableAnnotationViewWithIdentifier:@"pin"];
     
     if(pinView == nil){
         
         pinView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"pin"];
         //setto colore, disclosure button ed animazione
     }
+    else{
+        pinView.annotation = annotation;   
+    }
+    pinView.enabled = YES;
     pinView.canShowCallout = YES;
-    pinView.annotation = annotation;
     return pinView;
 }
 
