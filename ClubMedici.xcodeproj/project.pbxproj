@@ -10,6 +10,8 @@
 		AC23E62B1660049500818769 /* pdfImage.png in Resources */ = {isa = PBXBuildFile; fileRef = AC23E6291660049500818769 /* pdfImage.png */; };
 		AC23E62C1660049500818769 /* pdfImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC23E62A1660049500818769 /* pdfImage@2x.png */; };
 		AC23E62F166025E400818769 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC23E62E166025E400818769 /* MessageUI.framework */; };
+		AC25200A16BF0E7F0080A4BE /* ContattiViewController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = AC25200816BF0E7F0080A4BE /* ContattiViewController_iPad.m */; };
+		AC25200B16BF0E7F0080A4BE /* ContattiViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC25200916BF0E7F0080A4BE /* ContattiViewController_iPad.xib */; };
 		AC26297D165D01EE00510092 /* AreaCureMediche.m in Sources */ = {isa = PBXBuildFile; fileRef = AC26297C165D01EE00510092 /* AreaCureMediche.m */; };
 		AC262980165D07F100510092 /* AreaLeasing.m in Sources */ = {isa = PBXBuildFile; fileRef = AC26297F165D07F100510092 /* AreaLeasing.m */; };
 		AC26298D165D1E2400510092 /* AreaDescriptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC262989165D1E2400510092 /* AreaDescriptionCell.xib */; };
@@ -85,6 +87,9 @@
 		AC23E6291660049500818769 /* pdfImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pdfImage.png; path = img/pdfImage.png; sourceTree = SOURCE_ROOT; };
 		AC23E62A1660049500818769 /* pdfImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pdfImage@2x.png"; path = "img/pdfImage@2x.png"; sourceTree = SOURCE_ROOT; };
 		AC23E62E166025E400818769 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		AC25200716BF0E7F0080A4BE /* ContattiViewController_iPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContattiViewController_iPad.h; sourceTree = "<group>"; };
+		AC25200816BF0E7F0080A4BE /* ContattiViewController_iPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContattiViewController_iPad.m; sourceTree = "<group>"; };
+		AC25200916BF0E7F0080A4BE /* ContattiViewController_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContattiViewController_iPad.xib; sourceTree = "<group>"; };
 		AC26297B165D01EE00510092 /* AreaCureMediche.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreaCureMediche.h; sourceTree = "<group>"; };
 		AC26297C165D01EE00510092 /* AreaCureMediche.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaCureMediche.m; sourceTree = "<group>"; };
 		AC26297E165D07F100510092 /* AreaLeasing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreaLeasing.h; sourceTree = "<group>"; };
@@ -363,6 +368,9 @@
 				ACE683C516B8766300530D22 /* ContattiViewController_iPhone.h */,
 				ACE683C616B8766300530D22 /* ContattiViewController_iPhone.m */,
 				ACE683C716B8766300530D22 /* ContattiViewController_iPhone.xib */,
+				AC25200716BF0E7F0080A4BE /* ContattiViewController_iPad.h */,
+				AC25200816BF0E7F0080A4BE /* ContattiViewController_iPad.m */,
+				AC25200916BF0E7F0080A4BE /* ContattiViewController_iPad.xib */,
 				ACE9FF3E16B87F70002C8CE5 /* Contatti.plist */,
 				ACE40A7216BC888300FDCA18 /* Sedi.plist */,
 			);
@@ -528,6 +536,7 @@
 				ACE9FF4116B8814C002C8CE5 /* WebViewCell.xib in Resources */,
 				ACE9FF5816B88D91002C8CE5 /* header_contatti.png in Resources */,
 				ACE40A7316BC888300FDCA18 /* Sedi.plist in Resources */,
+				AC25200B16BF0E7F0080A4BE /* ContattiViewController_iPad.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -570,6 +579,7 @@
 				ACE683C016B86CE200530D22 /* ContattiViewController.m in Sources */,
 				ACE683C816B8766300530D22 /* ContattiViewController_iPhone.m in Sources */,
 				ACE40A8216BC93C500FDCA18 /* Sede.m in Sources */,
+				AC25200A16BF0E7F0080A4BE /* ContattiViewController_iPad.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
