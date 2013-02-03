@@ -54,6 +54,7 @@
     //Tableview gesture recognizer
     UITapGestureRecognizer *tapTable = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideTable:)];
     UITapGestureRecognizer *tapMap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideTable:)];
+    tapMap.delegate = self;
     [self.tableView.tableHeaderView setUserInteractionEnabled:YES];
     [self.tableView.tableHeaderView addGestureRecognizer:tapTable];
     
@@ -165,7 +166,6 @@
          ];
         isTableVisible = NO;
         [self.tableView setUserInteractionEnabled:NO];
-        [self.tableView.tableHeaderView setUserInteractionEnabled:YES];
     }
     else{
         
@@ -183,6 +183,15 @@
         }
     }
 }
+
+
+#pragma mark - Gesture recognizer delegate
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer
+shouldRecognizeSimultaneouslyWithGestureRecognizer:
+(UIGestureRecognizer *)otherGestureRecognizer{
+    return YES;
+}
+
 
 #pragma mark - metodi privati
 
