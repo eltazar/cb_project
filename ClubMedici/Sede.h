@@ -17,8 +17,6 @@
 }
 
 @property(nonatomic, strong) NSString *name;
-@property(nonatomic, copy) NSString *title;
-@property(nonatomic, copy) NSString *subtitle;
 @property(nonatomic, strong) NSString *address;
 @property(nonatomic, strong) NSString *city;
 @property(nonatomic) CLLocationCoordinate2D coordinate;

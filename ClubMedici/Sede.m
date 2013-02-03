@@ -9,7 +9,7 @@
 #import "Sede.h"
 
 @implementation Sede
-@synthesize city,address, coordinate, name, title, subtitle;
+@synthesize city,address, coordinate, name;
 - (id)init
 {
     self = [super init];
