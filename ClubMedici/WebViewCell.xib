@@ -44,6 +44,7 @@
 								<int key="NSvFlags">276</int>
 								<string key="NSFrame">{{14, 0}, {306, 92}}</string>
 								<reference key="NSSuperview" ref="301839465"/>
+								<reference key="NSWindow"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<object class="NSColor" key="IBUIBackgroundColor">
 									<int key="NSColorSpace">1</int>
@@ -58,6 +59,7 @@
 						</array>
 						<string key="NSFrameSize">{320, 91}</string>
 						<reference key="NSSuperview" ref="371618639"/>
+						<reference key="NSWindow"/>
 						<string key="NSReuseIdentifierKey">_NS:11</string>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">3</int>
@@ -72,6 +74,7 @@
 				</array>
 				<string key="NSFrameSize">{320, 92}</string>
 				<reference key="NSSuperview"/>
+				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="301839465"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<object class="NSColor" key="IBUIBackgroundColor">
@@ -81,6 +84,7 @@
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 				<int key="IBUISelectionStyle">0</int>
 				<reference key="IBUIContentView" ref="301839465"/>
+				<string key="IBUIReuseIdentifier">WebViewCell</string>
 				<real value="92" key="IBUIRowHeight"/>
 			</object>
 		</array>

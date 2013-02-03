@@ -43,12 +43,10 @@
     for(NSDictionary *o in sedi){
         CLLocationCoordinate2D c = CLLocationCoordinate2DMake([[o objectForKey:@"LAT"] floatValue],[[o objectForKey:@"LONG"]floatValue]);
         Sede *s = [[Sede alloc] initWithCoordinate:c];
-        NSLog(@"lat = %f, long = %f", c.latitude, c.longitude);
         [o objectForKey:@"LAT"];
         s.name = [o objectForKey:@"NAME"];
         s.city = [o objectForKey:@"CITY"];
         [sediPin addObject:s];
-        NSLog(@"S = %@",s);
     }
     
     self.mapView = [[MKMapView alloc] init];
@@ -135,6 +133,7 @@
     else{
         pinView.annotation = annotation;   
     }
+    [pinView setPinColor:MKPinAnnotationColorGreen];
     pinView.enabled = YES;
     pinView.canShowCallout = YES;
     return pinView;
