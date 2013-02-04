@@ -72,6 +72,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (BOOL)shouldAutorotateToInterfaceOrientation:
+(UIInterfaceOrientation)interfaceOrientation {
+    // Return YES for supported orientations
+    return YES;
+}
+
 - (void)webViewDidStartLoad:(UIWebView *)webView {
     NSLog(@"INIZIATO DOWNLOAD PDF");
 }
