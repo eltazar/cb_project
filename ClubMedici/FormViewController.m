@@ -83,14 +83,33 @@
     
     if(nextIndexPath.row < [self.tableView numberOfRowsInSection:0])
         [[((TextFieldCell*)[self.tableView cellForRowAtIndexPath:nextIndexPath]) viewWithTag:1] becomeFirstResponder];
-    else [textField resignFirstResponder];
+    else{
+        [textField resignFirstResponder];
+        //riporta tabella a offset originale
+        [UIView animateWithDuration:0.3
+                         animations:^(void){
+                             self.tableView.contentOffset = CGPointMake(0, -60);
+                         }
+         ];
+    };
     
     NSLog(@"textFieldShouldReturn row = %d",indexPath.row);
+    
     return YES;
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
-    //NSLog(@"did begin editing, row = %d, super view = %@",indexPath.row, [[textField superview]superview]);
+    UITableViewCell *cell = (UITableViewCell*) [[textField superview] superview];
+    NSLog(@"y = %f", cell.frame.origin.y);
+    
+    if(cell.frame.origin.y + textField.frame.size.height >= KEYBOARD_ORIGIN_Y){
+        //modifica offset per fare vedere celle nascoste
+        [UIView animateWithDuration:0.3
+                         animations:^(void){
+                             self.tableView.contentOffset = CGPointMake(0, self.tableView.contentOffset.y+60);
+                         }
+         ];
+    }
 }
 
 
