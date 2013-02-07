@@ -35,6 +35,8 @@
 		ACBE63BC165A87E500F64CDA /* HomeViewController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBE63BB165A87E500F64CDA /* HomeViewController_iPad.m */; };
 		ACBFD645165BBEE600DD7991 /* AreaBase.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBFD644165BBEE600DD7991 /* AreaBase.m */; };
 		ACBFD648165BC0B100DD7991 /* AreaFinanziaria.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBFD647165BC0B100DD7991 /* AreaFinanziaria.m */; };
+		ACCC531916C1AB7000994AA0 /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = ACCC531816C1AB7000994AA0 /* Utilities.m */; };
+		ACCC531C16C1D97300994AA0 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = ACCC531B16C1D97300994AA0 /* MBProgressHUD.m */; };
 		ACCDDA54165C153A0097C00C /* finanziariaImg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ACCDDA53165C153A0097C00C /* finanziariaImg.jpg */; };
 		ACD24B97165F80AA00C97CD2 /* TextAreaCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACD24B96165F80AA00C97CD2 /* TextAreaCell.xib */; };
 		ACD24B9B165F945F00C97CD2 /* RichiestaNoleggioController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD24B9A165F945F00C97CD2 /* RichiestaNoleggioController.m */; };
@@ -124,6 +126,10 @@
 		ACBFD644165BBEE600DD7991 /* AreaBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaBase.m; sourceTree = "<group>"; };
 		ACBFD646165BC0B100DD7991 /* AreaFinanziaria.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreaFinanziaria.h; sourceTree = "<group>"; };
 		ACBFD647165BC0B100DD7991 /* AreaFinanziaria.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaFinanziaria.m; sourceTree = "<group>"; };
+		ACCC531716C1AB7000994AA0 /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
+		ACCC531816C1AB7000994AA0 /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };
+		ACCC531A16C1D97300994AA0 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		ACCC531B16C1D97300994AA0 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		ACCDDA53165C153A0097C00C /* finanziariaImg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = finanziariaImg.jpg; path = img/finanziariaImg.jpg; sourceTree = SOURCE_ROOT; };
 		ACD24B96165F80AA00C97CD2 /* TextAreaCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TextAreaCell.xib; path = ClubMedici/TextAreaCell.xib; sourceTree = "<group>"; };
 		ACD24B99165F945F00C97CD2 /* RichiestaNoleggioController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RichiestaNoleggioController.h; path = ClubMedici/RichiestaNoleggioController.h; sourceTree = "<group>"; };
@@ -343,6 +349,8 @@
 		ACD4C76F165715460025F3F5 /* Librerie esterne */ = {
 			isa = PBXGroup;
 			children = (
+				ACCC531A16C1D97300994AA0 /* MBProgressHUD.h */,
+				ACCC531B16C1D97300994AA0 /* MBProgressHUD.m */,
 				ACE03DCB16593B71009B6B0D /* UIViewController+JASidePanel.h */,
 				ACE03DCC16593B71009B6B0D /* UIViewController+JASidePanel.m */,
 				ACD4C7711657158D0025F3F5 /* JASidePanelController.h */,
@@ -353,6 +361,8 @@
 				ACDCC6DF16B34A7900745FFB /* AsyncImageView.m */,
 				ACDCC6E216B34B0900745FFB /* CachedAsyncImageView.h */,
 				ACDCC6E316B34B0900745FFB /* CachedAsyncImageView.m */,
+				ACCC531716C1AB7000994AA0 /* Utilities.h */,
+				ACCC531816C1AB7000994AA0 /* Utilities.m */,
 			);
 			name = "Librerie esterne";
 			path = ClubMedici;
@@ -580,6 +590,8 @@
 				ACE683C816B8766300530D22 /* ContattiViewController_iPhone.m in Sources */,
 				ACE40A8216BC93C500FDCA18 /* Sede.m in Sources */,
 				AC25200A16BF0E7F0080A4BE /* ContattiViewController_iPad.m in Sources */,
+				ACCC531916C1AB7000994AA0 /* Utilities.m in Sources */,
+				ACCC531C16C1D97300994AA0 /* MBProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
