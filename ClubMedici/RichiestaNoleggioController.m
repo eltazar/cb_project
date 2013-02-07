@@ -9,8 +9,22 @@
 #import "RichiestaNoleggioController.h"
 #import "WMTableViewDataSource.h"
 
-@interface RichiestaNoleggioController ()
+#define allTrim( object ) [object stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet] ]
+#define replaceSpace( object ) [object stringByReplacingOccurrencesOfString:@" " withString:@""]
 
+
+@interface RichiestaNoleggioController ()
+{
+    NSString *ragSoc;
+    NSString *iva;
+    NSString *phone;
+    NSString *citta;
+    NSString *email;
+    NSString *marca;
+    NSString *modello;
+    NSString *tipo;
+    NSString *prezzo;
+}
 @end
 
 @implementation RichiestaNoleggioController
@@ -56,6 +70,98 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - UITextFieldDelegate
+
+- (void) textFieldDidEndEditing:(UITextField *)textField{
+    UITableViewCell *cell = (UITableViewCell*) [[textField superview] superview];
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    NSString *dataKey = [_dataModel valueForKey:@"DATA_KEY" atIndexPath:indexPath];
+    
+    NSLog(@"2) dataKey %@", dataKey);
+    if ([dataKey isEqualToString:@"ragSoc"]){
+        ragSoc = textField.text;
+    }
+    else if ([dataKey isEqualToString:@"cell"]){
+        phone = textField.text;
+    }
+    else if ([dataKey isEqualToString:@"email"]){
+        email = textField.text;
+    }
+    else if ([dataKey isEqualToString:@"citta"]){
+        //per auto
+        citta = textField.text;
+    }
+    else if ([dataKey isEqualToString:@"iva"]){
+        iva = textField.text;
+    }
+    else  if ([dataKey isEqualToString:@"marca"]){
+        marca = textField.text;
+    }
+    else if ([dataKey isEqualToString:@"modello"]){
+        modello = textField.text;
+    }
+    else if ([dataKey isEqualToString:@"tipo"]){
+        //per elettromedicale
+        tipo = textField.text;
+    }
+    else if ([dataKey isEqualToString:@"prezzo"]){
+        prezzo = textField.text;
+    }
+    
+}
+
+-(BOOL)validateFields{
+    
+    NSString *reason = @"";
+    BOOL isValid = TRUE;
+    
+    if([self.kind isEqualToString:@"noleggioAuto"]){
+        if([allTrim(iva) length] == 0|| [allTrim(modello) length] == 0 ||
+           [allTrim(marca) length] == 0 ){
+           // NSLog(@"mostra avviso completa tutti i campi");
+            reason = @"Per favore compila tutti i campi richiesti";
+            isValid = FALSE;
+            
+        }
+    }
+    else{
+        if([allTrim(tipo) length] == 0|| [allTrim(prezzo) length] == 0){
+            //NSLog(@"mostra avviso completa tutti i campi");
+            reason = @"Per favore compila tutti i campi richiesti";
+            isValid = FALSE;
+            
+        }
+    }
+    if([allTrim(ragSoc) length] == 0|| [allTrim(phone) length] == 0 ||
+       [allTrim(citta) length] == 0){
+       // NSLog(@"mostra avviso completa tutti i campi");
+        reason = @"Per favore compila tutti i campi richiesti";
+        isValid = FALSE;
+        
+    }
+    else if (![Utilities isNumeric:replaceSpace(phone)]) {
+       // NSLog(@"mostra avviso telefono errato");
+        reason = @"Per favore inserisci un numero di telefono valido";
+        isValid = FALSE;
+    }
+    else if(![Utilities checkEmail:email]){
+        //NSLog(@"mostra avviso email errato");
+        reason = @"Per favore inserisci un indirizzo e-mail valido";
+        isValid = FALSE;
+    }
+    
+    if(!isValid){
+        //NSLog(@"mostra alert");
+        
+        UIAlertView *alertView = [[UIAlertView alloc]init];
+        alertView.title = reason;
+        [alertView setCancelButtonIndex:0];
+        [alertView setCancelButtonIndex:[alertView addButtonWithTitle:@"OK"]];
+        [alertView show];
+    }
+        
+    return  isValid;
+}
 
 
 @end

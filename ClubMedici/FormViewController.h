@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Utilities.h"
 
 @class WMTableViewDataSource;
 
@@ -16,4 +17,5 @@
     
 }
 
+-(BOOL) validateFields;
 @end

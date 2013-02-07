@@ -11,6 +11,9 @@
 #import "FormViewController.h"
 #import "TextFieldCell.h"
 #import "WMTableViewDataSource.h"
+#import "MBProgressHUD.h"
+
+#define KEYBOARD_ORIGIN_Y self.tableView.frame.size.height - 216.0f
 
 @interface FormViewController () {
     TextFieldCell *textFieldCell;
@@ -40,13 +43,7 @@
     
     //per staccare un po la prima cella dal bordo superiore
     self.tableView.contentInset = UIEdgeInsetsMake(10.0f, 0.0f, 0.0f, 0.0f);
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
+
     self.tableView.dataSource = _dataModel;
     _dataModel.cellFactory = self;
     _dataModel.showSectionHeaders = NO;
@@ -68,6 +65,15 @@
 
 - (void)sendButtonPressed:(id)sender {
     NSLog(@"SEND BUTTON PRESSED");
+    
+    //fa si che il testo inserito nei texfield sia preso anche se non è stata dismessa la keyboard
+    [self.view endEditing:TRUE];
+    if([self validateFields]){
+        NSLog(@"invia richiesta");
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        //hud.mode = MBProgressHUDModeAnnularDeterminate;
+        hud.labelText = @"Invio...";
+    }
 }
 
 
@@ -75,8 +81,14 @@
     [self.navigationController dismissModalViewControllerAnimated:YES];
 }
 
+-(BOOL)validateFields{
+    return FALSE;
+}
+#pragma mark - UITextFieldDelegate
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     // called when "Next" is pressed
+    
     NSIndexPath *indexPath = [self.tableView indexPathForCell:(TextFieldCell*)[[textField superview]superview]];
     
     NSIndexPath *nextIndexPath = [NSIndexPath indexPathForRow:indexPath.row+1 inSection:0];
@@ -112,9 +124,11 @@
     }
 }
 
+- (void) textFieldDidEndEditing:(UITextField *)textField{
+    
+}
 
 #pragma mark - Table view data source
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = nil;
