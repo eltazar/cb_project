@@ -57,7 +57,9 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:
 (UIInterfaceOrientation)interfaceOrientation {
     // Return YES for supported orientations
-    return YES;
+    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+        return NO;
+    else return YES;
 }
 
 #pragma mark - Buttons method

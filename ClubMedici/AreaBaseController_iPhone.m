@@ -42,10 +42,11 @@
 //
 //per gestire rotazione guardare qui: http://stackoverflow.com/questions/12536645/rotation-behaving-differently-on-ios6
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    return NO;
-}
+- (BOOL)shouldAutorotateToInterfaceOrientation:
+(UIInterfaceOrientation)interfaceOrientation {
 
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
 
 #pragma mark - Table view data source
 

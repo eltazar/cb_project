@@ -27,7 +27,7 @@
         jasSidePanelController = [[JASidePanelController alloc] init];
         jasSidePanelController.leftPanel = self.sideMenuNavController;
         jasSidePanelController.centerPanel = self.detailViewNavController;
-        jasSidePanelController.shouldDelegateAutorotateToVisiblePanel = NO;
+        jasSidePanelController.shouldDelegateAutorotateToVisiblePanel = YES;
         self.window.rootViewController = jasSidePanelController;
         [self addPanGestureToNavigationController:self.detailViewNavController target:jasSidePanelController];
     }
