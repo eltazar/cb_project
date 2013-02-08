@@ -55,8 +55,7 @@
     UITapGestureRecognizer *tapTable = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideTable:)];
     UITapGestureRecognizer *tapMap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideTable:)];
     tapMap.delegate = self;
-    [self.tableView.tableHeaderView setUserInteractionEnabled:YES];
-    [self.tableView.tableHeaderView addGestureRecognizer:tapTable];
+    [self.tableView addGestureRecognizer:tapTable];
     
     [self.mapView addGestureRecognizer:tapMap];
     
@@ -162,16 +161,20 @@
 
 -(void) hideTable:(UITapGestureRecognizer*)tap{
     
+    CGPoint point = [tap locationInView:self.view];
+    
     if(isTableVisible){
-        //nascondo tabella
-        CGFloat paddingDown = -(CONTENT_OFFSET+self.tableView.contentSize.height-self.tableView.tableHeaderView.frame.size.height);
-        [UIView animateWithDuration:0.2
-                         animations:^(void){
-                             self.tableView.contentOffset = CGPointMake(0,paddingDown);
-                         }
-         ];
-        isTableVisible = NO;
-        [self.tableView setUserInteractionEnabled:NO];
+        if(point.y <= CONTENT_OFFSET+self.tableView.tableHeaderView.frame.size.height){
+            //nascondo tabella
+            CGFloat paddingDown = -(CONTENT_OFFSET+self.tableView.contentSize.height-self.tableView.tableHeaderView.frame.size.height);
+            [UIView animateWithDuration:0.2
+                             animations:^(void){
+                                 self.tableView.contentOffset = CGPointMake(0,paddingDown);
+                             }
+             ];
+            isTableVisible = NO;
+                [self.tableView setUserInteractionEnabled:NO];
+        }
     }
     else{
         
