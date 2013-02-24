@@ -83,7 +83,9 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:
 (UIInterfaceOrientation)interfaceOrientation {
+    // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    //return NO;
 }
 
 #pragma mark - Table view data source
@@ -178,7 +180,7 @@
     }
     else{
         
-        CGPoint point = [tap locationInView:self.view];
+        
         if(point.y >= tableView.frame.size.height-tableView.tableHeaderView.frame.size.height){
             //mostro tabella
             CGFloat paddingUp = self.tableView.contentOffset.y+self.tableView.contentSize.height-self.tableView.tableHeaderView.frame.size.height;
@@ -189,6 +191,8 @@
              ];
             isTableVisible = YES;
             [tableView setUserInteractionEnabled:YES];
+            [self configureMap];
+
         }
     }
 }
@@ -201,10 +205,10 @@ shouldRecognizeSimultaneouslyWithGestureRecognizer:
     return YES;
 }
 
-
 #pragma mark - metodi privati
 
 -(void) configureMap{
+    [self.mapView setUserInteractionEnabled:YES];
     self.mapView.region = [self centerMap];
     CLLocationCoordinate2D referencePosition = [mapView convertPoint:CGPointMake(0, 0) toCoordinateFromView:mapView];
     CLLocationCoordinate2D referencePosition2 = [mapView convertPoint:CGPointMake(0, 100) toCoordinateFromView:mapView];
@@ -215,6 +219,7 @@ shouldRecognizeSimultaneouslyWithGestureRecognizer:
     mapView.centerCoordinate = originalCenterCoordinate;
     MKCoordinateSpan span = MKCoordinateSpanMake(5,5);
     MKCoordinateRegion region = MKCoordinateRegionMake(originalCenterCoordinate, span);
-    return region;
+    MKCoordinateRegion adjustedRegion = [mapView regionThatFits:region];
+    return adjustedRegion;
 }
 @end
