@@ -57,8 +57,7 @@
     tapMap.delegate = self;
     [self.tableView addGestureRecognizer:tapTable];
     
-    [self.mapView addGestureRecognizer:tapMap];
-    
+    [self.mapView addGestureRecognizer:tapMap];    
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -176,6 +175,7 @@
              ];
             isTableVisible = NO;
                 [self.tableView setUserInteractionEnabled:NO];
+            [self showCloseButton];
         }
     }
     else{
@@ -183,15 +183,8 @@
         
         if(point.y >= tableView.frame.size.height-tableView.tableHeaderView.frame.size.height){
             //mostro tabella
-            CGFloat paddingUp = self.tableView.contentOffset.y+self.tableView.contentSize.height-self.tableView.tableHeaderView.frame.size.height;
-            [UIView animateWithDuration:0.2
-                             animations:^(void){
-                                 self.tableView.contentOffset = CGPointMake(0,paddingUp);
-                             }
-             ];
-            isTableVisible = YES;
-            [tableView setUserInteractionEnabled:YES];
-            [self configureMap];
+            [self showTableView];
+            [self removeCloseButton];
 
         }
     }
@@ -221,5 +214,28 @@ shouldRecognizeSimultaneouslyWithGestureRecognizer:
     MKCoordinateRegion region = MKCoordinateRegionMake(originalCenterCoordinate, span);
     MKCoordinateRegion adjustedRegion = [mapView regionThatFits:region];
     return adjustedRegion;
+}
+
+-(void)removeCloseButton{
+    self.navigationItem.rightBarButtonItem = nil;
+}
+-(void)showCloseButton{
+    [self.navigationItem setHidesBackButton:YES animated:YES];
+    UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:@"Chiudi" style:UIBarButtonItemStylePlain target:self action:@selector(showTableView)];
+    self.navigationItem.rightBarButtonItem = anotherButton;
+}
+
+-(void)showTableView{
+    self.navigationItem.rightBarButtonItem = nil;
+    [self.navigationItem setHidesBackButton:NO animated:YES];
+    CGFloat paddingUp = self.tableView.contentOffset.y+self.tableView.contentSize.height-self.tableView.tableHeaderView.frame.size.height;
+    [UIView animateWithDuration:0.2
+                     animations:^(void){
+                         self.tableView.contentOffset = CGPointMake(0,paddingUp);
+                     }
+     ];
+    isTableVisible = YES;
+    [tableView setUserInteractionEnabled:YES];
+    [self configureMap];
 }
 @end
