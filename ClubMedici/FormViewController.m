@@ -23,6 +23,7 @@
 @end
 
 @implementation FormViewController
+@synthesize delegate;
 
 - (id)initWithStyle:(UITableViewStyle)style {
     self = [super initWithStyle:style];
@@ -80,7 +81,10 @@
 
 
 - (void) cancelButtonPressed:(id)sender {
-    [self.navigationController dismissModalViewControllerAnimated:YES];
+    //[self.navigationController dismissModalViewControllerAnimated:YES];
+    if(delegate && [delegate respondsToSelector:@selector(didPressCancelButton:)]){
+        [delegate didPressCancelButton:self];
+    }
 }
 
 -(BOOL)validateFields{
@@ -138,9 +142,9 @@
     
     if ([dataKey isEqualToString:@"info"]) {
         // Sezione 1
-        cell = [tableView dequeueReusableCellWithIdentifier:@"TextArea"];
+        cell = [tableView dequeueReusableCellWithIdentifier:@"Disclaimer"];
         if (!cell) {
-            cell = [[[NSBundle mainBundle] loadNibNamed:@"TextAreaCell" owner:self options:NULL] objectAtIndex:0];
+            cell = [[[NSBundle mainBundle] loadNibNamed:@"DisclaimerCell" owner:self options:NULL] objectAtIndex:0];
         }
         UITextView *textView = (UITextView*)[cell viewWithTag:1];
         

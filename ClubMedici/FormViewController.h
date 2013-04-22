@@ -11,11 +11,19 @@
 
 @class WMTableViewDataSource;
 
+@protocol FormViewControllerDelegate <NSObject>
+
+-(void)didPressCancelButton:(id)sender;
+-(void)didPressOkButton:(id)sender;
+
+@end
+
 @interface FormViewController : UITableViewController <UITextFieldDelegate> {
     @protected
     WMTableViewDataSource *_dataModel;
     
 }
 
+@property(nonatomic, weak) id<FormViewControllerDelegate> delegate;
 -(BOOL) validateFields;
 @end
