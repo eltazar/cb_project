@@ -27,11 +27,13 @@
 		AC31D7B6165EF1A100CCC001 /* FormViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC31D7B5165EF1A100CCC001 /* FormViewController.xib */; };
 		AC9168E416B9EC1900AF402E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC9168E316B9EC1900AF402E /* CoreLocation.framework */; };
 		AC93CE93165DA6F400ABA3C2 /* PDFviewerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC93CE92165DA6F400ABA3C2 /* PDFviewerController.xib */; };
-		ACB3B7E117243B7E0042A5B4 /* DisclaimerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACB3B7E017243B7E0042A5B4 /* DisclaimerCell.xib */; };
 		ACB7DA7016A4AFC500B05178 /* mail.png in Resources */ = {isa = PBXBuildFile; fileRef = ACB7DA6E16A4AFC500B05178 /* mail.png */; };
 		ACB7DA7116A4AFC500B05178 /* mail@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ACB7DA6F16A4AFC500B05178 /* mail@2x.png */; };
 		ACB8FADA172564BA00AFB645 /* DisclaimerController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB8FAD8172564BA00AFB645 /* DisclaimerController.m */; };
 		ACB8FADB172564BA00AFB645 /* DisclaimerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACB8FAD9172564BA00AFB645 /* DisclaimerController.xib */; };
+		ACBA1D511725C413004EB8E4 /* DisclaimerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACBA1D501725C413004EB8E4 /* DisclaimerCell.xib */; };
+		ACBA1D561725C442004EB8E4 /* PDHTTPAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBA1D531725C442004EB8E4 /* PDHTTPAccess.m */; };
+		ACBA1D571725C442004EB8E4 /* WMHTTPAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBA1D551725C442004EB8E4 /* WMHTTPAccess.m */; };
 		ACBE63AD165A865000F64CDA /* SideMenuController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBE63AC165A865000F64CDA /* SideMenuController_iPhone.m */; };
 		ACBE63B4165A874900F64CDA /* SideMenuController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBE63B3165A874900F64CDA /* SideMenuController_iPad.m */; };
 		ACBE63B8165A87A800F64CDA /* HomeViewController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBE63B7165A87A800F64CDA /* HomeViewController_iPhone.m */; };
@@ -115,12 +117,16 @@
 		AC31D7B5165EF1A100CCC001 /* FormViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FormViewController.xib; path = ClubMedici/FormViewController.xib; sourceTree = "<group>"; };
 		AC9168E316B9EC1900AF402E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		AC93CE92165DA6F400ABA3C2 /* PDFviewerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PDFviewerController.xib; path = ClubMedici/PDFviewerController.xib; sourceTree = "<group>"; };
-		ACB3B7E017243B7E0042A5B4 /* DisclaimerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DisclaimerCell.xib; sourceTree = "<group>"; };
 		ACB7DA6E16A4AFC500B05178 /* mail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mail.png; path = img/mail.png; sourceTree = SOURCE_ROOT; };
 		ACB7DA6F16A4AFC500B05178 /* mail@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "mail@2x.png"; path = "img/mail@2x.png"; sourceTree = SOURCE_ROOT; };
 		ACB8FAD7172564BA00AFB645 /* DisclaimerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisclaimerController.h; sourceTree = "<group>"; };
 		ACB8FAD8172564BA00AFB645 /* DisclaimerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisclaimerController.m; sourceTree = "<group>"; };
 		ACB8FAD9172564BA00AFB645 /* DisclaimerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DisclaimerController.xib; sourceTree = "<group>"; };
+		ACBA1D501725C413004EB8E4 /* DisclaimerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DisclaimerCell.xib; path = ClubMedici/DisclaimerCell.xib; sourceTree = "<group>"; };
+		ACBA1D521725C442004EB8E4 /* PDHTTPAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDHTTPAccess.h; sourceTree = "<group>"; };
+		ACBA1D531725C442004EB8E4 /* PDHTTPAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDHTTPAccess.m; sourceTree = "<group>"; };
+		ACBA1D541725C442004EB8E4 /* WMHTTPAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMHTTPAccess.h; sourceTree = "<group>"; };
+		ACBA1D551725C442004EB8E4 /* WMHTTPAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMHTTPAccess.m; sourceTree = "<group>"; };
 		ACBE63AB165A865000F64CDA /* SideMenuController_iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideMenuController_iPhone.h; sourceTree = "<group>"; };
 		ACBE63AC165A865000F64CDA /* SideMenuController_iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideMenuController_iPhone.m; sourceTree = "<group>"; };
 		ACBE63B2165A874900F64CDA /* SideMenuController_iPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideMenuController_iPad.h; sourceTree = "<group>"; };
@@ -153,6 +159,7 @@
 		ACDCC6DF16B34A7900745FFB /* AsyncImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncImageView.m; sourceTree = "<group>"; };
 		ACDCC6E216B34B0900745FFB /* CachedAsyncImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CachedAsyncImageView.h; sourceTree = "<group>"; };
 		ACDCC6E316B34B0900745FFB /* CachedAsyncImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CachedAsyncImageView.m; sourceTree = "<group>"; };
+		ACDED9B61725EDC500668C5C /* AreeEnum.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AreeEnum.h; sourceTree = "<group>"; };
 		ACE03DCB16593B71009B6B0D /* UIViewController+JASidePanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+JASidePanel.h"; sourceTree = "<group>"; };
 		ACE03DCC16593B71009B6B0D /* UIViewController+JASidePanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+JASidePanel.m"; sourceTree = "<group>"; };
 		ACE03DD41659462C009B6B0D /* SideMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideMenuController.h; sourceTree = "<group>"; };
@@ -239,7 +246,7 @@
 				D91B38441662598F001E9384 /* TextFieldCell.m */,
 				AC31D7A9165ECF5A00CCC001 /* TextFieldCell.xib */,
 				ACD24B96165F80AA00C97CD2 /* TextAreaCell.xib */,
-				ACB3B7E017243B7E0042A5B4 /* DisclaimerCell.xib */,
+				ACBA1D501725C413004EB8E4 /* DisclaimerCell.xib */,
 			);
 			name = "Custom cells";
 			sourceTree = "<group>";
@@ -357,6 +364,7 @@
 		ACD4C76F165715460025F3F5 /* Librerie esterne */ = {
 			isa = PBXGroup;
 			children = (
+				ACDED9B61725EDC500668C5C /* AreeEnum.h */,
 				ACCC531A16C1D97300994AA0 /* MBProgressHUD.h */,
 				ACCC531B16C1D97300994AA0 /* MBProgressHUD.m */,
 				ACE03DCB16593B71009B6B0D /* UIViewController+JASidePanel.h */,
@@ -371,6 +379,10 @@
 				ACDCC6E316B34B0900745FFB /* CachedAsyncImageView.m */,
 				ACCC531716C1AB7000994AA0 /* Utilities.h */,
 				ACCC531816C1AB7000994AA0 /* Utilities.m */,
+				ACBA1D521725C442004EB8E4 /* PDHTTPAccess.h */,
+				ACBA1D531725C442004EB8E4 /* PDHTTPAccess.m */,
+				ACBA1D541725C442004EB8E4 /* WMHTTPAccess.h */,
+				ACBA1D551725C442004EB8E4 /* WMHTTPAccess.m */,
 			);
 			name = "Librerie esterne";
 			path = ClubMedici;
@@ -404,12 +416,12 @@
 			children = (
 				ACEBDC6B16570CBE00CEFFE5 /* ClubMedici */,
 				ACBFD649165BC27E00DD7991 /* Area controllers */,
+				ACD4C76F165715460025F3F5 /* Librerie esterne */,
 				ACBFD641165BBEBB00DD7991 /* Business logic */,
 				ACE683B916B86C6F00530D22 /* Contatti ecc */,
 				AC31D7A4165ECE8B00CCC001 /* Form controllers */,
 				AC26299A165D293300510092 /* Custom cells */,
 				ACEBDC6C16570CBE00CEFFE5 /* Supporting Files */,
-				ACD4C76F165715460025F3F5 /* Librerie esterne */,
 				ACEBDC6416570CBE00CEFFE5 /* Frameworks */,
 				ACEBDC6216570CBE00CEFFE5 /* Products */,
 			);
@@ -558,8 +570,8 @@
 				ACE9FF5816B88D91002C8CE5 /* header_contatti.png in Resources */,
 				ACE40A7316BC888300FDCA18 /* Sedi.plist in Resources */,
 				AC25200B16BF0E7F0080A4BE /* ContattiViewController_iPad.xib in Resources */,
-				ACB3B7E117243B7E0042A5B4 /* DisclaimerCell.xib in Resources */,
 				ACB8FADB172564BA00AFB645 /* DisclaimerController.xib in Resources */,
+				ACBA1D511725C413004EB8E4 /* DisclaimerCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -606,6 +618,8 @@
 				ACCC531916C1AB7000994AA0 /* Utilities.m in Sources */,
 				ACCC531C16C1D97300994AA0 /* MBProgressHUD.m in Sources */,
 				ACB8FADA172564BA00AFB645 /* DisclaimerController.m in Sources */,
+				ACBA1D561725C442004EB8E4 /* PDHTTPAccess.m in Sources */,
+				ACBA1D571725C442004EB8E4 /* WMHTTPAccess.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
