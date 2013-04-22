@@ -12,10 +12,12 @@
 #import "UIViewController+InterfaceIdiom.h"
 #import "CachedAsyncImageView.h"
 #import "RichiestaNoleggioController.h"
+#import "PDHTTPAccess.h"
+#import "WMHTTPAccess.h"
 
 @class AreaBase, WMTableViewDataSource;
 
-@interface AreaBaseController : UITableViewController <MFMailComposeViewControllerDelegate, CachedAsyncImageViewDelegate, FormViewControllerDelegate> {
+@interface AreaBaseController : UITableViewController <MFMailComposeViewControllerDelegate, CachedAsyncImageViewDelegate, FormViewControllerDelegate,WMHTTPAccessDelegate> {
     @protected
         AreaBase *area;
         WMTableViewDataSource *_dataModel;
@@ -24,7 +26,8 @@
 }
 
 @property(nonatomic, strong) AreaBase *area;
+@property(nonatomic, assign) int        areaId;
 
 - (id) initWithArea:(AreaBase*)area;
-
+-(void) fetchData;
 @end

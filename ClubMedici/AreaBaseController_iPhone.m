@@ -28,8 +28,8 @@
     _areaDescriptionCell = [[[NSBundle mainBundle] loadNibNamed:@"AreaDescriptionCell"
                                                           owner:nil
                                                         options:nil] objectAtIndex:0];
-    //rimuove celle extra
-    self.tableView.tableFooterView = [[UIView alloc] init];
+//    //rimuove celle extra
+//    self.tableView.tableFooterView = [[UIView alloc] init];
 }
 
 - (void)didReceiveMemoryWarning {

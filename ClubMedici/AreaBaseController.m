@@ -14,14 +14,14 @@
 #import "PDFviewerController.h"
 #import "WMTableViewDataSource.h"
 #import "CachedAsyncImageView.h"
-
+#import "AreeEnum.h"
 
 @interface AreaBaseController () {
 }
 @end
 
 @implementation AreaBaseController
-@synthesize area;
+@synthesize area, areaId;
 
 - (id)initWithStyle:(UITableViewStyle)style {
     self = [super initWithStyle:style];
@@ -35,21 +35,28 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
   
-    self.title = [self.area titolo];
-    
+    //self.title = [self.area titolo];
+                                        
     //ottengo il dataModel per l'oggeto area
-    _dataModel = [self.area getDataModel];
+    //_dataModel = [self.area getDataModel];
     
     //rimuove celle extra
     self.tableView.tableFooterView = [[UIView alloc] init];
     
-    self.tableView.dataSource = _dataModel;
-    _dataModel.cellFactory = self;
+    //self.tableView.dataSource = _dataModel;
+    //=_dataModel.cellFactory = self;
+    
+    NSLog(@"data model = %@",_dataModel);
     
     NSURL *imageURL = [NSURL URLWithString:@"http://www.nightheaven.org/wp-content/gallery/boku_wa_tomodachi_ga_sukunai-wallpaper-01/boku_wa_tomodachi_ga_sukunai-wallpaper-06-2048_1536.jpg"];
     imageView = [[CachedAsyncImageView alloc] init];
     imageView.delegate = self;
-    [imageView loadImageFromURL:imageURL];
+    //[imageView loadImageFromURL:imageURL];
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self fetchData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -97,6 +104,15 @@
 
 #pragma mark - Table view delegate
 
+//- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+//    NSLog(@"CHIAMATO = %d",[tableView.dataSource numberOfSectionsInTableView:tableView]);
+//    if ([tableView.dataSource numberOfSectionsInTableView:tableView] == 0) {
+//        return 0;
+//    } else {
+//        return [super tableView:tableView heightForHeaderInSection:section];
+//    }
+//}
+
 - (NSString*) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     return [_dataModel tableView:tableView titleForHeaderInSection:section];
 }
@@ -124,10 +140,10 @@
 //    header.titleLabel.text = [self tableView:tableView titleForHeaderInSection:section];
 //    return header;
 //}
-
--(CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 25;
-}
+//
+//-(CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+//    return 25;
+//}
 
 
 #pragma mark - Private methods
@@ -182,6 +198,29 @@
 
 }
 
+-(NSString*)getAreaType{
+    NSString *a;
+    switch (areaId) {
+        case AreaFinanziaria:
+            a = @"AreaFinanziaria";
+            break;
+        case AreaAssicurativa:
+            a = @"AreaAssicurativa";
+            break;
+        case AreaCureMediche:
+            a = @"AreaCureMediche";
+            break;
+        case AreaLeasing:
+            a = @"AreaLeasing";
+            break;
+        case AreaTurismo:
+            a = @"AreaTurismo";
+            break;
+        default:
+            break;
+    }
+    return a;
+}
 
 #pragma mark - CachedAsyncImageDelegate
 -(void)didFinishLoadingImage:(id)sender{
@@ -193,6 +232,29 @@
 -(void)didErrorLoadingImage:(id)sender{
     //TODO: riprovare a fare il download dell'immagine in automatico?
     NSLog(@"Errore download cachedImg in area base controller");
+}
+
+#pragma mark - WMHTTPAccessDelegate
+
+-(void) fetchData{
+    [PDHTTPAccess getAreaContents:areaId delegate:self];
+}
+
+-(void)didReceiveJSON:(NSArray *)jsonArray{
+    //NSLog(@"JSON = %@",jsonArray);
+    Class areaClass = NSClassFromString([self getAreaType]);
+    self.area = [[areaClass alloc] initWithJson:[jsonArray objectAtIndex:0]];
+    //self.area = [[areaClass alloc] init];
+    _dataModel = [self.area getDataModel];
+    self.tableView.dataSource = _dataModel;
+    _dataModel.cellFactory = self;
+
+    [self.tableView reloadData];
+    //NSLog(@"AREA = %@",self.area.tel);
+}
+
+-(void)didReceiveError:(NSError *)error{
+    NSLog(@"ERRORE = %@",[error description]);
 }
 
 
