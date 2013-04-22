@@ -30,6 +30,8 @@
 		ACB3B7E117243B7E0042A5B4 /* DisclaimerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACB3B7E017243B7E0042A5B4 /* DisclaimerCell.xib */; };
 		ACB7DA7016A4AFC500B05178 /* mail.png in Resources */ = {isa = PBXBuildFile; fileRef = ACB7DA6E16A4AFC500B05178 /* mail.png */; };
 		ACB7DA7116A4AFC500B05178 /* mail@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ACB7DA6F16A4AFC500B05178 /* mail@2x.png */; };
+		ACB8FADA172564BA00AFB645 /* DisclaimerController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB8FAD8172564BA00AFB645 /* DisclaimerController.m */; };
+		ACB8FADB172564BA00AFB645 /* DisclaimerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACB8FAD9172564BA00AFB645 /* DisclaimerController.xib */; };
 		ACBE63AD165A865000F64CDA /* SideMenuController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBE63AC165A865000F64CDA /* SideMenuController_iPhone.m */; };
 		ACBE63B4165A874900F64CDA /* SideMenuController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBE63B3165A874900F64CDA /* SideMenuController_iPad.m */; };
 		ACBE63B8165A87A800F64CDA /* HomeViewController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBE63B7165A87A800F64CDA /* HomeViewController_iPhone.m */; };
@@ -116,6 +118,9 @@
 		ACB3B7E017243B7E0042A5B4 /* DisclaimerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DisclaimerCell.xib; sourceTree = "<group>"; };
 		ACB7DA6E16A4AFC500B05178 /* mail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mail.png; path = img/mail.png; sourceTree = SOURCE_ROOT; };
 		ACB7DA6F16A4AFC500B05178 /* mail@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "mail@2x.png"; path = "img/mail@2x.png"; sourceTree = SOURCE_ROOT; };
+		ACB8FAD7172564BA00AFB645 /* DisclaimerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisclaimerController.h; sourceTree = "<group>"; };
+		ACB8FAD8172564BA00AFB645 /* DisclaimerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisclaimerController.m; sourceTree = "<group>"; };
+		ACB8FAD9172564BA00AFB645 /* DisclaimerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DisclaimerController.xib; sourceTree = "<group>"; };
 		ACBE63AB165A865000F64CDA /* SideMenuController_iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideMenuController_iPhone.h; sourceTree = "<group>"; };
 		ACBE63AC165A865000F64CDA /* SideMenuController_iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideMenuController_iPhone.m; sourceTree = "<group>"; };
 		ACBE63B2165A874900F64CDA /* SideMenuController_iPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideMenuController_iPad.h; sourceTree = "<group>"; };
@@ -375,6 +380,9 @@
 			isa = PBXGroup;
 			children = (
 				ACE40A7416BC93C500FDCA18 /* Sede.h */,
+				ACB8FAD7172564BA00AFB645 /* DisclaimerController.h */,
+				ACB8FAD8172564BA00AFB645 /* DisclaimerController.m */,
+				ACB8FAD9172564BA00AFB645 /* DisclaimerController.xib */,
 				ACE40A7D16BC93C500FDCA18 /* Sede.m */,
 				ACE683BE16B86CE200530D22 /* ContattiViewController.h */,
 				ACE683BF16B86CE200530D22 /* ContattiViewController.m */,
@@ -551,6 +559,7 @@
 				ACE40A7316BC888300FDCA18 /* Sedi.plist in Resources */,
 				AC25200B16BF0E7F0080A4BE /* ContattiViewController_iPad.xib in Resources */,
 				ACB3B7E117243B7E0042A5B4 /* DisclaimerCell.xib in Resources */,
+				ACB8FADB172564BA00AFB645 /* DisclaimerController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -596,6 +605,7 @@
 				AC25200A16BF0E7F0080A4BE /* ContattiViewController_iPad.m in Sources */,
 				ACCC531916C1AB7000994AA0 /* Utilities.m in Sources */,
 				ACCC531C16C1D97300994AA0 /* MBProgressHUD.m in Sources */,
+				ACB8FADA172564BA00AFB645 /* DisclaimerController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
