@@ -14,6 +14,8 @@
 #import "RichiestaIscrizioneController.h"
 #import "WMTableViewDataSource.h"
 #import "ContattiViewController.h"
+#import "AreaBase.h"
+
 
 @interface SideMenuController() {
     WMTableViewDataSource *_dataModel;
@@ -35,7 +37,7 @@
     [super viewDidLoad];
 
     //TODO: da sistemare la sua posizione nella navBar
-    self.title = @"ClubMedici";
+    self.title = @"Menu";
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -79,7 +81,7 @@
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     NSString *dataKey    = [_dataModel valueForKey:@"DATA_KEY"   atIndexPath:indexPath];
     NSString *controller = [_dataModel valueForKey:@"CONTROLLER" atIndexPath:indexPath];
-    
+        
     if([dataKey isEqualToString:@"member"]){
         RichiestaIscrizioneController *richiestaController = [[RichiestaIscrizioneController alloc] initWithNibName:@"FormViewController" bundle:nil];
         [appDelegate.detailViewNavController popToRootViewControllerAnimated:NO];
@@ -98,7 +100,11 @@
         Class controllerClass = NSClassFromString(controller);
         
         AreaBaseController *areaController = [controllerClass idiomAllocInit];
-        areaController.area = [[areaClass alloc] init];
+        areaController.areaId = [[_dataModel valueForKey:@"ID" atIndexPath:indexPath] intValue];
+        //AreaBase *area = [areaClass alloc];
+        //area.titolo = [_dataModel valueForKey:@"LABEL" atIndexPath:indexPath];
+        //areaController.area = area;
+        areaController.title = [_dataModel valueForKey:@"LABEL" atIndexPath:indexPath];
         [appDelegate.detailViewNavController popToRootViewControllerAnimated:NO];
         [appDelegate.detailViewNavController pushViewController:areaController animated:YES];
     }
