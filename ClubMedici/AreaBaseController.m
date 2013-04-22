@@ -12,7 +12,6 @@
 #import "AreaDescriptionCell.h"
 #import "AreaBase.h"
 #import "PDFviewerController.h"
-#import "RichiestaNoleggioController.h"
 #import "WMTableViewDataSource.h"
 #import "CachedAsyncImageView.h"
 
@@ -105,38 +104,19 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *dataKey = [_dataModel valueForKey:@"DATA_KEY" atIndexPath:indexPath];
     
-    if(indexPath.section == 2){
-        
-        if([dataKey isEqualToString:@"cure"]){
-            //FormViewController *formController = [[FormViewController alloc] initWithNibName:@"FormViewController" bundle:nil];
-            //[self.navigationController pushViewController:formController animated:YES];
-            NSLog(@"CELLA CURE MEDICHE ---> devo lanciare calcolatore php");
-            
-        }
-        else {
-            
-            NSLog(@" CELLA NOLEGGIO = %@", dataKey);
-            RichiestaNoleggioController *formController = [[RichiestaNoleggioController alloc] init:dataKey];
-            [self.navigationController presentModalViewController:[[UINavigationController alloc] initWithRootViewController:formController]  animated:YES];
-        }
+    if ([dataKey isEqualToString:@"phone"]) {
+        NSLog(@"numero di telefono = %@",
+              [_dataModel valueForKey:@"LABEL" atIndexPath:indexPath]);
+        [self callNumber: [_dataModel valueForKey:@"LABEL" atIndexPath:indexPath]];
     }
-    
-    else {
-        if ([dataKey isEqualToString:@"phone"]) {
-            NSLog(@"numero di telefono = %@",
-                  [_dataModel valueForKey:@"LABEL" atIndexPath:indexPath]);
-            [self callNumber: [_dataModel valueForKey:@"LABEL" atIndexPath:indexPath]];
-        }
-        else if ([dataKey isEqualToString:@"pdf"]) {
-            NSString *title = [_dataModel valueForKey:@"LABEL" atIndexPath:indexPath];
-            PDFviewerController *pdfViewer = [[PDFviewerController alloc]initWithTitle:title                                                                      url:nil];
-            [self.navigationController presentViewController:pdfViewer animated:YES completion:nil];
-        }
-        else if ([dataKey isEqualToString:@"email"]) {
-            [self sendEmail:[_dataModel valueForKey:@"LABEL" atIndexPath:indexPath]];
-        }
-            
+    else if ([dataKey isEqualToString:@"pdf"]) {
+        NSString *title = [_dataModel valueForKey:@"LABEL" atIndexPath:indexPath];
+        PDFviewerController *pdfViewer = [[PDFviewerController alloc]initWithTitle:title                                                                      url:nil];
+        [self.navigationController presentViewController:pdfViewer animated:YES completion:nil];
     }
+    else if ([dataKey isEqualToString:@"email"]) {
+        [self sendEmail:[_dataModel valueForKey:@"LABEL" atIndexPath:indexPath]];
+    }    
 }
 
 //- (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {

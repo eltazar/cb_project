@@ -11,10 +11,11 @@
 
 #import "UIViewController+InterfaceIdiom.h"
 #import "CachedAsyncImageView.h"
+#import "RichiestaNoleggioController.h"
 
 @class AreaBase, WMTableViewDataSource;
 
-@interface AreaBaseController : UITableViewController <MFMailComposeViewControllerDelegate, CachedAsyncImageViewDelegate> {
+@interface AreaBaseController : UITableViewController <MFMailComposeViewControllerDelegate, CachedAsyncImageViewDelegate, FormViewControllerDelegate> {
     @protected
         AreaBase *area;
         WMTableViewDataSource *_dataModel;
