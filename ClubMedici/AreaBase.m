@@ -11,13 +11,25 @@
 
 @implementation AreaBase
 
+-(id) initWithJson:(NSDictionary*)json{
+
+    self = [self init];
+    if(self){
+        self.descrizione = [json objectForKey:@"testo"];
+        self.titolo = [json objectForKey:@"menu"];
+        self.email1 = [json objectForKey:@"email"];
+        self.tel = [json objectForKey:@"telefono"];
+        self.titolo = @"Area finanziaria";
+    }
+    return self;
+}
+
 - (id)init {
     self = [super init];
     if (self) {
         NSLog(@"AREA BASE ALLOCATO");
-        // dati dummy
     }
-    return self;  
+    return self;
 }
 
 - (WMTableViewDataSource *)getDataModel {
@@ -69,7 +81,7 @@
     // Dati per la sezione 1
     if (self.itemList) {
         NSMutableDictionary *documenti = [[NSMutableDictionary alloc] initWithCapacity:2];
-        [documenti setObject:@"Documenti"  forKey:@"SECTION_NAME"];
+        [documenti setObject:@"Servizi"  forKey:@"SECTION_NAME"];
         [documenti setObject:self.itemList forKey:@"SECTION_CONTENTS"];
         [dataModel addObject:documenti];
     }

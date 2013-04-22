@@ -9,5 +9,4 @@
 #import "AreaBase.h"
 
 @interface AreaFinanziaria : AreaBase
-
 @end

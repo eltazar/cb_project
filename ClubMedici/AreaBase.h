@@ -18,7 +18,9 @@
 @property(nonatomic, strong) NSString *tel;
 @property(nonatomic, strong) NSString *email1;
 @property(nonatomic, strong) NSString *email2;
-@property(nonatomic, strong) NSArray  *itemList;
+@property(nonatomic, strong) NSMutableArray  *itemList;
+
+-(id) initWithJson:(NSDictionary*)json;
 
 - (WMTableViewDataSource *)getDataModel;
 
