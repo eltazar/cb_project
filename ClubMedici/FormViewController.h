@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Utilities.h"
-
+#import "DisclaimerController.h"
 @class WMTableViewDataSource;
 
 @protocol FormViewControllerDelegate <NSObject>

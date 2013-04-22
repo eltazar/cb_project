@@ -90,6 +90,11 @@
 -(BOOL)validateFields{
     return FALSE;
 }
+
+-(void)showDisclaimer{
+    DisclaimerController *disclaimerCntr = [[DisclaimerController alloc] initWithNibName:@"DisclaimerController" bundle:nil];
+    [self.navigationController pushViewController:disclaimerCntr animated:YES];
+}
 #pragma mark - UITextFieldDelegate
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
@@ -146,6 +151,9 @@
         if (!cell) {
             cell = [[[NSBundle mainBundle] loadNibNamed:@"DisclaimerCell" owner:self options:NULL] objectAtIndex:0];
         }
+        
+        UIButton *disclaimerBtn = (UIButton *)[cell viewWithTag:10];
+        [disclaimerBtn addTarget:self action:@selector(showDisclaimer) forControlEvents:UIControlEventTouchUpInside];
     }
     else {
         // Sezione 0
@@ -162,7 +170,6 @@
     }
     return cell;
 }
-
 
 #pragma mark - Table view delegate
 
