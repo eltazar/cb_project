@@ -13,7 +13,15 @@
 				<key>CONTROLLER</key>
 				<string>AreaBaseController</string>
 				<key>LABEL</key>
-				<string>Area Finanziaria</string>
+				<string>Finanziamenti</string>
+			</dict>
+			<dict>
+				<key>DATA_KEY</key>
+				<string>AreaAssicurativa</string>
+				<key>CONTROLLER</key>
+				<string>AreaBaseController</string>
+				<key>LABEL</key>
+				<string>Assicurazioni</string>
 			</dict>
 			<dict>
 				<key>DATA_KEY</key>
@@ -29,22 +37,7 @@
 				<key>CONTROLLER</key>
 				<string>AreaBaseController</string>
 				<key>LABEL</key>
-				<string>Area Leasing e Noleggio</string>
-			</dict>
-		</array>
-	</dict>
-	<dict>
-		<key>SECTION_NAME</key>
-		<string>Area Assicurativa</string>
-		<key>SECTION_CONTENTS</key>
-		<array>
-			<dict>
-				<key>DATA_KEY</key>
-				<string>AreaAssicurativa</string>
-				<key>CONTROLLER</key>
-				<string>AreaBaseController</string>
-				<key>LABEL</key>
-				<string>Area Assicurativa</string>
+				<string>Leasing e Noleggio</string>
 			</dict>
 		</array>
 	</dict>
