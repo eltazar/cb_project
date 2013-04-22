@@ -14,6 +14,8 @@
 				<string>AreaBaseController</string>
 				<key>LABEL</key>
 				<string>Finanziamenti</string>
+				<key>ID</key>
+				<integer>11</integer>
 			</dict>
 			<dict>
 				<key>DATA_KEY</key>
@@ -22,6 +24,8 @@
 				<string>AreaBaseController</string>
 				<key>LABEL</key>
 				<string>Assicurazioni</string>
+				<key>ID</key>
+				<integer>12</integer>
 			</dict>
 			<dict>
 				<key>DATA_KEY</key>
@@ -30,6 +34,8 @@
 				<string>AreaBaseController</string>
 				<key>LABEL</key>
 				<string>Cure mediche rateali </string>
+				<key>ID</key>
+				<integer>13</integer>
 			</dict>
 			<dict>
 				<key>DATA_KEY</key>
@@ -38,6 +44,8 @@
 				<string>AreaBaseController</string>
 				<key>LABEL</key>
 				<string>Leasing e Noleggio</string>
+				<key>ID</key>
+				<integer>14</integer>
 			</dict>
 		</array>
 	</dict>
@@ -53,6 +61,8 @@
 				<string>AreaBaseController</string>
 				<key>LABEL</key>
 				<string>Viaggi e Turismo</string>
+				<key>ID</key>
+				<integer>15</integer>
 			</dict>
 		</array>
 	</dict>
