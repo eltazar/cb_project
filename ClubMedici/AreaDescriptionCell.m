@@ -146,6 +146,12 @@
     oldLblFrame.size.height = _label.frame.size.height;
     _label.frame = oldLblFrame;
     
+    //per shadow inset
+    //http://stackoverflow.com/questions/5817330/apply-inner-shadow-to-uilabel
+    _label.textColor     = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.5];
+    _label.shadowColor   = [UIColor blackColor];
+    _label.shadowOffset  = CGSizeMake(-1.0,-1.0);
+    
     _label_full.frame = _label.frame;
     _label_full.text = _label.text;
     _label_full.font = _label.font;
@@ -154,6 +160,10 @@
     _label_full.backgroundColor = _label.backgroundColor;
     _label_full.opaque = _label.opaque;
     _label_full.alpha = _isExpanded ? 1 : 0;
+    
+    _label_full.textColor     = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.5];
+    _label_full.shadowColor   = [UIColor blackColor];
+    _label_full.shadowOffset  = CGSizeMake(-1.0,-1.0);
 }
 
 - (void)addExpandIndicator {
