@@ -56,7 +56,7 @@
     
     UIView* bgview = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, 1)];
     bgview.opaque = YES;
-    bgview.backgroundColor = [UIColor orangeColor];
+    bgview.backgroundColor = [UIColor whiteColor];
     [self setBackgroundView:bgview];
 
 }

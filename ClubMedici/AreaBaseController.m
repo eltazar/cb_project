@@ -16,6 +16,7 @@
 #import "CachedAsyncImageView.h"
 #import "AreeEnum.h"
 #import "DocumentoAreaController.h"
+#import "FXLabel.h"
 
 #define QUERY_TIME_LIMIT 30//3600
 
@@ -79,7 +80,15 @@
     if (!cell) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"ActionCell" owner:self options:NULL] objectAtIndex:0];
     }
-    UILabel *label   = (UILabel *)    [cell viewWithTag:1];
+    FXLabel *label   = (FXLabel *)    [cell viewWithTag:1];
+    label.shadowColor = [UIColor colorWithWhite:1.0f alpha:0.8f];
+    label.shadowOffset = CGSizeMake(1.0f, 1.0f);
+    label.shadowBlur = 1.0f;
+    label.innerShadowBlur = 3.0f;
+    label.innerShadowColor = [UIColor colorWithWhite:0.0f alpha:0.9f];
+    label.innerShadowOffset = CGSizeMake(1.0f, 1.0f);
+    label.highlightedTextColor =[UIColor blackColor];
+    
     UIImageView *img = (UIImageView *)[cell viewWithTag:2];
     
     label.text = [_dataModel valueForKey:@"LABEL" atIndexPath:indexPath];
