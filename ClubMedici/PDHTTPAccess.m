@@ -23,6 +23,15 @@
     [[WMHTTPAccess sharedInstance] startHTTPConnectionWithURLString:urlString method:WMHTTPAccessConnectionMethodPOST parameters:postDict delegate:delegate];
 }
 
++ (void) getDocumentContents:(int)pagId delegate:(id<WMHTTPAccessDelegate>)delegate {
+    NSString *urlString = @"http://www.clubmedici.it/app/iphone/DescrizioneDocumento.php";
+    
+    NSDictionary *postDict = [NSDictionary dictionaryWithObjectsAndKeys:
+                              [NSNumber numberWithInt:pagId], @"idPagina",
+                              nil];
+    [[WMHTTPAccess sharedInstance] startHTTPConnectionWithURLString:urlString method:WMHTTPAccessConnectionMethodPOST parameters:postDict delegate:delegate];    
+}
+
 /*
 + (void)checkUserFields:(NSArray*)usr delegate:(id<WMHTTPAccessDelegate>)delegate {
     //NSLog(@"DBACCESS CHECK  EMAIL --> user = %@",usr);
