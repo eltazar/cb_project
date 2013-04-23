@@ -15,6 +15,7 @@
 #import "WMTableViewDataSource.h"
 #import "CachedAsyncImageView.h"
 #import "AreeEnum.h"
+#import "DescrizioneAreaController.h"
 
 @interface AreaBaseController () {
 }
@@ -52,6 +53,10 @@
     imageView = [[CachedAsyncImageView alloc] init];
     imageView.delegate = self;
     //[imageView loadImageFromURL:imageURL];
+    
+    //il controller figlio di questo controller avrà il titolo del back Button personalizzato
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Indietro" style:UIBarButtonItemStyleBordered target:nil action:nil];
+    self.navigationItem.backBarButtonItem = backButton;
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -120,7 +125,13 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *dataKey = [_dataModel valueForKey:@"DATA_KEY" atIndexPath:indexPath];
     
-    if ([dataKey isEqualToString:@"phone"]) {
+    if([dataKey isEqualToString:@"documentoArea"]){
+        //NSLog(@"DOCUMENTO AREA CLICCATO = %@",[_dataModel valueForKey:@"ID_PAG" atIndexPath:indexPath]);
+        DescrizioneAreaController *descController = [[DescrizioneAreaController alloc] init];
+        descController.idPag = [_dataModel valueForKey:@"ID_PAG" atIndexPath:indexPath];
+        [self.navigationController pushViewController:descController animated:YES];
+    }
+    else if ([dataKey isEqualToString:@"phone"]) {
         NSLog(@"numero di telefono = %@",
               [_dataModel valueForKey:@"LABEL" atIndexPath:indexPath]);
         [self callNumber: [_dataModel valueForKey:@"LABEL" atIndexPath:indexPath]];
@@ -132,7 +143,8 @@
     }
     else if ([dataKey isEqualToString:@"email"]) {
         [self sendEmail:[_dataModel valueForKey:@"LABEL" atIndexPath:indexPath]];
-    }    
+    }
+    
 }
 
 //- (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
