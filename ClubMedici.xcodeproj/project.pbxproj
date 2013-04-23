@@ -27,6 +27,7 @@
 		AC31D7B6165EF1A100CCC001 /* FormViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC31D7B5165EF1A100CCC001 /* FormViewController.xib */; };
 		AC9168E416B9EC1900AF402E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC9168E316B9EC1900AF402E /* CoreLocation.framework */; };
 		AC93CE93165DA6F400ABA3C2 /* PDFviewerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC93CE92165DA6F400ABA3C2 /* PDFviewerController.xib */; };
+		ACB6392B1727236C00C26223 /* FXLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB6392A1727236C00C26223 /* FXLabel.m */; };
 		ACB7DA7016A4AFC500B05178 /* mail.png in Resources */ = {isa = PBXBuildFile; fileRef = ACB7DA6E16A4AFC500B05178 /* mail.png */; };
 		ACB7DA7116A4AFC500B05178 /* mail@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ACB7DA6F16A4AFC500B05178 /* mail@2x.png */; };
 		ACB8FADA172564BA00AFB645 /* DisclaimerController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB8FAD8172564BA00AFB645 /* DisclaimerController.m */; };
@@ -120,6 +121,8 @@
 		AC31D7B5165EF1A100CCC001 /* FormViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FormViewController.xib; path = ClubMedici/FormViewController.xib; sourceTree = "<group>"; };
 		AC9168E316B9EC1900AF402E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		AC93CE92165DA6F400ABA3C2 /* PDFviewerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PDFviewerController.xib; path = ClubMedici/PDFviewerController.xib; sourceTree = "<group>"; };
+		ACB639291727236C00C26223 /* FXLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXLabel.h; sourceTree = "<group>"; };
+		ACB6392A1727236C00C26223 /* FXLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXLabel.m; sourceTree = "<group>"; };
 		ACB7DA6E16A4AFC500B05178 /* mail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mail.png; path = img/mail.png; sourceTree = SOURCE_ROOT; };
 		ACB7DA6F16A4AFC500B05178 /* mail@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "mail@2x.png"; path = "img/mail@2x.png"; sourceTree = SOURCE_ROOT; };
 		ACB8FAD7172564BA00AFB645 /* DisclaimerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisclaimerController.h; sourceTree = "<group>"; };
@@ -275,6 +278,15 @@
 			name = "Form controllers";
 			sourceTree = "<group>";
 		};
+		ACB639281727236C00C26223 /* FXLabel */ = {
+			isa = PBXGroup;
+			children = (
+				ACB639291727236C00C26223 /* FXLabel.h */,
+				ACB6392A1727236C00C26223 /* FXLabel.m */,
+			);
+			path = FXLabel;
+			sourceTree = "<group>";
+		};
 		ACBE63A9165A861900F64CDA /* SideMenuController_iPhone */ = {
 			isa = PBXGroup;
 			children = (
@@ -375,6 +387,7 @@
 		ACD4C76F165715460025F3F5 /* Librerie esterne */ = {
 			isa = PBXGroup;
 			children = (
+				ACB639281727236C00C26223 /* FXLabel */,
 				ACDED9B61725EDC500668C5C /* AreeEnum.h */,
 				ACCC531A16C1D97300994AA0 /* MBProgressHUD.h */,
 				ACCC531B16C1D97300994AA0 /* MBProgressHUD.m */,
@@ -634,6 +647,7 @@
 				ACBA1D561725C442004EB8E4 /* PDHTTPAccess.m in Sources */,
 				ACBA1D571725C442004EB8E4 /* WMHTTPAccess.m in Sources */,
 				ACD9D9A317269F4C00F50773 /* DocumentoAreaController.m in Sources */,
+				ACB6392B1727236C00C26223 /* FXLabel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
