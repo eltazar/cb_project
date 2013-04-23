@@ -108,39 +108,54 @@
 
 # pragma mark - Private Methods
 
+
 - (void) setupBackgroundView{
     
-    CGFloat tableViewWidth = self.tableView.frame.size.width;
-    UIView *backgroundView = [[UIView alloc]init];
-    imageView.frame = CGRectMake(0, 0,
-                                 tableViewWidth,    
-                                 tableViewWidth * (imageView.image.size.height / imageView.image.size.width)
-                                 );
-    [backgroundView addSubview:imageView];
-    self.tableView.backgroundView = backgroundView;
+    //UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"placeholder.jpg"]];
     
-    //per fare in modo che l'immagine nell'header diventi trasparente gradualmente verso la fine dell'immagine stessaUIView *backgroundView = [[UIView alloc] init];
-    CAGradientLayer *l = [CAGradientLayer layer];
-    l.frame = imageView.bounds;
-    l.colors = [NSArray arrayWithObjects:(id)[UIColor whiteColor].CGColor, (id)[UIColor clearColor].CGColor, nil];
-    l.startPoint = CGPointMake(1.0f, .6f);
-    l.endPoint = CGPointMake(1.0f, 1.0f);
-    imageView.layer.mask = l;
-    
-    
-    //per far iniziare la tableView con un offset
-    [UIView animateWithDuration:.5
-                     animations:^(void) {
-                         self.tableView.tableHeaderView =
-                         [[UIView alloc] initWithFrame:
-                          CGRectMake(0, 0,
-                                     tableViewWidth,
-                                     0.6 * imageView.frame.size.height
-                                     )
-                          ];
-                     }
-     ];
-    NSLog(@"frame.width = %f, height = %f", tableViewWidth,backgroundView.frame.size.height);
+    if(imageView.image.size.width != 0){
+        CGFloat tableViewWidth = self.tableView.frame.size.width;
+        UIView *backgroundView = [[UIView alloc]init];
+        imageView.frame = CGRectMake(0, 0,
+                                     tableViewWidth,    
+                                     tableViewWidth * (imageView.image.size.height / imageView.image.size.width)
+                                     );
+        [backgroundView addSubview:imageView];
+        self.tableView.backgroundView = backgroundView;
+        
+        //per fare in modo che l'immagine nell'header diventi trasparente gradualmente verso la fine dell'immagine stessaUIView *backgroundView = [[UIView alloc] init];
+        CAGradientLayer *l = [CAGradientLayer layer];
+        l.frame = imageView.bounds;
+        l.colors = [NSArray arrayWithObjects:(id)[UIColor whiteColor].CGColor, (id)[UIColor clearColor].CGColor, nil];
+        l.startPoint = CGPointMake(1.0f, .6f);
+        l.endPoint = CGPointMake(1.0f, 1.0f);
+        imageView.layer.mask = l;
+        
+        
+        //per far iniziare la tableView con un offset
+        self.tableView.tableHeaderView =
+        [[UIView alloc] initWithFrame:
+         CGRectMake(0, 0,
+                    tableViewWidth,
+                    0.5 * imageView.frame.size.height
+                    )
+         ];
+        
+        //per far iniziare la tableView con un offset e animazione
+        /*[UIView animateWithDuration:.5
+                         animations:^(void) {
+                             self.tableView.tableHeaderView =
+                             [[UIView alloc] initWithFrame:
+                              CGRectMake(0, 0,
+                                         tableViewWidth,
+                                         0.5 * imageView.frame.size.height
+                                         )
+                              ];
+                         }
+         ];*/
+        
+    }
+    //NSLog(@"frame.width = %f, height = %f", tableViewWidth,backgroundView.frame.size.height);
 }
 
 -(void) computeImageSize{
