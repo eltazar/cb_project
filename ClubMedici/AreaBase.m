@@ -59,7 +59,32 @@
 - (id)init {
     self = [super init];
     if (self) {
-        NSLog(@"AREA BASE ALLOCATO");
+        //NSLog(@"AREA BASE ALLOCATO");
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)encoder {
+    //Encode properties, other class variables, etc
+    [encoder encodeObject:self.titolo forKey:@"titolo"];
+    [encoder encodeObject:self.descrizione forKey:@"descrizione"];
+    [encoder encodeObject:self.img forKey:@"img"];
+    [encoder encodeObject:self.tel forKey:@"tel"];
+    [encoder encodeObject:self.email1 forKey:@"email1"];
+    [encoder encodeObject:self.email2 forKey:@"email2"];
+    [encoder encodeObject:self.itemList forKey:@"itemList"];
+}
+
+- (id)initWithCoder:(NSCoder *)decoder {
+    if((self = [super init])) {
+        //decode properties, other class vars
+        self.titolo = [decoder decodeObjectForKey:@"titolo"];
+        self.descrizione = [decoder decodeObjectForKey:@"descrizione"];
+        self.img = [decoder decodeObjectForKey:@"img"];
+        self.tel = [decoder decodeObjectForKey:@"tel"];
+        self.email1 = [decoder decodeObjectForKey:@"email1"];
+        self.email2 = [decoder decodeObjectForKey:@"email2"];
+        self.itemList = [decoder decodeObjectForKey:@"itemList"];
     }
     return self;
 }
