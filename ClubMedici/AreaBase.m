@@ -28,10 +28,19 @@
         _itemList = [[NSMutableArray alloc] init];
         for(int i = 1; i < json.count ; i++){
             //aggiungo uno ad uno all'array
-            [_itemList addObject:[json objectAtIndex:i]];
+            //[_itemList addObject:[json objectAtIndex:i]];
+            
+            NSDictionary *dict = [json objectAtIndex:i];
+            
+            //creo l'oggetto per la riga della tabella
+            NSDictionary *item = [[NSDictionary alloc] initWithObjectsAndKeys:
+             @"documentoArea",             @"DATA_KEY",
+             [dict objectForKey:@"menu"],        @"LABEL",
+             [dict objectForKey:@"id_pagina"],     @"ID_PAG",
+            [dict objectForKey:@"id_sottomenu"],   @"ID_SOTTOMENU",nil];  
+            
+            [_itemList addObject: item];     
         }
-        
-        
     }
     return self;
 }
