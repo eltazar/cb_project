@@ -90,31 +90,30 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *dataKey = [_dataModel valueForKey:@"DATA_KEY" atIndexPath:indexPath];
-
-    if(indexPath.section == 2){
     
-        if([dataKey isEqualToString:@"cure"]){
-            //FormViewController *formController = [[FormViewController alloc] initWithNibName:@"FormViewController" bundle:nil];
-            //[self.navigationController pushViewController:formController animated:YES];
-            NSLog(@"CELLA CURE MEDICHE ---> devo lanciare calcolatore php");
-            
-        }
-        else {
-            
-            NSLog(@" CELLA NOLEGGIO = %@", dataKey);
-            RichiestaNoleggioController *formController = [[RichiestaNoleggioController alloc] init:dataKey];
-            formController.delegate = self;
-            
-            /*che si fa?
-             idea: mostrare il form con una modalview che è più piccola rispetto le dimensioni del controller che la contiene. pero in portrait e split view non la gestisce. solo in landscape.
-             UINavigationController *navContr = [[UINavigationController alloc] initWithRootViewController:formController];
-             navContr.modalPresentationStyle = UIModalPresentationPageSheet;
-             [self.navigationController presentModalViewController:navContr  animated:YES];*/
-            
-            //Per ora mostro aggiungendo normalmente la nuova view alla gerarchia
-            [self.navigationController pushViewController:formController animated:YES];        
-        }        
+    
+    if([dataKey isEqualToString:@"cure"]){
+        //FormViewController *formController = [[FormViewController alloc] initWithNibName:@"FormViewController" bundle:nil];
+        //[self.navigationController pushViewController:formController animated:YES];
+        NSLog(@"CELLA CURE MEDICHE ---> devo lanciare calcolatore php");
+        
     }
+    else if([dataKey isEqualToString:@"noleggioAuto"] || [dataKey isEqualToString:@"noleggioElettro"] ||
+            [dataKey isEqualToString:@"leasingElettro"]){
+        
+        NSLog(@" CELLA NOLEGGIO = %@", dataKey);
+        RichiestaNoleggioController *formController = [[RichiestaNoleggioController alloc] init:dataKey];
+        formController.delegate = self;
+        
+        /*che si fa?
+         idea: mostrare il form con una modalview che è più piccola rispetto le dimensioni del controller che la contiene. pero in portrait e split view non la gestisce. solo in landscape.
+         UINavigationController *navContr = [[UINavigationController alloc] initWithRootViewController:formController];
+         navContr.modalPresentationStyle = UIModalPresentationPageSheet;
+         [self.navigationController presentModalViewController:navContr  animated:YES];*/
+        
+        //Per ora mostro aggiungendo normalmente la nuova view alla gerarchia
+        [self.navigationController pushViewController:formController animated:YES];        
+    }        
     else{
         [super tableView:tableView didSelectRowAtIndexPath:indexPath];
     }

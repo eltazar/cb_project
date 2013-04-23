@@ -79,23 +79,21 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *dataKey = [_dataModel valueForKey:@"DATA_KEY" atIndexPath:indexPath];
-    
-    if(indexPath.section == 2){
         
-        if([dataKey isEqualToString:@"cure"]){
-            //FormViewController *formController = [[FormViewController alloc] initWithNibName:@"FormViewController" bundle:nil];
-            //[self.navigationController pushViewController:formController animated:YES];
-            NSLog(@"CELLA CURE MEDICHE ---> devo lanciare calcolatore php");
-            
-        }
-        else {
-            
-            NSLog(@" CELLA NOLEGGIO = %@", dataKey);
-            RichiestaNoleggioController *formController = [[RichiestaNoleggioController alloc] init:dataKey];
-            formController.delegate = self;
+    if([dataKey isEqualToString:@"cure"]){
+        //FormViewController *formController = [[FormViewController alloc] initWithNibName:@"FormViewController" bundle:nil];
+        //[self.navigationController pushViewController:formController animated:YES];
+        NSLog(@"CELLA CURE MEDICHE ---> devo lanciare calcolatore php");
+        
+    }
+    else if([dataKey isEqualToString:@"noleggioAuto"] || [dataKey isEqualToString:@"noleggioElettro"] ||
+            [dataKey isEqualToString:@"leasingElettro"]){
+        
+        NSLog(@" CELLA NOLEGGIO = %@", dataKey);
+        RichiestaNoleggioController *formController = [[RichiestaNoleggioController alloc] init:dataKey];
+        formController.delegate = self;
 
-            [self.navigationController presentModalViewController:[[UINavigationController alloc]initWithRootViewController:formController] animated:YES];
-        }
+        [self.navigationController presentModalViewController:[[UINavigationController alloc]initWithRootViewController:formController] animated:YES];
     }
     else{
         [super tableView:tableView didSelectRowAtIndexPath:indexPath];
