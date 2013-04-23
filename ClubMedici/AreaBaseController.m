@@ -17,7 +17,10 @@
 #import "AreeEnum.h"
 #import "DocumentoAreaController.h"
 
+#define QUERY_TIME_LIMIT 30//3600
+
 @interface AreaBaseController () {
+    NSDate *dateDoneQuery;
 }
 @end
 
@@ -49,6 +52,9 @@
     //il controller figlio di questo controller avrà il titolo del back Button personalizzato
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Indietro" style:UIBarButtonItemStyleBordered target:nil action:nil];
     self.navigationItem.backBarButtonItem = backButton;
+    
+    dateDoneQuery = [[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"queryDate%@",[self getAreaType]]];
+
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -225,10 +231,20 @@
     return a;
 }
 
+-(void)showData{
+    //creo oggetto area ed ottengo il model da esso
+    _dataModel = [self.area getDataModel];
+    self.tableView.dataSource = _dataModel;
+    _dataModel.cellFactory = self;
+    [self.tableView reloadData];
+    if(self.area.img)
+        [imageView loadImageFromURLString:self.area.img];
+}
+
 #pragma mark - CachedAsyncImageDelegate
 -(void)didFinishLoadingImage:(id)sender{
     
-    NSLog(@"SCARICATA IMMAGINE IN AREA CONTROLLER");
+    //NSLog(@"SCARICATA IMMAGINE IN AREA CONTROLLER");
     [self setupBackgroundView];
 }
 
@@ -240,22 +256,40 @@
 #pragma mark - WMHTTPAccessDelegate
 
 -(void) fetchData{
-    [PDHTTPAccess getAreaContents:areaId delegate:self];
+    
+    //se è passato il limite di tempo per la query, fai la query
+    if([dateDoneQuery timeIntervalSinceDate:[NSDate date]]== 0.0 ||
+       (-[dateDoneQuery timeIntervalSinceDate:[NSDate date]]) >= QUERY_TIME_LIMIT){
+        
+        NSLog(@"\n///**** \n FACCIO LA QUERY \n ///*****");
+        //è tempo di fare la query
+        [PDHTTPAccess getAreaContents:areaId delegate:self];
+    }
+    else{
+         NSLog(@"\n///**** \n RECUPERO JSON SALVATO \n ///*****");
+        //se precedemente scaricate mostra le previsioni salvate
+        self.area = [Utilities loadCustomObjectWithKey:[self getAreaType]];
+        [self showData];
+    }
 }
 
 -(void)didReceiveJSON:(NSArray *)jsonArray{
-    NSLog(@"JSON = %@",jsonArray);
+    //NSLog(@"JSON = %@",jsonArray);
     
-    //creo oggetto area ed ottengo il model da esso
     Class areaClass = NSClassFromString([self getAreaType]);
     self.area = [[areaClass alloc] initWithJson:jsonArray];
-    _dataModel = [self.area getDataModel];
-    self.tableView.dataSource = _dataModel;
-    _dataModel.cellFactory = self;
-    [self.tableView reloadData];
-
-    if(self.area.img)
-        [imageView loadImageFromURLString:self.area.img];
+    
+    [self showData];
+    
+    
+    
+    //salvo ora in cui ho ricevuto l'oggetto e l'oggetto
+    NSUserDefaults *pref = [NSUserDefaults standardUserDefaults];
+    dateDoneQuery = [NSDate date];
+    [pref setObject:dateDoneQuery forKey:[NSString stringWithFormat:@"queryDate%@",[self getAreaType]]];
+    [pref synchronize];
+    //salvo json ricevuto
+    [Utilities saveCustomObject:self.area key:[self getAreaType]];
 }
 
 -(void)didReceiveError:(NSError *)error{
