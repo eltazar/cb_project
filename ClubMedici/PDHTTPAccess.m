@@ -32,6 +32,16 @@
     [[WMHTTPAccess sharedInstance] startHTTPConnectionWithURLString:urlString method:WMHTTPAccessConnectionMethodPOST parameters:postDict delegate:delegate];    
 }
 
++ (void) sendEmail:(NSString*)body object:(NSString*)object address:(NSString*)address delegate:(id<WMHTTPAccessDelegate>)delegate {
+    NSString *urlString = @"http://www.clubmedici.it/app/iphone/InvioEmail.php";
+    
+    NSDictionary *postDict = [NSDictionary dictionaryWithObjectsAndKeys:
+                              body, @"body",
+                              object, @"oggetto",
+                              address, @"indirizzo",
+                              nil];
+    [[WMHTTPAccess sharedInstance] startHTTPConnectionWithURLString:urlString method:WMHTTPAccessConnectionMethodPOST parameters:postDict delegate:delegate];
+}
 /*
 + (void)checkUserFields:(NSArray*)usr delegate:(id<WMHTTPAccessDelegate>)delegate {
     //NSLog(@"DBACCESS CHECK  EMAIL --> user = %@",usr);
