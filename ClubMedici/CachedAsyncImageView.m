@@ -137,7 +137,7 @@
                 [delegate didFinishLoadingImage:self];
         }
         else {
-            self.image = nil;
+            //self.image = nil;
             NSURLRequest *request = [NSURLRequest requestWithURL:url];
             _connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
             if (_connection) {
