@@ -18,12 +18,22 @@
         
         //Oggetto in posizione 0 è il record che descrive l'area
         NSDictionary *descArray = [json objectAtIndex:0];
-        self.descrizione = [descArray objectForKey:@"testo"];
-        self.titolo = [descArray objectForKey:@"menu"];
-        self.email1 = [descArray objectForKey:@"email"];
-        self.tel = [descArray objectForKey:@"telefono"];
-        self.titolo = [descArray objectForKey:@"menu"];
-        self.img = [descArray objectForKey:@"fotohd"];
+        
+        //controllo se stringa proveniente dal db è NULL
+        if(! [[descArray objectForKey:@"testo"]isKindOfClass:[NSNull class]])
+            self.descrizione = [descArray objectForKey:@"testo"];
+       
+        if(! [[descArray objectForKey:@"menu"]isKindOfClass:[NSNull class]])
+            self.titolo = [descArray objectForKey:@"menu"];
+        
+        if(! [[descArray objectForKey:@"email"]isKindOfClass:[NSNull class]])
+            self.email1 = [descArray objectForKey:@"email"];
+       
+        if(! [[descArray objectForKey:@"telefono"]isKindOfClass:[NSNull class]])
+            self.tel = [descArray objectForKey:@"telefono"];
+        
+        if(! [[descArray objectForKey:@"fotohd"]isKindOfClass:[NSNull class]])
+            self.img = [descArray objectForKey:@"fotohd"];
         
         //Gli oggetti seguenti, se presenti, sono la lista di documenti dell'area
         _itemList = [[NSMutableArray alloc] init];
