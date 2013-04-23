@@ -15,7 +15,7 @@
 #import "WMTableViewDataSource.h"
 #import "CachedAsyncImageView.h"
 #import "AreeEnum.h"
-#import "DescrizioneAreaController.h"
+#import "DocumentoAreaController.h"
 
 @interface AreaBaseController () {
 }
@@ -38,21 +38,13 @@
   
     //self.title = [self.area titolo];
                                         
-    //ottengo il dataModel per l'oggeto area
-    //_dataModel = [self.area getDataModel];
-    
     //rimuove celle extra
     self.tableView.tableFooterView = [[UIView alloc] init];
     
-    //self.tableView.dataSource = _dataModel;
-    //=_dataModel.cellFactory = self;
-    
-    NSLog(@"data model = %@",_dataModel);
-    
-    NSURL *imageURL = [NSURL URLWithString:@"http://www.nightheaven.org/wp-content/gallery/boku_wa_tomodachi_ga_sukunai-wallpaper-01/boku_wa_tomodachi_ga_sukunai-wallpaper-06-2048_1536.jpg"];
     imageView = [[CachedAsyncImageView alloc] init];
     imageView.delegate = self;
-    //[imageView loadImageFromURL:imageURL];
+    [imageView setCustomPlaceholder:@"placeholder.jpg"];
+    [self setupBackgroundView];
     
     //il controller figlio di questo controller avrà il titolo del back Button personalizzato
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Indietro" style:UIBarButtonItemStyleBordered target:nil action:nil];
@@ -127,7 +119,7 @@
     
     if([dataKey isEqualToString:@"documentoArea"]){
         //NSLog(@"DOCUMENTO AREA CLICCATO = %@",[_dataModel valueForKey:@"ID_PAG" atIndexPath:indexPath]);
-        DescrizioneAreaController *descController = [[DescrizioneAreaController alloc] init];
+        DocumentoAreaController *descController = [[DocumentoAreaController alloc] init];
         descController.idPag = [_dataModel valueForKey:@"ID_PAG" atIndexPath:indexPath];
         [self.navigationController pushViewController:descController animated:YES];
     }
@@ -186,7 +178,6 @@
         [self presentModalViewController:mail animated:YES];
     }
 }
-
 
 #pragma mark - MFMailComposeViewControllerDelegate
 
@@ -253,16 +244,18 @@
 }
 
 -(void)didReceiveJSON:(NSArray *)jsonArray{
-    //NSLog(@"JSON = %@",jsonArray);
+    NSLog(@"JSON = %@",jsonArray);
+    
+    //creo oggetto area ed ottengo il model da esso
     Class areaClass = NSClassFromString([self getAreaType]);
     self.area = [[areaClass alloc] initWithJson:jsonArray];
-    //self.area = [[areaClass alloc] init];
     _dataModel = [self.area getDataModel];
     self.tableView.dataSource = _dataModel;
     _dataModel.cellFactory = self;
-
     [self.tableView reloadData];
-    //NSLog(@"AREA = %@",self.area.tel);
+
+    if(self.area.img)
+        [imageView loadImageFromURLString:self.area.img];
 }
 
 -(void)didReceiveError:(NSError *)error{
