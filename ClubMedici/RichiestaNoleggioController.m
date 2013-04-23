@@ -61,8 +61,11 @@
     UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"Annula" style:UIBarButtonItemStylePlain target:self action:@selector(cancelButtonPressed:)];
     self.navigationItem.leftBarButtonItem = button;
     
-    self.title = @"Richiedi informazioni";
+    //self.title = @"Richiedi informazioni";
+
+    customTitle.text = @"Richiedi \n informazioni";
     
+    self.navigationItem.titleView = customTitle;
     }
 
 - (void)didReceiveMemoryWarning {

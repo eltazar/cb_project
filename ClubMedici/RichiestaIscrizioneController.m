@@ -42,7 +42,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];    
-    self.title = @"Richiesta iscrizione";
+    //self.title = @"Richiesta iscrizione";
+    customTitle.text = @"Richiedi \n iscrizione";
+    self.navigationItem.titleView = customTitle;
+    
 }
 
 - (void)didReceiveMemoryWarning {

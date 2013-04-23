@@ -21,6 +21,7 @@
 @interface FormViewController : UITableViewController <UITextFieldDelegate> {
     @protected
     WMTableViewDataSource *_dataModel;
+    UILabel *customTitle;
     
 }
 

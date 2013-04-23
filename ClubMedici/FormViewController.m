@@ -19,7 +19,6 @@
     TextFieldCell *textFieldCell;
 }
 
-
 @end
 
 @implementation FormViewController
@@ -48,6 +47,14 @@
     self.tableView.dataSource = _dataModel;
     _dataModel.cellFactory = self;
     _dataModel.showSectionHeaders = NO;
+    
+    customTitle = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 480, 44)];
+    customTitle.backgroundColor = [UIColor clearColor];
+    customTitle.numberOfLines = 2;
+    customTitle.font = [UIFont boldSystemFontOfSize: 16.0f];
+    customTitle.shadowColor = [UIColor colorWithWhite:0.0 alpha:0.5];
+    customTitle.textAlignment = UITextAlignmentCenter;
+    customTitle.textColor = [UIColor whiteColor];
 }
 
 - (void)didReceiveMemoryWarning {
