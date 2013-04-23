@@ -243,7 +243,7 @@
 -(void)didReceiveJSON:(NSArray *)jsonArray{
     //NSLog(@"JSON = %@",jsonArray);
     Class areaClass = NSClassFromString([self getAreaType]);
-    self.area = [[areaClass alloc] initWithJson:[jsonArray objectAtIndex:0]];
+    self.area = [[areaClass alloc] initWithJson:jsonArray];
     //self.area = [[areaClass alloc] init];
     _dataModel = [self.area getDataModel];
     self.tableView.dataSource = _dataModel;
