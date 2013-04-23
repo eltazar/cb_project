@@ -50,6 +50,8 @@
 		ACD24BA3165FB59500C97CD2 /* AreaDescriptionCell_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACD24BA2165FB59400C97CD2 /* AreaDescriptionCell_iPad.xib */; };
 		ACD4C7731657158D0025F3F5 /* JASidePanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD4C7721657158D0025F3F5 /* JASidePanelController.m */; };
 		ACD4C77C16571A5D0025F3F5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACD4C77B16571A5D0025F3F5 /* QuartzCore.framework */; };
+		ACD9D9A317269F4C00F50773 /* DocumentoAreaController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD9D9A117269F4C00F50773 /* DocumentoAreaController.m */; };
+		ACD9D9A417269F4C00F50773 /* DocumentoAreaController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACD9D9A217269F4C00F50773 /* DocumentoAreaController.xib */; };
 		ACDCC6E016B34A7900745FFB /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDCC6DF16B34A7900745FFB /* AsyncImageView.m */; };
 		ACDCC6E416B34B0900745FFB /* CachedAsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDCC6E316B34B0900745FFB /* CachedAsyncImageView.m */; };
 		ACE03DCD16593B71009B6B0D /* UIViewController+JASidePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE03DCC16593B71009B6B0D /* UIViewController+JASidePanel.m */; };
@@ -155,6 +157,9 @@
 		ACD4C7711657158D0025F3F5 /* JASidePanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JASidePanelController.h; sourceTree = "<group>"; };
 		ACD4C7721657158D0025F3F5 /* JASidePanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JASidePanelController.m; sourceTree = "<group>"; };
 		ACD4C77B16571A5D0025F3F5 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		ACD9D9A017269F4C00F50773 /* DocumentoAreaController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocumentoAreaController.h; sourceTree = "<group>"; };
+		ACD9D9A117269F4C00F50773 /* DocumentoAreaController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DocumentoAreaController.m; sourceTree = "<group>"; };
+		ACD9D9A217269F4C00F50773 /* DocumentoAreaController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DocumentoAreaController.xib; sourceTree = "<group>"; };
 		ACDCC6DE16B34A7900745FFB /* AsyncImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncImageView.h; sourceTree = "<group>"; };
 		ACDCC6DF16B34A7900745FFB /* AsyncImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncImageView.m; sourceTree = "<group>"; };
 		ACDCC6E216B34B0900745FFB /* CachedAsyncImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CachedAsyncImageView.h; sourceTree = "<group>"; };
@@ -340,6 +345,9 @@
 				AC26298A165D1E2400510092 /* PDFviewerController.h */,
 				AC26298B165D1E2400510092 /* PDFviewerController.m */,
 				AC93CE92165DA6F400ABA3C2 /* PDFviewerController.xib */,
+				ACD9D9A017269F4C00F50773 /* DocumentoAreaController.h */,
+				ACD9D9A117269F4C00F50773 /* DocumentoAreaController.m */,
+				ACD9D9A217269F4C00F50773 /* DocumentoAreaController.xib */,
 			);
 			name = "Area controllers";
 			sourceTree = "<group>";
@@ -572,6 +580,7 @@
 				AC25200B16BF0E7F0080A4BE /* ContattiViewController_iPad.xib in Resources */,
 				ACB8FADB172564BA00AFB645 /* DisclaimerController.xib in Resources */,
 				ACBA1D511725C413004EB8E4 /* DisclaimerCell.xib in Resources */,
+				ACD9D9A417269F4C00F50773 /* DocumentoAreaController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -620,6 +629,7 @@
 				ACB8FADA172564BA00AFB645 /* DisclaimerController.m in Sources */,
 				ACBA1D561725C442004EB8E4 /* PDHTTPAccess.m in Sources */,
 				ACBA1D571725C442004EB8E4 /* WMHTTPAccess.m in Sources */,
+				ACD9D9A317269F4C00F50773 /* DocumentoAreaController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
