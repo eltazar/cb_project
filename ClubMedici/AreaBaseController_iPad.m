@@ -36,7 +36,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSLog(@"ViewDidLoad: AreaBaseController_iPad");
+    //NSLog(@"ViewDidLoad: AreaBaseController_iPad");
 
     
     // Do any additional setup after loading the view from its nib.

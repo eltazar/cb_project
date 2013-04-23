@@ -14,7 +14,7 @@
 + (void)getAreaContents:(int)areaId delegate:(id<WMHTTPAccessDelegate>)delegate {
     //NSLog(@"DBACCESS REGISTER  --> user = %@", userData);
     
-    NSLog(@"AREA ID = %d",areaId);
+    //NSLog(@"AREA ID = %d",areaId);
     NSString *urlString = @"http://www.clubmedici.it/app/iphone/ContenutiAree.php";
     
     NSDictionary *postDict = [NSDictionary dictionaryWithObjectsAndKeys:

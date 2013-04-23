@@ -84,7 +84,7 @@
 - (void)setText:(NSString *)text {
     _label.text = text;
     [self setUpLabel];
-    NSLog(@"setText!");
+    //NSLog(@"setText!");
 }
 
 

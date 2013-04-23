@@ -15,7 +15,7 @@
     self = [super init];
     if (self) {
         
-        NSLog(@"AREA LEASING ALLOCATO");
+        //NSLog(@"AREA LEASING ALLOCATO");
         // dati dummy
         /*self.titolo = @"Leasing e noleggio";
         self.descrizione = @"Doctor Leasing è un qualificato servizio di consulenza che assiste i soci nell'accesso ad un leasing - elettromedicale, auto, strumentale, immobiliare, nautico -, attraverso la semplificazione delle procedure e la valutazione della migliore offerta sul mercato.\n Il noleggio auto, elettromedicale e strumentale è un ottimo servizio per avere sempre auto ed elettromedicali nuovi e liberarsi la mente. ";

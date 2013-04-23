@@ -23,7 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSLog(@"ViewDidLoad: AreaBaseController_iPhone");
+    //NSLog(@"ViewDidLoad: AreaBaseController_iPhone");
     
     _areaDescriptionCell = [[[NSBundle mainBundle] loadNibNamed:@"AreaDescriptionCell"
                                                           owner:nil
