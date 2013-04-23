@@ -26,8 +26,7 @@
         if(! [[descArray objectForKey:@"menu"]isKindOfClass:[NSNull class]])
             self.titolo = [descArray objectForKey:@"menu"];
         
-        if(! [[descArray objectForKey:@"email"]isKindOfClass:[NSNull class]])
-            self.email1 = [descArray objectForKey:@"email"];
+        [self splitEmails:[descArray objectForKey:@"email"]];
        
         if(! [[descArray objectForKey:@"telefono"]isKindOfClass:[NSNull class]])
             self.tel = [descArray objectForKey:@"telefono"];
@@ -145,6 +144,23 @@
     }
     
     return dataModel;
+}
+
+-(void)splitEmails:(NSString*) doubleMail{
+    
+    //TODO: fare con regex, è meglio...
+    NSArray *emails = nil;
+    
+    if(! [doubleMail isKindOfClass:[NSNull class]]){
+        doubleMail = [doubleMail stringByReplacingOccurrencesOfString:@" " withString:@""];
+        emails = [doubleMail componentsSeparatedByString:@"-"];
+    }
+    
+    if(emails && [emails objectAtIndex:0]){
+        self.email1 = [emails objectAtIndex:0];
+        if(emails.count > 1 && [emails objectAtIndex:1])
+            self.email2 = [emails objectAtIndex:1];
+    }
 }
 
 @end
