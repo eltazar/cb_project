@@ -31,5 +31,6 @@
 - (void)loadImageFromURL:(NSURL *)url;
 - (void)setActivityIndicatorStyle:(UIActivityIndicatorViewStyle)style;
 + (void)emptyCache;
+- (void)setCustomPlaceholder:(NSString*)imageName;
 
 @end

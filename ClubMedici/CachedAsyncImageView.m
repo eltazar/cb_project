@@ -166,6 +166,10 @@
     [[ImageCache sharedInstance] emptyCache];
 }
 
+- (void)setCustomPlaceholder:(NSString*)imageName{
+    UIImage *image = [UIImage imageNamed:imageName];
+    self.image = image;
+}
 
 # pragma mark - CachedAsyncImageView (metodi privati)
 
