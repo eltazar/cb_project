@@ -124,7 +124,7 @@
 
 -(NSString*)createHtmlBody{
     
-    NSString *body = [NSString stringWithFormat:@"Richiesta informazioni <br><br><b>Nome</b>: %@ <br><b>Cognome</b> : %@ <br> <b>Cellulare</b>: %@ <br><b>E-mail</b>: %@ <br><b>Data di nascita</b>: %@ <br><b>Luogo di nascita: %@</b>",name,surname,phone,email,bornDate,city];
+    NSString *body = [NSString stringWithFormat:@"Richiesta informazioni <br><br><b>Nome</b>: %@ <br><b>Cognome</b> : %@ <br> <b>Cellulare</b>: %@ <br><b>E-mail</b>: %@ <br><b>Data di nascita</b>: %@ <br><b>Luogo di nascita</b: %@>",name,surname,phone,email,bornDate,city];
     return body;
 }
 

@@ -201,10 +201,21 @@
 -(void)didReceiveString:(NSString *)receivedString{
     NSLog(@"Invio mail esito positivo: %@",receivedString);
     [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    //hud.mode = MBProgressHUDModeAnnularDeterminate;
+    hud.labelText = @"Richiesta inviata!";
+    hud.mode = MBProgressHUDModeText;
+
+    [hud hide:YES afterDelay:2.4];
 }
 -(void)didReceiveError:(NSError *)error{
     NSLog(@"Invio mail errore");
     [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    //hud.mode = MBProgressHUDModeAnnularDeterminate;
+    hud.labelText = @"Errore, riprova";
+    hud.mode = MBProgressHUDModeText;
+    [hud hide:YES afterDelay:2.4];
 }
 
 @end
