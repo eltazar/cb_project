@@ -16,7 +16,7 @@
     self = [super init];
     if (self) {
         // dati dummy
-        self.titolo = @"Cure mediche rateali";
+        /*self.titolo = @"Cure mediche rateali";
         self.descrizione = @"Il finanziamento per cure sanitarie a rimborso rateale è un credito personale che anticipa le parcelle ai medici permettendo ai pazienti di rateizzare i costi di cure odontoiatriche, di medicina estetica, di chirurgia generale a condizioni agevolate";
         
         self.img =@"xxxxx";
@@ -38,6 +38,7 @@
                                    @"pdf",          @"DATA_KEY",
                                    @"Titolo 3",     @"LABEL",
                                    @"url/ciao.it",  @"URL", nil], nil];
+         */
         
         // [self.pdfList addObject:[[NSDictionary alloc] initWithObjectsAndKeys:@"link1",@"Titolo1", nil]];
         // [self.pdfList addObject:[[NSDictionary alloc] initWithObjectsAndKeys:@"link2",@"Titolo2", nil]];

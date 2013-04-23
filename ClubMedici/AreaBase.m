@@ -11,15 +11,27 @@
 
 @implementation AreaBase
 
--(id) initWithJson:(NSDictionary*)json{
+-(id) initWithJson:(NSArray*)json{
 
     self = [self init];
     if(self){
-        self.descrizione = [json objectForKey:@"testo"];
-        self.titolo = [json objectForKey:@"menu"];
-        self.email1 = [json objectForKey:@"email"];
-        self.tel = [json objectForKey:@"telefono"];
-        self.titolo = @"Area finanziaria";
+        
+        //Oggetto in posizione 0 è il record che descrive l'area
+        NSDictionary *descArray = [json objectAtIndex:0];
+        self.descrizione = [descArray objectForKey:@"testo"];
+        self.titolo = [descArray objectForKey:@"menu"];
+        self.email1 = [descArray objectForKey:@"email"];
+        self.tel = [descArray objectForKey:@"telefono"];
+        self.titolo = [descArray objectForKey:@"menu"];
+        
+        //Gli oggetti seguenti, se presenti, sono la lista di documenti dell'area
+        _itemList = [[NSMutableArray alloc] init];
+        for(int i = 1; i < json.count ; i++){
+            //aggiungo uno ad uno all'array
+            [_itemList addObject:[json objectAtIndex:i]];
+        }
+        
+        
     }
     return self;
 }
@@ -79,7 +91,7 @@
     [dataModel addObject:informazioni];
     
     // Dati per la sezione 1
-    if (self.itemList) {
+    if (self.itemList && self.itemList.count > 0) {
         NSMutableDictionary *documenti = [[NSMutableDictionary alloc] initWithCapacity:2];
         [documenti setObject:@"Servizi"  forKey:@"SECTION_NAME"];
         [documenti setObject:self.itemList forKey:@"SECTION_CONTENTS"];

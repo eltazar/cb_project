@@ -18,7 +18,7 @@
     if (self) {
         NSLog(@"AREA TURISMO ALLOCATO");
         // dati dummy
-        self.titolo = @"Viaggi e Turismo";
+       /* self.titolo = @"Viaggi e Turismo";
         self.descrizione = @"Club Medici Turismo vi propone destinazioni in tutto il mondo e vi offre la qualità di proposte dei principali tour operator, i migliori alberghi e villaggi turistici.\nLo staff di Club Medici Turismo è a vostra completa disposizione per offrirvi una assistenza continua e un filo diretto per proporvi tutti i vantaggi delle nostre proposte. La professionalità delle nostre operatrici vi accompagnerà in ogni passo, dalla scelta del viaggio fino al soggiorno nella destinazione dei vostri sogni, scegliendo la formula più adatta ai vostri desideri.\nCon Club Medici Turismo i soci possono prenotare a prezzi speciali soluzioni per tutte le esigenze di viaggio: viaggi individuali e di gruppo, soggiorni mare, settimane bianche, weekend culturali e benessere.";
         self.img = @"xxxxx";
         self.tel = @"06/86 07 891";
@@ -49,8 +49,9 @@
                                       @"categoriaviaggi",     @"DATA_KEY",
                                       @"xyz",                 @"SOME_KEY",
                                       @"Last Minute",         @"LABEL",
-                                      @"mare.png",            @"IMG", nil], nil];
+                                      @"mare.png",            @"IMG", nil], nil];*/
     }
+        
     return self;
 }
 

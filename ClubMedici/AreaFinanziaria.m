@@ -11,16 +11,6 @@
 
 @implementation AreaFinanziaria
 
--(id) initWithJson:(NSDictionary*)json{
-    
-    self = [super initWithJson:json];
-    if(self){
-    }
-    
-    return self;
-}
-
-
 - (id)init {
     self = [super init];
     if (self) {

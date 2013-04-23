@@ -20,7 +20,7 @@
 @property(nonatomic, strong) NSString *email2;
 @property(nonatomic, strong) NSMutableArray  *itemList;
 
--(id) initWithJson:(NSDictionary*)json;
+-(id) initWithJson:(NSArray*)json;
 
 - (WMTableViewDataSource *)getDataModel;
 

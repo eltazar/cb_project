@@ -16,7 +16,7 @@
     if (self) {
         NSLog(@"AREA ASSICURATIVA ALLOCATO");
         // dati dummy
-        self.titolo = @"Area Assicurativa";
+       /* self.titolo = @"Area Assicurativa";
         self.descrizione = @"Il Club Medici Service mette a disposizione un'attenta e qualificata consulenza assicurativa. I nostri esperti del settore vi guideranno nella scelta della polizza più attinente alle vostre necessità.\n\nPer la professione: RC professionale e tutela legale, infortuni, cassa di assistenza sanitaria, fondo pensione aperto, studio professionale.\n\nPer la vita privata: abitazione, RC auto, responsabilità civile del capofamiglia.\n\n\nClub Medici Service Srl\nVia G.Marchi,10 – 00161 Roma\nP.IVA 08227321000\nIscrizione R.U.I. E000048942\nCCIAA n. REA 1081812\nAttività svolta esclusivamente quale collaboratore di altri intermediari di riferimento (Agenti, Broker)";
         self.img = @"xxxxx";
         self.tel = @"06/86 07 891";
@@ -71,6 +71,7 @@
                                                      @"pdf",             @"DATA_KEY",
                                                      @"Titolo 12",       @"LABEL",
                                                      @"url/ciao.it",     @"URL", nil], nil];
+        */
     }
     return self;
 }
