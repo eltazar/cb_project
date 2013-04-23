@@ -13,6 +13,8 @@
 #define allTrim( object ) [object stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet] ]
 #define replaceSpace( object ) [object stringByReplacingOccurrencesOfString:@" " withString:@""]
 
+#define ISCRIZIONE_MAIL @"iscrizioni@clubmedici.it"
+
 @interface RichiestaIscrizioneController (){
     NSString *name;
     NSString *surname;
@@ -43,9 +45,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];    
     //self.title = @"Richiesta iscrizione";
-    customTitle.text = @"Richiedi \n iscrizione";
-    self.navigationItem.titleView = customTitle;
-    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+        customTitle.text = @"Richiedi \n iscrizione";
+        self.navigationItem.titleView = customTitle;
+    }
+    else{
+        self.title = @"Richiedi iscrizione";
+    }    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -114,6 +120,18 @@
     }
     
     return  isValid;
+}
+
+-(NSString*)createHtmlBody{
+    
+    NSString *body = [NSString stringWithFormat:@"Richiesta informazioni <br><br><b>Nome</b>: %@ <br><b>Cognome</b> : %@ <br> <b>Cellulare</b>: %@ <br><b>E-mail</b>: %@ <br><b>Data di nascita</b>: %@ <br><b>Luogo di nascita: %@</b>",name,surname,phone,email,bornDate,city];
+    return body;
+}
+
+-(void)sendRequest{
+    [super sendRequest];
+    NSLog(@"BODY = %@",[self createHtmlBody]);
+    [PDHTTPAccess sendEmail:[self createHtmlBody] object:@"Richiesta iscrizione" address:ISCRIZIONE_MAIL delegate:self];
 }
 
 @end

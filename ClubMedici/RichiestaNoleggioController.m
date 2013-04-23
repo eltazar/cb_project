@@ -12,6 +12,8 @@
 #define allTrim( object ) [object stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet] ]
 #define replaceSpace( object ) [object stringByReplacingOccurrencesOfString:@" " withString:@""]
 
+#define LEASING_MAIL @"leasing@clubmedici.it"
+#define NOLEGGIO_MAIL @"noleggio@clubmedici.it"
 
 @interface RichiestaNoleggioController ()
 {
@@ -60,13 +62,15 @@
     
     UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"Annula" style:UIBarButtonItemStylePlain target:self action:@selector(cancelButtonPressed:)];
     self.navigationItem.leftBarButtonItem = button;
-    
-    //self.title = @"Richiedi informazioni";
 
-    customTitle.text = @"Richiedi \n informazioni";
-    
-    self.navigationItem.titleView = customTitle;
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+        customTitle.text = @"Richiedi \n informazioni";
+        self.navigationItem.titleView = customTitle;
     }
+    else{
+        self.title = @"Richiedi informazioni";
+    }
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -166,5 +170,25 @@
     return  isValid;
 }
 
+-(NSString*)createHtmlBody{
+ 
+    NSString *body = [NSString stringWithFormat:@"Richiesta informazioni <br><br><b>Ragione sociale</b>: %@ <br><b>Cellulare</b> = %@ <br><b>E-mail</b>: %@ <br><b>Città</b>: %@",ragSoc,phone,email,citta];
+    
+    if ([self.kind isEqualToString:@"noleggioAuto"]) {
+        body = [NSString stringWithFormat:@"%@ <br><b>Partita iva</b>: %@ <br><b>Marca dell'auto da quotare</b>: %@ <br><b>Modello auto</b>: %@",body,iva,marca,modello];
+    }
+    else{
+        body = [NSString stringWithFormat:@"%@ <br><b>Tipologia elettromedicale</b>: %@ <br><b>Prezzo imponibile</b>: %@",body,tipo,prezzo];
+    }
+    
+    return body;
+}
 
+-(void)sendRequest{
+    [super sendRequest];
+    if([self.kind isEqualToString:@"noleggioAuto"])
+        [PDHTTPAccess sendEmail:[self createHtmlBody] object:@"Richiesta noleggio" address:NOLEGGIO_MAIL delegate:self];
+    else
+        [PDHTTPAccess sendEmail:[self createHtmlBody] object:@"Richiesta leasing" address:LEASING_MAIL delegate:self];
+}
 @end

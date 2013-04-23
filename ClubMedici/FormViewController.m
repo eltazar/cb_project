@@ -11,7 +11,6 @@
 #import "FormViewController.h"
 #import "TextFieldCell.h"
 #import "WMTableViewDataSource.h"
-#import "MBProgressHUD.h"
 
 #define KEYBOARD_ORIGIN_Y self.tableView.frame.size.height - 216.0f
 
@@ -79,13 +78,19 @@
     //fa si che il testo inserito nei texfield sia preso anche se non è stata dismessa la keyboard
     [self.view endEditing:TRUE];
     if([self validateFields]){
-        NSLog(@"invia richiesta");
-        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-        //hud.mode = MBProgressHUDModeAnnularDeterminate;
-        hud.labelText = @"Invio...";
+        [self sendRequest];
     }
 }
 
+-(NSString*)createHtmlBody{
+    return nil;
+}
+
+-(void)sendRequest{
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    //hud.mode = MBProgressHUDModeAnnularDeterminate;
+    hud.labelText = @"Invio...";
+}
 
 - (void) cancelButtonPressed:(id)sender {
     //[self.navigationController dismissModalViewControllerAnimated:YES];
@@ -102,6 +107,7 @@
     DisclaimerController *disclaimerCntr = [[DisclaimerController alloc] initWithNibName:@"DisclaimerController" bundle:nil];
     [self.navigationController pushViewController:disclaimerCntr animated:YES];
 }
+
 #pragma mark - UITextFieldDelegate
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
@@ -191,5 +197,14 @@
      */
 }
 
+#pragma mark - WMHTPPAccessDelegate 
+-(void)didReceiveString:(NSString *)receivedString{
+    NSLog(@"Invio mail esito positivo: %@",receivedString);
+    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+}
+-(void)didReceiveError:(NSError *)error{
+    NSLog(@"Invio mail errore");
+    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+}
 
 @end
