@@ -39,9 +39,9 @@
     //setto il bottom border per il textField
     CALayer *bottomBorder = [CALayer layer];
     
-    bottomBorder.frame = CGRectMake(0.0f, textField.frame.size.height-10, textField.frame.size.width, 1.5f);
+    bottomBorder.frame = CGRectMake(0.0f, textField.frame.size.height-8, textField.frame.size.width, 1.5f);
     
-    bottomBorder.backgroundColor = [UIColor grayColor].CGColor;
+    bottomBorder.backgroundColor = [UIColor lightGrayColor].CGColor;
     bottomBorder.cornerRadius = 2;
     
     [textField.layer addSublayer:bottomBorder];
