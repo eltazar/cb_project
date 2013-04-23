@@ -7,7 +7,7 @@
 //
 
 #import "Utilities.h"
-
+#import "AreaBase.h"
 @implementation Utilities
 
 +(BOOL) checkEmail:(NSString*)email
@@ -79,6 +79,20 @@
     isValid = [alphaNumbersSet isSupersetOfSet:stringSet];
     
     return isValid;
+}
+
+
++ (void)saveCustomObject:(AreaBase *)obj key:(NSString*)key {
+    NSData *myEncodedObject = [NSKeyedArchiver archivedDataWithRootObject:obj];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:myEncodedObject forKey:key];
+}
+
++ (AreaBase *)loadCustomObjectWithKey:(NSString *)key {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSData *myEncodedObject = [defaults objectForKey:key];
+    AreaBase *obj = (AreaBase *)[NSKeyedUnarchiver unarchiveObjectWithData: myEncodedObject];
+    return obj;
 }
     
 @end

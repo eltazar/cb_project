@@ -7,10 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+@class AreaBase;
 
 @interface Utilities : NSObject
 
 +(BOOL) checkEmail:(NSString*)email;
 +(BOOL) checkPhone:(NSString *)_phone;
 +(BOOL) isNumeric:(NSString*)inputString;
++ (void)saveCustomObject:(AreaBase *)obj key:(NSString*)key;
++ (AreaBase *)loadCustomObjectWithKey:(NSString *)key;
 @end
