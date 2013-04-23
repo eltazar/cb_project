@@ -23,6 +23,7 @@
         self.email1 = [descArray objectForKey:@"email"];
         self.tel = [descArray objectForKey:@"telefono"];
         self.titolo = [descArray objectForKey:@"menu"];
+        self.img = [descArray objectForKey:@"fotohd"];
         
         //Gli oggetti seguenti, se presenti, sono la lista di documenti dell'area
         _itemList = [[NSMutableArray alloc] init];
@@ -94,6 +95,7 @@
         [informazioniContents addObject:[[NSDictionary alloc] initWithObjectsAndKeys:
                                          @"email",              @"DATA_KEY",
                                          self.email2,           @"LABEL", nil]];
+    
     
     [informazioni setObject:@"Informazioni"         forKey:@"SECTION_NAME"];
     [informazioni setObject:informazioniContents    forKey:@"SECTION_CONTENTS"];
