@@ -86,6 +86,7 @@
     NSData *myEncodedObject = [NSKeyedArchiver archivedDataWithRootObject:obj];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:myEncodedObject forKey:key];
+    [defaults synchronize];
 }
 
 + (AreaBase *)loadCustomObjectWithKey:(NSString *)key {
