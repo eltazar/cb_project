@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@class JASidePanelController, HomeViewController_iPad, SideMenuController_iPad;
+@class JASidePanelController, HomeViewController_iPad, SideMenuController_iPad,AreaBaseController;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -17,6 +17,7 @@
 @property (strong, nonatomic) UINavigationController *sideMenuNavController;
 @property (strong, nonatomic) UINavigationController *detailViewNavController;
 @property (readonly,strong, nonatomic) JASidePanelController *jasSidePanelController;
+@property(nonatomic, strong)AreaBaseController *areaController;
 
 @end
 

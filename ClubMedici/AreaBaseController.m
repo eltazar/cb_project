@@ -18,7 +18,7 @@
 #import "DocumentoAreaController.h"
 #import "FXLabel.h"
 
-#define QUERY_TIME_LIMIT 30//3600
+#define QUERY_TIME_LIMIT 10//3600
 
 @interface AreaBaseController () {
     NSDate *dateDoneQuery;
@@ -53,14 +53,11 @@
     //il controller figlio di questo controller avrà il titolo del back Button personalizzato
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Indietro" style:UIBarButtonItemStyleBordered target:nil action:nil];
     self.navigationItem.backBarButtonItem = backButton;
-    
-    dateDoneQuery = [[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"queryDate%@",[self getAreaType]]];
-
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self fetchData];
+    //[self fetchData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -251,6 +248,14 @@
     [self.tableView reloadData];
     if(self.area.img)
         [imageView loadImageFromURLString:self.area.img];
+    else
+        [imageView setCustomPlaceholder:@"placeholder.jpg"];
+}
+
+-(void)refreshContent{
+    dateDoneQuery = [[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"queryDate%@",[self getAreaType]]];
+    [self fetchData];
+    NSLog(@"refresh content");
 }
 
 #pragma mark - CachedAsyncImageDelegate
@@ -270,6 +275,7 @@
 -(void) fetchData{
     
     //se è passato il limite di tempo per la query, fai la query
+    NSLog(@"DATA QUERY = %@",dateDoneQuery);
     if([dateDoneQuery timeIntervalSinceDate:[NSDate date]]== 0.0 ||
        (-[dateDoneQuery timeIntervalSinceDate:[NSDate date]]) >= QUERY_TIME_LIMIT){
         

@@ -29,5 +29,5 @@
 @property(nonatomic, assign) int        areaId;
 
 - (id) initWithArea:(AreaBase*)area;
--(void) fetchData;
+-(void) refreshContent;
 @end
