@@ -22,7 +22,6 @@
         AreaBase *area;
         WMTableViewDataSource *_dataModel;
         CachedAsyncImageView *imageView;
-
 }
 
 @property(nonatomic, strong) AreaBase *area;

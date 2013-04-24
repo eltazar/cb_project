@@ -42,7 +42,9 @@
     // Do any additional setup after loading the view from its nib.
     _areaDescriptionCell = [[[NSBundle mainBundle] loadNibNamed:@"AreaDescriptionCell_iPad"
                                                           owner:nil
-                                                        options:nil] objectAtIndex:0];    
+                                                        options:nil] objectAtIndex:0];
+    
+    self.tableView.backgroundColor = [UIColor blackColor];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -153,7 +155,7 @@
                          [[UIView alloc] initWithFrame:
                           CGRectMake(0, 0,
                                      imageView.frame.size.width,
-                                     0.6 * imageView.frame.size.height
+                                     0.9 * imageView.frame.size.height
                                      )
                           ];
                      }

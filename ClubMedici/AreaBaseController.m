@@ -259,7 +259,7 @@
 -(void)didFinishLoadingImage:(id)sender{
     
     //NSLog(@"SCARICATA IMMAGINE IN AREA CONTROLLER");
-    [self setupBackgroundView];
+    [self.tableView.backgroundView addSubview:imageView];
 }
 
 -(void)didErrorLoadingImage:(id)sender{
@@ -295,8 +295,6 @@
     self.area = [[areaClass alloc] initWithJson:jsonArray];
     
     [self showData];
-    
-    
     
     //salvo ora in cui ho ricevuto l'oggetto e l'oggetto
     NSUserDefaults *pref = [NSUserDefaults standardUserDefaults];
