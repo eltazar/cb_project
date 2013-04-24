@@ -53,11 +53,14 @@
     //il controller figlio di questo controller avrà il titolo del back Button personalizzato
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Indietro" style:UIBarButtonItemStyleBordered target:nil action:nil];
     self.navigationItem.backBarButtonItem = backButton;
+    
+    dateDoneQuery = [[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"queryDate%@",[self getAreaType]]];
+
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    //[self fetchData];
+    [self fetchData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -250,12 +253,6 @@
         [imageView loadImageFromURLString:self.area.img];
     else
         [imageView setCustomPlaceholder:@"placeholder.jpg"];
-}
-
--(void)refreshContent{
-    dateDoneQuery = [[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"queryDate%@",[self getAreaType]]];
-    [self fetchData];
-    NSLog(@"refresh content");
 }
 
 #pragma mark - CachedAsyncImageDelegate

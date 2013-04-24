@@ -95,14 +95,20 @@
         [appDelegate.detailViewNavController pushViewController:contattiController animated:YES];
     }
     else{
-        /*recupero AreaBaseController e lancio il refresh dei contenuti
-         ogni volta che seleziono un'arera*/
-        appDelegate.areaController.areaId = [[_dataModel valueForKey:@"ID" atIndexPath:indexPath] intValue];
-        appDelegate.areaController.title = [_dataModel valueForKey:@"LABEL" atIndexPath:indexPath];
-        [appDelegate.areaController refreshContent];
+        //Ottengo la classe dell'oggetto della business logic da instanziare
+        Class areaClass = NSClassFromString(dataKey);
+        Class controllerClass = NSClassFromString(controller);
+        
+        AreaBaseController *areaController = [controllerClass idiomAllocInit];
+        areaController.areaId = [[_dataModel valueForKey:@"ID" atIndexPath:indexPath] intValue];
+        //AreaBase *area = [areaClass alloc];
+        //area.titolo = [_dataModel valueForKey:@"LABEL" atIndexPath:indexPath];
+        //areaController.area = area;
+        areaController.title = [_dataModel valueForKey:@"LABEL" atIndexPath:indexPath];
         [appDelegate.detailViewNavController popToRootViewControllerAnimated:NO];
-        [appDelegate.detailViewNavController pushViewController:appDelegate.areaController animated:YES];
+        [appDelegate.detailViewNavController pushViewController:areaController animated:YES];
     }
+    
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     [appDelegate.jasSidePanelController hideLeftPanel:self];
 }

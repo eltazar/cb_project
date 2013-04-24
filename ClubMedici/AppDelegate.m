@@ -12,21 +12,15 @@
 #import "HomeViewController.h"
 
 #import "JASidePanelController.h"
-#import "AreaBaseController.h"
 
 @implementation AppDelegate
-@synthesize jasSidePanelController, areaController;
+@synthesize jasSidePanelController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
    
     self.sideMenuNavController = [[UINavigationController alloc] initWithRootViewController:[SideMenuController idiomAllocInit]];
     self.detailViewNavController = [[UINavigationController alloc] initWithRootViewController:[HomeViewController idiomAllocInit]];
-    
-    //istanzio subito un AreaBaseController, il suo model verrà refreshato ogni volta che
-    //si seleziona un tipo di area
-    Class controllerClass = NSClassFromString(@"AreaBaseController");
-    areaController = [controllerClass idiomAllocInit];;
     
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
         jasSidePanelController = [[JASidePanelController alloc] init];
