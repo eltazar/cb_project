@@ -80,7 +80,27 @@
     if (!cell) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"ActionCell" owner:self options:NULL] objectAtIndex:0];
     }
-    FXLabel *label   = (FXLabel *)    [cell viewWithTag:1];
+    
+    /* Linea separatrice tra le celle*/
+    tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    //bordo inferiore da applicare alla linea
+    CALayer *bottomBorder = [CALayer layer];
+    bottomBorder.frame = CGRectMake(0.0f, 0.0f,1024, 1.5f);
+    bottomBorder.backgroundColor = [UIColor whiteColor].CGColor;
+    
+    //linea separatrice alta 1px, posizionata alla base inferiore della cella
+    UIView *separatorView = [[UIView alloc] initWithFrame:CGRectMake(0, 43, 1024, 1)];
+    separatorView.layer.borderColor = [UIColor colorWithRed:214/255.0f green:226/255.0f blue:241/255.0f alpha:1].CGColor;
+    separatorView.layer.borderWidth = 1.0;
+    //applico bordo inferiore
+    [separatorView.layer addSublayer:bottomBorder];
+    //applico linea alla cella
+    [cell.contentView addSubview:separatorView];
+    
+    /*Fine linea separatrice*/
+    
+    
+    FXLabel *label = (FXLabel *) [cell viewWithTag:1];
     label.shadowColor = [UIColor colorWithWhite:1.0f alpha:0.8f];
     label.shadowOffset = CGSizeMake(1.0f, 1.0f);
     label.shadowBlur = 1.0f;
@@ -88,6 +108,8 @@
     label.innerShadowColor = [UIColor colorWithWhite:0.0f alpha:0.9f];
     label.innerShadowOffset = CGSizeMake(1.0f, 1.0f);
     label.highlightedTextColor =[UIColor blackColor];
+    
+    
     
     UIImageView *img = (UIImageView *)[cell viewWithTag:2];
     
@@ -106,10 +128,18 @@
         [img setImage:nil];
     }
     
+
+    
     UIView* bgview = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, 1)];
     bgview.opaque = YES;
-    bgview.backgroundColor = [UIColor whiteColor];
+    bgview.backgroundColor = [UIColor colorWithRed:246/255.0f green:250/255.0f blue:255/255.0f alpha:1];//[UIColor whiteColor];
     [cell setBackgroundView:bgview];
+//    CAGradientLayer *gradient = [CAGradientLayer layer];
+//    gradient.frame = cell.bounds;
+//    gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor whiteColor]CGColor], (id)[[UIColor colorWithRed:217/255.0f green:234/255.0f blue:254/255.0f alpha:1]CGColor], nil];
+//    gradient.startPoint = CGPointMake(0.5f, 0.0f);
+//    gradient.endPoint = CGPointMake(0.5f, 1.0f);
+//    [bgview.layer addSublayer:gradient];
     // At end of function, right before return cell:
     //cell.textLabel.backgroundColor = [UIColor clearColor];
     
@@ -139,6 +169,7 @@
         //NSLog(@"DOCUMENTO AREA CLICCATO = %@",[_dataModel valueForKey:@"ID_PAG" atIndexPath:indexPath]);
         DocumentoAreaController *descController = [[DocumentoAreaController alloc] init];
         descController.idPag = [_dataModel valueForKey:@"ID_PAG" atIndexPath:indexPath];
+        descController.title = [_dataModel valueForKey:@"LABEL" atIndexPath:indexPath];
         [self.navigationController pushViewController:descController animated:YES];
     }
     else if ([dataKey isEqualToString:@"phone"]) {
