@@ -10,4 +10,7 @@
 
 @interface NewsPullableView : PullableView
 
+@property(nonatomic, strong) IBOutlet UILabel *descrizioneBreve;
+@property(nonatomic, strong) IBOutlet UIWebView *descrizioneEstesa;
+
 @end
