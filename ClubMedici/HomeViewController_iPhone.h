@@ -7,7 +7,9 @@
 //
 
 #import "HomeViewController.h"
+#import "NewsPullableView.h"
+#import "WMHTTPAccess.h"
 
-@interface HomeViewController_iPhone : HomeViewController
+@interface HomeViewController_iPhone : HomeViewController<PullableViewDelegate, WMHTTPAccessDelegate>
 
 @end
