@@ -10,6 +10,15 @@
 
 @implementation PDHTTPAccess
 
++ (void) getNews:(int)limit delegate:(id<WMHTTPAccessDelegate>)delegate{
+    NSString *urlString = @"http://www.clubmedici.it/app/iphone/News.php";
+    
+    NSDictionary *postDict = [NSDictionary dictionaryWithObjectsAndKeys:
+                              [NSNumber numberWithInt:limit], @"limit",
+                              nil];
+    [[WMHTTPAccess sharedInstance] startHTTPConnectionWithURLString:urlString method:WMHTTPAccessConnectionMethodPOST parameters:postDict delegate:delegate];
+
+}
 
 + (void)getAreaContents:(int)areaId delegate:(id<WMHTTPAccessDelegate>)delegate {
     //NSLog(@"DBACCESS REGISTER  --> user = %@", userData);

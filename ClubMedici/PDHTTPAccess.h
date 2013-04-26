@@ -15,4 +15,5 @@
 + (void)getAreaContents:(int)areaId delegate:(id<WMHTTPAccessDelegate>)delegate;
 + (void) getDocumentContents:(int)pagId delegate:(id<WMHTTPAccessDelegate>)delegate;
 + (void) sendEmail:(NSString*)body object:(NSString*)object address:(NSString*)address delegate:(id<WMHTTPAccessDelegate>)delegate;
++ (void) getNews:(int)limit delegate:(id<WMHTTPAccessDelegate>)delegate;
 @end
