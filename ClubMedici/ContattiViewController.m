@@ -7,6 +7,8 @@
 //
 
 #import "ContattiViewController.h"
+#import "FXLabel.h"
+
 @interface ContattiViewController ()
 
 @end
@@ -37,8 +39,21 @@
     //rimuove celle extra
     self.tableView.tableFooterView = [[UIView alloc] init];
     
-    NSArray *sedi = [[NSArray alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Sedi" ofType:@"plist"]];
     sediPin = [[NSMutableArray alloc] init];
+    
+    self.mapView = [[MKMapView alloc] init];
+    self.mapView.delegate = self;
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    NSArray *sedi = [[NSArray alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Sedi" ofType:@"plist"]];
     
     for(NSDictionary *o in sedi){
         CLLocationCoordinate2D c = CLLocationCoordinate2DMake([[o objectForKey:@"LAT"] floatValue],[[o objectForKey:@"LONG"]floatValue]);
@@ -48,16 +63,7 @@
         s.city = [o objectForKey:@"CITY"];
         [sediPin addObject:s];
     }
-    
-    self.mapView = [[MKMapView alloc] init];
-    self.mapView.delegate = self;
     [mapView addAnnotations:sediPin];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Table view data source
@@ -72,7 +78,16 @@
     if (!cell) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"ActionCell" owner:self options:NULL] objectAtIndex:0];
     }
-    UILabel *label   = (UILabel *)    [cell viewWithTag:1];
+    FXLabel *label   = (FXLabel
+                        *)    [cell viewWithTag:1];
+    label.shadowColor = [UIColor colorWithWhite:1.0f alpha:0.8f];
+    label.shadowOffset = CGSizeMake(1.0f, 1.0f);
+    label.shadowBlur = 1.0f;
+    label.innerShadowBlur = 3.0f;
+    label.innerShadowColor = [UIColor colorWithWhite:0.0f alpha:0.9f];
+    label.innerShadowOffset = CGSizeMake(1.0f, 1.0f);
+    label.highlightedTextColor =[UIColor blackColor];
+
     UIImageView *img = (UIImageView *)[cell viewWithTag:2];
     
     label.text = [_dataModel valueForKey:@"LABEL" atIndexPath:indexPath];

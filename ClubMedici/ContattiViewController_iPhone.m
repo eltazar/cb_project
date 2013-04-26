@@ -40,10 +40,6 @@
     tableView.tableHeaderView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"header_contatti"]];
     tableView.backgroundColor = [UIColor clearColor];
     
-    self.mapView.frame = CGRectMake(0, 0, 320, 250);
-    [self configureMap];
-    [self.view insertSubview:mapView belowSubview:tableView];
-
     //NSLog(@"contentsize = %f \n Differenza(h-contentSize) = %f",self.tableView.contentSize.height,CONTENT_OFFSET);
     
     /*settaggio mapview per far seguire il centro della mappa con lo scrolling della tab.
@@ -56,8 +52,6 @@
     UITapGestureRecognizer *tapMap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideTable:)];
     tapMap.delegate = self;
     [self.tableView addGestureRecognizer:tapTable];
-    
-    [self.mapView addGestureRecognizer:tapMap];    
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -71,6 +65,22 @@
     self.tableView.contentInset = UIEdgeInsetsMake(CONTENT_OFFSET, 0, 0, 0);
     //iniziallizzazione dell'offeset per la scrollview
     _lastContentOffset = - CONTENT_OFFSET;
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    
+    self.mapView.frame = CGRectMake(0, 0, 320, 250);
+    [self configureMap];
+    mapView.alpha = 0.0;
+    [UIView animateWithDuration:0.3
+                    animations:^(void){
+                        mapView.alpha = 1.0;
+                        [self configureMap];
+                        [self.view insertSubview:mapView belowSubview:tableView];
+                    }
+     ];
+    
+    [super viewDidAppear:animated];
 }
 
 - (void)didReceiveMemoryWarning
