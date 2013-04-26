@@ -41,6 +41,8 @@
 		ACBE63BC165A87E500F64CDA /* HomeViewController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBE63BB165A87E500F64CDA /* HomeViewController_iPad.m */; };
 		ACBFD645165BBEE600DD7991 /* AreaBase.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBFD644165BBEE600DD7991 /* AreaBase.m */; };
 		ACBFD648165BC0B100DD7991 /* AreaFinanziaria.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBFD647165BC0B100DD7991 /* AreaFinanziaria.m */; };
+		ACCA16EF172A7E6100B03095 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = ACCA16EE172A7E6100B03095 /* Reachability.m */; };
+		ACCA16F1172A7E9300B03095 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACCA16F0172A7E9300B03095 /* SystemConfiguration.framework */; };
 		ACCC531916C1AB7000994AA0 /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = ACCC531816C1AB7000994AA0 /* Utilities.m */; };
 		ACCC531C16C1D97300994AA0 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = ACCC531B16C1D97300994AA0 /* MBProgressHUD.m */; };
 		ACCDDA54165C153A0097C00C /* finanziariaImg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ACCDDA53165C153A0097C00C /* finanziariaImg.jpg */; };
@@ -145,6 +147,9 @@
 		ACBFD644165BBEE600DD7991 /* AreaBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaBase.m; sourceTree = "<group>"; };
 		ACBFD646165BC0B100DD7991 /* AreaFinanziaria.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreaFinanziaria.h; sourceTree = "<group>"; };
 		ACBFD647165BC0B100DD7991 /* AreaFinanziaria.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaFinanziaria.m; sourceTree = "<group>"; };
+		ACCA16ED172A7E6100B03095 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		ACCA16EE172A7E6100B03095 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		ACCA16F0172A7E9300B03095 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		ACCC531716C1AB7000994AA0 /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
 		ACCC531816C1AB7000994AA0 /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };
 		ACCC531A16C1D97300994AA0 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
@@ -230,6 +235,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACCA16F1172A7E9300B03095 /* SystemConfiguration.framework in Frameworks */,
 				AC9168E416B9EC1900AF402E /* CoreLocation.framework in Frameworks */,
 				ACE683C416B8757100530D22 /* MapKit.framework in Frameworks */,
 				AC23E62F166025E400818769 /* MessageUI.framework in Frameworks */,
@@ -389,6 +395,8 @@
 			children = (
 				ACB639281727236C00C26223 /* FXLabel */,
 				ACDED9B61725EDC500668C5C /* AreeEnum.h */,
+				ACCA16ED172A7E6100B03095 /* Reachability.h */,
+				ACCA16EE172A7E6100B03095 /* Reachability.m */,
 				ACCC531A16C1D97300994AA0 /* MBProgressHUD.h */,
 				ACCC531B16C1D97300994AA0 /* MBProgressHUD.m */,
 				ACE03DCB16593B71009B6B0D /* UIViewController+JASidePanel.h */,
@@ -462,6 +470,7 @@
 		ACEBDC6416570CBE00CEFFE5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				ACCA16F0172A7E9300B03095 /* SystemConfiguration.framework */,
 				AC9168E316B9EC1900AF402E /* CoreLocation.framework */,
 				ACE683C316B8757100530D22 /* MapKit.framework */,
 				AC23E62E166025E400818769 /* MessageUI.framework */,
@@ -648,6 +657,7 @@
 				ACBA1D571725C442004EB8E4 /* WMHTTPAccess.m in Sources */,
 				ACD9D9A317269F4C00F50773 /* DocumentoAreaController.m in Sources */,
 				ACB6392B1727236C00C26223 /* FXLabel.m in Sources */,
+				ACCA16EF172A7E6100B03095 /* Reachability.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
