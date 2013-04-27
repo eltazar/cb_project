@@ -18,7 +18,7 @@
 		AC26298E165D1E2400510092 /* PDFviewerController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC26298B165D1E2400510092 /* PDFviewerController.m */; };
 		AC262992165D1E4900510092 /* AreaBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC262991165D1E4900510092 /* AreaBaseController.m */; };
 		AC2629A1165D2A5300510092 /* AreaBaseController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = AC26299F165D2A5300510092 /* AreaBaseController_iPad.m */; };
-		AC2629AD165D2F4500510092 /* ActionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC2629AC165D2F4500510092 /* ActionCell.xib */; };
+		AC2629AD165D2F4500510092 /* ContactCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC2629AC165D2F4500510092 /* ContactCell.xib */; };
 		AC2629B0165D319A00510092 /* pdf.png in Resources */ = {isa = PBXBuildFile; fileRef = AC2629AE165D319A00510092 /* pdf.png */; };
 		AC2629B1165D319A00510092 /* pdf@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC2629AF165D319A00510092 /* pdf@2x.png */; };
 		AC2629B4165D334200510092 /* phone.png in Resources */ = {isa = PBXBuildFile; fileRef = AC2629B2165D334100510092 /* phone.png */; };
@@ -29,6 +29,7 @@
 		AC93CE93165DA6F400ABA3C2 /* PDFviewerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC93CE92165DA6F400ABA3C2 /* PDFviewerController.xib */; };
 		ACB57B7B172A8287004176AF /* NewsPullableView.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB57B7A172A8287004176AF /* NewsPullableView.m */; };
 		ACB57B7D172A8431004176AF /* NewsPullableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACB57B7C172A8431004176AF /* NewsPullableView.xib */; };
+		ACB57B7F172AABDE004176AF /* ActionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACB57B7E172AABDE004176AF /* ActionCell.xib */; };
 		ACB6392B1727236C00C26223 /* FXLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB6392A1727236C00C26223 /* FXLabel.m */; };
 		ACB7DA7016A4AFC500B05178 /* mail.png in Resources */ = {isa = PBXBuildFile; fileRef = ACB7DA6E16A4AFC500B05178 /* mail.png */; };
 		ACB7DA7116A4AFC500B05178 /* mail@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ACB7DA6F16A4AFC500B05178 /* mail@2x.png */; };
@@ -117,7 +118,7 @@
 		AC262991165D1E4900510092 /* AreaBaseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AreaBaseController.m; path = ClubMedici/AreaBaseController.m; sourceTree = "<group>"; };
 		AC26299E165D2A5300510092 /* AreaBaseController_iPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AreaBaseController_iPad.h; path = ClubMedici/AreaBaseController_iPad.h; sourceTree = "<group>"; };
 		AC26299F165D2A5300510092 /* AreaBaseController_iPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AreaBaseController_iPad.m; path = ClubMedici/AreaBaseController_iPad.m; sourceTree = "<group>"; };
-		AC2629AC165D2F4500510092 /* ActionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ActionCell.xib; path = ClubMedici/ActionCell.xib; sourceTree = "<group>"; };
+		AC2629AC165D2F4500510092 /* ContactCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ContactCell.xib; path = ClubMedici/ContactCell.xib; sourceTree = "<group>"; };
 		AC2629AE165D319A00510092 /* pdf.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pdf.png; path = img/pdf.png; sourceTree = SOURCE_ROOT; };
 		AC2629AF165D319A00510092 /* pdf@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pdf@2x.png"; path = "img/pdf@2x.png"; sourceTree = SOURCE_ROOT; };
 		AC2629B2165D334100510092 /* phone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = phone.png; path = img/phone.png; sourceTree = SOURCE_ROOT; };
@@ -129,6 +130,7 @@
 		ACB57B79172A8286004176AF /* NewsPullableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsPullableView.h; sourceTree = "<group>"; };
 		ACB57B7A172A8287004176AF /* NewsPullableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsPullableView.m; sourceTree = "<group>"; };
 		ACB57B7C172A8431004176AF /* NewsPullableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsPullableView.xib; sourceTree = "<group>"; };
+		ACB57B7E172AABDE004176AF /* ActionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActionCell.xib; sourceTree = "<group>"; };
 		ACB639291727236C00C26223 /* FXLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXLabel.h; sourceTree = "<group>"; };
 		ACB6392A1727236C00C26223 /* FXLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXLabel.m; sourceTree = "<group>"; };
 		ACB7DA6E16A4AFC500B05178 /* mail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mail.png; path = img/mail.png; sourceTree = SOURCE_ROOT; };
@@ -264,7 +266,8 @@
 				D9B04DD8165C63A9005EF35B /* AreaDescriptionCell.m */,
 				AC262989165D1E2400510092 /* AreaDescriptionCell.xib */,
 				ACD24BA2165FB59400C97CD2 /* AreaDescriptionCell_iPad.xib */,
-				AC2629AC165D2F4500510092 /* ActionCell.xib */,
+				AC2629AC165D2F4500510092 /* ContactCell.xib */,
+				ACB57B7E172AABDE004176AF /* ActionCell.xib */,
 				ACE9FF4016B8814C002C8CE5 /* WebViewCell.xib */,
 				D91B38431662598F001E9384 /* TextFieldCell.h */,
 				D91B38441662598F001E9384 /* TextFieldCell.m */,
@@ -592,7 +595,7 @@
 				ACE03DDA16594922009B6B0D /* SideMenuController_iPhone.xib in Resources */,
 				ACCDDA54165C153A0097C00C /* finanziariaImg.jpg in Resources */,
 				AC26298D165D1E2400510092 /* AreaDescriptionCell.xib in Resources */,
-				AC2629AD165D2F4500510092 /* ActionCell.xib in Resources */,
+				AC2629AD165D2F4500510092 /* ContactCell.xib in Resources */,
 				AC2629B0165D319A00510092 /* pdf.png in Resources */,
 				AC2629B1165D319A00510092 /* pdf@2x.png in Resources */,
 				AC2629B4165D334200510092 /* phone.png in Resources */,
@@ -621,6 +624,7 @@
 				ACD9D9A417269F4C00F50773 /* DocumentoAreaController.xib in Resources */,
 				ACEF10821726C4F500EF1684 /* placeholder.jpg in Resources */,
 				ACB57B7D172A8431004176AF /* NewsPullableView.xib in Resources */,
+				ACB57B7F172AABDE004176AF /* ActionCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
