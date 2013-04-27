@@ -40,7 +40,34 @@
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [super tableView:tableView didSelectRowAtIndexPath:indexPath];
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSString *dataKey    = [_dataModel valueForKey:@"DATA_KEY"   atIndexPath:indexPath];
+    NSString *controller = [_dataModel valueForKey:@"CONTROLLER" atIndexPath:indexPath];
+    Class controllerClass = NSClassFromString(controller);
+    
+    appDelegate.jasSidePanelController.centerPanel = nil;
+    
+    if([dataKey isEqualToString:@"Azienda"]){
+        appDelegate.jasSidePanelController.centerPanel = [[UINavigationController alloc] initWithRootViewController:[HomeViewController idiomAllocInit]];
+    }
+    else if([dataKey isEqualToString:@"member"]){
+        RichiestaIscrizioneController *richiestaController = [[controllerClass alloc] initWithNibName:@"FormViewController" bundle:nil];
+        appDelegate.jasSidePanelController.centerPanel = [[UINavigationController alloc] initWithRootViewController:richiestaController];
+    }
+    else if([dataKey isEqualToString:@"contacts"]){
+        ContattiViewController *contattiController = [controllerClass idiomAllocInit];
+        appDelegate.jasSidePanelController.centerPanel = [[UINavigationController alloc] initWithRootViewController:contattiController];
+    }
+    else{
+        //Ottengo la classe dell'oggetto della business logic da instanziare
+        AreaBaseController *areaController = [controllerClass idiomAllocInit];
+        areaController.areaId = [[_dataModel valueForKey:@"ID" atIndexPath:indexPath] intValue];
+        areaController.title = [_dataModel valueForKey:@"LABEL" atIndexPath:indexPath];
+        
+        appDelegate.jasSidePanelController.centerPanel = [[UINavigationController alloc] initWithRootViewController:areaController];
+    }
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
 
 

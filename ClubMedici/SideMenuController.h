@@ -8,7 +8,16 @@
 
 #import <UIKit/UIKit.h>
 #import "UIViewController+InterfaceIdiom.h"
+#import "RichiestaIscrizioneController.h"
+#import "WMTableViewDataSource.h"
+#import "ContattiViewController.h"
+#import "AreaBase.h"
+#import "HomeViewController.h"
+#import "AreaBaseController.h"
+
 
 @interface SideMenuController : UITableViewController
-
+{
+    WMTableViewDataSource *_dataModel;
+}
 @end
