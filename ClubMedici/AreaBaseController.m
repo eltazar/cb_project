@@ -75,11 +75,67 @@
     UITableViewCell *cell = nil;
     //NSString *cellIdentifier;
     NSString *dataKey = [_dataModel valueForKey:@"DATA_KEY" atIndexPath:indexPath];
-    
-    cell = [tableView dequeueReusableCellWithIdentifier:@"ActionCell"];
-    if (!cell) {
-        cell = [[[NSBundle mainBundle] loadNibNamed:@"ActionCell" owner:self options:NULL] objectAtIndex:0];
+        
+    if(indexPath.section == 0){
+        
+        cell = [tableView dequeueReusableCellWithIdentifier:@"ContactCell"];
+        if (!cell) {
+            cell = [[[NSBundle mainBundle] loadNibNamed:@"ContactCell" owner:self options:NULL] objectAtIndex:0];
+        }
+        
+        FXLabel *contactLabel = (FXLabel *) [cell viewWithTag:1];
+        contactLabel.shadowColor = [UIColor colorWithWhite:1 alpha:1];
+        contactLabel.shadowOffset = CGSizeMake(1.0f, 1.0f);
+        contactLabel.shadowBlur = 1.0f;
+        contactLabel.innerShadowBlur = 3.0f;
+        contactLabel.innerShadowColor = [UIColor colorWithRed:22/255.0f green:47/255.0f blue:156/255.0f alpha:1];
+        contactLabel.innerShadowOffset = CGSizeMake(1.0f, 1.0f);
+        contactLabel.highlightedTextColor =[UIColor blackColor];
+
+        UIImageView *img = (UIImageView *)[cell viewWithTag:2];
+        
+        if([dataKey isEqualToString:@"pdf"]){
+            [img setImage:[UIImage imageNamed:@"pdfImage"]];  
+        }
+        else if([dataKey isEqualToString:@"phone"]){
+            [img setImage:[UIImage imageNamed:@"phone"]];
+            contactLabel.text = @"Telefono";
+        }
+        else if([dataKey isEqualToString:@"email"]){
+            [img setImage:[UIImage imageNamed:@"mail"]];
+            contactLabel.text = @"E-mail";
+        }
+        else{
+            [img setImage:nil];
+        }
+
+    //    CAGradientLayer *gradient = [CAGradientLayer layer];
+    //    gradient.frame = cell.bounds;
+    //    gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor whiteColor]CGColor], (id)[[UIColor colorWithRed:217/255.0f green:234/255.0f blue:254/255.0f alpha:1]CGColor], nil];
+    //    gradient.startPoint = CGPointMake(0.5f, 0.0f);
+    //    gradient.endPoint = CGPointMake(0.5f, 1.0f);
+    //    [bgview.layer addSublayer:gradient];
+        // At end of function, right before return cell:
+        //cell.textLabel.backgroundColor = [UIColor clearColor];
     }
+    else{
+        cell = [tableView dequeueReusableCellWithIdentifier:@"ActionCell"];
+        if (!cell) {
+            cell = [[[NSBundle mainBundle] loadNibNamed:@"ActionCell" owner:self options:NULL] objectAtIndex:0];
+        }
+    }
+    
+    /*Testo della cella*/
+    
+    FXLabel *label = (FXLabel *) [cell viewWithTag:3];
+    label.shadowColor = [UIColor colorWithWhite:1.0f alpha:0.8f];
+    label.shadowOffset = CGSizeMake(1.0f, 1.0f);
+    label.shadowBlur = 1.0f;
+    label.innerShadowBlur = 3.0f;
+    label.innerShadowColor = [UIColor colorWithWhite:0.0f alpha:0.9f];
+    label.innerShadowOffset = CGSizeMake(1.0f, 1.0f);
+    label.highlightedTextColor =[UIColor blackColor];
+    label.text = [_dataModel valueForKey:@"LABEL" atIndexPath:indexPath];
     
     /* Linea separatrice tra le celle*/
     tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -99,49 +155,12 @@
     
     /*Fine linea separatrice*/
     
-    
-    FXLabel *label = (FXLabel *) [cell viewWithTag:1];
-    label.shadowColor = [UIColor colorWithWhite:1.0f alpha:0.8f];
-    label.shadowOffset = CGSizeMake(1.0f, 1.0f);
-    label.shadowBlur = 1.0f;
-    label.innerShadowBlur = 3.0f;
-    label.innerShadowColor = [UIColor colorWithWhite:0.0f alpha:0.9f];
-    label.innerShadowOffset = CGSizeMake(1.0f, 1.0f);
-    label.highlightedTextColor =[UIColor blackColor];
-    
-    
-    
-    UIImageView *img = (UIImageView *)[cell viewWithTag:2];
-    
-    label.text = [_dataModel valueForKey:@"LABEL" atIndexPath:indexPath];
-    
-    if([dataKey isEqualToString:@"pdf"]){
-        [img setImage:[UIImage imageNamed:@"pdfImage"]];  
-    }
-    else if([dataKey isEqualToString:@"phone"]){
-        [img setImage:[UIImage imageNamed:@"phone"]];
-    }
-    else if([dataKey isEqualToString:@"email"]){
-        [img setImage:[UIImage imageNamed:@"mail"]];
-    }
-    else{
-        [img setImage:nil];
-    }
-    
-
-    
+    /*Background della cella*/
     UIView* bgview = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, 1)];
     bgview.opaque = YES;
     bgview.backgroundColor = [UIColor colorWithRed:246/255.0f green:250/255.0f blue:255/255.0f alpha:1];//[UIColor whiteColor];
     [cell setBackgroundView:bgview];
-//    CAGradientLayer *gradient = [CAGradientLayer layer];
-//    gradient.frame = cell.bounds;
-//    gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor whiteColor]CGColor], (id)[[UIColor colorWithRed:217/255.0f green:234/255.0f blue:254/255.0f alpha:1]CGColor], nil];
-//    gradient.startPoint = CGPointMake(0.5f, 0.0f);
-//    gradient.endPoint = CGPointMake(0.5f, 1.0f);
-//    [bgview.layer addSublayer:gradient];
-    // At end of function, right before return cell:
-    //cell.textLabel.backgroundColor = [UIColor clearColor];
+    
     
     return cell;
 }
