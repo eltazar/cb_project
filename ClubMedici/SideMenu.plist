@@ -91,6 +91,8 @@
 				<string>member</string>
 				<key>LABEL</key>
 				<string>Diventa Socio</string>
+				<key>CONTROLLER</key>
+				<string>RichiestaIscrizioneController</string>
 			</dict>
 			<dict>
 				<key>DATA_KEY</key>
