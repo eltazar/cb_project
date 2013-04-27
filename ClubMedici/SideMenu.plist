@@ -4,6 +4,21 @@
 <array>
 	<dict>
 		<key>SECTION_NAME</key>
+		<string></string>
+		<key>SECTION_CONTENTS</key>
+		<array>
+			<dict>
+				<key>DATA_KEY</key>
+				<string>Azienda</string>
+				<key>CONTROLLER</key>
+				<string>HomeViewController</string>
+				<key>LABEL</key>
+				<string>ClubMedici</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>SECTION_NAME</key>
 		<string>Area Finanziaria</string>
 		<key>SECTION_CONTENTS</key>
 		<array>
