@@ -7,30 +7,30 @@
 		<string>Contatti</string>
 		<key>SECTION_CONTENTS</key>
 		<array>
-            <dict>
-                    <key>DATA_KEY</key>
-                    <string>company</string>
-                    <key>LABEL</key>
-                    <string>&lt;p class=&quot;localita&quot; style=&quot;margin-top: 0px; line-height: 14px; font-family: Arial; font-size: 12px;&quot;&gt;
+			<dict>
+				<key>DATA_KEY</key>
+				<string>company</string>
+				<key>LABEL</key>
+				<string>&lt;p class=&quot;localita&quot; style=&quot;margin-top: 0px; line-height: 14px; font-family: Arial; font-size: 12px;&quot;&gt;
                         &lt;span style=&quot;font-size:14px;&quot;&gt;&lt;strong&gt;Sede Nazionale&lt;/strong&gt;&lt;/span&gt;&lt;/p&gt;
                         &lt;p class=&quot;indirizzo&quot; style=&quot;margin-top: 0px; line-height: 14px; font-family: Arial; font-size: 12px;&quot;&gt;
                         &lt;span style=&quot;font-size:14px;&quot;&gt;Via G.B. De Rossi, 12 - Roma&lt;br /&gt;
                         Via G.Marchi, 10 - Roma&lt;br /&gt;
                         Lun-Ven, 09.00 - 18.00&lt;/span&gt;&lt;/p&gt;</string>
-                    <key>IMG</key>
-                    <string></string>
-                </dict>
+				<key>IMG</key>
+				<string></string>
+			</dict>
 			<dict>
 				<key>DATA_KEY</key>
 				<string>phone</string>
 				<key>LABEL</key>
-				<string>Telefono</string>
+				<string>111111</string>
 				<key>IMG</key>
 				<string></string>
 			</dict>
 			<dict>
 				<key>LABEL</key>
-				<string>E-mail</string>
+				<string>aasa@aaaa.ir</string>
 				<key>DATA_KEY</key>
 				<string>mail</string>
 				<key>IMG</key>
@@ -40,7 +40,7 @@
 				<key>DATA_KEY</key>
 				<string>facebook</string>
 				<key>LABEL</key>
-				<string>Facebook</string>
+				<string>cbfacebook</string>
 				<key>IMG</key>
 				<string></string>
 			</dict>
@@ -48,7 +48,7 @@
 				<key>DATA_KEY</key>
 				<string>twitter</string>
 				<key>LABEL</key>
-				<string>Twitter</string>
+				<string>cbtwitter</string>
 				<key>IMG</key>
 				<string></string>
 			</dict>

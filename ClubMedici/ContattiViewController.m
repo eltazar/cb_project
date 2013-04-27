@@ -74,12 +74,14 @@
     //NSString *cellIdentifier;
     NSString *dataKey = [_dataModel valueForKey:@"DATA_KEY" atIndexPath:indexPath];
     
-    cell = [self.tableView dequeueReusableCellWithIdentifier:@"ActionCell"];
+    cell = [self.tableView dequeueReusableCellWithIdentifier:@"ContactCell"];
     if (!cell) {
-        cell = [[[NSBundle mainBundle] loadNibNamed:@"ActionCell" owner:self options:NULL] objectAtIndex:0];
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"ContactCell" owner:self options:NULL] objectAtIndex:0];
     }
-    FXLabel *label   = (FXLabel
-                        *)    [cell viewWithTag:1];
+    
+    UIImageView *img = (UIImageView *)[cell viewWithTag:2];
+
+    FXLabel *label   = (FXLabel*)    [cell viewWithTag:3];
     label.shadowColor = [UIColor colorWithWhite:1.0f alpha:0.8f];
     label.shadowOffset = CGSizeMake(1.0f, 1.0f);
     label.shadowBlur = 1.0f;
@@ -87,18 +89,34 @@
     label.innerShadowColor = [UIColor colorWithWhite:0.0f alpha:0.9f];
     label.innerShadowOffset = CGSizeMake(1.0f, 1.0f);
     label.highlightedTextColor =[UIColor blackColor];
-
-    UIImageView *img = (UIImageView *)[cell viewWithTag:2];
     
+    NSLog(@"LABEL = %@",[_dataModel valueForKey:@"LABEL" atIndexPath:indexPath]);
     label.text = [_dataModel valueForKey:@"LABEL" atIndexPath:indexPath];
+    
+    FXLabel *contactLabel = (FXLabel *) [cell viewWithTag:1];
+    contactLabel.shadowColor = [UIColor colorWithWhite:1.0f alpha:0.8f];
+    contactLabel.shadowOffset = CGSizeMake(1.0f, 1.0f);
+    contactLabel.shadowBlur = 1.0f;
+    contactLabel.innerShadowBlur = 3.0f;
+    contactLabel.innerShadowColor = [UIColor colorWithWhite:0.0f alpha:0.9f];
+    contactLabel.innerShadowOffset = CGSizeMake(1.0f, 1.0f);
+    contactLabel.highlightedTextColor =[UIColor blackColor];
+
     
     if([dataKey isEqualToString:@"phone"]){
         [img setImage:[UIImage imageNamed:@"phone"]];
+        contactLabel.text = @"Telefono";
     }
     else if([dataKey isEqualToString:@"mail"]){
         [img setImage:[UIImage imageNamed:@"mail"]];
+        contactLabel.text = @"E-mail";
     }
-    else{
+    else if([dataKey isEqualToString:@"facebook"]){
+        contactLabel.text = @"Facebook";
+        [img setImage:nil];
+    }
+    else if([dataKey isEqualToString:@"twitter"]){
+        contactLabel.text = @"Twitter";
         [img setImage:nil];
     }
     
