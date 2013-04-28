@@ -11,5 +11,7 @@
 #import "WMHTTPAccess.h"
 
 @interface HomeViewController_iPhone : HomeViewController<PullableViewDelegate, WMHTTPAccessDelegate>
-
+{
+    IBOutlet UILabel *descriptionLabel;
+}
 @end

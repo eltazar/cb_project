@@ -46,11 +46,17 @@
 
     }
     
+    self.view.backgroundColor = [UIColor colorWithRed:246/255.0f green:250/255.0f blue:255/255.0f alpha:1];
+    
     newsView.openedCenter = CGPointMake(160 + 0,self.view.center.y+25);
     newsView.closedCenter = CGPointMake(160 + 0, self.view.frame.size.height+closedCenterOffset);
     newsView.center = newsView.closedCenter;
     newsView.handleView.frame = CGRectMake(0, 0, 320, 40);
     newsView.delegate = self;
+    
+    descriptionLabel.textColor     = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.5];
+    descriptionLabel.shadowColor   = [UIColor darkGrayColor];
+    descriptionLabel.shadowOffset  = CGSizeMake(-1.0,-1.0);
     
     [self.view addSubview:newsView];
 }
