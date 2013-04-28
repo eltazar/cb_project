@@ -14,7 +14,7 @@
 #import "JASidePanelController.h"
 
 @implementation AppDelegate
-@synthesize jasSidePanelController;
+@synthesize jasSidePanelController, splitViewController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -31,7 +31,7 @@
         [self addPanGestureToNavigationController:self.detailViewNavController target:jasSidePanelController];
     }
     else {
-        UISplitViewController *splitViewController = [[UISplitViewController alloc] init];
+        splitViewController = [[UISplitViewController alloc] init];
         splitViewController.viewControllers = [NSArray arrayWithObjects:self.sideMenuNavController, self.detailViewNavController, nil];
         splitViewController.delegate = [self.detailViewNavController.viewControllers objectAtIndex:0];
         self.window.rootViewController = splitViewController;

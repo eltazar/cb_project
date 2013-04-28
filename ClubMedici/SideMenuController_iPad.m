@@ -41,5 +41,45 @@
     return YES;
 }
 
+#pragma mark - Table view delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSString *dataKey    = [_dataModel valueForKey:@"DATA_KEY"   atIndexPath:indexPath];
+    NSString *controller = [_dataModel valueForKey:@"CONTROLLER" atIndexPath:indexPath];
+    Class controllerClass = NSClassFromString(controller);
+    
+    UINavigationController *detailNavController = nil;
+    
+    if([dataKey isEqualToString:@"Azienda"]){
+        HomeViewController *homeController = [HomeViewController idiomAllocInit];
+        detailNavController = [[UINavigationController alloc] initWithRootViewController:homeController];
+    }
+    else if([dataKey isEqualToString:@"member"]){
+        RichiestaIscrizioneController *richiestaController = [[controllerClass alloc] initWithNibName:@"FormViewController" bundle:nil];
+        detailNavController = [[UINavigationController alloc] initWithRootViewController:richiestaController];
+    
+    }
+    else if([dataKey isEqualToString:@"contacts"]){
+        ContattiViewController *contattiController = [controllerClass idiomAllocInit];
+        detailNavController = [[UINavigationController alloc] initWithRootViewController:contattiController];
+    }
+    else{
+        //Ottengo la classe dell'oggetto della business logic da instanziare
+        AreaBaseController *areaController = [controllerClass idiomAllocInit];
+        detailNavController = [[UINavigationController alloc] initWithRootViewController:areaController];
+        areaController.areaId = [[_dataModel valueForKey:@"ID" atIndexPath:indexPath] intValue];
+        areaController.title = [_dataModel valueForKey:@"LABEL" atIndexPath:indexPath];
+    }    
+    
+    //ricostruisco lo splitViewController con il nuovo detailController
+    NSArray *viewControllers=[NSArray arrayWithObjects:[appDelegate.splitViewController.viewControllers objectAtIndex:0],detailNavController,nil];
+    
+    appDelegate.splitViewController.viewControllers = viewControllers;
+
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+}
+
 
 @end
