@@ -43,19 +43,6 @@
 		ACBE63B8165A87A800F64CDA /* HomeViewController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBE63B7165A87A800F64CDA /* HomeViewController_iPhone.m */; };
 		ACBE63BC165A87E500F64CDA /* HomeViewController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBE63BB165A87E500F64CDA /* HomeViewController_iPad.m */; };
 		ACBF78BC172D3D9200B4F230 /* CustomSpinnerView.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBF78BB172D3D9200B4F230 /* CustomSpinnerView.m */; };
-		ACBF791D172D59FD00B4F230 /* spinner0.png in Resources */ = {isa = PBXBuildFile; fileRef = ACBF7918172D59FD00B4F230 /* spinner0.png */; };
-		ACBF791E172D59FD00B4F230 /* spinner30.png in Resources */ = {isa = PBXBuildFile; fileRef = ACBF7919172D59FD00B4F230 /* spinner30.png */; };
-		ACBF791F172D59FD00B4F230 /* spinner60.png in Resources */ = {isa = PBXBuildFile; fileRef = ACBF791A172D59FD00B4F230 /* spinner60.png */; };
-		ACBF7920172D59FD00B4F230 /* spinner90.png in Resources */ = {isa = PBXBuildFile; fileRef = ACBF791B172D59FD00B4F230 /* spinner90.png */; };
-		ACBF7921172D59FD00B4F230 /* spinner120.png in Resources */ = {isa = PBXBuildFile; fileRef = ACBF791C172D59FD00B4F230 /* spinner120.png */; };
-		ACBF7929172D5C2600B4F230 /* spinner150.png in Resources */ = {isa = PBXBuildFile; fileRef = ACBF7922172D5C2600B4F230 /* spinner150.png */; };
-		ACBF792A172D5C2600B4F230 /* spinner180.png in Resources */ = {isa = PBXBuildFile; fileRef = ACBF7923172D5C2600B4F230 /* spinner180.png */; };
-		ACBF792B172D5C2600B4F230 /* spinner210.png in Resources */ = {isa = PBXBuildFile; fileRef = ACBF7924172D5C2600B4F230 /* spinner210.png */; };
-		ACBF792C172D5C2600B4F230 /* spinner240.png in Resources */ = {isa = PBXBuildFile; fileRef = ACBF7925172D5C2600B4F230 /* spinner240.png */; };
-		ACBF792D172D5C2600B4F230 /* spinner270.png in Resources */ = {isa = PBXBuildFile; fileRef = ACBF7926172D5C2600B4F230 /* spinner270.png */; };
-		ACBF792E172D5C2600B4F230 /* spinner300.png in Resources */ = {isa = PBXBuildFile; fileRef = ACBF7927172D5C2600B4F230 /* spinner300.png */; };
-		ACBF792F172D5C2600B4F230 /* spinner330.png in Resources */ = {isa = PBXBuildFile; fileRef = ACBF7928172D5C2600B4F230 /* spinner330.png */; };
-		ACBF7931172D5C7F00B4F230 /* spinner360.png in Resources */ = {isa = PBXBuildFile; fileRef = ACBF7930172D5C7F00B4F230 /* spinner360.png */; };
 		ACBFD645165BBEE600DD7991 /* AreaBase.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBFD644165BBEE600DD7991 /* AreaBase.m */; };
 		ACBFD648165BC0B100DD7991 /* AreaFinanziaria.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBFD647165BC0B100DD7991 /* AreaFinanziaria.m */; };
 		ACCA16EF172A7E6100B03095 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = ACCA16EE172A7E6100B03095 /* Reachability.m */; };
@@ -101,6 +88,12 @@
 		ACEBDC8216570CBF00CEFFE5 /* HomeViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACEBDC8016570CBF00CEFFE5 /* HomeViewController_iPhone.xib */; };
 		ACEBDC8516570CBF00CEFFE5 /* HomeViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACEBDC8316570CBF00CEFFE5 /* HomeViewController_iPad.xib */; };
 		ACEF10821726C4F500EF1684 /* placeholder.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ACEF10811726C4F500EF1684 /* placeholder.jpg */; };
+		ACFADEC6172D6C2800437E43 /* spinner0.png in Resources */ = {isa = PBXBuildFile; fileRef = ACFADEC0172D6C2800437E43 /* spinner0.png */; };
+		ACFADEC7172D6C2800437E43 /* spinner1.png in Resources */ = {isa = PBXBuildFile; fileRef = ACFADEC1172D6C2800437E43 /* spinner1.png */; };
+		ACFADEC8172D6C2800437E43 /* spinner2.png in Resources */ = {isa = PBXBuildFile; fileRef = ACFADEC2172D6C2800437E43 /* spinner2.png */; };
+		ACFADEC9172D6C2800437E43 /* spinner3.png in Resources */ = {isa = PBXBuildFile; fileRef = ACFADEC3172D6C2800437E43 /* spinner3.png */; };
+		ACFADECA172D6C2800437E43 /* spinner4.png in Resources */ = {isa = PBXBuildFile; fileRef = ACFADEC4172D6C2800437E43 /* spinner4.png */; };
+		ACFADECB172D6C2800437E43 /* spinner5.png in Resources */ = {isa = PBXBuildFile; fileRef = ACFADEC5172D6C2800437E43 /* spinner5.png */; };
 		D90EA9BB16611E0D00D29490 /* SideMenu.plist in Resources */ = {isa = PBXBuildFile; fileRef = D90EA9BA16611E0D00D29490 /* SideMenu.plist */; };
 		D90EA9BF1661217100D29490 /* WMTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D90EA9BE1661217100D29490 /* WMTableViewDataSource.m */; };
 		D90EA9D21661660300D29490 /* AreaTurismo.m in Sources */ = {isa = PBXBuildFile; fileRef = D90EA9D11661660300D29490 /* AreaTurismo.m */; };
@@ -167,19 +160,6 @@
 		ACBE63BB165A87E500F64CDA /* HomeViewController_iPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController_iPad.m; sourceTree = "<group>"; };
 		ACBF78BA172D3D9200B4F230 /* CustomSpinnerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomSpinnerView.h; sourceTree = "<group>"; };
 		ACBF78BB172D3D9200B4F230 /* CustomSpinnerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomSpinnerView.m; sourceTree = "<group>"; };
-		ACBF7918172D59FD00B4F230 /* spinner0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = spinner0.png; path = img/spinner0.png; sourceTree = SOURCE_ROOT; };
-		ACBF7919172D59FD00B4F230 /* spinner30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = spinner30.png; path = img/spinner30.png; sourceTree = SOURCE_ROOT; };
-		ACBF791A172D59FD00B4F230 /* spinner60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = spinner60.png; path = img/spinner60.png; sourceTree = SOURCE_ROOT; };
-		ACBF791B172D59FD00B4F230 /* spinner90.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = spinner90.png; path = img/spinner90.png; sourceTree = SOURCE_ROOT; };
-		ACBF791C172D59FD00B4F230 /* spinner120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = spinner120.png; path = img/spinner120.png; sourceTree = SOURCE_ROOT; };
-		ACBF7922172D5C2600B4F230 /* spinner150.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = spinner150.png; path = img/spinner150.png; sourceTree = SOURCE_ROOT; };
-		ACBF7923172D5C2600B4F230 /* spinner180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = spinner180.png; path = img/spinner180.png; sourceTree = SOURCE_ROOT; };
-		ACBF7924172D5C2600B4F230 /* spinner210.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = spinner210.png; path = img/spinner210.png; sourceTree = SOURCE_ROOT; };
-		ACBF7925172D5C2600B4F230 /* spinner240.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = spinner240.png; path = img/spinner240.png; sourceTree = SOURCE_ROOT; };
-		ACBF7926172D5C2600B4F230 /* spinner270.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = spinner270.png; path = img/spinner270.png; sourceTree = SOURCE_ROOT; };
-		ACBF7927172D5C2600B4F230 /* spinner300.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = spinner300.png; path = img/spinner300.png; sourceTree = SOURCE_ROOT; };
-		ACBF7928172D5C2600B4F230 /* spinner330.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = spinner330.png; path = img/spinner330.png; sourceTree = SOURCE_ROOT; };
-		ACBF7930172D5C7F00B4F230 /* spinner360.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = spinner360.png; path = img/spinner360.png; sourceTree = SOURCE_ROOT; };
 		ACBFD643165BBEE600DD7991 /* AreaBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreaBase.h; sourceTree = "<group>"; };
 		ACBFD644165BBEE600DD7991 /* AreaBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaBase.m; sourceTree = "<group>"; };
 		ACBFD646165BC0B100DD7991 /* AreaFinanziaria.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreaFinanziaria.h; sourceTree = "<group>"; };
@@ -249,6 +229,12 @@
 		ACEBDC8116570CBF00CEFFE5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/HomeViewController_iPhone.xib; sourceTree = "<group>"; };
 		ACEBDC8416570CBF00CEFFE5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/HomeViewController_iPad.xib; sourceTree = "<group>"; };
 		ACEF10811726C4F500EF1684 /* placeholder.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = placeholder.jpg; path = img/placeholder.jpg; sourceTree = SOURCE_ROOT; };
+		ACFADEC0172D6C2800437E43 /* spinner0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = spinner0.png; path = img/spinner0.png; sourceTree = SOURCE_ROOT; };
+		ACFADEC1172D6C2800437E43 /* spinner1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = spinner1.png; path = img/spinner1.png; sourceTree = SOURCE_ROOT; };
+		ACFADEC2172D6C2800437E43 /* spinner2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = spinner2.png; path = img/spinner2.png; sourceTree = SOURCE_ROOT; };
+		ACFADEC3172D6C2800437E43 /* spinner3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = spinner3.png; path = img/spinner3.png; sourceTree = SOURCE_ROOT; };
+		ACFADEC4172D6C2800437E43 /* spinner4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = spinner4.png; path = img/spinner4.png; sourceTree = SOURCE_ROOT; };
+		ACFADEC5172D6C2800437E43 /* spinner5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = spinner5.png; path = img/spinner5.png; sourceTree = SOURCE_ROOT; };
 		D90EA9BA16611E0D00D29490 /* SideMenu.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SideMenu.plist; sourceTree = "<group>"; };
 		D90EA9BD1661217100D29490 /* WMTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMTableViewDataSource.h; sourceTree = "<group>"; };
 		D90EA9BE1661217100D29490 /* WMTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMTableViewDataSource.m; sourceTree = "<group>"; };
@@ -379,19 +365,12 @@
 		ACBF78EF172D4B9700B4F230 /* spinner images */ = {
 			isa = PBXGroup;
 			children = (
-				ACBF7918172D59FD00B4F230 /* spinner0.png */,
-				ACBF7919172D59FD00B4F230 /* spinner30.png */,
-				ACBF791A172D59FD00B4F230 /* spinner60.png */,
-				ACBF791B172D59FD00B4F230 /* spinner90.png */,
-				ACBF791C172D59FD00B4F230 /* spinner120.png */,
-				ACBF7922172D5C2600B4F230 /* spinner150.png */,
-				ACBF7923172D5C2600B4F230 /* spinner180.png */,
-				ACBF7924172D5C2600B4F230 /* spinner210.png */,
-				ACBF7925172D5C2600B4F230 /* spinner240.png */,
-				ACBF7926172D5C2600B4F230 /* spinner270.png */,
-				ACBF7927172D5C2600B4F230 /* spinner300.png */,
-				ACBF7928172D5C2600B4F230 /* spinner330.png */,
-				ACBF7930172D5C7F00B4F230 /* spinner360.png */,
+				ACFADEC0172D6C2800437E43 /* spinner0.png */,
+				ACFADEC1172D6C2800437E43 /* spinner1.png */,
+				ACFADEC2172D6C2800437E43 /* spinner2.png */,
+				ACFADEC3172D6C2800437E43 /* spinner3.png */,
+				ACFADEC4172D6C2800437E43 /* spinner4.png */,
+				ACFADEC5172D6C2800437E43 /* spinner5.png */,
 			);
 			name = "spinner images";
 			sourceTree = "<group>";
@@ -677,19 +656,12 @@
 				ACEF10821726C4F500EF1684 /* placeholder.jpg in Resources */,
 				ACB57B7D172A8431004176AF /* NewsPullableView.xib in Resources */,
 				ACB57B7F172AABDE004176AF /* ActionCell.xib in Resources */,
-				ACBF791D172D59FD00B4F230 /* spinner0.png in Resources */,
-				ACBF791E172D59FD00B4F230 /* spinner30.png in Resources */,
-				ACBF791F172D59FD00B4F230 /* spinner60.png in Resources */,
-				ACBF7920172D59FD00B4F230 /* spinner90.png in Resources */,
-				ACBF7921172D59FD00B4F230 /* spinner120.png in Resources */,
-				ACBF7929172D5C2600B4F230 /* spinner150.png in Resources */,
-				ACBF792A172D5C2600B4F230 /* spinner180.png in Resources */,
-				ACBF792B172D5C2600B4F230 /* spinner210.png in Resources */,
-				ACBF792C172D5C2600B4F230 /* spinner240.png in Resources */,
-				ACBF792D172D5C2600B4F230 /* spinner270.png in Resources */,
-				ACBF792E172D5C2600B4F230 /* spinner300.png in Resources */,
-				ACBF792F172D5C2600B4F230 /* spinner330.png in Resources */,
-				ACBF7931172D5C7F00B4F230 /* spinner360.png in Resources */,
+				ACFADEC6172D6C2800437E43 /* spinner0.png in Resources */,
+				ACFADEC7172D6C2800437E43 /* spinner1.png in Resources */,
+				ACFADEC8172D6C2800437E43 /* spinner2.png in Resources */,
+				ACFADEC9172D6C2800437E43 /* spinner3.png in Resources */,
+				ACFADECA172D6C2800437E43 /* spinner4.png in Resources */,
+				ACFADECB172D6C2800437E43 /* spinner5.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
