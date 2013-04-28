@@ -17,11 +17,13 @@
 #import "AreeEnum.h"
 #import "DocumentoAreaController.h"
 #import "FXLabel.h"
+#import "CustomSpinnerView.h"
 
 #define QUERY_TIME_LIMIT 10//3600
 
 @interface AreaBaseController () {
     NSDate *dateDoneQuery;
+    CustomSpinnerView *spinner;
 }
 @end
 
@@ -55,7 +57,9 @@
     self.navigationItem.backBarButtonItem = backButton;
     
     dateDoneQuery = [[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"queryDate%@",[self getAreaType]]];
-
+    //Position the activity image view somewhere in
+    //the middle of your current view
+    spinner = [[CustomSpinnerView alloc] initWithFrame:self.view.frame];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -294,6 +298,11 @@
 }
 
 -(void)showData{
+    
+    //rimuovo e fermo spinner
+    [spinner removeFromSuperview];
+    [spinner stopAnimating];
+    
     //creo oggetto area ed ottengo il model da esso
     _dataModel = [self.area getDataModel];
     self.tableView.dataSource = _dataModel;
@@ -320,6 +329,11 @@
 #pragma mark - WMHTTPAccessDelegate
 
 -(void) fetchData{
+    
+    //Lancio spinner
+    [spinner startAnimating];
+    //aggiungo spinner alla view
+    [self.tableView.backgroundView addSubview:spinner];
     
     //se è passato il limite di tempo per la query, fai la query
     NSLog(@"DATA QUERY = %@",dateDoneQuery);
