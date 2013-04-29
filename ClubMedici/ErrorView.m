@@ -10,7 +10,7 @@
 #import <QuartzCore/QuartzCore.h>
 
 @implementation ErrorView
-@synthesize label, tapRecognizer;
+@synthesize label, tapRecognizer, showed;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -22,28 +22,43 @@
 }
 
 -(id)init{
+    
+    //fondamentale settare il frame per far si che venga riconoscitua una gesture su questa view
+    //http://stackoverflow.com/q/5485216
+
     self = [super init];
+
     if(self){
         NSArray* nibViews = [[NSBundle mainBundle] loadNibNamed:@"ErrorView"
                                                           owner:self
                                                         options:nil];
-        [self addSubview:[nibViews objectAtIndex:0]];
         
-        
+        UIView *v = [nibViews objectAtIndex:0];
+        [self setFrame:CGRectMake(v.frame.origin.x, v.frame.origin.y, v.frame.size.width, v.frame.size.height)];
+        //self.clipsToBounds = YES;
         self.layer.masksToBounds = NO;
-        self.layer.shadowOffset = CGSizeMake(-2, 1);
-        self.layer.shadowRadius = 5;
-        self.layer.shadowOpacity = 0.8;
+        [self.layer setBorderColor:[UIColor blackColor].CGColor];
+        [self.layer setBorderWidth:0.6f];
+        [self.layer setShadowColor:[UIColor blackColor].CGColor];
+        [self.layer setShadowOpacity:0.8];
+        [self.layer setShadowRadius:3.0];
+        [self.layer setShadowOffset:CGSizeMake(2.0, 2.0)];
+        [self addSubview:v];
+        
+        self.tapRecognizer = [[UITapGestureRecognizer alloc] init];
+        [self addGestureRecognizer:self.tapRecognizer];
     }
+    
     return self;
 }
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
+
+-(void)setFrame:(CGRect)frame{
+    [super setFrame:frame];
+    if(self.subviews && self.subviews.count > 0){
+        //dato che self ha clipToBounds e maskToBounds = NO, devo dire alle subview di fare il resize
+        UIView *subView = [self.subviews objectAtIndex:0];
+        [subView setFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
+    }
 }
-*/
 
 @end
