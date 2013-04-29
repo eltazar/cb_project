@@ -12,9 +12,13 @@
 #import "AreaBaseController_iPhone.h"
 #import "AreaBase.h"
 #import "WMTableViewDataSource.h"
+#import "ErrorView.h"
+
+
 
 @interface AreaBaseController_iPhone () {
     AreaDescriptionCell *_areaDescriptionCell;
+    ErrorView *errorView;
 }
 @end
 
@@ -30,6 +34,7 @@
                                                         options:nil] objectAtIndex:0];
 //    //rimuove celle extra
 //    self.tableView.tableFooterView = [[UIView alloc] init];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -81,15 +86,13 @@
     NSString *dataKey = [_dataModel valueForKey:@"DATA_KEY" atIndexPath:indexPath];
         
     if([dataKey isEqualToString:@"cure"]){
-        //FormViewController *formController = [[FormViewController alloc] initWithNibName:@"FormViewController" bundle:nil];
-        //[self.navigationController pushViewController:formController animated:YES];
-        NSLog(@"CELLA CURE MEDICHE ---> devo lanciare calcolatore php");
+        //NSLog(@"CELLA CURE MEDICHE ---> devo lanciare calcolatore php");
         
     }
     else if([dataKey isEqualToString:@"noleggioAuto"] || [dataKey isEqualToString:@"noleggioElettro"] ||
             [dataKey isEqualToString:@"leasingElettro"]){
         
-        NSLog(@" CELLA NOLEGGIO = %@", dataKey);
+        //NSLog(@" CELLA NOLEGGIO = %@", dataKey);
         RichiestaNoleggioController *formController = [[RichiestaNoleggioController alloc] init:dataKey];
         formController.delegate = self;
 
@@ -161,6 +164,46 @@
 
 -(void) computeImageSize{
 
+}
+
+-(void)showErrorView{
+        
+    if(errorView == nil || !errorView.showed){
+        errorView = [[ErrorView alloc] init];
+        [errorView.tapRecognizer addTarget:self action:@selector(hideErrorView:)];
+        
+        CGRect oldFrame = [errorView frame];
+        [errorView setFrame:CGRectMake(0, 43, oldFrame.size.width, 0)];
+
+        [self.navigationController.view addSubview:errorView];
+        
+        [UIView animateWithDuration:0.5
+                         animations:^(void){
+                             [errorView setFrame:CGRectMake(0, 43, oldFrame.size.width, oldFrame.size.height)];
+                         }
+         ];
+        errorView.showed = YES;
+    }
+}
+
+-(void)hideErrorView:(UITapGestureRecognizer*)gesture{
+    
+    if(errorView || errorView.showed){
+        [UIView animateWithDuration:0.5
+                         animations:^(void){
+                             [errorView setFrame:CGRectMake(0, 43, errorView.frame.size.width,0)];
+                         }
+         ];
+        errorView.showed = NO;
+    }
+}
+
+#pragma mark - UIScrollViewDelegate
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    //per far rimanere l'errorView sempre nella stessa posizione mentre scrollo la tableView
+    //errorView.frame = CGRectMake(0, self.tableView.contentOffset.y , [errorView getFrame].size.width, [errorView getFrame].size.height);
 }
 
 @end
