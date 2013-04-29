@@ -49,8 +49,6 @@
     
     //Tableview gesture recognizer
     UITapGestureRecognizer *tapTable = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideTable:)];
-    UITapGestureRecognizer *tapMap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideTable:)];
-    tapMap.delegate = self;
     [self.tableView addGestureRecognizer:tapTable];
 }
 
@@ -70,6 +68,9 @@
 -(void)viewDidAppear:(BOOL)animated{
     
     self.mapView.frame = CGRectMake(0, 0, 320, 250);
+    UITapGestureRecognizer *tapMap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideTable:)];
+    tapMap.delegate = self;
+    [self.mapView addGestureRecognizer:tapMap];
     [self configureMap];
     mapView.alpha = 0.0;
     [UIView animateWithDuration:0.3
@@ -79,7 +80,7 @@
                         [self.view insertSubview:mapView belowSubview:tableView];
                     }
      ];
-    
+
     [super viewDidAppear:animated];
 }
 
@@ -189,8 +190,6 @@
         }
     }
     else{
-        
-        
         if(point.y >= tableView.frame.size.height-tableView.tableHeaderView.frame.size.height){
             //mostro tabella
             [self showTableView];
