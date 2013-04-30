@@ -56,6 +56,9 @@
     customTitle.shadowColor = [UIColor colorWithWhite:0.0 alpha:0.5];
     customTitle.textAlignment = UITextAlignmentCenter;
     customTitle.textColor = [UIColor whiteColor];
+    
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Indietro" style:UIBarButtonItemStyleBordered target:nil action:nil];
+    self.navigationItem.backBarButtonItem = backButton;
 }
 
 - (void)didReceiveMemoryWarning {
