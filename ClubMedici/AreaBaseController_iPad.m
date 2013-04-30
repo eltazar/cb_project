@@ -155,7 +155,7 @@
                          [[UIView alloc] initWithFrame:
                           CGRectMake(0, 0,
                                      imageView.frame.size.width,
-                                     0.9 * imageView.frame.size.height
+                                     0.7 * imageView.frame.size.height
                                      )
                           ];
                      }
@@ -163,6 +163,7 @@
 }
 
 -(void) computeImageSize{
+    
     CGFloat scaleFactor = 0.0;
     CGFloat width = 0.0;
     CGFloat height = 0.0;
