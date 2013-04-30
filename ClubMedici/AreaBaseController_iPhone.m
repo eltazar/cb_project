@@ -41,7 +41,12 @@
     [super didReceiveMemoryWarning];
 }
 
-
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    if(errorView && errorView.showed){
+        [errorView removeFromSuperview];
+    }
+}
 # pragma mark - iOS 5 specific
 
 //
