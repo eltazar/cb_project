@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "JASidePanelController.h"
 #import "UIViewController+InterfaceIdiom.h"
+#import "Utilities.h"
 
 @interface HomeViewController : JASidePanelController
-
+- (void) showErrorView:(NSString*)message;
+- (void)hideErrorView:(UITapGestureRecognizer*)gesture;
 @end
