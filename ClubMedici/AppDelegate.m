@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "Reachability.h"
+
 
 #import "SideMenuController.h"
 #import "HomeViewController.h"
@@ -17,6 +19,7 @@
 @synthesize jasSidePanelController, splitViewController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
    
     self.sideMenuNavController = [[UINavigationController alloc] initWithRootViewController:[SideMenuController idiomAllocInit]];
@@ -37,6 +40,15 @@
         self.window.rootViewController = splitViewController;
     }
     
+    //oggetto reachability per controllare stato di rete
+     Reachability* reachability = [Reachability reachabilityForInternetConnection];
+    
+//    [[NSNotificationCenter defaultCenter] addObserver:[[UIApplication sharedApplication] delegate]
+//                                             selector:@selector(reachabilityChanged:)
+//                                                 name:kReachabilityChangedNotification
+//                                               object:nil];
+    [reachability startNotifier];
+        
     [self.window makeKeyAndVisible];
     return YES;
 }
@@ -71,6 +83,16 @@
     panGesture.maximumNumberOfTouches = 1;
     panGesture.minimumNumberOfTouches = 1;
     [navCon.view addGestureRecognizer:panGesture];
+}
+
+- (void) reachabilityChanged:(NSNotification*) notification
+{
+	Reachability* reachability = notification.object;
+    NSLog(@"*** AppDelegate: networkStatusChanged ***");
+	if(reachability.currentReachabilityStatus == NotReachable)
+		NSLog(@"Internet off");
+	else
+		NSLog(@"Internet on");
 }
 
 
