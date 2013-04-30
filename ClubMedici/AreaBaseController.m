@@ -199,7 +199,7 @@
     
     if([dataKey isEqualToString:@"documentoArea"]){
         //NSLog(@"DOCUMENTO AREA CLICCATO = %@",[_dataModel valueForKey:@"ID_PAG" atIndexPath:indexPath]);
-        DocumentoAreaController *descController = [[DocumentoAreaController alloc] init];
+        DocumentoAreaController *descController = [DocumentoAreaController idiomAllocInit];
         descController.idPag = [_dataModel valueForKey:@"ID_PAG" atIndexPath:indexPath];
         descController.title = [_dataModel valueForKey:@"LABEL" atIndexPath:indexPath];
         [self.navigationController pushViewController:descController animated:YES];
