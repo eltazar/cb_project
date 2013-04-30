@@ -18,6 +18,7 @@
 #import "DocumentoAreaController.h"
 #import "FXLabel.h"
 #import "CustomSpinnerView.h"
+#import "Reachability.h"
 
 #define QUERY_TIME_LIMIT 10//3600
 
@@ -42,6 +43,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
   
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(networkStatusChanged:) name:kReachabilityChangedNotification object:nil];
+    
     //self.title = [self.area titolo];
                                         
     //rimuove celle extra
@@ -330,25 +333,30 @@
 
 -(void) fetchData{
     
-    //Lancio spinner
-    [spinner startAnimating];
-    //aggiungo spinner alla view
-    [self.tableView.backgroundView addSubview:spinner];
-    
-    //se è passato il limite di tempo per la query, fai la query
-    NSLog(@"DATA QUERY = %@",dateDoneQuery);
-    if([dateDoneQuery timeIntervalSinceDate:[NSDate date]]== 0.0 ||
-       (-[dateDoneQuery timeIntervalSinceDate:[NSDate date]]) >= QUERY_TIME_LIMIT){
+    if([Utilities networkReachable]){
+        //Lancio spinner
+        [spinner startAnimating];
+        //aggiungo spinner alla view
+        [self.tableView.backgroundView addSubview:spinner];
         
-        NSLog(@"\n///**** \n FACCIO LA QUERY \n ///*****");
-        //è tempo di fare la query
-        [PDHTTPAccess getAreaContents:areaId delegate:self];
+        //se è passato il limite di tempo per la query, fai la query
+        NSLog(@"DATA QUERY = %@",dateDoneQuery);
+        if([dateDoneQuery timeIntervalSinceDate:[NSDate date]]== 0.0 ||
+           (-[dateDoneQuery timeIntervalSinceDate:[NSDate date]]) >= QUERY_TIME_LIMIT){
+            
+            NSLog(@"\n///**** \n FACCIO LA QUERY \n ///*****");
+            //è tempo di fare la query
+            [PDHTTPAccess getAreaContents:areaId delegate:self];
+        }
+        else{
+             NSLog(@"\n///**** \n RECUPERO JSON SALVATO \n ///*****");
+            //se precedemente scaricate mostra le previsioni salvate
+            self.area = [Utilities loadCustomObjectWithKey:[self getAreaType]];
+            [self showData];
+        }
     }
     else{
-         NSLog(@"\n///**** \n RECUPERO JSON SALVATO \n ///*****");
-        //se precedemente scaricate mostra le previsioni salvate
-        self.area = [Utilities loadCustomObjectWithKey:[self getAreaType]];
-        [self showData];
+        [self showErrorView:@"Connessione assente"];
     }
 }
 
@@ -371,7 +379,28 @@
 
 -(void)didReceiveError:(NSError *)error{
     NSLog(@"ERRORE = %@",[error description]);
+    [self showErrorView:@"Errore server"];
 }
 
+- (void) networkStatusChanged:(NSNotification*) notification
+{
+	Reachability* reachability = notification.object;
+    NSLog(@"*** AreaBaseController: network status changed ***");
+	if(reachability.currentReachabilityStatus == NotReachable){
+		NSLog(@"Internet off");
+        [self showErrorView:@"Connessione assente"];
+    }
+	else{
+		NSLog(@"Internet on");
+        [self hideErrorView:nil];
+    }
+}
+
+#pragma mark - ErrorView methods
+-(void)hideErrorView:(UITapGestureRecognizer*)gesture{
+}
+
+-(void)showErrorView:(NSString*)message{
+}
 
 @end

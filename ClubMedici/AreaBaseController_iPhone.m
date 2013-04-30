@@ -14,7 +14,7 @@
 #import "WMTableViewDataSource.h"
 #import "ErrorView.h"
 
-
+#import "Reachability.h"
 
 @interface AreaBaseController_iPhone () {
     AreaDescriptionCell *_areaDescriptionCell;
@@ -166,10 +166,11 @@
 
 }
 
--(void)showErrorView{
+-(void)showErrorView:(NSString*)message{
         
     if(errorView == nil || !errorView.showed){
         errorView = [[ErrorView alloc] init];
+        errorView.label.text = message;
         [errorView.tapRecognizer addTarget:self action:@selector(hideErrorView:)];
         
         CGRect oldFrame = [errorView frame];
@@ -192,6 +193,10 @@
         [UIView animateWithDuration:0.5
                          animations:^(void){
                              [errorView setFrame:CGRectMake(0, 43, errorView.frame.size.width,0)];
+                         }
+                         completion:^(BOOL finished){
+                             //riprovo query quando faccio tap su riprova
+                             [super fetchData];
                          }
          ];
         errorView.showed = NO;
