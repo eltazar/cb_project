@@ -9,11 +9,13 @@
 #import <QuartzCore/QuartzCore.h>
 
 #import "DocumentoAreaController_iPhone.h"
+#import "ErrorView.h"
 
 @interface DocumentoAreaController_iPhone ()
 {
     IBOutlet UIView *contactPanel;
     IBOutlet UILabel *label;
+    ErrorView *errorView;
 }
 @end
 
@@ -79,6 +81,48 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    if(errorView && errorView.showed){
+        [errorView removeFromSuperview];
+    }
+}
 
+-(void)showErrorView:(NSString*)message{
+    
+    if(errorView == nil || !errorView.showed){
+        errorView = [[ErrorView alloc] init];
+        errorView.label.text = message;
+        [errorView.tapRecognizer addTarget:self action:@selector(hideErrorView:)];
+        
+        CGRect oldFrame = [errorView frame];
+        [errorView setFrame:CGRectMake(0, 43, oldFrame.size.width, 0)];
+        
+        [self.navigationController.view addSubview:errorView];
+        
+        [UIView animateWithDuration:0.5
+                         animations:^(void){
+                             [errorView setFrame:CGRectMake(0, 43, oldFrame.size.width, oldFrame.size.height)];
+                         }
+         ];
+        errorView.showed = YES;
+    }
+}
+
+-(void)hideErrorView:(UITapGestureRecognizer*)gesture{
+    
+    if(errorView || errorView.showed){
+        [UIView animateWithDuration:0.5
+                         animations:^(void){
+                             [errorView setFrame:CGRectMake(0, 43, errorView.frame.size.width,0)];
+                         }
+                         completion:^(BOOL finished){
+                             //riprovo query quando faccio tap su riprova
+                             [super fetchData];
+                         }
+         ];
+        errorView.showed = NO;
+    }
+}
 
 @end

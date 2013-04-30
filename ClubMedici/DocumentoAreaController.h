@@ -21,4 +21,7 @@
 @property(nonatomic, strong) IBOutlet UIWebView *webView;
 -(IBAction) writeEmail;
 -(IBAction)callNumber;
+-(void)showErrorView:(NSString*)message;
+-(void)hideErrorView:(UITapGestureRecognizer*)gesture;
+-(void)fetchData;
 @end

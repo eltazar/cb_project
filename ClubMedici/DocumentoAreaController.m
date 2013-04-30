@@ -34,8 +34,7 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [PDHTTPAccess getDocumentContents:[idPag intValue] delegate:self];
-    
+    [self fetchData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -47,7 +46,7 @@
 #pragma mark - WMHTTPAccessDelegate
 
 -(void)didReceiveJSON:(NSArray *)jsonArray{
-    NSLog(@"JSON DESC : %@",jsonArray);
+    //NSLog(@"JSON DESC : %@",jsonArray);
     NSString *htmlString = [[jsonArray objectAtIndex:0] objectForKey:@"testo"];
     mail = [[jsonArray objectAtIndex:0] objectForKey:@"email"];
     phone = [[jsonArray objectAtIndex:0] objectForKey:@"telefono"];
@@ -57,7 +56,17 @@
 
 -(void)didReceiveError:(NSError *)error{
     NSLog(@"Error json = %@",error.description);
+    [self showErrorView:@"Errore server"];
 }
+-(void)fetchData{
+    if([Utilities networkReachable]){
+        [PDHTTPAccess getDocumentContents:[idPag intValue] delegate:self];
+    }
+    else{
+        [self showErrorView:@"Connessione assente"];
+    }
+}
+
 
 #pragma mark - UIButton methods
 
