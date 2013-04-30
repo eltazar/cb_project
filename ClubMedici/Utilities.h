@@ -7,9 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <MessageUI/MessageUI.h>
+
 @class AreaBase;
 
-@interface Utilities : NSObject
+@interface Utilities : NSObject <MFMailComposeViewControllerDelegate>
 
 +(BOOL)networkReachable;
 +(BOOL) checkEmail:(NSString*)email;
@@ -17,4 +19,6 @@
 +(BOOL) isNumeric:(NSString*)inputString;
 + (void)saveCustomObject:(AreaBase *)obj key:(NSString*)key;
 + (AreaBase *)loadCustomObjectWithKey:(NSString *)key;
++ (void)sendEmail:(NSString*)address controller:(UIViewController*)controller;
++ (void)callNumber:(NSString*)number;
 @end

@@ -119,5 +119,31 @@
     AreaBase *obj = (AreaBase *)[NSKeyedUnarchiver unarchiveObjectWithData: myEncodedObject];
     return obj;
 }
+
++ (void)callNumber:(NSString*)number {
+    //fa partire una chiamata
+    UIDevice *device = [UIDevice currentDevice];
+    if ([[device model] isEqualToString:@"iPhone"]) {
+        NSString *phoneNumber = [NSString stringWithFormat:@"%@%@", @"tel://", number];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumber
+                                                    ]];
+    }
+    else {
+        UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"Spiacenti" message:@"Questa funzione non è disponibile su questo dispositivo" delegate:nil cancelButtonTitle:@"Chiudi" otherButtonTitles:nil];
+        [alert show];
+    }
+}
+
++ (void)sendEmail:(NSString*)address controller:(UIViewController*)controller {
+    MFMailComposeViewController *mail = [[MFMailComposeViewController alloc] init];
+    mail.mailComposeDelegate = controller;
     
+    if([MFMailComposeViewController canSendMail]){
+        [mail setToRecipients:[NSArray arrayWithObjects:address, nil]];
+        [mail setSubject:@"Informazioni"];
+        [mail setMessageBody:@"" isHTML:NO];
+        [controller presentModalViewController:mail animated:YES];
+    }
+}
+
 @end
