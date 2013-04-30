@@ -31,10 +31,10 @@
     self.title = @"Informativa";
     // Do any additional setup after loading the view from its nib.+
     
-            CALayer *imageLayer = disclamierTextView.layer;
-            [imageLayer setCornerRadius:6];
-            [imageLayer setBorderWidth:1];
-            imageLayer.borderColor = [[UIColor lightGrayColor] CGColor];
+//            CALayer *imageLayer = disclamierTextView.layer;
+//            [imageLayer setCornerRadius:6];
+//            [imageLayer setBorderWidth:1];
+//            imageLayer.borderColor = [[UIColor lightGrayColor] CGColor];
 }
 
 - (void)didReceiveMemoryWarning

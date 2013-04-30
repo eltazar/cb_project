@@ -56,8 +56,8 @@
     [self setupBackgroundView];
     
     //il controller figlio di questo controller avrà il titolo del back Button personalizzato
-    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Indietro" style:UIBarButtonItemStyleBordered target:nil action:nil];
-    self.navigationItem.backBarButtonItem = backButton;
+//    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Indietro" style:UIBarButtonItemStyleBordered target:nil action:nil];
+//    self.navigationItem.backBarButtonItem = backButton;
     
     dateDoneQuery = [[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"queryDate%@",[self getAreaType]]];
     //Position the activity image view somewhere in

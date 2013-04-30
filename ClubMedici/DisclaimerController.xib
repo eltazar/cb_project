@@ -38,7 +38,7 @@
 					<object class="IBUITextView" id="273861199">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">274</int>
-						<string key="NSFrame">{{20, 20}, {280, 420}}</string>
+						<string key="NSFrameSize">{320, 460}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView"/>
@@ -188,6 +188,7 @@ b25pIGNoZSBpbCBDbHViIE1lZGljaSBvZmZyZSBhaSBwcm9wcmkgc29jaSBlZCBpbm9sdHJlIGF1dG9y
 aXp6byBzcGVjaWZpY2FtZW50ZSBpbCBDbHViIE1lZGljaSBhZCBpbnZpYXJtaSBwZXJpb2RpY2FtZW50
 ZSBsZSBwcm9wcmllIG5ld3NsZXR0ZXIgcHJvbW96aW9uYWxpLiAKCg</bytes>
 						</object>
+						<int key="IBUITextAlignment">1</int>
 						<object class="IBUITextInputTraits" key="IBUITextInputTraits">
 							<int key="IBUIAutocapitalizationType">2</int>
 							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -248,14 +249,6 @@ ZSBsZSBwcm9wcmllIG5ld3NsZXR0ZXIgcHJvbW96aW9uYWxpLiAKCg</bytes>
 						<nil key="parent"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">1</int>
-						<reference key="object" ref="191373211"/>
-						<array class="NSMutableArray" key="children">
-							<reference ref="273861199"/>
-						</array>
-						<reference key="parent" ref="0"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">-1</int>
 						<reference key="object" ref="372490531"/>
 						<reference key="parent" ref="0"/>
@@ -267,9 +260,16 @@ ZSBsZSBwcm9wcmllIG5ld3NsZXR0ZXIgcHJvbW96aW9uYWxpLiAKCg</bytes>
 						<reference key="parent" ref="0"/>
 					</object>
 					<object class="IBObjectRecord">
+						<int key="objectID">1</int>
+						<reference key="object" ref="191373211"/>
+						<array class="NSMutableArray" key="children">
+							<reference ref="273861199"/>
+						</array>
+						<reference key="parent" ref="0"/>
+					</object>
+					<object class="IBObjectRecord">
 						<int key="objectID">8</int>
 						<reference key="object" ref="273861199"/>
-						<array class="NSMutableArray" key="children"/>
 						<reference key="parent" ref="191373211"/>
 					</object>
 				</array>
@@ -286,7 +286,7 @@ ZSBsZSBwcm9wcmllIG5ld3NsZXR0ZXIgcHJvbW96aW9uYWxpLiAKCg</bytes>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">13</int>
+			<int key="maxID">16</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
