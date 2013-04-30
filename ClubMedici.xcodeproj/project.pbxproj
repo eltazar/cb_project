@@ -25,6 +25,8 @@
 		AC2629B5165D334200510092 /* phone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC2629B3165D334200510092 /* phone@2x.png */; };
 		AC31D7AA165ECF5A00CCC001 /* TextFieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC31D7A9165ECF5A00CCC001 /* TextFieldCell.xib */; };
 		AC31D7B6165EF1A100CCC001 /* FormViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC31D7B5165EF1A100CCC001 /* FormViewController.xib */; };
+		AC72AC7F172FEF39006FB6A5 /* contactButtonEnabled.png in Resources */ = {isa = PBXBuildFile; fileRef = AC72AC7E172FEF39006FB6A5 /* contactButtonEnabled.png */; };
+		AC72AC81172FF24D006FB6A5 /* contactButtonSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = AC72AC80172FF24D006FB6A5 /* contactButtonSelected.png */; };
 		AC8E1777172D800300376720 /* ErrorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC8E1776172D800300376720 /* ErrorView.xib */; };
 		AC9168E416B9EC1900AF402E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC9168E316B9EC1900AF402E /* CoreLocation.framework */; };
 		AC93CE93165DA6F400ABA3C2 /* PDFviewerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC93CE92165DA6F400ABA3C2 /* PDFviewerController.xib */; };
@@ -40,6 +42,7 @@
 		ACBA1D511725C413004EB8E4 /* DisclaimerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACBA1D501725C413004EB8E4 /* DisclaimerCell.xib */; };
 		ACBA1D561725C442004EB8E4 /* PDHTTPAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBA1D531725C442004EB8E4 /* PDHTTPAccess.m */; };
 		ACBA1D571725C442004EB8E4 /* WMHTTPAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBA1D551725C442004EB8E4 /* WMHTTPAccess.m */; };
+		ACBB077D173017C900A7BAE5 /* contactButtonDisabled.png in Resources */ = {isa = PBXBuildFile; fileRef = ACBB077C173017C900A7BAE5 /* contactButtonDisabled.png */; };
 		ACBE63AD165A865000F64CDA /* SideMenuController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBE63AC165A865000F64CDA /* SideMenuController_iPhone.m */; };
 		ACBE63B4165A874900F64CDA /* SideMenuController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBE63B3165A874900F64CDA /* SideMenuController_iPad.m */; };
 		ACBE63B8165A87A800F64CDA /* HomeViewController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBE63B7165A87A800F64CDA /* HomeViewController_iPhone.m */; };
@@ -59,8 +62,6 @@
 		ACD24BA3165FB59500C97CD2 /* AreaDescriptionCell_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACD24BA2165FB59400C97CD2 /* AreaDescriptionCell_iPad.xib */; };
 		ACD4C7731657158D0025F3F5 /* JASidePanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD4C7721657158D0025F3F5 /* JASidePanelController.m */; };
 		ACD4C77C16571A5D0025F3F5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACD4C77B16571A5D0025F3F5 /* QuartzCore.framework */; };
-		ACD9D9A317269F4C00F50773 /* DocumentoAreaController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD9D9A117269F4C00F50773 /* DocumentoAreaController.m */; };
-		ACD9D9A417269F4C00F50773 /* DocumentoAreaController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACD9D9A217269F4C00F50773 /* DocumentoAreaController.xib */; };
 		ACDCC02B172EC08E00E64879 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDCC02A172EC08E00E64879 /* Reachability.m */; };
 		ACDCC6E016B34A7900745FFB /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDCC6DF16B34A7900745FFB /* AsyncImageView.m */; };
 		ACDCC6E416B34B0900745FFB /* CachedAsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDCC6E316B34B0900745FFB /* CachedAsyncImageView.m */; };
@@ -90,6 +91,11 @@
 		ACEBDC8216570CBF00CEFFE5 /* HomeViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACEBDC8016570CBF00CEFFE5 /* HomeViewController_iPhone.xib */; };
 		ACEBDC8516570CBF00CEFFE5 /* HomeViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACEBDC8316570CBF00CEFFE5 /* HomeViewController_iPad.xib */; };
 		ACEF10821726C4F500EF1684 /* placeholder.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ACEF10811726C4F500EF1684 /* placeholder.jpg */; };
+		ACF16D9A17302273000683A9 /* DocumentoAreaController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF16D9817302273000683A9 /* DocumentoAreaController_iPad.m */; };
+		ACF16D9B17302273000683A9 /* DocumentoAreaController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACF16D9917302273000683A9 /* DocumentoAreaController_iPad.xib */; };
+		ACF16D9E173022D8000683A9 /* DocumentoAreaController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF16D9D173022D8000683A9 /* DocumentoAreaController.m */; };
+		ACF16DA717302568000683A9 /* DocumentoAreaController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF16DA517302568000683A9 /* DocumentoAreaController_iPhone.m */; };
+		ACF16DA817302568000683A9 /* DocumentoAreaController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACF16DA617302568000683A9 /* DocumentoAreaController_iPhone.xib */; };
 		ACFADEC6172D6C2800437E43 /* spinner0.png in Resources */ = {isa = PBXBuildFile; fileRef = ACFADEC0172D6C2800437E43 /* spinner0.png */; };
 		ACFADEC7172D6C2800437E43 /* spinner1.png in Resources */ = {isa = PBXBuildFile; fileRef = ACFADEC1172D6C2800437E43 /* spinner1.png */; };
 		ACFADEC8172D6C2800437E43 /* spinner2.png in Resources */ = {isa = PBXBuildFile; fileRef = ACFADEC2172D6C2800437E43 /* spinner2.png */; };
@@ -135,6 +141,8 @@
 		AC2629B3165D334200510092 /* phone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "phone@2x.png"; path = "img/phone@2x.png"; sourceTree = SOURCE_ROOT; };
 		AC31D7A9165ECF5A00CCC001 /* TextFieldCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TextFieldCell.xib; path = ClubMedici/TextFieldCell.xib; sourceTree = "<group>"; };
 		AC31D7B5165EF1A100CCC001 /* FormViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FormViewController.xib; path = ClubMedici/FormViewController.xib; sourceTree = "<group>"; };
+		AC72AC7E172FEF39006FB6A5 /* contactButtonEnabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = contactButtonEnabled.png; path = img/contactButtonEnabled.png; sourceTree = SOURCE_ROOT; };
+		AC72AC80172FF24D006FB6A5 /* contactButtonSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = contactButtonSelected.png; path = img/contactButtonSelected.png; sourceTree = SOURCE_ROOT; };
 		AC8E1776172D800300376720 /* ErrorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ErrorView.xib; path = ClubMedici/ErrorView.xib; sourceTree = "<group>"; };
 		AC9168E316B9EC1900AF402E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		AC93CE92165DA6F400ABA3C2 /* PDFviewerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PDFviewerController.xib; path = ClubMedici/PDFviewerController.xib; sourceTree = "<group>"; };
@@ -155,6 +163,7 @@
 		ACBA1D531725C442004EB8E4 /* PDHTTPAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDHTTPAccess.m; sourceTree = "<group>"; };
 		ACBA1D541725C442004EB8E4 /* WMHTTPAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMHTTPAccess.h; sourceTree = "<group>"; };
 		ACBA1D551725C442004EB8E4 /* WMHTTPAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMHTTPAccess.m; sourceTree = "<group>"; };
+		ACBB077C173017C900A7BAE5 /* contactButtonDisabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = contactButtonDisabled.png; path = img/contactButtonDisabled.png; sourceTree = SOURCE_ROOT; };
 		ACBE63AB165A865000F64CDA /* SideMenuController_iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideMenuController_iPhone.h; sourceTree = "<group>"; };
 		ACBE63AC165A865000F64CDA /* SideMenuController_iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideMenuController_iPhone.m; sourceTree = "<group>"; };
 		ACBE63B2165A874900F64CDA /* SideMenuController_iPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideMenuController_iPad.h; sourceTree = "<group>"; };
@@ -188,9 +197,6 @@
 		ACD4C7711657158D0025F3F5 /* JASidePanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JASidePanelController.h; sourceTree = "<group>"; };
 		ACD4C7721657158D0025F3F5 /* JASidePanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JASidePanelController.m; sourceTree = "<group>"; };
 		ACD4C77B16571A5D0025F3F5 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		ACD9D9A017269F4C00F50773 /* DocumentoAreaController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocumentoAreaController.h; sourceTree = "<group>"; };
-		ACD9D9A117269F4C00F50773 /* DocumentoAreaController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DocumentoAreaController.m; sourceTree = "<group>"; };
-		ACD9D9A217269F4C00F50773 /* DocumentoAreaController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DocumentoAreaController.xib; sourceTree = "<group>"; };
 		ACDCC029172EC08E00E64879 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		ACDCC02A172EC08E00E64879 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		ACDCC6DE16B34A7900745FFB /* AsyncImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncImageView.h; sourceTree = "<group>"; };
@@ -234,6 +240,14 @@
 		ACEBDC8116570CBF00CEFFE5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/HomeViewController_iPhone.xib; sourceTree = "<group>"; };
 		ACEBDC8416570CBF00CEFFE5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/HomeViewController_iPad.xib; sourceTree = "<group>"; };
 		ACEF10811726C4F500EF1684 /* placeholder.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = placeholder.jpg; path = img/placeholder.jpg; sourceTree = SOURCE_ROOT; };
+		ACF16D9717302273000683A9 /* DocumentoAreaController_iPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DocumentoAreaController_iPad.h; path = ClubMedici/DocumentoAreaController_iPad.h; sourceTree = "<group>"; };
+		ACF16D9817302273000683A9 /* DocumentoAreaController_iPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DocumentoAreaController_iPad.m; path = ClubMedici/DocumentoAreaController_iPad.m; sourceTree = "<group>"; };
+		ACF16D9917302273000683A9 /* DocumentoAreaController_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DocumentoAreaController_iPad.xib; path = ClubMedici/DocumentoAreaController_iPad.xib; sourceTree = "<group>"; };
+		ACF16D9C173022D8000683A9 /* DocumentoAreaController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DocumentoAreaController.h; path = ClubMedici/DocumentoAreaController.h; sourceTree = "<group>"; };
+		ACF16D9D173022D8000683A9 /* DocumentoAreaController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DocumentoAreaController.m; path = ClubMedici/DocumentoAreaController.m; sourceTree = "<group>"; };
+		ACF16DA417302568000683A9 /* DocumentoAreaController_iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DocumentoAreaController_iPhone.h; path = ClubMedici/DocumentoAreaController_iPhone.h; sourceTree = "<group>"; };
+		ACF16DA517302568000683A9 /* DocumentoAreaController_iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DocumentoAreaController_iPhone.m; path = ClubMedici/DocumentoAreaController_iPhone.m; sourceTree = "<group>"; };
+		ACF16DA617302568000683A9 /* DocumentoAreaController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DocumentoAreaController_iPhone.xib; path = ClubMedici/DocumentoAreaController_iPhone.xib; sourceTree = "<group>"; };
 		ACFADEC0172D6C2800437E43 /* spinner0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = spinner0.png; path = img/spinner0.png; sourceTree = SOURCE_ROOT; };
 		ACFADEC1172D6C2800437E43 /* spinner1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = spinner1.png; path = img/spinner1.png; sourceTree = SOURCE_ROOT; };
 		ACFADEC2172D6C2800437E43 /* spinner2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = spinner2.png; path = img/spinner2.png; sourceTree = SOURCE_ROOT; };
@@ -414,9 +428,14 @@
 				AC26298A165D1E2400510092 /* PDFviewerController.h */,
 				AC26298B165D1E2400510092 /* PDFviewerController.m */,
 				AC93CE92165DA6F400ABA3C2 /* PDFviewerController.xib */,
-				ACD9D9A017269F4C00F50773 /* DocumentoAreaController.h */,
-				ACD9D9A117269F4C00F50773 /* DocumentoAreaController.m */,
-				ACD9D9A217269F4C00F50773 /* DocumentoAreaController.xib */,
+				ACF16D9C173022D8000683A9 /* DocumentoAreaController.h */,
+				ACF16D9D173022D8000683A9 /* DocumentoAreaController.m */,
+				ACF16DA417302568000683A9 /* DocumentoAreaController_iPhone.h */,
+				ACF16DA517302568000683A9 /* DocumentoAreaController_iPhone.m */,
+				ACF16DA617302568000683A9 /* DocumentoAreaController_iPhone.xib */,
+				ACF16D9717302273000683A9 /* DocumentoAreaController_iPad.h */,
+				ACF16D9817302273000683A9 /* DocumentoAreaController_iPad.m */,
+				ACF16D9917302273000683A9 /* DocumentoAreaController_iPad.xib */,
 			);
 			name = "Area controllers";
 			sourceTree = "<group>";
@@ -426,6 +445,9 @@
 			children = (
 				ACBF78EF172D4B9700B4F230 /* spinner images */,
 				ACE9FF5716B88D91002C8CE5 /* header_contatti.png */,
+				AC72AC7E172FEF39006FB6A5 /* contactButtonEnabled.png */,
+				AC72AC80172FF24D006FB6A5 /* contactButtonSelected.png */,
+				ACBB077C173017C900A7BAE5 /* contactButtonDisabled.png */,
 				ACB87143172F3A3800D25669 /* reload.png */,
 				ACEF10811726C4F500EF1684 /* placeholder.jpg */,
 				ACB7DA6E16A4AFC500B05178 /* mail.png */,
@@ -671,7 +693,6 @@
 				AC25200B16BF0E7F0080A4BE /* ContattiViewController_iPad.xib in Resources */,
 				ACB8FADB172564BA00AFB645 /* DisclaimerController.xib in Resources */,
 				ACBA1D511725C413004EB8E4 /* DisclaimerCell.xib in Resources */,
-				ACD9D9A417269F4C00F50773 /* DocumentoAreaController.xib in Resources */,
 				ACEF10821726C4F500EF1684 /* placeholder.jpg in Resources */,
 				ACB57B7D172A8431004176AF /* NewsPullableView.xib in Resources */,
 				ACB57B7F172AABDE004176AF /* ActionCell.xib in Resources */,
@@ -683,6 +704,11 @@
 				ACFADECB172D6C2800437E43 /* spinner5.png in Resources */,
 				AC8E1777172D800300376720 /* ErrorView.xib in Resources */,
 				ACB87144172F3A3900D25669 /* reload.png in Resources */,
+				AC72AC7F172FEF39006FB6A5 /* contactButtonEnabled.png in Resources */,
+				AC72AC81172FF24D006FB6A5 /* contactButtonSelected.png in Resources */,
+				ACBB077D173017C900A7BAE5 /* contactButtonDisabled.png in Resources */,
+				ACF16D9B17302273000683A9 /* DocumentoAreaController_iPad.xib in Resources */,
+				ACF16DA817302568000683A9 /* DocumentoAreaController_iPhone.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -731,13 +757,15 @@
 				ACB8FADA172564BA00AFB645 /* DisclaimerController.m in Sources */,
 				ACBA1D561725C442004EB8E4 /* PDHTTPAccess.m in Sources */,
 				ACBA1D571725C442004EB8E4 /* WMHTTPAccess.m in Sources */,
-				ACD9D9A317269F4C00F50773 /* DocumentoAreaController.m in Sources */,
 				ACB6392B1727236C00C26223 /* FXLabel.m in Sources */,
 				ACCA16F4172A804000B03095 /* PullableView.m in Sources */,
 				ACB57B7B172A8287004176AF /* NewsPullableView.m in Sources */,
 				ACBF78BC172D3D9200B4F230 /* CustomSpinnerView.m in Sources */,
 				ACFADECF172D75A500437E43 /* ErrorView.m in Sources */,
 				ACDCC02B172EC08E00E64879 /* Reachability.m in Sources */,
+				ACF16D9A17302273000683A9 /* DocumentoAreaController_iPad.m in Sources */,
+				ACF16D9E173022D8000683A9 /* DocumentoAreaController.m in Sources */,
+				ACF16DA717302568000683A9 /* DocumentoAreaController_iPhone.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
