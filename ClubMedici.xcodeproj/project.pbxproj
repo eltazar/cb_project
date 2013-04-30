@@ -34,6 +34,7 @@
 		ACB6392B1727236C00C26223 /* FXLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB6392A1727236C00C26223 /* FXLabel.m */; };
 		ACB7DA7016A4AFC500B05178 /* mail.png in Resources */ = {isa = PBXBuildFile; fileRef = ACB7DA6E16A4AFC500B05178 /* mail.png */; };
 		ACB7DA7116A4AFC500B05178 /* mail@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ACB7DA6F16A4AFC500B05178 /* mail@2x.png */; };
+		ACB87144172F3A3900D25669 /* reload.png in Resources */ = {isa = PBXBuildFile; fileRef = ACB87143172F3A3800D25669 /* reload.png */; };
 		ACB8FADA172564BA00AFB645 /* DisclaimerController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB8FAD8172564BA00AFB645 /* DisclaimerController.m */; };
 		ACB8FADB172564BA00AFB645 /* DisclaimerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACB8FAD9172564BA00AFB645 /* DisclaimerController.xib */; };
 		ACBA1D511725C413004EB8E4 /* DisclaimerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACBA1D501725C413004EB8E4 /* DisclaimerCell.xib */; };
@@ -46,7 +47,6 @@
 		ACBF78BC172D3D9200B4F230 /* CustomSpinnerView.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBF78BB172D3D9200B4F230 /* CustomSpinnerView.m */; };
 		ACBFD645165BBEE600DD7991 /* AreaBase.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBFD644165BBEE600DD7991 /* AreaBase.m */; };
 		ACBFD648165BC0B100DD7991 /* AreaFinanziaria.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBFD647165BC0B100DD7991 /* AreaFinanziaria.m */; };
-		ACCA16EF172A7E6100B03095 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = ACCA16EE172A7E6100B03095 /* Reachability.m */; };
 		ACCA16F1172A7E9300B03095 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACCA16F0172A7E9300B03095 /* SystemConfiguration.framework */; };
 		ACCA16F4172A804000B03095 /* PullableView.m in Sources */ = {isa = PBXBuildFile; fileRef = ACCA16F3172A804000B03095 /* PullableView.m */; };
 		ACCC531916C1AB7000994AA0 /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = ACCC531816C1AB7000994AA0 /* Utilities.m */; };
@@ -61,6 +61,7 @@
 		ACD4C77C16571A5D0025F3F5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACD4C77B16571A5D0025F3F5 /* QuartzCore.framework */; };
 		ACD9D9A317269F4C00F50773 /* DocumentoAreaController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD9D9A117269F4C00F50773 /* DocumentoAreaController.m */; };
 		ACD9D9A417269F4C00F50773 /* DocumentoAreaController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACD9D9A217269F4C00F50773 /* DocumentoAreaController.xib */; };
+		ACDCC02B172EC08E00E64879 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDCC02A172EC08E00E64879 /* Reachability.m */; };
 		ACDCC6E016B34A7900745FFB /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDCC6DF16B34A7900745FFB /* AsyncImageView.m */; };
 		ACDCC6E416B34B0900745FFB /* CachedAsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDCC6E316B34B0900745FFB /* CachedAsyncImageView.m */; };
 		ACE03DCD16593B71009B6B0D /* UIViewController+JASidePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE03DCC16593B71009B6B0D /* UIViewController+JASidePanel.m */; };
@@ -145,6 +146,7 @@
 		ACB6392A1727236C00C26223 /* FXLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXLabel.m; sourceTree = "<group>"; };
 		ACB7DA6E16A4AFC500B05178 /* mail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mail.png; path = img/mail.png; sourceTree = SOURCE_ROOT; };
 		ACB7DA6F16A4AFC500B05178 /* mail@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "mail@2x.png"; path = "img/mail@2x.png"; sourceTree = SOURCE_ROOT; };
+		ACB87143172F3A3800D25669 /* reload.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = reload.png; path = img/reload.png; sourceTree = SOURCE_ROOT; };
 		ACB8FAD7172564BA00AFB645 /* DisclaimerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisclaimerController.h; sourceTree = "<group>"; };
 		ACB8FAD8172564BA00AFB645 /* DisclaimerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisclaimerController.m; sourceTree = "<group>"; };
 		ACB8FAD9172564BA00AFB645 /* DisclaimerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DisclaimerController.xib; sourceTree = "<group>"; };
@@ -167,8 +169,6 @@
 		ACBFD644165BBEE600DD7991 /* AreaBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaBase.m; sourceTree = "<group>"; };
 		ACBFD646165BC0B100DD7991 /* AreaFinanziaria.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreaFinanziaria.h; sourceTree = "<group>"; };
 		ACBFD647165BC0B100DD7991 /* AreaFinanziaria.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaFinanziaria.m; sourceTree = "<group>"; };
-		ACCA16ED172A7E6100B03095 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
-		ACCA16EE172A7E6100B03095 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		ACCA16F0172A7E9300B03095 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		ACCA16F2172A804000B03095 /* PullableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PullableView.h; sourceTree = "<group>"; };
 		ACCA16F3172A804000B03095 /* PullableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PullableView.m; sourceTree = "<group>"; };
@@ -191,6 +191,8 @@
 		ACD9D9A017269F4C00F50773 /* DocumentoAreaController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocumentoAreaController.h; sourceTree = "<group>"; };
 		ACD9D9A117269F4C00F50773 /* DocumentoAreaController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DocumentoAreaController.m; sourceTree = "<group>"; };
 		ACD9D9A217269F4C00F50773 /* DocumentoAreaController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DocumentoAreaController.xib; sourceTree = "<group>"; };
+		ACDCC029172EC08E00E64879 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		ACDCC02A172EC08E00E64879 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		ACDCC6DE16B34A7900745FFB /* AsyncImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncImageView.h; sourceTree = "<group>"; };
 		ACDCC6DF16B34A7900745FFB /* AsyncImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncImageView.m; sourceTree = "<group>"; };
 		ACDCC6E216B34B0900745FFB /* CachedAsyncImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CachedAsyncImageView.h; sourceTree = "<group>"; };
@@ -424,6 +426,7 @@
 			children = (
 				ACBF78EF172D4B9700B4F230 /* spinner images */,
 				ACE9FF5716B88D91002C8CE5 /* header_contatti.png */,
+				ACB87143172F3A3800D25669 /* reload.png */,
 				ACEF10811726C4F500EF1684 /* placeholder.jpg */,
 				ACB7DA6E16A4AFC500B05178 /* mail.png */,
 				ACB7DA6F16A4AFC500B05178 /* mail@2x.png */,
@@ -443,10 +446,10 @@
 			children = (
 				ACB639281727236C00C26223 /* FXLabel */,
 				ACDED9B61725EDC500668C5C /* AreeEnum.h */,
+				ACDCC029172EC08E00E64879 /* Reachability.h */,
+				ACDCC02A172EC08E00E64879 /* Reachability.m */,
 				ACCA16F2172A804000B03095 /* PullableView.h */,
 				ACCA16F3172A804000B03095 /* PullableView.m */,
-				ACCA16ED172A7E6100B03095 /* Reachability.h */,
-				ACCA16EE172A7E6100B03095 /* Reachability.m */,
 				ACCC531A16C1D97300994AA0 /* MBProgressHUD.h */,
 				ACCC531B16C1D97300994AA0 /* MBProgressHUD.m */,
 				ACE03DCB16593B71009B6B0D /* UIViewController+JASidePanel.h */,
@@ -679,6 +682,7 @@
 				ACFADECA172D6C2800437E43 /* spinner4.png in Resources */,
 				ACFADECB172D6C2800437E43 /* spinner5.png in Resources */,
 				AC8E1777172D800300376720 /* ErrorView.xib in Resources */,
+				ACB87144172F3A3900D25669 /* reload.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -729,11 +733,11 @@
 				ACBA1D571725C442004EB8E4 /* WMHTTPAccess.m in Sources */,
 				ACD9D9A317269F4C00F50773 /* DocumentoAreaController.m in Sources */,
 				ACB6392B1727236C00C26223 /* FXLabel.m in Sources */,
-				ACCA16EF172A7E6100B03095 /* Reachability.m in Sources */,
 				ACCA16F4172A804000B03095 /* PullableView.m in Sources */,
 				ACB57B7B172A8287004176AF /* NewsPullableView.m in Sources */,
 				ACBF78BC172D3D9200B4F230 /* CustomSpinnerView.m in Sources */,
 				ACFADECF172D75A500437E43 /* ErrorView.m in Sources */,
+				ACDCC02B172EC08E00E64879 /* Reachability.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
