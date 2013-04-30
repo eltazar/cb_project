@@ -208,6 +208,7 @@
         NSLog(@"numero di telefono = %@",
               [_dataModel valueForKey:@"LABEL" atIndexPath:indexPath]);
         [self callNumber: [_dataModel valueForKey:@"LABEL" atIndexPath:indexPath]];
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
     }
     else if ([dataKey isEqualToString:@"pdf"]) {
         NSString *title = [_dataModel valueForKey:@"LABEL" atIndexPath:indexPath];
@@ -234,47 +235,33 @@
 #pragma mark - Private methods
 
 
-- (void)callNumber:(NSString*)number {
-    //fa partire una chiamata
-    UIDevice *device = [UIDevice currentDevice];
-    if ([[device model] isEqualToString:@"iPhone"]) {
-            NSString *phoneNumber = [NSString stringWithFormat:@"%@%@", @"tel://", number];
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumber
-                                                        ]];
-    }
-    else {
-        UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"Spiacenti" message:@"Questa funzione non è disponibile su questo dispositivo" delegate:nil cancelButtonTitle:@"Chiudi" otherButtonTitles:nil];
-        [alert show];
-    }
+-(void)sendEmail:(NSString*) mail{
+    [Utilities sendEmail:mail controller:self];
 }
 
-- (void)sendEmail:(NSString*)address {
-    MFMailComposeViewController *mail = [[MFMailComposeViewController alloc] init];
-    mail.mailComposeDelegate = self;
-    
-    if([MFMailComposeViewController canSendMail]){
-        [mail setToRecipients:[NSArray arrayWithObjects:address, nil]];
-        [mail setSubject:@"BLABLABLA"];
-        [mail setMessageBody:@"" isHTML:NO];
-        [self presentModalViewController:mail animated:YES];
-    }
+-(void)callNumber:(NSString*)number{
+    [Utilities callNumber:number];
 }
 
 #pragma mark - MFMailComposeViewControllerDelegate
 
 
 - (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
-        
-    [self dismissModalViewControllerAnimated:YES];
     
-	if (result == MFMailComposeResultFailed){
+    [self dismissModalViewControllerAnimated:YES];
+    if(result == MFMailComposeResultSent) {
+        NSLog(@"messaggio inviato");
+    }
+	else if (result == MFMailComposeResultFailed){
 		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Messaggio non inviato!" message:@"Non è stato possibile inviare la tua e-mail" delegate:self cancelButtonTitle:@"Chiudi" otherButtonTitles:nil];
 		[alert show];
 	}
     else if (result == MFMailComposeResultCancelled){
+        NSLog(@"messaggio annullato");
         [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
     }
 }
+
 
 #pragma mark - Private methods
 
