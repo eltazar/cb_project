@@ -11,11 +11,13 @@
 #import "FormViewController.h"
 #import "TextFieldCell.h"
 #import "WMTableViewDataSource.h"
+#import "ErrorView.h"
 
 #define KEYBOARD_ORIGIN_Y self.tableView.frame.size.height - 216.0f
 
 @interface FormViewController () {
     TextFieldCell *textFieldCell;
+    ErrorView *errorView;
 }
 
 @end
@@ -77,8 +79,16 @@
     
     //fa si che il testo inserito nei texfield sia preso anche se non è stata dismessa la keyboard
     [self.view endEditing:TRUE];
-    if([self validateFields]){
-        [self sendRequest];
+    
+    if([Utilities networkReachable]){
+        if([self validateFields]){
+            [self sendRequest];
+        }
+    }
+    else{
+        //mostra avviso rete assente
+        NSLog(@"rete assente");
+        [self showErrorView:@"Connessione assente"];
     }
 }
 
@@ -211,11 +221,55 @@
 -(void)didReceiveError:(NSError *)error{
     NSLog(@"Invio mail errore");
     [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    //hud.mode = MBProgressHUDModeAnnularDeterminate;
-    hud.labelText = @"Errore, riprova";
-    hud.mode = MBProgressHUDModeText;
-    [hud hide:YES afterDelay:2.4];
+//    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+//    //hud.mode = MBProgressHUDModeAnnularDeterminate;
+//    hud.labelText = @"Errore, riprova";
+//    hud.mode = MBProgressHUDModeText;
+//    [hud hide:YES afterDelay:2.4];
+    [self showErrorView:@"Errore server"];
+}
+
+#pragma mark - ErrorView methods
+-(void)hideErrorView:(UITapGestureRecognizer*)gesture{
+    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone){
+        if(errorView || errorView.showed){
+            [UIView animateWithDuration:0.5
+                             animations:^(void){
+                                 [errorView setFrame:CGRectMake(0, 43, errorView.frame.size.width,0)];
+                             }
+             ];
+            errorView.showed = NO;
+        }
+    }
+    else{
+        
+    }
+}
+
+-(void)showErrorView:(NSString*)message{
+    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone){
+        if(errorView == nil || !errorView.showed){
+            errorView = [[ErrorView alloc] init];
+            errorView.label.text = message;
+            [errorView.tapRecognizer addTarget:self action:@selector(hideErrorView:)];
+            
+            CGRect oldFrame = [errorView frame];
+            [errorView setFrame:CGRectMake(0, 43, oldFrame.size.width, 0)];
+            
+            [self.navigationController.view addSubview:errorView];
+            
+            [UIView animateWithDuration:0.5
+                             animations:^(void){
+                                 [errorView setFrame:CGRectMake(0, 43, oldFrame.size.width, oldFrame.size.height)];
+                             }
+             ];
+            errorView.showed = YES;
+        }
+
+    }
+    else{
+        
+    }
 }
 
 @end
