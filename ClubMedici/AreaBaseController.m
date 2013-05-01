@@ -94,15 +94,20 @@
         cell = [tableView dequeueReusableCellWithIdentifier:@"ContactCell"];
         if (!cell) {
             cell = [[[NSBundle mainBundle] loadNibNamed:@"ContactCell" owner:self options:NULL] objectAtIndex:0];
+            UIView *v = [[UIView alloc] init];
+            v.backgroundColor = [UIColor colorWithRed:210/255.0f green:230/255.0f blue:236/255.0f alpha:1];
+            cell.selectedBackgroundView = v;
         }
         
-        FXLabel *contactLabel = (FXLabel *) [cell viewWithTag:1];
-        contactLabel.shadowColor = [UIColor colorWithWhite:1 alpha:1];
-        contactLabel.shadowOffset = CGSizeMake(1.0f, 1.0f);
-        contactLabel.shadowBlur = 1.0f;
-        contactLabel.innerShadowBlur = 3.0f;
-        contactLabel.innerShadowColor = [UIColor colorWithRed:22/255.0f green:47/255.0f blue:156/255.0f alpha:1];
-        contactLabel.innerShadowOffset = CGSizeMake(1.0f, 1.0f);
+        UILabel *contactLabel = (UILabel *) [cell viewWithTag:1];
+//        contactLabel.shadowColor = [UIColor colorWithWhite:1 alpha:1];
+//        contactLabel.shadowOffset = CGSizeMake(1.0f, 1.0f);
+//        contactLabel.shadowBlur = 1.0f;
+//        contactLabel.innerShadowBlur = 3.0f;
+//        contactLabel.innerShadowColor = [UIColor colorWithRed:22/255.0f green:47/255.0f blue:156/255.0f alpha:1];
+//        contactLabel.innerShadowOffset = CGSizeMake(1.0f, 1.0f);
+        contactLabel.textColor = [UIColor colorWithRed:78/255.0f green:162/255.0f blue:241/255.0f alpha:1];
+
         contactLabel.highlightedTextColor =[UIColor blackColor];
 
         UIImageView *img = (UIImageView *)[cell viewWithTag:2];
@@ -111,11 +116,11 @@
             [img setImage:[UIImage imageNamed:@"pdfImage"]];  
         }
         else if([dataKey isEqualToString:@"phone"]){
-            [img setImage:[UIImage imageNamed:@"phone"]];
+            [img setImage:[UIImage imageNamed:@"phone2"]];
             contactLabel.text = @"Telefono";
         }
         else if([dataKey isEqualToString:@"email"]){
-            [img setImage:[UIImage imageNamed:@"mail"]];
+            [img setImage:[UIImage imageNamed:@"mail2"]];
             contactLabel.text = @"E-mail";
         }
         else{
@@ -135,6 +140,9 @@
         cell = [tableView dequeueReusableCellWithIdentifier:@"ActionCell"];
         if (!cell) {
             cell = [[[NSBundle mainBundle] loadNibNamed:@"ActionCell" owner:self options:NULL] objectAtIndex:0];
+            UIView *v = [[UIView alloc] init];
+            v.backgroundColor = [UIColor colorWithRed:210/255.0f green:230/255.0f blue:236/255.0f alpha:1];
+            cell.selectedBackgroundView = v;
         }
     }
     
@@ -142,11 +150,11 @@
     
     FXLabel *label = (FXLabel *) [cell viewWithTag:3];
     label.shadowColor = [UIColor colorWithWhite:1.0f alpha:0.8f];
-    label.shadowOffset = CGSizeMake(1.0f, 1.0f);
+    label.shadowOffset = CGSizeMake(0.8f, 0.80f);
     label.shadowBlur = 1.0f;
     label.innerShadowBlur = 3.0f;
     label.innerShadowColor = [UIColor colorWithWhite:0.0f alpha:0.9f];
-    label.innerShadowOffset = CGSizeMake(1.0f, 1.0f);
+    label.innerShadowOffset = CGSizeMake(0.8f, 0.8f);
     label.highlightedTextColor =[UIColor blackColor];
     label.text = [_dataModel valueForKey:@"LABEL" atIndexPath:indexPath];
     
