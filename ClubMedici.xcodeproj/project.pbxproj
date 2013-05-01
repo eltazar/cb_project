@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC03EA0D1730881F004307EE /* mail2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC03EA0C1730881F004307EE /* mail2@2x.png */; };
+		AC03EA0F1730882E004307EE /* phone2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC03EA0E1730882E004307EE /* phone2@2x.png */; };
 		AC23E62B1660049500818769 /* pdfImage.png in Resources */ = {isa = PBXBuildFile; fileRef = AC23E6291660049500818769 /* pdfImage.png */; };
 		AC23E62C1660049500818769 /* pdfImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC23E62A1660049500818769 /* pdfImage@2x.png */; };
 		AC23E62F166025E400818769 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC23E62E166025E400818769 /* MessageUI.framework */; };
@@ -117,6 +119,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AC03EA0C1730881F004307EE /* mail2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "mail2@2x.png"; path = "img/mail2@2x.png"; sourceTree = SOURCE_ROOT; };
+		AC03EA0E1730882E004307EE /* phone2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "phone2@2x.png"; path = "img/phone2@2x.png"; sourceTree = SOURCE_ROOT; };
 		AC23E6291660049500818769 /* pdfImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pdfImage.png; path = img/pdfImage.png; sourceTree = SOURCE_ROOT; };
 		AC23E62A1660049500818769 /* pdfImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pdfImage@2x.png"; path = "img/pdfImage@2x.png"; sourceTree = SOURCE_ROOT; };
 		AC23E62E166025E400818769 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -445,6 +449,8 @@
 			children = (
 				ACBF78EF172D4B9700B4F230 /* spinner images */,
 				ACE9FF5716B88D91002C8CE5 /* header_contatti.png */,
+				AC03EA0E1730882E004307EE /* phone2@2x.png */,
+				AC03EA0C1730881F004307EE /* mail2@2x.png */,
 				AC72AC7E172FEF39006FB6A5 /* contactButtonEnabled.png */,
 				AC72AC80172FF24D006FB6A5 /* contactButtonSelected.png */,
 				ACBB077C173017C900A7BAE5 /* contactButtonDisabled.png */,
@@ -709,6 +715,8 @@
 				ACBB077D173017C900A7BAE5 /* contactButtonDisabled.png in Resources */,
 				ACF16D9B17302273000683A9 /* DocumentoAreaController_iPad.xib in Resources */,
 				ACF16DA817302568000683A9 /* DocumentoAreaController_iPhone.xib in Resources */,
+				AC03EA0D1730881F004307EE /* mail2@2x.png in Resources */,
+				AC03EA0F1730882E004307EE /* phone2@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
