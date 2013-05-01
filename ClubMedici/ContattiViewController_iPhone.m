@@ -114,19 +114,11 @@
         }
         UIWebView *webView =(UIWebView*) [cell viewWithTag:3];
         [webView loadHTMLString:[_dataModel valueForKey:@"LABEL" atIndexPath:indexPath] baseURL:nil];
-        UIView* bgview = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, 1)];
-        bgview.opaque = YES;
-        bgview.backgroundColor = [UIColor whiteColor];
-        [cell setBackgroundView:bgview];
+        webView.backgroundColor = [UIColor colorWithRed:246/255.0f green:250/255.0f blue:255/255.0f alpha:1];
     }
     else{
         cell = [super tableView:tableView cellForRowAtIndexPath:indexPath];
     }
-    
-    UIView* bgview = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, 1)];
-    bgview.opaque = YES;
-    bgview.backgroundColor = [UIColor whiteColor];
-    [cell setBackgroundView:bgview];
 
     return cell;
 }

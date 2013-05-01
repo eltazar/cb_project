@@ -7,9 +7,12 @@
 //
 
 #import "ContattiViewController_iPad.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface ContattiViewController_iPad ()
-
+{
+    //IBOutlet UIView *shadow;
+}
 @end
 
 @implementation ContattiViewController_iPad
@@ -29,7 +32,12 @@
 
     self.mapView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-self.tableView.frame.size.height);
     self.mapView.autoresizingMask =  UIViewAutoresizingFlexibleWidth;
+    UIImageView *shadow = [[UIImageView alloc] initWithFrame:CGRectMake(0, self.mapView.frame.size.height, 1536, 5)];
+    shadow.image = [UIImage imageNamed:@"ipadShadow"];
+    [self.view addSubview:shadow];
+    
     [self.view addSubview:mapView];
+    self.tableView.backgroundColor = [UIColor colorWithRed:246/255.0f green:250/255.0f blue:255/255.0f alpha:1];
 }
 
 - (void)didReceiveMemoryWarning
