@@ -43,8 +43,6 @@
     _areaDescriptionCell = [[[NSBundle mainBundle] loadNibNamed:@"AreaDescriptionCell_iPad"
                                                           owner:nil
                                                         options:nil] objectAtIndex:0];
-    
-    self.tableView.backgroundColor = [UIColor blackColor];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -138,7 +136,7 @@
     
     [backgroundView addSubview:imageView];
     self.tableView.backgroundView = backgroundView;
-    
+     self.tableView.backgroundColor = [UIColor colorWithRed:246/255.0f green:250/255.0f blue:255/255.0f alpha:1];    
     //per fare in modo che l'immagine nell'header diventi trasparente gradualmente verso la fine dell'immagine stessaUIView *backgroundView = [[UIView alloc] init];
     CAGradientLayer *l = [CAGradientLayer layer];
     l.frame = imageView.bounds;
