@@ -38,7 +38,7 @@
 					<object class="IBUIWebView" id="10040704">
 						<reference key="NSNextResponder" ref="766721923"/>
 						<int key="NSvFlags">274</int>
-						<string key="NSFrame">{{0, -97}, {773, 1004}}</string>
+						<string key="NSFrameSize">{773, 870}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
@@ -51,14 +51,17 @@
 						<bool key="IBUIDetectsPhoneNumbers">YES</bool>
 					</object>
 				</array>
-				<string key="NSFrameSize">{768, 1004}</string>
+				<string key="NSFrame">{{0, 44}, {768, 980}}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
-					<int key="NSColorSpace">1</int>
-					<bytes key="NSRGB">MC4xNzQ3NDkzODkzIDAuMzk2MjM2ODM2OSAwLjc4OTY0NTY3MTgAA</bytes>
+					<int key="NSColorSpace">3</int>
+					<bytes key="NSWhite">MC4zMzMzMzMzMzMzAA</bytes>
 				</object>
 				<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
+				<object class="IBUISimulatedNavigationBarMetrics" key="IBUISimulatedTopBarMetrics">
+					<bool key="IBUIPrompted">NO</bool>
+				</object>
 				<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 			</object>
 		</array>
