@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "DocumentoAreaController.h"
 
-@interface DocumentoAreaController_iPhone : DocumentoAreaController 
+@interface DocumentoAreaController_iPhone : DocumentoAreaController
+@property(nonatomic, strong) IBOutlet UILabel *titolo;
+
 @end
