@@ -10,8 +10,9 @@
 #import "PDHTTPAccess.h"
 #import "Utilities.h"
 
-@interface DocumentoAreaController ()
-
+@interface DocumentoAreaController (){
+    UIActionSheet *actionSheet;
+}
 @end
 
 @implementation DocumentoAreaController
@@ -29,7 +30,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    webView.delegate = self;
+    
 	// Do any additional setup after loading the view.
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(actionButtonPressed:)];
+    self.navigationItem.rightBarButtonItem.enabled = NO;    
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -41,6 +46,20 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - UIWebViewDelegate
+- (void)webViewDidStartLoad:(UIWebView *)webView {
+    NSLog(@"INIZIATO DOWNLOAD PDF");
+}
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView {
+    NSLog(@"Finito DOWNLOAD PDF");
+    self.navigationItem.rightBarButtonItem.enabled = YES;
+}
+
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
+    NSLog(@"FALLITO DOWNLOAD PDF = %@", [error localizedDescription]);
 }
 
 #pragma mark - WMHTTPAccessDelegate
@@ -70,6 +89,29 @@
 
 #pragma mark - UIButton methods
 
+- (void)actionButtonPressed:(id)sender {
+    
+    NSString *cancelButtonTitle = @"Annulla";
+    
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        cancelButtonTitle = nil;
+    }
+    
+    if ([actionSheet isVisible]) {
+        //[actionSheet dismissWithClickedButtonIndex:-1 animated:NO];
+    }
+    else{
+        actionSheet = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:cancelButtonTitle destructiveButtonTitle:nil otherButtonTitles:@"Stampa",nil,nil];
+        actionSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+    }
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        [actionSheet showFromBarButtonItem:self.navigationItem.rightBarButtonItem animated:YES];
+    } else {
+        [actionSheet showInView:self.view];
+    }
+}
+
 -(IBAction) writeEmail{
     [Utilities sendEmail:mail controller:self];
 }
@@ -93,6 +135,46 @@
 	}
     else if (result == MFMailComposeResultCancelled){
         NSLog(@"messaggio annullato");
+    }
+}
+
+#pragma mark - ActionSheetDelegate
+
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    NSLog(@"INDEX = %d",buttonIndex);
+    if(buttonIndex == 0){
+        //stampa
+        [self printWebView:self];
+    }
+}
+
+
+#pragma mark - AirPrint
+
+
+- (void)printWebView:(id)sender {
+    UIPrintInteractionController *pc = [UIPrintInteractionController sharedPrintController];
+    UIPrintInfo *printInfo = [UIPrintInfo printInfo];
+    printInfo.outputType = UIPrintInfoOutputGeneral;
+    printInfo.jobName = self.navigationController.title;
+    pc.printInfo = printInfo;
+    
+    //pc.showsPageRange = YES;
+    UIViewPrintFormatter *formatter = [self.webView viewPrintFormatter];
+    pc.printFormatter = formatter;
+    
+    UIPrintInteractionCompletionHandler completionHandler =
+    ^(UIPrintInteractionController *printController, BOOL completed, NSError *error) {
+        if(!completed && error){
+            NSLog(@"Print failed - domain: %@ error code %u", error.domain, error.code);
+        }
+    };
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        [pc presentFromBarButtonItem:self.navigationItem.rightBarButtonItem animated:YES completionHandler:completionHandler];
+    } else {
+        [pc presentAnimated:YES completionHandler:completionHandler];
     }
 }
 

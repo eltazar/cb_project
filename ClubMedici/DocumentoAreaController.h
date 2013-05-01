@@ -10,7 +10,7 @@
 #import "WMHTTPAccess.h"
 #import <MessageUI/MessageUI.h>
 
-@interface DocumentoAreaController : UIViewController<WMHTTPAccessDelegate,MFMailComposeViewControllerDelegate>{
+@interface DocumentoAreaController : UIViewController<WMHTTPAccessDelegate,MFMailComposeViewControllerDelegate, UIActionSheetDelegate, UIPrintInteractionControllerDelegate, UIWebViewDelegate>{
     NSString *phone;
     NSString *mail;
 }
