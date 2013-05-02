@@ -50,6 +50,7 @@
     //Tableview gesture recognizer
     UITapGestureRecognizer *tapTable = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideTable:)];
     [self.tableView addGestureRecognizer:tapTable];
+    self.tableView.opaque = YES;
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -113,8 +114,10 @@
             cell = [[[NSBundle mainBundle] loadNibNamed:@"WebViewCell" owner:self options:NULL] objectAtIndex:0];
         }
         UIWebView *webView =(UIWebView*) [cell viewWithTag:3];
-        [webView loadHTMLString:[_dataModel valueForKey:@"LABEL" atIndexPath:indexPath] baseURL:nil];
-        webView.backgroundColor = [UIColor colorWithRed:246/255.0f green:250/255.0f blue:255/255.0f alpha:1];
+        NSString *htmlPage = @"<html><head><style type=\"text/css\">%@</style></head>    <body>%@</body></html>";
+        NSString *style = @"body {margin:10px 20px 0px;background-color: #f6faff;}p {font:Helvetica;color: #333333;text-shadow: #fff 0px 1px 0px;}";
+        htmlPage = [NSString stringWithFormat:htmlPage,style,[_dataModel valueForKey:@"LABEL" atIndexPath:indexPath]];
+        [webView loadHTMLString:htmlPage baseURL:nil];
     }
     else{
         cell = [super tableView:tableView cellForRowAtIndexPath:indexPath];
@@ -202,6 +205,7 @@ shouldRecognizeSimultaneouslyWithGestureRecognizer:
 #pragma mark - metodi privati
 
 -(void) configureMap{
+    self.mapView.opaque = YES;
     [self.mapView setUserInteractionEnabled:YES];
     self.mapView.region = [self centerMap];
     CLLocationCoordinate2D referencePosition = [mapView convertPoint:CGPointMake(0, 0) toCoordinateFromView:mapView];
