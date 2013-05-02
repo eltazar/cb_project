@@ -52,29 +52,5 @@
     return YES;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [super tableView:tableView cellForRowAtIndexPath:indexPath];
-    //NSString *cellIdentifier;
-    NSString *dataKey = [_dataModel valueForKey:@"DATA_KEY" atIndexPath:indexPath];
-    
-    if([dataKey isEqualToString:@"company"]){
-        
-        cell = [self.tableView dequeueReusableCellWithIdentifier:@"WebViewCell"];
-        if (!cell) {
-            cell = [[[NSBundle mainBundle] loadNibNamed:@"WebViewCell" owner:self options:NULL] objectAtIndex:0];
-        }
-        UIWebView *webView =(UIWebView*) [cell viewWithTag:3];
-        [webView loadHTMLString:[_dataModel valueForKey:@"LABEL" atIndexPath:indexPath] baseURL:nil];
-        UIView* bgview = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, 1)];
-        bgview.opaque = YES;
-        bgview.backgroundColor = [UIColor whiteColor];
-        [cell setBackgroundView:bgview];
-    }
-    else{
-        cell = [super tableView:tableView cellForRowAtIndexPath:indexPath];
-    }
-    
-    return cell;
-}
 
 @end

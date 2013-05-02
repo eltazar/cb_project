@@ -77,6 +77,20 @@
     //NSString *cellIdentifier;
     NSString *dataKey = [_dataModel valueForKey:@"DATA_KEY" atIndexPath:indexPath];
     
+    if([dataKey isEqualToString:@"company"]){
+        
+        cell = [self.tableView dequeueReusableCellWithIdentifier:@"WebViewCell"];
+        if (!cell) {
+            cell = [[[NSBundle mainBundle] loadNibNamed:@"WebViewCell" owner:self options:NULL] objectAtIndex:0];
+        }
+        UIWebView *webView =(UIWebView*) [cell viewWithTag:3];
+        NSString *htmlPage = @"<html><head><style type=\"text/css\">%@</style></head>    <body>%@</body></html>";
+        NSString *style = @"body {margin:10px 20px 0px;background-color: #f6faff;}p {font:Helvetica;color: #333333;text-shadow: #fff 0px 1px 0px;}";
+        htmlPage = [NSString stringWithFormat:htmlPage,style,[_dataModel valueForKey:@"LABEL" atIndexPath:indexPath]];
+        [webView loadHTMLString:htmlPage baseURL:nil];
+    }
+    else{
+    
     cell = [self.tableView dequeueReusableCellWithIdentifier:@"ContactCell"];
     if (!cell) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"ContactCell" owner:self options:NULL] objectAtIndex:0];
@@ -148,7 +162,7 @@
     bgview.opaque = YES;
     bgview.backgroundColor = [UIColor colorWithRed:246/255.0f green:250/255.0f blue:255/255.0f alpha:1];
     [cell setBackgroundView:bgview];
-    
+    }
     return cell;
 }
 
