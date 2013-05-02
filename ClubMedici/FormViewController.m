@@ -179,7 +179,7 @@
         if (!cell) {
             cell = [[[NSBundle mainBundle] loadNibNamed:@"DisclaimerCell" owner:self options:NULL] objectAtIndex:0];
         }
-        
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         UIButton *disclaimerBtn = (UIButton *)[cell viewWithTag:10];
         [disclaimerBtn addTarget:self action:@selector(showDisclaimer) forControlEvents:UIControlEventTouchUpInside];
     }
