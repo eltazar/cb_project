@@ -31,10 +31,14 @@
 {
     [super viewDidLoad];
     webView.delegate = self;
+    [webView setBackgroundColor:[UIColor clearColor]];
+    [webView setOpaque:NO];
     
 	// Do any additional setup after loading the view.
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(actionButtonPressed:)];
     self.navigationItem.rightBarButtonItem.enabled = NO;
+    
+    self.view.backgroundColor = [UIColor colorWithRed:246/255.0f green:250/255.0f blue:255/255.0f alpha:1];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -69,23 +73,15 @@
     NSString *htmlString = [[jsonArray objectAtIndex:0] objectForKey:@"testo"];
     mail = [[jsonArray objectAtIndex:0] objectForKey:@"email"];
     phone = [[jsonArray objectAtIndex:0] objectForKey:@"telefono"];
-    //[webView loadHTMLString:htmlString baseURL:nil];
-    
-    // add a generic template and the css file directive
-//    NSString* htmlPage = @"<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\"> <html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"he\" lang=\"he\"><head><style type=\"text/css\" media=\"all\">@import \"documentoCSS.css\";</style><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" /></head><body>%@</body></html>";
-   /* NSString *prova = @"<html>    <head>    <title>Esempio</title>    <style type=\"text/css\">    body {background-color: #FF0000;}    </style>    </head>    <body>    <p>Questa è una pagina rossa</p>    </body>	</html>";*/
-    
-    // load the html into a web view
-    //NSURL *url = [NSURL fileURLWithPath:fullPath];
     
     NSString *htmlPage = @"<html><head><style type=\"text/css\">%@</style></head>    <body>%@</body></html>";
-    NSString *style = @"body {margin:15px 15px 15px 15px;background-color: #f6faff;}body,p,strong {font:Helvetica;text-align: justify;font-size: 17px;color: #333333;text-shadow: #fff 0px 1px 0px;}";//font-size: 16px;text-align: justify;color: #272727;text-shadow: 1px 4px 6px #f6faff, 0 0 0 #000, 1px 4px 6px #f6faff;}";//
+    NSString *style = @"body {font-family:helvetica;margin:15px 15px 15px 15px;background-color: #f6faff;}body,p,strong {font-size: 15px;color: #333333;text-shadow: #fff 0px 1px 0px;}";//font-size: 16px;text-align: justify;color: #272727;text-shadow: 1px 4px 6px #f6faff, 0 0 0 #000, 1px 4px 6px #f6faff;}";//
     htmlPage = [NSString stringWithFormat:htmlPage,style,htmlString];
     [webView loadHTMLString:htmlPage baseURL:nil];
 }
 
 -(void)didReceiveError:(NSError *)error{
-    NSLog(@"Error json = %@",error.description);
+    //NSLog(@"Error json = %@",error.description);
     [self showErrorView:@"Errore server"];
 }
 -(void)fetchData{
