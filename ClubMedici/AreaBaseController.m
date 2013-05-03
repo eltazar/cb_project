@@ -43,7 +43,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
   
-    
+        self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:1/255.0f green:70/255.0f blue:148/255.0f alpha:1];
     
     //self.title = [self.area titolo];
                                         
@@ -99,17 +99,19 @@
             cell.selectedBackgroundView = v;
         }
         
-        UILabel *contactLabel = (UILabel *) [cell viewWithTag:1];
-//        contactLabel.shadowColor = [UIColor colorWithWhite:1 alpha:1];
-//        contactLabel.shadowOffset = CGSizeMake(1.0f, 1.0f);
+        FXLabel *contactLabel = (FXLabel *) [cell viewWithTag:1];
+        contactLabel.textColor = [UIColor colorWithRed:1/255.0f green:70/255.0f blue:148/255.0f alpha:1];
+//        contactLabel.textColor = [UIColor colorWithWhite:0.09f alpha:0.8f];
+//        contactLabel.highlightedTextColor =[UIColor blackColor];
+//        contactLabel.shadowColor = [UIColor colorWithWhite:0.9f alpha:0.8f];
+//        contactLabel.shadowOffset = CGSizeMake(0.8f, 0.80f);
 //        contactLabel.shadowBlur = 1.0f;
 //        contactLabel.innerShadowBlur = 3.0f;
-//        contactLabel.innerShadowColor = [UIColor colorWithRed:22/255.0f green:47/255.0f blue:156/255.0f alpha:1];
-//        contactLabel.innerShadowOffset = CGSizeMake(1.0f, 1.0f);
-        contactLabel.textColor = [UIColor colorWithRed:28/255.0f green:60/255.0f blue:119/255.0f alpha:1];
-
-        contactLabel.highlightedTextColor =[UIColor blackColor];
-
+//        contactLabel.innerShadowColor = [UIColor colorWithRed:1/255.0f green:70/255.0f blue:148/255.0f alpha:1];
+//
+//        contactLabel.innerShadowOffset = CGSizeMake(0.8f, 0.8f);
+//        contactLabel.highlightedTextColor =[UIColor blackColor];
+        
         UIImageView *img = (UIImageView *)[cell viewWithTag:2];
         
         if([dataKey isEqualToString:@"pdf"]){
