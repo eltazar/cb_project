@@ -13,4 +13,6 @@
 @property(nonatomic, strong) IBOutlet UILabel *label;
 @property(nonatomic, strong) UITapGestureRecognizer *tapRecognizer;
 @property(nonatomic, assign) BOOL showed;
+
+-(id)initWithSize:(CGSize)size;
 @end
