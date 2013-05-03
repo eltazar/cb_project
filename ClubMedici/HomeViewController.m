@@ -19,6 +19,7 @@
     [super viewDidLoad];
     
     self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:1/255.0f green:70/255.0f blue:148/255.0f alpha:1];
+    self.view.backgroundColor = [UIColor colorWithRed:246/255.0f green:250/255.0f blue:255/255.0f alpha:1];
     
     self.title = @"ClubMedici";
     //il controller figlio di questo controller avrà il titolo del back Button personalizzato
