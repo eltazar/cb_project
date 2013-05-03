@@ -34,6 +34,10 @@
     webView.delegate = self;
     [webView setBackgroundColor:[UIColor clearColor]];
     [webView setOpaque:NO];
+    //rimuove ombra dietro la pagina web
+    for(UIView *wview in [[[webView subviews] objectAtIndex:0] subviews]) {
+        if([wview isKindOfClass:[UIImageView class]]) { wview.hidden = YES; }
+    }
     
 	// Do any additional setup after loading the view.
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(actionButtonPressed:)];
