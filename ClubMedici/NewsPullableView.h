@@ -7,10 +7,10 @@
 //
 
 #import "PullableView.h"
-
+#import "FXLabel.h"
 @interface NewsPullableView : PullableView
 
-@property(nonatomic, strong) IBOutlet UILabel *descrizioneBreve;
+@property(nonatomic, strong) IBOutlet FXLabel *descrizioneBreve;
 @property(nonatomic, strong) IBOutlet UIWebView *descrizioneEstesa;
 
 @end

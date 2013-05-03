@@ -67,7 +67,7 @@
 					<object class="IBUILabel" id="792890704">
 						<reference key="NSNextResponder" ref="774585933"/>
 						<int key="NSvFlags">308</int>
-						<string key="NSFrame">{{12, 71}, {296, 302}}</string>
+						<string key="NSFrame">{{12, 110}, {296, 181}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
 						<reference key="NSNextKeyView" ref="989405417"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
@@ -76,20 +76,13 @@
 						<int key="IBUIContentMode">7</int>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						<object class="NSMutableString" key="IBUIText">
-							<bytes key="NS.bytes">Q2x1YiBNZWRpY2kgw6ggbCdhc3NvY2lhemlvbmUgcGVyIE1lZGljaSBDaGlydXJnaGkgZSBPZG9udG9p
+						<string type="base64-UTF8" key="IBUIText">Q2x1YiBNZWRpY2kgw6ggbCdhc3NvY2lhemlvbmUgcGVyIE1lZGljaSBDaGlydXJnaGkgZSBPZG9udG9p
 YXRyaSBpc2NyaXR0aSBhZ2xpIEFsYmkgUHJvdmluY2lhbGkuCgpEYSB2ZW50aSBhbm5pLCBDbHViIE1l
 ZGljaSDDqCBpbCBwdW50byBkaSByaWZlcmltZW50byBkZWkgbWVkaWNpIHBlciB0dXR0ZSBsZSBlc2ln
 ZW56ZSBkZWxsYSB2aXRhIHF1b3RpZGlhbmEgZSBkZWwgdGVtcG8gbGliZXJvLgoKSWwgQ2x1YiBNZWRp
 Y2kgb2ZmcmUgYWkgc3VvaSBhc3NvY2lhdGkgdW5hIHZhc3RhIGdhbW1hIGRpIHNlcnZpemkgbmVsbGUg
 c3VlIGFyZWUgZGkgYXR0aXZpdMOgOiBBcmVhIEZpbmFuemlhcmlhLCBBcmVhIEFzc2ljdXJhdGl2YSBl
-IEFyZWEgVHVyaXNtby4gRSBpbiBwacO5OiBldmVudGkgZSBjdWx0dXJhISAKCkNvbnRhdHRhdGVjaTog
-aSBub3N0cmkgY29uc3VsZW50aSBzb25vIGEgZGlzcG9zaXppb25lIHBlciBvZmZyaXJ2aSBwcm9wb3N0
-ZSBzdHVkaWF0ZSBhcHBvc2l0YW1lbnRlIHBlciBpIG1lZGljaTogbXV0dWkgY2FzYSwgbGVhc2luZywg
-ZmluYW56aWFtZW50aSBwZXJzb25hbGl6emF0aSwgY3VyZSBtZWRpY2hlIGEgcmF0ZSwgYXNzaWN1cmF6
-aW9uaSBwcm9mZXNzaW9uYWxpLCBwb2xpenplIHNhbml0YXJpZSwgdmlhZ2dpLCBjb252ZW56aW9uaSBj
-b21tZXJjaWFsaSBlZCBldmVudGkgY3VsdHVyYWxpLiA</bytes>
-						</object>
+IEFyZWEgVHVyaXNtby4gRSBpbiBwacO5OiBldmVudGkgZSBjdWx0dXJhIQ</string>
 						<object class="NSColor" key="IBUITextColor" id="67946867">
 							<int key="NSColorSpace">1</int>
 							<bytes key="NSRGB">MCAwIDAAA</bytes>

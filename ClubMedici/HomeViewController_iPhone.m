@@ -34,18 +34,16 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    newsView = [[NewsPullableView alloc] initWithFrame:CGRectMake(0, 100, self.view.frame.size.width, 500)];
-    
+    newsView = [[NewsPullableView alloc] initWithFrame:CGRectMake(0, 100, self.view.frame.size.width, 500)];    
     float closedCenterOffset = 0;
     if (IS_IPHONE_5){
         //iphone5
-        closedCenterOffset = 205;
+        closedCenterOffset = 250;
         //NSLog(@"iphone 5 ");
     }
     else{
-        closedCenterOffset = 120;
+        closedCenterOffset = 165;
         //NSLog(@"iphone 4 ");
-
     }
     
     self.view.backgroundColor = [UIColor colorWithRed:246/255.0f green:250/255.0f blue:255/255.0f alpha:1];
@@ -107,8 +105,12 @@
 
 -(void)didReceiveJSON:(NSArray *)jsonArray{
     //NSLog(@"JSON = %@",jsonArray);
-    newsView.descrizioneBreve.text = [[jsonArray objectAtIndex:0]objectForKey:@"titolo"];
-    [newsView.descrizioneEstesa loadHTMLString:[[jsonArray objectAtIndex:0]objectForKey:@"testo"] baseURL:nil];
+   newsView.descrizioneBreve.text = [NSString stringWithFormat:@"News: %@",[[jsonArray objectAtIndex:0]objectForKey:@"titolo"]];
+    
+    NSString *htmlPage = @"<html><head><style type=\"text/css\">%@</style></head>    <body>%@</body></html>";
+    NSString *style = @"body {font-family:helvetica;background-color: #cfd8e2;}body,p,strong {margin:15px;font-size: 13px;color: #212121;text-shadow: #fff 0px 1px 0px;}";//font-size: 16px;text-align: justify;color: #272727;text-shadow: 1px 4px 6px #f6faff, 0 0 0 #000, 1px 4px 6px #f6faff;}";//
+    htmlPage = [NSString stringWithFormat:htmlPage,style,[[jsonArray objectAtIndex:0]objectForKey:@"testo"]];
+    [newsView.descrizioneEstesa loadHTMLString:htmlPage baseURL:nil];
 }
 
 -(void)didReceiveError:(NSError *)error{
