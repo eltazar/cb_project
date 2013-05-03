@@ -7,8 +7,6 @@
 //
 
 #import "HomeViewController_iPhone.h"
-#import "PDHTTPAccess.h"
-#import "ErrorView.h"
 
 #define IS_IPHONE_5 ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )568 ) < DBL_EPSILON )
 
@@ -16,7 +14,6 @@
 @interface HomeViewController_iPhone ()
 {
     NewsPullableView *newsView;
-    ErrorView *errorView;
 }
 @end
 
@@ -63,15 +60,9 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self fetchData];
+    //[self fetchData];
 }
 
--(void)viewWillDisappear:(BOOL)animated{
-    [super viewWillDisappear:animated];
-    if(errorView && errorView.showed){
-        [errorView removeFromSuperview];
-    }
-}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -91,16 +82,6 @@
     }
 }
 
--(void)fetchData{
-    if([Utilities networkReachable]){
-        [PDHTTPAccess getNews:1 delegate:self];
-    }
-    else{
-        [self showErrorView:@"Connessione assente"];
-    }
-    
-}
-
 #pragma mark - WMHttpAccessDelegate
 
 -(void)didReceiveJSON:(NSArray *)jsonArray{
@@ -113,48 +94,11 @@
     [newsView.descrizioneEstesa loadHTMLString:htmlPage baseURL:nil];
 }
 
--(void)didReceiveError:(NSError *)error{
-    NSLog(@"Server error = %@",error.description);
-    [self showErrorView:@"Errore server"];
-}
-
 -(void)showErrorView:(NSString*)message{
     
     if(errorView == nil || !errorView.showed){
         errorView = [[ErrorView alloc] init];
-        errorView.label.text = message;
-        [errorView.tapRecognizer addTarget:self action:@selector(hideErrorView:)];
-        
-        CGRect oldFrame = [errorView frame];
-        [errorView setFrame:CGRectMake(0, 43, oldFrame.size.width, 0)];
-        
-        [self.navigationController.view addSubview:errorView];
-        
-        [UIView animateWithDuration:0.5
-                         animations:^(void){
-                             [errorView setFrame:CGRectMake(0, 43, oldFrame.size.width, oldFrame.size.height)];
-                         }
-         ];
-        errorView.showed = YES;
+        [super showErrorView:message];
     }
 }
-
--(void)hideErrorView:(UITapGestureRecognizer*)gesture{
-    
-    if(errorView || errorView.showed){
-        [UIView animateWithDuration:0.5
-                         animations:^(void){
-                             [errorView setFrame:CGRectMake(0, 43, errorView.frame.size.width,0)];
-                         }
-                         completion:^(BOOL finished){
-                             //riprovo query quando faccio tap su riprova
-                             [self fetchData];
-                         }
-         ];
-        errorView.showed = NO;
-    }
-}
-
-
-
 @end

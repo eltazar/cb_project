@@ -10,8 +10,15 @@
 #import "JASidePanelController.h"
 #import "UIViewController+InterfaceIdiom.h"
 #import "Utilities.h"
+#import "ErrorView.h"
+#import "WMHTTPAccess.h"
+#import "PDHTTPAccess.h"
 
-@interface HomeViewController : JASidePanelController
-- (void) showErrorView:(NSString*)message;
+@interface HomeViewController : JASidePanelController<WMHTTPAccessDelegate>
+{
+    ErrorView *errorView;
+
+}- (void) showErrorView:(NSString*)message;
 - (void)hideErrorView:(UITapGestureRecognizer*)gesture;
+
 @end

@@ -74,6 +74,9 @@
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kReachabilityChangedNotification object:nil];
+    if(errorView && errorView.showed){
+        [errorView removeFromSuperview];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -414,10 +417,38 @@
 }
 
 #pragma mark - ErrorView methods
--(void)hideErrorView:(UITapGestureRecognizer*)gesture{
+-(void)showErrorView:(NSString*)message{
+    
+    errorView.label.text = message;
+    [errorView.tapRecognizer addTarget:self action:@selector(hideErrorView:)];
+    
+    CGRect oldFrame = [errorView frame];
+    [errorView setFrame:CGRectMake(0, 43, oldFrame.size.width, 0)];
+    
+    [self.navigationController.view addSubview:errorView];
+    
+    [UIView animateWithDuration:0.5
+                     animations:^(void){
+                         [errorView setFrame:CGRectMake(0, 43, oldFrame.size.width, oldFrame.size.height)];
+                     }
+     ];
+    errorView.showed = YES;
 }
 
--(void)showErrorView:(NSString*)message{
+-(void)hideErrorView:(UITapGestureRecognizer*)gesture{
+    
+    if(errorView || errorView.showed){
+        [UIView animateWithDuration:0.5
+                         animations:^(void){
+                             [errorView setFrame:CGRectMake(0, 43, errorView.frame.size.width,0)];
+                         }
+                         completion:^(BOOL finished){
+                             //riprovo query quando faccio tap su riprova
+                             [self fetchData];
+                         }
+         ];
+        errorView.showed = NO;
+    }
 }
 
 @end

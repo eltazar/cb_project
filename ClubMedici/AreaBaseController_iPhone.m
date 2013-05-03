@@ -12,13 +12,11 @@
 #import "AreaBaseController_iPhone.h"
 #import "AreaBase.h"
 #import "WMTableViewDataSource.h"
-#import "ErrorView.h"
 
 #import "Reachability.h"
 
 @interface AreaBaseController_iPhone () {
     AreaDescriptionCell *_areaDescriptionCell;
-    ErrorView *errorView;
 }
 @end
 
@@ -41,12 +39,6 @@
     [super didReceiveMemoryWarning];
 }
 
--(void)viewWillDisappear:(BOOL)animated{
-    [super viewWillDisappear:animated];
-    if(errorView && errorView.showed){
-        [errorView removeFromSuperview];
-    }
-}
 # pragma mark - iOS 5 specific
 
 //
@@ -172,39 +164,10 @@
 }
 
 -(void)showErrorView:(NSString*)message{
-        
+    
     if(errorView == nil || !errorView.showed){
         errorView = [[ErrorView alloc] init];
-        errorView.label.text = message;
-        [errorView.tapRecognizer addTarget:self action:@selector(hideErrorView:)];
-        
-        CGRect oldFrame = [errorView frame];
-        [errorView setFrame:CGRectMake(0, 43, oldFrame.size.width, 0)];
-
-        [self.navigationController.view addSubview:errorView];
-        
-        [UIView animateWithDuration:0.5
-                         animations:^(void){
-                             [errorView setFrame:CGRectMake(0, 43, oldFrame.size.width, oldFrame.size.height)];
-                         }
-         ];
-        errorView.showed = YES;
-    }
-}
-
--(void)hideErrorView:(UITapGestureRecognizer*)gesture{
-    
-    if(errorView || errorView.showed){
-        [UIView animateWithDuration:0.5
-                         animations:^(void){
-                             [errorView setFrame:CGRectMake(0, 43, errorView.frame.size.width,0)];
-                         }
-                         completion:^(BOOL finished){
-                             //riprovo query quando faccio tap su riprova
-                             [super fetchData];
-                         }
-         ];
-        errorView.showed = NO;
+        [super showErrorView:message];
     }
 }
 

@@ -8,9 +8,8 @@
 
 #import "HomeViewController.h"
 #import "NewsPullableView.h"
-#import "WMHTTPAccess.h"
 
-@interface HomeViewController_iPhone : HomeViewController<PullableViewDelegate, WMHTTPAccessDelegate>
+@interface HomeViewController_iPhone : HomeViewController<PullableViewDelegate>
 {
     IBOutlet UILabel *descriptionLabel;
 }

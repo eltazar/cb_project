@@ -215,13 +215,22 @@
 #pragma mark - WMHTPPAccessDelegate 
 -(void)didReceiveString:(NSString *)receivedString{
     NSLog(@"Invio mail esito positivo: %@",receivedString);
-    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    //hud.mode = MBProgressHUDModeAnnularDeterminate;
-    hud.labelText = @"Richiesta inviata!";
-    hud.mode = MBProgressHUDModeText;
+    if(errorView && errorView.showed){
+        [self hideErrorView:nil];
+    }
+    
+    if([receivedString isEqualToString:@"ok"]){
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        //hud.mode = MBProgressHUDModeAnnularDeterminate;
+        hud.labelText = @"Richiesta inviata!";
+        hud.mode = MBProgressHUDModeText;
 
-    [hud hide:YES afterDelay:2.4];
+        [hud hide:YES afterDelay:2.4];
+    }
+    else{
+        [self didReceiveError:nil];
+    }
 }
 -(void)didReceiveError:(NSError *)error{
     NSLog(@"Invio mail errore");
@@ -231,30 +240,30 @@
 //    hud.labelText = @"Errore, riprova";
 //    hud.mode = MBProgressHUDModeText;
 //    [hud hide:YES afterDelay:2.4];
-    [self showErrorView:@"Errore server"];
+    [self showErrorView:@"Errore server, riprovare"];
 }
 
 #pragma mark - ErrorView methods
 -(void)hideErrorView:(UITapGestureRecognizer*)gesture{
-    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone){
-        if(errorView || errorView.showed){
-            [UIView animateWithDuration:0.5
-                             animations:^(void){
-                                 [errorView setFrame:CGRectMake(0, 43, errorView.frame.size.width,0)];
-                             }
-             ];
-            errorView.showed = NO;
-        }
-    }
-    else{
-        
+    if(errorView || errorView.showed){
+        [UIView animateWithDuration:0.5
+                         animations:^(void){
+                             [errorView setFrame:CGRectMake(0, 43, errorView.frame.size.width,0)];
+                         }
+         ];
+        errorView.showed = NO;
     }
 }
 
 -(void)showErrorView:(NSString*)message{
-    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone){
+    
         if(errorView == nil || !errorView.showed){
-            errorView = [[ErrorView alloc] init];
+            if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone){
+                errorView = [[ErrorView alloc] init];
+            }
+            else{
+                errorView = [[ErrorView alloc] initWithSize:self.view.frame.size];
+            }
             errorView.label.text = message;
             [errorView.tapRecognizer addTarget:self action:@selector(hideErrorView:)];
             
@@ -271,10 +280,6 @@
             errorView.showed = YES;
         }
 
-    }
-    else{
-        
-    }
 }
 
 @end

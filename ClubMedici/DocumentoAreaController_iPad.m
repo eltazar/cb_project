@@ -35,4 +35,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)showErrorView:(NSString*)message{
+    
+    if(errorView == nil || !errorView.showed){
+        errorView = [[ErrorView alloc] initWithSize:self.view.frame.size];
+        [super showErrorView:message];
+    }
+}
 @end

@@ -11,7 +11,6 @@
 #import "Reachability.h"
 
 @interface HomeViewController ()
-
 @end
 
 @implementation HomeViewController
@@ -30,11 +29,59 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(networkStatusChanged:) name:kReachabilityChangedNotification object:nil];
+    [self fetchData];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kReachabilityChangedNotification object:nil];
+    if(errorView && errorView.showed){
+        [errorView removeFromSuperview];
+    }
+}
+
+-(void)fetchData{
+    if([Utilities networkReachable]){
+        [PDHTTPAccess getNews:1 delegate:self];
+    }
+    else{
+        [self showErrorView:@"Connessione assente"];
+    }
+    
+}
+
+-(void)showErrorView:(NSString*)message{
+    
+    errorView.label.text = message;
+    [errorView.tapRecognizer addTarget:self action:@selector(hideErrorView:)];
+    
+    CGRect oldFrame = [errorView frame];
+    [errorView setFrame:CGRectMake(0, 43, oldFrame.size.width, 0)];
+    
+    [self.navigationController.view addSubview:errorView];
+    
+    [UIView animateWithDuration:0.5
+                     animations:^(void){
+                         [errorView setFrame:CGRectMake(0, 43, oldFrame.size.width, oldFrame.size.height)];
+                     }
+     ];
+    errorView.showed = YES;
+}
+
+-(void)hideErrorView:(UITapGestureRecognizer*)gesture{
+        
+    if(errorView || errorView.showed){
+        [UIView animateWithDuration:0.5
+                         animations:^(void){
+                             [errorView setFrame:CGRectMake(0, 43, errorView.frame.size.width,0)];
+                         }
+                         completion:^(BOOL finished){
+                             //riprovo query quando faccio tap su riprova
+                             [self fetchData];
+                         }
+         ];
+        errorView.showed = NO;
+    }
 }
 
 
@@ -63,9 +110,11 @@
     }
 }
 
--(void)showErrorView:(NSString *)message{
-}
--(void)hideErrorView:(UITapGestureRecognizer *)gesture{
+#pragma mark - WMHTTPAccessDelegate
+
+-(void)didReceiveError:(NSError *)error{
+    NSLog(@"Server error = %@",error.description);
+    [self showErrorView:@"Errore server"];
 }
 
 @end

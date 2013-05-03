@@ -14,6 +14,8 @@
 #import "RichiestaNoleggioController.h"
 #import "PDHTTPAccess.h"
 #import "WMHTTPAccess.h"
+#import "ErrorView.h"
+
 
 @class AreaBase, WMTableViewDataSource;
 
@@ -22,6 +24,7 @@
         AreaBase *area;
         WMTableViewDataSource *_dataModel;
         CachedAsyncImageView *imageView;
+        ErrorView *errorView;
 }
 
 @property(nonatomic, strong) AreaBase *area;

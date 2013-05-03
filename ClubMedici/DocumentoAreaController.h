@@ -9,10 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "WMHTTPAccess.h"
 #import <MessageUI/MessageUI.h>
+#import "ErrorView.h"
 
 @interface DocumentoAreaController : UIViewController<WMHTTPAccessDelegate,MFMailComposeViewControllerDelegate, UIActionSheetDelegate, UIPrintInteractionControllerDelegate, UIWebViewDelegate>{
     NSString *phone;
     NSString *mail;
+    ErrorView *errorView;
 }
 
 @property(nonatomic, strong) IBOutlet UIButton *callButton;
