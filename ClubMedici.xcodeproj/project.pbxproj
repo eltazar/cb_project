@@ -31,6 +31,7 @@
 		AC31D7B6165EF1A100CCC001 /* FormViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC31D7B5165EF1A100CCC001 /* FormViewController.xib */; };
 		AC72AC7F172FEF39006FB6A5 /* contactButtonEnabled.png in Resources */ = {isa = PBXBuildFile; fileRef = AC72AC7E172FEF39006FB6A5 /* contactButtonEnabled.png */; };
 		AC72AC81172FF24D006FB6A5 /* contactButtonSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = AC72AC80172FF24D006FB6A5 /* contactButtonSelected.png */; };
+		AC79A2381734663C00ED0101 /* sectionHeader.png in Resources */ = {isa = PBXBuildFile; fileRef = AC79A2371734663C00ED0101 /* sectionHeader.png */; };
 		AC8E1777172D800300376720 /* ErrorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC8E1776172D800300376720 /* ErrorView.xib */; };
 		AC9168E416B9EC1900AF402E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC9168E316B9EC1900AF402E /* CoreLocation.framework */; };
 		AC93CE93165DA6F400ABA3C2 /* PDFviewerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC93CE92165DA6F400ABA3C2 /* PDFviewerController.xib */; };
@@ -151,6 +152,7 @@
 		AC31D7B5165EF1A100CCC001 /* FormViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FormViewController.xib; path = ClubMedici/FormViewController.xib; sourceTree = "<group>"; };
 		AC72AC7E172FEF39006FB6A5 /* contactButtonEnabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = contactButtonEnabled.png; path = img/contactButtonEnabled.png; sourceTree = SOURCE_ROOT; };
 		AC72AC80172FF24D006FB6A5 /* contactButtonSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = contactButtonSelected.png; path = img/contactButtonSelected.png; sourceTree = SOURCE_ROOT; };
+		AC79A2371734663C00ED0101 /* sectionHeader.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sectionHeader.png; path = img/sectionHeader.png; sourceTree = SOURCE_ROOT; };
 		AC8E1776172D800300376720 /* ErrorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ErrorView.xib; path = ClubMedici/ErrorView.xib; sourceTree = "<group>"; };
 		AC9168E316B9EC1900AF402E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		AC93CE92165DA6F400ABA3C2 /* PDFviewerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PDFviewerController.xib; path = ClubMedici/PDFviewerController.xib; sourceTree = "<group>"; };
@@ -453,6 +455,7 @@
 			children = (
 				ACBF78EF172D4B9700B4F230 /* spinner images */,
 				ACE9FF5716B88D91002C8CE5 /* header_contatti.png */,
+				AC79A2371734663C00ED0101 /* sectionHeader.png */,
 				AC1007F11731797C0021A89F /* ipadShadow.png */,
 				AC03EA0E1730882E004307EE /* phone2@2x.png */,
 				AC03EA0C1730881F004307EE /* mail2@2x.png */,
@@ -725,6 +728,7 @@
 				AC03EA0F1730882E004307EE /* phone2@2x.png in Resources */,
 				AC1007F21731797C0021A89F /* ipadShadow.png in Resources */,
 				AC2380EF1733EC15008F0D6D /* ErrorView_iPad.xib in Resources */,
+				AC79A2381734663C00ED0101 /* sectionHeader.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
