@@ -98,9 +98,12 @@
         if (!cell) {
             cell = [[[NSBundle mainBundle] loadNibNamed:@"ContactCell" owner:self options:NULL] objectAtIndex:0];
             UIView *v = [[UIView alloc] init];
+            v.opaque = YES;
             v.backgroundColor = [UIColor colorWithRed:210/255.0f green:230/255.0f blue:236/255.0f alpha:1];
             cell.selectedBackgroundView = v;
         }
+        
+        cell.opaque = YES;
         
         FXLabel *contactLabel = (FXLabel *) [cell viewWithTag:1];
         contactLabel.textColor = [UIColor colorWithRed:1/255.0f green:70/255.0f blue:148/255.0f alpha:1];
@@ -116,6 +119,7 @@
         contactLabel.highlightedTextColor =[UIColor blackColor];
         
         UIImageView *img = (UIImageView *)[cell viewWithTag:2];
+        img.opaque = YES;
         
         if([dataKey isEqualToString:@"pdf"]){
             [img setImage:[UIImage imageNamed:@"pdfImage"]];  
@@ -145,6 +149,7 @@
             
             //linea separatrice alta 1px, posizionata alla base inferiore della cella
             UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1024, 1)];
+            line.opaque = YES;
             line.tag = 999;
             line.layer.borderColor = [UIColor colorWithRed:214/255.0f green:226/255.0f blue:241/255.0f alpha:1].CGColor;
             line.layer.borderWidth = 1.0;
@@ -159,6 +164,7 @@
         if (!cell) {
             cell = [[[NSBundle mainBundle] loadNibNamed:@"ActionCell" owner:self options:NULL] objectAtIndex:0];
             UIView *v = [[UIView alloc] init];
+            v.opaque = YES;
             v.backgroundColor = [UIColor colorWithRed:210/255.0f green:230/255.0f blue:236/255.0f alpha:1];
             cell.selectedBackgroundView = v;
         }
@@ -186,6 +192,7 @@
     
     //linea separatrice alta 1px, posizionata alla base inferiore della cella
     UIView *separatorView = [[UIView alloc] initWithFrame:CGRectMake(0, 43, 1024, 1)];
+    separatorView.opaque = YES;
     separatorView.layer.borderColor = [UIColor colorWithRed:214/255.0f green:226/255.0f blue:241/255.0f alpha:1].CGColor;
     separatorView.layer.borderWidth = 1.0;
     //applico bordo inferiore
@@ -195,7 +202,7 @@
     
     /*Fine linea separatrice*/   
     
-    /*Background della cella*/
+//    /*Background della cella*/
     UIView* bgview = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, 1)];
     bgview.opaque = YES;
     bgview.backgroundColor = [UIColor colorWithRed:246/255.0f green:250/255.0f blue:255/255.0f alpha:1];//[UIColor whiteColor];
