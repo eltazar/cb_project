@@ -267,10 +267,26 @@
 //    return header;
 //}
 //
-//-(CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-//    return 25;
-//}
+-(CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+ 
+    return UITableViewAutomaticDimension;
+}
 
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    
+    UIImageView *sectionView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"sectionHeader"]];
+    sectionView.alpha = 0.95;
+    
+    //Add label to view
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(13, -9, 320, 40)];
+    titleLabel.backgroundColor =[UIColor clearColor];
+    [titleLabel setFont: [UIFont fontWithName:@"Helvetica-Bold" size:16.5f ]];
+    titleLabel.textColor = [UIColor whiteColor];
+    titleLabel.text = [self tableView:tableView titleForHeaderInSection:section];
+    [sectionView addSubview:titleLabel];
+    
+    return sectionView;
+}
 
 #pragma mark - Private methods
 
