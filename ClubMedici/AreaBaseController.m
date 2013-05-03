@@ -225,11 +225,17 @@
     NSString *dataKey = [_dataModel valueForKey:@"DATA_KEY" atIndexPath:indexPath];
     
     if([dataKey isEqualToString:@"documentoArea"]){
-        //NSLog(@"DOCUMENTO AREA CLICCATO = %@",[_dataModel valueForKey:@"ID_PAG" atIndexPath:indexPath]);
-        DocumentoAreaController *descController = [DocumentoAreaController idiomAllocInit];
-        descController.idPag = [_dataModel valueForKey:@"ID_PAG" atIndexPath:indexPath];
-        descController.title = [_dataModel valueForKey:@"LABEL" atIndexPath:indexPath];
-        [self.navigationController pushViewController:descController animated:YES];
+        if ([Utilities networkReachable]) {
+            //NSLog(@"DOCUMENTO AREA CLICCATO = %@",[_dataModel valueForKey:@"ID_PAG" atIndexPath:indexPath]);
+            DocumentoAreaController *descController = [DocumentoAreaController idiomAllocInit];
+            descController.idPag = [_dataModel valueForKey:@"ID_PAG" atIndexPath:indexPath];
+            descController.title = [_dataModel valueForKey:@"LABEL" atIndexPath:indexPath];
+            [self.navigationController pushViewController:descController animated:YES];
+        }
+        else{
+            [self showErrorView:@"Connessione assente"];
+            [tableView deselectRowAtIndexPath:indexPath animated:YES];
+        }
     }
     else if ([dataKey isEqualToString:@"phone"]) {
         NSLog(@"numero di telefono = %@",
