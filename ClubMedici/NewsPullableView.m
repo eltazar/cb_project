@@ -74,7 +74,10 @@
         [self addSubview:descrizioneBreve];
         [self addSubview:descrizioneEstesa];
         
-        
+        //rimuove ombra dietro la pagina web
+        for(UIView *wview in [[[descrizioneEstesa subviews] objectAtIndex:0] subviews]) {
+            if([wview isKindOfClass:[UIImageView class]]) { wview.hidden = YES; }
+        }
     
     }
     return self;
