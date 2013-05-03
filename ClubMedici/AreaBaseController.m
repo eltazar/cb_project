@@ -113,7 +113,7 @@
 //        contactLabel.innerShadowColor = [UIColor colorWithRed:1/255.0f green:70/255.0f blue:148/255.0f alpha:1];
 //
 //        contactLabel.innerShadowOffset = CGSizeMake(0.8f, 0.8f);
-//        contactLabel.highlightedTextColor =[UIColor blackColor];
+        contactLabel.highlightedTextColor =[UIColor blackColor];
         
         UIImageView *img = (UIImageView *)[cell viewWithTag:2];
         
