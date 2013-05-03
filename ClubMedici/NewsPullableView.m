@@ -25,10 +25,6 @@
     if (self) {
         // Initialization code
         self.backgroundColor = [UIColor colorWithRed:45/255.0f green:101/255.0f blue:201/255.0f alpha:1.0];;//[UIColor colorWithRed:207/255.0f green:216/255.0f blue:226/255.0f alpha:1];
-        self.layer.masksToBounds = NO;
-        self.layer.shadowOffset = CGSizeMake(0.5f, -3);
-        self.layer.shadowRadius = 1;
-        self.layer.shadowOpacity = 0.3;
         
         descrizioneBreve = [[UILabel alloc] initWithFrame:CGRectMake(15, 10, 300, 25)];
         descrizioneBreve.text = @"News: caricamento...";
@@ -50,6 +46,11 @@
         descrizioneEstesa.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin;
         descrizioneEstesa.backgroundColor = [UIColor colorWithRed:207/255.0f green:216/255.0f blue:226/255.0f alpha:1];
 
+        
+        self.opaque = YES;
+        descrizioneEstesa.opaque = YES;
+        descrizioneBreve.opaque = YES;
+        
         //[self addSubview:title];
         [self addSubview:descrizioneBreve];
         [self addSubview:descrizioneEstesa];
@@ -59,13 +60,23 @@
             if([wview isKindOfClass:[UIImageView class]]) { wview.hidden = YES; }
         }
         
+        //inserisco top & bottom shadow in questa maniera per motivi di performance
         UIView *shadowLine = [[UIView alloc] initWithFrame:CGRectMake(0, 44, self.frame.size.width,1)];
         shadowLine.backgroundColor = [UIColor colorWithRed:45/255.0f green:101/255.0f blue:201/255.0f alpha:1.0];
+        shadowLine.opaque = YES;
         shadowLine.layer.masksToBounds = NO;
         shadowLine.layer.shadowOffset = CGSizeMake(-1, 2);
         shadowLine.layer.shadowRadius = 4;
         shadowLine.layer.shadowOpacity = 2;
-        [self addSubview:shadowLine];    
+        [self addSubview:shadowLine];
+        
+        shadowLine = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width,1.5f)];
+        shadowLine.backgroundColor = [UIColor colorWithRed:45/255.0f green:101/255.0f blue:201/255.0f alpha:1.0];
+        shadowLine.layer.masksToBounds = NO;
+        shadowLine.layer.shadowOffset = CGSizeMake(-1, -3);
+        shadowLine.layer.shadowRadius = 4;
+        shadowLine.layer.shadowOpacity = 6;
+        [self addSubview:shadowLine];
     }
     return self;
 }
