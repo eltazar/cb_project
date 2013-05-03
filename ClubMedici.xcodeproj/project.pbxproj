@@ -10,6 +10,7 @@
 		AC03EA0D1730881F004307EE /* mail2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC03EA0C1730881F004307EE /* mail2@2x.png */; };
 		AC03EA0F1730882E004307EE /* phone2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC03EA0E1730882E004307EE /* phone2@2x.png */; };
 		AC1007F21731797C0021A89F /* ipadShadow.png in Resources */ = {isa = PBXBuildFile; fileRef = AC1007F11731797C0021A89F /* ipadShadow.png */; };
+		AC2380EF1733EC15008F0D6D /* ErrorView_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC2380EE1733EC15008F0D6D /* ErrorView_iPad.xib */; };
 		AC23E62B1660049500818769 /* pdfImage.png in Resources */ = {isa = PBXBuildFile; fileRef = AC23E6291660049500818769 /* pdfImage.png */; };
 		AC23E62C1660049500818769 /* pdfImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC23E62A1660049500818769 /* pdfImage@2x.png */; };
 		AC23E62F166025E400818769 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC23E62E166025E400818769 /* MessageUI.framework */; };
@@ -123,6 +124,7 @@
 		AC03EA0C1730881F004307EE /* mail2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "mail2@2x.png"; path = "img/mail2@2x.png"; sourceTree = SOURCE_ROOT; };
 		AC03EA0E1730882E004307EE /* phone2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "phone2@2x.png"; path = "img/phone2@2x.png"; sourceTree = SOURCE_ROOT; };
 		AC1007F11731797C0021A89F /* ipadShadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ipadShadow.png; path = img/ipadShadow.png; sourceTree = SOURCE_ROOT; };
+		AC2380EE1733EC15008F0D6D /* ErrorView_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ErrorView_iPad.xib; sourceTree = "<group>"; };
 		AC23E6291660049500818769 /* pdfImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pdfImage.png; path = img/pdfImage.png; sourceTree = SOURCE_ROOT; };
 		AC23E62A1660049500818769 /* pdfImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pdfImage@2x.png"; path = "img/pdfImage@2x.png"; sourceTree = SOURCE_ROOT; };
 		AC23E62E166025E400818769 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -610,6 +612,7 @@
 				ACBF78BB172D3D9200B4F230 /* CustomSpinnerView.m */,
 				ACFADECD172D75A500437E43 /* ErrorView.h */,
 				ACFADECE172D75A500437E43 /* ErrorView.m */,
+				AC2380EE1733EC15008F0D6D /* ErrorView_iPad.xib */,
 				AC8E1776172D800300376720 /* ErrorView.xib */,
 			);
 			name = "Custom views";
@@ -721,6 +724,7 @@
 				AC03EA0D1730881F004307EE /* mail2@2x.png in Resources */,
 				AC03EA0F1730882E004307EE /* phone2@2x.png in Resources */,
 				AC1007F21731797C0021A89F /* ipadShadow.png in Resources */,
+				AC2380EF1733EC15008F0D6D /* ErrorView_iPad.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
