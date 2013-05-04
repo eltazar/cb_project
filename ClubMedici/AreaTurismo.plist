@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>SECTION_NAME</key>
+		<string></string>
+		<key>SECTION_CONTENTS</key>
+		<array>
+			<dict>
+				<key>DATA_KEY</key>
+				<string></string>
+				<key>CONTROLLER</key>
+				<string>HomeViewController</string>
+				<key>LABEL</key>
+				<string>Mare e Spiaggia</string>
+			</dict>
+			<dict>
+				<key>DATA_KEY</key>
+				<string>Azienda</string>
+				<key>CONTROLLER</key>
+				<string>HomeViewController</string>
+				<key>LABEL</key>
+				<string>Montagna</string>
+			</dict>
+			<dict>
+				<key>DATA_KEY</key>
+				<string>Azienda</string>
+				<key>CONTROLLER</key>
+				<string>HomeViewController</string>
+				<key>LABEL</key>
+				<string>Gruppi ClubMedici</string>
+			</dict>
+			<dict>
+				<key>DATA_KEY</key>
+				<string>Azienda</string>
+				<key>CONTROLLER</key>
+				<string>HomeViewController</string>
+				<key>LABEL</key>
+				<string>Crociere</string>
+			</dict>
+			<dict>
+				<key>DATA_KEY</key>
+				<string>Azienda</string>
+				<key>CONTROLLER</key>
+				<string>HomeViewController</string>
+				<key>LABEL</key>
+				<string>Last Minute</string>
+			</dict>
+		</array>
+	</dict>
+</array>
+</plist>
