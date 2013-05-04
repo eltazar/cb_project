@@ -14,6 +14,7 @@
 @synthesize animate;
 @synthesize animationDuration;
 @synthesize opened;
+@synthesize delegate;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -174,5 +175,9 @@
         }
     }
 }
+
+//-(void)setDelegate:(id<PullableViewDelegate>)delegate{
+//    NSLog(@"DELEGATO PULLABLEVIEW");
+//}
 
 @end

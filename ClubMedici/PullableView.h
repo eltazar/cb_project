@@ -71,8 +71,6 @@ THE SOFTWARE.
     
     BOOL animate;
     float animationDuration;
-    
-    id<PullableViewDelegate> delegate;
 }
 
 /**
@@ -130,7 +128,7 @@ THE SOFTWARE.
  If the view is set to animate transitions, the delegate will be
  called only when the animation finishes.
  */
-@property (readwrite,assign) id<PullableViewDelegate> delegate;
+@property (readwrite,weak) id<PullableViewDelegate> delegate;
 
 /**
  The current state of the `PullableView`.
