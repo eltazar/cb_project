@@ -14,7 +14,7 @@
 #import "WMHTTPAccess.h"
 #import "PDHTTPAccess.h"
 
-@interface HomeViewController : JASidePanelController<WMHTTPAccessDelegate>
+@interface HomeViewController : UIViewController<WMHTTPAccessDelegate>
 {
     ErrorView *errorView;
 
