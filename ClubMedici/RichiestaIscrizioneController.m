@@ -9,11 +9,14 @@
 #import "RichiestaIscrizioneController.h"
 #import "WMTableViewDataSource.h"
 #import "MBProgressHUD.h"
+#import "ActionSheetPicker.h"
+#import "AbstractActionSheetPicker.h"
 
 #define allTrim( object ) [object stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet] ]
 #define replaceSpace( object ) [object stringByReplacingOccurrencesOfString:@" " withString:@""]
 
 #define ISCRIZIONE_MAIL @"iscrizioni@clubmedici.it"
+#define PICKER_TAG 100
 
 @interface RichiestaIscrizioneController (){
     NSString *name;
@@ -61,6 +64,15 @@
 
 #pragma mark - UITextFieldDelegate
 
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+    
+    if([textField.placeholder isEqualToString:@"Data di nascita"]){
+        [self selectADate:textField];
+        return NO;
+    }
+    else return YES;
+}
+
 - (void) textFieldDidEndEditing:(UITextField *)textField{
     UITableViewCell *cell = (UITableViewCell*) [[textField superview] superview];
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
@@ -78,9 +90,9 @@
     else if ([dataKey isEqualToString:@"phone"]){
         phone = textField.text;
     }
-    else  if ([dataKey isEqualToString:@"data"]){
-        bornDate = textField.text;
-    }
+//    else  if ([dataKey isEqualToString:@"data"]){
+//        bornDate = textField.text;
+//    }
     else if ([dataKey isEqualToString:@"place"]){
         city = textField.text;
     }
@@ -134,4 +146,25 @@
     [PDHTTPAccess sendEmail:[self createHtmlBody] object:@"Richiesta iscrizione" address:ISCRIZIONE_MAIL delegate:self];
 }
 
+#pragma mark - Action Methods
+
+- (void)selectADate:(UIControl *)sender {
+    NSDate *selectedDate = [NSDate date];
+    AbstractActionSheetPicker *actionSheetPicker = [[ActionSheetDatePicker alloc] initWithTitle:@"" datePickerMode:UIDatePickerModeDate selectedDate:selectedDate target:self action:@selector(dateWasSelected:element:) origin:sender];
+    actionSheetPicker.hideCancel = YES;
+    [actionSheetPicker showActionSheetPicker];
+}
+
+- (void)dateWasSelected:(NSDate *)selectedDate element:(id)element {
+    
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"d-MM-yyyy"];
+    NSString *dateString = [dateFormat stringFromDate:selectedDate];
+    
+    //may have originated from textField or barButtonItem, use an IBOutlet instead of element
+    UITableViewCell *selectedCell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForItem:4 inSection:0]];
+    UITextField *textFieldDate = (UITextField*)[selectedCell viewWithTag:1];
+    NSLog(@"textfield = %@",textFieldDate);
+    textFieldDate.text = dateString;
+}
 @end
