@@ -45,9 +45,29 @@
     listaTasso = [NSArray arrayWithObjects:@"Ordinario 9,90",@"Ridotto 4,45",@"Zero 0", nil];
     tassoSelezionato = 0;
     listaNumeroRate = [NSArray arrayWithObjects:@"6",@"12",@"18",@"24",@"30",@"36",@"42",@"48",@"54",@"60", nil];
-    numeroRateSelezionato = 0;    
+    numeroRateSelezionato = 0;
+    
+    [self applyLabelEffect:_importoRata];
+    [self applyLabelEffect:_importoRichiesto];
+    [self applyLabelEffect:_numeroRate];
+    [self applyLabelEffect:_scegliTasso];
+    [self applyLabelEffect:_numeroRate];
+    [self applyLabelEffect:_assicurazione];
+    [self applyLabelEffect:_totale];
+    [self applyLabelEffect:_spese];
+    [self applyLabelEffect:_footer];
+    
 }
 
+-(void)applyLabelEffect:(FXLabel*)label{
+    label.shadowColor = [UIColor colorWithWhite:1.0f alpha:0.8f];
+    label.shadowOffset = CGSizeMake(0.8f, 0.80f);
+    label.shadowBlur = 1.0f;
+    label.innerShadowBlur = 3.0f;
+    label.innerShadowColor = [UIColor colorWithWhite:0.0f alpha:0.9f];
+    label.innerShadowOffset = CGSizeMake(0.8f, 0.8f);
+    label.highlightedTextColor =[UIColor blackColor];
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
