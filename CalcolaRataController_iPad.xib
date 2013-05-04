@@ -117,6 +117,7 @@
 								<int key="NSID">2</int>
 							</object>
 						</object>
+						<int key="IBUITextAlignment">2</int>
 						<bool key="IBUIAdjustsFontSizeToFit">YES</bool>
 						<float key="IBUIMinimumFontSize">17</float>
 						<object class="IBUITextInputTraits" key="IBUITextInputTraits">
@@ -223,8 +224,9 @@
 						<int key="IBUITag">60</int>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 						<int key="IBUIContentVerticalAlignment">0</int>
-						<string key="IBUIText">6</string>
+						<string key="IBUIText"/>
 						<int key="IBUIBorderStyle">2</int>
+						<string key="IBUIPlaceholder">Inserisci</string>
 						<object class="NSColor" key="IBUITextColor">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MAA</bytes>
@@ -284,6 +286,7 @@
 							<bytes key="NSWhite">MAA</bytes>
 							<reference key="NSCustomColorSpace" ref="1037036627"/>
 						</object>
+						<int key="IBUITextAlignment">2</int>
 						<bool key="IBUIAdjustsFontSizeToFit">YES</bool>
 						<float key="IBUIMinimumFontSize">17</float>
 						<object class="IBUITextInputTraits" key="IBUITextInputTraits">
@@ -315,6 +318,7 @@
 							<bytes key="NSWhite">MAA</bytes>
 							<reference key="NSCustomColorSpace" ref="1037036627"/>
 						</object>
+						<int key="IBUITextAlignment">2</int>
 						<bool key="IBUIAdjustsFontSizeToFit">YES</bool>
 						<float key="IBUIMinimumFontSize">17</float>
 						<object class="IBUITextInputTraits" key="IBUITextInputTraits">
@@ -340,11 +344,13 @@
 						<int key="IBUIContentVerticalAlignment">0</int>
 						<string key="IBUIText"/>
 						<int key="IBUIBorderStyle">2</int>
+						<string key="IBUIPlaceholder">Inserisci</string>
 						<object class="NSColor" key="IBUITextColor">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MAA</bytes>
 							<reference key="NSCustomColorSpace" ref="1037036627"/>
 						</object>
+						<int key="IBUITextAlignment">2</int>
 						<bool key="IBUIAdjustsFontSizeToFit">YES</bool>
 						<float key="IBUIMinimumFontSize">17</float>
 						<object class="IBUITextInputTraits" key="IBUITextInputTraits">
@@ -370,11 +376,13 @@
 						<int key="IBUIContentVerticalAlignment">0</int>
 						<string key="IBUIText"/>
 						<int key="IBUIBorderStyle">2</int>
+						<string key="IBUIPlaceholder">Inserisci</string>
 						<object class="NSColor" key="IBUITextColor">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MAA</bytes>
 							<reference key="NSCustomColorSpace" ref="1037036627"/>
 						</object>
+						<int key="IBUITextAlignment">2</int>
 						<bool key="IBUIAdjustsFontSizeToFit">YES</bool>
 						<float key="IBUIMinimumFontSize">17</float>
 						<object class="IBUITextInputTraits" key="IBUITextInputTraits">
@@ -845,7 +853,6 @@
 					<dictionary class="NSMutableDictionary" key="actions">
 						<string key="scegliNumeroRate:">UIControl</string>
 						<string key="scegliTassoButton:">UIControl</string>
-						<string key="textFieldReturn:">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
 						<object class="IBActionInfo" key="scegliNumeroRate:">
@@ -855,10 +862,6 @@
 						<object class="IBActionInfo" key="scegliTassoButton:">
 							<string key="name">scegliTassoButton:</string>
 							<string key="candidateClassName">UIControl</string>
-						</object>
-						<object class="IBActionInfo" key="textFieldReturn:">
-							<string key="name">textFieldReturn:</string>
-							<string key="candidateClassName">id</string>
 						</object>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="outlets">
