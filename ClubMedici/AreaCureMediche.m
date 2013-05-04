@@ -55,7 +55,7 @@
     NSMutableArray *simulatoreRateContents = [[NSMutableArray alloc] initWithCapacity:1];
         
     [simulatoreRateContents insertObject:[[NSDictionary alloc] initWithObjectsAndKeys:
-                                 @"cure",           @"DATA_KEY",
+                                 @"calcolatore",           @"DATA_KEY",
                                  @"Calcola rata",   @"LABEL", nil] atIndex: 0];
     
     [simulatoreRate setObject:@"Simulatore Rate"        forKey:@"SECTION_NAME"];
