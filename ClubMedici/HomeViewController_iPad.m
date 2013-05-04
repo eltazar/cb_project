@@ -38,8 +38,12 @@
     titleView.layer.shadowOffset = CGSizeMake(-1, 1);
     titleView.layer.shadowRadius = 5;
     titleView.layer.shadowOpacity = 0.6;
-    newsWebView.scrollView.scrollEnabled = TRUE;
-	// Do any additional setup after loading the view.
+    //rimuove ombra dietro la pagina web
+    for(UIView *wview in [[[newsWebView subviews] objectAtIndex:0] subviews]) {
+        if([wview isKindOfClass:[UIImageView class]]){
+            wview.hidden = YES;
+        }
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -83,7 +87,7 @@
     newsTitle.text = [NSString stringWithFormat:@"News: %@",[[jsonArray objectAtIndex:0]objectForKey:@"titolo"]];
     
     NSString *htmlPage = @"<html><head><style type=\"text/css\">%@</style></head>    <body>%@</body></html>";
-    NSString *style = @"body {text-align:left;font-family:helvetica;}body,p {margin-top:20px;margin-left:45px;font-size: 13px;color: #212121;text-shadow: #fff 0px 1px 0px;}";//font-size: 16px;text-align: justify;color: #272727;text-shadow: 1px 4px 6px #f6faff, 0 0 0 #000, 1px 4px 6px #f6faff;}";//
+    NSString *style = @"body {text-align:left;font-family:helvetica;}body,p {margin-top:20px;margin-left:45px;font-size: 14px;color: #212121;text-shadow: #fff 0px 1px 0px;}";//font-size: 16px;text-align: justify;color: #272727;text-shadow: 1px 4px 6px #f6faff, 0 0 0 #000, 1px 4px 6px #f6faff;}";//
     htmlPage = [NSString stringWithFormat:htmlPage,style,[[jsonArray objectAtIndex:0]objectForKey:@"testo"]];
     [newsWebView loadHTMLString:htmlPage baseURL:nil];
 }
