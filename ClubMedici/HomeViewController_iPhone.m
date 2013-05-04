@@ -43,8 +43,7 @@
         //NSLog(@"iphone 4 ");
     }
     
-    self.view.backgroundColor = [UIColor colorWithRed:246/255.0f green:250/255.0f blue:255/255.0f alpha:1];
-    
+    newsView.animationDuration = 0.15f;
     newsView.openedCenter = CGPointMake(160 + 0,self.view.center.y+25);
     newsView.closedCenter = CGPointMake(160 + 0, self.view.frame.size.height+closedCenterOffset);
     newsView.center = newsView.closedCenter;
@@ -76,9 +75,11 @@
 
 - (void)pullableView:(PullableView *)pView didChangeState:(BOOL)opened {
     if (opened) {
-        NSLog(@"Now I'm open!");
+        //NSLog(@"Now I'm open!");
+       [newsView rotateArrow:YES];
     } else {
-        NSLog( @"Now I'm closed, pull me up again!");
+        //NSLog( @"Now I'm closed, pull me up again!");
+        [newsView rotateArrow:NO];
     }
 }
 

@@ -10,8 +10,10 @@
 #import "NewsPullableView.h"
 
 #define IS_IPHONE_5 ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )568 ) < DBL_EPSILON )
+#define degreesToRadians(x)(x * M_PI / 180)
 
 @interface NewsPullableView(){
+    UIImageView *arrow;
 }
 @end
 
@@ -77,8 +79,33 @@
         shadowLine.layer.shadowRadius = 4;
         shadowLine.layer.shadowOpacity = 6;
         [self addSubview:shadowLine];
+        
+        arrow = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"arrowUp"]];
+        
+        arrow.frame = CGRectMake(self.frame.size.width-25, 8,14, 11);
+        
+        [self addSubview:arrow];
     }
     return self;
+}
+
+-(void)rotateArrow:(BOOL)isUp{
+    
+    //http://stackoverflow.com/questions/3587636/animate-rotating-uiimageview
+    
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:0.25]; 
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+    
+    if(isUp){
+        arrow.transform = CGAffineTransformMakeRotation(degreesToRadians(180));
+    }
+    else{
+        //per ruotare a partire dallo stato precedente
+        arrow.transform = CGAffineTransformRotate(arrow.transform, degreesToRadians(180));
+    }
+    
+    [UIView commitAnimations];
 }
 
 @end

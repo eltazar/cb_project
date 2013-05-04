@@ -13,4 +13,6 @@
 @property(nonatomic, strong) IBOutlet UILabel *descrizioneBreve;
 @property(nonatomic, strong) IBOutlet UIWebView *descrizioneEstesa;
 
+-(void)rotateArrow:(BOOL)isUp;
+
 @end
