@@ -162,7 +162,7 @@
     NSString *dateString = [dateFormat stringFromDate:selectedDate];
     
     //may have originated from textField or barButtonItem, use an IBOutlet instead of element
-    UITableViewCell *selectedCell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForItem:4 inSection:0]];
+    UITableViewCell *selectedCell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:4 inSection:0]];
     UITextField *textFieldDate = (UITextField*)[selectedCell viewWithTag:1];
     NSLog(@"textfield = %@",textFieldDate);
     textFieldDate.text = dateString;
