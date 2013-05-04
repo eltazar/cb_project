@@ -29,6 +29,13 @@
 		AC2629B5165D334200510092 /* phone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC2629B3165D334200510092 /* phone@2x.png */; };
 		AC31D7AA165ECF5A00CCC001 /* TextFieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC31D7A9165ECF5A00CCC001 /* TextFieldCell.xib */; };
 		AC31D7B6165EF1A100CCC001 /* FormViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC31D7B5165EF1A100CCC001 /* FormViewController.xib */; };
+		AC5E5496173523DD0076DA6C /* AbstractActionSheetPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5E548A173523DD0076DA6C /* AbstractActionSheetPicker.m */; };
+		AC5E5497173523DD0076DA6C /* ActionSheetCustomPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5E548C173523DD0076DA6C /* ActionSheetCustomPicker.m */; };
+		AC5E5498173523DD0076DA6C /* ActionSheetDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5E548F173523DD0076DA6C /* ActionSheetDatePicker.m */; };
+		AC5E5499173523DD0076DA6C /* ActionSheetDistancePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5E5491173523DD0076DA6C /* ActionSheetDistancePicker.m */; };
+		AC5E549A173523DD0076DA6C /* ActionSheetStringPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5E5493173523DD0076DA6C /* ActionSheetStringPicker.m */; };
+		AC5E549B173523DD0076DA6C /* DistancePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5E5495173523DD0076DA6C /* DistancePickerView.m */; };
+		AC5E549D173544970076DA6C /* CalcolaRataController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC5E549C173544970076DA6C /* CalcolaRataController_iPad.xib */; };
 		AC72AC7F172FEF39006FB6A5 /* contactButtonEnabled.png in Resources */ = {isa = PBXBuildFile; fileRef = AC72AC7E172FEF39006FB6A5 /* contactButtonEnabled.png */; };
 		AC72AC81172FF24D006FB6A5 /* contactButtonSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = AC72AC80172FF24D006FB6A5 /* contactButtonSelected.png */; };
 		AC79A2381734663C00ED0101 /* sectionHeader.png in Resources */ = {isa = PBXBuildFile; fileRef = AC79A2371734663C00ED0101 /* sectionHeader.png */; };
@@ -54,6 +61,8 @@
 		ACBE63BC165A87E500F64CDA /* HomeViewController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBE63BB165A87E500F64CDA /* HomeViewController_iPad.m */; };
 		ACBF78BC172D3D9200B4F230 /* CustomSpinnerView.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBF78BB172D3D9200B4F230 /* CustomSpinnerView.m */; };
 		ACBFA9F91735008700A22E18 /* arrowUp.png in Resources */ = {isa = PBXBuildFile; fileRef = ACBFA9F81735008700A22E18 /* arrowUp.png */; };
+		ACBFA9FD1735135C00A22E18 /* CalcolaRataController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBFA9FB1735135C00A22E18 /* CalcolaRataController.m */; };
+		ACBFA9FE1735135C00A22E18 /* CalcolaRataController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACBFA9FC1735135C00A22E18 /* CalcolaRataController.xib */; };
 		ACBFD645165BBEE600DD7991 /* AreaBase.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBFD644165BBEE600DD7991 /* AreaBase.m */; };
 		ACBFD648165BC0B100DD7991 /* AreaFinanziaria.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBFD647165BC0B100DD7991 /* AreaFinanziaria.m */; };
 		ACCA16F1172A7E9300B03095 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACCA16F0172A7E9300B03095 /* SystemConfiguration.framework */; };
@@ -153,6 +162,21 @@
 		AC2629B3165D334200510092 /* phone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "phone@2x.png"; path = "img/phone@2x.png"; sourceTree = SOURCE_ROOT; };
 		AC31D7A9165ECF5A00CCC001 /* TextFieldCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TextFieldCell.xib; path = ClubMedici/TextFieldCell.xib; sourceTree = "<group>"; };
 		AC31D7B5165EF1A100CCC001 /* FormViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FormViewController.xib; path = ClubMedici/FormViewController.xib; sourceTree = "<group>"; };
+		AC5E5487173523DD0076DA6C /* ActionSheetPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActionSheetPicker.h; path = Pickers/ActionSheetPicker.h; sourceTree = "<group>"; };
+		AC5E5489173523DD0076DA6C /* AbstractActionSheetPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractActionSheetPicker.h; sourceTree = "<group>"; };
+		AC5E548A173523DD0076DA6C /* AbstractActionSheetPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbstractActionSheetPicker.m; sourceTree = "<group>"; };
+		AC5E548B173523DD0076DA6C /* ActionSheetCustomPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetCustomPicker.h; sourceTree = "<group>"; };
+		AC5E548C173523DD0076DA6C /* ActionSheetCustomPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetCustomPicker.m; sourceTree = "<group>"; };
+		AC5E548D173523DD0076DA6C /* ActionSheetCustomPickerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetCustomPickerDelegate.h; sourceTree = "<group>"; };
+		AC5E548E173523DD0076DA6C /* ActionSheetDatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetDatePicker.h; sourceTree = "<group>"; };
+		AC5E548F173523DD0076DA6C /* ActionSheetDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetDatePicker.m; sourceTree = "<group>"; };
+		AC5E5490173523DD0076DA6C /* ActionSheetDistancePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetDistancePicker.h; sourceTree = "<group>"; };
+		AC5E5491173523DD0076DA6C /* ActionSheetDistancePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetDistancePicker.m; sourceTree = "<group>"; };
+		AC5E5492173523DD0076DA6C /* ActionSheetStringPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetStringPicker.h; sourceTree = "<group>"; };
+		AC5E5493173523DD0076DA6C /* ActionSheetStringPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetStringPicker.m; sourceTree = "<group>"; };
+		AC5E5494173523DD0076DA6C /* DistancePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DistancePickerView.h; sourceTree = "<group>"; };
+		AC5E5495173523DD0076DA6C /* DistancePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DistancePickerView.m; sourceTree = "<group>"; };
+		AC5E549C173544970076DA6C /* CalcolaRataController_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalcolaRataController_iPad.xib; sourceTree = "<group>"; };
 		AC72AC7E172FEF39006FB6A5 /* contactButtonEnabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = contactButtonEnabled.png; path = img/contactButtonEnabled.png; sourceTree = SOURCE_ROOT; };
 		AC72AC80172FF24D006FB6A5 /* contactButtonSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = contactButtonSelected.png; path = img/contactButtonSelected.png; sourceTree = SOURCE_ROOT; };
 		AC79A2371734663C00ED0101 /* sectionHeader.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sectionHeader.png; path = img/sectionHeader.png; sourceTree = SOURCE_ROOT; };
@@ -188,6 +212,9 @@
 		ACBF78BA172D3D9200B4F230 /* CustomSpinnerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomSpinnerView.h; path = ClubMedici/CustomSpinnerView.h; sourceTree = "<group>"; };
 		ACBF78BB172D3D9200B4F230 /* CustomSpinnerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomSpinnerView.m; path = ClubMedici/CustomSpinnerView.m; sourceTree = "<group>"; };
 		ACBFA9F81735008700A22E18 /* arrowUp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = arrowUp.png; path = img/arrowUp.png; sourceTree = SOURCE_ROOT; };
+		ACBFA9FA1735135C00A22E18 /* CalcolaRataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CalcolaRataController.h; path = ClubMedici/CalcolaRataController.h; sourceTree = "<group>"; };
+		ACBFA9FB1735135C00A22E18 /* CalcolaRataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CalcolaRataController.m; path = ClubMedici/CalcolaRataController.m; sourceTree = "<group>"; };
+		ACBFA9FC1735135C00A22E18 /* CalcolaRataController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CalcolaRataController.xib; path = ClubMedici/CalcolaRataController.xib; sourceTree = "<group>"; };
 		ACBFD643165BBEE600DD7991 /* AreaBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreaBase.h; sourceTree = "<group>"; };
 		ACBFD644165BBEE600DD7991 /* AreaBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaBase.m; sourceTree = "<group>"; };
 		ACBFD646165BC0B100DD7991 /* AreaFinanziaria.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreaFinanziaria.h; sourceTree = "<group>"; };
@@ -350,6 +377,36 @@
 			name = "Form controllers";
 			sourceTree = "<group>";
 		};
+		AC5E5486173523C50076DA6C /* ActionSheetPicker */ = {
+			isa = PBXGroup;
+			children = (
+				AC5E5487173523DD0076DA6C /* ActionSheetPicker.h */,
+				AC5E5488173523DD0076DA6C /* Pickers */,
+			);
+			name = ActionSheetPicker;
+			sourceTree = "<group>";
+		};
+		AC5E5488173523DD0076DA6C /* Pickers */ = {
+			isa = PBXGroup;
+			children = (
+				AC5E5489173523DD0076DA6C /* AbstractActionSheetPicker.h */,
+				AC5E548A173523DD0076DA6C /* AbstractActionSheetPicker.m */,
+				AC5E548B173523DD0076DA6C /* ActionSheetCustomPicker.h */,
+				AC5E548C173523DD0076DA6C /* ActionSheetCustomPicker.m */,
+				AC5E548D173523DD0076DA6C /* ActionSheetCustomPickerDelegate.h */,
+				AC5E548E173523DD0076DA6C /* ActionSheetDatePicker.h */,
+				AC5E548F173523DD0076DA6C /* ActionSheetDatePicker.m */,
+				AC5E5490173523DD0076DA6C /* ActionSheetDistancePicker.h */,
+				AC5E5491173523DD0076DA6C /* ActionSheetDistancePicker.m */,
+				AC5E5492173523DD0076DA6C /* ActionSheetStringPicker.h */,
+				AC5E5493173523DD0076DA6C /* ActionSheetStringPicker.m */,
+				AC5E5494173523DD0076DA6C /* DistancePickerView.h */,
+				AC5E5495173523DD0076DA6C /* DistancePickerView.m */,
+			);
+			name = Pickers;
+			path = Pickers/Pickers;
+			sourceTree = "<group>";
+		};
 		ACB639281727236C00C26223 /* FXLabel */ = {
 			isa = PBXGroup;
 			children = (
@@ -458,6 +515,10 @@
 				ACF16D9717302273000683A9 /* DocumentoAreaController_iPad.h */,
 				ACF16D9817302273000683A9 /* DocumentoAreaController_iPad.m */,
 				ACF16D9917302273000683A9 /* DocumentoAreaController_iPad.xib */,
+				ACBFA9FA1735135C00A22E18 /* CalcolaRataController.h */,
+				ACBFA9FB1735135C00A22E18 /* CalcolaRataController.m */,
+				ACBFA9FC1735135C00A22E18 /* CalcolaRataController.xib */,
+				AC5E549C173544970076DA6C /* CalcolaRataController_iPad.xib */,
 			);
 			name = "Area controllers";
 			sourceTree = "<group>";
@@ -493,6 +554,7 @@
 		ACD4C76F165715460025F3F5 /* Librerie esterne */ = {
 			isa = PBXGroup;
 			children = (
+				AC5E5486173523C50076DA6C /* ActionSheetPicker */,
 				ACB639281727236C00C26223 /* FXLabel */,
 				ACDED9B61725EDC500668C5C /* AreeEnum.h */,
 				ACDCC029172EC08E00E64879 /* Reachability.h */,
@@ -745,6 +807,8 @@
 				D98131E71734985D00C919AB /* AreaTurismo.plist in Resources */,
 				D95680A51734988600CEAE63 /* AreaTurismoCell.xib in Resources */,
 				ACBFA9F91735008700A22E18 /* arrowUp.png in Resources */,
+				ACBFA9FE1735135C00A22E18 /* CalcolaRataController.xib in Resources */,
+				AC5E549D173544970076DA6C /* CalcolaRataController_iPad.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -802,6 +866,13 @@
 				ACF16D9A17302273000683A9 /* DocumentoAreaController_iPad.m in Sources */,
 				ACF16D9E173022D8000683A9 /* DocumentoAreaController.m in Sources */,
 				ACF16DA717302568000683A9 /* DocumentoAreaController_iPhone.m in Sources */,
+				ACBFA9FD1735135C00A22E18 /* CalcolaRataController.m in Sources */,
+				AC5E5496173523DD0076DA6C /* AbstractActionSheetPicker.m in Sources */,
+				AC5E5497173523DD0076DA6C /* ActionSheetCustomPicker.m in Sources */,
+				AC5E5498173523DD0076DA6C /* ActionSheetDatePicker.m in Sources */,
+				AC5E5499173523DD0076DA6C /* ActionSheetDistancePicker.m in Sources */,
+				AC5E549A173523DD0076DA6C /* ActionSheetStringPicker.m in Sources */,
+				AC5E549B173523DD0076DA6C /* DistancePickerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
