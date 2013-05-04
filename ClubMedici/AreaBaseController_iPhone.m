@@ -81,12 +81,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *dataKey = [_dataModel valueForKey:@"DATA_KEY" atIndexPath:indexPath];
-        
-    if([dataKey isEqualToString:@"cure"]){
-        //NSLog(@"CELLA CURE MEDICHE ---> devo lanciare calcolatore php");
-        
-    }
-    else if([dataKey isEqualToString:@"noleggioAuto"] || [dataKey isEqualToString:@"noleggioElettro"] ||
+    
+    if([dataKey isEqualToString:@"noleggioAuto"] || [dataKey isEqualToString:@"noleggioElettro"] ||
             [dataKey isEqualToString:@"leasingElettro"]){
         
         //NSLog(@" CELLA NOLEGGIO = %@", dataKey);
@@ -94,6 +90,10 @@
         formController.delegate = self;
 
         [self.navigationController presentModalViewController:[[UINavigationController alloc]initWithRootViewController:formController] animated:YES];
+    }
+    else if([dataKey isEqualToString:@"calcolatore"]){
+        CalcolaRataController *calcolaController = [[CalcolaRataController alloc] initWithNibName:@"CalcolaRataController" bundle:nil];
+        [self.navigationController pushViewController:calcolaController animated:YES];
     }
     else{
         [super tableView:tableView didSelectRowAtIndexPath:indexPath];

@@ -15,6 +15,7 @@
 #import "PDHTTPAccess.h"
 #import "WMHTTPAccess.h"
 #import "ErrorView.h"
+#import "CalcolaRataController.h"
 
 
 @class AreaBase, WMTableViewDataSource;
