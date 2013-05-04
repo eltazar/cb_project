@@ -20,7 +20,7 @@
 #import "CustomSpinnerView.h"
 #import "Reachability.h"
 
-#define QUERY_TIME_LIMIT 10//3600
+#define QUERY_TIME_LIMIT 60//3600
 
 @interface AreaBaseController () {
     NSDate *dateDoneQuery;
@@ -99,7 +99,7 @@
             cell = [[[NSBundle mainBundle] loadNibNamed:@"ContactCell" owner:self options:NULL] objectAtIndex:0];
             UIView *v = [[UIView alloc] init];
             v.opaque = YES;
-            v.backgroundColor = [UIColor colorWithRed:210/255.0f green:230/255.0f blue:236/255.0f alpha:1];
+            v.backgroundColor = [UIColor colorWithRed:194/255.0f green:203/255.0f blue:219/255.0f alpha:1];
             cell.selectedBackgroundView = v;
         }
         
@@ -165,7 +165,7 @@
             cell = [[[NSBundle mainBundle] loadNibNamed:@"ActionCell" owner:self options:NULL] objectAtIndex:0];
             UIView *v = [[UIView alloc] init];
             v.opaque = YES;
-            v.backgroundColor = [UIColor colorWithRed:210/255.0f green:230/255.0f blue:236/255.0f alpha:1];
+            v.backgroundColor = [UIColor colorWithRed:194/255.0f green:203/255.0f blue:219/255.0f alpha:1];
             cell.selectedBackgroundView = v;
         }
     }
