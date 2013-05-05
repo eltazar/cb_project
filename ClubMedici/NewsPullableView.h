@@ -12,6 +12,9 @@
 
 @property(nonatomic, strong) IBOutlet UILabel *descrizioneBreve;
 @property(nonatomic, strong) IBOutlet UIWebView *descrizioneEstesa;
+@property(nonatomic, strong) UIButton *fbButton;
+@property(nonatomic, strong) UIButton *mailButton;
+@property(nonatomic, strong) UIButton *twButton;
 
 -(void)rotateArrow:(BOOL)isUp;
 

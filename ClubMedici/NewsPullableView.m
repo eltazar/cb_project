@@ -19,7 +19,7 @@
 
 
 @implementation NewsPullableView
-@synthesize descrizioneBreve, descrizioneEstesa;
+@synthesize descrizioneBreve, descrizioneEstesa, fbButton, mailButton, twButton;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -47,7 +47,7 @@
         descrizioneEstesa.opaque = NO;
         descrizioneEstesa.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin;
         descrizioneEstesa.backgroundColor = [UIColor colorWithRed:207/255.0f green:216/255.0f blue:226/255.0f alpha:1];
-
+        descrizioneEstesa.scrollView.contentInset =  UIEdgeInsetsMake(50.0,0.0,0.0,0.0);
         
         self.opaque = YES;
         descrizioneEstesa.opaque = YES;
@@ -85,6 +85,29 @@
         arrow.frame = CGRectMake(self.frame.size.width-25, 8,14, 11);
         
         [self addSubview:arrow];
+        
+        UIView *sharingView = [[UIView alloc] initWithFrame:CGRectMake(self.frame.size.width-192-10, -35, 192, 36)];
+        sharingView.backgroundColor = [UIColor clearColor];
+        sharingView.opaque = YES;
+        
+        [descrizioneEstesa.scrollView addSubview:sharingView];
+        
+        self.fbButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 64, 36)];
+        fbButton.opaque = YES;
+        [fbButton setBackgroundImage:[UIImage imageNamed:@"fbButton"] forState:UIControlStateNormal];
+        [sharingView addSubview:self.fbButton];
+        
+        self.twButton = [[UIButton alloc] initWithFrame:CGRectMake(64, 0, 64, 36)];
+        twButton.opaque = YES;
+        [twButton setBackgroundImage:[UIImage imageNamed:@"twButton"] forState:UIControlStateNormal];
+        [sharingView addSubview:self.twButton];
+        
+        self.mailButton = [[UIButton alloc] initWithFrame:CGRectMake(128, 0, 64, 36)];
+        mailButton.opaque = YES;
+        [mailButton setBackgroundImage:[UIImage imageNamed:@"mailButton"] forState:UIControlStateNormal];
+        [sharingView addSubview:self.mailButton];
+
+        
     }
     return self;
 }
