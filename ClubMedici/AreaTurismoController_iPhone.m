@@ -6,14 +6,14 @@
 //  Copyright (c) 2013 mario greco. All rights reserved.
 //
 
-#import "AreaTurismoController.h"
+#import "AreaTurismoController_iPhone.h"
 #import "WMTableViewDataSource.h"
 
-@interface AreaTurismoController ()
+@interface AreaTurismoController_iPhone ()
 
 @end
 
-@implementation AreaTurismoController
+@implementation AreaTurismoController_iPhone
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -27,7 +27,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	_dataModel = [[WMTableViewDataSource alloc] initWithPList:@"AreaTurismo"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -36,11 +35,17 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - private Methods
+- (void)fetchData {
+    _dataModel = [[WMTableViewDataSource alloc] initWithPList:@"AreaTurismo"];
+    //[self showData];
+}
+
 
 #pragma mark - Table view data source
 
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+/*- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = nil;
     //NSString *cellIdentifier;
     NSString *dataKey = [_dataModel valueForKey:@"DATA_KEY" atIndexPath:indexPath];
@@ -68,7 +73,7 @@
         
         UIImageView *img = (UIImageView *)[cell viewWithTag:2];
     }
-}
+}*/
 
 
 @end

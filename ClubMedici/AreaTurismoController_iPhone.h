@@ -6,8 +6,8 @@
 //  Copyright (c) 2013 mario greco. All rights reserved.
 //
 
-#import "AreaBaseController.h"
+#import "AreaBaseController_iPhone.h"
 
-@interface AreaTurismoController : AreaBaseController
+@interface AreaTurismoController_iPhone : AreaBaseController_iPhone
 
 @end
