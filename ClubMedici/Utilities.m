@@ -106,18 +106,18 @@
 }
 
 
-+ (void)saveCustomObject:(AreaBase *)obj key:(NSString*)key {
++ (void)saveCustomObject:(/*AreaBase **/id)obj key:(NSString*)key {
     NSData *myEncodedObject = [NSKeyedArchiver archivedDataWithRootObject:obj];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:myEncodedObject forKey:key];
     [defaults synchronize];
 }
 
-+ (AreaBase *)loadCustomObjectWithKey:(NSString *)key {
++ (/*AreaBase **/id)loadCustomObjectWithKey:(NSString *)key {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSData *myEncodedObject = [defaults objectForKey:key];
-    AreaBase *obj = (AreaBase *)[NSKeyedUnarchiver unarchiveObjectWithData: myEncodedObject];
-    return obj;
+    /*AreaBase *obj = (AreaBase *)*/ return [NSKeyedUnarchiver unarchiveObjectWithData: myEncodedObject];
+    //return obj;
 }
 
 + (void)callNumber:(NSString*)number {
