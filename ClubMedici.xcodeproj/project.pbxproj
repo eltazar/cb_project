@@ -10,6 +10,17 @@
 		AC03EA0D1730881F004307EE /* mail2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC03EA0C1730881F004307EE /* mail2@2x.png */; };
 		AC03EA0F1730882E004307EE /* phone2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC03EA0E1730882E004307EE /* phone2@2x.png */; };
 		AC1007F21731797C0021A89F /* ipadShadow.png in Resources */ = {isa = PBXBuildFile; fileRef = AC1007F11731797C0021A89F /* ipadShadow.png */; };
+		AC168DA81736949B00B7466A /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC168DA71736949B00B7466A /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		AC168DAA173694A500B7466A /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC168DA9173694A500B7466A /* Accounts.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		AC168DAC173694CA00B7466A /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AC168DAB173694CA00B7466A /* libsqlite3.dylib */; settings = {ATTRIBUTES = (Weak, ); }; };
+		AC168DAF173694DB00B7466A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC168DAD173694DB00B7466A /* Security.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		AC168DB0173694DB00B7466A /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC168DAE173694DB00B7466A /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		AC168DB21736953A00B7466A /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC168DB11736953A00B7466A /* FacebookSDK.framework */; };
+		AC168DB41736955D00B7466A /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AC168DB31736955D00B7466A /* FacebookSDKResources.bundle */; };
+		AC168DB61736A3D300B7466A /* fbButton.png in Resources */ = {isa = PBXBuildFile; fileRef = AC168DB51736A3D300B7466A /* fbButton.png */; };
+		AC168DB81736AEDD00B7466A /* mailButton.png in Resources */ = {isa = PBXBuildFile; fileRef = AC168DB71736AEDD00B7466A /* mailButton.png */; };
+		AC168DBA1736AF3300B7466A /* twButton.png in Resources */ = {isa = PBXBuildFile; fileRef = AC168DB91736AF3300B7466A /* twButton.png */; };
+		AC168DC81736CBFE00B7466A /* fbLogout.png in Resources */ = {isa = PBXBuildFile; fileRef = AC168DC71736CBFE00B7466A /* fbLogout.png */; };
 		AC2380EF1733EC15008F0D6D /* ErrorView_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC2380EE1733EC15008F0D6D /* ErrorView_iPad.xib */; };
 		AC23E62B1660049500818769 /* pdfImage.png in Resources */ = {isa = PBXBuildFile; fileRef = AC23E6291660049500818769 /* pdfImage.png */; };
 		AC23E62C1660049500818769 /* pdfImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC23E62A1660049500818769 /* pdfImage@2x.png */; };
@@ -137,6 +148,17 @@
 		AC03EA0C1730881F004307EE /* mail2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "mail2@2x.png"; path = "img/mail2@2x.png"; sourceTree = SOURCE_ROOT; };
 		AC03EA0E1730882E004307EE /* phone2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "phone2@2x.png"; path = "img/phone2@2x.png"; sourceTree = SOURCE_ROOT; };
 		AC1007F11731797C0021A89F /* ipadShadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ipadShadow.png; path = img/ipadShadow.png; sourceTree = SOURCE_ROOT; };
+		AC168DA71736949B00B7466A /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		AC168DA9173694A500B7466A /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		AC168DAB173694CA00B7466A /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		AC168DAD173694DB00B7466A /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		AC168DAE173694DB00B7466A /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		AC168DB11736953A00B7466A /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
+		AC168DB31736955D00B7466A /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = FacebookSDKResources.bundle; path = ../../../Documents/FacebookSDK/FacebookSDK.framework/Versions/A/Resources/FacebookSDKResources.bundle; sourceTree = "<group>"; };
+		AC168DB51736A3D300B7466A /* fbButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fbButton.png; path = img/fbButton.png; sourceTree = SOURCE_ROOT; };
+		AC168DB71736AEDD00B7466A /* mailButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mailButton.png; path = img/mailButton.png; sourceTree = SOURCE_ROOT; };
+		AC168DB91736AF3300B7466A /* twButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = twButton.png; path = img/twButton.png; sourceTree = SOURCE_ROOT; };
+		AC168DC71736CBFE00B7466A /* fbLogout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fbLogout.png; path = img/fbLogout.png; sourceTree = SOURCE_ROOT; };
 		AC2380EE1733EC15008F0D6D /* ErrorView_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ErrorView_iPad.xib; sourceTree = "<group>"; };
 		AC23E6291660049500818769 /* pdfImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pdfImage.png; path = img/pdfImage.png; sourceTree = SOURCE_ROOT; };
 		AC23E62A1660049500818769 /* pdfImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pdfImage@2x.png"; path = "img/pdfImage@2x.png"; sourceTree = SOURCE_ROOT; };
@@ -326,6 +348,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC168DAF173694DB00B7466A /* Security.framework in Frameworks */,
+				AC168DB0173694DB00B7466A /* Social.framework in Frameworks */,
+				AC168DAC173694CA00B7466A /* libsqlite3.dylib in Frameworks */,
+				AC168DAA173694A500B7466A /* Accounts.framework in Frameworks */,
+				AC168DA81736949B00B7466A /* AdSupport.framework in Frameworks */,
 				ACCA16F1172A7E9300B03095 /* SystemConfiguration.framework in Frameworks */,
 				AC9168E416B9EC1900AF402E /* CoreLocation.framework in Frameworks */,
 				ACE683C416B8757100530D22 /* MapKit.framework in Frameworks */,
@@ -334,6 +361,7 @@
 				ACEBDC6616570CBE00CEFFE5 /* UIKit.framework in Frameworks */,
 				ACEBDC6816570CBE00CEFFE5 /* Foundation.framework in Frameworks */,
 				ACEBDC6A16570CBE00CEFFE5 /* CoreGraphics.framework in Frameworks */,
+				AC168DB21736953A00B7466A /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -528,6 +556,10 @@
 			children = (
 				ACBF78EF172D4B9700B4F230 /* spinner images */,
 				ACE9FF5716B88D91002C8CE5 /* header_contatti.png */,
+				AC168DC71736CBFE00B7466A /* fbLogout.png */,
+				AC168DB51736A3D300B7466A /* fbButton.png */,
+				AC168DB71736AEDD00B7466A /* mailButton.png */,
+				AC168DB91736AF3300B7466A /* twButton.png */,
 				ACB82AE71735ECE700544657 /* background_ipad.png */,
 				ACB82AE91735EE9D00544657 /* background_iphone.png */,
 				AC79A2371734663C00ED0101 /* sectionHeader.png */,
@@ -635,6 +667,13 @@
 		ACEBDC6416570CBE00CEFFE5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AC168DB31736955D00B7466A /* FacebookSDKResources.bundle */,
+				AC168DB11736953A00B7466A /* FacebookSDK.framework */,
+				AC168DAD173694DB00B7466A /* Security.framework */,
+				AC168DAE173694DB00B7466A /* Social.framework */,
+				AC168DAB173694CA00B7466A /* libsqlite3.dylib */,
+				AC168DA9173694A500B7466A /* Accounts.framework */,
+				AC168DA71736949B00B7466A /* AdSupport.framework */,
 				ACCA16F0172A7E9300B03095 /* SystemConfiguration.framework */,
 				AC9168E316B9EC1900AF402E /* CoreLocation.framework */,
 				ACE683C316B8757100530D22 /* MapKit.framework */,
@@ -809,6 +848,11 @@
 				AC5E549D173544970076DA6C /* CalcolaRataController_iPad.xib in Resources */,
 				ACB82AE81735ECE700544657 /* background_ipad.png in Resources */,
 				ACB82AEA1735EE9D00544657 /* background_iphone.png in Resources */,
+				AC168DB41736955D00B7466A /* FacebookSDKResources.bundle in Resources */,
+				AC168DB61736A3D300B7466A /* fbButton.png in Resources */,
+				AC168DB81736AEDD00B7466A /* mailButton.png in Resources */,
+				AC168DBA1736AF3300B7466A /* twButton.png in Resources */,
+				AC168DC81736CBFE00B7466A /* fbLogout.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -963,10 +1007,15 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer: Mario Greco (AJKP6QLLR2)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Mario Greco (AJKP6QLLR2)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../Documents/FacebookSDK\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ClubMedici/ClubMedici-Prefix.pch";
 				INFOPLIST_FILE = "ClubMedici/ClubMedici-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_LDFLAGS = "-lsqlite3.0";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "A6FDED87-B65E-486A-9C1A-192A8F69EF2F";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A6FDED87-B65E-486A-9C1A-192A8F69EF2F";
@@ -979,10 +1028,16 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer: Mario Greco (AJKP6QLLR2)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Mario Greco (AJKP6QLLR2)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../Documents/FacebookSDK\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ClubMedici/ClubMedici-Prefix.pch";
 				INFOPLIST_FILE = "ClubMedici/ClubMedici-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_LDFLAGS = "-lsqlite3.0";
+				"OTHER_LDFLAGS[arch=*]" = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "A6FDED87-B65E-486A-9C1A-192A8F69EF2F";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A6FDED87-B65E-486A-9C1A-192A8F69EF2F";
