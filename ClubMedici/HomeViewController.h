@@ -15,8 +15,11 @@
 #import "PDHTTPAccess.h"
 #import <Social/Social.h>
 #import "AppDelegate.h"
+#import <MessageUI/MessageUI.h>
+#import "SharingPanelView.h"
 
-@interface HomeViewController : UIViewController<WMHTTPAccessDelegate>
+
+@interface HomeViewController : UIViewController<WMHTTPAccessDelegate, MFMailComposeViewControllerDelegate>
 {
     ErrorView *errorView;
 

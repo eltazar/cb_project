@@ -10,6 +10,8 @@
 #import <Twitter/Twitter.h>
 #import "HomeViewController.h"
 #import "Reachability.h"
+#import "Utilities.h"
+
 
 
 @interface HomeViewController ()
@@ -133,7 +135,13 @@
     NSLog(@"Server error = %@",error.description);
     [self showErrorView:@"Errore server"];
 }
-#pragma mark - TWITTER
+#pragma mark - SHARING
+
+-(void)postToMail:(id)sender{
+    
+    NSString *urlString = [NSString stringWithFormat:@"http://www.clubmedici.it/nuovo/pagina.php?art=1&pgat=%@",[[json objectAtIndex:0] objectForKey:@"id"]];
+    [Utilities sendEmail:nil object:@"News ClubMedici" content:urlString html:NO controller:self];
+}
 
 - (void)postToTwitter:(id)sender{
 
@@ -169,7 +177,6 @@
     };
 }
 
-#pragma mark - FACEBOOK
 - (void)postToFacebook:(id)sender {
     
     if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 6.0) {
@@ -216,7 +223,7 @@
     
 }
 
-#pragma mark - Action methods
+#pragma mark - Facebook methods
 
 - (void)authButtonAction:(id)sender {
     AppDelegate *appDelegate =
@@ -285,9 +292,6 @@
     [appDelegate closeSession];
 }
 
-
-#pragma mark - Helper methods
-
 /*
  * Configure the logged in versus logged out UI
  */
@@ -328,6 +332,22 @@
     return params;
 }
 
+#pragma mark - MFMailComposeViewControllerDelegate
 
+
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
+    
+    [self dismissModalViewControllerAnimated:YES];
+    if(result == MFMailComposeResultSent) {
+        NSLog(@"messaggio inviato");
+    }
+	else if (result == MFMailComposeResultFailed){
+		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Messaggio non inviato!" message:@"Non è stato possibile inviare la tua e-mail" delegate:self cancelButtonTitle:@"Chiudi" otherButtonTitles:nil];
+		[alert show];
+	}
+    else if (result == MFMailComposeResultCancelled){
+        NSLog(@"messaggio annullato");
+    }
+}
 
 @end
