@@ -113,7 +113,7 @@
     label.innerShadowOffset = CGSizeMake(1.0f, 1.0f);
     label.highlightedTextColor =[UIColor blackColor];
     
-    NSLog(@"LABEL = %@",[_dataModel valueForKey:@"LABEL" atIndexPath:indexPath]);
+    //NSLog(@"LABEL = %@",[_dataModel valueForKey:@"LABEL" atIndexPath:indexPath]);
     label.text = [_dataModel valueForKey:@"LABEL" atIndexPath:indexPath];
     
     FXLabel *contactLabel = (FXLabel *) [cell viewWithTag:1];
@@ -176,7 +176,26 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    //NSString *dataKey = [_dataModel valueForKey:@"DATA_KEY" atIndexPath:indexPath];
+    NSString *dataKey = [_dataModel valueForKey:@"DATA_KEY" atIndexPath:indexPath];
+    if([dataKey isEqualToString:@"facebook"]){
+        NSURL *url = [NSURL URLWithString:@"fb://profile/110555735629242"];
+        [[UIApplication sharedApplication] openURL:url];
+        
+        if (![[UIApplication sharedApplication] openURL: url]) {
+            //fanPageURL failed to open.  Open the website in Safari instead
+            NSURL *webURL = [NSURL URLWithString:@"http://www.facebook.com/pages/CLUB-MEDICI/110555735629242"];
+            [[UIApplication sharedApplication] openURL: webURL];
+        }
+    }
+    else if([dataKey isEqualToString:@"twitter"]){
+        NSURL *url = [NSURL URLWithString:@"twitter://user?screen_name=Clubmedici"];
+        if (![[UIApplication sharedApplication] openURL: url]) {
+            //fanPageURL failed to open.  Open the website in Safari instead
+            NSURL *webURL = [NSURL URLWithString:@"https://twitter.com/Clubmedici"];
+            [[UIApplication sharedApplication] openURL: webURL];
+        }
+    }
+    
 }
 
 //- (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {

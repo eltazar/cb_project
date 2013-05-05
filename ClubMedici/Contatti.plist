@@ -40,7 +40,7 @@
 				<key>DATA_KEY</key>
 				<string>facebook</string>
 				<key>LABEL</key>
-				<string>cbfacebook</string>
+				<string>facebook.com/club-medici</string>
 				<key>IMG</key>
 				<string></string>
 			</dict>
@@ -48,7 +48,7 @@
 				<key>DATA_KEY</key>
 				<string>twitter</string>
 				<key>LABEL</key>
-				<string>cbtwitter</string>
+				<string>@Clubmedici</string>
 				<key>IMG</key>
 				<string></string>
 			</dict>
