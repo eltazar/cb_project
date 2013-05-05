@@ -16,8 +16,10 @@
     Class class = NSClassFromString([NSString stringWithFormat:@"%@%@",
                                     NSStringFromClass(self.class), idiom]);
     id viewController = [[class alloc] init];
-    if (!viewController)
+    if (!viewController) {
         NSLog(@"uh-oh");
+        viewController = [[self alloc] init];
+    }
     return viewController;
 }
 
