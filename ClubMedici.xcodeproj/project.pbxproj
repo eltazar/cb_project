@@ -89,6 +89,7 @@
 		ACD24BA3165FB59500C97CD2 /* AreaDescriptionCell_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACD24BA2165FB59400C97CD2 /* AreaDescriptionCell_iPad.xib */; };
 		ACD4C7731657158D0025F3F5 /* JASidePanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD4C7721657158D0025F3F5 /* JASidePanelController.m */; };
 		ACD4C77C16571A5D0025F3F5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACD4C77B16571A5D0025F3F5 /* QuartzCore.framework */; };
+		ACDA94371736E41A00A00092 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACDA94361736E41A00A00092 /* Twitter.framework */; };
 		ACDCC02B172EC08E00E64879 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDCC02A172EC08E00E64879 /* Reachability.m */; };
 		ACDCC6E016B34A7900745FFB /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDCC6DF16B34A7900745FFB /* AsyncImageView.m */; };
 		ACDCC6E416B34B0900745FFB /* CachedAsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDCC6E316B34B0900745FFB /* CachedAsyncImageView.m */; };
@@ -261,6 +262,7 @@
 		ACD4C7711657158D0025F3F5 /* JASidePanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JASidePanelController.h; sourceTree = "<group>"; };
 		ACD4C7721657158D0025F3F5 /* JASidePanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JASidePanelController.m; sourceTree = "<group>"; };
 		ACD4C77B16571A5D0025F3F5 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		ACDA94361736E41A00A00092 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		ACDCC029172EC08E00E64879 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		ACDCC02A172EC08E00E64879 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		ACDCC6DE16B34A7900745FFB /* AsyncImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncImageView.h; sourceTree = "<group>"; };
@@ -348,6 +350,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACDA94371736E41A00A00092 /* Twitter.framework in Frameworks */,
 				AC168DAF173694DB00B7466A /* Security.framework in Frameworks */,
 				AC168DB0173694DB00B7466A /* Social.framework in Frameworks */,
 				AC168DAC173694CA00B7466A /* libsqlite3.dylib in Frameworks */,
@@ -667,6 +670,7 @@
 		ACEBDC6416570CBE00CEFFE5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				ACDA94361736E41A00A00092 /* Twitter.framework */,
 				AC168FAF1736DAAF00B7466A /* FacebookSDKResources.bundle */,
 				AC168FAD1736DAA400B7466A /* FacebookSDK.framework */,
 				AC168DAD173694DB00B7466A /* Security.framework */,
