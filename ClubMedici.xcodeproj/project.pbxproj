@@ -90,6 +90,7 @@
 		ACD4C7731657158D0025F3F5 /* JASidePanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD4C7721657158D0025F3F5 /* JASidePanelController.m */; };
 		ACD4C77C16571A5D0025F3F5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACD4C77B16571A5D0025F3F5 /* QuartzCore.framework */; };
 		ACDA94371736E41A00A00092 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACDA94361736E41A00A00092 /* Twitter.framework */; };
+		ACDA943A1736EF9900A00092 /* SharingPanelView.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDA94391736EF9900A00092 /* SharingPanelView.m */; };
 		ACDCC02B172EC08E00E64879 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDCC02A172EC08E00E64879 /* Reachability.m */; };
 		ACDCC6E016B34A7900745FFB /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDCC6DF16B34A7900745FFB /* AsyncImageView.m */; };
 		ACDCC6E416B34B0900745FFB /* CachedAsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDCC6E316B34B0900745FFB /* CachedAsyncImageView.m */; };
@@ -263,6 +264,8 @@
 		ACD4C7721657158D0025F3F5 /* JASidePanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JASidePanelController.m; sourceTree = "<group>"; };
 		ACD4C77B16571A5D0025F3F5 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		ACDA94361736E41A00A00092 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
+		ACDA94381736EF9900A00092 /* SharingPanelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SharingPanelView.h; path = ClubMedici/SharingPanelView.h; sourceTree = "<group>"; };
+		ACDA94391736EF9900A00092 /* SharingPanelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SharingPanelView.m; path = ClubMedici/SharingPanelView.m; sourceTree = "<group>"; };
 		ACDCC029172EC08E00E64879 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		ACDCC02A172EC08E00E64879 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		ACDCC6DE16B34A7900745FFB /* AsyncImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncImageView.h; sourceTree = "<group>"; };
@@ -729,6 +732,8 @@
 		ACFADECC172D752700437E43 /* Custom views */ = {
 			isa = PBXGroup;
 			children = (
+				ACDA94381736EF9900A00092 /* SharingPanelView.h */,
+				ACDA94391736EF9900A00092 /* SharingPanelView.m */,
 				ACBF78BA172D3D9200B4F230 /* CustomSpinnerView.h */,
 				ACBF78BB172D3D9200B4F230 /* CustomSpinnerView.m */,
 				ACFADECD172D75A500437E43 /* ErrorView.h */,
@@ -922,6 +927,7 @@
 				AC5E5499173523DD0076DA6C /* ActionSheetDistancePicker.m in Sources */,
 				AC5E549A173523DD0076DA6C /* ActionSheetStringPicker.m in Sources */,
 				AC5E549B173523DD0076DA6C /* DistancePickerView.m in Sources */,
+				ACDA943A1736EF9900A00092 /* SharingPanelView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
