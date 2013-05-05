@@ -15,6 +15,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
+        self.opaque = YES;
         
         //Create the first status image and the indicator view
         UIImage *statusImage = [UIImage imageNamed:@"spinner0.png"];
