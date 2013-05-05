@@ -53,4 +53,14 @@
 }
 */
 
+-(BOOL)isVisible{
+    if (self.superview){
+        //do something with myView because you can assume it is on the screen
+        return YES;
+    }
+    else {
+        //myView is not in the view hierarchy
+        return NO;
+    }
+}
 @end
