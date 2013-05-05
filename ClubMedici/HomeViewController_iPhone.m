@@ -58,8 +58,11 @@
     descriptionLabel.shadowOffset  = CGSizeMake(-1.0,-1.0);
     
     //setto bottone per condivisione facebook, twitter, email
-    [newsView.fbButton addTarget:self action:@selector(postToFacebook:) forControlEvents:UIControlEventTouchUpInside];
-    [newsView.twButton addTarget:self action:@selector(postToTwitter:) forControlEvents:UIControlEventTouchUpInside];
+    SharingPanelView *sharingView = newsView.sharingView;
+    NSLog(@"SHARING VIEW = %@",sharingView);
+    [sharingView.fbButton addTarget:self action:@selector(postToFacebook:) forControlEvents:UIControlEventTouchUpInside];
+    [sharingView.twButton addTarget:self action:@selector(postToTwitter:) forControlEvents:UIControlEventTouchUpInside];
+    [sharingView.mailButton addTarget:self action:@selector(postToMail:) forControlEvents:UIControlEventTouchUpInside];
     
     [self.view addSubview:newsView];
 }
