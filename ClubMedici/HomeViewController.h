@@ -13,6 +13,8 @@
 #import "ErrorView.h"
 #import "WMHTTPAccess.h"
 #import "PDHTTPAccess.h"
+#import <Social/Social.h>
+#import "AppDelegate.h"
 
 @interface HomeViewController : UIViewController<WMHTTPAccessDelegate>
 {
@@ -20,5 +22,7 @@
 
 }- (void) showErrorView:(NSString*)message;
 - (void)hideErrorView:(UITapGestureRecognizer*)gesture;
+
+- (void)postToFacebook:(id)sender;
 
 @end

@@ -8,6 +8,7 @@
 
 #import "HomeViewController_iPhone.h"
 
+
 #define IS_IPHONE_5 ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )568 ) < DBL_EPSILON )
 
 
@@ -49,10 +50,15 @@
     newsView.center = newsView.closedCenter;
     newsView.handleView.frame = CGRectMake(0, 0, 320, 40);
     newsView.delegate = self;
+    [newsView setUserInteractionEnabled:NO];
+    
     
     descriptionLabel.textColor     = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.5];
     descriptionLabel.shadowColor   = [UIColor darkGrayColor];
     descriptionLabel.shadowOffset  = CGSizeMake(-1.0,-1.0);
+    
+    //setto bottone per condivisione facebook, twitter, email
+    [newsView.fbButton addTarget:self action:@selector(postToFacebook:) forControlEvents:UIControlEventTouchUpInside];
     
     [self.view addSubview:newsView];
 }
@@ -70,7 +76,7 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:
 (UIInterfaceOrientation)interfaceOrientation {
-    return NO;    //return NO;
+    return NO;
 }
 
 - (void)pullableView:(PullableView *)pView didChangeState:(BOOL)opened {
@@ -86,9 +92,11 @@
 #pragma mark - WMHttpAccessDelegate
 
 -(void)didReceiveJSON:(NSArray *)jsonArray{
-    //NSLog(@"JSON = %@",jsonArray);
-   newsView.descrizioneBreve.text = [NSString stringWithFormat:@"News: %@",[[jsonArray objectAtIndex:0]objectForKey:@"titolo"]];
     
+    [super didReceiveJSON:jsonArray];
+    [newsView setUserInteractionEnabled:YES];
+    
+    newsView.descrizioneBreve.text = [NSString stringWithFormat:@"News: %@",[[jsonArray objectAtIndex:0]objectForKey:@"titolo"]];
     NSString *htmlPage = @"<html><head><style type=\"text/css\">%@</style></head>    <body>%@</body></html>";
     NSString *style = @"body {font-family:helvetica;background-color: #cfd8e2;}body,p {margin:15px;font-size: 13px;color: #212121;text-shadow: #fff 0px 1px 0px;}";//font-size: 16px;text-align: justify;color: #272727;text-shadow: 1px 4px 6px #f6faff, 0 0 0 #000, 1px 4px 6px #f6faff;}";//
     htmlPage = [NSString stringWithFormat:htmlPage,style,[[jsonArray objectAtIndex:0]objectForKey:@"testo"]];
@@ -96,6 +104,7 @@
 }
 
 -(void)didReceiveError:(NSError *)error{
+    [newsView setUserInteractionEnabled:NO];
     newsView.descrizioneBreve.text = @"Impossibile caricare le news, riprovare";
     [super didReceiveError:error];
 }
@@ -109,4 +118,10 @@
         [super showErrorView:message];
     }
 }
+
+#pragma mark - UI Buttons
+-(void)postToFacebook:(id)sender{
+    [super postToFacebook:sender];
+}
+
 @end
