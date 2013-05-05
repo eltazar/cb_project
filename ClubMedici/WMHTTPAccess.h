@@ -24,7 +24,6 @@ typedef enum {
     NSMutableDictionary *_connectionDict;
     NSMutableDictionary *_dataDict;
     NSMutableDictionary *_delegateDict;
-    NSMutableDictionary *_tag;
 }
 
 

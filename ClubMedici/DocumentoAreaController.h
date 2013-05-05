@@ -17,10 +17,10 @@
     ErrorView *errorView;
 }
 
-@property(nonatomic, strong) IBOutlet UIButton *callButton;
-@property(nonatomic, strong) IBOutlet UIButton *mailButton;
+@property(nonatomic, weak) IBOutlet UIButton *callButton;
+@property(nonatomic, weak) IBOutlet UIButton *mailButton;
 @property(nonatomic, strong) NSString *idPag;
-@property(nonatomic, strong) IBOutlet UIWebView *webView;
+@property(nonatomic, weak) IBOutlet UIWebView *webView;
 -(IBAction) writeEmail;
 -(IBAction)callNumber;
 -(void)showErrorView:(NSString*)message;

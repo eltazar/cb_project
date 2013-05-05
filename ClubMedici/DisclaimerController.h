@@ -10,5 +10,5 @@
 
 @interface DisclaimerController : UIViewController
 
-@property(nonatomic, strong) IBOutlet UITextView *disclamierTextView;
+@property(nonatomic, weak) IBOutlet UITextView *disclamierTextView;
 @end

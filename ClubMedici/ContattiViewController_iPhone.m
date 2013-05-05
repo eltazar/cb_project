@@ -37,8 +37,8 @@
     
     /*settaggi grafici della tabella
      */
-    tableView.tableHeaderView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"header_contatti"]];
-    tableView.backgroundColor = [UIColor clearColor];
+    self.tableView.tableHeaderView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"header_contatti"]];
+    self.tableView.backgroundColor = [UIColor clearColor];
     
     //NSLog(@"contentsize = %f \n Differenza(h-contentSize) = %f",self.tableView.contentSize.height,CONTENT_OFFSET);
     
@@ -78,7 +78,7 @@
                     animations:^(void){
                         mapView.alpha = 1.0;
                         [self configureMap];
-                        [self.view insertSubview:mapView belowSubview:tableView];
+                        [self.view insertSubview:mapView belowSubview:self.tableView];
                     }
      ];
 
@@ -158,7 +158,7 @@
         }
     }
     else{
-        if(point.y >= tableView.frame.size.height-tableView.tableHeaderView.frame.size.height){
+        if(point.y >= self.tableView.frame.size.height-self.tableView.tableHeaderView.frame.size.height){
             //mostro tabella
             [self showTableView];
             [self removeCloseButton];
@@ -213,7 +213,7 @@ shouldRecognizeSimultaneouslyWithGestureRecognizer:
                      }
      ];
     isTableVisible = YES;
-    [tableView setUserInteractionEnabled:YES];
+    [self.tableView setUserInteractionEnabled:YES];
     [self configureMap];
 }
 @end

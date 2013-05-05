@@ -10,7 +10,7 @@
 
 @interface ErrorView : UIView
 
-@property(nonatomic, strong) IBOutlet UILabel *label;
+@property(nonatomic, weak) IBOutlet UILabel *label;
 @property(nonatomic, strong) UITapGestureRecognizer *tapRecognizer;
 @property(nonatomic, assign) BOOL showed;
 

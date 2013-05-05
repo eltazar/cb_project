@@ -15,7 +15,8 @@
 @end
 
 @implementation ContattiViewController
-@synthesize mapView, tableView;
+@synthesize mapView;
+@synthesize tableView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

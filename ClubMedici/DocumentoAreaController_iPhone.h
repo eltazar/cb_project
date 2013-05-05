@@ -10,6 +10,6 @@
 #import "DocumentoAreaController.h"
 
 @interface DocumentoAreaController_iPhone : DocumentoAreaController
-@property(nonatomic, strong) IBOutlet UILabel *titolo;
+@property(nonatomic, weak) IBOutlet UILabel *titolo;
 
 @end

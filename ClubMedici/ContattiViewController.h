@@ -17,10 +17,9 @@
     @protected
     WMTableViewDataSource *_dataModel;
     MKMapView *mapView;
-    UITableView *tableView;
     NSMutableArray *sediPin;
 
 }
-@property(nonatomic, strong) IBOutlet UITableView *tableView;
-@property(nonatomic, strong) IBOutlet MKMapView *mapView;
+@property(nonatomic, weak) IBOutlet UITableView *tableView;
+@property(nonatomic, strong) MKMapView *mapView;
 @end

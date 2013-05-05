@@ -11,22 +11,22 @@
 
 @interface CalcolaRataController : UIViewController <UITextFieldDelegate>
 
-@property(nonatomic, strong) IBOutlet FXLabel *scegliTasso;
-@property(nonatomic, strong) IBOutlet FXLabel *importoRichiesto;
-@property(nonatomic, strong) IBOutlet FXLabel *spese;
-@property(nonatomic, strong) IBOutlet FXLabel *assicurazione;
-@property(nonatomic, strong) IBOutlet FXLabel *importoRata;
-@property(nonatomic, strong) IBOutlet FXLabel *totale;
-@property(nonatomic, strong) IBOutlet FXLabel *numeroRate;
-@property(nonatomic, strong) IBOutlet FXLabel *footer;
+@property(nonatomic, weak) IBOutlet FXLabel *scegliTasso;
+@property(nonatomic, weak) IBOutlet FXLabel *importoRichiesto;
+@property(nonatomic, weak) IBOutlet FXLabel *spese;
+@property(nonatomic, weak) IBOutlet FXLabel *assicurazione;
+@property(nonatomic, weak) IBOutlet FXLabel *importoRata;
+@property(nonatomic, weak) IBOutlet FXLabel *totale;
+@property(nonatomic, weak) IBOutlet FXLabel *numeroRate;
+@property(nonatomic, weak) IBOutlet FXLabel *footer;
 
-@property(nonatomic, strong) IBOutlet UITextField *tassoField;
-@property(nonatomic, strong) IBOutlet UITextField *importoRichiestoField;
-@property(nonatomic, strong) IBOutlet UITextField *speseField;
-@property(nonatomic, strong) IBOutlet UITextField *assicurazioneField;
-@property(nonatomic, strong) IBOutlet UITextField *importoRataField;
-@property(nonatomic, strong) IBOutlet UITextField *totaleField;
-@property(nonatomic, strong) IBOutlet UITextField *numeroRateField;
+@property(nonatomic, weak) IBOutlet UITextField *tassoField;
+@property(nonatomic, weak) IBOutlet UITextField *importoRichiestoField;
+@property(nonatomic, weak) IBOutlet UITextField *speseField;
+@property(nonatomic, weak) IBOutlet UITextField *assicurazioneField;
+@property(nonatomic, weak) IBOutlet UITextField *importoRataField;
+@property(nonatomic, weak) IBOutlet UITextField *totaleField;
+@property(nonatomic, weak) IBOutlet UITextField *numeroRateField;
 
 -(IBAction)scegliTassoButton:(UIControl*)sender;
 -(IBAction)scegliNumeroRate:(UIControl*)sender;

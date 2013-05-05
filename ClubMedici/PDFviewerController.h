@@ -10,10 +10,10 @@
 
 @interface PDFviewerController : UIViewController<UIWebViewDelegate, UIActionSheetDelegate,UIPrintInteractionControllerDelegate>
 
-@property(nonatomic, strong) IBOutlet UIWebView *webView;
-@property(nonatomic, strong) IBOutlet UINavigationBar *navBar;
-@property(nonatomic, strong) IBOutlet UIBarButtonItem *actionButton;
-@property(nonatomic, strong) IBOutlet UINavigationBar *toolBar;
+@property(nonatomic, weak) IBOutlet UIWebView *webView;
+@property(nonatomic, weak) IBOutlet UINavigationBar *navBar;
+@property(nonatomic, weak) IBOutlet UIBarButtonItem *actionButton;
+@property(nonatomic, weak) IBOutlet UINavigationBar *toolBar;
 
 
 - (id)initWithTitle:(NSString*)aTitle url:(NSString*)url;
