@@ -16,7 +16,7 @@
 #import "WMHTTPAccess.h"
 #import "ErrorView.h"
 #import "CalcolaRataController.h"
-
+#import "CustomSpinnerView.h"
 
 @class AreaBase, WMTableViewDataSource;
 
@@ -26,6 +26,7 @@
         WMTableViewDataSource *_dataModel;
         CachedAsyncImageView *imageView;
         ErrorView *errorView;
+        CustomSpinnerView *spinner;
 }
 
 @property(nonatomic, strong) AreaBase *area;

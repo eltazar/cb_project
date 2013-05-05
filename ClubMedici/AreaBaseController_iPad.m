@@ -11,6 +11,7 @@
 #import "AreaBase.h"
 #import "WMTableViewDataSource.h"
 #import "AreaDescriptionCell.h"
+#import "CustomSpinnerView.h"
 
 
 #define PORTRAIT_WIDTH 447.0
@@ -38,6 +39,7 @@
     imageView = [[CachedAsyncImageView alloc] init];
     imageView.delegate = self;
     [imageView setCustomPlaceholder:@"background_ipad"];
+        
     [self setupBackgroundView];
     
     [super viewDidLoad];
@@ -139,9 +141,18 @@
     UIView *backgroundView = [[UIView alloc]init];
     
     [backgroundView addSubview:imageView];
+    
+    if(spinner.isVisible){
+        //se spinner era visibile lo rimuovo dalla vecchia backgroundView, e lo aggiungo a quella nuova
+        [spinner removeFromSuperview];
+        spinner.frame = CGRectMake(self.view.frame.size.width/2, self.view.frame.size.height/2+100, spinner.frame.size.width, spinner.frame.size.height);
+        [backgroundView addSubview: spinner];
+    }
+    
     self.tableView.backgroundView = backgroundView;
      self.tableView.backgroundColor = [UIColor colorWithRed:246/255.0f green:250/255.0f blue:255/255.0f alpha:1];    
-    //per fare in modo che l'immagine nell'header diventi trasparente gradualmente verso la fine dell'immagine stessaUIView *backgroundView = [[UIView alloc] init];
+    //per fare in modo che l'immagine nell'header diventi trasparente gradualmente verso la fine dell'immagine stessa
+    
     CAGradientLayer *l = [CAGradientLayer layer];
     l.frame = imageView.bounds;
     l.colors = [NSArray arrayWithObjects:(id)[UIColor whiteColor].CGColor, (id)[UIColor clearColor].CGColor, nil];
@@ -164,6 +175,13 @@
      ];
 }
 
+
+-(void)fetchData{
+    spinner.frame = CGRectMake(self.tableView.backgroundView.center.x, self.tableView.backgroundView.center.y+100, spinner.frame.size.width, spinner.frame.size.height);
+    [super fetchData];
+    
+}
+
 -(void) computeImageSize{
     
     CGFloat scaleFactor = 0.0;
@@ -174,20 +192,18 @@
     
     UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
     if (orientation == UIInterfaceOrientationPortrait || orientation == UIInterfaceOrientationPortraitUpsideDown) {
-        NSLog(@"portrait");
+        NSLog(@"PORTRAIT");
         scaleFactor = PORTRAIT_WIDTH / imageView.image.size.width;
         width = PORTRAIT_WIDTH;
         height = scaleFactor * imageView.image.size.height;
     }
     else{
-        NSLog(@"landscape");
+        NSLog(@"LANDSCAPE");
         scaleFactor = LANDSCAPE_WIDTH/imageView.image.size.width;
         height = scaleFactor * imageView.image.size.height;
         width = LANDSCAPE_WIDTH;
     }
-    
-    //NSLog(@"**** w = %f, h = %f",width, height);
-    
+        
     imageView.frame = CGRectMake(0, 0,
                                  width, height);
 }

@@ -24,7 +24,7 @@
 
 @interface AreaBaseController () {
     NSDate *dateDoneQuery;
-    CustomSpinnerView *spinner;
+    //CustomSpinnerView *spinner;
 }
 @end
 
