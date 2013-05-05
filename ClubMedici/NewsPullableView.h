@@ -8,13 +8,12 @@
 
 #import "PullableView.h"
 #import "FXLabel.h"
+@class SharingPanelView;
 @interface NewsPullableView : PullableView
 
-@property(nonatomic, strong) IBOutlet UILabel *descrizioneBreve;
-@property(nonatomic, strong) IBOutlet UIWebView *descrizioneEstesa;
-@property(nonatomic, strong) UIButton *fbButton;
-@property(nonatomic, strong) UIButton *mailButton;
-@property(nonatomic, strong) UIButton *twButton;
+@property(nonatomic, strong) UILabel *descrizioneBreve;
+@property(nonatomic, strong) UIWebView *descrizioneEstesa;
+@property(nonatomic, strong) SharingPanelView *sharingView;
 
 -(void)rotateArrow:(BOOL)isUp;
 

@@ -8,6 +8,7 @@
 
 #import <QuartzCore/QuartzCore.h>
 #import "NewsPullableView.h"
+#import "SharingPanelView.h"
 
 #define IS_IPHONE_5 ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )568 ) < DBL_EPSILON )
 #define degreesToRadians(x)(x * M_PI / 180)
@@ -19,7 +20,7 @@
 
 
 @implementation NewsPullableView
-@synthesize descrizioneBreve, descrizioneEstesa, fbButton, mailButton, twButton;
+@synthesize descrizioneBreve, descrizioneEstesa;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -86,28 +87,9 @@
         
         [self addSubview:arrow];
         
-        UIView *sharingView = [[UIView alloc] initWithFrame:CGRectMake(self.frame.size.width-192-10, -35, 192, 36)];
-        sharingView.backgroundColor = [UIColor clearColor];
-        sharingView.opaque = YES;
-        
-        [descrizioneEstesa.scrollView addSubview:sharingView];
-        
-        self.fbButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 64, 36)];
-        fbButton.opaque = YES;
-        [fbButton setBackgroundImage:[UIImage imageNamed:@"fbButton"] forState:UIControlStateNormal];
-        [sharingView addSubview:self.fbButton];
-        
-        self.twButton = [[UIButton alloc] initWithFrame:CGRectMake(64, 0, 64, 36)];
-        twButton.opaque = YES;
-        [twButton setBackgroundImage:[UIImage imageNamed:@"twButton"] forState:UIControlStateNormal];
-        [sharingView addSubview:self.twButton];
-        
-        self.mailButton = [[UIButton alloc] initWithFrame:CGRectMake(128, 0, 64, 36)];
-        mailButton.opaque = YES;
-        [mailButton setBackgroundImage:[UIImage imageNamed:@"mailButton"] forState:UIControlStateNormal];
-        [sharingView addSubview:self.mailButton];
-
-        
+        self.sharingView = [[SharingPanelView alloc] init];
+        [_sharingView setOrigin:CGPointMake(self.frame.size.width-192-10, -35)];
+        [descrizioneEstesa.scrollView addSubview:self.sharingView];
     }
     return self;
 }
