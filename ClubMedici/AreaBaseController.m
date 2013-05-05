@@ -20,7 +20,7 @@
 #import "CustomSpinnerView.h"
 #import "Reachability.h"
 
-#define QUERY_TIME_LIMIT 60//3600
+
 
 @interface AreaBaseController () {
     NSDate *dateDoneQuery;
@@ -34,7 +34,7 @@
 - (id)initWithStyle:(UITableViewStyle)style {
     self = [super initWithStyle:style];
     if (self) {
-        // Custom initialization
+        
     }
     return self;
 }
@@ -42,6 +42,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    Class areaClass = NSClassFromString([AreaBase getAreaType:self.areaId]);
+    self.area = [[areaClass alloc] init];
+    self.area.delegate = self;
+    self.area.areaID = self.areaId;
   
     self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:1/255.0f green:70/255.0f blue:148/255.0f alpha:1];
     
@@ -51,22 +56,23 @@
     self.tableView.tableFooterView = [[UIView alloc] init];
     
     //il controller figlio di questo controller avrà il titolo del back Button personalizzato
-//    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Indietro" style:UIBarButtonItemStyleBordered target:nil action:nil];
-//    self.navigationItem.backBarButtonItem = backButton;
+    //UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Indietro" style:UIBarButtonItemStyleBordered target:nil action:nil];
+    //    self.navigationItem.backBarButtonItem = backButton;
     
-    dateDoneQuery = [[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"queryDate%@",[self getAreaType]]];
     //Position the activity image view somewhere in
     //the middle of your current view
     spinner = [[CustomSpinnerView alloc] initWithFrame:self.view.frame];
 }
 
--(void)viewWillAppear:(BOOL)animated{
+
+- (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(networkStatusChanged:) name:kReachabilityChangedNotification object:nil];
     [self fetchData];
 }
 
--(void)viewWillDisappear:(BOOL)animated{
+
+- (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kReachabilityChangedNotification object:nil];
     if(errorView && errorView.showed){
@@ -74,12 +80,16 @@
     }
 }
 
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
+
+
 #pragma mark - Table view data source
+
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {    
@@ -87,8 +97,7 @@
     //NSString *cellIdentifier;
     NSString *dataKey = [_dataModel valueForKey:@"DATA_KEY" atIndexPath:indexPath];
     
-    if(indexPath.section == 0){
-        
+    if (indexPath.section == 0) {
         cell = [tableView dequeueReusableCellWithIdentifier:@"ContactCell"];
         if (!cell) {
             cell = [[[NSBundle mainBundle] loadNibNamed:@"ContactCell" owner:self options:NULL] objectAtIndex:0];
@@ -97,33 +106,32 @@
             v.backgroundColor = [UIColor colorWithRed:194/255.0f green:203/255.0f blue:219/255.0f alpha:1];
             cell.selectedBackgroundView = v;
         }
-        
         cell.opaque = YES;
         
         FXLabel *contactLabel = (FXLabel *) [cell viewWithTag:1];
         contactLabel.textColor = [UIColor colorWithRed:1/255.0f green:70/255.0f blue:148/255.0f alpha:1];
-//        contactLabel.textColor = [UIColor colorWithWhite:0.09f alpha:0.8f];
-//        contactLabel.highlightedTextColor =[UIColor blackColor];
-//        contactLabel.shadowColor = [UIColor colorWithWhite:0.9f alpha:0.8f];
-//        contactLabel.shadowOffset = CGSizeMake(0.8f, 0.80f);
-//        contactLabel.shadowBlur = 1.0f;
-//        contactLabel.innerShadowBlur = 3.0f;
-//        contactLabel.innerShadowColor = [UIColor colorWithRed:1/255.0f green:70/255.0f blue:148/255.0f alpha:1];
-//
-//        contactLabel.innerShadowOffset = CGSizeMake(0.8f, 0.8f);
+        //contactLabel.textColor = [UIColor colorWithWhite:0.09f alpha:0.8f];
+        //contactLabel.highlightedTextColor =[UIColor blackColor];
+        //contactLabel.shadowColor = [UIColor colorWithWhite:0.9f alpha:0.8f];
+        //contactLabel.shadowOffset = CGSizeMake(0.8f, 0.80f);
+        //contactLabel.shadowBlur = 1.0f;
+        //contactLabel.innerShadowBlur = 3.0f;
+        //contactLabel.innerShadowColor = [UIColor colorWithRed:1/255.0f green:70/255.0f blue:148/255.0f alpha:1];
+        //
+        //contactLabel.innerShadowOffset = CGSizeMake(0.8f, 0.8f);
         contactLabel.highlightedTextColor =[UIColor blackColor];
         
         UIImageView *img = (UIImageView *)[cell viewWithTag:2];
         img.opaque = YES;
         
-        if([dataKey isEqualToString:@"pdf"]){
+        if ([dataKey isEqualToString:@"pdf"]) {
             [img setImage:[UIImage imageNamed:@"pdfImage"]];  
         }
-        else if([dataKey isEqualToString:@"phone"]){
+        else if ([dataKey isEqualToString:@"phone"]) {
             [img setImage:[UIImage imageNamed:@"phone2"]];
             contactLabel.text = @"Telefono";
         }
-        else if([dataKey isEqualToString:@"email"]){
+        else if ([dataKey isEqualToString:@"email"]) {
             [img setImage:[UIImage imageNamed:@"mail2"]];
             contactLabel.text = @"E-mail";
         }
@@ -154,7 +162,7 @@
             [cell.contentView addSubview:line];
         }
     }
-    else{
+    else {
         cell = [tableView dequeueReusableCellWithIdentifier:@"ActionCell"];
         if (!cell) {
             cell = [[[NSBundle mainBundle] loadNibNamed:@"ActionCell" owner:self options:NULL] objectAtIndex:0];
@@ -166,7 +174,6 @@
     }
     
     /*Testo della cella*/
-    
     FXLabel *label = (FXLabel *) [cell viewWithTag:3];
     label.shadowColor = [UIColor colorWithWhite:1.0f alpha:0.8f];
     label.shadowOffset = CGSizeMake(0.8f, 0.80f);
@@ -178,7 +185,6 @@
     label.text = [_dataModel valueForKey:@"LABEL" atIndexPath:indexPath];
     
     /* Linea separatrice tra le celle*/
-    
     tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     //bordo inferiore da applicare alla linea
     CALayer *bottomBorder = [CALayer layer];
@@ -194,14 +200,16 @@
     [separatorView.layer addSublayer:bottomBorder];
     //applico linea alla cella
     [cell.contentView addSubview:separatorView];
-    
     /*Fine linea separatrice*/   
     
     return cell;
 }
 
 
+
 #pragma mark - Table view delegate
+
+
 
 //- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
 //    NSLog(@"CHIAMATO = %d",[tableView.dataSource numberOfSectionsInTableView:tableView]);
@@ -212,13 +220,16 @@
 //    }
 //}
 
+
 - (NSString*) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     return [_dataModel tableView:tableView titleForHeaderInSection:section];
 }
 
+
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     [cell setBackgroundColor:[UIColor colorWithRed:246/255.0f green:250/255.0f blue:255/255.0f alpha:1]];
 }
+
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *dataKey = [_dataModel valueForKey:@"DATA_KEY" atIndexPath:indexPath];
@@ -253,19 +264,20 @@
     
 }
 
+
 //- (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
 //    CustomHeader *header = [[CustomHeader alloc] init] ;
 //    header.titleLabel.text = [self tableView:tableView titleForHeaderInSection:section];
 //    return header;
 //}
-//
--(CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
- 
+
+
+- (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return UITableViewAutomaticDimension;
 }
 
--(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     UIImageView *sectionView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"sectionHeader"]];
     sectionView.alpha = 0.95;
     
@@ -280,69 +292,63 @@
     return sectionView;
 }
 
+
+
 #pragma mark - Private methods
 
 
--(void)sendEmail:(NSString*) mail{
+
+- (void)sendEmail:(NSString*) mail {
     [Utilities sendEmail:mail controller:self];
 }
 
--(void)callNumber:(NSString*)number{
+
+- (void)callNumber:(NSString*)number {
     [Utilities callNumber:number];
 }
 
+
+
 #pragma mark - MFMailComposeViewControllerDelegate
+
 
 
 - (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
     
     [self dismissModalViewControllerAnimated:YES];
-    if(result == MFMailComposeResultSent) {
+    if (result == MFMailComposeResultSent) {
         NSLog(@"messaggio inviato");
     }
-	else if (result == MFMailComposeResultFailed){
+	else if (result == MFMailComposeResultFailed) {
 		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Messaggio non inviato!" message:@"Non è stato possibile inviare la tua e-mail" delegate:self cancelButtonTitle:@"Chiudi" otherButtonTitles:nil];
 		[alert show];
 	}
-    else if (result == MFMailComposeResultCancelled){
+    else if (result == MFMailComposeResultCancelled) {
         NSLog(@"messaggio annullato");
         [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
     }
 }
 
 
+
 #pragma mark - Private methods
+
+
 
 - (void)setupBackgroundView {
 
 }
 
--(NSString*)getAreaType{
-    NSString *a;
-    switch (areaId) {
-        case AreaFinanziaria:
-            a = @"AreaFinanziaria";
-            break;
-        case AreaAssicurativa:
-            a = @"AreaAssicurativa";
-            break;
-        case AreaCureMediche:
-            a = @"AreaCureMediche";
-            break;
-        case AreaLeasing:
-            a = @"AreaLeasing";
-            break;
-        case AreaTurismo:
-            a = @"AreaTurismo";
-            break;
-        default:
-            break;
-    }
-    return a;
+- (void)fetchData {
+    //Lancio spinner
+    [spinner startAnimating];
+    //aggiungo spinner alla view
+    [self.tableView.backgroundView addSubview:spinner];
+    [self.area fetchData];
 }
 
--(void)showData{
-    
+
+- (void)showData {
     //rimuovo e fermo spinner
     [spinner removeFromSuperview];
     [spinner stopAnimating];
@@ -352,79 +358,32 @@
     self.tableView.dataSource = _dataModel;
     _dataModel.cellFactory = self;
     [self.tableView reloadData];
-    if(self.area.img)
+    if (self.area.img)
         [imageView loadImageFromURLString:self.area.img];
     else
         [imageView setCustomPlaceholder:@"placeholder.jpg"];
 }
 
+
+
 #pragma mark - CachedAsyncImageDelegate
--(void)didFinishLoadingImage:(id)sender{
+
+
+
+- (void)didFinishLoadingImage:(id)sender{ 
     
     //NSLog(@"SCARICATA IMMAGINE IN AREA CONTROLLER");
     [self.tableView.backgroundView addSubview:imageView];
 }
 
--(void)didErrorLoadingImage:(id)sender{
+
+- (void)didErrorLoadingImage:(id)sender {
     //TODO: riprovare a fare il download dell'immagine in automatico?
     NSLog(@"Errore download cachedImg in area base controller");
 }
 
-#pragma mark - WMHTTPAccessDelegate
 
--(void) fetchData{
-    
-    if([Utilities networkReachable]){
-        //Lancio spinner
-        [spinner startAnimating];
-        //aggiungo spinner alla view
-        [self.tableView.backgroundView addSubview:spinner];
-        
-        //se è passato il limite di tempo per la query, fai la query
-        NSLog(@"DATA QUERY = %@",dateDoneQuery);
-        if([dateDoneQuery timeIntervalSinceDate:[NSDate date]]== 0.0 ||
-           (-[dateDoneQuery timeIntervalSinceDate:[NSDate date]]) >= QUERY_TIME_LIMIT){
-            
-            NSLog(@"\n///**** \n FACCIO LA QUERY \n ///*****");
-            //è tempo di fare la query
-            [PDHTTPAccess getAreaContents:areaId delegate:self];
-        }
-        else{
-             NSLog(@"\n///**** \n RECUPERO JSON SALVATO \n ///*****");
-            //se precedemente scaricate mostra le previsioni salvate
-            self.area = [Utilities loadCustomObjectWithKey:[self getAreaType]];
-            [self showData];
-        }
-    }
-    else{
-        [self showErrorView:@"Connessione assente"];
-    }
-}
-
--(void)didReceiveJSON:(NSArray *)jsonArray{
-    //NSLog(@"JSON = %@",jsonArray);
-    
-    Class areaClass = NSClassFromString([self getAreaType]);
-    self.area = [[areaClass alloc] initWithJson:jsonArray];
-    
-    [self showData];
-    
-    //salvo ora in cui ho ricevuto l'oggetto e l'oggetto
-    NSUserDefaults *pref = [NSUserDefaults standardUserDefaults];
-    dateDoneQuery = [NSDate date];
-    [pref setObject:dateDoneQuery forKey:[NSString stringWithFormat:@"queryDate%@",[self getAreaType]]];
-    [pref synchronize];
-    //salvo json ricevuto
-    [Utilities saveCustomObject:self.area key:[self getAreaType]];
-}
-
--(void)didReceiveError:(NSError *)error{
-    NSLog(@"ERRORE = %@",[error description]);
-    [self showErrorView:@"Errore server"];
-}
-
-- (void) networkStatusChanged:(NSNotification*) notification
-{
+- (void) networkStatusChanged:(NSNotification*) notification {
 	Reachability* reachability = notification.object;
     NSLog(@"*** AreaBaseController: network status changed ***");
 	if(reachability.currentReachabilityStatus == NotReachable){
@@ -437,9 +396,28 @@
     }
 }
 
+
+
+#pragma mark - AreaDelegate
+
+
+- (void)didReceiveAreaData {
+    NSLog(@"didReceiveAreaData");
+    [self showData];
+}
+
+
+- (void)didReceiveAreaDataError:(NSString *)error {
+    [self showErrorView:error];
+}
+
+
+
 #pragma mark - ErrorView methods
--(void)showErrorView:(NSString*)message{
-    
+
+
+
+- (void)showErrorView:(NSString*)message {
     errorView.label.text = message;
     [errorView.tapRecognizer addTarget:self action:@selector(hideErrorView:)];
     
@@ -456,8 +434,8 @@
     errorView.showed = YES;
 }
 
--(void)hideErrorView:(UITapGestureRecognizer*)gesture{
-    
+
+- (void)hideErrorView:(UITapGestureRecognizer*)gesture {
     if(errorView || errorView.showed){
         [UIView animateWithDuration:0.5
                          animations:^(void){
@@ -471,5 +449,8 @@
         errorView.showed = NO;
     }
 }
+
+
+
 
 @end

@@ -1,5 +1,5 @@
 //
-//  AreaBaseControllerViewController.h
+//  AreaBaseController.h
 //  ClubMedici
 //
 //  Created by mario greco on 20/11/12.
@@ -17,10 +17,16 @@
 #import "ErrorView.h"
 #import "CalcolaRataController.h"
 #import "CustomSpinnerView.h"
+#import "AreaBase.h"
+
 
 @class AreaBase, WMTableViewDataSource;
 
-@interface AreaBaseController : UITableViewController <MFMailComposeViewControllerDelegate, CachedAsyncImageViewDelegate, FormViewControllerDelegate,WMHTTPAccessDelegate> {
+@interface AreaBaseController : UITableViewController <MFMailComposeViewControllerDelegate,
+                                    CachedAsyncImageViewDelegate,
+                                    FormViewControllerDelegate,
+                                    WMHTTPAccessDelegate,
+                                    AreaDelegate> {
     @protected
         AreaBase *area;
         WMTableViewDataSource *_dataModel;
@@ -33,8 +39,8 @@
 @property(nonatomic, assign) int        areaId;
 
 - (id) initWithArea:(AreaBase*)area;
-- (void) fetchData;
 - (void) showErrorView:(NSString*)message;
 - (void)hideErrorView:(UITapGestureRecognizer*)gesture;
 @end
+
 

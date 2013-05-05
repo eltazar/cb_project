@@ -7,11 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "WMHTTPAccess.h"
 
 @class WMTableViewDataSource;
+@protocol AreaDelegate;
 
-@interface AreaBase : NSObject
 
+@interface AreaBase : NSObject<WMHTTPAccessDelegate>
+
+@property(nonatomic, assign) int areaID;
+@property(nonatomic, strong) id<AreaDelegate> delegate;
 @property(nonatomic, strong) NSString *titolo;
 @property(nonatomic, strong) NSString *descrizione;
 @property(nonatomic, strong) NSString *img;
@@ -20,10 +25,23 @@
 @property(nonatomic, strong) NSString *email2;
 @property(nonatomic, strong) NSMutableArray  *itemList;
 
--(id) initWithJson:(NSArray*)json;
++ (NSString *)getAreaType:(NSInteger)areaID;
 
+- (id)initWithJson:(NSArray*)json;
 - (WMTableViewDataSource *)getDataModel;
-
 - (NSMutableArray *)_getDataModelArray;
+- (void)fetchData;
 
 @end
+
+
+
+@protocol AreaDelegate <NSObject>
+@optional
+- (void)didReceiveAreaData;
+@required
+- (void)didReceiveAreaDataError:(NSString *)error;
+@end
+
+
+

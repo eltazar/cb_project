@@ -6,62 +6,44 @@
 //  Copyright (c) 2012 mario greco. All rights reserved.
 //
 
+
 #import "AreaBase.h"
 #import "WMTableViewDataSource.h"
+#import "Utilities.h"
+#import "PDHTTPAccess.h"
+#import "AreeEnum.h"
+
+
+#define QUERY_TIME_LIMIT 10//3600
+
+
+@interface AreaBase () {
+    NSDate *dateDoneQuery;
+}
+@end
+
+
 
 @implementation AreaBase
 
--(id) initWithJson:(NSArray*)json{
-
-    self = [self init];
-    if(self){
-        
-        //Oggetto in posizione 0 è il record che descrive l'area
-        NSDictionary *descArray = [json objectAtIndex:0];
-        
-        //controllo se stringa proveniente dal db è NULL
-        if(! [[descArray objectForKey:@"testo"]isKindOfClass:[NSNull class]])
-            self.descrizione = [descArray objectForKey:@"testo"];
-       
-        if(! [[descArray objectForKey:@"menu"]isKindOfClass:[NSNull class]])
-            self.titolo = [descArray objectForKey:@"menu"];
-        
-        [self splitEmails:[descArray objectForKey:@"email"]];
-       
-        if(! [[descArray objectForKey:@"telefono"]isKindOfClass:[NSNull class]])
-            self.tel = [descArray objectForKey:@"telefono"];
-        
-        if(! [[descArray objectForKey:@"fotohd"]isKindOfClass:[NSNull class]])
-            self.img = [descArray objectForKey:@"fotohd"];
-        
-        //Gli oggetti seguenti, se presenti, sono la lista di documenti dell'area
-        _itemList = [[NSMutableArray alloc] init];
-        for(int i = 1; i < json.count ; i++){
-            //aggiungo uno ad uno all'array
-            //[_itemList addObject:[json objectAtIndex:i]];
-            
-            NSDictionary *dict = [json objectAtIndex:i];
-            
-            //creo l'oggetto per la riga della tabella
-            NSDictionary *item = [[NSDictionary alloc] initWithObjectsAndKeys:
-             @"documentoArea",             @"DATA_KEY",
-             [dict objectForKey:@"menu"],        @"LABEL",
-             [dict objectForKey:@"id_pagina"],     @"ID_PAG",
-            [dict objectForKey:@"id_sottomenu"],   @"ID_SOTTOMENU",nil];  
-            
-            [_itemList addObject: item];     
-        }
-    }
-    return self;
-}
 
 - (id)init {
     self = [super init];
     if (self) {
-        //NSLog(@"AREA BASE ALLOCATO");
+        dateDoneQuery = [[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"queryDate%@",[AreaBase getAreaType:self.areaID]]];
     }
     return self;
 }
+
+
+- (id)initWithJson:(NSArray*)json {
+    self = [self init];
+    if(self){
+        [self _buildFromJson:json];
+    }
+    return self;
+}
+
 
 - (void)encodeWithCoder:(NSCoder *)encoder {
     //Encode properties, other class variables, etc
@@ -73,6 +55,7 @@
     [encoder encodeObject:self.email2 forKey:@"email2"];
     [encoder encodeObject:self.itemList forKey:@"itemList"];
 }
+
 
 - (id)initWithCoder:(NSCoder *)decoder {
     if((self = [super init])) {
@@ -88,11 +71,102 @@
     return self;
 }
 
+
 - (WMTableViewDataSource *)getDataModel {
     return [[WMTableViewDataSource alloc] initWithArray: [self _getDataModelArray]];
 }
 
+
+
+#pragma mark - WMHTTPAccessDelegate
+
+
+
+- (void)fetchData {
+    if([Utilities networkReachable]){
+        //se è passato il limite di tempo per la query, fai la query
+        NSLog(@"DATA QUERY = %@", dateDoneQuery);
+        if([dateDoneQuery timeIntervalSinceDate:[NSDate date]] == 0.0 ||
+           (-[dateDoneQuery timeIntervalSinceDate:[NSDate date]]) >= QUERY_TIME_LIMIT){
+            
+            NSLog(@"\n///**** \n FACCIO LA QUERY (%d)\n ///*****", self.areaID);
+            //è tempo di fare la query
+            [PDHTTPAccess getAreaContents:self.areaID delegate:self];
+        }
+        else{
+            NSLog(@"\n///**** \n RECUPERO JSON SALVATO \n ///*****");
+            //se precedemente scaricate mostra le previsioni salvate
+            [self _buildFromJson:(NSArray *)[Utilities loadCustomObjectWithKey:[AreaBase getAreaType:self.areaID]]];
+            [self.delegate didReceiveAreaData];
+        }
+    }
+    else{
+        [self.delegate didReceiveAreaDataError:@"Connessione assente"];
+    }
+}
+
+
+- (void)didReceiveJSON:(NSArray *)jsonArray {
+    NSLog(@"JSON = %@",jsonArray);
+    [self _buildFromJson:jsonArray];
+    //salvo ora in cui ho ricevuto l'oggetto e l'oggetto
+    NSUserDefaults *pref = [NSUserDefaults standardUserDefaults];
+    dateDoneQuery = [NSDate date];
+    [pref setObject:dateDoneQuery forKey:[NSString stringWithFormat:@"queryDate%@",[AreaBase getAreaType:self.areaID]]];
+    [pref synchronize];
+    //salvo json ricevuto
+    [Utilities saveCustomObject:jsonArray key:[AreaBase getAreaType:self.areaID]];
+    
+    [self.delegate didReceiveAreaData];
+}
+
+
+- (void)didReceiveError:(NSError *)error {
+    NSLog(@"ERRORE = %@",[error description]);
+    [self.delegate didReceiveAreaDataError:@"Errore server"];
+}
+
+
 # pragma mark - Private Methods
+
+- (void)_buildFromJson:(NSArray *)json {
+    //Oggetto in posizione 0 è il record che descrive l'area
+    NSDictionary *descArray = [json objectAtIndex:0];
+    
+    //controllo se stringa proveniente dal db è NULL
+    if(! [[descArray objectForKey:@"testo"]isKindOfClass:[NSNull class]])
+        self.descrizione = [descArray objectForKey:@"testo"];
+    
+    if(! [[descArray objectForKey:@"menu"]isKindOfClass:[NSNull class]])
+        self.titolo = [descArray objectForKey:@"menu"];
+    
+    [self splitEmails:[descArray objectForKey:@"email"]];
+    
+    if(! [[descArray objectForKey:@"telefono"]isKindOfClass:[NSNull class]])
+        self.tel = [descArray objectForKey:@"telefono"];
+    
+    if(! [[descArray objectForKey:@"fotohd"]isKindOfClass:[NSNull class]])
+        self.img = [descArray objectForKey:@"fotohd"];
+    
+    //Gli oggetti seguenti, se presenti, sono la lista di documenti dell'area
+    _itemList = [[NSMutableArray alloc] init];
+    for(int i = 1; i < json.count ; i++){
+        //aggiungo uno ad uno all'array
+        //[_itemList addObject:[json objectAtIndex:i]];
+        
+        NSDictionary *dict = [json objectAtIndex:i];
+        
+        //creo l'oggetto per la riga della tabella
+        NSDictionary *item = [[NSDictionary alloc] initWithObjectsAndKeys:
+                              @"documentoArea",             @"DATA_KEY",
+                              [dict objectForKey:@"menu"],        @"LABEL",
+                              [dict objectForKey:@"id_pagina"],     @"ID_PAG",
+                              [dict objectForKey:@"id_sottomenu"],   @"ID_SOTTOMENU",nil];
+        
+        [_itemList addObject: item];
+    }
+}
+
 
 - (NSMutableArray *)_getDataModelArray {
     /*
@@ -146,7 +220,8 @@
     return dataModel;
 }
 
--(void)splitEmails:(NSString*) doubleMail{
+
+- (void)splitEmails:(NSString*) doubleMail{
     
     //TODO: fare con regex, è meglio...
     NSArray *emails = nil;
@@ -162,5 +237,34 @@
             self.email2 = [emails objectAtIndex:1];
     }
 }
+
+
+
+#pragma mark - Static Methods
+
++ (NSString *)getAreaType:(NSInteger)areaID {
+    NSString *a;
+    switch (areaID) {
+        case AreaFinanziaria:
+            a = @"AreaFinanziaria";
+            break;
+        case AreaAssicurativa:
+            a = @"AreaAssicurativa";
+            break;
+        case AreaCureMediche:
+            a = @"AreaCureMediche";
+            break;
+        case AreaLeasing:
+            a = @"AreaLeasing";
+            break;
+        case AreaTurismo:
+            a = @"AreaTurismo";
+            break;
+        default:
+            break;
+    }
+    return a;
+}
+
 
 @end
