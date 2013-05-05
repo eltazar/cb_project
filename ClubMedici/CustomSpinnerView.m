@@ -39,7 +39,7 @@
         
         //Set the duration of the animation (play with it
         //until it looks nice for you)
-        self.animationDuration = 2.5;
+        self.animationDuration = 2.6;
     }
     return self;
 }
