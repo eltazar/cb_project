@@ -146,4 +146,16 @@
     }
 }
 
++ (void)sendEmail:(NSString *)address object:(NSString*)object content:(NSString*)content html:(BOOL)html controller:(UIViewController *)controller{
+    MFMailComposeViewController *mail = [[MFMailComposeViewController alloc] init];
+    mail.mailComposeDelegate = controller;
+    
+    if([MFMailComposeViewController canSendMail]){
+        [mail setToRecipients:[NSArray arrayWithObjects:address, nil]];
+        [mail setSubject:object];
+        [mail setMessageBody:content isHTML:html];
+        [controller presentModalViewController:mail animated:YES];
+    }
+}
+
 @end

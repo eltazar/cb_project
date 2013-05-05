@@ -21,4 +21,5 @@
 + (AreaBase *)loadCustomObjectWithKey:(NSString *)key;
 + (void)sendEmail:(NSString*)address controller:(UIViewController*)controller;
 + (void)callNumber:(NSString*)number;
++ (void)sendEmail:(NSString *)address object:(NSString*)object content:(NSString*)content html:(BOOL)html controller:(UIViewController *)controller;
 @end
