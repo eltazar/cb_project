@@ -140,6 +140,7 @@
 		D91B384216625919001E9384 /* FormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D91B384116625919001E9384 /* FormViewController.m */; };
 		D91B38451662598F001E9384 /* TextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D91B38441662598F001E9384 /* TextFieldCell.m */; };
 		D95680A51734988600CEAE63 /* AreaTurismoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D95680A41734988600CEAE63 /* AreaTurismoCell.xib */; };
+		D95680A617367D9A00CEAE63 /* AreaTurismoController.m in Sources */ = {isa = PBXBuildFile; fileRef = D98131E91734986A00C919AB /* AreaTurismoController.m */; };
 		D98131E71734985D00C919AB /* AreaTurismo.plist in Resources */ = {isa = PBXBuildFile; fileRef = D98131E61734985D00C919AB /* AreaTurismo.plist */; };
 		D9B04DD9165C63A9005EF35B /* AreaDescriptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D9B04DD8165C63A9005EF35B /* AreaDescriptionCell.m */; };
 		D9C6C518165FDBC400247448 /* UIViewController+InterfaceIdiom.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C6C517165FDBC400247448 /* UIViewController+InterfaceIdiom.m */; };
@@ -883,6 +884,7 @@
 				ACBFD648165BC0B100DD7991 /* AreaFinanziaria.m in Sources */,
 				D9B04DD9165C63A9005EF35B /* AreaDescriptionCell.m in Sources */,
 				AC26297D165D01EE00510092 /* AreaCureMediche.m in Sources */,
+				D95680A617367D9A00CEAE63 /* AreaTurismoController.m in Sources */,
 				AC262980165D07F100510092 /* AreaLeasing.m in Sources */,
 				AC26298E165D1E2400510092 /* PDFviewerController.m in Sources */,
 				AC262992165D1E4900510092 /* AreaBaseController.m in Sources */,
