@@ -93,83 +93,83 @@
     }
     else{
     
-    cell = [self.tableView dequeueReusableCellWithIdentifier:@"ContactCell"];
-    if (!cell) {
-        cell = [[[NSBundle mainBundle] loadNibNamed:@"ContactCell" owner:self options:NULL] objectAtIndex:0];
-        UIView *v = [[UIView alloc] init];
-        v.backgroundColor = [UIColor colorWithRed:194/255.0f green:203/255.0f blue:219/255.0f alpha:1];
-        cell.selectedBackgroundView = v;
-    }
-//    cell.backgroundColor = [UIColor colorWithRed:246/255.0f green:250/255.0f blue:255/255.0f alpha:1];
-    
-    UIImageView *img = (UIImageView *)[cell viewWithTag:2];
+        cell = [self.tableView dequeueReusableCellWithIdentifier:@"ContactCell"];
+        if (!cell) {
+            cell = [[[NSBundle mainBundle] loadNibNamed:@"ContactCell" owner:self options:NULL] objectAtIndex:0];
+            UIView *v = [[UIView alloc] init];
+            v.backgroundColor = [UIColor colorWithRed:194/255.0f green:203/255.0f blue:219/255.0f alpha:1];
+            cell.selectedBackgroundView = v;
+        }
+    //    cell.backgroundColor = [UIColor colorWithRed:246/255.0f green:250/255.0f blue:255/255.0f alpha:1];
+        
+        UIImageView *img = (UIImageView *)[cell viewWithTag:2];
 
-    FXLabel *label   = (FXLabel*)    [cell viewWithTag:3];
-    label.shadowColor = [UIColor colorWithWhite:1.0f alpha:0.8f];
-    label.shadowOffset = CGSizeMake(1.0f, 1.0f);
-    label.shadowBlur = 1.0f;
-    label.innerShadowBlur = 3.0f;
-    label.innerShadowColor = [UIColor colorWithWhite:0.0f alpha:0.9f];
-    label.innerShadowOffset = CGSizeMake(1.0f, 1.0f);
-    label.highlightedTextColor =[UIColor blackColor];
-    
-    //NSLog(@"LABEL = %@",[_dataModel valueForKey:@"LABEL" atIndexPath:indexPath]);
-    label.text = [_dataModel valueForKey:@"LABEL" atIndexPath:indexPath];
-    
-    FXLabel *contactLabel = (FXLabel *) [cell viewWithTag:1];
-    contactLabel.shadowColor = [UIColor colorWithWhite:1.0f alpha:0.8f];
-    contactLabel.shadowOffset = CGSizeMake(1.0f, 1.0f);
-    contactLabel.shadowBlur = 1.0f;
-    contactLabel.innerShadowBlur = 3.0f;
-    contactLabel.innerShadowColor = [UIColor colorWithWhite:0.0f alpha:0.9f];
-    contactLabel.innerShadowOffset = CGSizeMake(1.0f, 1.0f);
-    contactLabel.highlightedTextColor =[UIColor blackColor];
-    
-    /* Linea separatrice tra le celle*/
-    tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    //bordo inferiore da applicare alla linea
-    CALayer *bottomBorder = [CALayer layer];
-    bottomBorder.frame = CGRectMake(0.0f, 0.0f,1024, 1.5f);
-    bottomBorder.backgroundColor = [UIColor whiteColor].CGColor;
-    
-    //linea separatrice alta 1px, posizionata alla base inferiore della cella
-    UIView *separatorView = [[UIView alloc] initWithFrame:CGRectMake(0, 43, 1024, 1)];
-    separatorView.layer.borderColor = [UIColor colorWithRed:214/255.0f green:226/255.0f blue:241/255.0f alpha:1].CGColor;
-    separatorView.layer.borderWidth = 1.0;
-    //applico bordo inferiore
-    [separatorView.layer addSublayer:bottomBorder];
-    //applico linea alla cella
-    [cell.contentView addSubview:separatorView];
-    
-    /*Fine linea separatrice*/
-    
-    if([dataKey isEqualToString:@"phone"]){
-        [img setImage:[UIImage imageNamed:@"phone2"]];
-        contactLabel.text = @"Telefono";
-    }
-    else if([dataKey isEqualToString:@"mail"]){
-        [img setImage:[UIImage imageNamed:@"mail2"]];
-        contactLabel.text = @"E-mail";
-    }
-    else if([dataKey isEqualToString:@"facebook"]){
-        contactLabel.text = @"Facebook";
-        [img setImage:nil];
-    }
-    else if([dataKey isEqualToString:@"twitter"]){
-        contactLabel.text = @"Twitter";
-        [img setImage:nil];
-    }
-    
-    UIView* bgview = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, 1)];
-    bgview.opaque = YES;
-    bgview.backgroundColor = [UIColor colorWithRed:246/255.0f green:250/255.0f blue:255/255.0f alpha:1];
-    [cell setBackgroundView:bgview];
+        FXLabel *label   = (FXLabel*)    [cell viewWithTag:3];
+        label.shadowColor = [UIColor colorWithWhite:1.0f alpha:0.8f];
+        label.shadowOffset = CGSizeMake(1.0f, 1.0f);
+        label.shadowBlur = 1.0f;
+        label.innerShadowBlur = 3.0f;
+        label.innerShadowColor = [UIColor colorWithWhite:0.0f alpha:0.9f];
+        label.innerShadowOffset = CGSizeMake(1.0f, 1.0f);
+        label.highlightedTextColor =[UIColor blackColor];
+        
+        //NSLog(@"LABEL = %@",[_dataModel valueForKey:@"LABEL" atIndexPath:indexPath]);
+        label.text = [_dataModel valueForKey:@"LABEL" atIndexPath:indexPath];
+        
+        FXLabel *contactLabel = (FXLabel *) [cell viewWithTag:1];
+        contactLabel.shadowColor = [UIColor colorWithWhite:1.0f alpha:0.8f];
+        contactLabel.shadowOffset = CGSizeMake(1.0f, 1.0f);
+        contactLabel.shadowBlur = 1.0f;
+        contactLabel.innerShadowBlur = 3.0f;
+        contactLabel.innerShadowColor = [UIColor colorWithWhite:0.0f alpha:0.9f];
+        contactLabel.innerShadowOffset = CGSizeMake(1.0f, 1.0f);
+        contactLabel.highlightedTextColor =[UIColor blackColor];
+        
+        /* Linea separatrice tra le celle*/
+        tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        //bordo inferiore da applicare alla linea
+        CALayer *bottomBorder = [CALayer layer];
+        bottomBorder.frame = CGRectMake(0.0f, 0.0f,1024, 1.5f);
+        bottomBorder.backgroundColor = [UIColor whiteColor].CGColor;
+        
+        //linea separatrice alta 1px, posizionata alla base inferiore della cella
+        UIView *separatorView = [[UIView alloc] initWithFrame:CGRectMake(0, 43, 1024, 1)];
+        separatorView.layer.borderColor = [UIColor colorWithRed:214/255.0f green:226/255.0f blue:241/255.0f alpha:1].CGColor;
+        separatorView.layer.borderWidth = 1.0;
+        //applico bordo inferiore
+        [separatorView.layer addSublayer:bottomBorder];
+        //applico linea alla cella
+        [cell.contentView addSubview:separatorView];
+        
+        /*Fine linea separatrice*/
+        
+        if([dataKey isEqualToString:@"phone"]){
+            [img setImage:[UIImage imageNamed:@"phone2"]];
+            contactLabel.text = @"Telefono";
+        }
+        else if([dataKey isEqualToString:@"mail"]){
+            [img setImage:[UIImage imageNamed:@"mail2"]];
+            contactLabel.text = @"E-mail";
+        }
+        else if([dataKey isEqualToString:@"facebook"]){
+            contactLabel.text = @"Facebook";
+            [img setImage:nil];
+        }
+        else if([dataKey isEqualToString:@"twitter"]){
+            contactLabel.text = @"Twitter";
+            [img setImage:nil];
+        }
+
     }
     return cell;
 }
 
 
 #pragma mark - Table view delegate
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    [cell setBackgroundColor:[UIColor colorWithRed:246/255.0f green:250/255.0f blue:255/255.0f alpha:1]];
+}
 
 - (NSString*) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     return [_dataModel tableView:tableView titleForHeaderInSection:section];
@@ -195,6 +195,8 @@
             [[UIApplication sharedApplication] openURL: webURL];
         }
     }
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
 }
 
