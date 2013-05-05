@@ -49,7 +49,9 @@
     
     //Tableview gesture recognizer
     UITapGestureRecognizer *tapTable = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideTable:)];
+    tapTable.delegate = self;
     [self.tableView addGestureRecognizer:tapTable];
+    tapTable.cancelsTouchesInView = NO;
     self.tableView.opaque = YES;
 }
 
@@ -103,7 +105,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     //NSString *dataKey = [_dataModel valueForKey:@"DATA_KEY" atIndexPath:indexPath];
- 
+    [super tableView:tableView didSelectRowAtIndexPath:indexPath];
 }
 
 //- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {    
