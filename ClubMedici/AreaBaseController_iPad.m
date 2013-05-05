@@ -34,6 +34,12 @@
 }
 
 - (void)viewDidLoad {
+ 
+    imageView = [[CachedAsyncImageView alloc] init];
+    imageView.delegate = self;
+    [imageView setCustomPlaceholder:@"background_ipad"];
+    [self setupBackgroundView];
+    
     [super viewDidLoad];
     
     //NSLog(@"ViewDidLoad: AreaBaseController_iPad");

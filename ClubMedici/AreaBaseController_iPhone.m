@@ -23,6 +23,12 @@
 @implementation AreaBaseController_iPhone
 
 - (void)viewDidLoad {
+    
+    imageView = [[CachedAsyncImageView alloc] init];
+    imageView.delegate = self;
+    [imageView setCustomPlaceholder:@"background_iphone"];
+    [self setupBackgroundView];
+
     [super viewDidLoad];
     
     //NSLog(@"ViewDidLoad: AreaBaseController_iPhone");

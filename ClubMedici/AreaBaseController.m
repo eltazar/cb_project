@@ -43,17 +43,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
   
-        self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:1/255.0f green:70/255.0f blue:148/255.0f alpha:1];
+    self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:1/255.0f green:70/255.0f blue:148/255.0f alpha:1];
     
     //self.title = [self.area titolo];
                                         
     //rimuove celle extra
     self.tableView.tableFooterView = [[UIView alloc] init];
-    
-    imageView = [[CachedAsyncImageView alloc] init];
-    imageView.delegate = self;
-    [imageView setCustomPlaceholder:@"placeholder.jpg"];
-    [self setupBackgroundView];
     
     //il controller figlio di questo controller avrà il titolo del back Button personalizzato
 //    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Indietro" style:UIBarButtonItemStyleBordered target:nil action:nil];
