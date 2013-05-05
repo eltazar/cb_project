@@ -13,6 +13,7 @@
 
 @interface DocumentoAreaController (){
     UIActionSheet *actionSheet;
+    NSString *htmlPage;
 }
 @end
 
@@ -88,7 +89,7 @@
     mail = [[jsonArray objectAtIndex:0] objectForKey:@"email"];
     phone = [[jsonArray objectAtIndex:0] objectForKey:@"telefono"];
     
-    NSString *htmlPage = @"<html><head><style type=\"text/css\">%@</style></head>    <body>%@</body></html>";
+    htmlPage = @"<html><head><style type=\"text/css\">%@</style></head>    <body>%@</body></html>";
     NSString *style = @"body {font-family:helvetica;margin:15px 15px 15px 15px;background-color: #f6faff;}body,p {font-size: 15px;color: #333333;text-shadow: #fff 0px 1px 0px;}";//font-size: 16px;text-align: justify;color: #272727;text-shadow: 1px 4px 6px #f6faff, 0 0 0 #000, 1px 4px 6px #f6faff;}";//
     htmlPage = [NSString stringWithFormat:htmlPage,style,htmlString];
     [webView loadHTMLString:htmlPage baseURL:nil];
@@ -123,7 +124,7 @@
         //[actionSheet dismissWithClickedButtonIndex:-1 animated:NO];
     }
     else{
-        actionSheet = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:cancelButtonTitle destructiveButtonTitle:nil otherButtonTitles:@"Stampa",nil,nil];
+        actionSheet = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:cancelButtonTitle destructiveButtonTitle:nil otherButtonTitles:@"E-mail",@"Stampa",nil,nil];
         actionSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
     }
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
@@ -165,6 +166,10 @@
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     NSLog(@"INDEX = %d",buttonIndex);
     if(buttonIndex == 0){
+        //condivisione con mail
+        [Utilities sendEmail:nil object:self.title content:htmlPage html:YES controller:self];
+    }
+    if(buttonIndex == 1){
         //stampa
         [self printWebView:self];
     }
