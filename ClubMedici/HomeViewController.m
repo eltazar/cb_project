@@ -7,8 +7,10 @@
 //
 
 #import <QuartzCore/QuartzCore.h>
+#import <Twitter/Twitter.h>
 #import "HomeViewController.h"
 #import "Reachability.h"
+
 
 @interface HomeViewController ()
 {
@@ -131,13 +133,48 @@
     NSLog(@"Server error = %@",error.description);
     [self showErrorView:@"Errore server"];
 }
+#pragma mark - TWITTER
+
+- (void)postToTwitter:(id)sender{
+
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 6.0) {
+        //ios 6
+        [self postWithIos6Api:SLServiceTypeTwitter];
+    }
+    else{
+        //ios5
+        [self twitter:self];
+    }
+}
+
+-(IBAction)twitter:(id)sender {
+    
+    TWTweetComposeViewController *twitter = [[TWTweetComposeViewController alloc] init];
+    
+    [twitter setInitialText:[NSString stringWithFormat:@"News ClubMedici: \n%@",[[json objectAtIndex:0] objectForKey:@"titolo"]]];
+    //[twitter addImage:[UIImage imageNamed:@"image.png"]];
+    [twitter addURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.clubmedici.it/nuovo/pagina.php?art=1&pgat=%@",[[json objectAtIndex:0] objectForKey:@"id"]]]];
+
+    [self presentViewController:twitter animated:YES completion:nil];
+    
+    twitter.completionHandler = ^(TWTweetComposeViewControllerResult res) {
+                            
+                        if(res == TWTweetComposeViewControllerResultDone) { 
+                            NSLog(@"tweet inviato");
+                        }
+                        else if(res == TWTweetComposeViewControllerResultCancelled) {
+                            NSLog(@"tweet annullato");
+                        }
+                        [self dismissModalViewControllerAnimated:YES];
+    };
+}
 
 #pragma mark - FACEBOOK
 - (void)postToFacebook:(id)sender {
     
     if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 6.0) {
         //ios 6
-        [self postWithIos6Api];
+        [self postWithIos6Api:SLServiceTypeFacebook];
     }
     else{
         //ios5
@@ -145,10 +182,10 @@
     }
 }
 
--(void)postWithIos6Api{
-    SLComposeViewController *fbController=[SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+-(void)postWithIos6Api:(NSString*)service{
+    SLComposeViewController *fbController=[SLComposeViewController composeViewControllerForServiceType:service];
     
-    if([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook])
+    if([SLComposeViewController isAvailableForServiceType:service])
     {
         SLComposeViewControllerCompletionHandler __block completionHandler=^(SLComposeViewControllerResult result){
             

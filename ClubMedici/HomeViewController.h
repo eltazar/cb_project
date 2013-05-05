@@ -24,5 +24,6 @@
 - (void)hideErrorView:(UITapGestureRecognizer*)gesture;
 
 - (void)postToFacebook:(id)sender;
+- (void)postToTwitter:(id)sender;
 
 @end

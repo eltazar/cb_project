@@ -59,6 +59,7 @@
     
     //setto bottone per condivisione facebook, twitter, email
     [newsView.fbButton addTarget:self action:@selector(postToFacebook:) forControlEvents:UIControlEventTouchUpInside];
+    [newsView.twButton addTarget:self action:@selector(postToTwitter:) forControlEvents:UIControlEventTouchUpInside];
     
     [self.view addSubview:newsView];
 }
