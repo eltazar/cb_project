@@ -7,6 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <FacebookSDK/FacebookSDK.h>
+
+#define FBSessionStateChangedNotification @"FBSessionStateChangedNotification"
 
 @class JASidePanelController, HomeViewController_iPad, SideMenuController_iPad;
 
@@ -18,6 +21,9 @@
 @property (strong, nonatomic) UINavigationController *detailViewNavController;
 @property (readonly,strong, nonatomic) JASidePanelController *jasSidePanelController;
 @property (strong, nonatomic) UISplitViewController *splitViewController;
+
+- (BOOL)openSessionWithAllowLoginUI:(BOOL)allowLoginUI;
+- (void) closeSession;
 @end
 
 
