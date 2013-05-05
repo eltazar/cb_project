@@ -54,7 +54,6 @@
 		AC9168E416B9EC1900AF402E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC9168E316B9EC1900AF402E /* CoreLocation.framework */; };
 		AC93CE93165DA6F400ABA3C2 /* PDFviewerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC93CE92165DA6F400ABA3C2 /* PDFviewerController.xib */; };
 		ACB57B7B172A8287004176AF /* NewsPullableView.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB57B7A172A8287004176AF /* NewsPullableView.m */; };
-		ACB57B7D172A8431004176AF /* NewsPullableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACB57B7C172A8431004176AF /* NewsPullableView.xib */; };
 		ACB57B7F172AABDE004176AF /* ActionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACB57B7E172AABDE004176AF /* ActionCell.xib */; };
 		ACB6392B1727236C00C26223 /* FXLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB6392A1727236C00C26223 /* FXLabel.m */; };
 		ACB7DA7016A4AFC500B05178 /* mail.png in Resources */ = {isa = PBXBuildFile; fileRef = ACB7DA6E16A4AFC500B05178 /* mail.png */; };
@@ -209,7 +208,6 @@
 		AC93CE92165DA6F400ABA3C2 /* PDFviewerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PDFviewerController.xib; path = ClubMedici/PDFviewerController.xib; sourceTree = "<group>"; };
 		ACB57B79172A8286004176AF /* NewsPullableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsPullableView.h; sourceTree = "<group>"; };
 		ACB57B7A172A8287004176AF /* NewsPullableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsPullableView.m; sourceTree = "<group>"; };
-		ACB57B7C172A8431004176AF /* NewsPullableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsPullableView.xib; sourceTree = "<group>"; };
 		ACB57B7E172AABDE004176AF /* ActionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActionCell.xib; sourceTree = "<group>"; };
 		ACB639291727236C00C26223 /* FXLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXLabel.h; sourceTree = "<group>"; };
 		ACB6392A1727236C00C26223 /* FXLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXLabel.m; sourceTree = "<group>"; };
@@ -478,7 +476,6 @@
 				ACEBDC8016570CBF00CEFFE5 /* HomeViewController_iPhone.xib */,
 				ACB57B79172A8286004176AF /* NewsPullableView.h */,
 				ACB57B7A172A8287004176AF /* NewsPullableView.m */,
-				ACB57B7C172A8431004176AF /* NewsPullableView.xib */,
 			);
 			name = HomeViewController_iPhone;
 			sourceTree = "<group>";
@@ -831,7 +828,6 @@
 				AC25200B16BF0E7F0080A4BE /* ContattiViewController_iPad.xib in Resources */,
 				ACB8FADB172564BA00AFB645 /* DisclaimerController.xib in Resources */,
 				ACBA1D511725C413004EB8E4 /* DisclaimerCell.xib in Resources */,
-				ACB57B7D172A8431004176AF /* NewsPullableView.xib in Resources */,
 				ACB57B7F172AABDE004176AF /* ActionCell.xib in Resources */,
 				ACFADEC6172D6C2800437E43 /* spinner0.png in Resources */,
 				ACFADEC7172D6C2800437E43 /* spinner1.png in Resources */,
