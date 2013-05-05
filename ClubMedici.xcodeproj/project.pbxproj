@@ -48,6 +48,8 @@
 		ACB6392B1727236C00C26223 /* FXLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB6392A1727236C00C26223 /* FXLabel.m */; };
 		ACB7DA7016A4AFC500B05178 /* mail.png in Resources */ = {isa = PBXBuildFile; fileRef = ACB7DA6E16A4AFC500B05178 /* mail.png */; };
 		ACB7DA7116A4AFC500B05178 /* mail@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ACB7DA6F16A4AFC500B05178 /* mail@2x.png */; };
+		ACB82AE81735ECE700544657 /* background_ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = ACB82AE71735ECE700544657 /* background_ipad.png */; };
+		ACB82AEA1735EE9D00544657 /* background_iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = ACB82AE91735EE9D00544657 /* background_iphone.png */; };
 		ACB87144172F3A3900D25669 /* reload.png in Resources */ = {isa = PBXBuildFile; fileRef = ACB87143172F3A3800D25669 /* reload.png */; };
 		ACB8FADA172564BA00AFB645 /* DisclaimerController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB8FAD8172564BA00AFB645 /* DisclaimerController.m */; };
 		ACB8FADB172564BA00AFB645 /* DisclaimerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACB8FAD9172564BA00AFB645 /* DisclaimerController.xib */; };
@@ -69,7 +71,6 @@
 		ACCA16F4172A804000B03095 /* PullableView.m in Sources */ = {isa = PBXBuildFile; fileRef = ACCA16F3172A804000B03095 /* PullableView.m */; };
 		ACCC531916C1AB7000994AA0 /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = ACCC531816C1AB7000994AA0 /* Utilities.m */; };
 		ACCC531C16C1D97300994AA0 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = ACCC531B16C1D97300994AA0 /* MBProgressHUD.m */; };
-		ACCDDA54165C153A0097C00C /* finanziariaImg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ACCDDA53165C153A0097C00C /* finanziariaImg.jpg */; };
 		ACD24B97165F80AA00C97CD2 /* TextAreaCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACD24B96165F80AA00C97CD2 /* TextAreaCell.xib */; };
 		ACD24B9B165F945F00C97CD2 /* RichiestaNoleggioController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD24B9A165F945F00C97CD2 /* RichiestaNoleggioController.m */; };
 		ACD24B9E165F967E00C97CD2 /* RichiestaIscrizioneController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD24B9D165F967E00C97CD2 /* RichiestaIscrizioneController.m */; };
@@ -105,7 +106,6 @@
 		ACEBDC7F16570CBF00CEFFE5 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACEBDC7E16570CBE00CEFFE5 /* HomeViewController.m */; };
 		ACEBDC8216570CBF00CEFFE5 /* HomeViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACEBDC8016570CBF00CEFFE5 /* HomeViewController_iPhone.xib */; };
 		ACEBDC8516570CBF00CEFFE5 /* HomeViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACEBDC8316570CBF00CEFFE5 /* HomeViewController_iPad.xib */; };
-		ACEF10821726C4F500EF1684 /* placeholder.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ACEF10811726C4F500EF1684 /* placeholder.jpg */; };
 		ACF16D9A17302273000683A9 /* DocumentoAreaController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF16D9817302273000683A9 /* DocumentoAreaController_iPad.m */; };
 		ACF16D9B17302273000683A9 /* DocumentoAreaController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACF16D9917302273000683A9 /* DocumentoAreaController_iPad.xib */; };
 		ACF16D9E173022D8000683A9 /* DocumentoAreaController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF16D9D173022D8000683A9 /* DocumentoAreaController.m */; };
@@ -191,6 +191,8 @@
 		ACB6392A1727236C00C26223 /* FXLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXLabel.m; sourceTree = "<group>"; };
 		ACB7DA6E16A4AFC500B05178 /* mail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mail.png; path = img/mail.png; sourceTree = SOURCE_ROOT; };
 		ACB7DA6F16A4AFC500B05178 /* mail@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "mail@2x.png"; path = "img/mail@2x.png"; sourceTree = SOURCE_ROOT; };
+		ACB82AE71735ECE700544657 /* background_ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background_ipad.png; path = img/background_ipad.png; sourceTree = SOURCE_ROOT; };
+		ACB82AE91735EE9D00544657 /* background_iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background_iphone.png; path = img/background_iphone.png; sourceTree = SOURCE_ROOT; };
 		ACB87143172F3A3800D25669 /* reload.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = reload.png; path = img/reload.png; sourceTree = SOURCE_ROOT; };
 		ACB8FAD7172564BA00AFB645 /* DisclaimerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisclaimerController.h; sourceTree = "<group>"; };
 		ACB8FAD8172564BA00AFB645 /* DisclaimerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisclaimerController.m; sourceTree = "<group>"; };
@@ -226,7 +228,6 @@
 		ACCC531816C1AB7000994AA0 /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };
 		ACCC531A16C1D97300994AA0 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		ACCC531B16C1D97300994AA0 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
-		ACCDDA53165C153A0097C00C /* finanziariaImg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = finanziariaImg.jpg; path = img/finanziariaImg.jpg; sourceTree = SOURCE_ROOT; };
 		ACD24B96165F80AA00C97CD2 /* TextAreaCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TextAreaCell.xib; path = ClubMedici/TextAreaCell.xib; sourceTree = "<group>"; };
 		ACD24B99165F945F00C97CD2 /* RichiestaNoleggioController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RichiestaNoleggioController.h; path = ClubMedici/RichiestaNoleggioController.h; sourceTree = "<group>"; };
 		ACD24B9A165F945F00C97CD2 /* RichiestaNoleggioController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RichiestaNoleggioController.m; path = ClubMedici/RichiestaNoleggioController.m; sourceTree = "<group>"; };
@@ -280,7 +281,6 @@
 		ACEBDC7E16570CBE00CEFFE5 /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		ACEBDC8116570CBF00CEFFE5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/HomeViewController_iPhone.xib; sourceTree = "<group>"; };
 		ACEBDC8416570CBF00CEFFE5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/HomeViewController_iPad.xib; sourceTree = "<group>"; };
-		ACEF10811726C4F500EF1684 /* placeholder.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = placeholder.jpg; path = img/placeholder.jpg; sourceTree = SOURCE_ROOT; };
 		ACF16D9717302273000683A9 /* DocumentoAreaController_iPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DocumentoAreaController_iPad.h; path = ClubMedici/DocumentoAreaController_iPad.h; sourceTree = "<group>"; };
 		ACF16D9817302273000683A9 /* DocumentoAreaController_iPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DocumentoAreaController_iPad.m; path = ClubMedici/DocumentoAreaController_iPad.m; sourceTree = "<group>"; };
 		ACF16D9917302273000683A9 /* DocumentoAreaController_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DocumentoAreaController_iPad.xib; path = ClubMedici/DocumentoAreaController_iPad.xib; sourceTree = "<group>"; };
@@ -528,6 +528,8 @@
 			children = (
 				ACBF78EF172D4B9700B4F230 /* spinner images */,
 				ACE9FF5716B88D91002C8CE5 /* header_contatti.png */,
+				ACB82AE71735ECE700544657 /* background_ipad.png */,
+				ACB82AE91735EE9D00544657 /* background_iphone.png */,
 				AC79A2371734663C00ED0101 /* sectionHeader.png */,
 				ACBFA9F81735008700A22E18 /* arrowUp.png */,
 				AC1007F11731797C0021A89F /* ipadShadow.png */,
@@ -537,7 +539,6 @@
 				AC72AC80172FF24D006FB6A5 /* contactButtonSelected.png */,
 				ACBB077C173017C900A7BAE5 /* contactButtonDisabled.png */,
 				ACB87143172F3A3800D25669 /* reload.png */,
-				ACEF10811726C4F500EF1684 /* placeholder.jpg */,
 				ACB7DA6E16A4AFC500B05178 /* mail.png */,
 				ACB7DA6F16A4AFC500B05178 /* mail@2x.png */,
 				AC23E6291660049500818769 /* pdfImage.png */,
@@ -546,7 +547,6 @@
 				AC2629B3165D334200510092 /* phone@2x.png */,
 				AC2629AE165D319A00510092 /* pdf.png */,
 				AC2629AF165D319A00510092 /* pdf@2x.png */,
-				ACCDDA53165C153A0097C00C /* finanziariaImg.jpg */,
 			);
 			name = img;
 			sourceTree = "<group>";
@@ -755,7 +755,6 @@
 				ACEBDC8516570CBF00CEFFE5 /* HomeViewController_iPad.xib in Resources */,
 				ACE03DD81659462C009B6B0D /* SideMenuController_iPad.xib in Resources */,
 				ACE03DDA16594922009B6B0D /* SideMenuController_iPhone.xib in Resources */,
-				ACCDDA54165C153A0097C00C /* finanziariaImg.jpg in Resources */,
 				AC26298D165D1E2400510092 /* AreaDescriptionCell.xib in Resources */,
 				AC2629AD165D2F4500510092 /* ContactCell.xib in Resources */,
 				AC2629B0165D319A00510092 /* pdf.png in Resources */,
@@ -783,7 +782,6 @@
 				AC25200B16BF0E7F0080A4BE /* ContattiViewController_iPad.xib in Resources */,
 				ACB8FADB172564BA00AFB645 /* DisclaimerController.xib in Resources */,
 				ACBA1D511725C413004EB8E4 /* DisclaimerCell.xib in Resources */,
-				ACEF10821726C4F500EF1684 /* placeholder.jpg in Resources */,
 				ACB57B7D172A8431004176AF /* NewsPullableView.xib in Resources */,
 				ACB57B7F172AABDE004176AF /* ActionCell.xib in Resources */,
 				ACFADEC6172D6C2800437E43 /* spinner0.png in Resources */,
@@ -809,6 +807,8 @@
 				ACBFA9F91735008700A22E18 /* arrowUp.png in Resources */,
 				ACBFA9FE1735135C00A22E18 /* CalcolaRataController.xib in Resources */,
 				AC5E549D173544970076DA6C /* CalcolaRataController_iPad.xib in Resources */,
+				ACB82AE81735ECE700544657 /* background_ipad.png in Resources */,
+				ACB82AEA1735EE9D00544657 /* background_iphone.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
