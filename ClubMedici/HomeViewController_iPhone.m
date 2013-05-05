@@ -95,6 +95,13 @@
     [newsView.descrizioneEstesa loadHTMLString:htmlPage baseURL:nil];
 }
 
+-(void)didReceiveError:(NSError *)error{
+    newsView.descrizioneBreve.text = @"Impossibile caricare le news, riprovare";
+    [super didReceiveError:error];
+}
+
+#pragma mark - ErrorView methods
+
 -(void)showErrorView:(NSString*)message{
     
     if(errorView == nil || !errorView.showed){

@@ -83,7 +83,7 @@
 }
 
 -(void)didReceiveJSON:(NSArray *)jsonArray{
-    NSLog(@"JSON = %@",jsonArray);
+    //NSLog(@"JSON = %@",jsonArray);
     newsTitle.text = [NSString stringWithFormat:@"News: %@",[[jsonArray objectAtIndex:0]objectForKey:@"titolo"]];
     
     NSString *htmlPage = @"<html><head><style type=\"text/css\">%@</style></head>    <body>%@</body></html>";
@@ -91,6 +91,13 @@
     htmlPage = [NSString stringWithFormat:htmlPage,style,[[jsonArray objectAtIndex:0]objectForKey:@"testo"]];
     [newsWebView loadHTMLString:htmlPage baseURL:nil];
 }
+
+-(void)didReceiveError:(NSError *)error{
+    newsTitle.text = @"Impossibile caricare le news, riprovare";
+    [super didReceiveError:error];
+}
+
+#pragma mark - ErrorView methods
 
 -(void)showErrorView:(NSString*)message{
     
