@@ -72,6 +72,10 @@
     _titolo.layer.shadowRadius = 0.6f;
     _titolo.layer.shadowOpacity = 0.3;
     
+    UISwipeGestureRecognizer *swipeGestue = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(goBackWithSwipe:)];
+    [swipeGestue setDirection:UISwipeGestureRecognizerDirectionRight];
+    [self.view addGestureRecognizer:swipeGestue];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -86,6 +90,10 @@
         errorView = [[ErrorView alloc] init];
         [super showErrorView:message];
     }
+}
+
+-(void)goBackWithSwipe:(UISwipeGestureRecognizer*)gesture{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end
