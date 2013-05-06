@@ -76,7 +76,7 @@ NSString *const SECTION_CONTENTS = @"SECTION_CONTENTS";
         return nil;
 }
 
-- (NSString *)valueForKey:(NSString *)key atIndexPath:(NSIndexPath *)indexPath {
+- (id)valueForKey:(NSString *)key atIndexPath:(NSIndexPath *)indexPath {
     NSArray *section = [[_data objectAtIndex:indexPath.section]
                              objectForKey:SECTION_CONTENTS];
     return  [[section objectAtIndex:indexPath.row] objectForKey:key];

@@ -13,9 +13,9 @@
 @property (nonatomic, weak)   NSObject *cellFactory;
 @property (nonatomic, assign) BOOL showSectionHeaders;
 
-- (id) initWithPList:(NSString *)file;
-- (id) initWithArray:(NSArray *)array;
+- (id)initWithPList:(NSString *)file;
+- (id)initWithArray:(NSArray *)array;
 
-- (NSString *)valueForKey:(NSString *)key atIndexPath:(NSIndexPath *)indexPath;
+- (id)valueForKey:(NSString *)key atIndexPath:(NSIndexPath *)indexPath;
 
 @end
