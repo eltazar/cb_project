@@ -37,7 +37,10 @@
     
     /*settaggi grafici della tabella
      */
-    self.tableView.tableHeaderView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"header_contatti"]];
+    
+    UIImageView *sectionView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"header_contatti"]];
+    sectionView.alpha = 0.80;
+    self.tableView.tableHeaderView = sectionView;
     self.tableView.backgroundColor = [UIColor clearColor];
     
     //NSLog(@"contentsize = %f \n Differenza(h-contentSize) = %f",self.tableView.contentSize.height,CONTENT_OFFSET);
