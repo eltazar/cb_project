@@ -35,6 +35,12 @@
 //            [imageLayer setCornerRadius:6];
 //            [imageLayer setBorderWidth:1];
 //            imageLayer.borderColor = [[UIColor lightGrayColor] CGColor];
+    
+    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone){
+        UISwipeGestureRecognizer *swipeGestue = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(goBackWithSwipe:)];
+        [swipeGestue setDirection:UISwipeGestureRecognizerDirectionRight];
+        [self.view addGestureRecognizer:swipeGestue];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -48,6 +54,10 @@
         return YES;
     }
     else return NO;
+}
+
+-(void)goBackWithSwipe:(UISwipeGestureRecognizer*)gesture{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end
