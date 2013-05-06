@@ -59,6 +59,13 @@
     
 }
 
+-(BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation{
+    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad){
+        return YES;
+    }
+    else return NO;
+}
+
 -(void)applyLabelEffect:(FXLabel*)label{
     label.shadowColor = [UIColor colorWithWhite:1.0f alpha:0.8f];
     label.shadowOffset = CGSizeMake(0.8f, 0.80f);
