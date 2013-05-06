@@ -152,7 +152,7 @@
     
     [self.view endEditing:YES];
     NSDate *selectedDate = [NSDate date];
-    AbstractActionSheetPicker *actionSheetPicker = [[ActionSheetDatePicker alloc] initWithTitle:@"" datePickerMode:UIDatePickerModeDate selectedDate:selectedDate target:self action:@selector(dateWasSelected:element:) origin:sender];
+    AbstractActionSheetPicker *actionSheetPicker = [[ActionSheetDatePicker alloc] initWithTitle:@"Data di nascita" datePickerMode:UIDatePickerModeDate selectedDate:selectedDate target:self action:@selector(dateWasSelected:element:) origin:sender];
     actionSheetPicker.hideCancel = YES;
     [actionSheetPicker showActionSheetPicker];
 }
