@@ -13,7 +13,6 @@
 #define LABEL_OFFSET     10
 
 @interface AreaTurismoCell () {
-    NSMutableArray *_gestureRecognizers;
     NSArray *_items;
 }
 @end
@@ -41,7 +40,6 @@
 
 
 - (void)initialize {
-    _gestureRecognizers = [[NSMutableArray alloc] initWithCapacity:N];
 }
 
 
@@ -57,30 +55,7 @@
 
 
 - (void)handleTap {
-    /*   Da: WWDC 2010, Mastering Table Views.
-     * un blocco begin/end updates, eventualmente vuoto fa si che la tableView
-     * ricalcoli la sua geometria, aggiornando quindi l'altezza di questa cella.*/
-    /*[UIView animateWithDuration:0.3 animations:^{
-        UITableView *tableView = (UITableView *)self.superview;
-        if (![tableView isKindOfClass:[UITableView class]]) {
-            tableView = nil;
-        }
-        [tableView beginUpdates];
-        
-        if (_isExpanded) {
-            _label.alpha = 1;
-            _label_full.alpha = 0;
-            _expandIndicator.transform = CGAffineTransformIdentity;
-        }
-        else {
-            _label.alpha = 0;
-            _label_full.alpha = 1;
-            _expandIndicator.transform = CGAffineTransformMakeRotation(M_PI);
-        }
-        _isExpanded =  !_isExpanded;
-        
-        [tableView endUpdates];
-    }];*/
+
 }
 
 
@@ -97,21 +72,20 @@
         label.text      = [dict objectForKey:@"LABEL"];
         imageView.image = [UIImage imageNamed:[dict objectForKey:@"IMAGE"]];
         
-        UITapGestureRecognizerWithTag *tapGestureRecognizer = [[UITapGestureRecognizerWithTag alloc] initWithTarget:self action:@selector(handleTap)];
+        UITapGestureRecognizerWithTag *tapGestureRecognizer = [[UITapGestureRecognizerWithTag alloc] initWithTarget:self action:@selector(handleTap:)];
+        [tapGestureRecognizer setCancelsTouchesInView:NO];
         [imageView addGestureRecognizer:tapGestureRecognizer];
-        [_gestureRecognizers insertObject:tapGestureRecognizer atIndex:i];
         tapGestureRecognizer.tag = i;
     }
 }
 
 
 - (void)handleTap:(UITapGestureRecognizer *)sender {
-    if (sender.state == UIGestureRecognizerStateEnded) {
-        for (UITapGestureRecognizer *recognizer in _gestureRecognizers) {
-            if (recognizer == sender) {
-                NSLog(@"Ho fatto tap su ");
-            }
-        }
+    if (sender.state == UIGestureRecognizerStateEnded &&
+        [sender isKindOfClass:[UITapGestureRecognizerWithTag class]]) {
+        NSInteger tag = ((UITapGestureRecognizerWithTag *)sender).tag;
+        NSDictionary *dict = (NSDictionary *) [_items objectAtIndex:tag];
+        NSLog(@"Ho fatto tap su: %@", [dict objectForKey:@"LABEL"]);
     }
 }
 
