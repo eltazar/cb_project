@@ -339,14 +339,6 @@
 
 }
 
-- (void)fetchData {
-    //Lancio spinner
-    [spinner startAnimating];
-    //aggiungo spinner alla view
-    [self.tableView.backgroundView addSubview:spinner];
-    [self.area fetchData];
-}
-
 
 - (void)showData {
     //rimuovo e fermo spinner
@@ -450,6 +442,19 @@
     }
 }
 
+
+
+#pragma mark - Public Methods
+
+
+
+- (void)fetchData {
+    //Lancio spinner
+    [spinner startAnimating];
+    //aggiungo spinner alla view
+    [self.tableView.backgroundView addSubview:spinner];
+    [self.area fetchData];
+}
 
 
 

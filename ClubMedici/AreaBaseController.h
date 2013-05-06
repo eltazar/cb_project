@@ -38,9 +38,10 @@
 @property(nonatomic, strong) AreaBase *area;
 @property(nonatomic, assign) int        areaId;
 
-- (id) initWithArea:(AreaBase*)area;
-- (void) showErrorView:(NSString*)message;
+- (id)initWithArea:(AreaBase*)area;
+- (void)showErrorView:(NSString*)message;
 - (void)hideErrorView:(UITapGestureRecognizer*)gesture;
+- (void)fetchData;
 @end
 
 
