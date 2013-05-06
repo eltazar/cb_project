@@ -73,7 +73,12 @@
 
 -(void)viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:animated];
-    [jasController removeObserver:self forKeyPath:@"state"];
+    @try{
+        [jasController removeObserver:self forKeyPath:@"state"];
+    }@catch(id anException){
+        //do nothing, obviously it wasn't attached because an exception was thrown
+        NSLog(@"TRY CATCH");
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -134,6 +139,13 @@
 -(void)showDisclaimer{
     DisclaimerController *disclaimerCntr = [[DisclaimerController alloc] initWithNibName:@"DisclaimerController" bundle:nil];
     [self.navigationController pushViewController:disclaimerCntr animated:YES];
+}
+
+//per annullare editing cliccando ovunque nella view
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    NSLog(@"ciaooo");
+    [self.view endEditing:YES];
+    [super touchesBegan:touches withEvent:event];
 }
 
 #pragma mark - UITextFieldDelegate
