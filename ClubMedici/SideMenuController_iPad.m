@@ -16,7 +16,7 @@
 @implementation SideMenuController_iPad
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super initWithNibName:@"SideMenuController_iPad" bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
     }
@@ -26,12 +26,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"Menu";
+    self.tableView.backgroundColor = [UIColor blackColor];
+
 	// Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+    self.view.backgroundColor = [UIColor blackColor];
 }
 
 
@@ -43,6 +46,10 @@
 }
 
 #pragma mark - Table view delegate
+
+//- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+//    [cell setBackgroundColor:[UIColor blueColor]];
+//}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
