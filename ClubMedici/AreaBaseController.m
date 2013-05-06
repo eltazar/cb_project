@@ -23,8 +23,6 @@
 
 
 @interface AreaBaseController () {
-    NSDate *dateDoneQuery;
-    //CustomSpinnerView *spinner;
 }
 @end
 
@@ -44,9 +42,8 @@
     [super viewDidLoad];
     
     Class areaClass = NSClassFromString([AreaBase getAreaType:self.areaId]);
-    self.area = [[areaClass alloc] init];
+    self.area = [[areaClass alloc] initWithAreaId:(int)areaId];
     self.area.delegate = self;
-    self.area.areaID = self.areaId;
   
     self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:1/255.0f green:70/255.0f blue:148/255.0f alpha:1];
     
