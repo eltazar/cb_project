@@ -59,6 +59,7 @@
                                                 options:NULL] objectAtIndex:0];
         }
         [((AreaTurismoCell *)cell) setItems:[_dataModel valueForKey:@"ITEMS" atIndexPath:indexPath]];
+        [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
         return cell;
     }
     return [super tableView:tableView cellForRowAtIndexPath:indexPath];
