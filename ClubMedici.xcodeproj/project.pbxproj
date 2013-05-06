@@ -19,6 +19,7 @@
 		AC168DB81736AEDD00B7466A /* mailButton.png in Resources */ = {isa = PBXBuildFile; fileRef = AC168DB71736AEDD00B7466A /* mailButton.png */; };
 		AC168DBA1736AF3300B7466A /* twButton.png in Resources */ = {isa = PBXBuildFile; fileRef = AC168DB91736AF3300B7466A /* twButton.png */; };
 		AC168DC81736CBFE00B7466A /* fbLogout.png in Resources */ = {isa = PBXBuildFile; fileRef = AC168DC71736CBFE00B7466A /* fbLogout.png */; };
+		AC1BE05E173874F7003B7759 /* mail3_high.png in Resources */ = {isa = PBXBuildFile; fileRef = AC1BE05D173874F7003B7759 /* mail3_high.png */; };
 		AC2380EF1733EC15008F0D6D /* ErrorView_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC2380EE1733EC15008F0D6D /* ErrorView_iPad.xib */; };
 		AC23E62B1660049500818769 /* pdfImage.png in Resources */ = {isa = PBXBuildFile; fileRef = AC23E6291660049500818769 /* pdfImage.png */; };
 		AC23E62C1660049500818769 /* pdfImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC23E62A1660049500818769 /* pdfImage@2x.png */; };
@@ -101,6 +102,9 @@
 		ACE683C416B8757100530D22 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACE683C316B8757100530D22 /* MapKit.framework */; };
 		ACE683C816B8766300530D22 /* ContattiViewController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE683C616B8766300530D22 /* ContattiViewController_iPhone.m */; };
 		ACE683C916B8766300530D22 /* ContattiViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACE683C716B8766300530D22 /* ContattiViewController_iPhone.xib */; };
+		ACE88C2B17385FE900C531C8 /* phone3.png in Resources */ = {isa = PBXBuildFile; fileRef = ACE88C2A17385FE900C531C8 /* phone3.png */; };
+		ACE88C2D173861C600C531C8 /* phone3_high.png in Resources */ = {isa = PBXBuildFile; fileRef = ACE88C2C173861C600C531C8 /* phone3_high.png */; };
+		ACE88C2F1738681D00C531C8 /* mail3.png in Resources */ = {isa = PBXBuildFile; fileRef = ACE88C2E1738681D00C531C8 /* mail3.png */; };
 		ACE9FF3F16B87F70002C8CE5 /* Contatti.plist in Resources */ = {isa = PBXBuildFile; fileRef = ACE9FF3E16B87F70002C8CE5 /* Contatti.plist */; };
 		ACE9FF4116B8814C002C8CE5 /* WebViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACE9FF4016B8814C002C8CE5 /* WebViewCell.xib */; };
 		ACE9FF5816B88D91002C8CE5 /* header_contatti.png in Resources */ = {isa = PBXBuildFile; fileRef = ACE9FF5716B88D91002C8CE5 /* header_contatti.png */; };
@@ -160,6 +164,7 @@
 		AC168DB71736AEDD00B7466A /* mailButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mailButton.png; path = img/mailButton.png; sourceTree = SOURCE_ROOT; };
 		AC168DB91736AF3300B7466A /* twButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = twButton.png; path = img/twButton.png; sourceTree = SOURCE_ROOT; };
 		AC168DC71736CBFE00B7466A /* fbLogout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fbLogout.png; path = img/fbLogout.png; sourceTree = SOURCE_ROOT; };
+		AC1BE05D173874F7003B7759 /* mail3_high.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mail3_high.png; path = img/mail3_high.png; sourceTree = SOURCE_ROOT; };
 		AC2380EE1733EC15008F0D6D /* ErrorView_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ErrorView_iPad.xib; sourceTree = "<group>"; };
 		AC23E6291660049500818769 /* pdfImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pdfImage.png; path = img/pdfImage.png; sourceTree = SOURCE_ROOT; };
 		AC23E62A1660049500818769 /* pdfImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pdfImage@2x.png"; path = "img/pdfImage@2x.png"; sourceTree = SOURCE_ROOT; };
@@ -286,6 +291,9 @@
 		ACE683C516B8766300530D22 /* ContattiViewController_iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContattiViewController_iPhone.h; sourceTree = "<group>"; };
 		ACE683C616B8766300530D22 /* ContattiViewController_iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContattiViewController_iPhone.m; sourceTree = "<group>"; };
 		ACE683C716B8766300530D22 /* ContattiViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContattiViewController_iPhone.xib; sourceTree = "<group>"; };
+		ACE88C2A17385FE900C531C8 /* phone3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = phone3.png; path = img/phone3.png; sourceTree = SOURCE_ROOT; };
+		ACE88C2C173861C600C531C8 /* phone3_high.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = phone3_high.png; path = img/phone3_high.png; sourceTree = SOURCE_ROOT; };
+		ACE88C2E1738681D00C531C8 /* mail3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mail3.png; path = img/mail3.png; sourceTree = SOURCE_ROOT; };
 		ACE9FF3E16B87F70002C8CE5 /* Contatti.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Contatti.plist; sourceTree = "<group>"; };
 		ACE9FF4016B8814C002C8CE5 /* WebViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WebViewCell.xib; path = ClubMedici/WebViewCell.xib; sourceTree = "<group>"; };
 		ACE9FF5716B88D91002C8CE5 /* header_contatti.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = header_contatti.png; path = img/header_contatti.png; sourceTree = SOURCE_ROOT; };
@@ -565,6 +573,10 @@
 			children = (
 				ACBF78EF172D4B9700B4F230 /* spinner images */,
 				ACE9FF5716B88D91002C8CE5 /* header_contatti.png */,
+				ACE88C2E1738681D00C531C8 /* mail3.png */,
+				AC1BE05D173874F7003B7759 /* mail3_high.png */,
+				ACE88C2C173861C600C531C8 /* phone3_high.png */,
+				ACE88C2A17385FE900C531C8 /* phone3.png */,
 				AC168DC71736CBFE00B7466A /* fbLogout.png */,
 				AC168DB51736A3D300B7466A /* fbButton.png */,
 				AC168DB71736AEDD00B7466A /* mailButton.png */,
@@ -865,6 +877,10 @@
 				AC168DBA1736AF3300B7466A /* twButton.png in Resources */,
 				AC168DC81736CBFE00B7466A /* fbLogout.png in Resources */,
 				D915E18F17373FD300F78948 /* FacebookSDKResources.bundle in Resources */,
+				ACE88C2B17385FE900C531C8 /* phone3.png in Resources */,
+				ACE88C2D173861C600C531C8 /* phone3_high.png in Resources */,
+				ACE88C2F1738681D00C531C8 /* mail3.png in Resources */,
+				AC1BE05E173874F7003B7759 /* mail3_high.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
