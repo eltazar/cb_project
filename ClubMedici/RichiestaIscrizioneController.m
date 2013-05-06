@@ -149,6 +149,8 @@
 #pragma mark - Action Methods
 
 - (void)selectADate:(UIControl *)sender {
+    
+    [self.view endEditing:YES];
     NSDate *selectedDate = [NSDate date];
     AbstractActionSheetPicker *actionSheetPicker = [[ActionSheetDatePicker alloc] initWithTitle:@"" datePickerMode:UIDatePickerModeDate selectedDate:selectedDate target:self action:@selector(dateWasSelected:element:) origin:sender];
     actionSheetPicker.hideCancel = YES;
