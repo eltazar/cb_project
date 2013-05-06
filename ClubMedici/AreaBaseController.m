@@ -400,13 +400,17 @@
 
 
 - (void)didReceiveAreaDataError:(NSString *)error {
+    [self stopSpinner];
     [self showErrorView:error];
 }
 
 
-
 #pragma mark - ErrorView methods
 
+-(void)stopSpinner{
+    [spinner stopAnimating];
+    [spinner removeFromSuperview];
+}
 
 
 - (void)showErrorView:(NSString*)message {
