@@ -148,9 +148,9 @@
     
     //per shadow inset
     //http://stackoverflow.com/questions/5817330/apply-inner-shadow-to-uilabel
-    _label.textColor     = [UIColor colorWithRed:48.0 green:48.0 blue:48.0 alpha:0.6];
+    _label.textColor     = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.5];
     _label.shadowColor   = [UIColor blackColor];
-    _label.shadowOffset  = CGSizeMake(-0.8,-0.8);
+    _label.shadowOffset  = CGSizeMake(-1.0,-1.0);
     
     _label_full.frame = _label.frame;
     _label_full.text = _label.text;
