@@ -42,20 +42,21 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    contactPanel.backgroundColor = [UIColor colorWithRed:207/255.0f green:216/255.0f blue:226/255.0f alpha:1];
-
-    contattaciLabel.textColor = [UIColor colorWithRed:28/255.0f green:60/255.0f blue:119/255.0f alpha:1];
+    contactPanel.backgroundColor =  [UIColor colorWithRed:35/255.0f green:82/255.0f blue:165/255.0f alpha:1.0];
+    
+    contattaciLabel.textColor = [UIColor whiteColor];//[UIColor colorWithRed:28/255.0f green:60/255.0f blue:119/255.0f alpha:1];
 //    contattaciLabel.textColor     = [UIColor colorWithRed:207/255.0f green:216/255.0f blue:226/255.0f alpha:0.5];//[UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.5];
 //    contattaciLabel.shadowColor   = [UIColor colorWithRed:43/255.0f green:86/255.0f blue:140/255.0f alpha:1];
 //    contattaciLabel.shadowOffset  = CGSizeMake(-1.0,-1.0);
     
-    contactPanel.layer.borderColor = [UIColor colorWithRed:78/255.0f green:111/255.0f blue:147/255.0f alpha:0.8].CGColor;
-    contactPanel.layer.borderWidth = 0.8f;
+    contactPanel.layer.borderColor = [UIColor colorWithRed:28/255.0f green:57/255.0f blue:109/255.0f alpha:1].CGColor;
+    contactPanel.layer.borderWidth = 1;
     
     CALayer *innerLayer = [[CALayer alloc] init];
-    innerLayer.frame = CGRectMake(2, 2, contactPanel.frame.size.width-4, contactPanel.frame.size.height-4);
-    innerLayer.borderColor = [UIColor whiteColor].CGColor;
-    innerLayer.borderWidth = 0.7f;
+    innerLayer.frame = CGRectMake(0, 1, contactPanel.frame.size.width, contactPanel.frame.size.height-2);
+    innerLayer.borderColor = [UIColor colorWithRed:37/255.0f green:86/255.0f blue:172/255.0f alpha:0.9f].CGColor;
+//[UIColor whiteColor].CGColor;
+    innerLayer.borderWidth = 0.8f;
     
     [contactPanel.layer addSublayer:innerLayer];
     contactPanel.layer.masksToBounds = NO;
