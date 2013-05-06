@@ -27,7 +27,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        self.backgroundColor = [UIColor colorWithRed:45/255.0f green:101/255.0f blue:201/255.0f alpha:1.0];;//[UIColor colorWithRed:207/255.0f green:216/255.0f blue:226/255.0f alpha:1];
+        self.backgroundColor = [UIColor colorWithRed:35/255.0f green:82/255.0f blue:165/255.0f alpha:1.0];;//[UIColor colorWithRed:207/255.0f green:216/255.0f blue:226/255.0f alpha:1];
         
         descrizioneBreve = [[UILabel alloc] initWithFrame:CGRectMake(15, 10, 300, 25)];
         descrizioneBreve.text = @"News: caricamento...";
@@ -65,7 +65,7 @@
         
         //inserisco top & bottom shadow in questa maniera per motivi di performance
         UIView *shadowLine = [[UIView alloc] initWithFrame:CGRectMake(0, 44, self.frame.size.width,1)];
-        shadowLine.backgroundColor = [UIColor colorWithRed:45/255.0f green:101/255.0f blue:201/255.0f alpha:1.0];
+        shadowLine.backgroundColor = [UIColor colorWithRed:25/255.0f green:60/255.0f blue:123/255.0f alpha:1.0];
         shadowLine.opaque = YES;
         shadowLine.layer.masksToBounds = NO;
         shadowLine.layer.shadowOffset = CGSizeMake(-1, 2);
@@ -74,8 +74,7 @@
         [self addSubview:shadowLine];
         
         shadowLine = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width,1.5f)];
-        shadowLine.backgroundColor = [UIColor colorWithRed:45/255.0f green:101/255.0f blue:201/255.0f alpha:1.0];
-        shadowLine.layer.masksToBounds = NO;
+        shadowLine.backgroundColor = [UIColor colorWithRed:25/255.0f green:60/255.0f blue:123/255.0f alpha:1.0];        shadowLine.layer.masksToBounds = NO;
         shadowLine.layer.shadowOffset = CGSizeMake(-1, -3);
         shadowLine.layer.shadowRadius = 4;
         shadowLine.layer.shadowOpacity = 6;
