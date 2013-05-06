@@ -12,12 +12,15 @@
 #import "TextFieldCell.h"
 #import "WMTableViewDataSource.h"
 #import "ErrorView.h"
+#import "AppDelegate.h"
+#import "JASidePanelController.h"
 
 #define KEYBOARD_ORIGIN_Y self.tableView.frame.size.height - 216.0f
 
 @interface FormViewController () {
     TextFieldCell *textFieldCell;
     ErrorView *errorView;
+    JASidePanelController *jasController;
 }
 
 @end
@@ -61,6 +64,16 @@
     self.navigationItem.backBarButtonItem = backButton;
     
     self.view.backgroundColor = [UIColor colorWithRed:246/255.0f green:250/255.0f blue:255/255.0f alpha:1];
+    
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    jasController = appDelegate.jasSidePanelController;
+    
+    [jasController addObserver:self forKeyPath:@"state" options:NSKeyValueObservingOptionNew context:nil];
+}
+
+-(void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
+    [jasController removeObserver:self forKeyPath:@"state"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -290,4 +303,20 @@
 
 }
 
+#pragma mark - Private methods 
+
+-(void)hideKeyboard{
+    [self.view endEditing:YES];
+}
+
+#pragma mark - KVO handler
+-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
+    
+    if([keyPath isEqualToString:@"state"]){
+        if(JASidePanelLeftVisible == [[change objectForKey:NSKeyValueChangeNewKey] intValue]){
+            NSLog(@"FormViewController: JASSidePanelLeft mostrato");
+            [self hideKeyboard];
+        }
+    }
+}
 @end
