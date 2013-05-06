@@ -116,6 +116,7 @@ static WMHTTPAccess *__sharedInstance = nil;
             NSLog(@"JSONError: reason[%@] desc[%@]",
                   [error localizedFailureReason], 
                   [error localizedDescription]);
+            [delegate didReceiveError:error];
         } else {
             [delegate didReceiveJSON:jsonArray];
         }
