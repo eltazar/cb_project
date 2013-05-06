@@ -80,7 +80,7 @@
 
 
 - (void)sendButtonPressed:(id)sender {
-    NSLog(@"SEND BUTTON PRESSED");
+    //NSLog(@"SEND BUTTON PRESSED");
     
     //fa si che il testo inserito nei texfield sia preso anche se non è stata dismessa la keyboard
     [self.view endEditing:TRUE];
@@ -144,7 +144,7 @@
          ];
     };
     
-    NSLog(@"textFieldShouldReturn row = %d",indexPath.row);
+    //NSLog(@"textFieldShouldReturn row = %d",indexPath.row);
     
     return YES;
 }
@@ -185,7 +185,7 @@
     }
     else {
         // Sezione 0
-        NSLog(@"FormCell %@", indexPath);
+        //NSLog(@"FormCell %@", indexPath);
         cell = [tableView dequeueReusableCellWithIdentifier:@"FormCell"];
         if (!cell) {
             cell = [[[NSBundle mainBundle] loadNibNamed:@"TextFieldCell" owner:self options:NULL] objectAtIndex:0];
@@ -194,6 +194,14 @@
         UITextField *textField = (UITextField*)[cell viewWithTag:1];
         textField.delegate = self;
         textField.placeholder = [_dataModel valueForKey:@"PLACEHOLDER" atIndexPath:indexPath];
+        
+        if([dataKey isEqualToString:@"email"]){
+            [textField setKeyboardType:UIKeyboardTypeEmailAddress];
+        }
+        else if([dataKey isEqualToString:@"phone"] ||
+                [dataKey isEqualToString:@"cell"]){
+            [textField setKeyboardType:UIKeyboardTypeNumbersAndPunctuation];
+        }
 
     }
     return cell;
