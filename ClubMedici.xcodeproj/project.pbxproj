@@ -133,6 +133,8 @@
 		D90EA9BB16611E0D00D29490 /* SideMenu.plist in Resources */ = {isa = PBXBuildFile; fileRef = D90EA9BA16611E0D00D29490 /* SideMenu.plist */; };
 		D90EA9BF1661217100D29490 /* WMTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D90EA9BE1661217100D29490 /* WMTableViewDataSource.m */; };
 		D90EA9D21661660300D29490 /* AreaTurismo.m in Sources */ = {isa = PBXBuildFile; fileRef = D90EA9D11661660300D29490 /* AreaTurismo.m */; };
+		D915E1881737252100F78948 /* AreaTurismoController.m in Sources */ = {isa = PBXBuildFile; fileRef = D915E1871737252100F78948 /* AreaTurismoController.m */; };
+		D915E18B17372C8600F78948 /* AreaTurismoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D915E18A17372C8600F78948 /* AreaTurismoCell.m */; };
 		D91B3838166237D2001E9384 /* AreaAssicurativa.m in Sources */ = {isa = PBXBuildFile; fileRef = D91B3837166237D2001E9384 /* AreaAssicurativa.m */; };
 		D91B383B16624322001E9384 /* RichiestaNoleggioAuto.plist in Resources */ = {isa = PBXBuildFile; fileRef = D91B383A16624322001E9384 /* RichiestaNoleggioAuto.plist */; };
 		D91B383D166245A2001E9384 /* RichiestaNoleggioElettromedicale.plist in Resources */ = {isa = PBXBuildFile; fileRef = D91B383C166245A1001E9384 /* RichiestaNoleggioElettromedicale.plist */; };
@@ -140,8 +142,9 @@
 		D91B384216625919001E9384 /* FormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D91B384116625919001E9384 /* FormViewController.m */; };
 		D91B38451662598F001E9384 /* TextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D91B38441662598F001E9384 /* TextFieldCell.m */; };
 		D95680A51734988600CEAE63 /* AreaTurismoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D95680A41734988600CEAE63 /* AreaTurismoCell.xib */; };
-		D95680A617367D9A00CEAE63 /* AreaTurismoController.m in Sources */ = {isa = PBXBuildFile; fileRef = D98131E91734986A00C919AB /* AreaTurismoController.m */; };
-		D98131E71734985D00C919AB /* AreaTurismo.plist in Resources */ = {isa = PBXBuildFile; fileRef = D98131E61734985D00C919AB /* AreaTurismo.plist */; };
+		D95680A617367D9A00CEAE63 /* AreaTurismoController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = D98131E91734986A00C919AB /* AreaTurismoController_iPhone.m */; };
+		D95680A91736824200CEAE63 /* AreaTurismoController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = D95680A81736824200CEAE63 /* AreaTurismoController_iPad.m */; };
+		D98131E71734985D00C919AB /* AreaTurismoItemList.plist in Resources */ = {isa = PBXBuildFile; fileRef = D98131E61734985D00C919AB /* AreaTurismoItemList.plist */; };
 		D9B04DD9165C63A9005EF35B /* AreaDescriptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D9B04DD8165C63A9005EF35B /* AreaDescriptionCell.m */; };
 		D9C6C518165FDBC400247448 /* UIViewController+InterfaceIdiom.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C6C517165FDBC400247448 /* UIViewController+InterfaceIdiom.m */; };
 /* End PBXBuildFile section */
@@ -328,6 +331,10 @@
 		D90EA9BE1661217100D29490 /* WMTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMTableViewDataSource.m; sourceTree = "<group>"; };
 		D90EA9D01661660300D29490 /* AreaTurismo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreaTurismo.h; sourceTree = "<group>"; };
 		D90EA9D11661660300D29490 /* AreaTurismo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaTurismo.m; sourceTree = "<group>"; };
+		D915E1861737252100F78948 /* AreaTurismoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AreaTurismoController.h; path = ClubMedici/AreaTurismoController.h; sourceTree = "<group>"; };
+		D915E1871737252100F78948 /* AreaTurismoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AreaTurismoController.m; path = ClubMedici/AreaTurismoController.m; sourceTree = "<group>"; };
+		D915E18917372C8600F78948 /* AreaTurismoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AreaTurismoCell.h; path = ClubMedici/AreaTurismoCell.h; sourceTree = "<group>"; };
+		D915E18A17372C8600F78948 /* AreaTurismoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AreaTurismoCell.m; path = ClubMedici/AreaTurismoCell.m; sourceTree = "<group>"; };
 		D91B3836166237D2001E9384 /* AreaAssicurativa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreaAssicurativa.h; sourceTree = "<group>"; };
 		D91B3837166237D2001E9384 /* AreaAssicurativa.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaAssicurativa.m; sourceTree = "<group>"; };
 		D91B383A16624322001E9384 /* RichiestaNoleggioAuto.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = RichiestaNoleggioAuto.plist; path = ClubMedici/RichiestaNoleggioAuto.plist; sourceTree = "<group>"; };
@@ -338,9 +345,11 @@
 		D91B38431662598F001E9384 /* TextFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TextFieldCell.h; path = ClubMedici/TextFieldCell.h; sourceTree = "<group>"; };
 		D91B38441662598F001E9384 /* TextFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TextFieldCell.m; path = ClubMedici/TextFieldCell.m; sourceTree = "<group>"; };
 		D95680A41734988600CEAE63 /* AreaTurismoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AreaTurismoCell.xib; path = ClubMedici/AreaTurismoCell.xib; sourceTree = "<group>"; };
-		D98131E61734985D00C919AB /* AreaTurismo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = AreaTurismo.plist; path = ClubMedici/AreaTurismo.plist; sourceTree = "<group>"; };
-		D98131E81734986A00C919AB /* AreaTurismoController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AreaTurismoController.h; path = ClubMedici/AreaTurismoController.h; sourceTree = "<group>"; };
-		D98131E91734986A00C919AB /* AreaTurismoController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AreaTurismoController.m; path = ClubMedici/AreaTurismoController.m; sourceTree = "<group>"; };
+		D95680A71736824200CEAE63 /* AreaTurismoController_iPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AreaTurismoController_iPad.h; path = ClubMedici/AreaTurismoController_iPad.h; sourceTree = "<group>"; };
+		D95680A81736824200CEAE63 /* AreaTurismoController_iPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AreaTurismoController_iPad.m; path = ClubMedici/AreaTurismoController_iPad.m; sourceTree = "<group>"; };
+		D98131E61734985D00C919AB /* AreaTurismoItemList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AreaTurismoItemList.plist; sourceTree = "<group>"; };
+		D98131E81734986A00C919AB /* AreaTurismoController_iPhone.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AreaTurismoController_iPhone.h; path = ClubMedici/AreaTurismoController_iPhone.h; sourceTree = "<group>"; };
+		D98131E91734986A00C919AB /* AreaTurismoController_iPhone.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AreaTurismoController_iPhone.m; path = ClubMedici/AreaTurismoController_iPhone.m; sourceTree = "<group>"; };
 		D9B04DD7165C63A9005EF35B /* AreaDescriptionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AreaDescriptionCell.h; path = ClubMedici/AreaDescriptionCell.h; sourceTree = "<group>"; };
 		D9B04DD8165C63A9005EF35B /* AreaDescriptionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AreaDescriptionCell.m; path = ClubMedici/AreaDescriptionCell.m; sourceTree = "<group>"; };
 		D9C6C516165FDBC400247448 /* UIViewController+InterfaceIdiom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+InterfaceIdiom.h"; sourceTree = "<group>"; };
@@ -380,6 +389,8 @@
 				D9B04DD8165C63A9005EF35B /* AreaDescriptionCell.m */,
 				AC262989165D1E2400510092 /* AreaDescriptionCell.xib */,
 				ACD24BA2165FB59400C97CD2 /* AreaDescriptionCell_iPad.xib */,
+				D915E18917372C8600F78948 /* AreaTurismoCell.h */,
+				D915E18A17372C8600F78948 /* AreaTurismoCell.m */,
 				D95680A41734988600CEAE63 /* AreaTurismoCell.xib */,
 				AC2629AC165D2F4500510092 /* ContactCell.xib */,
 				ACB57B7E172AABDE004176AF /* ActionCell.xib */,
@@ -515,6 +526,7 @@
 				AC26297F165D07F100510092 /* AreaLeasing.m */,
 				AC26297B165D01EE00510092 /* AreaCureMediche.h */,
 				AC26297C165D01EE00510092 /* AreaCureMediche.m */,
+				D98131E61734985D00C919AB /* AreaTurismoItemList.plist */,
 				D90EA9D01661660300D29490 /* AreaTurismo.h */,
 				D90EA9D11661660300D29490 /* AreaTurismo.m */,
 				D91B3836166237D2001E9384 /* AreaAssicurativa.h */,
@@ -533,9 +545,12 @@
 				ACD24BA0165FB34B00C97CD2 /* AreaBaseController_iPhone.m */,
 				AC26299E165D2A5300510092 /* AreaBaseController_iPad.h */,
 				AC26299F165D2A5300510092 /* AreaBaseController_iPad.m */,
-				D98131E81734986A00C919AB /* AreaTurismoController.h */,
-				D98131E91734986A00C919AB /* AreaTurismoController.m */,
-				D98131E61734985D00C919AB /* AreaTurismo.plist */,
+				D915E1861737252100F78948 /* AreaTurismoController.h */,
+				D915E1871737252100F78948 /* AreaTurismoController.m */,
+				D98131E81734986A00C919AB /* AreaTurismoController_iPhone.h */,
+				D98131E91734986A00C919AB /* AreaTurismoController_iPhone.m */,
+				D95680A71736824200CEAE63 /* AreaTurismoController_iPad.h */,
+				D95680A81736824200CEAE63 /* AreaTurismoController_iPad.m */,
 				AC26298A165D1E2400510092 /* PDFviewerController.h */,
 				AC26298B165D1E2400510092 /* PDFviewerController.m */,
 				AC93CE92165DA6F400ABA3C2 /* PDFviewerController.xib */,
@@ -848,7 +863,7 @@
 				AC1007F21731797C0021A89F /* ipadShadow.png in Resources */,
 				AC2380EF1733EC15008F0D6D /* ErrorView_iPad.xib in Resources */,
 				AC79A2381734663C00ED0101 /* sectionHeader.png in Resources */,
-				D98131E71734985D00C919AB /* AreaTurismo.plist in Resources */,
+				D98131E71734985D00C919AB /* AreaTurismoItemList.plist in Resources */,
 				D95680A51734988600CEAE63 /* AreaTurismoCell.xib in Resources */,
 				ACBFA9F91735008700A22E18 /* arrowUp.png in Resources */,
 				ACBFA9FE1735135C00A22E18 /* CalcolaRataController.xib in Resources */,
@@ -872,9 +887,9 @@
 			files = (
 				ACEBDC7216570CBE00CEFFE5 /* main.m in Sources */,
 				ACEBDC7616570CBE00CEFFE5 /* AppDelegate.m in Sources */,
-				ACEBDC7F16570CBF00CEFFE5 /* HomeViewController.m in Sources */,
-				ACD4C7731657158D0025F3F5 /* JASidePanelController.m in Sources */,
 				ACE03DCD16593B71009B6B0D /* UIViewController+JASidePanel.m in Sources */,
+				ACD4C7731657158D0025F3F5 /* JASidePanelController.m in Sources */,
+				ACEBDC7F16570CBF00CEFFE5 /* HomeViewController.m in Sources */,
 				ACE03DD71659462C009B6B0D /* SideMenuController.m in Sources */,
 				ACBE63AD165A865000F64CDA /* SideMenuController_iPhone.m in Sources */,
 				ACBE63B4165A874900F64CDA /* SideMenuController_iPad.m in Sources */,
@@ -882,20 +897,21 @@
 				ACBE63BC165A87E500F64CDA /* HomeViewController_iPad.m in Sources */,
 				ACBFD645165BBEE600DD7991 /* AreaBase.m in Sources */,
 				ACBFD648165BC0B100DD7991 /* AreaFinanziaria.m in Sources */,
-				D9B04DD9165C63A9005EF35B /* AreaDescriptionCell.m in Sources */,
-				AC26297D165D01EE00510092 /* AreaCureMediche.m in Sources */,
-				D95680A617367D9A00CEAE63 /* AreaTurismoController.m in Sources */,
 				AC262980165D07F100510092 /* AreaLeasing.m in Sources */,
-				AC26298E165D1E2400510092 /* PDFviewerController.m in Sources */,
-				AC262992165D1E4900510092 /* AreaBaseController.m in Sources */,
-				AC2629A1165D2A5300510092 /* AreaBaseController_iPad.m in Sources */,
-				ACD24B9B165F945F00C97CD2 /* RichiestaNoleggioController.m in Sources */,
-				ACD24B9E165F967E00C97CD2 /* RichiestaIscrizioneController.m in Sources */,
-				ACD24BA1165FB34B00C97CD2 /* AreaBaseController_iPhone.m in Sources */,
-				D9C6C518165FDBC400247448 /* UIViewController+InterfaceIdiom.m in Sources */,
-				D90EA9BF1661217100D29490 /* WMTableViewDataSource.m in Sources */,
+				AC26297D165D01EE00510092 /* AreaCureMediche.m in Sources */,
 				D90EA9D21661660300D29490 /* AreaTurismo.m in Sources */,
 				D91B3838166237D2001E9384 /* AreaAssicurativa.m in Sources */,
+				AC262992165D1E4900510092 /* AreaBaseController.m in Sources */,
+				ACD24BA1165FB34B00C97CD2 /* AreaBaseController_iPhone.m in Sources */,
+				AC2629A1165D2A5300510092 /* AreaBaseController_iPad.m in Sources */,
+				D95680A617367D9A00CEAE63 /* AreaTurismoController_iPhone.m in Sources */,
+				D95680A91736824200CEAE63 /* AreaTurismoController_iPad.m in Sources */,
+				D9B04DD9165C63A9005EF35B /* AreaDescriptionCell.m in Sources */,
+				AC26298E165D1E2400510092 /* PDFviewerController.m in Sources */,
+				ACD24B9B165F945F00C97CD2 /* RichiestaNoleggioController.m in Sources */,
+				ACD24B9E165F967E00C97CD2 /* RichiestaIscrizioneController.m in Sources */,
+				D9C6C518165FDBC400247448 /* UIViewController+InterfaceIdiom.m in Sources */,
+				D90EA9BF1661217100D29490 /* WMTableViewDataSource.m in Sources */,
 				D91B384216625919001E9384 /* FormViewController.m in Sources */,
 				D91B38451662598F001E9384 /* TextFieldCell.m in Sources */,
 				ACDCC6E016B34A7900745FFB /* AsyncImageView.m in Sources */,
@@ -926,6 +942,8 @@
 				AC5E549A173523DD0076DA6C /* ActionSheetStringPicker.m in Sources */,
 				AC5E549B173523DD0076DA6C /* DistancePickerView.m in Sources */,
 				ACDA943A1736EF9900A00092 /* SharingPanelView.m in Sources */,
+				D915E1881737252100F78948 /* AreaTurismoController.m in Sources */,
+				D915E18B17372C8600F78948 /* AreaTurismoCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
