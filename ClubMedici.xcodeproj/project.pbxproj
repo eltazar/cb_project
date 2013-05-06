@@ -974,7 +974,8 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Vincenzo Pezzuti (J8N9FMZDSB)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Vincenzo Pezzuti (J8N9FMZDSB)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -989,6 +990,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "2F8EF37D-B5BD-4F26-8733-0444F6B88B81";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2F8EF37D-B5BD-4F26-8733-0444F6B88B81";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1003,7 +1006,8 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Vincenzo Pezzuti (J8N9FMZDSB)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Vincenzo Pezzuti (J8N9FMZDSB)";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -1011,6 +1015,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "2F8EF37D-B5BD-4F26-8733-0444F6B88B81";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2F8EF37D-B5BD-4F26-8733-0444F6B88B81";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -1020,8 +1026,8 @@
 		ACEBDC8916570CBF00CEFFE5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Mario Greco (AJKP6QLLR2)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Mario Greco (AJKP6QLLR2)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Vincenzo Pezzuti (J8N9FMZDSB)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Vincenzo Pezzuti (J8N9FMZDSB)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../Documents/FacebookSDK\"",
@@ -1033,8 +1039,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_LDFLAGS = "-lsqlite3.0";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "A6FDED87-B65E-486A-9C1A-192A8F69EF2F";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A6FDED87-B65E-486A-9C1A-192A8F69EF2F";
+				PROVISIONING_PROFILE = "2F8EF37D-B5BD-4F26-8733-0444F6B88B81";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2F8EF37D-B5BD-4F26-8733-0444F6B88B81";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1042,8 +1048,8 @@
 		ACEBDC8A16570CBF00CEFFE5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Mario Greco (AJKP6QLLR2)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Mario Greco (AJKP6QLLR2)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Vincenzo Pezzuti (J8N9FMZDSB)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Vincenzo Pezzuti (J8N9FMZDSB)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../Documents/FacebookSDK\"",
@@ -1056,8 +1062,8 @@
 				OTHER_LDFLAGS = "-lsqlite3.0";
 				"OTHER_LDFLAGS[arch=*]" = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "A6FDED87-B65E-486A-9C1A-192A8F69EF2F";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A6FDED87-B65E-486A-9C1A-192A8F69EF2F";
+				PROVISIONING_PROFILE = "2F8EF37D-B5BD-4F26-8733-0444F6B88B81";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2F8EF37D-B5BD-4F26-8733-0444F6B88B81";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
