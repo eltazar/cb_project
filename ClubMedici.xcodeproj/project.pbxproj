@@ -142,8 +142,6 @@
 		D91B384216625919001E9384 /* FormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D91B384116625919001E9384 /* FormViewController.m */; };
 		D91B38451662598F001E9384 /* TextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D91B38441662598F001E9384 /* TextFieldCell.m */; };
 		D95680A51734988600CEAE63 /* AreaTurismoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D95680A41734988600CEAE63 /* AreaTurismoCell.xib */; };
-		D95680A617367D9A00CEAE63 /* AreaTurismoController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = D98131E91734986A00C919AB /* AreaTurismoController_iPhone.m */; };
-		D95680A91736824200CEAE63 /* AreaTurismoController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = D95680A81736824200CEAE63 /* AreaTurismoController_iPad.m */; };
 		D98131E71734985D00C919AB /* AreaTurismoItemList.plist in Resources */ = {isa = PBXBuildFile; fileRef = D98131E61734985D00C919AB /* AreaTurismoItemList.plist */; };
 		D9B04DD9165C63A9005EF35B /* AreaDescriptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D9B04DD8165C63A9005EF35B /* AreaDescriptionCell.m */; };
 		D9C6C518165FDBC400247448 /* UIViewController+InterfaceIdiom.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C6C517165FDBC400247448 /* UIViewController+InterfaceIdiom.m */; };
@@ -345,11 +343,7 @@
 		D91B38431662598F001E9384 /* TextFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TextFieldCell.h; path = ClubMedici/TextFieldCell.h; sourceTree = "<group>"; };
 		D91B38441662598F001E9384 /* TextFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TextFieldCell.m; path = ClubMedici/TextFieldCell.m; sourceTree = "<group>"; };
 		D95680A41734988600CEAE63 /* AreaTurismoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AreaTurismoCell.xib; path = ClubMedici/AreaTurismoCell.xib; sourceTree = "<group>"; };
-		D95680A71736824200CEAE63 /* AreaTurismoController_iPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AreaTurismoController_iPad.h; path = ClubMedici/AreaTurismoController_iPad.h; sourceTree = "<group>"; };
-		D95680A81736824200CEAE63 /* AreaTurismoController_iPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AreaTurismoController_iPad.m; path = ClubMedici/AreaTurismoController_iPad.m; sourceTree = "<group>"; };
 		D98131E61734985D00C919AB /* AreaTurismoItemList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AreaTurismoItemList.plist; sourceTree = "<group>"; };
-		D98131E81734986A00C919AB /* AreaTurismoController_iPhone.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AreaTurismoController_iPhone.h; path = ClubMedici/AreaTurismoController_iPhone.h; sourceTree = "<group>"; };
-		D98131E91734986A00C919AB /* AreaTurismoController_iPhone.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AreaTurismoController_iPhone.m; path = ClubMedici/AreaTurismoController_iPhone.m; sourceTree = "<group>"; };
 		D9B04DD7165C63A9005EF35B /* AreaDescriptionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AreaDescriptionCell.h; path = ClubMedici/AreaDescriptionCell.h; sourceTree = "<group>"; };
 		D9B04DD8165C63A9005EF35B /* AreaDescriptionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AreaDescriptionCell.m; path = ClubMedici/AreaDescriptionCell.m; sourceTree = "<group>"; };
 		D9C6C516165FDBC400247448 /* UIViewController+InterfaceIdiom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+InterfaceIdiom.h"; sourceTree = "<group>"; };
@@ -547,10 +541,6 @@
 				AC26299F165D2A5300510092 /* AreaBaseController_iPad.m */,
 				D915E1861737252100F78948 /* AreaTurismoController.h */,
 				D915E1871737252100F78948 /* AreaTurismoController.m */,
-				D98131E81734986A00C919AB /* AreaTurismoController_iPhone.h */,
-				D98131E91734986A00C919AB /* AreaTurismoController_iPhone.m */,
-				D95680A71736824200CEAE63 /* AreaTurismoController_iPad.h */,
-				D95680A81736824200CEAE63 /* AreaTurismoController_iPad.m */,
 				AC26298A165D1E2400510092 /* PDFviewerController.h */,
 				AC26298B165D1E2400510092 /* PDFviewerController.m */,
 				AC93CE92165DA6F400ABA3C2 /* PDFviewerController.xib */,
@@ -904,8 +894,6 @@
 				AC262992165D1E4900510092 /* AreaBaseController.m in Sources */,
 				ACD24BA1165FB34B00C97CD2 /* AreaBaseController_iPhone.m in Sources */,
 				AC2629A1165D2A5300510092 /* AreaBaseController_iPad.m in Sources */,
-				D95680A617367D9A00CEAE63 /* AreaTurismoController_iPhone.m in Sources */,
-				D95680A91736824200CEAE63 /* AreaTurismoController_iPad.m in Sources */,
 				D9B04DD9165C63A9005EF35B /* AreaDescriptionCell.m in Sources */,
 				AC26298E165D1E2400510092 /* PDFviewerController.m in Sources */,
 				ACD24B9B165F945F00C97CD2 /* RichiestaNoleggioController.m in Sources */,
