@@ -86,7 +86,7 @@
     if([Utilities networkReachable]){
         //se è passato il limite di tempo per la query, fai la query
         NSLog(@"DATA QUERY = %@", dateDoneQuery);
-        if([dateDoneQuery timeIntervalSinceDate:[NSDate date]] == 0.0 ||
+        if(!dateDoneQuery || [dateDoneQuery timeIntervalSinceDate:[NSDate date]] == 0.0 ||
            (-[dateDoneQuery timeIntervalSinceDate:[NSDate date]]) >= QUERY_TIME_LIMIT){
             
             NSLog(@"\n///**** \n FACCIO LA QUERY (%d)\n ///*****", self.areaID);
