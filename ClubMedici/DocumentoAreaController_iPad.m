@@ -35,6 +35,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation{
+    return YES;
+}
+
 -(void)showErrorView:(NSString*)message{
     
     if(errorView == nil || !errorView.showed){
