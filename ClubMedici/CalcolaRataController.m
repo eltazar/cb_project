@@ -57,6 +57,12 @@
     [self applyLabelEffect:_spese];
     [self applyLabelEffect:_footer];
     
+    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone){
+        UISwipeGestureRecognizer *swipeGestue = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(goBackWithSwipe:)];
+        [swipeGestue setDirection:UISwipeGestureRecognizerDirectionRight];
+        [self.view addGestureRecognizer:swipeGestue];
+    }
+    
 }
 
 -(BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation{
@@ -184,6 +190,10 @@
         return [_importoRichiestoField.text floatValue]+[_assicurazioneField.text floatValue]+[text floatValue];
     }
     return 0.0f;
+}
+
+-(void)goBackWithSwipe:(UISwipeGestureRecognizer*)gesture{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end
