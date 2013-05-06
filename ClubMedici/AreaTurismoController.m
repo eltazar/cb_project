@@ -10,6 +10,8 @@
 #import "WMTableViewDataSource.h"
 #import "AreaTurismoCell.h"
 
+#define ROW_HEIGHT (160 * 3)
+
 @interface AreaTurismoController ()
 
 @end
@@ -60,6 +62,20 @@
         return cell;
     }
     return [super tableView:tableView cellForRowAtIndexPath:indexPath];
+}
+
+
+
+#pragma mark - UITableViewDelegate
+
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSString *dataKey = [_dataModel valueForKey:@"DATA_KEY" atIndexPath:indexPath];
+    
+    if (indexPath.section == 1 && [dataKey isEqualToString:@"ViaggiTurismo"]) {
+        return ROW_HEIGHT;
+    }
+    return tableView.rowHeight;
 }
 
 
