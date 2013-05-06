@@ -27,6 +27,7 @@
 
 + (NSString *)getAreaType:(NSInteger)areaID;
 
+-(id)initWithAreaId:(int)areaID;
 - (id)initWithJson:(NSArray*)json;
 - (WMTableViewDataSource *)getDataModel;
 - (void)fetchData;

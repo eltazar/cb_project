@@ -25,16 +25,24 @@
 
 
 @implementation AreaBase
-
+@synthesize areaID = _areaID;
 
 - (id)init {
     self = [super init];
     if (self) {
-        dateDoneQuery = [[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"queryDate%@",[AreaBase getAreaType:self.areaID]]];
+        
     }
     return self;
 }
 
+-(id)initWithAreaId:(int)areaID{
+    self = [super init];
+    if(self){
+        _areaID = areaID;
+        dateDoneQuery = [[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"queryDate%@",[AreaBase getAreaType:self.areaID]]]; 
+    }
+    return self;
+}
 
 - (id)initWithJson:(NSArray*)json {
     self = [self init];
@@ -43,7 +51,6 @@
     }
     return self;
 }
-
 
 - (void)encodeWithCoder:(NSCoder *)encoder {
     //Encode properties, other class variables, etc
@@ -86,7 +93,7 @@
     if([Utilities networkReachable]){
         //se è passato il limite di tempo per la query, fai la query
         NSLog(@"DATA QUERY = %@", dateDoneQuery);
-        if(!dateDoneQuery || [dateDoneQuery timeIntervalSinceDate:[NSDate date]] == 0.0 ||
+        if([dateDoneQuery timeIntervalSinceDate:[NSDate date]] == 0.0 ||
            (-[dateDoneQuery timeIntervalSinceDate:[NSDate date]]) >= QUERY_TIME_LIMIT){
             
             NSLog(@"\n///**** \n FACCIO LA QUERY (%d)\n ///*****", self.areaID);
