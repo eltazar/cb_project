@@ -49,6 +49,9 @@
 		AC72AC7F172FEF39006FB6A5 /* contactButtonEnabled.png in Resources */ = {isa = PBXBuildFile; fileRef = AC72AC7E172FEF39006FB6A5 /* contactButtonEnabled.png */; };
 		AC72AC81172FF24D006FB6A5 /* contactButtonSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = AC72AC80172FF24D006FB6A5 /* contactButtonSelected.png */; };
 		AC79A2381734663C00ED0101 /* sectionHeader.png in Resources */ = {isa = PBXBuildFile; fileRef = AC79A2371734663C00ED0101 /* sectionHeader.png */; };
+		AC79B2D01739AF8700200118 /* iphone_nav_bar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC79B2CF1739AF8700200118 /* iphone_nav_bar@2x.png */; };
+		AC79B2DE1739BB2500200118 /* back_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC79B2DD1739BB2500200118 /* back_button@2x.png */; };
+		AC79B2E01739BD3F00200118 /* normal_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC79B2DF1739BD3F00200118 /* normal_button@2x.png */; };
 		AC8E1777172D800300376720 /* ErrorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC8E1776172D800300376720 /* ErrorView.xib */; };
 		AC9168E416B9EC1900AF402E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC9168E316B9EC1900AF402E /* CoreLocation.framework */; };
 		AC93CE93165DA6F400ABA3C2 /* PDFviewerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC93CE92165DA6F400ABA3C2 /* PDFviewerController.xib */; };
@@ -208,6 +211,9 @@
 		AC72AC7E172FEF39006FB6A5 /* contactButtonEnabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = contactButtonEnabled.png; path = img/contactButtonEnabled.png; sourceTree = SOURCE_ROOT; };
 		AC72AC80172FF24D006FB6A5 /* contactButtonSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = contactButtonSelected.png; path = img/contactButtonSelected.png; sourceTree = SOURCE_ROOT; };
 		AC79A2371734663C00ED0101 /* sectionHeader.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sectionHeader.png; path = img/sectionHeader.png; sourceTree = SOURCE_ROOT; };
+		AC79B2CF1739AF8700200118 /* iphone_nav_bar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iphone_nav_bar@2x.png"; path = "img/iphone_nav_bar@2x.png"; sourceTree = SOURCE_ROOT; };
+		AC79B2DD1739BB2500200118 /* back_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "back_button@2x.png"; path = "img/back_button@2x.png"; sourceTree = SOURCE_ROOT; };
+		AC79B2DF1739BD3F00200118 /* normal_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "normal_button@2x.png"; path = "img/normal_button@2x.png"; sourceTree = SOURCE_ROOT; };
 		AC8E1776172D800300376720 /* ErrorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ErrorView.xib; path = ClubMedici/ErrorView.xib; sourceTree = "<group>"; };
 		AC9168E316B9EC1900AF402E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		AC93CE92165DA6F400ABA3C2 /* PDFviewerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PDFviewerController.xib; path = ClubMedici/PDFviewerController.xib; sourceTree = "<group>"; };
@@ -573,6 +579,9 @@
 			children = (
 				ACBF78EF172D4B9700B4F230 /* spinner images */,
 				ACE9FF5716B88D91002C8CE5 /* header_contatti.png */,
+				AC79B2CF1739AF8700200118 /* iphone_nav_bar@2x.png */,
+				AC79B2DF1739BD3F00200118 /* normal_button@2x.png */,
+				AC79B2DD1739BB2500200118 /* back_button@2x.png */,
 				ACE88C2E1738681D00C531C8 /* mail3.png */,
 				AC1BE05D173874F7003B7759 /* mail3_high.png */,
 				ACE88C2C173861C600C531C8 /* phone3_high.png */,
@@ -881,6 +890,9 @@
 				ACE88C2D173861C600C531C8 /* phone3_high.png in Resources */,
 				ACE88C2F1738681D00C531C8 /* mail3.png in Resources */,
 				AC1BE05E173874F7003B7759 /* mail3_high.png in Resources */,
+				AC79B2D01739AF8700200118 /* iphone_nav_bar@2x.png in Resources */,
+				AC79B2DE1739BB2500200118 /* back_button@2x.png in Resources */,
+				AC79B2E01739BD3F00200118 /* normal_button@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
