@@ -17,13 +17,19 @@
 #import "AppDelegate.h"
 #import <MessageUI/MessageUI.h>
 #import "SharingPanelView.h"
+#import "FXLabel.h"
 
+#define URL_NEWS_PATH @"http://www.clubmedici.it/nuovo/"
 
-@interface HomeViewController : UIViewController<WMHTTPAccessDelegate, MFMailComposeViewControllerDelegate>
+@interface HomeViewController : UIViewController<WMHTTPAccessDelegate, MFMailComposeViewControllerDelegate, UIWebViewDelegate>
 {
+    @protected
     ErrorView *errorView;
+    IBOutlet UIWebView * webView;
+    FXLabel *titleLabel;
+}
 
-}- (void) showErrorView:(NSString*)message;
+- (void)showErrorView:(NSString*)message;
 - (void)hideErrorView:(UITapGestureRecognizer*)gesture;
 
 - (void)postToFacebook:(id)sender;

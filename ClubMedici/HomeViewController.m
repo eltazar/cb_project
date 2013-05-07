@@ -28,10 +28,32 @@
     self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:1/255.0f green:70/255.0f blue:148/255.0f alpha:1];
     self.view.backgroundColor = [UIColor colorWithRed:246/255.0f green:250/255.0f blue:255/255.0f alpha:1];
     
-    self.title = @"ClubMedici";
+    self.title = @"News";
     //il controller figlio di questo controller avrà il titolo del back Button personalizzato
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Home" style:UIBarButtonItemStyleBordered target:nil action:nil];
     self.navigationItem.backBarButtonItem = backButton;
+    
+    [webView setBackgroundColor:[UIColor clearColor]];
+    [webView setOpaque:NO];
+    //rimuove ombra dietro la pagina web
+    for(UIView *wview in [[[webView subviews] objectAtIndex:0] subviews]) {
+        if([wview isKindOfClass:[UIImageView class]]) { wview.hidden = YES; }
+    }
+    
+
+    titleLabel = [[FXLabel alloc] init];
+    titleLabel.textColor = [UIColor colorWithWhite:0.4f alpha:1];
+    titleLabel.backgroundColor = [UIColor clearColor];
+    //    titleLabel.shadowColor = [UIColor colorWithWhite:1.0f alpha:0.8f];
+    //    titleLabel.shadowOffset = CGSizeMake(0.8f, 0.80f);
+    titleLabel.shadowBlur = 1.0f;
+    titleLabel.innerShadowBlur = 3.0f;
+    titleLabel.innerShadowColor = [UIColor colorWithWhite:0.0f alpha:0.9f];
+    titleLabel.innerShadowOffset = CGSizeMake(0.8f, 0.8f);
+    //titleLabel.highlightedTextColor =[UIColor blackColor];
+    
+    [webView.scrollView addSubview:titleLabel];
+
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -129,6 +151,7 @@
 -(void)didReceiveJSON:(NSArray *)jsonArray{
     //NSLog(@"JSON = %@",jsonArray);
     json = jsonArray;
+    titleLabel.text = [NSString stringWithFormat:@"News: %@",[[jsonArray objectAtIndex:0]objectForKey:@"titolo"]];//@"aaaaaaaa aaaaaaa aaaaaaa aaaaaaaa aaaaaa";
 }
 
 -(void)didReceiveError:(NSError *)error{
@@ -348,6 +371,15 @@
     else if (result == MFMailComposeResultCancelled){
         NSLog(@"messaggio annullato");
     }
+}
+
+-(BOOL) webView:(UIWebView *)inWeb shouldStartLoadWithRequest:(NSURLRequest *)inRequest navigationType:(UIWebViewNavigationType)inType {
+    if ( inType == UIWebViewNavigationTypeLinkClicked ) {
+        [[UIApplication sharedApplication] openURL:[inRequest URL]];
+        return NO;
+    }
+    
+    return YES;
 }
 
 @end

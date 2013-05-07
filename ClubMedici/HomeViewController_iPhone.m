@@ -8,13 +8,11 @@
 
 #import "HomeViewController_iPhone.h"
 
-
 #define IS_IPHONE_5 ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )568 ) < DBL_EPSILON )
-
 
 @interface HomeViewController_iPhone ()
 {
-    NewsPullableView *newsView;
+    //NewsPullableView *newsView;
 }
 @end
 
@@ -30,8 +28,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    webView.scrollView.contentInset =  UIEdgeInsetsMake(40.0,0.0,0.0,0.0);
+    titleLabel.frame = CGRectMake(15, -30, 300,40);
+    [titleLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:17]];
+    titleLabel.numberOfLines = 1;
+    titleLabel.minimumFontSize = 12;
+    titleLabel.adjustsFontSizeToFitWidth = YES;
+    
 	// Do any additional setup after loading the view.
     
+    /*
     newsView = [[NewsPullableView alloc] initWithFrame:CGRectMake(0, 100, self.view.frame.size.width, 500)];    
     float closedCenterOffset = 0;
     if (IS_IPHONE_5){
@@ -65,6 +71,8 @@
     [sharingView.mailButton addTarget:self action:@selector(postToMail:) forControlEvents:UIControlEventTouchUpInside];
     
     [self.view addSubview:newsView];
+     */
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -83,35 +91,38 @@
     return NO;
 }
 
-- (void)pullableView:(PullableView *)pView didChangeState:(BOOL)opened {
-    if (opened) {
-        //NSLog(@"Now I'm open!");
-       [newsView rotateArrow:YES];
-    } else {
-        //NSLog( @"Now I'm closed, pull me up again!");
-        [newsView rotateArrow:NO];
-    }
-}
+//- (void)pullableView:(PullableView *)pView didChangeState:(BOOL)opened {
+//    if (opened) {
+//        //NSLog(@"Now I'm open!");
+//       [newsView rotateArrow:YES];
+//    } else {
+//        //NSLog( @"Now I'm closed, pull me up again!");
+//        [newsView rotateArrow:NO];
+//    }
+//}
 
 #pragma mark - WMHttpAccessDelegate
 
 -(void)didReceiveJSON:(NSArray *)jsonArray{
-    
+    NSLog(@"json = %@",jsonArray);
     [super didReceiveJSON:jsonArray];
-    [newsView setUserInteractionEnabled:YES];
+    //[newsView setUserInteractionEnabled:YES];
     
-    newsView.descrizioneBreve.text = [NSString stringWithFormat:@"News: %@",[[jsonArray objectAtIndex:0]objectForKey:@"titolo"]];
-    NSString *htmlPage = @"<html><head><style type=\"text/css\">%@</style></head>    <body>%@</body></html>";
-    NSString *style = @"body {font-family:helvetica;background-color: #cfd8e2;}body,p {margin:15px;font-size: 13px;color: #212121;text-shadow: #fff 0px 1px 0px;}";//font-size: 16px;text-align: justify;color: #272727;text-shadow: 1px 4px 6px #f6faff, 0 0 0 #000, 1px 4px 6px #f6faff;}";//
-    htmlPage = [NSString stringWithFormat:htmlPage,style,[[jsonArray objectAtIndex:0]objectForKey:@"testo"]];
-    [newsView.descrizioneEstesa loadHTMLString:htmlPage baseURL:nil];
+    //newsView.descrizioneBreve.text = [NSString stringWithFormat:@"News: %@",[[jsonArray objectAtIndex:0]objectForKey:@"titolo"]];
+    NSString *htmlPage = @"<html><head><style type=\"text/css\">%@</style></head>    <body><img src=\"%@\" class=\"floatLeft\"> %@</body></html>";
+    NSString *style = @"img.floatLeft{height:100px;width:100px;float: left;margin: 5px;}body {font-family:helvetica;background-color: #f6faff;}body,p{margin:15px;font-size: 16px;color: #212121;text-shadow: #fff 0px 1px 0px;}";//font-size: 16px;text-align: justify;color: #272727;text-shadow: 1px 4px 6px #f6faff, 0 0 0 #000, 1px 4px 6px #f6faff;}";//
+    NSString *img = [NSString stringWithFormat:@"%@%@",URL_NEWS_PATH,[[jsonArray objectAtIndex:0] objectForKey:@"foto"]];
+    htmlPage = [NSString stringWithFormat:htmlPage,style,img,[[jsonArray objectAtIndex:0]objectForKey:@"testo"]];
+    [webView loadHTMLString:htmlPage baseURL:nil];
 }
 
 -(void)didReceiveError:(NSError *)error{
-    [newsView setUserInteractionEnabled:NO];
-    newsView.descrizioneBreve.text = @"Impossibile caricare le news, riprovare";
+    //[newsView setUserInteractionEnabled:NO];
+    //newsView.descrizioneBreve.text = @"Impossibile caricare le news, riprovare";
     [super didReceiveError:error];
 }
+
+
 
 #pragma mark - ErrorView methods
 
