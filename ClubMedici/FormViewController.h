@@ -24,9 +24,7 @@
 
 @interface FormViewController : UITableViewController <UITextFieldDelegate, WMHTTPAccessDelegate> {
     @protected
-    WMTableViewDataSource *_dataModel;
-    UILabel *customTitle;
-    
+    WMTableViewDataSource *_dataModel;    
 }
 
 @property(nonatomic, weak) id<FormViewControllerDelegate> delegate;

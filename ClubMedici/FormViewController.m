@@ -14,6 +14,7 @@
 #import "ErrorView.h"
 #import "AppDelegate.h"
 #import "JASidePanelController.h"
+#import "FXLabel.h"
 
 #define KEYBOARD_ORIGIN_Y self.tableView.frame.size.height - 216.0f
 
@@ -21,6 +22,7 @@
     TextFieldCell *textFieldCell;
     ErrorView *errorView;
     JASidePanelController *jasController;
+    IBOutlet FXLabel *headerLabel;
 }
 
 @end
@@ -52,14 +54,6 @@
     _dataModel.cellFactory = self;
     _dataModel.showSectionHeaders = NO;
     
-    customTitle = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 480, 44)];
-    customTitle.backgroundColor = [UIColor clearColor];
-    customTitle.numberOfLines = 2;
-    customTitle.font = [UIFont boldSystemFontOfSize: 16.0f];
-    customTitle.shadowColor = [UIColor colorWithWhite:0.0 alpha:0.5];
-    customTitle.textAlignment = UITextAlignmentCenter;
-    customTitle.textColor = [UIColor whiteColor];
-    
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Indietro" style:UIBarButtonItemStyleBordered target:nil action:nil];
     self.navigationItem.backBarButtonItem = backButton;
     
@@ -69,6 +63,14 @@
     jasController = appDelegate.jasSidePanelController;
     
     [jasController addObserver:self forKeyPath:@"state" options:NSKeyValueObservingOptionNew context:nil];
+    
+    headerLabel.textColor = [UIColor colorWithWhite:0.4f alpha:1];
+    headerLabel.shadowColor = [UIColor colorWithWhite:1.0f alpha:0.8f];
+    headerLabel.shadowOffset = CGSizeMake(0.8f, 0.80f);
+    headerLabel.shadowBlur = 1.0f;
+    headerLabel.innerShadowBlur = 3.0f;
+    headerLabel.innerShadowColor = [UIColor colorWithWhite:0.0f alpha:0.9f];
+    headerLabel.innerShadowOffset = CGSizeMake(0.8f, 0.8f);
 }
 
 -(void)viewDidDisappear:(BOOL)animated{
