@@ -12,11 +12,11 @@
 NSString *_key(NSURLConnection *conn);
 
 @interface WMHTTPAccess () 
-@property (atomic, retain) NSMutableDictionary *connectionDict;
-@property (atomic, retain) NSMutableDictionary *dataDict;
-@property (atomic, retain) NSMutableDictionary *delegateDict;
+    @property (atomic, retain) NSMutableDictionary *connectionDict;
+    @property (atomic, retain) NSMutableDictionary *dataDict;
+    @property (atomic, retain) NSMutableDictionary *delegateDict;
 
-- (void)tearDownTerminatedConnection:(NSURLConnection *)conn;
+    - (void)tearDownTerminatedConnection:(NSURLConnection *)conn;
 @end
 
 
@@ -104,7 +104,7 @@ static WMHTTPAccess *__sharedInstance = nil;
     id<WMHTTPAccessDelegate> delegate   = [self.delegateDict objectForKey:k];
     
     //Debug:
-    //NSLog(@"Dal Server è arrivato: %@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+    NSLog(@"Dal Server è arrivato: %@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
     
     if ([delegate respondsToSelector:@selector(didReceiveJSON:)]) {
         NSError *error = nil;
