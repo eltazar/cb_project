@@ -106,7 +106,8 @@
         cell.opaque = YES;
         
         FXLabel *contactLabel = (FXLabel *) [cell viewWithTag:1];
-        contactLabel.textColor = [UIColor colorWithRed:1/255.0f green:70/255.0f blue:148/255.0f alpha:1];
+        contactLabel.textColor = [UIColor colorWithRed:11/255.0f green:67/255.0f blue:144/255.0f alpha:1];
+
         //contactLabel.textColor = [UIColor colorWithWhite:0.09f alpha:0.8f];
         //contactLabel.highlightedTextColor =[UIColor blackColor];
         //contactLabel.shadowColor = [UIColor colorWithWhite:0.9f alpha:0.8f];
