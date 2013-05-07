@@ -9,11 +9,11 @@
 		<array>
 			<dict>
 				<key>DATA_KEY</key>
-				<string>Azienda</string>
+				<string>news</string>
 				<key>CONTROLLER</key>
 				<string>HomeViewController</string>
 				<key>LABEL</key>
-				<string>ClubMedici</string>
+				<string>News</string>
 			</dict>
 		</array>
 	</dict>

@@ -48,7 +48,7 @@
     
     appDelegate.jasSidePanelController.centerPanel = nil;
     
-    if([dataKey isEqualToString:@"Azienda"]){
+    if([dataKey isEqualToString:@"news"]){
         appDelegate.jasSidePanelController.centerPanel = [[UINavigationController alloc] initWithRootViewController:[HomeViewController idiomAllocInit]];
     }
     else if([dataKey isEqualToString:@"member"]){

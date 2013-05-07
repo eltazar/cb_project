@@ -59,7 +59,7 @@
     
     UINavigationController *detailNavController = nil;
     
-    if([dataKey isEqualToString:@"Azienda"]){
+    if([dataKey isEqualToString:@"news"]){
         HomeViewController *homeController = [HomeViewController idiomAllocInit];
         detailNavController = [[UINavigationController alloc] initWithRootViewController:homeController];
     }
