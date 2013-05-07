@@ -49,6 +49,8 @@
 //                                                 name:kReachabilityChangedNotification
 //                                               object:nil];
     [reachability startNotifier];
+    
+    [self setCustomApparence];
         
     [self.window makeKeyAndVisible];
     return YES;
@@ -171,6 +173,21 @@
     return [FBAppCall handleOpenURL:url sourceApplication:sourceApplication];
 }
 
+#pragma mark - Apparence methods
+
+-(void) setCustomApparence{
+    
+    //permette di cambiare la navBar di tutte le view
+    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"iphone_nav_bar"]  forBarMetrics:UIBarMetricsDefault];
+    
+    // Change the appearance of back button
+    UIImage *backButtonImage = [[UIImage imageNamed:@"back_button"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 13, 0, 6)];
+    [[UIBarButtonItem appearance] setBackButtonBackgroundImage:backButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    
+    // Change the appearance of other navigation button
+    UIImage *barButtonImage = [[UIImage imageNamed:@"normal_button"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 5, 0, 5)];
+    [[UIBarButtonItem appearance] setBackgroundImage:barButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+}
 
 @end
 
