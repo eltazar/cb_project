@@ -172,6 +172,7 @@
     
     /*Testo della cella*/
     FXLabel *label = (FXLabel *) [cell viewWithTag:3];
+    label.textColor = [UIColor colorWithWhite:0.5f alpha:1];
     label.shadowColor = [UIColor colorWithWhite:1.0f alpha:0.8f];
     label.shadowOffset = CGSizeMake(0.8f, 0.80f);
     label.shadowBlur = 1.0f;
@@ -216,7 +217,6 @@
 //        return [super tableView:tableView heightForHeaderInSection:section];
 //    }
 //}
-
 
 - (NSString*) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     return [_dataModel tableView:tableView titleForHeaderInSection:section];
