@@ -41,16 +41,20 @@
     }
     
 
+
+    
     titleLabel = [[FXLabel alloc] init];
-    titleLabel.textColor = [UIColor colorWithWhite:0.4f alpha:1];
+    titleLabel.textColor = [UIColor colorWithRed:11/255.0f green:67/255.0f blue:144/255.0f alpha:1];
     titleLabel.backgroundColor = [UIColor clearColor];
-    //    titleLabel.shadowColor = [UIColor colorWithWhite:1.0f alpha:0.8f];
-    //    titleLabel.shadowOffset = CGSizeMake(0.8f, 0.80f);
-    titleLabel.shadowBlur = 1.0f;
-    titleLabel.innerShadowBlur = 3.0f;
-    titleLabel.innerShadowColor = [UIColor colorWithWhite:0.0f alpha:0.9f];
-    titleLabel.innerShadowOffset = CGSizeMake(0.8f, 0.8f);
-    //titleLabel.highlightedTextColor =[UIColor blackColor];
+    //    titleLabel.textColor = [UIColor colorWithWhite:0.4f alpha:1];
+//    titleLabel.backgroundColor = [UIColor clearColor];
+//    //    titleLabel.shadowColor = [UIColor colorWithWhite:1.0f alpha:0.8f];
+//    //    titleLabel.shadowOffset = CGSizeMake(0.8f, 0.80f);
+//    titleLabel.shadowBlur = 1.0f;
+//    titleLabel.innerShadowBlur = 3.0f;
+//    titleLabel.innerShadowColor = [UIColor colorWithWhite:0.0f alpha:0.9f];
+//    titleLabel.innerShadowOffset = CGSizeMake(0.8f, 0.8f);
+//    //titleLabel.highlightedTextColor =[UIColor blackColor];
     
     [webView.scrollView addSubview:titleLabel];
 
@@ -151,7 +155,7 @@
 -(void)didReceiveJSON:(NSArray *)jsonArray{
     //NSLog(@"JSON = %@",jsonArray);
     json = jsonArray;
-    titleLabel.text = [NSString stringWithFormat:@"News: %@",[[jsonArray objectAtIndex:0]objectForKey:@"titolo"]];//@"aaaaaaaa aaaaaaa aaaaaaa aaaaaaaa aaaaaa";
+    titleLabel.text = [NSString stringWithFormat:@"%@",[[jsonArray objectAtIndex:0]objectForKey:@"titolo"]];//@"aaaaaaaa aaaaaaa aaaaaaa aaaaaaaa aaaaaa";
 }
 
 -(void)didReceiveError:(NSError *)error{
