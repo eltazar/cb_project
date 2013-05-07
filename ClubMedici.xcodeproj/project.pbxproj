@@ -146,6 +146,8 @@
 		D915E18B17372C8600F78948 /* AreaTurismoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D915E18A17372C8600F78948 /* AreaTurismoCell.m */; };
 		D915E18D17373F9900F78948 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D915E18C17373F9900F78948 /* FacebookSDK.framework */; };
 		D915E18F17373FD300F78948 /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D915E18E17373FD300F78948 /* FacebookSDKResources.bundle */; };
+		D915E1961739C1EE00F78948 /* TurismoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D915E1941739C1ED00F78948 /* TurismoTableViewController.m */; };
+		D915E1971739C1EE00F78948 /* TurismoTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D915E1951739C1ED00F78948 /* TurismoTableViewController.xib */; };
 		D91B3838166237D2001E9384 /* AreaAssicurativa.m in Sources */ = {isa = PBXBuildFile; fileRef = D91B3837166237D2001E9384 /* AreaAssicurativa.m */; };
 		D91B383B16624322001E9384 /* RichiestaNoleggioAuto.plist in Resources */ = {isa = PBXBuildFile; fileRef = D91B383A16624322001E9384 /* RichiestaNoleggioAuto.plist */; };
 		D91B383D166245A2001E9384 /* RichiestaNoleggioElettromedicale.plist in Resources */ = {isa = PBXBuildFile; fileRef = D91B383C166245A1001E9384 /* RichiestaNoleggioElettromedicale.plist */; };
@@ -356,6 +358,9 @@
 		D915E18A17372C8600F78948 /* AreaTurismoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AreaTurismoCell.m; path = ClubMedici/AreaTurismoCell.m; sourceTree = "<group>"; };
 		D915E18C17373F9900F78948 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		D915E18E17373FD300F78948 /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = FacebookSDKResources.bundle; path = FacebookSDK.framework/Versions/A/Resources/FacebookSDKResources.bundle; sourceTree = "<group>"; };
+		D915E1931739C1ED00F78948 /* TurismoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TurismoTableViewController.h; path = ClubMedici/TurismoTableViewController.h; sourceTree = "<group>"; };
+		D915E1941739C1ED00F78948 /* TurismoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TurismoTableViewController.m; path = ClubMedici/TurismoTableViewController.m; sourceTree = "<group>"; };
+		D915E1951739C1ED00F78948 /* TurismoTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TurismoTableViewController.xib; path = ClubMedici/TurismoTableViewController.xib; sourceTree = "<group>"; };
 		D91B3836166237D2001E9384 /* AreaAssicurativa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreaAssicurativa.h; sourceTree = "<group>"; };
 		D91B3837166237D2001E9384 /* AreaAssicurativa.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaAssicurativa.m; sourceTree = "<group>"; };
 		D91B383A16624322001E9384 /* RichiestaNoleggioAuto.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = RichiestaNoleggioAuto.plist; path = ClubMedici/RichiestaNoleggioAuto.plist; sourceTree = "<group>"; };
@@ -543,9 +548,7 @@
 				AC26297F165D07F100510092 /* AreaLeasing.m */,
 				AC26297B165D01EE00510092 /* AreaCureMediche.h */,
 				AC26297C165D01EE00510092 /* AreaCureMediche.m */,
-				D98131E61734985D00C919AB /* AreaTurismoItemList.plist */,
-				D90EA9D01661660300D29490 /* AreaTurismo.h */,
-				D90EA9D11661660300D29490 /* AreaTurismo.m */,
+				D915E1981739CAB100F78948 /* Turismo */,
 				D91B3836166237D2001E9384 /* AreaAssicurativa.h */,
 				D91B3837166237D2001E9384 /* AreaAssicurativa.m */,
 			);
@@ -564,6 +567,9 @@
 				AC26299F165D2A5300510092 /* AreaBaseController_iPad.m */,
 				D915E1861737252100F78948 /* AreaTurismoController.h */,
 				D915E1871737252100F78948 /* AreaTurismoController.m */,
+				D915E1931739C1ED00F78948 /* TurismoTableViewController.h */,
+				D915E1941739C1ED00F78948 /* TurismoTableViewController.m */,
+				D915E1951739C1ED00F78948 /* TurismoTableViewController.xib */,
 				AC26298A165D1E2400510092 /* PDFviewerController.h */,
 				AC26298B165D1E2400510092 /* PDFviewerController.m */,
 				AC93CE92165DA6F400ABA3C2 /* PDFviewerController.xib */,
@@ -782,6 +788,16 @@
 			name = "Custom views";
 			sourceTree = "<group>";
 		};
+		D915E1981739CAB100F78948 /* Turismo */ = {
+			isa = PBXGroup;
+			children = (
+				D98131E61734985D00C919AB /* AreaTurismoItemList.plist */,
+				D90EA9D01661660300D29490 /* AreaTurismo.h */,
+				D90EA9D11661660300D29490 /* AreaTurismo.m */,
+			);
+			name = Turismo;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -910,6 +926,7 @@
 				ACC0E1B4173ACD830075492E /* normal_button_big@2x.png in Resources */,
 				ACC450F7173ACE0D0058B30A /* normal_button_big_selected@2x.png in Resources */,
 				ACB6A9F5173AFF1400068934 /* reverse_nav_bar@2x.png in Resources */,
+				D915E1971739C1EE00F78948 /* TurismoTableViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -977,7 +994,11 @@
 				ACDA943A1736EF9900A00092 /* SharingPanelView.m in Sources */,
 				D915E1881737252100F78948 /* AreaTurismoController.m in Sources */,
 				D915E18B17372C8600F78948 /* AreaTurismoCell.m in Sources */,
+<<<<<<< HEAD
 				ACB6A9F1173AF19600068934 /* UnderlinedLabel.m in Sources */,
+=======
+				D915E1961739C1EE00F78948 /* TurismoTableViewController.m in Sources */,
+>>>>>>> a071c84... file XCode aggiornato
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
