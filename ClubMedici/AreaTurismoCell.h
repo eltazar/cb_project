@@ -11,6 +11,8 @@
 
 @interface AreaTurismoCell : UITableViewCell
 
+@property (nonatomic, strong) UINavigationController *navController;
+
 - (void)setItems:(NSArray *)items;
 - (void)handleTap:(UITapGestureRecognizer *)sender;
 
