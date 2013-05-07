@@ -111,24 +111,20 @@
         UIImageView *img = (UIImageView *)[cell viewWithTag:2];
 
         FXLabel *label   = (FXLabel*)    [cell viewWithTag:3];
+        label.textColor = [UIColor colorWithWhite:0.5f alpha:1];
         label.shadowColor = [UIColor colorWithWhite:1.0f alpha:0.8f];
-        label.shadowOffset = CGSizeMake(1.0f, 1.0f);
+        label.shadowOffset = CGSizeMake(0.8f, 0.80f);
         label.shadowBlur = 1.0f;
         label.innerShadowBlur = 3.0f;
         label.innerShadowColor = [UIColor colorWithWhite:0.0f alpha:0.9f];
-        label.innerShadowOffset = CGSizeMake(1.0f, 1.0f);
+        label.innerShadowOffset = CGSizeMake(0.8f, 0.8f);
         label.highlightedTextColor =[UIColor blackColor];
         
         //NSLog(@"LABEL = %@",[_dataModel valueForKey:@"LABEL" atIndexPath:indexPath]);
         label.text = [_dataModel valueForKey:@"LABEL" atIndexPath:indexPath];
         
         FXLabel *contactLabel = (FXLabel *) [cell viewWithTag:1];
-        contactLabel.shadowColor = [UIColor colorWithWhite:1.0f alpha:0.8f];
-        contactLabel.shadowOffset = CGSizeMake(1.0f, 1.0f);
-        contactLabel.shadowBlur = 1.0f;
-        contactLabel.innerShadowBlur = 3.0f;
-        contactLabel.innerShadowColor = [UIColor colorWithWhite:0.0f alpha:0.9f];
-        contactLabel.innerShadowOffset = CGSizeMake(1.0f, 1.0f);
+        contactLabel.textColor = [UIColor colorWithRed:11/255.0f green:67/255.0f blue:144/255.0f alpha:1];
         contactLabel.highlightedTextColor =[UIColor blackColor];
         
         /* Linea separatrice tra le celle*/
