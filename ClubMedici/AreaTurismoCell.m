@@ -7,6 +7,7 @@
 //
 
 #import "AreaTurismoCell.h"
+#import "TurismoTableViewController.h"
 
 #define N                 5
 #define IMAGEVIEW_OFFSET  0
@@ -85,7 +86,10 @@
         [sender isKindOfClass:[UITapGestureRecognizerWithTag class]]) {
         NSInteger tag = ((UITapGestureRecognizerWithTag *)sender).tag;
         NSDictionary *dict = (NSDictionary *) [_items objectAtIndex:tag];
-        NSLog(@"Ho fatto tap su: %@", [dict objectForKey:@"LABEL"]);
+        TurismoTableViewController *viewController = [[TurismoTableViewController alloc] init];
+        viewController.title = [dict objectForKey:@"LABEL"];
+        //viewController.idTipo
+        [self.navController pushViewController:viewController animated:YES];
     }
 }
 
