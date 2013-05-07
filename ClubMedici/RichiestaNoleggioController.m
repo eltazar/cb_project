@@ -26,6 +26,7 @@
     NSString *modello;
     NSString *tipo;
     NSString *prezzo;
+    UILabel *customTitle;
 }
 @end
 
@@ -50,21 +51,37 @@
 }
 
 - (void)viewDidLoad {
+    
+    customTitle = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 480, 44)];
+    customTitle.backgroundColor = [UIColor clearColor];
+    customTitle.numberOfLines = 2;
+    customTitle.font = [UIFont boldSystemFontOfSize: 16.0f];
+    customTitle.shadowColor = [UIColor colorWithWhite:0.0 alpha:0.5];
+    customTitle.textAlignment = UITextAlignmentCenter;
+    customTitle.textColor = [UIColor whiteColor];
+    NSLog(@"kind = %@",kind);
     if ([self.kind isEqualToString:@"noleggioAuto"]) {
         _dataModel = [[WMTableViewDataSource alloc]
                       initWithPList:@"RichiestaNoleggioAuto"];
+         customTitle.font = [UIFont boldSystemFontOfSize: 18.0f];
+        customTitle.text = @"Noleggio auto";
     }
-    else { // self.kind == noleggioElettro || self.kind == leasingElettro
+    else if([self.kind isEqualToString:@"noleggioElettro"]){ // self.kind == noleggioElettro || self.kind == leasingElettro
         _dataModel = [[WMTableViewDataSource alloc]
                       initWithPList:@"RichiestaNoleggioElettromedicale"];
+        customTitle.text = @"Noleggio elettromedicale";
+    }
+    else{
+        customTitle.text = @"Leasing \n elettromedicale";
+        
     }
     [super viewDidLoad];
-    
+
     UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"Annula" style:UIBarButtonItemStylePlain target:self action:@selector(cancelButtonPressed:)];
     self.navigationItem.leftBarButtonItem = button;
 
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
-        customTitle.text = @"Richiedi \n informazioni";
+        
         self.navigationItem.titleView = customTitle;
     }
     else{
