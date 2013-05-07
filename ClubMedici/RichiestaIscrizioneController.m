@@ -47,14 +47,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];    
-    //self.title = @"Richiesta iscrizione";
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
-        customTitle.text = @"Richiedi \n iscrizione";
-        self.navigationItem.titleView = customTitle;
-    }
-    else{
-        self.title = @"Richiedi iscrizione";
-    }    
+    self.title = @"Diventa socio";
+
 }
 
 - (void)didReceiveMemoryWarning {
