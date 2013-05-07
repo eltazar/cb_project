@@ -58,7 +58,9 @@
                                                   owner:self
                                                 options:NULL] objectAtIndex:0];
         }
-        [((AreaTurismoCell *)cell) setItems:[_dataModel valueForKey:@"ITEMS" atIndexPath:indexPath]];
+        AreaTurismoCell *turismoCell = (AreaTurismoCell *)cell;
+        turismoCell.navController = self.navigationController;
+        [turismoCell setItems:[_dataModel valueForKey:@"ITEMS" atIndexPath:indexPath]];
         [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
         return cell;
     }
