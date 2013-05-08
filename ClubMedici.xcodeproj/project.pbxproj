@@ -149,6 +149,8 @@
 		D915E1961739C1EE00F78948 /* TurismoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D915E1941739C1ED00F78948 /* TurismoTableViewController.m */; };
 		D915E1971739C1EE00F78948 /* TurismoTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D915E1951739C1ED00F78948 /* TurismoTableViewController.xib */; };
 		D915E19B1739CBEE00F78948 /* BusinessLogicBase.m in Sources */ = {isa = PBXBuildFile; fileRef = D915E19A1739CBEE00F78948 /* BusinessLogicBase.m */; };
+		D915E19E1739D14400F78948 /* AreaTurismoSection.m in Sources */ = {isa = PBXBuildFile; fileRef = D915E19D1739D14400F78948 /* AreaTurismoSection.m */; };
+		D915E1A11739E12900F78948 /* AreaTurismoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D915E1A01739E12900F78948 /* AreaTurismoItem.m */; };
 		D91B3838166237D2001E9384 /* AreaAssicurativa.m in Sources */ = {isa = PBXBuildFile; fileRef = D91B3837166237D2001E9384 /* AreaAssicurativa.m */; };
 		D91B383B16624322001E9384 /* RichiestaNoleggioAuto.plist in Resources */ = {isa = PBXBuildFile; fileRef = D91B383A16624322001E9384 /* RichiestaNoleggioAuto.plist */; };
 		D91B383D166245A2001E9384 /* RichiestaNoleggioElettromedicale.plist in Resources */ = {isa = PBXBuildFile; fileRef = D91B383C166245A1001E9384 /* RichiestaNoleggioElettromedicale.plist */; };
@@ -364,6 +366,10 @@
 		D915E1951739C1ED00F78948 /* TurismoTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TurismoTableViewController.xib; path = ClubMedici/TurismoTableViewController.xib; sourceTree = "<group>"; };
 		D915E1991739CBEE00F78948 /* BusinessLogicBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusinessLogicBase.h; sourceTree = "<group>"; };
 		D915E19A1739CBEE00F78948 /* BusinessLogicBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusinessLogicBase.m; sourceTree = "<group>"; };
+		D915E19C1739D14400F78948 /* AreaTurismoSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreaTurismoSection.h; sourceTree = "<group>"; };
+		D915E19D1739D14400F78948 /* AreaTurismoSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaTurismoSection.m; sourceTree = "<group>"; };
+		D915E19F1739E12900F78948 /* AreaTurismoItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreaTurismoItem.h; sourceTree = "<group>"; };
+		D915E1A01739E12900F78948 /* AreaTurismoItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaTurismoItem.m; sourceTree = "<group>"; };
 		D91B3836166237D2001E9384 /* AreaAssicurativa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreaAssicurativa.h; sourceTree = "<group>"; };
 		D91B3837166237D2001E9384 /* AreaAssicurativa.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaAssicurativa.m; sourceTree = "<group>"; };
 		D91B383A16624322001E9384 /* RichiestaNoleggioAuto.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = RichiestaNoleggioAuto.plist; path = ClubMedici/RichiestaNoleggioAuto.plist; sourceTree = "<group>"; };
@@ -799,6 +805,10 @@
 				D98131E61734985D00C919AB /* AreaTurismoItemList.plist */,
 				D90EA9D01661660300D29490 /* AreaTurismo.h */,
 				D90EA9D11661660300D29490 /* AreaTurismo.m */,
+				D915E19C1739D14400F78948 /* AreaTurismoSection.h */,
+				D915E19D1739D14400F78948 /* AreaTurismoSection.m */,
+				D915E19F1739E12900F78948 /* AreaTurismoItem.h */,
+				D915E1A01739E12900F78948 /* AreaTurismoItem.m */,
 			);
 			name = Turismo;
 			sourceTree = "<group>";
@@ -1002,6 +1012,8 @@
 				ACB6A9F1173AF19600068934 /* UnderlinedLabel.m in Sources */,
 				D915E1961739C1EE00F78948 /* TurismoTableViewController.m in Sources */,
 				D915E19B1739CBEE00F78948 /* BusinessLogicBase.m in Sources */,
+				D915E19E1739D14400F78948 /* AreaTurismoSection.m in Sources */,
+				D915E1A11739E12900F78948 /* AreaTurismoItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
