@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AreaTurismoSection.h"
+#import "BusinessLogicBase.h"
+#import "WMTableViewDataSource.h"
 
-@interface TurismoTableViewController : UITableViewController
+@interface TurismoTableViewController : UITableViewController<BusinessLogicDelegate>
+
+@property (nonatomic, strong) AreaTurismoSection *areaTurismoSection;
+@property (nonatomic, strong) WMTableViewDataSource *dataModel;
 
 @end
