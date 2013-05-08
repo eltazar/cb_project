@@ -26,7 +26,7 @@
                                     CachedAsyncImageViewDelegate,
                                     FormViewControllerDelegate,
                                     WMHTTPAccessDelegate,
-                                    AreaDelegate> {
+                                    BusinessLogicDelegate> {
     @protected
         AreaBase *area;
         WMTableViewDataSource *_dataModel;

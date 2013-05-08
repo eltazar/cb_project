@@ -52,6 +52,7 @@
     return self;
 }
 
+
 - (void)encodeWithCoder:(NSCoder *)encoder {
     //Encode properties, other class variables, etc
     [encoder encodeObject:self.titolo forKey:@"titolo"];
@@ -79,11 +80,6 @@
 }
 
 
-- (WMTableViewDataSource *)getDataModel {
-    return [[WMTableViewDataSource alloc] initWithArray: [self _getDataModelArray]];
-}
-
-
 
 #pragma mark - WMHTTPAccessDelegate
 
@@ -104,7 +100,7 @@
             NSLog(@"\n///**** \n RECUPERO JSON SALVATO \n ///*****");
             //se precedemente scaricate mostra le info salvate
             [self _buildFromJson:(NSArray *)[Utilities loadCustomObjectWithKey:[AreaBase getAreaType:self.areaID]]];
-            [self.delegate didReceiveAreaData];
+            [self.delegate didReceiveBusinessLogicData];
         }
     }
     else{
@@ -117,6 +113,7 @@
                 [self _buildFromJson:oldJson];
                 [self.delegate didReceiveAreaData];
             }
+        [self.delegate didReceiveBusinessLogicDataError:@"Connessione assente"];
     }
     
 }
@@ -133,17 +130,14 @@
     //salvo json ricevuto
     [Utilities saveCustomObject:jsonArray key:[AreaBase getAreaType:self.areaID]];
     
-    [self.delegate didReceiveAreaData];
+    [self.delegate didReceiveBusinessLogicData];
 }
 
-
-- (void)didReceiveError:(NSError *)error {
-    NSLog(@"ERRORE = %@",[error description]);
-    [self.delegate didReceiveAreaDataError:@"Errore server"];
-}
 
 
 # pragma mark - Private Methods
+
+
 
 - (void)_buildFromJson:(NSArray *)json {
     //Oggetto in posizione 0 è il record che descrive l'area

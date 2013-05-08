@@ -7,16 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "BusinessLogicBase.h"
 #import "WMHTTPAccess.h"
 
-@class WMTableViewDataSource;
-@protocol AreaDelegate;
 
-
-@interface AreaBase : NSObject<WMHTTPAccessDelegate>
+@interface AreaBase : BusinessLogicBase
 
 @property(nonatomic, assign) int areaID;
-@property(nonatomic, strong) id<AreaDelegate> delegate;
 @property(nonatomic, strong) NSString *titolo;
 @property(nonatomic, strong) NSString *descrizione;
 @property(nonatomic, strong) NSString *img;
@@ -32,20 +29,6 @@
 - (WMTableViewDataSource *)getDataModel;
 - (void)fetchData;
 
-- (NSMutableArray *)_getDataModelArray;
-- (void)_buildFromJson:(NSArray *)json;
 
 
 @end
-
-
-
-@protocol AreaDelegate <NSObject>
-@optional
-- (void)didReceiveAreaData;
-@required
-- (void)didReceiveAreaDataError:(NSString *)error;
-@end
-
-
-
