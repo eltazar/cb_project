@@ -177,7 +177,7 @@
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
     UITableViewCell *cell = (UITableViewCell*) [[textField superview] superview];
-    NSLog(@"y = %f", cell.frame.origin.y);
+    //NSLog(@"y = %f", cell.frame.origin.y);
     
     if(cell.frame.origin.y + textField.frame.size.height >= KEYBOARD_ORIGIN_Y){
         //modifica offset per fare vedere celle nascoste
@@ -225,10 +225,9 @@
             [textField setKeyboardType:UIKeyboardTypeEmailAddress];
         }
         else if([dataKey isEqualToString:@"phone"] ||
-                [dataKey isEqualToString:@"cell"]){
+                [dataKey isEqualToString:@"cell"] || [dataKey isEqualToString:@"iva"]){
             [textField setKeyboardType:UIKeyboardTypeNumbersAndPunctuation];
         }
-
     }
     return cell;
 }

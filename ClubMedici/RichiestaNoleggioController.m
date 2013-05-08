@@ -148,6 +148,11 @@
             isValid = FALSE;
             
         }
+        if([allTrim(iva) length] < 11){
+            reason = @"Per favore inserisci 11 cifre per la partita IVA";
+            isValid = FALSE;
+
+        }
     }
     else{
         if([allTrim(tipo) length] == 0|| [allTrim(prezzo) length] == 0){
@@ -186,6 +191,28 @@
     }
         
     return  isValid;
+}
+
+#define IVA_MAX_LENGHT 11
+
+- (BOOL)textField:(UITextField *) textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    UITableViewCell *cell = (UITableViewCell*) [[textField superview] superview];
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    NSString *dataKey = [_dataModel valueForKey:@"DATA_KEY" atIndexPath:indexPath];
+    
+    if([dataKey isEqualToString:@"iva"]){
+        NSUInteger oldLength = [textField.text length];
+        NSUInteger replacementLength = [string length];
+        NSUInteger rangeLength = range.length;
+        
+        NSUInteger newLength = oldLength - rangeLength + replacementLength;
+        
+        BOOL returnKey = [string rangeOfString: @"\n"].location != NSNotFound;
+        
+            return newLength <= IVA_MAX_LENGHT || returnKey;
+        }
+    return YES;
+    
 }
 
 -(NSString*)createHtmlBody{
