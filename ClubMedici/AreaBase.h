@@ -13,6 +13,7 @@
 
 @interface AreaBase : BusinessLogicBase
 
+
 @property(nonatomic, assign) int areaID;
 @property(nonatomic, strong) NSString *titolo;
 @property(nonatomic, strong) NSString *descrizione;
@@ -24,11 +25,8 @@
 
 + (NSString *)getAreaType:(NSInteger)areaID;
 
--(id)initWithAreaId:(int)areaID;
-- (id)initWithJson:(NSArray*)json;
-- (WMTableViewDataSource *)getDataModel;
-- (void)fetchData;
+- (id)initWithAreaId:(int)areaID;
 
-
+- (NSMutableArray *)_getDataModelArray;
 
 @end

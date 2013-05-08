@@ -14,7 +14,9 @@
 
 
 
-@interface BusinessLogicBase : NSObject<WMHTTPAccessDelegate>
+@interface BusinessLogicBase : NSObject<WMHTTPAccessDelegate> {
+    
+}
 
 @property(nonatomic, strong) id<BusinessLogicDelegate> delegate;
 
@@ -24,7 +26,6 @@
 - (void)fetchData;
 
 
-- (NSMutableArray *)_getDataModelArray;
 - (void)_buildFromJson:(NSArray *)json;
 
 
