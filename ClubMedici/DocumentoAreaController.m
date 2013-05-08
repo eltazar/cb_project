@@ -14,6 +14,7 @@
 @interface DocumentoAreaController (){
     UIActionSheet *actionSheet;
     NSString *htmlPage;
+    
 }
 @end
 
@@ -45,6 +46,9 @@
     self.navigationItem.rightBarButtonItem.enabled = NO;
     
     self.view.backgroundColor = [UIColor colorWithRed:246/255.0f green:250/255.0f blue:255/255.0f alpha:1];
+    
+    spinner = [[CustomSpinnerView alloc] initWithFrame:self.view.frame];
+    spinner.frame = CGRectMake(self.navigationController.navigationBar.frame.size.width/2 - spinner.frame.size.width/2, self.view.frame.size.height/2 - spinner.frame.size.height/2, spinner.frame.size.width, spinner.frame.size.height);
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -70,15 +74,21 @@
 #pragma mark - UIWebViewDelegate
 - (void)webViewDidStartLoad:(UIWebView *)webView {
     NSLog(@"INIZIATO DOWNLOAD PDF");
+    [spinner startAnimating];
+    [self.view addSubview:spinner];
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     NSLog(@"Finito DOWNLOAD PDF");
     self.navigationItem.rightBarButtonItem.enabled = YES;
+    [spinner stopAnimating];
+    [spinner removeFromSuperview];
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
     NSLog(@"FALLITO DOWNLOAD PDF = %@", [error localizedDescription]);
+    [spinner stopAnimating];
+    [spinner removeFromSuperview];
 }
 
 #pragma mark - WMHTTPAccessDelegate

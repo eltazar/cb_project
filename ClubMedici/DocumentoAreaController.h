@@ -10,11 +10,13 @@
 #import "WMHTTPAccess.h"
 #import <MessageUI/MessageUI.h>
 #import "ErrorView.h"
-
+#import "CustomSpinnerView.h"
 @interface DocumentoAreaController : UIViewController<WMHTTPAccessDelegate,MFMailComposeViewControllerDelegate, UIActionSheetDelegate, UIPrintInteractionControllerDelegate, UIWebViewDelegate>{
+    @protected
     NSString *phone;
     NSString *mail;
     ErrorView *errorView;
+    CustomSpinnerView *spinner;
 }
 
 @property(nonatomic, weak) IBOutlet UIButton *callButton;
