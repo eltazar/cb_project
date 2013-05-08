@@ -8,6 +8,6 @@
 
 #import "AreaBaseController.h"
 
-@interface AreaBaseController_iPhone : AreaBaseController
+@interface AreaBaseController_iPhone : AreaBaseController<UIAlertViewDelegate>
 
 @end

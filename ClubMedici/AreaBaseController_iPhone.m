@@ -17,6 +17,7 @@
 
 @interface AreaBaseController_iPhone () {
     AreaDescriptionCell *_areaDescriptionCell;
+    NSString *phoneNumber;
 }
 @end
 
@@ -88,7 +89,12 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *dataKey = [_dataModel valueForKey:@"DATA_KEY" atIndexPath:indexPath];
     
-    if([dataKey isEqualToString:@"noleggioAuto"] || [dataKey isEqualToString:@"noleggioElettro"] ||
+    if ([dataKey isEqualToString:@"phone"]) {
+            phoneNumber = [_dataModel valueForKey:@"LABEL" atIndexPath:indexPath];
+            [self callNumber: phoneNumber];
+            [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    }
+    else if([dataKey isEqualToString:@"noleggioAuto"] || [dataKey isEqualToString:@"noleggioElettro"] ||
             [dataKey isEqualToString:@"leasingElettro"]){
         
         //NSLog(@" CELLA NOLEGGIO = %@", dataKey);
@@ -112,7 +118,20 @@
     [self.navigationController dismissModalViewControllerAnimated:YES];
 }
 
+#pragma mark - UIAlertViewDelegate
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if(buttonIndex == 1){
+        [Utilities callNumber:phoneNumber];
+    }
+}
+
 # pragma mark - Private Methods
+
+- (void)callNumber:(NSString*)number {
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"Chiamare %@ ?",number] message:nil delegate:self cancelButtonTitle:@"Annulla" otherButtonTitles:@"Chiama", nil];
+    [alert show];
+}
 
 
 - (void) setupBackgroundView{

@@ -10,7 +10,7 @@
 #import "WMTableViewDataSource.h"
 #import <MapKit/MapKit.h>
 #import "Sede.h"
-
+#import "Utilities.h"
 
 @interface ContattiViewController : UIViewController<UITableViewDataSource,UITableViewDelegate, MKMapViewDelegate>{
     

@@ -8,6 +8,7 @@
 
 #import "ContattiViewController_iPhone.h"
 
+
 #define CONTENT_OFFSET (self.tableView.frame.size.height - self.tableView.contentSize.height)
 @interface ContattiViewController_iPhone ()
 {
@@ -16,6 +17,7 @@
     CLLocationCoordinate2D originalCenterCoordinate;
     CGFloat deltaLatFor1px;
     BOOL isTableVisible;
+    NSString *phoneNumber;
 }
 @end
 
@@ -107,13 +109,24 @@
 #pragma mark - Table view data source
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    //NSString *dataKey = [_dataModel valueForKey:@"DATA_KEY" atIndexPath:indexPath];
+    NSString *dataKey = [_dataModel valueForKey:@"DATA_KEY" atIndexPath:indexPath];
+    if([dataKey isEqualToString:@"phone"]){
+        phoneNumber = [_dataModel valueForKey:@"LABEL" atIndexPath:indexPath];
+        [self callNumber: phoneNumber];
+    }
     [super tableView:tableView didSelectRowAtIndexPath:indexPath];
 }
 
 //- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {    
 //    return [super tableView:tableView heightForRowAtIndexPath:indexPath];
 //}
+
+#pragma mark - UIAlertViewDelegate
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if(buttonIndex == 1){
+        [Utilities callNumber:phoneNumber];
+    }
+}
 
 #pragma mark - UIScrollDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
@@ -220,5 +233,12 @@ shouldRecognizeSimultaneouslyWithGestureRecognizer:
     isTableVisible = YES;
     [self.tableView setUserInteractionEnabled:YES];
     [self configureMap];
+}
+
+
+- (void)callNumber:(NSString*)number {
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"Chiamare %@ ?",number] message:nil delegate:self cancelButtonTitle:@"Annulla" otherButtonTitles:@"Chiama", nil];
+    [alert show];
 }
 @end
