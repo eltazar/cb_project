@@ -20,7 +20,6 @@
 
 @interface FormViewController () {
     TextFieldCell *textFieldCell;
-    ErrorView *errorView;
     JASidePanelController *jasController;
     IBOutlet FXLabel *headerLabel;
 }

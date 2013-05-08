@@ -12,6 +12,7 @@
 #import "MBProgressHUD.h"
 #import "PDHTTPAccess.h"
 #import "WMHTTPAccess.h"
+#import "ErrorView.h"
 
 @class WMTableViewDataSource;
 
@@ -24,7 +25,8 @@
 
 @interface FormViewController : UITableViewController <UITextFieldDelegate, WMHTTPAccessDelegate> {
     @protected
-    WMTableViewDataSource *_dataModel;    
+    WMTableViewDataSource *_dataModel;
+    ErrorView *errorView;
 }
 
 @property(nonatomic, weak) id<FormViewControllerDelegate> delegate;

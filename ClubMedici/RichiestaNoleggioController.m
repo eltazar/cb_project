@@ -66,13 +66,14 @@
          customTitle.font = [UIFont boldSystemFontOfSize: 18.0f];
         customTitle.text = @"Noleggio auto";
     }
-    else if([self.kind isEqualToString:@"noleggioElettro"]){ // self.kind == noleggioElettro || self.kind == leasingElettro
+    else if([self.kind isEqualToString:@"noleggioElettro"]){
         _dataModel = [[WMTableViewDataSource alloc]
                       initWithPList:@"RichiestaNoleggioElettromedicale"];
         customTitle.text = @"Noleggio elettromedicale";
     }
     else{
         customTitle.text = @"Leasing \n elettromedicale";
+        _dataModel = [[WMTableViewDataSource alloc] initWithPList:@"RichiestaNoleggioElettromedicale"];
         
     }
     [super viewDidLoad];
@@ -207,5 +208,50 @@
         [PDHTTPAccess sendEmail:[self createHtmlBody] object:@"Richiesta noleggio" address:NOLEGGIO_MAIL delegate:self];
     else
         [PDHTTPAccess sendEmail:[self createHtmlBody] object:@"Richiesta leasing" address:LEASING_MAIL delegate:self];
+}
+
+#pragma mark - ErrorView methods
+#pragma mark - ErrorView methods
+-(void)hideErrorView:(UITapGestureRecognizer*)gesture{
+    if(errorView || errorView.showed){
+        [UIView animateWithDuration:0.5
+                         animations:^(void){
+                             [errorView setFrame:CGRectMake(0, errorView.frame.origin.y, errorView.frame.size.width,0)];
+                         }
+         ];
+        errorView.showed = NO;
+    }
+}
+
+-(void)showErrorView:(NSString*)message{
+    NSLog(@"CIAOOOO");
+    float y = self.navigationController.navigationBar.frame.size.height;
+    if(errorView == nil || !errorView.showed){
+        if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone){
+            errorView = [[ErrorView alloc] init];
+            y = 63;
+        }
+        else{
+            errorView = [[ErrorView alloc] initWithSize:self.view.frame.size];
+        }
+        errorView.label.text = message;
+        [errorView.tapRecognizer addTarget:self action:@selector(hideErrorView:)];
+        
+        CGRect oldFrame = [errorView frame];
+        //se il controller è in modalView non capisco perchè non vale la stessa y per l'origin
+        // e devo fixarla a mano.. CONTROLLARE
+        [errorView setFrame:CGRectMake(0, y, oldFrame.size.width, 0)];
+        
+        [self.navigationController.view addSubview:errorView];
+        
+        [UIView animateWithDuration:0.5
+                         animations:^(void){
+                             [errorView setFrame:CGRectMake(0,y, oldFrame.size.width, oldFrame.size.height)];
+                             NSLog(@"ORIGIN Y = %f", errorView.frame.origin.y);
+                         }
+         ];
+        errorView.showed = YES;
+    }
+    
 }
 @end
