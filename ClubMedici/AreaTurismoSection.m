@@ -8,7 +8,9 @@
 
 #import "AreaTurismoSection.h"
 #import "AreaTurismoItem.h"
+#import "WMTableViewDataSource.h"
 #import "PDHTTPAccess.h"
+
 
 @interface AreaTurismoSection () {
     NSMutableArray *_items;
@@ -25,6 +27,20 @@
         _items = [[NSMutableArray alloc] init];
     }
     return self;
+}
+
+
+
+# pragma mark - Public Methods
+
+
+
+- (WMTableViewDataSource *)getDataModel {
+    NSArray *dataModelArray = [NSArray arrayWithObject:
+                               [NSDictionary dictionaryWithObjectsAndKeys:
+                                    @"Lista Offerte", @"SECTION_NAME",
+                                    _items          , @"SECTION_CONTENTS", nil]];
+    return [[WMTableViewDataSource alloc] initWithArray:dataModelArray];
 }
 
 
