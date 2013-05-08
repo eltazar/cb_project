@@ -17,6 +17,7 @@
 #import "FXLabel.h"
 
 #define KEYBOARD_ORIGIN_Y self.tableView.frame.size.height - 216.0f
+#define BUTTON_Y 446+50 // il primo addendo è preso dal content_size_height della tabella una volta visualizzata
 
 @interface FormViewController () {
     TextFieldCell *textFieldCell;
@@ -41,8 +42,10 @@
     [super viewDidLoad];
     self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:1/255.0f green:70/255.0f blue:148/255.0f alpha:1];
     //self.title = @"Richiesta preventivo";
-    UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"Invia" style:UIBarButtonItemStylePlain target:self action:@selector(sendButtonPressed:)];
-    self.navigationItem.rightBarButtonItem = button;
+    
+    //pulsante INVIA sulla navBar, magari in futuro riservirà
+//    UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"Invia" style:UIBarButtonItemStylePlain target:self action:@selector(sendButtonPressed:)];
+//    self.navigationItem.rightBarButtonItem = button;
 
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
@@ -70,7 +73,23 @@
     headerLabel.innerShadowBlur = 3.0f;
     headerLabel.innerShadowColor = [UIColor colorWithWhite:0.0f alpha:0.9f];
     headerLabel.innerShadowOffset = CGSizeMake(0.8f, 0.8f);
+    
+    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad){
+
+        UIImage* buttonImage = [[UIImage imageNamed:@"normal_button_big.png"] stretchableImageWithLeftCapWidth:5.0 topCapHeight:0.0];
+        
+        UIImage* buttonPressedImage = [[UIImage imageNamed:@"normal_button_big_selected.png"] stretchableImageWithLeftCapWidth:5.0 topCapHeight:0.0];
+        sendButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        sendButton.frame = CGRectMake(0.0, 0.0, 150.0, buttonImage.size.height);
+        [sendButton setBackgroundImage:buttonImage forState:UIControlStateNormal];
+        [sendButton setBackgroundImage:buttonPressedImage forState:UIControlStateHighlighted];
+        [sendButton setTitle:@"Invia" forState:UIControlStateNormal];
+        [sendButton addTarget:self action:@selector(sendButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:sendButton];
+        [self setButtonsInView];
+    }
 }
+
 
 -(void)viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:animated];
@@ -82,17 +101,52 @@
     }
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    NSLog(@"APPEAR content offset y = %f",self.tableView.contentSize.height);
+
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
+//ios5 rotation
 - (BOOL)shouldAutorotateToInterfaceOrientation:
 (UIInterfaceOrientation)interfaceOrientation {
     // Return YES for supported orientations
     if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
         return NO;
-    else return YES;
+        
+    return YES;
+}
+
+//io6 rotation
+
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)  interfaceOrientation duration:(NSTimeInterval)duration{
+    
+    NSLog(@"ROTAZIONE");
+    
+     if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+         return;
+    [self setButtonsInView];
+}
+
+-(void) setButtonsInView{
+    
+    float middleView = self.navigationController.navigationBar.frame.size.width/2;
+    float offsetFromMiddle = middleView - 30;
+    float buttonWidth = 100;
+    float x = 0.0f;
+    
+    x = offsetFromMiddle - buttonWidth;
+    
+    offsetFromMiddle = middleView + 30;
+    x = offsetFromMiddle;
+    
+    sendButton.frame = CGRectMake(self.navigationController.navigationBar.frame.size.width/2 - sendButton.frame.size.width/2, BUTTON_Y, sendButton.frame.size.width, sendButton.frame.size.height);
+    //CGRectMake(x,BUTTON_Y,sendButton.frame.size.width,sendButton.frame.size.height);
 }
 
 #pragma mark - Buttons method

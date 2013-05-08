@@ -27,6 +27,7 @@
     @protected
     WMTableViewDataSource *_dataModel;
     ErrorView *errorView;
+    UIButton *sendButton;
 }
 
 @property(nonatomic, weak) id<FormViewControllerDelegate> delegate;

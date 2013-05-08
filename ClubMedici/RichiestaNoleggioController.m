@@ -27,6 +27,7 @@
     NSString *tipo;
     NSString *prezzo;
     UILabel *customTitle;
+    //UIButton *cancelButton;
 }
 @end
 
@@ -88,12 +89,49 @@
     else{
         self.title = @"Richiedi informazioni";
     }
+    
+    //se sono necessari 2 pulsanti
+    /*if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad){
+        
+        cancelButton = [[UIButton alloc] init];
+        UIImage* buttonImage = [[UIImage imageNamed:@"normal_button_big.png"] stretchableImageWithLeftCapWidth:5.0 topCapHeight:0.0];
+        
+        UIImage* buttonPressedImage = [[UIImage imageNamed:@"normal_button_big_selected.png"] stretchableImageWithLeftCapWidth:5.0 topCapHeight:0.0];
+        cancelButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        cancelButton.frame = CGRectMake(0.0, 0.0, 150.0, buttonImage.size.height);
+        [cancelButton setBackgroundImage:buttonImage forState:UIControlStateNormal];
+        [cancelButton setBackgroundImage:buttonPressedImage forState:UIControlStateHighlighted];
+        [cancelButton setTitle:@"Annulla" forState:UIControlStateNormal];
+        [cancelButton addTarget:self action:@selector(cancelButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+
+        [self.view addSubview:cancelButton];
+        [self setButtonsInView];
+    }*/
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+/*
+-(void) setButtonsInView{
+    
+    float middleView = self.navigationController.navigationBar.frame.size.width/2;
+    float offsetFromMiddle = middleView - 45;
+    float buttonWidth = sendButton.frame.size.width;
+    float x = 0.0f;
+    
+    x = offsetFromMiddle - buttonWidth;
+    
+    cancelButton.frame = CGRectMake(x,BUTTON_Y, cancelButton.frame.size.width, cancelButton.frame.size.height);
+    
+    offsetFromMiddle = middleView + 45;
+    x = offsetFromMiddle;
+    
+    sendButton.frame = CGRectMake(x,BUTTON_Y,sendButton.frame.size.width,sendButton.frame.size.height);
+}
+*/
 
 #pragma mark - UITextFieldDelegate
 
