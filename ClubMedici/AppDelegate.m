@@ -179,8 +179,18 @@
     
     //permette di cambiare la navBar di tutte le view
     [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"iphone_nav_bar"]  forBarMetrics:UIBarMetricsDefault];
-    
-    // Change the appearance of back button
+    // Customize the title text for *all* UINavigationBars
+    [[UINavigationBar appearance] setTitleTextAttributes:
+     [NSDictionary dictionaryWithObjectsAndKeys:
+      [UIColor whiteColor],
+      UITextAttributeTextColor,
+      [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.8],
+      UITextAttributeTextShadowColor,
+      [NSValue valueWithUIOffset:UIOffsetMake(0, -1)],
+      UITextAttributeTextShadowOffset,
+      [UIFont fontWithName:@"System-Bold" size:0.0],
+      UITextAttributeFont,
+      nil]];    // Change the appearance of back button
     UIImage *backButtonImage = [[UIImage imageNamed:@"back_button"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 13, 0, 6)];
     [[UIBarButtonItem appearance] setBackButtonBackgroundImage:backButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     

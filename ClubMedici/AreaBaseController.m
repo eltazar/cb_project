@@ -44,9 +44,7 @@
     Class areaClass = NSClassFromString([AreaBase getAreaType:self.areaId]);
     self.area = [[areaClass alloc] initWithAreaId:(int)areaId];
     self.area.delegate = self;
-  
-    self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:1/255.0f green:70/255.0f blue:148/255.0f alpha:1];
-    
+      
     //self.title = [self.area titolo];
                                         
     //rimuove celle extra
