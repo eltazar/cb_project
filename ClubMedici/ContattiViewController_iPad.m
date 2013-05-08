@@ -52,5 +52,31 @@
     return YES;
 }
 
+#pragma mark - TableViewDelegate
+
+- (BOOL)tableView:(UITableView *)tableView shouldShowMenuForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    NSString *dataKey = [_dataModel valueForKey:@"DATA_KEY" atIndexPath:indexPath];
+    if([dataKey isEqualToString:@"phone"])
+        return YES;
+    
+    return NO;
+}
+
+- (BOOL)tableView:(UITableView *)tableView canPerformAction:(SEL)action forRowAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender{        
+    return (action == @selector(copy:));
+}
+
+- (void)tableView:(UITableView *)tableView performAction:(SEL)action forRowAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender
+{
+    if (action == @selector(copy:)){
+        NSLog(@"Copio in clipboard");
+        NSString *text = [_dataModel valueForKey:@"LABEL" atIndexPath:indexPath];
+        NSString *copyString = [[NSString alloc] initWithFormat:@"%@",text];
+        UIPasteboard *pb = [UIPasteboard generalPasteboard];
+        [pb setString:copyString];
+    }
+}
+
 
 @end
