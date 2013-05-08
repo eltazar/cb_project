@@ -14,7 +14,7 @@
 #import "AreeEnum.h"
 
 
-#define QUERY_TIME_LIMIT 10//3600
+#define QUERY_TIME_LIMIT 60//3600
 
 
 @interface AreaBase () {
@@ -102,14 +102,23 @@
         }
         else{
             NSLog(@"\n///**** \n RECUPERO JSON SALVATO \n ///*****");
-            //se precedemente scaricate mostra le previsioni salvate
+            //se precedemente scaricate mostra le info salvate
             [self _buildFromJson:(NSArray *)[Utilities loadCustomObjectWithKey:[AreaBase getAreaType:self.areaID]]];
             [self.delegate didReceiveAreaData];
         }
     }
     else{
-        [self.delegate didReceiveAreaDataError:@"Connessione assente"];
+            [self.delegate didReceiveAreaDataError:@"Connessione assente"];
+            //se ho un json scaricato di recente lo mostro anche se la connessione è assente al momento della query
+            NSArray *oldJson = [Utilities loadCustomObjectWithKey:[AreaBase getAreaType:self.areaID]];
+            if(-[dateDoneQuery timeIntervalSinceDate:[NSDate date]] < QUERY_TIME_LIMIT &&
+               oldJson){
+                NSLog(@"///**** RECUPERO VECCHI DATI RECENTI///****");
+                [self _buildFromJson:oldJson];
+                [self.delegate didReceiveAreaData];
+            }
     }
+    
 }
 
 
