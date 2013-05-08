@@ -375,16 +375,16 @@
 
 
 
-#pragma mark - AreaDelegate
+#pragma mark - BusinessLogicDelegate
 
 
-- (void)didReceiveAreaData {
+- (void)didReceiveBusinessLogicData {
     NSLog(@"didReceiveAreaData");
    [self showData];
 }
 
 
-- (void)didReceiveAreaDataError:(NSString *)error {
+- (void)didReceiveBusinessLogicDataError:(NSString *)error {
     [self stopSpinner];
     [self showErrorView:error];
 }
