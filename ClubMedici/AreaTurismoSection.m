@@ -36,10 +36,14 @@
 
 
 - (WMTableViewDataSource *)getDataModel {
+    NSMutableArray *sectionContentsArray = [NSMutableArray arrayWithCapacity:_items.count];
+    for (id item in _items) {
+        [sectionContentsArray addObject:[NSDictionary dictionaryWithObject:item forKey:@"ITEM"]];
+    }
     NSArray *dataModelArray = [NSArray arrayWithObject:
                                [NSDictionary dictionaryWithObjectsAndKeys:
-                                    @"Lista Offerte", @"SECTION_NAME",
-                                    _items          , @"SECTION_CONTENTS", nil]];
+                                    @"Lista Offerte",     @"SECTION_NAME",
+                                    sectionContentsArray, @"SECTION_CONTENTS", nil]];
     return [[WMTableViewDataSource alloc] initWithArray:dataModelArray];
 }
 
