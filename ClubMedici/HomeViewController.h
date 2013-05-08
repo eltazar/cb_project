@@ -17,7 +17,7 @@
 #import "AppDelegate.h"
 #import <MessageUI/MessageUI.h>
 #import "SharingPanelView.h"
-#import "FXLabel.h"
+#import "UnderlinedLabel.h"
 
 #define URL_NEWS_PATH @"http://www.clubmedici.it/nuovo/"
 
@@ -27,6 +27,7 @@
     ErrorView *errorView;
     IBOutlet UIWebView * webView;
     FXLabel *titleLabel;
+    IBOutlet UIView *footerView;
 }
 
 - (void)showErrorView:(NSString*)message;

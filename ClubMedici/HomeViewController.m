@@ -42,7 +42,7 @@
 
 
     
-    titleLabel = [[FXLabel alloc] init];
+    titleLabel = [[UnderlinedLabel alloc] init];
     titleLabel.textColor = [UIColor colorWithRed:11/255.0f green:67/255.0f blue:144/255.0f alpha:1];
     titleLabel.backgroundColor = [UIColor clearColor];
     //    titleLabel.textColor = [UIColor colorWithWhite:0.4f alpha:1];
