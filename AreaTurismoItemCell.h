@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AreaTurismoItem.h"
+#import "CachedAsyncImageView.h"
 
 @interface AreaTurismoItemCell : UITableViewCell
+
+@property(nonatomic, strong) IBOutlet CachedAsyncImageView *imageView;
+@property(nonatomic, strong) IBOutlet UILabel *titleLbl;
+@property(nonatomic, strong) IBOutlet UILabel *descriptionLbl;
+
+@property(nonatomic, strong) AreaTurismoItem *areaTurismoItem;
 
 @end
