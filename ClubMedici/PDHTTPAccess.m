@@ -8,10 +8,17 @@
 
 #import "PDHTTPAccess.h"
 
+@interface PDHTTPAccess() {}
+    + (NSString *)buildUrl:(NSString *)url;
+@end
+
+
 @implementation PDHTTPAccess
 
-+ (void) getNews:(int)limit delegate:(id<WMHTTPAccessDelegate>)delegate{
-    NSString *urlString = @"http://www.clubmedici.it/app/iphone/News.php";
+NSString *baseUrl = @"http://www.clubmedici.it/app/iphone/";
+
++ (void)getNews:(int)limit delegate:(id<WMHTTPAccessDelegate>)delegate {
+    NSString *urlString = [PDHTTPAccess buildUrl:@"News.php"];
     
     NSDictionary *postDict = [NSDictionary dictionaryWithObjectsAndKeys:
                               [NSNumber numberWithInt:limit], @"limit",
@@ -20,11 +27,12 @@
 
 }
 
-+ (void)getAreaContents:(int)areaId delegate:(id<WMHTTPAccessDelegate>)delegate {
+
++(void)getAreaContents:(int)areaId delegate:(id<WMHTTPAccessDelegate>)delegate {
     //NSLog(@"DBACCESS REGISTER  --> user = %@", userData);
     
     //NSLog(@"AREA ID = %d",areaId);
-    NSString *urlString = @"http://www.clubmedici.it/app/iphone/ContenutiAree.php";
+    NSString *urlString = [PDHTTPAccess buildUrl:@"ContenutiAree.php"];
     
     NSDictionary *postDict = [NSDictionary dictionaryWithObjectsAndKeys:
                              [NSNumber numberWithInt:areaId], @"areaId",
@@ -32,8 +40,9 @@
     [[WMHTTPAccess sharedInstance] startHTTPConnectionWithURLString:urlString method:WMHTTPAccessConnectionMethodPOST parameters:postDict delegate:delegate];
 }
 
-+ (void) getDocumentContents:(int)pagId delegate:(id<WMHTTPAccessDelegate>)delegate {
-    NSString *urlString = @"http://www.clubmedici.it/app/iphone/DescrizioneDocumento.php";
+
++ (void)getDocumentContents:(int)pagId delegate:(id<WMHTTPAccessDelegate>)delegate {
+    NSString *urlString = [PDHTTPAccess buildUrl:@"DescrizioneDocumento.php"];
     
     NSDictionary *postDict = [NSDictionary dictionaryWithObjectsAndKeys:
                               [NSNumber numberWithInt:pagId], @"idPagina",
@@ -41,8 +50,9 @@
     [[WMHTTPAccess sharedInstance] startHTTPConnectionWithURLString:urlString method:WMHTTPAccessConnectionMethodPOST parameters:postDict delegate:delegate];    
 }
 
-+ (void) sendEmail:(NSString*)body object:(NSString*)object address:(NSString*)address delegate:(id<WMHTTPAccessDelegate>)delegate {
-    NSString *urlString = @"http://www.clubmedici.it/app/iphone/InvioEmail.php";
+
++ (void)sendEmail:(NSString*)body object:(NSString*)object address:(NSString*)address delegate:(id<WMHTTPAccessDelegate>)delegate {
+    NSString *urlString = [PDHTTPAccess buildUrl:@"InvioEmail.php"];
     
     NSDictionary *postDict = [NSDictionary dictionaryWithObjectsAndKeys:
                               body, @"body",
@@ -51,6 +61,14 @@
                               nil];
     [[WMHTTPAccess sharedInstance] startHTTPConnectionWithURLString:urlString method:WMHTTPAccessConnectionMethodPOST parameters:postDict delegate:delegate];
 }
+#pragma mark - Private Methods
+
+
++ (NSString *)buildUrl:(NSString *)url {
+    return [NSString stringWithFormat:@"%@%@", baseUrl, url];
+}
+
+
 /*
 + (void)checkUserFields:(NSArray*)usr delegate:(id<WMHTTPAccessDelegate>)delegate {
     //NSLog(@"DBACCESS CHECK  EMAIL --> user = %@",usr);
