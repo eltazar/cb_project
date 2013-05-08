@@ -148,10 +148,20 @@
             isValid = FALSE;
             
         }
-        if([allTrim(iva) length] < 11){
-            reason = @"Per favore inserisci 11 cifre per la partita IVA";
-            isValid = FALSE;
+        {
+            if([allTrim(iva) length] < 11){
+                reason = @"Per favore inserisci 11 cifre per la partita IVA";
+                isValid = FALSE;
 
+            }
+            if([allTrim(modello) length] <= 1) {
+                reason = @"Per favore inserisci un modello di auto valido";
+                isValid = FALSE;
+            }
+            if([allTrim(marca) length] <= 1) {
+                reason = @"Per favore inserisci una marca di auto valida";
+                isValid = FALSE;
+            }
         }
     }
     else{
@@ -161,6 +171,24 @@
             isValid = FALSE;
             
         }
+        else{
+            if([allTrim(tipo) length] <= 2) {
+                reason = @"Per favore inserisci una tipologia elettromedicale valida";
+                isValid = FALSE;
+            }
+            if([allTrim(prezzo) length] <= 1) {
+                reason = @"Per favore inserisci un prezzo di 2 o più cifre ";
+                isValid = FALSE;
+            }
+            BOOL valid;
+            NSCharacterSet *alphaNums = [NSCharacterSet decimalDigitCharacterSet];
+            NSCharacterSet *inStringSet = [NSCharacterSet characterSetWithCharactersInString:prezzo];
+            valid = [alphaNums isSupersetOfSet:inStringSet];
+            if (!valid){
+                reason = @"Per favore inserisci solo cifre per il prezzo";
+                isValid = FALSE;
+            }
+        }
     }
     if([allTrim(ragSoc) length] == 0|| [allTrim(phone) length] == 0 ||
        [allTrim(citta) length] == 0){
@@ -169,15 +197,29 @@
         isValid = FALSE;
         
     }
-    else if (![Utilities isNumeric:replaceSpace(phone)]) {
-       // NSLog(@"mostra avviso telefono errato");
-        reason = @"Per favore inserisci un numero di telefono valido";
-        isValid = FALSE;
-    }
-    else if(![Utilities checkEmail:email]){
-        //NSLog(@"mostra avviso email errato");
-        reason = @"Per favore inserisci un indirizzo e-mail valido";
-        isValid = FALSE;
+    else{
+        if([allTrim(ragSoc) length] <= 3) {
+            reason = @"Per favore inserisci una ragione sociale valida";
+            isValid = FALSE;
+        }
+        if([allTrim(phone) length] <= 7) {
+            reason = @"Per favore inserisci un numero di telefono valido";
+            isValid = FALSE;
+        }
+        if([allTrim(citta) length] <= 2) {
+            reason = @"Per favore inserisci una città valida";
+            isValid = FALSE;
+        }
+        if (![Utilities isNumeric:replaceSpace(phone)]) {
+           // NSLog(@"mostra avviso telefono errato");
+            reason = @"Per favore inserisci un numero di telefono valido";
+            isValid = FALSE;
+        }
+        if(![Utilities checkEmail:email]){
+            //NSLog(@"mostra avviso email errato");
+            reason = @"Per favore inserisci un indirizzo e-mail valido";
+            isValid = FALSE;
+        }
     }
     
     if(!isValid){

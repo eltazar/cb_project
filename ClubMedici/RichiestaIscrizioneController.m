@@ -104,15 +104,29 @@
         isValid = FALSE;
         
     }
-    else if (![Utilities isNumeric:replaceSpace(phone)]) {
-        //NSLog(@"mostra avviso telefono errato");
-        reason = @"Per favore inserisci un numero di telefono valido";
-        isValid = FALSE;
-    }
-    else if(![Utilities checkEmail:email]){
-        //NSLog(@"mostra avviso email errato");
-        reason = @"Per favore inserisci un indirizzo e-mail valido";
-        isValid = FALSE;
+    else{
+        if([allTrim(name) length] < 3) {
+            reason = @"Per favore inserisci un nome valido";
+            isValid = FALSE;
+        }
+        if([allTrim(surname) length] < 2) {
+            reason = @"Per favore inserisci un cognome valido";
+            isValid = FALSE;
+        }
+        if([allTrim(city) length] <= 2) {
+            reason = @"Per favore inserisci un cognome valido";
+            isValid = FALSE;
+        }
+        if (![Utilities isNumeric:replaceSpace(phone)] || [allTrim(phone) length] <= 7) {
+            //NSLog(@"mostra avviso telefono errato");
+            reason = @"Per favore inserisci un numero di telefono valido";
+            isValid = FALSE;
+        }
+        if(![Utilities checkEmail:email]){
+            //NSLog(@"mostra avviso email errato");
+            reason = @"Per favore inserisci un indirizzo e-mail valido";
+            isValid = FALSE;
+        }
     }
     
     if(!isValid){
