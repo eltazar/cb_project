@@ -21,6 +21,8 @@
 
 - (id)initWithJson:(NSArray*)json;
 - (WMTableViewDataSource *)getDataModel;
+- (void)fetchData;
+
 
 - (NSMutableArray *)_getDataModelArray;
 - (void)_buildFromJson:(NSArray *)json;

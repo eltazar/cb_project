@@ -21,13 +21,23 @@
 }
 
 
+
+#pragma mark - Public Methods
+
+
+
 - (WMTableViewDataSource *)getDataModel {
     return [[WMTableViewDataSource alloc] initWithArray: [self _getDataModelArray]];
 }
 
 
+- (void)fetchData { }
+
+
 
 #pragma mark - Protected Methods
+
+
 
 - (NSMutableArray *)_getDataModelArray { return nil; }
 - (void)_buildFromJson:(NSArray *)json { }
