@@ -35,6 +35,9 @@
 {
     [super viewDidLoad];
     
+    self.mapView = [[MKMapView alloc] init];
+    self.mapView.delegate = self;
+    
     isTableVisible = YES;
     
     /*settaggi grafici della tabella

@@ -16,7 +16,7 @@
     
     @protected
     WMTableViewDataSource *_dataModel;
-    MKMapView *mapView;
+    IBOutlet MKMapView *mapView;
     NSMutableArray *sediPin;
 
 }

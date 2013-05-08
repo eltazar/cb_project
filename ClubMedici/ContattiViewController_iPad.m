@@ -30,8 +30,8 @@
 {
     [super viewDidLoad];
 
-    self.mapView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-self.tableView.frame.size.height);
-    self.mapView.autoresizingMask =  UIViewAutoresizingFlexibleWidth;
+//    self.mapView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-self.tableView.frame.size.height);
+//    self.mapView.autoresizingMask =  UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
     UIImageView *shadow = [[UIImageView alloc] initWithFrame:CGRectMake(0, self.mapView.frame.size.height, 1536, 5)];
     shadow.image = [UIImage imageNamed:@"ipadShadow"];
     [self.view addSubview:shadow];
