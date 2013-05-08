@@ -58,6 +58,8 @@
 		ACB57B7B172A8287004176AF /* NewsPullableView.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB57B7A172A8287004176AF /* NewsPullableView.m */; };
 		ACB57B7F172AABDE004176AF /* ActionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACB57B7E172AABDE004176AF /* ActionCell.xib */; };
 		ACB6392B1727236C00C26223 /* FXLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB6392A1727236C00C26223 /* FXLabel.m */; };
+		ACB6A9F1173AF19600068934 /* UnderlinedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB6A9F0173AF19600068934 /* UnderlinedLabel.m */; };
+		ACB6A9F5173AFF1400068934 /* reverse_nav_bar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ACB6A9F4173AFF1400068934 /* reverse_nav_bar@2x.png */; };
 		ACB7DA7016A4AFC500B05178 /* mail.png in Resources */ = {isa = PBXBuildFile; fileRef = ACB7DA6E16A4AFC500B05178 /* mail.png */; };
 		ACB7DA7116A4AFC500B05178 /* mail@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ACB7DA6F16A4AFC500B05178 /* mail@2x.png */; };
 		ACB82AE81735ECE700544657 /* background_ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = ACB82AE71735ECE700544657 /* background_ipad.png */; };
@@ -224,6 +226,9 @@
 		ACB57B7E172AABDE004176AF /* ActionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActionCell.xib; sourceTree = "<group>"; };
 		ACB639291727236C00C26223 /* FXLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXLabel.h; sourceTree = "<group>"; };
 		ACB6392A1727236C00C26223 /* FXLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXLabel.m; sourceTree = "<group>"; };
+		ACB6A9EF173AF19600068934 /* UnderlinedLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UnderlinedLabel.h; path = ClubMedici/UnderlinedLabel.h; sourceTree = "<group>"; };
+		ACB6A9F0173AF19600068934 /* UnderlinedLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UnderlinedLabel.m; path = ClubMedici/UnderlinedLabel.m; sourceTree = "<group>"; };
+		ACB6A9F4173AFF1400068934 /* reverse_nav_bar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "reverse_nav_bar@2x.png"; path = "img/reverse_nav_bar@2x.png"; sourceTree = SOURCE_ROOT; };
 		ACB7DA6E16A4AFC500B05178 /* mail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mail.png; path = img/mail.png; sourceTree = SOURCE_ROOT; };
 		ACB7DA6F16A4AFC500B05178 /* mail@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "mail@2x.png"; path = "img/mail@2x.png"; sourceTree = SOURCE_ROOT; };
 		ACB82AE71735ECE700544657 /* background_ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background_ipad.png; path = img/background_ipad.png; sourceTree = SOURCE_ROOT; };
@@ -584,6 +589,7 @@
 				ACBF78EF172D4B9700B4F230 /* spinner images */,
 				ACE9FF5716B88D91002C8CE5 /* header_contatti.png */,
 				AC79B2CF1739AF8700200118 /* iphone_nav_bar@2x.png */,
+				ACB6A9F4173AFF1400068934 /* reverse_nav_bar@2x.png */,
 				ACC450F6173ACE0D0058B30A /* normal_button_big_selected@2x.png */,
 				ACC0E1B3173ACD830075492E /* normal_button_big@2x.png */,
 				AC79B2DF1739BD3F00200118 /* normal_button@2x.png */,
@@ -762,6 +768,8 @@
 		ACFADECC172D752700437E43 /* Custom views */ = {
 			isa = PBXGroup;
 			children = (
+				ACB6A9EF173AF19600068934 /* UnderlinedLabel.h */,
+				ACB6A9F0173AF19600068934 /* UnderlinedLabel.m */,
 				ACDA94381736EF9900A00092 /* SharingPanelView.h */,
 				ACDA94391736EF9900A00092 /* SharingPanelView.m */,
 				ACBF78BA172D3D9200B4F230 /* CustomSpinnerView.h */,
@@ -901,6 +909,7 @@
 				AC79B2E01739BD3F00200118 /* normal_button@2x.png in Resources */,
 				ACC0E1B4173ACD830075492E /* normal_button_big@2x.png in Resources */,
 				ACC450F7173ACE0D0058B30A /* normal_button_big_selected@2x.png in Resources */,
+				ACB6A9F5173AFF1400068934 /* reverse_nav_bar@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -968,6 +977,7 @@
 				ACDA943A1736EF9900A00092 /* SharingPanelView.m in Sources */,
 				D915E1881737252100F78948 /* AreaTurismoController.m in Sources */,
 				D915E18B17372C8600F78948 /* AreaTurismoCell.m in Sources */,
+				ACB6A9F1173AF19600068934 /* UnderlinedLabel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
