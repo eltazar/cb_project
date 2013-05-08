@@ -67,8 +67,8 @@ NSString *baseUrl = @"http://www.clubmedici.it/app/iphone/";
     NSString *urlString = [PDHTTPAccess buildUrl:@"Turismo.php"];
     
     NSDictionary *postDict = [NSDictionary dictionaryWithObjectsAndKeys:
-                              [NSNumber numberWithInt:sectionId], @"sectionId",
-                              inItaly, @"italy",
+                              [NSString stringWithFormat:@"%d", sectionId],  @"sectionId",
+                              inItaly?@"1":@"0",                             @"italy",
                               nil];
     [[WMHTTPAccess sharedInstance] startHTTPConnectionWithURLString:urlString method:WMHTTPAccessConnectionMethodPOST parameters:postDict delegate:delegate];
 }

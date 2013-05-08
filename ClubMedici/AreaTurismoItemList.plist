@@ -9,7 +9,7 @@
 		<array>
 			<dict>
 				<key>DATA_KEY</key>
-				<string>1</string>
+				<integer>1</integer>
 				<key>CONTROLLER</key>
 				<string>TurismoTableViewController</string>
 				<key>LABEL</key>
@@ -17,7 +17,7 @@
 			</dict>
 			<dict>
 				<key>DATA_KEY</key>
-				<string>10</string>
+				<integer>10</integer>
 				<key>CONTROLLER</key>
 				<string>TurismoTableViewController</string>
 				<key>LABEL</key>
@@ -25,7 +25,7 @@
 			</dict>
 			<dict>
 				<key>DATA_KEY</key>
-				<string>3</string>
+				<integer>3</integer>
 				<key>CONTROLLER</key>
 				<string>TurismoTableViewController</string>
 				<key>LABEL</key>
@@ -33,7 +33,7 @@
 			</dict>
 			<dict>
 				<key>DATA_KEY</key>
-				<string>10</string>
+				<integer>10</integer>
 				<key>CONTROLLER</key>
 				<string>TurismoTableViewController</string>
 				<key>LABEL</key>
@@ -41,7 +41,7 @@
 			</dict>
 			<dict>
 				<key>DATA_KEY</key>
-				<string>5</string>
+				<integer>5</integer>
 				<key>CONTROLLER</key>
 				<string>HomeViewController</string>
 				<key>LABEL</key>

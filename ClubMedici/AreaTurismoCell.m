@@ -7,6 +7,7 @@
 //
 
 #import "AreaTurismoCell.h"
+#import "AreaTurismoSection.h"
 #import "TurismoTableViewController.h"
 
 #define N                 5
@@ -88,7 +89,9 @@
         NSDictionary *dict = (NSDictionary *) [_items objectAtIndex:tag];
         TurismoTableViewController *viewController = [[TurismoTableViewController alloc] init];
         viewController.title = [dict objectForKey:@"LABEL"];
-        //viewController.idTipo
+        AreaTurismoSection *areaTurismoSection = [[AreaTurismoSection alloc] init];
+        areaTurismoSection.sectionId = [[dict valueForKey:@"DATA_KEY"] intValue];
+        viewController.areaTurismoSection = areaTurismoSection;
         [self.navController pushViewController:viewController animated:YES];
     }
 }
