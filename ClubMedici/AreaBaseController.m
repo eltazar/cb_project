@@ -245,12 +245,6 @@
             [tableView deselectRowAtIndexPath:indexPath animated:YES];
         }
     }
-    else if ([dataKey isEqualToString:@"phone"]) {
-        NSLog(@"numero di telefono = %@",
-              [_dataModel valueForKey:@"LABEL" atIndexPath:indexPath]);
-        [self callNumber: [_dataModel valueForKey:@"LABEL" atIndexPath:indexPath]];
-        [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    }
     else if ([dataKey isEqualToString:@"pdf"]) {
         NSString *title = [_dataModel valueForKey:@"LABEL" atIndexPath:indexPath];
         PDFviewerController *pdfViewer = [[PDFviewerController alloc]initWithTitle:title                                                                      url:nil];
@@ -299,12 +293,6 @@
 - (void)sendEmail:(NSString*) mail {
     [Utilities sendEmail:mail controller:self];
 }
-
-
-- (void)callNumber:(NSString*)number {
-    [Utilities callNumber:number];
-}
-
 
 
 #pragma mark - MFMailComposeViewControllerDelegate
