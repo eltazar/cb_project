@@ -159,6 +159,8 @@
 		D91B38451662598F001E9384 /* TextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D91B38441662598F001E9384 /* TextFieldCell.m */; };
 		D95680A51734988600CEAE63 /* AreaTurismoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D95680A41734988600CEAE63 /* AreaTurismoCell.xib */; };
 		D98131E71734985D00C919AB /* AreaTurismoItemList.plist in Resources */ = {isa = PBXBuildFile; fileRef = D98131E61734985D00C919AB /* AreaTurismoItemList.plist */; };
+		D998F682173A563000D1ED41 /* AreaTurismoItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D998F681173A563000D1ED41 /* AreaTurismoItemCell.m */; };
+		D998F684173A567700D1ED41 /* AreaTurismoItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D998F683173A567700D1ED41 /* AreaTurismoItemCell.xib */; };
 		D9B04DD9165C63A9005EF35B /* AreaDescriptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D9B04DD8165C63A9005EF35B /* AreaDescriptionCell.m */; };
 		D9C6C518165FDBC400247448 /* UIViewController+InterfaceIdiom.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C6C517165FDBC400247448 /* UIViewController+InterfaceIdiom.m */; };
 /* End PBXBuildFile section */
@@ -381,6 +383,9 @@
 		D91B38441662598F001E9384 /* TextFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TextFieldCell.m; path = ClubMedici/TextFieldCell.m; sourceTree = "<group>"; };
 		D95680A41734988600CEAE63 /* AreaTurismoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AreaTurismoCell.xib; path = ClubMedici/AreaTurismoCell.xib; sourceTree = "<group>"; };
 		D98131E61734985D00C919AB /* AreaTurismoItemList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AreaTurismoItemList.plist; sourceTree = "<group>"; };
+		D998F680173A563000D1ED41 /* AreaTurismoItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreaTurismoItemCell.h; sourceTree = "<group>"; };
+		D998F681173A563000D1ED41 /* AreaTurismoItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaTurismoItemCell.m; sourceTree = "<group>"; };
+		D998F683173A567700D1ED41 /* AreaTurismoItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AreaTurismoItemCell.xib; path = ClubMedici/AreaTurismoItemCell.xib; sourceTree = "<group>"; };
 		D9B04DD7165C63A9005EF35B /* AreaDescriptionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AreaDescriptionCell.h; path = ClubMedici/AreaDescriptionCell.h; sourceTree = "<group>"; };
 		D9B04DD8165C63A9005EF35B /* AreaDescriptionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AreaDescriptionCell.m; path = ClubMedici/AreaDescriptionCell.m; sourceTree = "<group>"; };
 		D9C6C516165FDBC400247448 /* UIViewController+InterfaceIdiom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+InterfaceIdiom.h"; sourceTree = "<group>"; };
@@ -423,6 +428,9 @@
 				D915E18917372C8600F78948 /* AreaTurismoCell.h */,
 				D915E18A17372C8600F78948 /* AreaTurismoCell.m */,
 				D95680A41734988600CEAE63 /* AreaTurismoCell.xib */,
+				D998F680173A563000D1ED41 /* AreaTurismoItemCell.h */,
+				D998F681173A563000D1ED41 /* AreaTurismoItemCell.m */,
+				D998F683173A567700D1ED41 /* AreaTurismoItemCell.xib */,
 				AC2629AC165D2F4500510092 /* ContactCell.xib */,
 				ACB57B7E172AABDE004176AF /* ActionCell.xib */,
 				ACE9FF4016B8814C002C8CE5 /* WebViewCell.xib */,
@@ -942,6 +950,7 @@
 				ACC450F7173ACE0D0058B30A /* normal_button_big_selected@2x.png in Resources */,
 				ACB6A9F5173AFF1400068934 /* reverse_nav_bar@2x.png in Resources */,
 				D915E1971739C1EE00F78948 /* TurismoTableViewController.xib in Resources */,
+				D998F684173A567700D1ED41 /* AreaTurismoItemCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1014,6 +1023,7 @@
 				D915E19B1739CBEE00F78948 /* BusinessLogicBase.m in Sources */,
 				D915E19E1739D14400F78948 /* AreaTurismoSection.m in Sources */,
 				D915E1A11739E12900F78948 /* AreaTurismoItem.m in Sources */,
+				D998F682173A563000D1ED41 /* AreaTurismoItemCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
