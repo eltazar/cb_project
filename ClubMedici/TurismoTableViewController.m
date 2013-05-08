@@ -7,6 +7,7 @@
 //
 
 #import "TurismoTableViewController.h"
+#import "AreaTurismoItemCell.h"
 #import "CustomSpinnerView.h"
 #import "ErrorView.h"
 #import "Reachability.h"
@@ -72,6 +73,19 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = nil;
+    cell = [tableView dequeueReusableCellWithIdentifier:@"AreaTurismoItemCell"];
+    if (!cell) {
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"AreaTurismoItemCell" owner:self options:NULL] objectAtIndex:0];
+        UIView *v = [[UIView alloc] init];
+        v.opaque = YES;
+        v.backgroundColor = [UIColor colorWithRed:194/255.0f green:203/255.0f blue:219/255.0f alpha:1];
+        cell.selectedBackgroundView = v;
+    }
+    ((AreaTurismoItemCell *)cell).areaTurismoItem = [_dataModel valueForKey:@"ITEM" atIndexPath:indexPath];
+    return cell;
+    
+    
+    /*UITableViewCell *cell = nil;
     //NSString *cellIdentifier;
     NSString *dataKey = [_dataModel valueForKey:@"DATA_KEY" atIndexPath:indexPath];
     
@@ -150,9 +164,9 @@
             v.backgroundColor = [UIColor colorWithRed:194/255.0f green:203/255.0f blue:219/255.0f alpha:1];
             cell.selectedBackgroundView = v;
         }
-    }
+    }*/
     
-    /*Testo della cella*/
+    /*Testo della cella*//*
     FXLabel *label = (FXLabel *) [cell viewWithTag:3];
     label.textColor = [UIColor colorWithWhite:0.5f alpha:1];
     label.shadowColor = [UIColor colorWithWhite:1.0f alpha:0.8f];
@@ -164,7 +178,7 @@
     label.highlightedTextColor =[UIColor blackColor];
     label.text = [_dataModel valueForKey:@"LABEL" atIndexPath:indexPath];
     
-    /* Linea separatrice tra le celle*/
+    /* Linea separatrice tra le celle*//*
     tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     //bordo inferiore da applicare alla linea
     CALayer *bottomBorder = [CALayer layer];
@@ -182,7 +196,8 @@
     [cell.contentView addSubview:separatorView];
     /*Fine linea separatrice*/
     
-    return cell;
+    /*return cell;*/
+    return nil;
 }
 
 
@@ -197,7 +212,7 @@
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *dataKey = [_dataModel valueForKey:@"DATA_KEY" atIndexPath:indexPath];
+    /*NSString *dataKey = [_dataModel valueForKey:@"DATA_KEY" atIndexPath:indexPath];
     
     if([dataKey isEqualToString:@"documentoArea"]){
         if ([Utilities networkReachable]) {
@@ -225,7 +240,7 @@
     }
     else if ([dataKey isEqualToString:@"email"]) {
         [self sendEmail:[_dataModel valueForKey:@"LABEL" atIndexPath:indexPath]];
-    }
+    }*/
     
 }
 
@@ -325,7 +340,7 @@
     if(_errorView || _errorView.showed){
         [UIView animateWithDuration:0.5
                          animations:^(void){
-                             [_errorView setFrame:CGRectMake(0, 43, errorView.frame.size.width,0)];
+                             [_errorView setFrame:CGRectMake(0, 43, _errorView.frame.size.width,0)];
                          }
                          completion:^(BOOL finished){
                              //riprovo query quando faccio tap su riprova
