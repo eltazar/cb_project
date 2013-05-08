@@ -61,6 +61,20 @@ NSString *baseUrl = @"http://www.clubmedici.it/app/iphone/";
                               nil];
     [[WMHTTPAccess sharedInstance] startHTTPConnectionWithURLString:urlString method:WMHTTPAccessConnectionMethodPOST parameters:postDict delegate:delegate];
 }
+
+
++ (void)getAreaTurismoDataForSectionId:(NSInteger)sectionId inItaly:(BOOL)inItaly delegate:(id<WMHTTPAccessDelegate>)delegate {
+    NSString *urlString = [PDHTTPAccess buildUrl:@"Turismo.php"];
+    
+    NSDictionary *postDict = [NSDictionary dictionaryWithObjectsAndKeys:
+                              [NSNumber numberWithInt:sectionId], @"sectionId",
+                              inItaly, @"italy",
+                              nil];
+    [[WMHTTPAccess sharedInstance] startHTTPConnectionWithURLString:urlString method:WMHTTPAccessConnectionMethodPOST parameters:postDict delegate:delegate];
+}
+
+
+
 #pragma mark - Private Methods
 
 

@@ -16,4 +16,5 @@
 + (void)getDocumentContents:(int)pagId delegate:(id<WMHTTPAccessDelegate>)delegate;
 + (void)sendEmail:(NSString*)body object:(NSString*)object address:(NSString*)address delegate:(id<WMHTTPAccessDelegate>)delegate;
 + (void)getNews:(int)limit delegate:(id<WMHTTPAccessDelegate>)delegate;
++ (void)getAreaTurismoDataForSectionId:(NSInteger)sectionId inItaly:(BOOL)inItaly delegate:(id<WMHTTPAccessDelegate>)delegate;
 @end
