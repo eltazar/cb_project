@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FXLabel.h"
 
-@interface UnderlinedLabel : UILabel
+@interface UnderlinedLabel : FXLabel
 
 @end
