@@ -26,7 +26,8 @@
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor colorWithRed:246/255.0f green:250/255.0f blue:255/255.0f alpha:1];
-    
+    footerView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"reverse_nav_bar"]];
+
     self.title = @"News";
     //il controller figlio di questo controller avrà il titolo del back Button personalizzato
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Home" style:UIBarButtonItemStyleBordered target:nil action:nil];
