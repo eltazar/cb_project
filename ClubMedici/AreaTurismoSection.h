@@ -7,7 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "BusinessLogicBase.h"
 
-@interface AreaTurismoSection : NSObject
+@interface AreaTurismoSection : BusinessLogicBase
+
+@property (nonatomic, assign) NSInteger sectionId;
 
 @end
