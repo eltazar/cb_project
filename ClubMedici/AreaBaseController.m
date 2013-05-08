@@ -57,6 +57,7 @@
     //Position the activity image view somewhere in
     //the middle of your current view
     spinner = [[CustomSpinnerView alloc] initWithFrame:self.view.frame];
+    spinner.frame = CGRectMake(self.navigationController.navigationBar.frame.size.width/2 - spinner.frame.size.width/2, self.view.frame.size.height/2 - spinner.frame.size.height/2, spinner.frame.size.width, spinner.frame.size.height);
 }
 
 
@@ -379,7 +380,7 @@
 
 - (void)didReceiveAreaData {
     NSLog(@"didReceiveAreaData");
-    [self showData];
+   [self showData];
 }
 
 

@@ -174,7 +174,9 @@
     if(spinner.isVisible){
         //se spinner era visibile lo rimuovo dalla vecchia backgroundView, e lo aggiungo a quella nuova
         [spinner removeFromSuperview];
-        spinner.frame = CGRectMake(self.view.frame.size.width/2, self.view.frame.size.height/2+100, spinner.frame.size.width, spinner.frame.size.height);
+        spinner.frame = CGRectMake(self.navigationController.navigationBar.frame.size.width/2 - spinner.frame.size.width/2, self.view.frame.size.height/2 - spinner.frame.size.height/2, spinner.frame.size.width, spinner.frame.size.height);
+
+        //spinner.frame = CGRectMake(self.view.frame.size.width/2, self.view.frame.size.height/2+100, spinner.frame.size.width, spinner.frame.size.height);
         [backgroundView addSubview: spinner];
     }
     
@@ -202,13 +204,6 @@
                           ];
                      }
      ];
-}
-
-
--(void)fetchData{
-    spinner.frame = CGRectMake(self.tableView.backgroundView.center.x, self.tableView.backgroundView.center.y+100, spinner.frame.size.width, spinner.frame.size.height);
-    [super fetchData];
-    
 }
 
 -(void) computeImageSize{
