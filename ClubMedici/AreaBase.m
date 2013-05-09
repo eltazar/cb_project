@@ -104,14 +104,14 @@
         }
     }
     else{
-            [self.delegate didReceiveAreaDataError:@"Connessione assente"];
+            [self.delegate didReceiveBusinessLogicDataError:@"Connessione assente"];
             //se ho un json scaricato di recente lo mostro anche se la connessione è assente al momento della query
             NSArray *oldJson = [Utilities loadCustomObjectWithKey:[AreaBase getAreaType:self.areaID]];
             if(-[dateDoneQuery timeIntervalSinceDate:[NSDate date]] < QUERY_TIME_LIMIT &&
                oldJson){
                 NSLog(@"///**** RECUPERO VECCHI DATI RECENTI///****");
                 [self _buildFromJson:oldJson];
-                [self.delegate didReceiveAreaData];
+                [self.delegate didReceiveBusinessLogicData];
             }
         [self.delegate didReceiveBusinessLogicDataError:@"Connessione assente"];
     }
