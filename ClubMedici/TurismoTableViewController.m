@@ -7,6 +7,7 @@
 //
 
 #import "TurismoTableViewController.h"
+#import "PDFviewerController.h"
 #import "AreaTurismoItemCell.h"
 #import "CustomSpinnerView.h"
 #import "ErrorView.h"
@@ -100,36 +101,13 @@
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    /*NSString *dataKey = [_dataModel valueForKey:@"DATA_KEY" atIndexPath:indexPath];
-    
-    if([dataKey isEqualToString:@"documentoArea"]){
-        if ([Utilities networkReachable]) {
-            //NSLog(@"DOCUMENTO AREA CLICCATO = %@",[_dataModel valueForKey:@"ID_PAG" atIndexPath:indexPath]);
-            DocumentoAreaController *descController = [DocumentoAreaController idiomAllocInit];
-            descController.idPag = [_dataModel valueForKey:@"ID_PAG" atIndexPath:indexPath];
-            descController.title = [_dataModel valueForKey:@"LABEL" atIndexPath:indexPath];
-            [self.navigationController pushViewController:descController animated:YES];
-        }
-        else{
-            [self showErrorView:@"Connessione assente"];
-            [tableView deselectRowAtIndexPath:indexPath animated:YES];
-        }
-    }
-    else if ([dataKey isEqualToString:@"phone"]) {
-        NSLog(@"numero di telefono = %@",
-              [_dataModel valueForKey:@"LABEL" atIndexPath:indexPath]);
-        [self callNumber: [_dataModel valueForKey:@"LABEL" atIndexPath:indexPath]];
-        [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    }
-    else if ([dataKey isEqualToString:@"pdf"]) {
-        NSString *title = [_dataModel valueForKey:@"LABEL" atIndexPath:indexPath];
-        PDFviewerController *pdfViewer = [[PDFviewerController alloc]initWithTitle:title                                                                      url:nil];
-        [self.navigationController presentViewController:pdfViewer animated:YES completion:nil];
-    }
-    else if ([dataKey isEqualToString:@"email"]) {
-        [self sendEmail:[_dataModel valueForKey:@"LABEL" atIndexPath:indexPath]];
-    }*/
-    
+    AreaTurismoItem *item = [_dataModel valueForKey:@"ITEM" atIndexPath:indexPath];
+    PDFviewerController *pdfViewController = [[PDFviewerController alloc] initWithNibName:nil bundle:nil];
+    pdfViewController.title = item.title;
+    pdfViewController.urlString =
+        [NSString stringWithFormat:@"http://www.clubmedici.it/nuovo/%@", item.pdfUrl];
+    NSLog(@"loading: %@", pdfViewController.urlString);
+    [self.navigationController pushViewController:pdfViewController animated:YES];
 }
 
 
