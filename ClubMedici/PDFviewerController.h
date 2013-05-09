@@ -15,6 +15,8 @@
 @property(nonatomic, weak) IBOutlet UIBarButtonItem *actionButton;
 @property(nonatomic, weak) IBOutlet UINavigationBar *toolBar;
 
+@property(nonatomic, strong) NSString *urlString;
+
 
 - (id)initWithTitle:(NSString*)aTitle url:(NSString*)url;
 - (IBAction)doneButtonPressed:(id)sender;

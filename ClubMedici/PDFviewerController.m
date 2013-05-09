@@ -43,7 +43,7 @@
     
     self.webView.delegate = self;
     
-    NSURL *targetURL = [NSURL URLWithString:@"http://www.clubmedici.it/nuovo/download/finanziario/leasing/leasing.pdf"];
+    NSURL *targetURL = [NSURL URLWithString:self.urlString];
     NSURLRequest *request = [NSURLRequest requestWithURL:targetURL cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:60.0];
     [self.webView loadRequest:request];
         
