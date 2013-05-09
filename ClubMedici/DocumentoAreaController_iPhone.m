@@ -41,9 +41,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
-    contactPanel.backgroundColor =  [UIColor colorWithRed:35/255.0f green:82/255.0f blue:165/255.0f alpha:1.0];
-    
+        
     contattaciLabel.textColor = [UIColor whiteColor];//[UIColor colorWithRed:28/255.0f green:60/255.0f blue:119/255.0f alpha:1];
 //    contattaciLabel.textColor     = [UIColor colorWithRed:207/255.0f green:216/255.0f blue:226/255.0f alpha:0.5];//[UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.5];
 //    contattaciLabel.shadowColor   = [UIColor colorWithRed:43/255.0f green:86/255.0f blue:140/255.0f alpha:1];
