@@ -29,9 +29,6 @@
     footerView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"reverse_nav_bar"]];
 
     self.title = @"News";
-    //il controller figlio di questo controller avrà il titolo del back Button personalizzato
-    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Home" style:UIBarButtonItemStyleBordered target:nil action:nil];
-    self.navigationItem.backBarButtonItem = backButton;
     
     [webView setBackgroundColor:[UIColor clearColor]];
     [webView setOpaque:NO];
@@ -39,24 +36,16 @@
     for(UIView *wview in [[[webView subviews] objectAtIndex:0] subviews]) {
         if([wview isKindOfClass:[UIImageView class]]) { wview.hidden = YES; }
     }
-    
-
-
-    
+ 
     titleLabel = [[UnderlinedLabel alloc] init];
     titleLabel.textColor = [UIColor colorWithRed:11/255.0f green:67/255.0f blue:144/255.0f alpha:1];
     titleLabel.backgroundColor = [UIColor clearColor];
-    //    titleLabel.textColor = [UIColor colorWithWhite:0.4f alpha:1];
-//    titleLabel.backgroundColor = [UIColor clearColor];
-//    //    titleLabel.shadowColor = [UIColor colorWithWhite:1.0f alpha:0.8f];
-//    //    titleLabel.shadowOffset = CGSizeMake(0.8f, 0.80f);
-//    titleLabel.shadowBlur = 1.0f;
-//    titleLabel.innerShadowBlur = 3.0f;
-//    titleLabel.innerShadowColor = [UIColor colorWithWhite:0.0f alpha:0.9f];
-//    titleLabel.innerShadowOffset = CGSizeMake(0.8f, 0.8f);
-//    //titleLabel.highlightedTextColor =[UIColor blackColor];
-    
+
     [webView.scrollView addSubview:titleLabel];
+
+}
+
+- (IBAction)sendPost:(id)sender {
 
 }
 
@@ -155,7 +144,7 @@
 -(void)didReceiveJSON:(NSArray *)jsonArray{
     //NSLog(@"JSON = %@",jsonArray);
     json = jsonArray;
-    titleLabel.text = [NSString stringWithFormat:@"%@",[[jsonArray objectAtIndex:0]objectForKey:@"titolo"]];//@"aaaaaaaa aaaaaaa aaaaaaa aaaaaaaa aaaaaa";
+    titleLabel.text = [NSString stringWithFormat:@"%@",[[jsonArray objectAtIndex:0]objectForKey:@"titolo"]];
 }
 
 -(void)didReceiveError:(NSError *)error{
@@ -164,10 +153,60 @@
 }
 #pragma mark - SHARING
 
+-(IBAction)sharingAction:(id)sender{
+    
+    if([[[UIDevice currentDevice] systemVersion] floatValue] >= 6.0){
+        //lancio activity di sharing di ios6
+        [self shareWithIosActivity];
+    }
+    else{
+        //lancio actionSheet custom
+        [self shareWithActionSheet:sender];
+    }
+}
+
+
+-(void)shareWithIosActivity{
+    NSArray *activityItems;
+    
+    NSString *newsString = [NSString stringWithFormat:@"News ClubMedici: %@\n %@%@",[[json objectAtIndex:0]objectForKey:@"titolo"],URL_NEWS,[[json objectAtIndex:0] objectForKey:@"id"]];
+    
+    activityItems = @[newsString];
+    
+    UIActivityViewController *activityController = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
+    activityController.excludedActivityTypes = @[UIActivityTypePrint, UIActivityTypeCopyToPasteboard, UIActivityTypePostToWeibo];
+    [self presentViewController:activityController animated:YES completion:nil];
+}
+
+-(void)shareWithActionSheet:(id)sender{
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Condividi" delegate:self cancelButtonTitle:@"Annulla" destructiveButtonTitle:nil otherButtonTitles:@"Facebook",@"Twitter",@"E-mail", nil];
+    actionSheet.delegate = self;
+    [actionSheet showInView:self.view];
+}
+
+#pragma mark - ActionSheetDelegate
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    switch (buttonIndex) {
+        case 0:
+            [self postToFacebook:self];
+            break;
+        case 1:
+            [self postToTwitter:self];
+            break;
+        case 2:
+            [self postToMail:self];
+            break;
+        default:
+            break;
+    }
+}
+
+#pragma mark - Posting methods
 -(void)postToMail:(id)sender{
     
-    NSString *urlString = [NSString stringWithFormat:@"http://www.clubmedici.it/nuovo/pagina.php?art=1&pgat=%@",[[json objectAtIndex:0] objectForKey:@"id"]];
-    [Utilities sendEmail:nil object:@"News ClubMedici" content:urlString html:NO controller:self];
+    NSString *urlString = [NSString stringWithFormat:@"Ciao leggi la nuova news di ClubMedici:\n%@%@",URL_NEWS,[[json objectAtIndex:0] objectForKey:@"id"]];
+    [Utilities sendEmail:nil object:[NSString stringWithFormat:@"News ClubMedici: \n%@",[[json objectAtIndex:0] objectForKey:@"titolo"]] content:urlString html:NO controller:self];
 }
 
 - (void)postToTwitter:(id)sender{
@@ -188,7 +227,7 @@
     
     [twitter setInitialText:[NSString stringWithFormat:@"News ClubMedici: \n%@",[[json objectAtIndex:0] objectForKey:@"titolo"]]];
     //[twitter addImage:[UIImage imageNamed:@"image.png"]];
-    [twitter addURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.clubmedici.it/nuovo/pagina.php?art=1&pgat=%@",[[json objectAtIndex:0] objectForKey:@"id"]]]];
+    [twitter addURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",URL_NEWS,[[json objectAtIndex:0] objectForKey:@"id"]]]];
 
     [self presentViewController:twitter animated:YES completion:nil];
     

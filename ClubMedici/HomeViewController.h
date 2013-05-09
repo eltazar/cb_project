@@ -19,9 +19,9 @@
 #import "SharingPanelView.h"
 #import "UnderlinedLabel.h"
 
-#define URL_NEWS_PATH @"http://www.clubmedici.it/nuovo/"
-
-@interface HomeViewController : UIViewController<WMHTTPAccessDelegate, MFMailComposeViewControllerDelegate, UIWebViewDelegate>
+#define URL_NEWS_IMG @"http://www.clubmedici.it/nuovo/"
+#define URL_NEWS @"http://www.clubmedici.it/nuovo/pagina.php?art=1&pgat="
+@interface HomeViewController : UIViewController<WMHTTPAccessDelegate, MFMailComposeViewControllerDelegate, UIWebViewDelegate, UIActionSheetDelegate>
 {
     @protected
     ErrorView *errorView;
@@ -33,7 +33,5 @@
 - (void)showErrorView:(NSString*)message;
 - (void)hideErrorView:(UITapGestureRecognizer*)gesture;
 
-- (void)postToFacebook:(id)sender;
-- (void)postToTwitter:(id)sender;
-
+-(IBAction)sharingAction:(id)sender;
 @end

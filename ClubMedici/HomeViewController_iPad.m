@@ -11,11 +11,7 @@
 
 @interface HomeViewController_iPad ()
 {
-    IBOutlet UIView *newsView;
-    IBOutlet UIWebView *newsWebView;
-    IBOutlet UILabel *newsTitle;
     IBOutlet UIView *titleView;
-    SharingPanelView *sharingView;
 }
 @end
 
@@ -35,28 +31,6 @@
     webView.scrollView.contentInset =  UIEdgeInsetsMake(80.0,0.0,0.0,0.0);
     titleLabel.frame = CGRectMake(15, -60, 700,60);
     [titleLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:20]];
-
-    //
-//    newsView.backgroundColor = [UIColor colorWithRed:207/255.0f green:216/255.0f blue:226/255.0f alpha:1];
-//    titleView.layer.borderColor = [UIColor colorWithRed:78/255.0f green:111/255.0f blue:147/255.0f alpha:0.8].CGColor;
-//    titleView.layer.masksToBounds = NO;
-//    titleView.layer.shadowOffset = CGSizeMake(-1, 1);
-//    titleView.layer.shadowRadius = 5;
-//    titleView.layer.shadowOpacity = 0.6;
-//    //rimuove ombra dietro la pagina web
-//    for(UIView *wview in [[[newsWebView subviews] objectAtIndex:0] subviews]) {
-//        if([wview isKindOfClass:[UIImageView class]]){
-//            wview.hidden = YES;
-//        }
-//    }
-//    newsWebView.scrollView.contentInset =  UIEdgeInsetsMake(40.0,0.0,0.0,0.0);
-//    sharingView = [[SharingPanelView alloc] init];
-//    [sharingView setOrigin:CGPointMake(45, -30)];
-//    [newsWebView.scrollView addSubview:sharingView];
-//    sharingView.alpha = 0.0f;
-//    [sharingView.fbButton addTarget:self action:@selector(postToFacebook:) forControlEvents:UIControlEventTouchUpInside];
-//    [sharingView.twButton addTarget:self action:@selector(postToTwitter:) forControlEvents:UIControlEventTouchUpInside];
-//    [sharingView.mailButton addTarget:self action:@selector(postToMail:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -78,6 +52,12 @@
         NSLog(@"LANDSCAPE");
 
     }
+}
+
+-(void)shareWithActionSheet:(UIButton*)sender{
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Condividi" delegate:self cancelButtonTitle:@"Annulla" destructiveButtonTitle:nil otherButtonTitles:@"Facebook",@"Twitter",@"E-mail", nil];
+    actionSheet.delegate = self;
+    [actionSheet showFromRect:sender.frame inView:sender.superview animated:YES];
 }
 
 #pragma mark - UISplitViewControllerDelegate
@@ -108,28 +88,15 @@
 -(void)didReceiveJSON:(NSArray *)jsonArray{
     //NSLog(@"JSON = %@",jsonArray);
     [super didReceiveJSON:jsonArray];
-    newsTitle.text = [NSString stringWithFormat:@"News: %@",[[jsonArray objectAtIndex:0]objectForKey:@"titolo"]];
-//    
-//    NSString *htmlPage = @"<html><head><style type=\"text/css\">%@</style></head>    <body>%@</body></html>";
-//    NSString *style = @"body {text-align:left;font-family:helvetica;}body,p {margin-top:20px;margin-left:45px;font-size: 14px;color: #212121;text-shadow: #fff 0px 1px 0px;}";//font-size: 16px;text-align: justify;color: #272727;text-shadow: 1px 4px 6px #f6faff, 0 0 0 #000, 1px 4px 6px #f6faff;}";//
-//    htmlPage = [NSString stringWithFormat:htmlPage,style,[[jsonArray objectAtIndex:0]objectForKey:@"testo"]];
-//    [webView loadHTMLString:htmlPage baseURL:nil];
-    
     
     NSString *htmlPage = @"<html><head><style type=\"text/css\">%@</style></head>    <body><img src=\"%@\" class=\"floatLeft\"> %@</body></html>";
     NSString *style = @"img {padding:1px;border:1px solid #000000;background-color:#f6faff;}img.floatLeft{height:150px;width:150px;float: left;margin: 5px;}body {font-family:helvetica;background-color: #f6faff;}body,p{margin:15px;font-size: 18px;color: #212121;text-shadow: #fff 0px 1px 0px;}";//font-size: 16px;text-align: justify;color: #272727;text-shadow: 1px 4px 6px #f6faff, 0 0 0 #000, 1px 4px 6px #f6faff;}";//
-    NSString *img = [NSString stringWithFormat:@"%@%@",URL_NEWS_PATH,[[jsonArray objectAtIndex:0] objectForKey:@"foto"]];
+    NSString *img = [NSString stringWithFormat:@"%@%@",URL_NEWS_IMG,[[jsonArray objectAtIndex:0] objectForKey:@"foto"]];
     htmlPage = [NSString stringWithFormat:htmlPage,style,img,[[jsonArray objectAtIndex:0]objectForKey:@"testo"]];
     [webView loadHTMLString:htmlPage baseURL:nil];
 }
 
 -(void)didReceiveError:(NSError *)error{
-    newsTitle.text = @"Impossibile caricare le news, riprovare";
-    [UIView animateWithDuration:0.2
-                     animations:^(void){
-                         sharingView.alpha = 0.0;
-                     }
-     ];
     [super didReceiveError:error];
 }
 
