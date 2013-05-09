@@ -9,7 +9,6 @@
 #import "DocumentoAreaController_iPad.h"
 
 @interface DocumentoAreaController_iPad ()
-
 @end
 
 @implementation DocumentoAreaController_iPad
@@ -56,4 +55,39 @@
         [super showErrorView:message];
     }
 }
+
+#pragma mark - Copy methods
+
+-(void)callNumber{
+    [self becomeFirstResponder];
+    
+    /*get the view from the UIBarButtonItem*/
+    //UIView *buttonView=[[event.allTouches anyObject] view];
+    //CGRect buttonFrame= [self.callButton convertRect:self.callButton.frame toView:footerView];
+    
+    UIMenuController *menuController = [UIMenuController sharedMenuController];
+    NSString *title = [NSString stringWithFormat:@"Copia %@",phone];
+    UIMenuItem *resetMenuItem = [[UIMenuItem alloc] initWithTitle:title action:@selector(menuItemClicked:)];
+    
+    NSAssert([self becomeFirstResponder], @"Sorry, UIMenuController will not work with %@ since it cannot become first responder", self);
+    [menuController setMenuItems:[NSArray arrayWithObject:resetMenuItem]];
+    [menuController setTargetRect:self.callButton.frame inView:self.callButton.superview];
+    [menuController setMenuVisible:YES animated:YES];
+    
+}
+
+- (void) menuItemClicked:(id) sender {
+    // called when Item clicked in menu
+    [[UIPasteboard generalPasteboard] setString:phone];
+}
+- (BOOL) canPerformAction:(SEL)selector withSender:(id) sender {
+    if (selector == @selector(menuItemClicked:) /*selector == @selector(copy:)*/){//*<--enable that if you want the copy item */) {
+        return YES;
+    }
+    return NO;
+}
+- (BOOL) canBecomeFirstResponder {
+    return YES;
+}
+
 @end

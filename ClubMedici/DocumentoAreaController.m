@@ -14,7 +14,6 @@
 @interface DocumentoAreaController (){
     UIActionSheet *actionSheet;
     NSString *htmlPage;
-    
 }
 @end
 
@@ -33,6 +32,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    footerView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"reverse_nav_bar"]];
+
     webView.delegate = self;
     [webView setBackgroundColor:[UIColor clearColor]];
     [webView setOpaque:NO];

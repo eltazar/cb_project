@@ -17,6 +17,7 @@
     NSString *mail;
     ErrorView *errorView;
     CustomSpinnerView *spinner;
+    IBOutlet UIView *footerView;
 }
 
 @property(nonatomic, weak) IBOutlet UIButton *callButton;
