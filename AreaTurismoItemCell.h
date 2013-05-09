@@ -10,9 +10,9 @@
 #import "AreaTurismoItem.h"
 #import "CachedAsyncImageView.h"
 
-@interface AreaTurismoItemCell : UITableViewCell
+@interface AreaTurismoItemCell : UITableViewCell 
 
-@property(nonatomic, strong) IBOutlet CachedAsyncImageView *imageView;
+@property(nonatomic, strong) IBOutlet CachedAsyncImageView *photo;
 @property(nonatomic, strong) IBOutlet UILabel *titleLbl;
 @property(nonatomic, strong) IBOutlet UILabel *descriptionLbl;
 
