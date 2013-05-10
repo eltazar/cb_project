@@ -85,24 +85,15 @@
 
 #pragma mark - UIWebViewDelegate
 - (void)webViewDidStartLoad:(UIWebView *)webView {
-    self.navigationItem.rightBarButtonItem.enabled = NO;
     NSLog(@"INIZIATO DOWNLOAD PDF");
-    [spinner startAnimating];
-    [self.view addSubview:spinner];
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     NSLog(@"Finito DOWNLOAD PDF");
-    self.navigationItem.rightBarButtonItem.enabled = YES;
-    [spinner stopAnimating];
-    [spinner removeFromSuperview];
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
     NSLog(@"FALLITO DOWNLOAD PDF = %@", [error localizedDescription]);
-    self.navigationItem.rightBarButtonItem.enabled = NO;
-    [spinner stopAnimating];
-    [spinner removeFromSuperview];
 }
 
 #pragma mark - WMHTTPAccessDelegate
@@ -110,6 +101,7 @@
 -(void)didReceiveJSON:(NSArray *)jsonArray{
     NSLog(@"JSON DESC : %@",[[jsonArray objectAtIndex:0] objectForKey:@"testo"]);
     
+    [self stopSpinner];
     NSString *htmlString = [[jsonArray objectAtIndex:0] objectForKey:@"testo"];
     mail = [[jsonArray objectAtIndex:0] objectForKey:@"email"];
     phone = [[jsonArray objectAtIndex:0] objectForKey:@"telefono"];
@@ -117,10 +109,12 @@
     htmlPage = @"<html><head><style type=\"text/css\">%@</style></head>    <body>%@</body></html>";
     NSString *style = @"body {font-family:helvetica;margin:15px 15px 15px 15px;background-color: #f6faff;}body,p {font-size: 15px;color: #333333;text-shadow: #fff 0px 1px 0px;}";//font-size: 16px;text-align: justify;color: #272727;text-shadow: 1px 4px 6px #f6faff, 0 0 0 #000, 1px 4px 6px #f6faff;}";//
     htmlPage = [NSString stringWithFormat:htmlPage,style,htmlString];
-    [webView loadHTMLString:htmlPage baseURL:nil];
+    [webView loadHTMLString:htmlPage baseURL:[NSURL URLWithString:nil]];
     
     _callButton.enabled = YES;
     _mailButton.enabled = YES;
+    self.navigationItem.rightBarButtonItem.enabled = YES;
+
 }
 
 -(void)didReceiveError:(NSError *)error{
@@ -128,14 +122,23 @@
     [self showErrorView:@"Errore server"];
     _callButton.enabled = NO;
     _mailButton.enabled = NO;
+    [self stopSpinner];
+    self.navigationItem.rightBarButtonItem.enabled = NO;
 }
 -(void)fetchData{
     if([Utilities networkReachable]){
         [PDHTTPAccess getDocumentContents:[idPag intValue] delegate:self];
+        [spinner startAnimating];
+        [self.view addSubview:spinner];
     }
     else{
         [self showErrorView:@"Connessione assente"];
     }
+}
+
+-(void)stopSpinner{
+    [spinner stopAnimating];
+    [spinner removeFromSuperview];
 }
 
 
