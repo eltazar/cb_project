@@ -9,6 +9,7 @@
 #import "Utilities.h"
 #import "AreaBase.h"
 #import "Reachability.h"
+#import "Flurry.h"
 
 @implementation Utilities
 
@@ -158,4 +159,10 @@
     }
 }
 
++(void)logEvent:(NSString*)key arguments:(NSDictionary*)arguments{
+    NSLog(@"CIAOOO");
+    if(arguments == nil)
+       [Flurry logEvent:key];
+    else [Flurry logEvent:key withParameters:arguments];
+}
 @end

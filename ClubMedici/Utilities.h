@@ -22,4 +22,6 @@
 + (void)sendEmail:(NSString*)address controller:(UIViewController*)controller;
 + (void)callNumber:(NSString*)number;
 + (void)sendEmail:(NSString *)address object:(NSString*)object content:(NSString*)content html:(BOOL)html controller:(UIViewController *)controller;
++(void)logEvent:(NSString*)key arguments:(NSDictionary*)arguments;
+
 @end
