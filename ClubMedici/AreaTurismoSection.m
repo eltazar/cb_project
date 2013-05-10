@@ -13,7 +13,8 @@
 
 
 @interface AreaTurismoSection () {
-    NSMutableArray *_items;
+    NSMutableArray *_itemsItaly;
+    NSMutableArray *_itemsAbroad;
 }
 @end
 
@@ -24,7 +25,8 @@
 - (id)init {
     self = [super init];
     if (self) {
-        _items = [[NSMutableArray alloc] init];
+        _itemsItaly  = [[NSMutableArray alloc] init];
+        _itemsAbroad = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -36,20 +38,22 @@
 
 
 - (WMTableViewDataSource *)getDataModel {
-    NSMutableArray *sectionContentsArray = [NSMutableArray arrayWithCapacity:_items.count];
-    for (id item in _items) {
-        [sectionContentsArray addObject:[NSDictionary dictionaryWithObject:item forKey:@"ITEM"]];
-    }
-    NSArray *dataModelArray = [NSArray arrayWithObject:
-                               [NSDictionary dictionaryWithObjectsAndKeys:
-                                    @"Lista Offerte",     @"SECTION_NAME",
-                                    sectionContentsArray, @"SECTION_CONTENTS", nil]];
-    return [[WMTableViewDataSource alloc] initWithArray:dataModelArray];
+    return [self _getDataModelFromItems:_itemsItaly];
+}
+
+- (WMTableViewDataSource *)getDataModelItaly {
+    return [self _getDataModelFromItems:_itemsItaly];
+}
+
+
+- (WMTableViewDataSource *)getDataModelAbroad {
+    return [self _getDataModelFromItems:_itemsAbroad];
 }
 
 
 - (void)fetchData {
     [PDHTTPAccess getAreaTurismoDataForSectionId:self.sectionId inItaly:YES delegate:self];
+    [PDHTTPAccess getAreaTurismoDataForSectionId:self.sectionId inItaly:NO  delegate:self];
 }
 
 
@@ -62,9 +66,31 @@
     NSArray *tempArray;
     for (NSDictionary *item in jsonArray) {
         tempArray = [NSArray arrayWithObject:item];
-        [_items addObject:[[AreaTurismoItem alloc] initWithJson:tempArray]];
+        AreaTurismoItem *areaTurismoItem = [[AreaTurismoItem alloc] initWithJson:tempArray];
+        if (areaTurismoItem.inItaly)
+            [_itemsItaly  addObject:[NSDictionary dictionaryWithObject:areaTurismoItem
+                                                                forKey:@"ITEM"]];
+        else
+            [_itemsAbroad addObject:[NSDictionary dictionaryWithObject:areaTurismoItem
+                                                                forKey:@"ITEM"]];
     }
     [self.delegate didReceiveBusinessLogicData];
 }
+
+
+
+#pragma mark - Private Methods
+
+
+- (WMTableViewDataSource *)_getDataModelFromItems:(NSArray *)items {
+    NSArray *dataModelArray = [NSArray arrayWithObject:
+                               [NSDictionary dictionaryWithObjectsAndKeys:
+                                @"Lista Offerte",     @"SECTION_NAME",
+                                items, @"SECTION_CONTENTS", nil]];
+    //NSLog(@"Same object? %@", ([[dataModelArray objectAtIndex:0] objectForKey:@"SECTION_CONTENTS"] ==  items)?@"YES":@"NO");
+    return [[WMTableViewDataSource alloc] initWithArray:dataModelArray];
+}
+
+
 
 @end

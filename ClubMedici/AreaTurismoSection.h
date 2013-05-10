@@ -9,8 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "BusinessLogicBase.h"
 
-@interface AreaTurismoSection : BusinessLogicBase
+@interface AreaTurismoSection : BusinessLogicBase { }
 
 @property (nonatomic, assign) NSInteger sectionId;
+
+- (WMTableViewDataSource *)getDataModelItaly;
+- (WMTableViewDataSource *)getDataModelAbroad;
 
 @end
