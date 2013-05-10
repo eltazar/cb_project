@@ -57,6 +57,32 @@
 
 #pragma mark - TableViewDelegate
 
+-(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    UITableViewCell *cell = [super tableView:tableView cellForRowAtIndexPath:indexPath];
+    NSString *dataKey = [_dataModel valueForKey:@"DATA_KEY" atIndexPath:indexPath];
+    
+    if([dataKey isEqualToString:@"phone"]){
+        CALayer *bottomBorder = [CALayer layer];
+        bottomBorder.frame = CGRectMake(0.0f, 0.0f,1024, 1.5f);
+        bottomBorder.backgroundColor = [UIColor whiteColor].CGColor;
+        //linea separatrice alta 1px, posizionata alla base inferiore della cella
+        UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1024, 1)];
+        line.opaque = YES;
+        line.tag = 999;
+        line.layer.borderColor = [UIColor colorWithRed:214/255.0f green:226/255.0f blue:241/255.0f alpha:1].CGColor;
+        line.layer.borderWidth = 1.0;
+        //applico bordo inferiore
+        [line.layer addSublayer:bottomBorder];
+        //applico linea alla cella
+        [cell.contentView addSubview:line];        
+    }
+    
+    return cell;
+    
+}
+
+
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSString *dataKey = [_dataModel valueForKey:@"DATA_KEY" atIndexPath:indexPath];
 
