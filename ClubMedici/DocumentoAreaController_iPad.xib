@@ -2,10 +2,10 @@
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="8.00">
 	<data>
 		<int key="IBDocument.SystemTarget">1552</int>
-		<string key="IBDocument.SystemVersion">12D78</string>
+		<string key="IBDocument.SystemVersion">12C54</string>
 		<string key="IBDocument.InterfaceBuilderVersion">3084</string>
-		<string key="IBDocument.AppKitVersion">1187.37</string>
-		<string key="IBDocument.HIToolboxVersion">626.00</string>
+		<string key="IBDocument.AppKitVersion">1187.34</string>
+		<string key="IBDocument.HIToolboxVersion">625.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			<string key="NS.object.0">2083</string>
@@ -42,6 +42,7 @@
 						<int key="NSvFlags">274</int>
 						<string key="NSFrameSize">{773, 937}</string>
 						<reference key="NSSuperview" ref="766721923"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="732641274"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<object class="NSColor" key="IBUIBackgroundColor">
@@ -65,6 +66,7 @@
 										<int key="NSvFlags">268</int>
 										<string key="NSFrame">{{57, 10}, {113, 21}}</string>
 										<reference key="NSSuperview" ref="394187831"/>
+										<reference key="NSWindow"/>
 										<reference key="NSNextKeyView" ref="332620178"/>
 										<string key="NSReuseIdentifierKey">_NS:9</string>
 										<bool key="IBUIOpaque">NO</bool>
@@ -95,8 +97,9 @@
 									<object class="IBUIButton" id="435333093">
 										<reference key="NSNextResponder" ref="394187831"/>
 										<int key="NSvFlags">268</int>
-										<string key="NSFrame">{{284, 7}, {43, 26}}</string>
+										<string key="NSFrame">{{278, -13}, {77, 68}}</string>
 										<reference key="NSSuperview" ref="394187831"/>
+										<reference key="NSWindow"/>
 										<string key="NSReuseIdentifierKey">_NS:9</string>
 										<bool key="IBUIOpaque">NO</bool>
 										<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -133,8 +136,9 @@
 									<object class="IBUIButton" id="332620178">
 										<reference key="NSNextResponder" ref="394187831"/>
 										<int key="NSvFlags">268</int>
-										<string key="NSFrame">{{186, 2}, {51, 37}}</string>
+										<string key="NSFrame">{{184, -7}, {64, 56}}</string>
 										<reference key="NSSuperview" ref="394187831"/>
+										<reference key="NSWindow"/>
 										<reference key="NSNextKeyView" ref="435333093"/>
 										<string key="NSReuseIdentifierKey">_NS:9</string>
 										<bool key="IBUIOpaque">NO</bool>
@@ -178,6 +182,7 @@
 								</array>
 								<string key="NSFrame">{{192, 0}, {384, 42}}</string>
 								<reference key="NSSuperview" ref="732641274"/>
+								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="935806286"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<object class="NSColor" key="IBUIBackgroundColor">
@@ -189,6 +194,7 @@
 						</array>
 						<string key="NSFrame">{{0, 936}, {768, 44}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="394187831"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<object class="NSColor" key="IBUIBackgroundColor">
@@ -200,6 +206,7 @@
 				</array>
 				<string key="NSFrame">{{0, 44}, {768, 980}}</string>
 				<reference key="NSSuperview"/>
+				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="10040704"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">3</int>
@@ -341,8 +348,8 @@
 						<reference key="object" ref="394187831"/>
 						<array class="NSMutableArray" key="children">
 							<reference ref="935806286"/>
-							<reference ref="435333093"/>
 							<reference ref="332620178"/>
+							<reference ref="435333093"/>
 						</array>
 						<reference key="parent" ref="732641274"/>
 						<string key="objectName">Container</string>
@@ -386,7 +393,64 @@
 			<nil key="sourceID"/>
 			<int key="maxID">26</int>
 		</object>
-		<object class="IBClassDescriber" key="IBDocument.Classes"/>
+		<object class="IBClassDescriber" key="IBDocument.Classes">
+			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
+				<object class="IBPartialClassDescription">
+					<string key="className">DocumentoAreaController</string>
+					<string key="superclassName">UIViewController</string>
+					<dictionary class="NSMutableDictionary" key="actions">
+						<string key="callNumber">id</string>
+						<string key="writeEmail">id</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="actionInfosByName">
+						<object class="IBActionInfo" key="callNumber">
+							<string key="name">callNumber</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="writeEmail">
+							<string key="name">writeEmail</string>
+							<string key="candidateClassName">id</string>
+						</object>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="callButton">UIButton</string>
+						<string key="footerView">UIView</string>
+						<string key="mailButton">UIButton</string>
+						<string key="webView">UIWebView</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<object class="IBToOneOutletInfo" key="callButton">
+							<string key="name">callButton</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="footerView">
+							<string key="name">footerView</string>
+							<string key="candidateClassName">UIView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="mailButton">
+							<string key="name">mailButton</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="webView">
+							<string key="name">webView</string>
+							<string key="candidateClassName">UIWebView</string>
+						</object>
+					</dictionary>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/DocumentoAreaController.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">DocumentoAreaController_iPad</string>
+					<string key="superclassName">DocumentoAreaController</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/DocumentoAreaController_iPad.h</string>
+					</object>
+				</object>
+			</array>
+		</object>
 		<int key="IBDocument.localizationMode">0</int>
 		<string key="IBDocument.TargetRuntimeIdentifier">IBIPadFramework</string>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
@@ -394,10 +458,10 @@
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
 			<string key="contactButtonDisabled.png">{140, 40}</string>
 			<string key="contactButtonSelected.png">{140, 40}</string>
-			<string key="mail3.png">{128, 82}</string>
-			<string key="mail3_high.png">{128, 82}</string>
-			<string key="phone3.png">{128, 128}</string>
-			<string key="phone3_high.png">{128, 128}</string>
+			<string key="mail3.png">{200, 200}</string>
+			<string key="mail3_high.png">{200, 200}</string>
+			<string key="phone3.png">{200, 200}</string>
+			<string key="phone3_high.png">{200, 200}</string>
 		</dictionary>
 		<string key="IBCocoaTouchPluginVersion">2083</string>
 	</data>
