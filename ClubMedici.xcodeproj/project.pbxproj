@@ -28,7 +28,7 @@
 		AC25200B16BF0E7F0080A4BE /* ContattiViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC25200916BF0E7F0080A4BE /* ContattiViewController_iPad.xib */; };
 		AC26297D165D01EE00510092 /* AreaCureMediche.m in Sources */ = {isa = PBXBuildFile; fileRef = AC26297C165D01EE00510092 /* AreaCureMediche.m */; };
 		AC262980165D07F100510092 /* AreaLeasing.m in Sources */ = {isa = PBXBuildFile; fileRef = AC26297F165D07F100510092 /* AreaLeasing.m */; };
-		AC26298D165D1E2400510092 /* AreaDescriptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC262989165D1E2400510092 /* AreaDescriptionCell.xib */; };
+		AC26298D165D1E2400510092 /* AreaDescriptionCell_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC262989165D1E2400510092 /* AreaDescriptionCell_iPhone.xib */; };
 		AC26298E165D1E2400510092 /* PDFviewerController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC26298B165D1E2400510092 /* PDFviewerController.m */; };
 		AC262992165D1E4900510092 /* AreaBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC262991165D1E4900510092 /* AreaBaseController.m */; };
 		AC2629A1165D2A5300510092 /* AreaBaseController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = AC26299F165D2A5300510092 /* AreaBaseController_iPad.m */; };
@@ -62,8 +62,6 @@
 		ACB6A9F5173AFF1400068934 /* reverse_nav_bar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ACB6A9F4173AFF1400068934 /* reverse_nav_bar@2x.png */; };
 		ACB7DA7016A4AFC500B05178 /* mail.png in Resources */ = {isa = PBXBuildFile; fileRef = ACB7DA6E16A4AFC500B05178 /* mail.png */; };
 		ACB7DA7116A4AFC500B05178 /* mail@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ACB7DA6F16A4AFC500B05178 /* mail@2x.png */; };
-		ACB82AE81735ECE700544657 /* background_ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = ACB82AE71735ECE700544657 /* background_ipad.png */; };
-		ACB82AEA1735EE9D00544657 /* background_iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = ACB82AE91735EE9D00544657 /* background_iphone.png */; };
 		ACB87144172F3A3900D25669 /* reload.png in Resources */ = {isa = PBXBuildFile; fileRef = ACB87143172F3A3800D25669 /* reload.png */; };
 		ACB8FADA172564BA00AFB645 /* DisclaimerController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB8FAD8172564BA00AFB645 /* DisclaimerController.m */; };
 		ACB8FADB172564BA00AFB645 /* DisclaimerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACB8FAD9172564BA00AFB645 /* DisclaimerController.xib */; };
@@ -78,7 +76,7 @@
 		ACBF78BC172D3D9200B4F230 /* CustomSpinnerView.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBF78BB172D3D9200B4F230 /* CustomSpinnerView.m */; };
 		ACBFA9F91735008700A22E18 /* arrowUp.png in Resources */ = {isa = PBXBuildFile; fileRef = ACBFA9F81735008700A22E18 /* arrowUp.png */; };
 		ACBFA9FD1735135C00A22E18 /* CalcolaRataController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBFA9FB1735135C00A22E18 /* CalcolaRataController.m */; };
-		ACBFA9FE1735135C00A22E18 /* CalcolaRataController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACBFA9FC1735135C00A22E18 /* CalcolaRataController.xib */; };
+		ACBFA9FE1735135C00A22E18 /* CalcolaRataController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACBFA9FC1735135C00A22E18 /* CalcolaRataController_iPhone.xib */; };
 		ACBFD645165BBEE600DD7991 /* AreaBase.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBFD644165BBEE600DD7991 /* AreaBase.m */; };
 		ACBFD648165BC0B100DD7991 /* AreaFinanziaria.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBFD647165BC0B100DD7991 /* AreaFinanziaria.m */; };
 		ACC0E1B4173ACD830075492E /* normal_button_big@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ACC0E1B3173ACD830075492E /* normal_button_big@2x.png */; };
@@ -163,6 +161,8 @@
 		D998F684173A567700D1ED41 /* AreaTurismoItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D998F683173A567700D1ED41 /* AreaTurismoItemCell.xib */; };
 		D9B04DD9165C63A9005EF35B /* AreaDescriptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D9B04DD8165C63A9005EF35B /* AreaDescriptionCell.m */; };
 		D9C6C518165FDBC400247448 /* UIViewController+InterfaceIdiom.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C6C517165FDBC400247448 /* UIViewController+InterfaceIdiom.m */; };
+		D9FDADCA173C6887002808A7 /* background_iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = D9FDADC8173C6887002808A7 /* background_iPad.png */; };
+		D9FDADCB173C6887002808A7 /* background_iPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = D9FDADC9173C6887002808A7 /* background_iPhone.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -190,7 +190,7 @@
 		AC26297C165D01EE00510092 /* AreaCureMediche.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaCureMediche.m; sourceTree = "<group>"; };
 		AC26297E165D07F100510092 /* AreaLeasing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreaLeasing.h; sourceTree = "<group>"; };
 		AC26297F165D07F100510092 /* AreaLeasing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaLeasing.m; sourceTree = "<group>"; };
-		AC262989165D1E2400510092 /* AreaDescriptionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AreaDescriptionCell.xib; path = ClubMedici/AreaDescriptionCell.xib; sourceTree = "<group>"; };
+		AC262989165D1E2400510092 /* AreaDescriptionCell_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AreaDescriptionCell_iPhone.xib; path = ClubMedici/AreaDescriptionCell_iPhone.xib; sourceTree = "<group>"; };
 		AC26298A165D1E2400510092 /* PDFviewerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDFviewerController.h; path = ClubMedici/PDFviewerController.h; sourceTree = "<group>"; };
 		AC26298B165D1E2400510092 /* PDFviewerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PDFviewerController.m; path = ClubMedici/PDFviewerController.m; sourceTree = "<group>"; };
 		AC262990165D1E4900510092 /* AreaBaseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AreaBaseController.h; path = ClubMedici/AreaBaseController.h; sourceTree = "<group>"; };
@@ -238,8 +238,6 @@
 		ACB6A9F4173AFF1400068934 /* reverse_nav_bar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "reverse_nav_bar@2x.png"; path = "img/reverse_nav_bar@2x.png"; sourceTree = SOURCE_ROOT; };
 		ACB7DA6E16A4AFC500B05178 /* mail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mail.png; path = img/mail.png; sourceTree = SOURCE_ROOT; };
 		ACB7DA6F16A4AFC500B05178 /* mail@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "mail@2x.png"; path = "img/mail@2x.png"; sourceTree = SOURCE_ROOT; };
-		ACB82AE71735ECE700544657 /* background_ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background_ipad.png; path = img/background_ipad.png; sourceTree = SOURCE_ROOT; };
-		ACB82AE91735EE9D00544657 /* background_iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background_iphone.png; path = img/background_iphone.png; sourceTree = SOURCE_ROOT; };
 		ACB87143172F3A3800D25669 /* reload.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = reload.png; path = img/reload.png; sourceTree = SOURCE_ROOT; };
 		ACB8FAD7172564BA00AFB645 /* DisclaimerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisclaimerController.h; sourceTree = "<group>"; };
 		ACB8FAD8172564BA00AFB645 /* DisclaimerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisclaimerController.m; sourceTree = "<group>"; };
@@ -263,7 +261,7 @@
 		ACBFA9F81735008700A22E18 /* arrowUp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = arrowUp.png; path = img/arrowUp.png; sourceTree = SOURCE_ROOT; };
 		ACBFA9FA1735135C00A22E18 /* CalcolaRataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CalcolaRataController.h; path = ClubMedici/CalcolaRataController.h; sourceTree = "<group>"; };
 		ACBFA9FB1735135C00A22E18 /* CalcolaRataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CalcolaRataController.m; path = ClubMedici/CalcolaRataController.m; sourceTree = "<group>"; };
-		ACBFA9FC1735135C00A22E18 /* CalcolaRataController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CalcolaRataController.xib; path = ClubMedici/CalcolaRataController.xib; sourceTree = "<group>"; };
+		ACBFA9FC1735135C00A22E18 /* CalcolaRataController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CalcolaRataController_iPhone.xib; path = ClubMedici/CalcolaRataController_iPhone.xib; sourceTree = "<group>"; };
 		ACBFD643165BBEE600DD7991 /* AreaBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreaBase.h; sourceTree = "<group>"; };
 		ACBFD644165BBEE600DD7991 /* AreaBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaBase.m; sourceTree = "<group>"; };
 		ACBFD646165BC0B100DD7991 /* AreaFinanziaria.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreaFinanziaria.h; sourceTree = "<group>"; };
@@ -390,6 +388,8 @@
 		D9B04DD8165C63A9005EF35B /* AreaDescriptionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AreaDescriptionCell.m; path = ClubMedici/AreaDescriptionCell.m; sourceTree = "<group>"; };
 		D9C6C516165FDBC400247448 /* UIViewController+InterfaceIdiom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+InterfaceIdiom.h"; sourceTree = "<group>"; };
 		D9C6C517165FDBC400247448 /* UIViewController+InterfaceIdiom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+InterfaceIdiom.m"; sourceTree = "<group>"; };
+		D9FDADC8173C6887002808A7 /* background_iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background_iPad.png; path = img/background_iPad.png; sourceTree = SOURCE_ROOT; };
+		D9FDADC9173C6887002808A7 /* background_iPhone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background_iPhone.png; path = img/background_iPhone.png; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -423,7 +423,7 @@
 			children = (
 				D9B04DD7165C63A9005EF35B /* AreaDescriptionCell.h */,
 				D9B04DD8165C63A9005EF35B /* AreaDescriptionCell.m */,
-				AC262989165D1E2400510092 /* AreaDescriptionCell.xib */,
+				AC262989165D1E2400510092 /* AreaDescriptionCell_iPhone.xib */,
 				ACD24BA2165FB59400C97CD2 /* AreaDescriptionCell_iPad.xib */,
 				D915E18917372C8600F78948 /* AreaTurismoCell.h */,
 				D915E18A17372C8600F78948 /* AreaTurismoCell.m */,
@@ -602,7 +602,7 @@
 				ACF16D9917302273000683A9 /* DocumentoAreaController_iPad.xib */,
 				ACBFA9FA1735135C00A22E18 /* CalcolaRataController.h */,
 				ACBFA9FB1735135C00A22E18 /* CalcolaRataController.m */,
-				ACBFA9FC1735135C00A22E18 /* CalcolaRataController.xib */,
+				ACBFA9FC1735135C00A22E18 /* CalcolaRataController_iPhone.xib */,
 				AC5E549C173544970076DA6C /* CalcolaRataController_iPad.xib */,
 			);
 			name = "Area controllers";
@@ -622,13 +622,13 @@
 				ACE88C2E1738681D00C531C8 /* mail3.png */,
 				AC1BE05D173874F7003B7759 /* mail3_high.png */,
 				ACE88C2C173861C600C531C8 /* phone3_high.png */,
+				D9FDADC8173C6887002808A7 /* background_iPad.png */,
+				D9FDADC9173C6887002808A7 /* background_iPhone.png */,
 				ACE88C2A17385FE900C531C8 /* phone3.png */,
 				AC168DC71736CBFE00B7466A /* fbLogout.png */,
 				AC168DB51736A3D300B7466A /* fbButton.png */,
 				AC168DB71736AEDD00B7466A /* mailButton.png */,
 				AC168DB91736AF3300B7466A /* twButton.png */,
-				ACB82AE71735ECE700544657 /* background_ipad.png */,
-				ACB82AE91735EE9D00544657 /* background_iphone.png */,
 				AC79A2371734663C00ED0101 /* sectionHeader.png */,
 				ACBFA9F81735008700A22E18 /* arrowUp.png */,
 				AC1007F11731797C0021A89F /* ipadShadow.png */,
@@ -881,7 +881,7 @@
 				ACEBDC8516570CBF00CEFFE5 /* HomeViewController_iPad.xib in Resources */,
 				ACE03DD81659462C009B6B0D /* SideMenuController_iPad.xib in Resources */,
 				ACE03DDA16594922009B6B0D /* SideMenuController_iPhone.xib in Resources */,
-				AC26298D165D1E2400510092 /* AreaDescriptionCell.xib in Resources */,
+				AC26298D165D1E2400510092 /* AreaDescriptionCell_iPhone.xib in Resources */,
 				AC2629AD165D2F4500510092 /* ContactCell.xib in Resources */,
 				AC2629B0165D319A00510092 /* pdf.png in Resources */,
 				AC2629B1165D319A00510092 /* pdf@2x.png in Resources */,
@@ -930,10 +930,8 @@
 				D98131E71734985D00C919AB /* AreaTurismoItemList.plist in Resources */,
 				D95680A51734988600CEAE63 /* AreaTurismoCell.xib in Resources */,
 				ACBFA9F91735008700A22E18 /* arrowUp.png in Resources */,
-				ACBFA9FE1735135C00A22E18 /* CalcolaRataController.xib in Resources */,
+				ACBFA9FE1735135C00A22E18 /* CalcolaRataController_iPhone.xib in Resources */,
 				AC5E549D173544970076DA6C /* CalcolaRataController_iPad.xib in Resources */,
-				ACB82AE81735ECE700544657 /* background_ipad.png in Resources */,
-				ACB82AEA1735EE9D00544657 /* background_iphone.png in Resources */,
 				AC168DB61736A3D300B7466A /* fbButton.png in Resources */,
 				AC168DB81736AEDD00B7466A /* mailButton.png in Resources */,
 				AC168DBA1736AF3300B7466A /* twButton.png in Resources */,
@@ -951,6 +949,8 @@
 				ACB6A9F5173AFF1400068934 /* reverse_nav_bar@2x.png in Resources */,
 				D915E1971739C1EE00F78948 /* TurismoTableViewController.xib in Resources */,
 				D998F684173A567700D1ED41 /* AreaTurismoItemCell.xib in Resources */,
+				D9FDADCA173C6887002808A7 /* background_iPad.png in Resources */,
+				D9FDADCB173C6887002808A7 /* background_iPhone.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
