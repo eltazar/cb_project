@@ -41,10 +41,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     //self.title = @"Richiesta preventivo";
-    
-    //pulsante INVIA sulla navBar, magari in futuro riservirà
-//    UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"Invia" style:UIBarButtonItemStylePlain target:self action:@selector(sendButtonPressed:)];
-//    self.navigationItem.rightBarButtonItem = button;
 
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
@@ -86,6 +82,11 @@
         [sendButton addTarget:self action:@selector(sendButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:sendButton];
         [self setButtonsInView];
+    }
+    else{
+        //pulsante INVIA sulla navBar, magari in futuro riservirà
+        UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"Invia" style:UIBarButtonItemStylePlain target:self action:@selector(sendButtonPressed:)];
+        self.navigationItem.rightBarButtonItem = button;
     }
 }
 

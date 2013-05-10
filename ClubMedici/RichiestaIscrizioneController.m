@@ -94,15 +94,17 @@
 
 -(BOOL)validateFields{
     
+    NSLog(@"DATA = %@", bornDate);
     NSString *reason = @"";
     BOOL isValid = TRUE;
-    NSLog(@"telefono = %@",replaceSpace(phone));
+    //NSLog(@"telefono = %@",replaceSpace(phone));
     if([allTrim(name) length] == 0|| [allTrim(surname) length] == 0 ||
-       [allTrim(phone) length] == 0 || [allTrim(email) length] == 0 || [allTrim(city) length] == 0 || [allTrim(bornDate) length] == 0){
-        //NSLog(@"mostra avviso completa tutti i campi");
+       [allTrim(phone) length] == 0 || [allTrim(email) length] == 0 || [allTrim(city) length] == 0
+       || [allTrim(bornDate) length] == 0){
+        NSLog(@"mostra avviso completa tutti i campi");
         reason = @"Per favore compila \n tutti i campi richiesti";
         isValid = FALSE;
-        
+    
     }
     else{
         if([allTrim(name) length] < 3) {
@@ -114,7 +116,7 @@
             isValid = FALSE;
         }
         if([allTrim(city) length] <= 2) {
-            reason = @"Per favore inserisci un cognome valido";
+            reason = @"Per favore inserisci una città valida";
             isValid = FALSE;
         }
         if (![Utilities isNumeric:replaceSpace(phone)] || [allTrim(phone) length] <= 7) {
@@ -152,6 +154,8 @@
     [super sendRequest];
     NSLog(@"BODY = %@",[self createHtmlBody]);
     [PDHTTPAccess sendEmail:[self createHtmlBody] object:@"Richiesta iscrizione" address:ISCRIZIONE_MAIL delegate:self];
+    [Utilities logEvent:@"Richiesta_iscrizione_inviata" arguments:nil];
+    
 }
 
 #pragma mark - Action Methods
@@ -176,5 +180,6 @@
     UITextField *textFieldDate = (UITextField*)[selectedCell viewWithTag:1];
     NSLog(@"textfield = %@",textFieldDate);
     textFieldDate.text = dateString;
+    bornDate = dateString;
 }
 @end

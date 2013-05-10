@@ -186,7 +186,7 @@
             isValid = FALSE;
             
         }
-        {
+        else {
             if([allTrim(iva) length] < 11){
                 reason = @"Per favore inserisci 11 cifre per la partita IVA";
                 isValid = FALSE;
@@ -315,6 +315,7 @@
         [PDHTTPAccess sendEmail:[self createHtmlBody] object:@"Richiesta noleggio" address:NOLEGGIO_MAIL delegate:self];
     else
         [PDHTTPAccess sendEmail:[self createHtmlBody] object:@"Richiesta leasing" address:LEASING_MAIL delegate:self];
+    [Utilities logEvent:[NSString stringWithFormat:@"Richiesta_%@_inviata",self.kind] arguments:nil];
 }
 
 #pragma mark - ErrorView methods
