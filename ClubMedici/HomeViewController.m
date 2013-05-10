@@ -85,6 +85,13 @@
     spinner.frame = CGRectMake(self.navigationController.navigationBar.frame.size.width/2 - spinner.frame.size.width/2, self.view.frame.size.height/2 - spinner.frame.size.height/2, spinner.frame.size.width, spinner.frame.size.height);
 }
 
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - FetchData & network
+
 -(void)fetchData{
     if([Utilities networkReachable]){
         [PDHTTPAccess getNews:1 delegate:self];
@@ -135,12 +142,6 @@
     
 }
 
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 - (void) networkStatusChanged:(NSNotification*) notification
 {
 	Reachability* reachability = notification.object;
@@ -164,8 +165,8 @@
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     NSLog(@"Finito DOWNLOAD PDF");
-    //[spinner stopAnimating];
-    //[spinner removeFromSuperview];
+    [spinner stopAnimating];
+    [spinner removeFromSuperview];
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
