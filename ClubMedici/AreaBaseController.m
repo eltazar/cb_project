@@ -21,8 +21,6 @@
 #import "CustomSpinnerView.h"
 #import "Reachability.h"
 
-
-
 @interface AreaBaseController () {
 }
 @end
@@ -70,6 +68,13 @@
                                                         options:nil] objectAtIndex:0];
     
     [self setupBackgroundView];
+        
+    //flurry log
+    NSDictionary *articleParams =
+    [NSDictionary dictionaryWithObjectsAndKeys:
+     self.title, @"Nome_area",
+     nil];
+    [Utilities logEvent:@"Area_visitata" arguments:articleParams];
 }
 
 

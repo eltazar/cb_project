@@ -7,6 +7,7 @@
 //
 
 #import "PDFviewerController.h"
+#import "Utilities.h"
 
 @interface PDFviewerController () {
     NSString *_title;
@@ -84,6 +85,7 @@
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     NSLog(@"Finito DOWNLOAD PDF");
+    [Utilities logEvent:@"Pdf_vacanze_letto" arguments:[NSDictionary dictionaryWithObjectsAndKeys:self.title,@"Titolo_pdf_vacanze",nil]];
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
@@ -180,6 +182,8 @@
     } else {
         [pc presentAnimated:YES completionHandler:completionHandler];
     }
+    
+    [Utilities logEvent:@"Pdf_vacanze_stampato" arguments:[NSDictionary dictionaryWithObjectsAndKeys:self.title,@"Titolo_pdf_vacanze",nil]];
 }
 
 

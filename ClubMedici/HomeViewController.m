@@ -42,7 +42,6 @@
     titleLabel.backgroundColor = [UIColor clearColor];
 
     [webView.scrollView addSubview:titleLabel];
-
 }
 
 - (IBAction)sendPost:(id)sender {
@@ -144,7 +143,9 @@
 -(void)didReceiveJSON:(NSArray *)jsonArray{
     //NSLog(@"JSON = %@",jsonArray);
     json = jsonArray;
-    titleLabel.text = [NSString stringWithFormat:@"%@",[[jsonArray objectAtIndex:0]objectForKey:@"titolo"]];
+    NSString *title = [[jsonArray objectAtIndex:0]objectForKey:@"titolo"];
+    titleLabel.text = [NSString stringWithFormat:@"%@",title];
+    [Utilities logEvent:@"News_letta" arguments:[NSDictionary dictionaryWithObjectsAndKeys:title,@"Titolo_news",nil]];
 }
 
 -(void)didReceiveError:(NSError *)error{

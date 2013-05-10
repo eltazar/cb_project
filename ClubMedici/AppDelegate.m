@@ -13,6 +13,7 @@
 #import "HomeViewController.h"
 
 #import "JASidePanelController.h"
+#import "Flurry.h"
 
 
 @implementation AppDelegate
@@ -20,6 +21,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    [Flurry startSession:@"8XSPVFTVH247HKGKXB7T"];      
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
    
     self.sideMenuNavController = [[UINavigationController alloc] initWithRootViewController:[SideMenuController idiomAllocInit]];

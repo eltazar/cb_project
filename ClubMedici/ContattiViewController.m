@@ -54,6 +54,8 @@
     companyDescriptionCell = [[[NSBundle mainBundle] loadNibNamed:nibName
                                               owner:nil
                                             options:nil] objectAtIndex:0];
+    
+    [Utilities logEvent:@"Sezione_contatti_visitata" arguments:nil];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{

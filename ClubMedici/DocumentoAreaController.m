@@ -10,7 +10,7 @@
 #import "PDHTTPAccess.h"
 #import "Utilities.h"
 #import "Reachability.h"
-
+#import "Utilities.h"
 @interface DocumentoAreaController (){
     UIActionSheet *actionSheet;
     NSString *htmlPage;
@@ -51,6 +51,13 @@
     
     spinner = [[CustomSpinnerView alloc] initWithFrame:self.view.frame];
     spinner.frame = CGRectMake(self.navigationController.navigationBar.frame.size.width/2 - spinner.frame.size.width/2, self.view.frame.size.height/2 - spinner.frame.size.height/2, spinner.frame.size.width, spinner.frame.size.height);
+    
+    //flurry log
+    NSDictionary *articleParams =
+    [NSDictionary dictionaryWithObjectsAndKeys:
+     self.title, @"Titolo_documento",
+     nil];
+    [Utilities logEvent:@"Documento_letto" arguments:articleParams];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -162,6 +169,7 @@
     [self dismissModalViewControllerAnimated:YES];
     if(result == MFMailComposeResultSent) {
         NSLog(@"messaggio inviato");
+        [Utilities logEvent:@"Documento_spedito" arguments:[NSDictionary dictionaryWithObjectsAndKeys:self.title,@"Titolo_documento",nil]];
     }
 	else if (result == MFMailComposeResultFailed){
 		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Messaggio non inviato!" message:@"Non è stato possibile inviare la tua e-mail" delegate:self cancelButtonTitle:@"Chiudi" otherButtonTitles:nil];
@@ -214,6 +222,8 @@
     } else {
         [pc presentAnimated:YES completionHandler:completionHandler];
     }
+    
+    [Utilities logEvent:@"Documento_stampato" arguments:[NSDictionary dictionaryWithObjectsAndKeys:self.title,@"Titolo_documento",nil]];
 }
 
 #pragma mark - ErrorView methods
@@ -266,5 +276,6 @@
         [self hideErrorView:nil];
     }
 }
+
 
 @end
