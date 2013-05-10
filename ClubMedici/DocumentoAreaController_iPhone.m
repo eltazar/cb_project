@@ -95,4 +95,20 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+-(IBAction)callNumber{
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"Chiamare %@ ?",phone] message:nil delegate:self cancelButtonTitle:@"Annulla" otherButtonTitles:@"Chiama", nil];
+    [alert show];
+}
+
+#pragma mark - UIAlertViewDelegate
+
+
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if(buttonIndex == 1){
+        [Utilities callNumber:phone];
+    }
+}
+
 @end

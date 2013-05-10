@@ -10,7 +10,7 @@
 #import "PDHTTPAccess.h"
 #import "Utilities.h"
 #import "Reachability.h"
-#import "Utilities.h"
+
 @interface DocumentoAreaController (){
     UIActionSheet *actionSheet;
     NSString *htmlPage;
@@ -158,7 +158,6 @@
 }
 
 -(IBAction)callNumber{
-    [Utilities callNumber:phone];
 }
 
 #pragma mark - MFMailComposeViewControllerDelegate

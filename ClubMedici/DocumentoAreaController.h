@@ -11,6 +11,8 @@
 #import <MessageUI/MessageUI.h>
 #import "ErrorView.h"
 #import "CustomSpinnerView.h"
+#import "Utilities.h"
+
 @interface DocumentoAreaController : UIViewController<WMHTTPAccessDelegate,MFMailComposeViewControllerDelegate, UIActionSheetDelegate, UIPrintInteractionControllerDelegate, UIWebViewDelegate>{
     @protected
     NSString *phone;
