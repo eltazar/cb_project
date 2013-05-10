@@ -15,5 +15,6 @@
 
 - (void)setItems:(NSArray *)items;
 - (void)handleTap:(UITapGestureRecognizer *)sender;
+- (NSInteger)getHeight;
 
 @end

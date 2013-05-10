@@ -97,6 +97,11 @@
 }
 
 
+- (NSInteger)getHeight {
+    return self.frame.size.height;
+}
+
+
 @end
 
 
