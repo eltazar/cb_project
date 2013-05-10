@@ -116,6 +116,10 @@
 									<string key="NSClassName">NSImage</string>
 									<string key="NSResourceName">phone3_high.png</string>
 								</object>
+								<object class="NSCustomResource" key="IBUIDisabledImage">
+									<string key="NSClassName">NSImage</string>
+									<string key="NSResourceName">phone3_disabled.png</string>
+								</object>
 								<reference key="IBUISelectedImage" ref="752414481"/>
 								<object class="NSCustomResource" key="IBUINormalImage">
 									<string key="NSClassName">NSImage</string>
@@ -144,6 +148,7 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{215, -17}, {80, 80}}</string>
 								<reference key="NSSuperview" ref="790728857"/>
+								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -158,6 +163,10 @@
 								<object class="NSCustomResource" key="IBUIHighlightedImage" id="511507559">
 									<string key="NSClassName">NSImage</string>
 									<string key="NSResourceName">mail3_high.png</string>
+								</object>
+								<object class="NSCustomResource" key="IBUIDisabledImage">
+									<string key="NSClassName">NSImage</string>
+									<string key="NSResourceName">mail3_disabled.png</string>
 								</object>
 								<reference key="IBUISelectedImage" ref="511507559"/>
 								<object class="NSCustomResource" key="IBUINormalImage">
@@ -377,10 +386,10 @@
 				<string key="20.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="21.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="23.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<real value="2" key="23.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
+				<real value="3" key="23.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
 				<string key="31.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="35.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<real value="2" key="35.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
+				<real value="3" key="35.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
 				<string key="4.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
@@ -398,8 +407,10 @@
 			<string key="contactButtonDisabled.png">{140, 40}</string>
 			<string key="contactButtonSelected.png">{140, 40}</string>
 			<string key="mail3.png">{200, 200}</string>
+			<string key="mail3_disabled.png">{200, 200}</string>
 			<string key="mail3_high.png">{200, 200}</string>
 			<string key="phone3.png">{200, 200}</string>
+			<string key="phone3_disabled.png">{200, 200}</string>
 			<string key="phone3_high.png">{200, 200}</string>
 		</dictionary>
 		<string key="IBCocoaTouchPluginVersion">2083</string>
