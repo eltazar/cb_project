@@ -44,6 +44,10 @@
     
     //alloco map cell
     mapCell = [[MapCell alloc] init];
+    
+
+    companyDescriptionCellCollapsedHeight = 90;
+
     [super viewDidLoad];
 }
 

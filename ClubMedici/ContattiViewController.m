@@ -10,9 +10,13 @@
 #import "FXLabel.h"
 #import <QuartzCore/QuartzCore.h>
 #import "WebViewCell.h"
+#import "UIViewController+InterfaceIdiom.h"
+#import "AreaDescriptionCell.h"
 
 @interface ContattiViewController ()
-
+{
+    AreaDescriptionCell *companyDescriptionCell;
+}
 @end
 
 @implementation ContattiViewController
@@ -44,6 +48,12 @@
     sediPin = [[NSMutableArray alloc] init];
     
     self.view.backgroundColor = [UIColor colorWithRed:246/255.0f green:250/255.0f blue:255/255.0f alpha:1];
+    
+    //alloco descrizione cell
+    NSString *nibName = IDIOM_SPECIFIC_STRING(@"AreaDescriptionCell");
+    companyDescriptionCell = [[[NSBundle mainBundle] loadNibNamed:nibName
+                                              owner:nil
+                                            options:nil] objectAtIndex:0];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -97,6 +107,12 @@
         
         return cell;
     }
+    else if([dataKey isEqualToString:@"aboutUs"]){
+        companyDescriptionCell.collapsedHeight = companyDescriptionCellCollapsedHeight;
+        companyDescriptionCell.text = @"Club Medici è l'associazione per Medici Chirurghi e Odontoiatri iscritti agli Albi Provinciali. Da venti anni, Club Medici è il punto di riferimento dei medici per tutte le esigenze della vita quotidiana e del tempo libero. Il Club Medici offre ai suoi associati una vasta gamma di servizi nelle sue aree di attività: Area Finanziaria, Area Assicurativa e Area Turismo. E in più: eventi e cultura! ";
+
+        return companyDescriptionCell;
+    }
     else{
         cell = [self.tableView dequeueReusableCellWithIdentifier:@"ContactCell"];
         if (!cell) {
@@ -144,24 +160,11 @@
         
         /*Fine linea separatrice*/
         
+        //immagini
+        
         if([dataKey isEqualToString:@"phone"]){
             [img setImage:[UIImage imageNamed:@"phone2"]];
             contactLabel.text = @"Telefono";
-            //inserisco linea separatrice in top della prima cella
-            CALayer *bottomBorder = [CALayer layer];
-            bottomBorder.frame = CGRectMake(0.0f, 0.0f,1024, 1.5f);
-            bottomBorder.backgroundColor = [UIColor whiteColor].CGColor;
-            
-            //linea separatrice alta 1px, posizionata alla base inferiore della cella
-            UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1024, 1)];
-            line.opaque = YES;
-            line.tag = 999;
-            line.layer.borderColor = [UIColor colorWithRed:214/255.0f green:226/255.0f blue:241/255.0f alpha:1].CGColor;
-            line.layer.borderWidth = 1.0;
-            //applico bordo inferiore
-            [line.layer addSublayer:bottomBorder];
-            //applico linea alla cella
-            [cell.contentView addSubview:line];
         }
         else if([dataKey isEqualToString:@"mail"]){
             [img setImage:[UIImage imageNamed:@"mail2"]];
@@ -229,7 +232,12 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
-    
+    NSString *dataKey = [_dataModel valueForKey:@"DATA_KEY" atIndexPath:indexPath];
+    if ([dataKey isEqualToString:@"aboutUs"]) {
+        id cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
+        if ([cell respondsToSelector:@selector(getHeight)])
+            return [cell getHeight];
+    }
     return cell.frame.size.height;
 }
 

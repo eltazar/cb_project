@@ -18,7 +18,7 @@
     WMTableViewDataSource *_dataModel;
     IBOutlet MKMapView *mapView;
     NSMutableArray *sediPin;
-
+    NSInteger companyDescriptionCellCollapsedHeight;
 }
 @property(nonatomic, weak) IBOutlet UITableView *tableView;
 @property(nonatomic, strong) MKMapView *mapView;
