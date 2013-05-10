@@ -8,6 +8,7 @@
 
 #import "MapCell.h"
 #import "Sede.h"
+#import <QuartzCore/QuartzCore.h>
 
 @implementation MapCell
 
@@ -38,6 +39,18 @@
    [self.contentView addSubview:self.mapView];
     
     self.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    UIView *topView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, 1.5)];
+    topView.backgroundColor = [UIColor colorWithRed:140/255.0f green:153/255.0f blue:168/253.0f alpha:1];
+    [self.contentView addSubview:topView];
+    topView.alpha = 0.4f;
+    
+    UIView *bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, self.frame.size.height-1.5, self.frame.size.width, 1.5)];
+    bottomView.autoresizingMask =  UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin;
+    bottomView.backgroundColor = [UIColor colorWithRed:140/255.0f green:153/255.0f blue:168/253.0f alpha:1];
+    [self.mapView addSubview:bottomView];
+    bottomView.alpha = 0.4f;
+
 }
 
 
