@@ -12,7 +12,7 @@
 
 - (void)_buildFromJson:(NSArray *)json {
     NSDictionary *dict = [json objectAtIndex:0];
-    self.ID             = [dict objectForKey:@"id"];
+    self.ID             = [[dict objectForKey:@"id"] integerValue];
     self.title          = [dict objectForKey:@"title"];
     self.description    = [dict objectForKey:@"description"];
     self.imageUrl       = [dict objectForKey:@"imageUrl"];
