@@ -12,6 +12,7 @@
 @interface ContattiViewController_iPad ()
 {
     //IBOutlet UIView *shadow;
+    NSString *phone;
 }
 @end
 
@@ -26,18 +27,18 @@
     return self;
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-
-//    self.mapView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-self.tableView.frame.size.height);
-//    self.mapView.autoresizingMask =  UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
+- (void)viewDidLoad{
+    
+    _dataModel = [[WMTableViewDataSource alloc] initWithPList:@"Contatti_ipad"];
+     
     UIImageView *shadow = [[UIImageView alloc] initWithFrame:CGRectMake(0, self.mapView.frame.size.height, 1536, 5)];
     shadow.image = [UIImage imageNamed:@"ipadShadow"];
     [self.view addSubview:shadow];
     
     [self.view addSubview:mapView];
     self.tableView.backgroundColor = [UIColor colorWithRed:246/255.0f green:250/255.0f blue:255/255.0f alpha:1];
+    
+    [super viewDidLoad];
 }
 
 - (void)didReceiveMemoryWarning
@@ -54,6 +55,16 @@
 
 #pragma mark - TableViewDelegate
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSString *dataKey = [_dataModel valueForKey:@"DATA_KEY" atIndexPath:indexPath];
+
+    if([dataKey isEqualToString:@"phone"])
+        [self copyAction:indexPath];
+    else [super tableView:tableView didSelectRowAtIndexPath:indexPath];
+}
+
+//decommentare se vogliamo che il popup COPIA compari tenendo premuta la cella
+/*
 - (BOOL)tableView:(UITableView *)tableView shouldShowMenuForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     NSString *dataKey = [_dataModel valueForKey:@"DATA_KEY" atIndexPath:indexPath];
@@ -77,6 +88,41 @@
         [pb setString:copyString];
     }
 }
+*/
+
+-(void)copyAction:(NSIndexPath*)indexPath{
+    [self becomeFirstResponder];
+    
+    /*get the view from the UIBarButtonItem*/
+    //UIView *buttonView=[[event.allTouches anyObject] view];
+    //CGRect buttonFrame= [self.callButton convertRect:self.callButton.frame toView:footerView];
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    UIMenuController *menuController = [UIMenuController sharedMenuController];
+    phone = [_dataModel valueForKey:@"LABEL" atIndexPath:indexPath];
+
+    UIMenuItem *resetMenuItem = [[UIMenuItem alloc] initWithTitle:@"Copia" action:@selector(menuItemClicked:)];
+    
+    NSAssert([self becomeFirstResponder], @"Sorry, UIMenuController will not work with %@ since it cannot become first responder", self);
+    [menuController setMenuItems:[NSArray arrayWithObject:resetMenuItem]];
+    [menuController setTargetRect:cell.frame inView:cell.superview];
+    [menuController setMenuVisible:YES animated:YES];
+    
+}
+
+- (void) menuItemClicked:(id) sender {
+    // called when Item clicked in menu
+    [[UIPasteboard generalPasteboard] setString:phone];
+}
+- (BOOL) canPerformAction:(SEL)selector withSender:(id) sender {
+    if (selector == @selector(menuItemClicked:) /*selector == @selector(copy:)*/){//*<--enable that if you want the copy item */) {
+        return YES;
+    }
+    return NO;
+}
+- (BOOL) canBecomeFirstResponder {
+    return YES;
+}
+
 
 
 @end

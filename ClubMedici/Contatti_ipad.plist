@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>SECTION_NAME</key>
+		<string>Contatti</string>
+		<key>SECTION_CONTENTS</key>
+		<array>
+			<dict>
+				<key>DATA_KEY</key>
+				<string>aboutUs</string>
+				<key>LABEL</key>
+				<string>Descrizione clubMedici</string>
+			</dict>
+			<dict>
+				<key>DATA_KEY</key>
+				<string>company</string>
+				<key>LABEL</key>
+				<string>&lt;p&gt;&lt;strong&gt;Sede Nazionale&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;Via G.B. De Rossi, 12 - Roma&lt;br /&gt;Via G.Marchi, 10 - Roma&lt;br /&gt;
+                        Lun-Ven, 09.00 - 18.00&lt;/span&gt;&lt;/p&gt;</string>
+				<key>IMG</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>DATA_KEY</key>
+				<string>phone</string>
+				<key>LABEL</key>
+				<string>+39 06 8607891</string>
+				<key>IMG</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>LABEL</key>
+				<string>info@clubmedici.com</string>
+				<key>DATA_KEY</key>
+				<string>mail</string>
+				<key>IMG</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>DATA_KEY</key>
+				<string>facebook</string>
+				<key>LABEL</key>
+				<string>facebook.com/club-medici</string>
+				<key>IMG</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>DATA_KEY</key>
+				<string>twitter</string>
+				<key>LABEL</key>
+				<string>@Clubmedici</string>
+				<key>IMG</key>
+				<string></string>
+			</dict>
+		</array>
+	</dict>
+</array>
+</plist>
