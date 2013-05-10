@@ -341,7 +341,7 @@
 
 
 - (void)sendEmail:(NSString*) mail {
-    [Utilities sendEmail:mail controller:self];
+    [Utilities sendEmail:mail controller:self delegate:self];
 }
 
 

@@ -168,7 +168,7 @@
 }
 
 -(IBAction) writeEmail{
-    [Utilities sendEmail:mail controller:self];
+    [Utilities sendEmail:mail controller:self delegate:self];
 }
 
 -(IBAction)callNumber{
@@ -200,7 +200,7 @@
     NSLog(@"INDEX = %d",buttonIndex);
     if(buttonIndex == 0){
         //condivisione con mail
-        [Utilities sendEmail:nil object:self.title content:htmlPage html:YES controller:self];
+        [Utilities sendEmail:nil object:self.title content:htmlPage html:YES controller:self delegate:self];
     }
     if(buttonIndex == 1){
         //stampa

@@ -135,9 +135,9 @@
     }
 }
 
-+ (void)sendEmail:(NSString*)address controller:(UIViewController*)controller {
++ (void)sendEmail:(NSString*)address controller:(UIViewController*)controller delegate:(id<MFMailComposeViewControllerDelegate>)delegate {
     MFMailComposeViewController *mail = [[MFMailComposeViewController alloc] init];
-    mail.mailComposeDelegate = controller;
+    mail.mailComposeDelegate = delegate;
     
     if([MFMailComposeViewController canSendMail]){
         [mail setToRecipients:[NSArray arrayWithObjects:address, nil]];
@@ -147,9 +147,9 @@
     }
 }
 
-+ (void)sendEmail:(NSString *)address object:(NSString*)object content:(NSString*)content html:(BOOL)html controller:(UIViewController *)controller{
++ (void)sendEmail:(NSString *)address object:(NSString*)object content:(NSString*)content html:(BOOL)html controller:(UIViewController *)controller delegate:(id<MFMailComposeViewControllerDelegate>)delegate {
     MFMailComposeViewController *mail = [[MFMailComposeViewController alloc] init];
-    mail.mailComposeDelegate = controller;
+    mail.mailComposeDelegate = delegate;
     
     if([MFMailComposeViewController canSendMail]){
         [mail setToRecipients:[NSArray arrayWithObjects:address, nil]];
