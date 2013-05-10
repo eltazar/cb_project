@@ -140,7 +140,6 @@
 		D90EA9BB16611E0D00D29490 /* SideMenu.plist in Resources */ = {isa = PBXBuildFile; fileRef = D90EA9BA16611E0D00D29490 /* SideMenu.plist */; };
 		D90EA9BF1661217100D29490 /* WMTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D90EA9BE1661217100D29490 /* WMTableViewDataSource.m */; };
 		D90EA9D21661660300D29490 /* AreaTurismo.m in Sources */ = {isa = PBXBuildFile; fileRef = D90EA9D11661660300D29490 /* AreaTurismo.m */; };
-		D915E1881737252100F78948 /* AreaTurismoController.m in Sources */ = {isa = PBXBuildFile; fileRef = D915E1871737252100F78948 /* AreaTurismoController.m */; };
 		D915E18B17372C8600F78948 /* AreaTurismoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D915E18A17372C8600F78948 /* AreaTurismoCell.m */; };
 		D915E18D17373F9900F78948 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D915E18C17373F9900F78948 /* FacebookSDK.framework */; };
 		D915E18F17373FD300F78948 /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D915E18E17373FD300F78948 /* FacebookSDKResources.bundle */; };
@@ -355,8 +354,6 @@
 		D90EA9BE1661217100D29490 /* WMTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMTableViewDataSource.m; sourceTree = "<group>"; };
 		D90EA9D01661660300D29490 /* AreaTurismo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreaTurismo.h; sourceTree = "<group>"; };
 		D90EA9D11661660300D29490 /* AreaTurismo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaTurismo.m; sourceTree = "<group>"; };
-		D915E1861737252100F78948 /* AreaTurismoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AreaTurismoController.h; path = ClubMedici/AreaTurismoController.h; sourceTree = "<group>"; };
-		D915E1871737252100F78948 /* AreaTurismoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AreaTurismoController.m; path = ClubMedici/AreaTurismoController.m; sourceTree = "<group>"; };
 		D915E18917372C8600F78948 /* AreaTurismoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AreaTurismoCell.h; path = ClubMedici/AreaTurismoCell.h; sourceTree = "<group>"; };
 		D915E18A17372C8600F78948 /* AreaTurismoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AreaTurismoCell.m; path = ClubMedici/AreaTurismoCell.m; sourceTree = "<group>"; };
 		D915E18C17373F9900F78948 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
@@ -584,8 +581,6 @@
 				ACD24BA0165FB34B00C97CD2 /* AreaBaseController_iPhone.m */,
 				AC26299E165D2A5300510092 /* AreaBaseController_iPad.h */,
 				AC26299F165D2A5300510092 /* AreaBaseController_iPad.m */,
-				D915E1861737252100F78948 /* AreaTurismoController.h */,
-				D915E1871737252100F78948 /* AreaTurismoController.m */,
 				D915E1931739C1ED00F78948 /* TurismoTableViewController.h */,
 				D915E1941739C1ED00F78948 /* TurismoTableViewController.m */,
 				D915E1951739C1ED00F78948 /* TurismoTableViewController.xib */,
@@ -1016,7 +1011,6 @@
 				AC5E549A173523DD0076DA6C /* ActionSheetStringPicker.m in Sources */,
 				AC5E549B173523DD0076DA6C /* DistancePickerView.m in Sources */,
 				ACDA943A1736EF9900A00092 /* SharingPanelView.m in Sources */,
-				D915E1881737252100F78948 /* AreaTurismoController.m in Sources */,
 				D915E18B17372C8600F78948 /* AreaTurismoCell.m in Sources */,
 				ACB6A9F1173AF19600068934 /* UnderlinedLabel.m in Sources */,
 				D915E1961739C1EE00F78948 /* TurismoTableViewController.m in Sources */,
