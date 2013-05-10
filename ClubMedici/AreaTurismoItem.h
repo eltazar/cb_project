@@ -18,5 +18,6 @@
 @property(nonatomic, strong) NSString *phone;
 @property(nonatomic, strong) NSString *email;
 @property(nonatomic, strong) NSDate   *expiryDate;
+@property(nonatomic, assign) BOOL     *inItaly;
 
 @end

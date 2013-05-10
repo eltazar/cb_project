@@ -20,6 +20,7 @@
     self.phone          = [dict objectForKey:@"phone"];
     self.email          = [dict objectForKey:@"email"];
     self.expiryDate     = [dict objectForKey:@"expiryDate"];
+    self.inItaly        = [[dict objectForKey:@"inItaly"] boolValue];
 }
 
 @end
