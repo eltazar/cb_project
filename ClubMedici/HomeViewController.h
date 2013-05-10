@@ -18,10 +18,11 @@
 #import <MessageUI/MessageUI.h>
 #import "SharingPanelView.h"
 #import "UnderlinedLabel.h"
+#import "CustomSpinnerView.h"
 
 #define URL_NEWS_IMG @"http://www.clubmedici.it/nuovo/"
 #define URL_NEWS @"http://www.clubmedici.it/nuovo/pagina.php?art=1&pgat="
-@interface HomeViewController : UIViewController<WMHTTPAccessDelegate, MFMailComposeViewControllerDelegate, UIWebViewDelegate, UIActionSheetDelegate>
+@interface HomeViewController : UIViewController<WMHTTPAccessDelegate, MFMailComposeViewControllerDelegate, UIWebViewDelegate, UIActionSheetDelegate, UIWebViewDelegate>
 {
     @protected
     ErrorView *errorView;
@@ -29,6 +30,7 @@
     FXLabel *titleLabel;
     IBOutlet UIView *footerView;
     IBOutlet UIButton *shareButton;
+    CustomSpinnerView *spinner;
 }
 
 - (void)showErrorView:(NSString*)message;

@@ -32,6 +32,7 @@
     
     [webView setBackgroundColor:[UIColor clearColor]];
     [webView setOpaque:NO];
+    webView.delegate = self;
     //rimuove ombra dietro la pagina web
     for(UIView *wview in [[[webView subviews] objectAtIndex:0] subviews]) {
         if([wview isKindOfClass:[UIImageView class]]) { wview.hidden = YES; }
@@ -44,6 +45,9 @@
     [webView.scrollView addSubview:titleLabel];
     
     shareButton.enabled = NO;
+    
+    spinner = [[CustomSpinnerView alloc] initWithFrame:self.view.frame];
+    spinner.frame = CGRectMake(self.navigationController.navigationBar.frame.size.width/2 - spinner.frame.size.width/2, self.view.frame.size.height/2 - spinner.frame.size.height/2, spinner.frame.size.width, spinner.frame.size.height);
 }
 
 - (IBAction)sendPost:(id)sender {
@@ -69,6 +73,16 @@
     if(errorView && errorView.showed){
         [errorView removeFromSuperview];
     }
+}
+
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)  interfaceOrientation duration:(NSTimeInterval)duration{
+    
+    NSLog(@"ROTAZIONE");
+    
+    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+        return;
+    
+    spinner.frame = CGRectMake(self.navigationController.navigationBar.frame.size.width/2 - spinner.frame.size.width/2, self.view.frame.size.height/2 - spinner.frame.size.height/2, spinner.frame.size.width, spinner.frame.size.height);
 }
 
 -(void)fetchData{
@@ -139,6 +153,25 @@
 		NSLog(@"Internet on");
         [self hideErrorView:nil];
     }
+}
+
+#pragma mark - UIWebViewDelegate
+- (void)webViewDidStartLoad:(UIWebView *)webView {
+    NSLog(@"INIZIATO DOWNLOAD PDF");
+    [spinner startAnimating];
+    [self.view addSubview:spinner];
+}
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView {
+    NSLog(@"Finito DOWNLOAD PDF");
+    //[spinner stopAnimating];
+    //[spinner removeFromSuperview];
+}
+
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
+    NSLog(@"FALLITO DOWNLOAD PDF = %@", [error localizedDescription]);
+    [spinner stopAnimating];
+    [spinner removeFromSuperview];
 }
 
 #pragma mark - WMHTTPAccessDelegate
