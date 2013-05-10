@@ -93,7 +93,7 @@
     NSString *style = @"img {padding:1px;border:1px solid #000000;background-color:#f6faff;}img.floatLeft{height:150px;width:150px;float: left;margin: 5px;}body {font-family:helvetica;background-color: #f6faff;}body,p{margin:15px;font-size: 18px;color: #212121;text-shadow: #fff 0px 1px 0px;}";//font-size: 16px;text-align: justify;color: #272727;text-shadow: 1px 4px 6px #f6faff, 0 0 0 #000, 1px 4px 6px #f6faff;}";//
     NSString *img = [NSString stringWithFormat:@"%@%@",URL_NEWS_IMG,[[jsonArray objectAtIndex:0] objectForKey:@"foto"]];
     htmlPage = [NSString stringWithFormat:htmlPage,style,img,[[jsonArray objectAtIndex:0]objectForKey:@"testo"]];
-    [webView loadHTMLString:htmlPage baseURL:nil];
+    [webView loadHTMLString:htmlPage baseURL:BASE_URL];
 }
 
 -(void)didReceiveError:(NSError *)error{
