@@ -10,6 +10,7 @@
 
 #import "AreaBaseController.h"
 #import "AreaDescriptionCell.h"
+#import "AreaTurismoCell.h"
 #import "AreaBase.h"
 #import "PDFviewerController.h"
 #import "WMTableViewDataSource.h"
@@ -101,8 +102,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {    
     UITableViewCell *cell = nil;
-    //NSString *cellIdentifier;
     NSString *dataKey = [_dataModel valueForKey:@"DATA_KEY" atIndexPath:indexPath];
+    NSLog(@"data_key: %@", dataKey);
     
     if ([dataKey isEqualToString:@"description"]) {
         // _areaDescriptionCell.backgroundView = [[CustomCellBackground alloc] init];
@@ -179,9 +180,26 @@
         }
     }
     else {
+        if ([dataKey isEqualToString:@"ViaggiTurismo"]) {
+            NSLog(@"CELLONE!");
+            cell = [tableView dequeueReusableCellWithIdentifier:@"ViaggiTurismo"];
+            if (!cell) {
+                cell = [[[NSBundle mainBundle] loadNibNamed:@"AreaTurismoCell"
+                                                      owner:self
+                                                    options:NULL] objectAtIndex:0];
+            }
+            AreaTurismoCell *turismoCell = (AreaTurismoCell *)cell;
+            turismoCell.navController = self.navigationController;
+            [turismoCell setItems:[_dataModel valueForKey:@"ITEMS" atIndexPath:indexPath]];
+            [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+            return cell; // il return qui ci evita il blocco di stilizzazione
+        }
+
         cell = [tableView dequeueReusableCellWithIdentifier:@"ActionCell"];
         if (!cell) {
-            cell = [[[NSBundle mainBundle] loadNibNamed:@"ActionCell" owner:self options:NULL] objectAtIndex:0];
+            cell = [[[NSBundle mainBundle] loadNibNamed:@"ActionCell"
+                                                  owner:self
+                                                options:NULL] objectAtIndex:0];
             UIView *v = [[UIView alloc] init];
             v.opaque = YES;
             v.backgroundColor = [UIColor colorWithRed:194/255.0f green:203/255.0f blue:219/255.0f alpha:1];
@@ -228,14 +246,6 @@
 
 
 
-//- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-//    NSLog(@"CHIAMATO = %d",[tableView.dataSource numberOfSectionsInTableView:tableView]);
-//    if ([tableView.dataSource numberOfSectionsInTableView:tableView] == 0) {
-//        return 0;
-//    } else {
-//        return [super tableView:tableView heightForHeaderInSection:section];
-//    }
-//}
 
 - (NSString*) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     return [_dataModel tableView:tableView titleForHeaderInSection:section];
@@ -294,9 +304,13 @@
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 0 && indexPath.row == 0) {
-        AreaDescriptionCell *cell = (AreaDescriptionCell *)[self tableView:tableView cellForRowAtIndexPath:indexPath];
-        return [cell getHeight];
+    NSString *dataKey = [_dataModel valueForKey:@"DATA_KEY" atIndexPath:indexPath];
+    //if (indexPath.section == 0 && indexPath.row == 0) {
+    if ([dataKey isEqualToString:@"description"] ||
+        [dataKey isEqualToString:@"ViaggiTurismo"]) {
+        id cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
+        if ([cell respondsToSelector:@selector(getHeight)])
+            return [cell getHeight];
     }
     return [super tableView:tableView heightForRowAtIndexPath:indexPath];
 }

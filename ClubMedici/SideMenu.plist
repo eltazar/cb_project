@@ -73,7 +73,7 @@
 				<key>DATA_KEY</key>
 				<string>AreaTurismo</string>
 				<key>CONTROLLER</key>
-				<string>AreaTurismoController</string>
+				<string>AreaBaseController</string>
 				<key>LABEL</key>
 				<string>Viaggi e Turismo</string>
 				<key>ID</key>
