@@ -94,6 +94,8 @@
 
 -(void)fetchData{
     if([Utilities networkReachable]){
+        [spinner startAnimating];
+        [self.view addSubview:spinner];
         [PDHTTPAccess getNews:1 delegate:self];
     }
     else{
@@ -159,25 +161,22 @@
 #pragma mark - UIWebViewDelegate
 - (void)webViewDidStartLoad:(UIWebView *)webView {
     NSLog(@"INIZIATO DOWNLOAD PDF");
-    [spinner startAnimating];
-    [self.view addSubview:spinner];
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     NSLog(@"Finito DOWNLOAD PDF");
-    [spinner stopAnimating];
-    [spinner removeFromSuperview];
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
     NSLog(@"FALLITO DOWNLOAD PDF = %@", [error localizedDescription]);
-    [spinner stopAnimating];
-    [spinner removeFromSuperview];
+
 }
 
 #pragma mark - WMHTTPAccessDelegate
 -(void)didReceiveJSON:(NSArray *)jsonArray{
     //NSLog(@"JSON = %@",jsonArray);
+    [spinner stopAnimating];
+    [spinner removeFromSuperview];
     shareButton.enabled = YES;
     json = jsonArray;
     NSString *title = [[jsonArray objectAtIndex:0]objectForKey:@"titolo"];
@@ -186,6 +185,8 @@
 }
 
 -(void)didReceiveError:(NSError *)error{
+    [spinner stopAnimating];
+    [spinner removeFromSuperview];
     NSLog(@"Server error = %@",error.description);
     [self showErrorView:@"Errore server"];
     shareButton.enabled = NO;
