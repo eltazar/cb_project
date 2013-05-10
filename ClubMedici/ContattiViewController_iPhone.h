@@ -8,7 +8,7 @@
 
 #import "ContattiViewController.h"
 
-@interface ContattiViewController_iPhone : ContattiViewController<UIScrollViewDelegate,UIGestureRecognizerDelegate, UIAlertViewDelegate>
+@interface ContattiViewController_iPhone : ContattiViewController< UIAlertViewDelegate>
 
 
 @end

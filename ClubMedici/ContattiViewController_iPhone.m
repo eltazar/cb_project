@@ -7,17 +7,18 @@
 //
 
 #import "ContattiViewController_iPhone.h"
-
+#import "MapCell.h"
+#import "WebViewCell.h"
 
 #define CONTENT_OFFSET (self.tableView.frame.size.height - self.tableView.contentSize.height)
 @interface ContattiViewController_iPhone ()
 {
-    CGFloat _lastContentOffset;
-    CGRect mapOriginalFrame;
-    CLLocationCoordinate2D originalCenterCoordinate;
-    CGFloat deltaLatFor1px;
-    BOOL isTableVisible;
     NSString *phoneNumber;
+    
+    //nuovi
+    BOOL isMapVisible;
+    CGPoint _oldContentOffset;
+    MapCell *mapCell;
 }
 @end
 
@@ -33,66 +34,17 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-    
-    self.mapView = [[MKMapView alloc] init];
-    self.mapView.delegate = self;
-    
-    isTableVisible = YES;
+    _dataModel = [[WMTableViewDataSource alloc] initWithPList:@"Contatti"];
     
     /*settaggi grafici della tabella
      */
     
-    UIImageView *sectionView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"header_contatti"]];
-    sectionView.alpha = 0.80;
-    self.tableView.tableHeaderView = sectionView;
-    self.tableView.backgroundColor = [UIColor clearColor];
+    _oldContentOffset = CGPointZero;
+    isMapVisible = NO;
     
-    //NSLog(@"contentsize = %f \n Differenza(h-contentSize) = %f",self.tableView.contentSize.height,CONTENT_OFFSET);
-    
-    /*settaggio mapview per far seguire il centro della mappa con lo scrolling della tab.
-     Cosi la mappa mantiene il focus su una certa zona.
-     http://stackoverflow.com/questions/10979323/new-foursquare-venue-detail-map
-     */
-    
-    //Tableview gesture recognizer
-    UITapGestureRecognizer *tapTable = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideTable:)];
-    tapTable.delegate = self;
-    [self.tableView addGestureRecognizer:tapTable];
-    tapTable.cancelsTouchesInView = NO;
-    self.tableView.opaque = YES;
-}
-
--(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    
-    //***nota: bisogna aspettare che la tab sia popolata prima di calcolare i giusti valori di offset
-    
-    //content offset: da dove inizia il contenuto della tabella
-     self.tableView.contentOffset = CGPointMake(0,-CONTENT_OFFSET);
-    //content inset: da dove inizia lo scrolling
-    self.tableView.contentInset = UIEdgeInsetsMake(CONTENT_OFFSET, 0, 0, 0);
-    //iniziallizzazione dell'offeset per la scrollview
-    _lastContentOffset = - CONTENT_OFFSET;
-}
-
--(void)viewDidAppear:(BOOL)animated{
-    
-    self.mapView.frame = CGRectMake(0, 0, 320, 250);
-    UITapGestureRecognizer *tapMap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideTable:)];
-    tapMap.delegate = self;
-    [self.mapView addGestureRecognizer:tapMap];
-    [self configureMap];
-    mapView.alpha = 0.0;
-    [UIView animateWithDuration:0.3
-                    animations:^(void){
-                        mapView.alpha = 1.0;
-                        [self configureMap];
-                        [self.view insertSubview:mapView belowSubview:self.tableView];
-                    }
-     ];
-
-    [super viewDidAppear:animated];
+    //alloco map cell
+    mapCell = [[MapCell alloc] init];
+    [super viewDidLoad];
 }
 
 - (void)didReceiveMemoryWarning
@@ -111,109 +63,62 @@
 
 #pragma mark - Table view data source
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+-(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    UITableViewCell *cell = nil;
     NSString *dataKey = [_dataModel valueForKey:@"DATA_KEY" atIndexPath:indexPath];
-    if([dataKey isEqualToString:@"phone"]){
-        phoneNumber = [_dataModel valueForKey:@"LABEL" atIndexPath:indexPath];
-        [self callNumber: phoneNumber];
+    
+    if([dataKey isEqualToString:@"map"]){   
+        self.mapView =(MKMapView*) [mapCell viewWithTag:1];
+        mapView.delegate = self;
+        [mapView removeAnnotations:sediPin];
+        [mapView addAnnotations:sediPin];
+
+        return mapCell;
     }
-    [super tableView:tableView didSelectRowAtIndexPath:indexPath];
+    else cell = [super tableView:tableView cellForRowAtIndexPath:indexPath];
+    
+    return cell;
+
 }
 
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {    
-//    return [super tableView:tableView heightForRowAtIndexPath:indexPath];
-//}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSString *dataKey = [_dataModel valueForKey:@"DATA_KEY" atIndexPath:indexPath];
+
+    if(!isMapVisible){
+        if([dataKey isEqualToString:@"map"]){
+            [self showMap:indexPath];    
+        }
+        if([dataKey isEqualToString:@"phone"]){
+            phoneNumber = [_dataModel valueForKey:@"LABEL" atIndexPath:indexPath];
+            [self callNumber: phoneNumber];
+        }
+        [super tableView:tableView didSelectRowAtIndexPath:indexPath];
+    }
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSString *dataKey = [_dataModel valueForKey:@"DATA_KEY" atIndexPath:indexPath];
+
+    if([dataKey isEqualToString:@"company"])
+        return 92;
+    else if([dataKey isEqualToString:@"map"]){
+        
+        MapCell *cell = (MapCell*)[self tableView: tableView cellForRowAtIndexPath: indexPath];
+        return cell.frame.size.height;
+    }
+    return [super tableView:tableView heightForRowAtIndexPath:indexPath];
+}
 
 #pragma mark - UIAlertViewDelegate
+
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     if(buttonIndex == 1){
         [Utilities callNumber:phoneNumber];
     }
 }
 
-#pragma mark - UIScrollDelegate
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    
-    
-    //NSLog(@"content offset y = %f ; inset top = %f", tableView.contentOffset.y, self.tableView.contentInset.top);
-    CGRect mapFrame = self.mapView.frame;
-
-    CGFloat addFloat;    
-    
-    //set the frame of MKMapView based on scrollView.contentOffset and make sure the pin is at center of the map view
-    if(scrollView.contentOffset.y < 0){
-        double deltaLat = scrollView.contentOffset.y*deltaLatFor1px;
-        //Move the center coordinate accordingly
-        CLLocationCoordinate2D newCenter = CLLocationCoordinate2DMake(originalCenterCoordinate.latitude-deltaLat/2, originalCenterCoordinate.longitude);
-        mapView.centerCoordinate = newCenter;
-    }
-    //se lo spostamento è verso l'alto riduco h mappa, se verso il basso aumento h mappa
-    addFloat =  _lastContentOffset-scrollView.contentOffset.y;
-    
-    //NSLog(@"y = %f, last y = %f", scrollView.contentOffset.y, _lastContentOffset);
-    //NSLog(@"add -> %f",addFloat);
-    
-    self.mapView.frame = CGRectMake(0, 0, mapFrame.size.width, mapFrame.size.height+addFloat);
-    _lastContentOffset = scrollView.contentOffset.y;
-
-}
-
-#pragma mark - Gesture methods
-
--(void) hideTable:(UITapGestureRecognizer*)tap{
-    
-    CGPoint point = [tap locationInView:self.view];
-    
-    if(isTableVisible){
-        if(point.y <= CONTENT_OFFSET+self.tableView.tableHeaderView.frame.size.height){
-            //nascondo tabella
-            CGFloat paddingDown = -(CONTENT_OFFSET+self.tableView.contentSize.height-self.tableView.tableHeaderView.frame.size.height);
-            [UIView animateWithDuration:0.2
-                             animations:^(void){
-                                 self.tableView.contentOffset = CGPointMake(0,paddingDown);
-                             }
-             ];
-            isTableVisible = NO;
-                [self.tableView setUserInteractionEnabled:NO];
-            [self showCloseButton];
-        }
-    }
-    else{
-        if(point.y >= self.tableView.frame.size.height-self.tableView.tableHeaderView.frame.size.height){
-            //mostro tabella
-            [self showTableView];
-            [self removeCloseButton];
-
-        }
-    }
-}
-
-
-#pragma mark - Gesture recognizer delegate
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer
-shouldRecognizeSimultaneouslyWithGestureRecognizer:
-(UIGestureRecognizer *)otherGestureRecognizer{
-    return YES;
-}
-
 #pragma mark - metodi privati
-
--(void) configureMap{
-    self.mapView.opaque = YES;
-    [self.mapView setUserInteractionEnabled:YES];
-    self.mapView.region = [self centerMap];
-    CLLocationCoordinate2D referencePosition = [mapView convertPoint:CGPointMake(0, 0) toCoordinateFromView:mapView];
-    CLLocationCoordinate2D referencePosition2 = [mapView convertPoint:CGPointMake(0, 100) toCoordinateFromView:mapView];
-    deltaLatFor1px = (referencePosition2.latitude - referencePosition.latitude)/100;
-}
--(MKCoordinateRegion)centerMap{
-    originalCenterCoordinate = CLLocationCoordinate2DMake(41.871940, 12.567380);
-    mapView.centerCoordinate = originalCenterCoordinate;
-    MKCoordinateSpan span = MKCoordinateSpanMake(5,5);
-    MKCoordinateRegion region = MKCoordinateRegionMake(originalCenterCoordinate, span);
-    MKCoordinateRegion adjustedRegion = [mapView regionThatFits:region];
-    return adjustedRegion;
-}
 
 -(void)removeCloseButton{
     self.navigationItem.rightBarButtonItem = nil;
@@ -225,23 +130,70 @@ shouldRecognizeSimultaneouslyWithGestureRecognizer:
 }
 
 -(void)showTableView{
+    
+    NSLog(@"MOSTRO TABELLA");
+    
+    isMapVisible = NO;
+    self.tableView.scrollEnabled = YES;
     self.navigationItem.rightBarButtonItem = nil;
-    [self.navigationItem setHidesBackButton:NO animated:YES];
-    CGFloat paddingUp = self.tableView.contentOffset.y+self.tableView.contentSize.height-self.tableView.tableHeaderView.frame.size.height;
-    [UIView animateWithDuration:0.2
+    
+    [UIView animateWithDuration:.25f
                      animations:^(void){
-                         self.tableView.contentOffset = CGPointMake(0,paddingUp);
+                         self.tableView.contentOffset = _oldContentOffset;
                      }
      ];
-    isTableVisible = YES;
-    [self.tableView setUserInteractionEnabled:YES];
-    [self configureMap];
+    MapCell * cell = (MapCell*)[self tableView:self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]];
+    cell.frame = CGRectMake(0, 0, self.view.frame.size.width, 100);
+    
+    [self.tableView beginUpdates];
+    [self.tableView endUpdates];
+    [cell setMapEnabled:NO];
 }
 
+-(void)showMap:(NSIndexPath*)indexPath{
+    NSLog(@"MOSTRO MAPPA");
+    
+    isMapVisible = YES;
+    CGRect rectInTableView = [self.tableView rectForRowAtIndexPath:indexPath];
+    //dove ha origine la cella all'interno della view
+    CGRect rectInSuperview = [self.tableView convertRect:rectInTableView toView:[self.tableView superview]];
+    MapCell *cell = (MapCell*)[self.tableView cellForRowAtIndexPath:indexPath];
+    
+    //salvo vecchio content offset
+    _oldContentOffset = self.tableView.contentOffset;
+    
+    //sposto content offset in modo che la mappa inizi dall'inizio della view
+    [UIView animateWithDuration:.25f
+                     animations:^(void){
+                         self.tableView.contentOffset = CGPointMake(self.tableView.contentOffset.x, self.tableView.contentOffset.y+rectInSuperview.origin.y);
+                     }
+     ];
+    
+    //cambio altezza frame cella, in automatico aumenta il contentView frame anche
+    cell.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+    //setto altezza mappa, non più necessario perchè la mappa ha l'autoresize in altezza
+    //[cell setMapFrame:cell.frame];
+    
+    //fa si che la tabella ricalcoli l'altezza degli elementi della sezione senza allocare di nuovo le celle
+    [self.tableView beginUpdates];
+    [self.tableView endUpdates];
+    
+    //usando reload invece ricrea oggetti!!!
+    //[self.tableView reloadData]; 
+    
+    //abilito touch sulla mappa
+    [cell setMapEnabled:YES];
+    //blocco scroll tabella, questo però permette ancora alle celle di essere tapate :S
+    self.tableView.scrollEnabled = NO;
+    [self showCloseButton];
+}
 
+#pragma mark - ActionMethods
 - (void)callNumber:(NSString*)number {
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"Chiamare %@ ?",number] message:nil delegate:self cancelButtonTitle:@"Annulla" otherButtonTitles:@"Chiama", nil];
     [alert show];
 }
+
+
 @end
