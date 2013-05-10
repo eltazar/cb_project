@@ -60,6 +60,7 @@
 		AC9E030E173D47C100B15AD6 /* side_menu_cell_background.png in Resources */ = {isa = PBXBuildFile; fileRef = AC9E030D173D47C100B15AD6 /* side_menu_cell_background.png */; };
 		AC9E0310173D47CD00B15AD6 /* share.png in Resources */ = {isa = PBXBuildFile; fileRef = AC9E030F173D47CC00B15AD6 /* share.png */; };
 		AC9E0312173D491800B15AD6 /* share_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = AC9E0311173D491800B15AD6 /* share_selected.png */; };
+		AC9E0316173D55C500B15AD6 /* libFlurry.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC9E0315173D55C500B15AD6 /* libFlurry.a */; };
 		ACB57B7B172A8287004176AF /* NewsPullableView.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB57B7A172A8287004176AF /* NewsPullableView.m */; };
 		ACB57B7F172AABDE004176AF /* ActionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACB57B7E172AABDE004176AF /* ActionCell.xib */; };
 		ACB6392B1727236C00C26223 /* FXLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB6392A1727236C00C26223 /* FXLabel.m */; };
@@ -237,6 +238,8 @@
 		AC9E030D173D47C100B15AD6 /* side_menu_cell_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = side_menu_cell_background.png; path = img/side_menu_cell_background.png; sourceTree = SOURCE_ROOT; };
 		AC9E030F173D47CC00B15AD6 /* share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = share.png; path = img/share.png; sourceTree = SOURCE_ROOT; };
 		AC9E0311173D491800B15AD6 /* share_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = share_selected.png; path = img/share_selected.png; sourceTree = SOURCE_ROOT; };
+		AC9E0314173D55C500B15AD6 /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
+		AC9E0315173D55C500B15AD6 /* libFlurry.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry.a; sourceTree = "<group>"; };
 		ACB57B79172A8286004176AF /* NewsPullableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsPullableView.h; sourceTree = "<group>"; };
 		ACB57B7A172A8287004176AF /* NewsPullableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsPullableView.m; sourceTree = "<group>"; };
 		ACB57B7E172AABDE004176AF /* ActionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActionCell.xib; sourceTree = "<group>"; };
@@ -417,6 +420,7 @@
 				ACEBDC6816570CBE00CEFFE5 /* Foundation.framework in Frameworks */,
 				ACEBDC6A16570CBE00CEFFE5 /* CoreGraphics.framework in Frameworks */,
 				D915E18D17373F9900F78948 /* FacebookSDK.framework in Frameworks */,
+				AC9E0316173D55C500B15AD6 /* libFlurry.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -497,6 +501,15 @@
 			name = Pickers;
 			path = Pickers/Pickers;
 			sourceTree = "<group>";
+		};
+		AC9E0313173D55C500B15AD6 /* FlurrySDK */ = {
+			isa = PBXGroup;
+			children = (
+				AC9E0314173D55C500B15AD6 /* Flurry.h */,
+				AC9E0315173D55C500B15AD6 /* libFlurry.a */,
+			);
+			path = FlurrySDK;
+			sourceTree = SOURCE_ROOT;
 		};
 		ACB639281727236C00C26223 /* FXLabel */ = {
 			isa = PBXGroup;
@@ -660,6 +673,7 @@
 		ACD4C76F165715460025F3F5 /* Librerie esterne */ = {
 			isa = PBXGroup;
 			children = (
+				AC9E0313173D55C500B15AD6 /* FlurrySDK */,
 				AC5E5486173523C50076DA6C /* ActionSheetPicker */,
 				ACB639281727236C00C26223 /* FXLabel */,
 				ACDED9B61725EDC500668C5C /* AreeEnum.h */,
@@ -1139,6 +1153,10 @@
 				GCC_PREFIX_HEADER = "ClubMedici/ClubMedici-Prefix.pch";
 				INFOPLIST_FILE = "ClubMedici/ClubMedici-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/FlurrySDK\"",
+				);
 				OTHER_LDFLAGS = "-lsqlite3.0";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "2F8EF37D-B5BD-4F26-8733-0444F6B88B81";
@@ -1161,6 +1179,10 @@
 				GCC_PREFIX_HEADER = "ClubMedici/ClubMedici-Prefix.pch";
 				INFOPLIST_FILE = "ClubMedici/ClubMedici-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/FlurrySDK\"",
+				);
 				OTHER_LDFLAGS = "-lsqlite3.0";
 				"OTHER_LDFLAGS[arch=*]" = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
