@@ -716,10 +716,10 @@
 		ACE683B916B86C6F00530D22 /* Contatti ecc */ = {
 			isa = PBXGroup;
 			children = (
-				ACE40A7416BC93C500FDCA18 /* Sede.h */,
 				ACB8FAD7172564BA00AFB645 /* DisclaimerController.h */,
 				ACB8FAD8172564BA00AFB645 /* DisclaimerController.m */,
 				ACB8FAD9172564BA00AFB645 /* DisclaimerController.xib */,
+				ACE40A7416BC93C500FDCA18 /* Sede.h */,
 				ACE40A7D16BC93C500FDCA18 /* Sede.m */,
 				ACE683BE16B86CE200530D22 /* ContattiViewController.h */,
 				ACE683BF16B86CE200530D22 /* ContattiViewController.m */,
