@@ -252,34 +252,37 @@
 
 
 - (IBAction)sharingAction:(id)sender {
+    NSDictionary *item = [json objectAtIndex:0];
+    NSString *titolo   = [item objectForKey:@"titolo"];
+    NSString *idString = [item objectForKey:@"id"];
+    
     _sharingProvider.iOS6String  = [NSString stringWithFormat:@"News ClubMedici: %@\n %@%@",
-                                    [[json objectAtIndex:0] objectForKey:@"titolo"],
+                                    titolo,
                                     URL_NEWS,
-                                    [[json objectAtIndex:0] objectForKey:@"id"]];
+                                    idString];
     
     _sharingProvider.mailObject  = [NSString stringWithFormat:@"News ClubMedici: \n%@",
-                                    [[json objectAtIndex:0] objectForKey:@"titolo"]];
+                                    titolo];
     
     _sharingProvider.mailBody    = [NSString stringWithFormat:
                                     @"Ciao leggi la nuova news di ClubMedici:\n%@%@",
                                     URL_NEWS,
-                                    [[json objectAtIndex:0] objectForKey:@"id"]];
+                                    idString];
     
     _sharingProvider.initialText = [NSString stringWithFormat:@"News ClubMedici: \n%@",
-                                    [[json objectAtIndex:0] objectForKey:@"titolo"]];
+                                    titolo];
     
     _sharingProvider.url         = [NSString stringWithFormat:@"%@%@",
                                     URL_NEWS,
-                                    [[json objectAtIndex:0] objectForKey:@"id"]];
+                                    idString];
     
-    _sharingProvider.title       = [[json objectAtIndex:0] objectForKey:@"titolo"];
+    _sharingProvider.title       = titolo;
     
     _sharingProvider.image       = [NSString stringWithFormat:
                                     @"http://www.clubmedici.it/nuovo/%@",
-                                    [[json objectAtIndex:0]objectForKey:@"foto"]];
+                                    [item objectForKey:@"foto"]];
     
-    
-    [_sharingProvider shareAction:sender];
+    [_sharingProvider sharingAction:sender];    
 }
 
 
