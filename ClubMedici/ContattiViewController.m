@@ -175,11 +175,11 @@
         }
         else if([dataKey isEqualToString:@"facebook"]){
             contactLabel.text = @"Facebook";
-            [img setImage:nil];
+            [img setImage:[UIImage imageNamed:@"fb"]];
         }
         else if([dataKey isEqualToString:@"twitter"]){
             contactLabel.text = @"Twitter";
-            [img setImage:nil];
+            [img setImage:[UIImage imageNamed:@"tw"]];
         }
     }
     return cell;
