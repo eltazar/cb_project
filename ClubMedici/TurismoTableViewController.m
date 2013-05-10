@@ -41,9 +41,9 @@
     /*self.areaTurismoSection = [[AreaTurismoSection alloc] init];
     self.areaTurismoSection.sectionId = self*/
     self.areaTurismoSection.delegate = self;
-    [self.areaTurismoSection fetchData];
     
     _spinner = [[CustomSpinnerView alloc] initWithFrame:self.view.frame];
+    
 }
 
 

@@ -13,7 +13,9 @@
 
 @interface TurismoTableViewController : UITableViewController<BusinessLogicDelegate>
 
-@property (nonatomic, strong) AreaTurismoSection *areaTurismoSection;
-@property (nonatomic, strong) WMTableViewDataSource *dataModel;
+@property(nonatomic, weak) IBOutlet UISegmentedControl *segmentedControl;
+
+@property(nonatomic, strong) AreaTurismoSection *areaTurismoSection;
+@property(nonatomic, strong) WMTableViewDataSource *dataModel;
 
 @end
