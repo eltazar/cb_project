@@ -82,7 +82,6 @@
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     [mapView addAnnotations:sediPin];
-    [mapView selectAnnotation:[sediPin objectAtIndex:0] animated:YES];
 }
 
 #pragma mark - Table view data source

@@ -43,6 +43,11 @@
     [super viewDidLoad];
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [mapView selectAnnotation:[sediPin objectAtIndex:0] animated:YES];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
