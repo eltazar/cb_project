@@ -15,6 +15,8 @@
 @interface AreaTurismoSection () {
     NSMutableArray *_itemsItaly;
     NSMutableArray *_itemsAbroad;
+    NSMutableSet *_itemsItalyIdSet;
+    NSMutableSet *_itemsAbroadIdSet;
 }
 @end
 
@@ -27,7 +29,9 @@
     if (self) {
         _itemsItaly  = [[NSMutableArray alloc] init];
         _itemsAbroad = [[NSMutableArray alloc] init];
-    }
+        _itemsItalyIdSet  = [[NSMutableSet alloc] init];
+        _itemsAbroadIdSet = [[NSMutableSet alloc] init];
+     }
     return self;
 }
 
@@ -65,14 +69,30 @@
 - (void)didReceiveJSON:(NSArray *)jsonArray {
     NSArray *tempArray;
     for (NSDictionary *item in jsonArray) {
+        // Costruiamo un array di un solo elemento, temporaneo, perché initWithJson: di
+        // BusinessLogicBase accetta come parametro un NSArray
         tempArray = [NSArray arrayWithObject:item];
         AreaTurismoItem *areaTurismoItem = [[AreaTurismoItem alloc] initWithJson:tempArray];
-        if (areaTurismoItem.inItaly)
-            [_itemsItaly  addObject:[NSDictionary dictionaryWithObject:areaTurismoItem
-                                                                forKey:@"ITEM"]];
-        else
-            [_itemsAbroad addObject:[NSDictionary dictionaryWithObject:areaTurismoItem
-                                                                forKey:@"ITEM"]];
+        
+        
+        // Controlla se l'item è già presente
+        NSMutableSet *workingSet = (areaTurismoItem.inItaly)?_itemsItalyIdSet:_itemsAbroadIdSet;
+        NSSet *filteredSet = [workingSet objectsPassingTest:^BOOL(id obj, BOOL *stop) {
+            if ([obj integerValue] == areaTurismoItem.ID) {
+                *stop = YES;
+                return YES;
+            }
+            return NO;
+        }];
+        
+        NSMutableArray *workingDataModel = (areaTurismoItem.inItaly)?_itemsItaly:_itemsAbroad;
+        NSNumber *itemID = [NSNumber numberWithInteger:areaTurismoItem.ID];
+        if (filteredSet.count == 0) {
+            NSLog(@"aggiungo: %d", areaTurismoItem.ID);
+            [workingDataModel addObject:[NSDictionary dictionaryWithObject:areaTurismoItem
+                                                                    forKey:@"ITEM"]];
+            [workingSet addObject:itemID];
+        }
     }
     [self.delegate didReceiveBusinessLogicData];
 }
@@ -80,6 +100,7 @@
 
 
 #pragma mark - Private Methods
+
 
 
 - (WMTableViewDataSource *)_getDataModelFromItems:(NSArray *)items {
