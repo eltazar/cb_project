@@ -16,75 +16,43 @@
 #import "Reachability.h"
 
 @interface AreaBaseController_iPhone () {
-    AreaDescriptionCell *_areaDescriptionCell;
     NSString *phoneNumber;
 }
 @end
 
 @implementation AreaBaseController_iPhone
 
-- (void)viewDidLoad {
-    
-    imageView = [[CachedAsyncImageView alloc] init];
-    imageView.delegate = self;
-    [imageView setCustomPlaceholder:@"background_iphone"];
-    [self setupBackgroundView];
 
-    [super viewDidLoad];
-    
-    //NSLog(@"ViewDidLoad: AreaBaseController_iPhone");
-    
-    _areaDescriptionCell = [[[NSBundle mainBundle] loadNibNamed:@"AreaDescriptionCell"
-                                                          owner:nil
-                                                        options:nil] objectAtIndex:0];
-//    //rimuove celle extra
-//    self.tableView.tableFooterView = [[UIView alloc] init];
-
+- (id)init {
+    self = [super init];
+    if (self) {
+        areaDescriptionCellCollapsedHeight = 70;
+    }
+    return self;
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
+
+
 # pragma mark - iOS 5 specific
 
-//
-//per gestire rotazione guardare qui: http://stackoverflow.com/questions/12536645/rotation-behaving-differently-on-ios6
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:
-(UIInterfaceOrientation)interfaceOrientation {
 
+- (BOOL)shouldAutorotateToInterfaceOrientation: (UIInterfaceOrientation)interfaceOrientation {
+    // per gestire rotazione guardare qui:
+    // http://stackoverflow.com/questions/12536645/rotation-behaving-differently-on-ios6
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-#pragma mark - Table view data source
 
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = nil;
-    //NSString *cellIdentifier;
-    NSString *dataKey = [_dataModel valueForKey:@"DATA_KEY" atIndexPath:indexPath];
-    if ([dataKey isEqualToString:@"description"]) {
-        // _areaDescriptionCell.backgroundView = [[CustomCellBackground alloc] init];
-        // _areaDescriptionCell.selectedBackgroundView = [[CustomCellBackground alloc] init];
-        _areaDescriptionCell.collapsedHeight = 70;
-        _areaDescriptionCell.text = self.area.descrizione;
-        return _areaDescriptionCell;
-    }    
-    else {
-        cell = [super tableView:tableView cellForRowAtIndexPath:indexPath];
-    }
-    
-    return cell;
-}
+#pragma mark - TableViewDelegate
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 0 && indexPath.row == 0) {
-        AreaDescriptionCell *cell = (AreaDescriptionCell *)[self tableView:tableView cellForRowAtIndexPath:indexPath];
-        return [cell getHeight];
-    }
-    return [super tableView:tableView heightForRowAtIndexPath:indexPath];
-}
+
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *dataKey = [_dataModel valueForKey:@"DATA_KEY" atIndexPath:indexPath];
@@ -94,8 +62,9 @@
             [self callNumber: phoneNumber];
             [tableView deselectRowAtIndexPath:indexPath animated:YES];
     }
-    else if([dataKey isEqualToString:@"noleggioAuto"] || [dataKey isEqualToString:@"noleggioElettro"] ||
-            [dataKey isEqualToString:@"leasingElettro"]){
+    else if([dataKey isEqualToString:@"noleggioAuto"] ||
+            [dataKey isEqualToString:@"noleggioElettro"] ||
+            [dataKey isEqualToString:@"leasingElettro"]) {
         
         //NSLog(@" CELLA NOLEGGIO = %@", dataKey);
         RichiestaNoleggioController *formController = [[RichiestaNoleggioController alloc] init:dataKey];
@@ -103,39 +72,28 @@
 
         [self.navigationController presentModalViewController:[[UINavigationController alloc]initWithRootViewController:formController] animated:YES];
     }
-    else if([dataKey isEqualToString:@"calcolatore"]){
-        CalcolaRataController *calcolaController = [[CalcolaRataController alloc] initWithNibName:@"CalcolaRataController" bundle:nil];
-        [self.navigationController pushViewController:calcolaController animated:YES];
-    }
-    else{
+    else {
         [super tableView:tableView didSelectRowAtIndexPath:indexPath];
     }
 }
 
+
+
 #pragma mark - FormViewControllerDelegate
+
+
 
 -(void)didPressCancelButton:(id)sender{
     [self.navigationController dismissModalViewControllerAnimated:YES];
 }
 
-#pragma mark - UIAlertViewDelegate
--(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    if(buttonIndex == 1){
-        [Utilities callNumber:phoneNumber];
-    }
-}
+
 
 # pragma mark - Private Methods
 
-- (void)callNumber:(NSString*)number {
-    
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"Chiamare %@ ?",number] message:nil delegate:self cancelButtonTitle:@"Annulla" otherButtonTitles:@"Chiama", nil];
-    [alert show];
-}
 
 
-- (void) setupBackgroundView{
-    
+- (void)setupBackgroundView {
     //UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"placeholder.jpg"]];
     
     if(imageView.image.size.width != 0){
@@ -184,24 +142,56 @@
     //NSLog(@"frame.width = %f, height = %f", tableViewWidth,backgroundView.frame.size.height);
 }
 
--(void) computeImageSize{
+
+- (void)computeImageSize {
 
 }
 
--(void)showErrorView:(NSString*)message{
-    
+
+- (void)showErrorView:(NSString*)message {
     if(errorView == nil || !errorView.showed){
         errorView = [[ErrorView alloc] init];
         [super showErrorView:message];
     }
 }
 
+
+- (void)callNumber:(NSString*)number {
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"Chiamare %@ ?",number] message:nil delegate:self cancelButtonTitle:@"Annulla" otherButtonTitles:@"Chiama", nil];
+    [alert show];
+}
+
+
+
+
+
+
+#pragma mark - UIAlertViewDelegate
+
+
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if(buttonIndex == 1){
+        [Utilities callNumber:phoneNumber];
+    }
+}
+
+
+
 #pragma mark - UIScrollViewDelegate
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
+
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     //per far rimanere l'errorView sempre nella stessa posizione mentre scrollo la tableView
     //errorView.frame = CGRectMake(0, self.tableView.contentOffset.y , [errorView getFrame].size.width, [errorView getFrame].size.height);
 }
+
+
+
+
+
+
 
 @end

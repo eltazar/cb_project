@@ -18,85 +18,47 @@
 #define LANDSCAPE_WIDTH 703.0
 
 
-@interface AreaBaseController_iPad ()
-{
-    AreaDescriptionCell *_areaDescriptionCell;
-}
+@interface AreaBaseController_iPad () { }
 @end
+
 
 @implementation AreaBaseController_iPad
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+
+- (id)init {
+    self = [super init];
     if (self) {
-        // Custom initialization
+        areaDescriptionCellCollapsedHeight = 120;
     }
     return self;
 }
 
-- (void)viewDidLoad {
- 
-    imageView = [[CachedAsyncImageView alloc] init];
-    imageView.delegate = self;
-    [imageView setCustomPlaceholder:@"background_ipad"];
-        
-    [self setupBackgroundView];
-    
-    [super viewDidLoad];
-    
-    //NSLog(@"ViewDidLoad: AreaBaseController_iPad");
-
-    
-    // Do any additional setup after loading the view from its nib.
-    _areaDescriptionCell = [[[NSBundle mainBundle] loadNibNamed:@"AreaDescriptionCell_iPad"
-                                                          owner:nil
-                                                        options:nil] objectAtIndex:0];
-}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
+
+
 # pragma mark - iOS 5 specific
+
+
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     return YES;
 }
 
--(void) didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation{
+
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
     [self setupBackgroundView];
 }
 
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = nil;
-    //NSString *cellIdentifier;
-    NSString *dataKey = [_dataModel valueForKey:@"DATA_KEY" atIndexPath:indexPath];
-    
-    if ([dataKey isEqualToString:@"description"]) {
-        _areaDescriptionCell.collapsedHeight = 120;
-        _areaDescriptionCell.text = self.area.descrizione;
-        return _areaDescriptionCell;
-
-    }
-    else {
-        cell = [super tableView:tableView cellForRowAtIndexPath:indexPath];
-    }
-    
-    return cell;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 0 && indexPath.row == 0) {
-        AreaDescriptionCell *cell = (AreaDescriptionCell *)[self tableView:tableView cellForRowAtIndexPath:indexPath];
-        return [cell getHeight];
-    }
-    return [super tableView:tableView heightForRowAtIndexPath:indexPath];
-}
 
 
 #pragma mark - TableViewDelegate
+
+
 
 - (BOOL)tableView:(UITableView *)tableView shouldShowMenuForRowAtIndexPath:(NSIndexPath *)indexPath{
     
@@ -107,9 +69,11 @@
     return NO;
 }
 
+
 - (BOOL)tableView:(UITableView *)tableView canPerformAction:(SEL)action forRowAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender{
     return (action == @selector(copy:));
 }
+
 
 - (void)tableView:(UITableView *)tableView performAction:(SEL)action forRowAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender
 {
@@ -122,19 +86,16 @@
     }
 }
 
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *dataKey = [_dataModel valueForKey:@"DATA_KEY" atIndexPath:indexPath];
     
-    
-    if([dataKey isEqualToString:@"phone"]){
+    if ([dataKey isEqualToString:@"phone"]) {
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
     }
-    else if([dataKey isEqualToString:@"calcolatore"]){
-        CalcolaRataController *calcolaController = [[CalcolaRataController alloc] initWithNibName:@"CalcolaRataController_iPad" bundle:nil];
-        [self.navigationController pushViewController:calcolaController animated:YES];
-    }
-    else if([dataKey isEqualToString:@"noleggioAuto"] || [dataKey isEqualToString:@"noleggioElettro"] ||
-            [dataKey isEqualToString:@"leasingElettro"]){
+    else if ([dataKey isEqualToString:@"noleggioAuto"] ||
+             [dataKey isEqualToString:@"noleggioElettro"] ||
+             [dataKey isEqualToString:@"leasingElettro"]) {
         
         NSLog(@" CELLA NOLEGGIO = %@", dataKey);
         RichiestaNoleggioController *formController = [[RichiestaNoleggioController alloc] init:dataKey];
@@ -149,29 +110,35 @@
         //Per ora mostro aggiungendo normalmente la nuova view alla gerarchia
         [self.navigationController pushViewController:formController animated:YES];        
     }        
-    else{
+    else {
         [super tableView:tableView didSelectRowAtIndexPath:indexPath];
     }
 }
 
+
+
 #pragma mark - FormViewControllerDelegate
+
+
 
 -(void)didPressCancelButton:(id)sender{
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+
+
 # pragma mark - Private Methods
 
+
+
 - (void) setupBackgroundView{
-    
-    
     [self computeImageSize];
     
     UIView *backgroundView = [[UIView alloc]init];
     
     [backgroundView addSubview:imageView];
     
-    if(spinner.isVisible){
+    if (spinner.isVisible) {
         //se spinner era visibile lo rimuovo dalla vecchia backgroundView, e lo aggiungo a quella nuova
         [spinner removeFromSuperview];
         spinner.frame = CGRectMake(self.navigationController.navigationBar.frame.size.width/2 - spinner.frame.size.width/2, self.view.frame.size.height/2 - spinner.frame.size.height/2, spinner.frame.size.width, spinner.frame.size.height);
@@ -181,7 +148,7 @@
     }
     
     self.tableView.backgroundView = backgroundView;
-     self.tableView.backgroundColor = [UIColor colorWithRed:246/255.0f green:250/255.0f blue:255/255.0f alpha:1];    
+    self.tableView.backgroundColor = [UIColor colorWithRed:246/255.0f green:250/255.0f blue:255/255.0f alpha:1];    
     //per fare in modo che l'immagine nell'header diventi trasparente gradualmente verso la fine dell'immagine stessa
     
     CAGradientLayer *l = [CAGradientLayer layer];
@@ -206,8 +173,8 @@
      ];
 }
 
--(void) computeImageSize{
-    
+
+- (void)computeImageSize {
     CGFloat scaleFactor = 0.0;
     CGFloat width = 0.0;
     CGFloat height = 0.0;
@@ -232,9 +199,10 @@
                                  width, height);
 }
 
--(void)showErrorView:(NSString*)message{
+
+- (void)showErrorView:(NSString*)message {
     
-    if(errorView == nil || !errorView.showed){
+    if (errorView == nil || !errorView.showed) {
         errorView = [[ErrorView alloc] initWithSize:self.view.frame.size];
         [super showErrorView:message];
     }

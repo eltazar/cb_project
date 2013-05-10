@@ -58,6 +58,17 @@
     //the middle of your current view
     spinner = [[CustomSpinnerView alloc] initWithFrame:self.view.frame];
     spinner.frame = CGRectMake(self.navigationController.navigationBar.frame.size.width/2 - spinner.frame.size.width/2, self.view.frame.size.height/2 - spinner.frame.size.height/2, spinner.frame.size.width, spinner.frame.size.height);
+    
+    imageView = [[CachedAsyncImageView alloc] init];
+    imageView.delegate = self;
+    [imageView setCustomPlaceholder:IDIOM_SPECIFIC_STRING(@"background")];
+    
+    NSString *nibName = IDIOM_SPECIFIC_STRING(@"AreaDescriptionCell");
+    _areaDescriptionCell = [[[NSBundle mainBundle] loadNibNamed:nibName
+                                                          owner:nil
+                                                        options:nil] objectAtIndex:0];
+    
+    [self setupBackgroundView];
 }
 
 
@@ -93,6 +104,14 @@
     //NSString *cellIdentifier;
     NSString *dataKey = [_dataModel valueForKey:@"DATA_KEY" atIndexPath:indexPath];
     
+    if ([dataKey isEqualToString:@"description"]) {
+        // _areaDescriptionCell.backgroundView = [[CustomCellBackground alloc] init];
+        // _areaDescriptionCell.selectedBackgroundView = [[CustomCellBackground alloc] init];
+        _areaDescriptionCell.collapsedHeight = areaDescriptionCellCollapsedHeight;
+        _areaDescriptionCell.text = self.area.descrizione;
+        return _areaDescriptionCell;
+    }
+
     if (indexPath.section == 0) {
         cell = [tableView dequeueReusableCellWithIdentifier:@"ContactCell"];
         if (!cell) {
@@ -252,6 +271,12 @@
     else if ([dataKey isEqualToString:@"email"]) {
         [self sendEmail:[_dataModel valueForKey:@"LABEL" atIndexPath:indexPath]];
     }
+    else if ([dataKey isEqualToString:@"calcolatore"]) {
+        NSString *nibName = IDIOM_SPECIFIC_STRING(@"CalcolaRataController");
+        CalcolaRataController *calcolaController = [[CalcolaRataController alloc] initWithNibName:nibName bundle:nil];
+        [self.navigationController pushViewController:calcolaController animated:YES];
+    }
+
     
 }
 
@@ -265,6 +290,15 @@
 
 - (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return UITableViewAutomaticDimension;
+}
+
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0 && indexPath.row == 0) {
+        AreaDescriptionCell *cell = (AreaDescriptionCell *)[self tableView:tableView cellForRowAtIndexPath:indexPath];
+        return [cell getHeight];
+    }
+    return [super tableView:tableView heightForRowAtIndexPath:indexPath];
 }
 
 

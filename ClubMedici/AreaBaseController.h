@@ -10,14 +10,18 @@
 #import <MessageUI/MessageUI.h>
 
 #import "UIViewController+InterfaceIdiom.h"
-#import "CachedAsyncImageView.h"
 #import "RichiestaNoleggioController.h"
+#import "CalcolaRataController.h"
+
+#import "AreaDescriptionCell.h"
+#import "CustomSpinnerView.h"
+#import "ErrorView.h"
+
+#import "AreaBase.h"
+
+#import "CachedAsyncImageView.h"
 #import "PDHTTPAccess.h"
 #import "WMHTTPAccess.h"
-#import "ErrorView.h"
-#import "CalcolaRataController.h"
-#import "CustomSpinnerView.h"
-#import "AreaBase.h"
 
 
 @class AreaBase, WMTableViewDataSource;
@@ -33,10 +37,12 @@
         CachedAsyncImageView *imageView;
         ErrorView *errorView;
         CustomSpinnerView *spinner;
+        AreaDescriptionCell *_areaDescriptionCell;
+        NSInteger areaDescriptionCellCollapsedHeight;
 }
 
 @property(nonatomic, strong) AreaBase *area;
-@property(nonatomic, assign) int        areaId;
+@property(nonatomic, assign) int       areaId;
 
 - (id)initWithArea:(AreaBase*)area;
 - (void)showErrorView:(NSString*)message;
