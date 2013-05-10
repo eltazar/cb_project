@@ -315,9 +315,9 @@
 
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    UIImageView *sectionView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"sectionHeader"]];
-    sectionView.alpha = 0.95;
-    
+    //sectionView.alpha = 0.95;
+    UIImageView *sectionView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"area_sec_background"]];
+
     //Add label to view
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(13, -9, 320, 40)];
     titleLabel.backgroundColor =[UIColor clearColor];
