@@ -22,7 +22,7 @@ typedef enum _MapCellState {
 
 - (void)setMapEnabled:(BOOL)isEnable;
 -(void)setMapFrame:(CGRect)frame;
-
+-(void)setMapCenter:(MKCoordinateRegion)region;
 
 
 

@@ -50,7 +50,6 @@
     bottomView.backgroundColor = [UIColor colorWithRed:140/255.0f green:153/255.0f blue:168/253.0f alpha:1];
     [self.mapView addSubview:bottomView];
     bottomView.alpha = 0.4f;
-
 }
 
 
@@ -59,6 +58,10 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+-(void)setMapCenter:(MKCoordinateRegion)region{
+    [_mapView setRegion:region animated:NO];
 }
 
 - (void)layoutSubViews

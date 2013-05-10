@@ -19,6 +19,7 @@
     BOOL isMapVisible;
     CGPoint _oldContentOffset;
     MapCell *mapCell;
+    Sede *sedeNazionale;
 }
 @end
 
@@ -47,8 +48,10 @@
     
 
     companyDescriptionCellCollapsedHeight = 90;
-
+    
     [super viewDidLoad];
+    
+    sedeNazionale = [sediPin objectAtIndex:0];
 }
 
 - (void)didReceiveMemoryWarning
@@ -77,6 +80,10 @@
         mapView.delegate = self;
         [mapView removeAnnotations:sediPin];
         [mapView addAnnotations:sediPin];
+        
+        
+        MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(sedeNazionale.coordinate, 200000, 200000);
+        [mapCell setMapCenter:viewRegion];
 
         return mapCell;
     }
@@ -152,6 +159,11 @@
     [self.tableView beginUpdates];
     [self.tableView endUpdates];
     [cell setMapEnabled:NO];
+    
+    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(sedeNazionale.coordinate, 200000, 200000);
+    [cell setMapCenter:viewRegion];
+
+    
 }
 
 -(void)showMap:(NSIndexPath*)indexPath{
@@ -181,6 +193,10 @@
     //fa si che la tabella ricalcoli l'altezza degli elementi della sezione senza allocare di nuovo le celle
     [self.tableView beginUpdates];
     [self.tableView endUpdates];
+    
+    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(sedeNazionale.coordinate, 1000000, 1000000);
+    [cell setMapCenter:viewRegion];
+    [cell.mapView selectAnnotation:sedeNazionale animated:YES];
     
     //usando reload invece ricrea oggetti!!!
     //[self.tableView reloadData]; 
