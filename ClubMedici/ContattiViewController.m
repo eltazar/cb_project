@@ -56,6 +56,17 @@
                                             options:nil] objectAtIndex:0];
     
     [Utilities logEvent:@"Sezione_contatti_visitata" arguments:nil];
+    NSArray *sedi = [[NSArray alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Sedi" ofType:@"plist"]];
+    
+    for(NSDictionary *o in sedi){
+        CLLocationCoordinate2D c = CLLocationCoordinate2DMake([[o objectForKey:@"LAT"] floatValue],[[o objectForKey:@"LONG"]floatValue]);
+        Sede *s = [[Sede alloc] initWithCoordinate:c];
+        [o objectForKey:@"LAT"];
+        s.name = [o objectForKey:@"NAME"];
+        s.city = [o objectForKey:@"CITY"];
+        s.address = [o objectForKey:@"ADDRESS"];
+        [sediPin addObject:s];
+    }
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -70,17 +81,8 @@
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    NSArray *sedi = [[NSArray alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Sedi" ofType:@"plist"]];
-    
-    for(NSDictionary *o in sedi){
-        CLLocationCoordinate2D c = CLLocationCoordinate2DMake([[o objectForKey:@"LAT"] floatValue],[[o objectForKey:@"LONG"]floatValue]);
-        Sede *s = [[Sede alloc] initWithCoordinate:c];
-        [o objectForKey:@"LAT"];
-        s.name = [o objectForKey:@"NAME"];
-        s.city = [o objectForKey:@"CITY"];
-        [sediPin addObject:s];
-    }
     [mapView addAnnotations:sediPin];
+    [mapView selectAnnotation:[sediPin objectAtIndex:0] animated:YES];
 }
 
 #pragma mark - Table view data source
