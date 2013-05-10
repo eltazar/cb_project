@@ -28,6 +28,7 @@
     IBOutlet UIWebView * webView;
     FXLabel *titleLabel;
     IBOutlet UIView *footerView;
+    IBOutlet UIButton *shareButton;
 }
 
 - (void)showErrorView:(NSString*)message;

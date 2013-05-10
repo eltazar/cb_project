@@ -52,6 +52,9 @@
     spinner = [[CustomSpinnerView alloc] initWithFrame:self.view.frame];
     spinner.frame = CGRectMake(self.navigationController.navigationBar.frame.size.width/2 - spinner.frame.size.width/2, self.view.frame.size.height/2 - spinner.frame.size.height/2, spinner.frame.size.width, spinner.frame.size.height);
     
+    _callButton.enabled = NO;
+    _mailButton.enabled = NO;
+    
     //flurry log
     NSDictionary *articleParams =
     [NSDictionary dictionaryWithObjectsAndKeys:
@@ -104,6 +107,7 @@
 
 -(void)didReceiveJSON:(NSArray *)jsonArray{
     NSLog(@"JSON DESC : %@",[[jsonArray objectAtIndex:0] objectForKey:@"testo"]);
+    
     NSString *htmlString = [[jsonArray objectAtIndex:0] objectForKey:@"testo"];
     mail = [[jsonArray objectAtIndex:0] objectForKey:@"email"];
     phone = [[jsonArray objectAtIndex:0] objectForKey:@"telefono"];
@@ -112,11 +116,16 @@
     NSString *style = @"body {font-family:helvetica;margin:15px 15px 15px 15px;background-color: #f6faff;}body,p {font-size: 15px;color: #333333;text-shadow: #fff 0px 1px 0px;}";//font-size: 16px;text-align: justify;color: #272727;text-shadow: 1px 4px 6px #f6faff, 0 0 0 #000, 1px 4px 6px #f6faff;}";//
     htmlPage = [NSString stringWithFormat:htmlPage,style,htmlString];
     [webView loadHTMLString:htmlPage baseURL:nil];
+    
+    _callButton.enabled = YES;
+    _mailButton.enabled = YES;
 }
 
 -(void)didReceiveError:(NSError *)error{
     //NSLog(@"Error json = %@",error.description);
     [self showErrorView:@"Errore server"];
+    _callButton.enabled = NO;
+    _mailButton.enabled = NO;
 }
 -(void)fetchData{
     if([Utilities networkReachable]){

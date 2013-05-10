@@ -42,6 +42,8 @@
     titleLabel.backgroundColor = [UIColor clearColor];
 
     [webView.scrollView addSubview:titleLabel];
+    
+    shareButton.enabled = NO;
 }
 
 - (IBAction)sendPost:(id)sender {
@@ -142,6 +144,7 @@
 #pragma mark - WMHTTPAccessDelegate
 -(void)didReceiveJSON:(NSArray *)jsonArray{
     //NSLog(@"JSON = %@",jsonArray);
+    shareButton.enabled = YES;
     json = jsonArray;
     NSString *title = [[jsonArray objectAtIndex:0]objectForKey:@"titolo"];
     titleLabel.text = [NSString stringWithFormat:@"%@",title];
@@ -151,6 +154,7 @@
 -(void)didReceiveError:(NSError *)error{
     NSLog(@"Server error = %@",error.description);
     [self showErrorView:@"Errore server"];
+    shareButton.enabled = NO;
 }
 #pragma mark - SHARING
 
