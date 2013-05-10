@@ -158,6 +158,7 @@
 		D9C6C518165FDBC400247448 /* UIViewController+InterfaceIdiom.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C6C517165FDBC400247448 /* UIViewController+InterfaceIdiom.m */; };
 		D9FDADCA173C6887002808A7 /* background_iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = D9FDADC8173C6887002808A7 /* background_iPad.png */; };
 		D9FDADCB173C6887002808A7 /* background_iPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = D9FDADC9173C6887002808A7 /* background_iPhone.png */; };
+		D9FDADCE173D2BEB002808A7 /* SharingProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = D9FDADCD173D2BEB002808A7 /* SharingProvider.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -382,6 +383,8 @@
 		D9C6C517165FDBC400247448 /* UIViewController+InterfaceIdiom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+InterfaceIdiom.m"; sourceTree = "<group>"; };
 		D9FDADC8173C6887002808A7 /* background_iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background_iPad.png; path = img/background_iPad.png; sourceTree = SOURCE_ROOT; };
 		D9FDADC9173C6887002808A7 /* background_iPhone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background_iPhone.png; path = img/background_iPhone.png; sourceTree = SOURCE_ROOT; };
+		D9FDADCC173D2BEB002808A7 /* SharingProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharingProvider.h; sourceTree = "<group>"; };
+		D9FDADCD173D2BEB002808A7 /* SharingProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharingProvider.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -757,6 +760,8 @@
 			children = (
 				ACEBDC7416570CBE00CEFFE5 /* AppDelegate.h */,
 				ACEBDC7516570CBE00CEFFE5 /* AppDelegate.m */,
+				D9FDADCC173D2BEB002808A7 /* SharingProvider.h */,
+				D9FDADCD173D2BEB002808A7 /* SharingProvider.m */,
 				ACEBDC7D16570CBE00CEFFE5 /* HomeViewController.h */,
 				ACEBDC7E16570CBE00CEFFE5 /* HomeViewController.m */,
 				ACBE63B5165A878A00F64CDA /* HomeViewController_iPhone */,
@@ -1016,6 +1021,7 @@
 				D998F682173A563000D1ED41 /* AreaTurismoItemCell.m in Sources */,
 				AC2230A5173BFFBF00F75C97 /* MapCell.m in Sources */,
 				AC2230AA173C051500F75C97 /* WebViewCell.m in Sources */,
+				D9FDADCE173D2BEB002808A7 /* SharingProvider.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
