@@ -49,6 +49,13 @@
 
 #pragma mark - Table view data source
 
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    UIView* bgview = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, 1)];
+    bgview.opaque = YES;
+    bgview.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"side_menu_cell_background"]];
+    [cell setBackgroundView:bgview];
+    cell.textLabel.text = [_dataModel valueForKey:@"LABEL" atIndexPath:indexPath];
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -56,21 +63,28 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        UIView *v = [[UIView alloc] init];
+        v.opaque = YES;
+        v.backgroundColor = [UIColor colorWithRed:133/255.0f green:196/255.0f blue:224/255.0f alpha:1];
+        cell.selectedBackgroundView = v;
     }
-        
-    cell.textLabel.text = [_dataModel valueForKey:@"LABEL" atIndexPath:indexPath];
-    NSLog(@"cell height = %f",cell.frame.size.height);
-    UIView* bgview = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, 1)];
-    bgview.opaque = YES;
-    bgview.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"side_menu_background"]];
-    [cell setBackgroundView:bgview];
     
-    //cell.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"side_menu_background"]];
+    tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
     return cell;
 }
 
 
 #pragma mark - Table view delegate
+
+//- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+//    UIView* bgview = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, 44)];
+//    bgview.opaque = YES;
+//    bgview.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"side_menu_cell_background"]];
+//    [cell setBackgroundView:bgview];
+//
+//}
+
 - (NSString*) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     return [_dataModel tableView:tableView titleForHeaderInSection:section];
 }
@@ -78,7 +92,7 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     UIImageView *sectionView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"side_menu_sec_background"]];
-    sectionView.alpha = 0.95;
+    //sectionView.alpha = 0.95;
     
     //Add label to view
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(13, -9, 320, 40)];
