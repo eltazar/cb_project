@@ -8,11 +8,11 @@
 		<key>CITY</key>
 		<string>Roma</string>
 		<key>ADDRESS</key>
-		<string></string>
+		<string>Via G.Marchi 10</string>
 		<key>LAT</key>
-		<string>41.9382745</string>
+		<string>41.919499</string>
 		<key>LONG</key>
-		<string>12.54272320</string>
+		<string>12.519391</string>
 	</dict>
 	<dict>
 		<key>NAME</key>
@@ -20,7 +20,7 @@
 		<key>CITY</key>
 		<string>Napoli</string>
 		<key>ADDRESS</key>
-		<string></string>
+		<string>Centro Direzionale Isola E3</string>
 		<key>LAT</key>
 		<string>40.85759150</string>
 		<key>LONG</key>
@@ -32,7 +32,7 @@
 		<key>CITY</key>
 		<string>Brindisi</string>
 		<key>ADDRESS</key>
-		<string></string>
+		<string>Via Appia 15</string>
 		<key>LAT</key>
 		<string>40.63380850</string>
 		<key>LONG</key>
@@ -44,7 +44,7 @@
 		<key>CITY</key>
 		<string>Padova</string>
 		<key>ADDRESS</key>
-		<string></string>
+		<string>Via Sant&apos;andrea 21</string>
 		<key>LAT</key>
 		<string>45.41487990</string>
 		<key>LONG</key>
@@ -56,7 +56,7 @@
 		<key>CITY</key>
 		<string>Palermo</string>
 		<key>ADDRESS</key>
-		<string></string>
+		<string>Via Mazzini 40</string>
 		<key>LAT</key>
 		<string>38.12751870</string>
 		<key>LONG</key>
@@ -68,7 +68,7 @@
 		<key>CITY</key>
 		<string>Torino</string>
 		<key>ADDRESS</key>
-		<string></string>
+		<string>Via Provana 5</string>
 		<key>LAT</key>
 		<string>45.14159970</string>
 		<key>LONG</key>
@@ -80,7 +80,7 @@
 		<key>CITY</key>
 		<string>Castelli Romani</string>
 		<key>ADDRESS</key>
-		<string></string>
+		<string>Piazza Cairoli 15</string>
 		<key>LAT</key>
 		<string>41.68893930</string>
 		<key>LONG</key>
@@ -90,13 +90,25 @@
 		<key>NAME</key>
 		<string>Complesso &quot;Giovanni Center&quot; Nucleo Ind. di Pile</string>
 		<key>CITY</key>
-		<string>Abbruzzo</string>
+		<string>L&apos;aquila</string>
 		<key>ADDRESS</key>
-		<string></string>
+		<string>Via Saragat 106</string>
 		<key>LAT</key>
 		<string>42.04911760</string>
 		<key>LONG</key>
 		<string>13.42669020</string>
+	</dict>
+	<dict>
+		<key>NAME</key>
+		<string>Sede Provinciale</string>
+		<key>CITY</key>
+		<string>Rieti</string>
+		<key>ADDRESS</key>
+		<string>Via Benito Graziani snc</string>
+		<key>LAT</key>
+		<string></string>
+		<key>LONG</key>
+		<string></string>
 	</dict>
 </array>
 </plist>

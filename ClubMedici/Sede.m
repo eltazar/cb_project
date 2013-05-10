@@ -38,6 +38,6 @@
 
 - (NSString *)subtitle {
     
-    return city;
+    return [NSString stringWithFormat:@"%@ - %@",address,city];
 }
 @end
