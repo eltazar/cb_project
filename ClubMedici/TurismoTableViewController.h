@@ -11,11 +11,16 @@
 #import "BusinessLogicBase.h"
 #import "WMTableViewDataSource.h"
 
-@interface TurismoTableViewController : UITableViewController<BusinessLogicDelegate>
+@interface TurismoTableViewController : UITableViewController<BusinessLogicDelegate> {
+    @protected
+        WMTableViewDataSource *_dataModelItaly;
+        WMTableViewDataSource *_dataModelAbroad;
+}
 
 @property(nonatomic, weak) IBOutlet UISegmentedControl *segmentedControl;
 
 @property(nonatomic, strong) AreaTurismoSection *areaTurismoSection;
-@property(nonatomic, strong) WMTableViewDataSource *dataModel;
+
+- (IBAction)segmentedControlChanged;
 
 @end

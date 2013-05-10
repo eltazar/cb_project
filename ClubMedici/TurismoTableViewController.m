@@ -38,12 +38,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    /*self.areaTurismoSection = [[AreaTurismoSection alloc] init];
-    self.areaTurismoSection.sectionId = self*/
     self.areaTurismoSection.delegate = self;
+    
+    _dataModelItaly  = [self.areaTurismoSection getDataModelItaly];
+    _dataModelAbroad = [self.areaTurismoSection getDataModelAbroad];
+    self.tableView.dataSource = _dataModelItaly;
+    _dataModelItaly .cellFactory = self;
+    _dataModelAbroad.cellFactory = self;
     
     _spinner = [[CustomSpinnerView alloc] initWithFrame:self.view.frame];
     
+    self.tableView.tableFooterView = [[UIView alloc] init];
 }
 
 
@@ -57,7 +62,7 @@
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kReachabilityChangedNotification object:nil];
-    if(_errorView && _errorView.showed){
+    if( _errorView && _errorView.showed) {
         [_errorView removeFromSuperview];
     }
 }
@@ -85,7 +90,8 @@
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         cell.selectedBackgroundView = v;
     }
-    ((AreaTurismoItemCell *)cell).areaTurismoItem = [_dataModel valueForKey:@"ITEM" atIndexPath:indexPath];
+    ((AreaTurismoItemCell *)cell).areaTurismoItem = [(WMTableViewDataSource *)self.tableView.dataSource valueForKey:@"ITEM" atIndexPath:indexPath];
+    NSLog(@"indexPath: %@", indexPath);
     return cell;
 }
 
@@ -101,12 +107,13 @@
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    AreaTurismoItem *item = [_dataModel valueForKey:@"ITEM" atIndexPath:indexPath];
+    AreaTurismoItem *item =
+        [(WMTableViewDataSource *)self.tableView.dataSource valueForKey:@"ITEM"
+                                                            atIndexPath:indexPath];
     PDFviewerController *pdfViewController = [[PDFviewerController alloc] initWithNibName:nil bundle:nil];
     pdfViewController.title = item.title;
     pdfViewController.urlString =
         [NSString stringWithFormat:@"http://www.clubmedici.it/nuovo/%@", item.pdfUrl];
-    NSLog(@"loading: %@", pdfViewController.urlString);
     [self.navigationController pushViewController:pdfViewController animated:YES];
 }
 
@@ -126,10 +133,6 @@
     [_spinner removeFromSuperview];
     [_spinner stopAnimating];
     
-    //creo oggetto area ed ottengo il model da esso
-    _dataModel = [self.areaTurismoSection getDataModel];
-    self.tableView.dataSource = _dataModel;
-    _dataModel.cellFactory = self;
     [self.tableView reloadData];
 }
 
@@ -145,7 +148,7 @@
 }
 
 
-- (void) networkStatusChanged:(NSNotification*) notification {
+- (void)networkStatusChanged:(NSNotification*) notification {
 	Reachability* reachability = notification.object;
     NSLog(@"*** AreaBaseController: network status changed ***");
 	if(reachability.currentReachabilityStatus == NotReachable){
@@ -165,7 +168,7 @@
 
 
 - (void)didReceiveBusinessLogicData {
-    NSLog(@"didReceiveBusinessLogicData");
+    NSLog(@"TurismoTableViewControllerDidReceiveBusinessLogicData");
     [self showData];
 }
 
@@ -238,6 +241,20 @@
     //aggiungo spinner alla view
     [self.tableView.backgroundView addSubview:_spinner];
     [self.areaTurismoSection fetchData];
+}
+
+
+- (IBAction)segmentedControlChanged {
+    switch(self.segmentedControl.selectedSegmentIndex) {
+        case 0:
+            self.tableView.dataSource = _dataModelItaly;
+            break;
+        
+        case 1:
+            self.tableView.dataSource = _dataModelAbroad;
+            break;
+    }
+    [self.tableView reloadData];
 }
 
 
