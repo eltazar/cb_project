@@ -11,10 +11,7 @@
 @implementation UIViewController (InterfaceIdiom)
 
 + (id)idiomAllocInit {
-    NSString *idiom;
-    idiom = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)? @"_iPhone" : @"_iPad";
-    Class class = NSClassFromString([NSString stringWithFormat:@"%@%@",
-                                    NSStringFromClass(self.class), idiom]);
+    Class class = NSClassFromString(IDIOM_SPECIFIC_STRING(NSStringFromClass(self.class)));
     id viewController = [[class alloc] init];
     if (!viewController) {
         NSLog(@"uh-oh");
@@ -22,5 +19,6 @@
     }
     return viewController;
 }
+
 
 @end
