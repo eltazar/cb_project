@@ -85,6 +85,7 @@
 
 #pragma mark - UIWebViewDelegate
 - (void)webViewDidStartLoad:(UIWebView *)webView {
+    self.navigationItem.rightBarButtonItem.enabled = NO;
     NSLog(@"INIZIATO DOWNLOAD PDF");
     [spinner startAnimating];
     [self.view addSubview:spinner];
@@ -99,6 +100,7 @@
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
     NSLog(@"FALLITO DOWNLOAD PDF = %@", [error localizedDescription]);
+    self.navigationItem.rightBarButtonItem.enabled = NO;
     [spinner stopAnimating];
     [spinner removeFromSuperview];
 }
