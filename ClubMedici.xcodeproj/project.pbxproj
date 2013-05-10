@@ -57,6 +57,8 @@
 		AC8E1777172D800300376720 /* ErrorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC8E1776172D800300376720 /* ErrorView.xib */; };
 		AC9168E416B9EC1900AF402E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC9168E316B9EC1900AF402E /* CoreLocation.framework */; };
 		AC93CE93165DA6F400ABA3C2 /* PDFviewerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC93CE92165DA6F400ABA3C2 /* PDFviewerController.xib */; };
+		AC9E0308173D1DF200B15AD6 /* side_menu_background.png in Resources */ = {isa = PBXBuildFile; fileRef = AC9E0307173D1DF200B15AD6 /* side_menu_background.png */; };
+		AC9E030A173D225100B15AD6 /* side_menu_sec_background.png in Resources */ = {isa = PBXBuildFile; fileRef = AC9E0309173D225100B15AD6 /* side_menu_sec_background.png */; };
 		ACB57B7B172A8287004176AF /* NewsPullableView.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB57B7A172A8287004176AF /* NewsPullableView.m */; };
 		ACB57B7F172AABDE004176AF /* ActionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACB57B7E172AABDE004176AF /* ActionCell.xib */; };
 		ACB6392B1727236C00C26223 /* FXLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB6392A1727236C00C26223 /* FXLabel.m */; };
@@ -233,6 +235,8 @@
 		AC8E1776172D800300376720 /* ErrorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ErrorView.xib; path = ClubMedici/ErrorView.xib; sourceTree = "<group>"; };
 		AC9168E316B9EC1900AF402E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		AC93CE92165DA6F400ABA3C2 /* PDFviewerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PDFviewerController.xib; path = ClubMedici/PDFviewerController.xib; sourceTree = "<group>"; };
+		AC9E0307173D1DF200B15AD6 /* side_menu_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = side_menu_background.png; path = img/side_menu_background.png; sourceTree = SOURCE_ROOT; };
+		AC9E0309173D225100B15AD6 /* side_menu_sec_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = side_menu_sec_background.png; path = img/side_menu_sec_background.png; sourceTree = SOURCE_ROOT; };
 		ACB57B79172A8286004176AF /* NewsPullableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsPullableView.h; sourceTree = "<group>"; };
 		ACB57B7A172A8287004176AF /* NewsPullableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsPullableView.m; sourceTree = "<group>"; };
 		ACB57B7E172AABDE004176AF /* ActionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActionCell.xib; sourceTree = "<group>"; };
@@ -617,6 +621,8 @@
 			children = (
 				ACBF78EF172D4B9700B4F230 /* spinner images */,
 				ACE9FF5716B88D91002C8CE5 /* header_contatti.png */,
+				AC9E0309173D225100B15AD6 /* side_menu_sec_background.png */,
+				AC9E0307173D1DF200B15AD6 /* side_menu_background.png */,
 				AC79B2CF1739AF8700200118 /* iphone_nav_bar@2x.png */,
 				ACB6A9F4173AFF1400068934 /* reverse_nav_bar@2x.png */,
 				ACC450F6173ACE0D0058B30A /* normal_button_big_selected@2x.png */,
@@ -956,6 +962,8 @@
 				D9FDADCA173C6887002808A7 /* background_iPad.png in Resources */,
 				D9FDADCB173C6887002808A7 /* background_iPhone.png in Resources */,
 				ACBE0A85173CEA1E0037E376 /* Contatti_ipad.plist in Resources */,
+				AC9E0308173D1DF200B15AD6 /* side_menu_background.png in Resources */,
+				AC9E030A173D225100B15AD6 /* side_menu_sec_background.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
