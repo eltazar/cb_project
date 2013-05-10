@@ -130,7 +130,7 @@
         UIImage *image = [[ImageCache sharedInstance] imageForURLString:_urlString];
         //NSLog(@"[%@ loadImageFromURL]: _urlString = %@", [self class], _urlString);
         if (image) {
-            NSLog(@"                          \t Cache Hit! [[%@]-]", [_urlString substringWithRange:NSMakeRange(_urlString.length-1-10, 3)]);
+            //NSLog(@"                          \t Cache Hit! [[%@]-]", [_urlString substringWithRange:NSMakeRange(_urlString.length-1-10, 3)]);
             self.image = image;
             _urlString = nil;
             if(delegate && [delegate respondsToSelector:@selector(didFinishLoadingImage:)])

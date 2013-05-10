@@ -103,7 +103,6 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {    
     UITableViewCell *cell = nil;
     NSString *dataKey = [_dataModel valueForKey:@"DATA_KEY" atIndexPath:indexPath];
-    NSLog(@"data_key: %@", dataKey);
     
     if ([dataKey isEqualToString:@"description"]) {
         // _areaDescriptionCell.backgroundView = [[CustomCellBackground alloc] init];
@@ -181,7 +180,6 @@
     }
     else {
         if ([dataKey isEqualToString:@"ViaggiTurismo"]) {
-            NSLog(@"CELLONE!");
             cell = [tableView dequeueReusableCellWithIdentifier:@"ViaggiTurismo"];
             if (!cell) {
                 cell = [[[NSBundle mainBundle] loadNibNamed:@"AreaTurismoCell"
