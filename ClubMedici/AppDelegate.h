@@ -23,7 +23,7 @@
 @property (strong, nonatomic) UISplitViewController *splitViewController;
 
 - (BOOL)openSessionWithAllowLoginUI:(BOOL)allowLoginUI;
-- (void) closeSession;
+- (void)closeSession;
 @end
 
 

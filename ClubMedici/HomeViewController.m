@@ -7,16 +7,16 @@
 //
 
 #import <QuartzCore/QuartzCore.h>
-#import <Twitter/Twitter.h>
 #import "HomeViewController.h"
+#import "SharingProvider.h"
 #import "Reachability.h"
 #import "Utilities.h"
 
 
 
-@interface HomeViewController ()
-{
+@interface HomeViewController () {
     NSArray *json;
+    SharingProvider *_sharingProvider;
 }
 @end
 
@@ -48,13 +48,16 @@
     
     spinner = [[CustomSpinnerView alloc] initWithFrame:self.view.frame];
     spinner.frame = CGRectMake(self.navigationController.navigationBar.frame.size.width/2 - spinner.frame.size.width/2, self.view.frame.size.height/2 - spinner.frame.size.height/2, spinner.frame.size.width, spinner.frame.size.height);
+    _sharingProvider = [[SharingProvider alloc] init];
 }
+
 
 - (IBAction)sendPost:(id)sender {
 
 }
 
--(void)viewWillAppear:(BOOL)animated{
+
+- (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(networkStatusChanged:) name:kReachabilityChangedNotification object:nil];
     // Register for notifications on FB session state changes
@@ -66,7 +69,8 @@
     [self fetchData];
 }
 
--(void)viewWillDisappear:(BOOL)animated{
+
+- (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kReachabilityChangedNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:FBSessionStateChangedNotification object:nil];
@@ -92,7 +96,8 @@
 
 #pragma mark - FetchData & network
 
--(void)fetchData{
+
+- (void)fetchData {
     if([Utilities networkReachable]){
         [spinner startAnimating];
         [self.view addSubview:spinner];
@@ -101,11 +106,10 @@
     else{
         [self showErrorView:@"Connessione assente"];
     }
-    
 }
 
--(void)showErrorView:(NSString*)message{
-    
+
+- (void)showErrorView:(NSString*)message {
     errorView.label.text = message;
     [errorView.tapRecognizer addTarget:self action:@selector(hideErrorView:)];
     
@@ -122,8 +126,8 @@
     errorView.showed = YES;
 }
 
--(void)hideErrorView:(UITapGestureRecognizer*)gesture{
-        
+
+- (void)hideErrorView:(UITapGestureRecognizer*)gesture {
     if(errorView || errorView.showed){
         [UIView animateWithDuration:0.5
                          animations:^(void){
@@ -144,8 +148,8 @@
     
 }
 
-- (void) networkStatusChanged:(NSNotification*) notification
-{
+
+- (void) networkStatusChanged:(NSNotification*) notification {
 	Reachability* reachability = notification.object;
     NSLog(@"*** HomeViewController: network status changed ***");
 	if(reachability.currentReachabilityStatus == NotReachable){
@@ -163,16 +167,23 @@
     NSLog(@"INIZIATO DOWNLOAD PDF");
 }
 
+
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     NSLog(@"Finito DOWNLOAD PDF");
 }
+
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
     NSLog(@"FALLITO DOWNLOAD PDF = %@", [error localizedDescription]);
 
 }
 
+
+
 #pragma mark - WMHTTPAccessDelegate
+
+
+
 -(void)didReceiveJSON:(NSArray *)jsonArray{
     //NSLog(@"JSON = %@",jsonArray);
     [spinner stopAnimating];
@@ -184,6 +195,7 @@
     [Utilities logEvent:@"News_letta" arguments:[NSDictionary dictionaryWithObjectsAndKeys:title,@"Titolo_news",nil]];
 }
 
+
 -(void)didReceiveError:(NSError *)error{
     [spinner stopAnimating];
     [spinner removeFromSuperview];
@@ -191,216 +203,22 @@
     [self showErrorView:@"Errore server"];
     shareButton.enabled = NO;
 }
-#pragma mark - SHARING
 
--(IBAction)sharingAction:(id)sender{
-    
-    if([[[UIDevice currentDevice] systemVersion] floatValue] >= 6.0){
-        //lancio activity di sharing di ios6
-        [self shareWithIosActivity];
+
+- (BOOL)webView:(UIWebView *)inWeb shouldStartLoadWithRequest:(NSURLRequest *)inRequest navigationType:(UIWebViewNavigationType)inType {
+    if ( inType == UIWebViewNavigationTypeLinkClicked ) {
+        [[UIApplication sharedApplication] openURL:[inRequest URL]];
+        return NO;
     }
-    else{
-        //lancio actionSheet custom
-        [self shareWithActionSheet:sender];
-    }
+    return YES;
 }
 
 
--(void)shareWithIosActivity{
-    NSArray *activityItems;
-    
-    NSString *newsString = [NSString stringWithFormat:@"News ClubMedici: %@\n %@%@",[[json objectAtIndex:0]objectForKey:@"titolo"],URL_NEWS,[[json objectAtIndex:0] objectForKey:@"id"]];
-    
-    activityItems = @[newsString];
-    
-    UIActivityViewController *activityController = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
-    activityController.excludedActivityTypes = @[UIActivityTypePrint, UIActivityTypeCopyToPasteboard, UIActivityTypePostToWeibo];
-    [self presentViewController:activityController animated:YES completion:nil];
-}
 
--(void)shareWithActionSheet:(id)sender{
-    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Condividi" delegate:self cancelButtonTitle:@"Annulla" destructiveButtonTitle:nil otherButtonTitles:@"Facebook",@"Twitter",@"E-mail", nil];
-    actionSheet.delegate = self;
-    [actionSheet showInView:self.view];
-}
+#pragma mark - FacebookSessionState
 
-#pragma mark - ActionSheetDelegate
 
--(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
-    switch (buttonIndex) {
-        case 0:
-            [self postToFacebook:self];
-            break;
-        case 1:
-            [self postToTwitter:self];
-            break;
-        case 2:
-            [self postToMail:self];
-            break;
-        default:
-            break;
-    }
-}
 
-#pragma mark - Posting methods
--(void)postToMail:(id)sender{
-    
-    NSString *urlString = [NSString stringWithFormat:@"Ciao leggi la nuova news di ClubMedici:\n%@%@",URL_NEWS,[[json objectAtIndex:0] objectForKey:@"id"]];
-    [Utilities sendEmail:nil object:[NSString stringWithFormat:@"News ClubMedici: \n%@",[[json objectAtIndex:0] objectForKey:@"titolo"]] content:urlString html:NO controller:self];
-}
-
-- (void)postToTwitter:(id)sender{
-
-    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 6.0) {
-        //ios 6
-        [self postWithIos6Api:SLServiceTypeTwitter];
-    }
-    else{
-        //ios5
-        [self twitter:self];
-    }
-}
-
--(IBAction)twitter:(id)sender {
-    
-    TWTweetComposeViewController *twitter = [[TWTweetComposeViewController alloc] init];
-    
-    [twitter setInitialText:[NSString stringWithFormat:@"News ClubMedici: \n%@",[[json objectAtIndex:0] objectForKey:@"titolo"]]];
-    //[twitter addImage:[UIImage imageNamed:@"image.png"]];
-    [twitter addURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",URL_NEWS,[[json objectAtIndex:0] objectForKey:@"id"]]]];
-
-    [self presentViewController:twitter animated:YES completion:nil];
-    
-    twitter.completionHandler = ^(TWTweetComposeViewControllerResult res) {
-                            
-                        if(res == TWTweetComposeViewControllerResultDone) { 
-                            NSLog(@"tweet inviato");
-                        }
-                        else if(res == TWTweetComposeViewControllerResultCancelled) {
-                            NSLog(@"tweet annullato");
-                        }
-                        [self dismissModalViewControllerAnimated:YES];
-    };
-}
-
-- (void)postToFacebook:(id)sender {
-    
-    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 6.0) {
-        //ios 6
-        [self postWithIos6Api:SLServiceTypeFacebook];
-    }
-    else{
-        //ios5
-        [self authButtonAction:self];
-    }
-}
-
--(void)postWithIos6Api:(NSString*)service{
-    SLComposeViewController *fbController=[SLComposeViewController composeViewControllerForServiceType:service];
-    
-    if([SLComposeViewController isAvailableForServiceType:service])
-    {
-        SLComposeViewControllerCompletionHandler __block completionHandler=^(SLComposeViewControllerResult result){
-            
-            [fbController dismissViewControllerAnimated:YES completion:nil];
-            
-            switch(result){
-                case SLComposeViewControllerResultCancelled:
-                default:
-                {
-                    NSLog(@"Cancelled.....");
-                    
-                }
-                    break;
-                case SLComposeViewControllerResultDone:
-                {
-                    NSLog(@"Posted....");
-                    //TODO: mostrare hud successo
-                }
-                    break;
-            }};
-        
-        //[fbController addImage:[UIImage imageNamed:@"1.jpg"]];
-        [fbController setInitialText:[NSString stringWithFormat:@"News ClubMedici: \n%@",[[json objectAtIndex:0] objectForKey:@"titolo"]]];
-        [fbController addURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.clubmedici.it/nuovo/pagina.php?art=1&pgat=%@",[[json objectAtIndex:0] objectForKey:@"id"]]]];
-        [fbController setCompletionHandler:completionHandler];
-        [self presentViewController:fbController animated:YES completion:nil];
-    }
-    
-}
-
-#pragma mark - Facebook methods
-
-- (void)authButtonAction:(id)sender {
-    AppDelegate *appDelegate =
-    [[UIApplication sharedApplication] delegate];
-    
-    // The user has initiated a login, so call the openSession method
-    // and show the login UX if necessary.
-    //[appDelegate openSessionWithAllowLoginUI:YES];
-    
-    // If the user is authenticated, log out when the button is clicked.
-    // If the user is not authenticated, log in when the button is clicked.
-    if (FBSession.activeSession.isOpen) {
-        //inizia la procedura di pubblicazione
-        [self publishAction:self];
-    } else {
-        //lancia il login a facebook
-        // The user has initiated a login, so call the openSession method
-        // and show the login UX if necessary.
-        [appDelegate openSessionWithAllowLoginUI:YES];
-    }
-    
-    
-}
-
-- (void)publishAction:(id)sender {
-    // Put together the dialog parameters
-    NSMutableDictionary *params =
-    [NSMutableDictionary dictionaryWithObjectsAndKeys:
-     @"News ClubMedici", @"name",
-     [[json objectAtIndex:0] objectForKey:@"titolo"], @"caption",
-     /*@"The Facebook SDK for iOS makes it easier and faster to develop Facebook integrated iOS apps.", @"description",*/
-     [NSString stringWithFormat:@"http://www.clubmedici.it/nuovo/pagina.php?art=1&pgat=%@",[[json objectAtIndex:0] objectForKey:@"id"]], @"link",
-     [NSString stringWithFormat:@"http://www.clubmedici.it/nuovo/%@",[[json objectAtIndex:0]objectForKey:@"foto"]], @"picture",
-     nil];
-    
-    // Invoke the dialog
-    [FBWebDialogs presentFeedDialogModallyWithSession:nil
-                                           parameters:params
-                                              handler:
-     ^(FBWebDialogResult result, NSURL *resultURL, NSError *error) {
-         if (error) {
-             // Error launching the dialog or publishing a story.
-             NSLog(@"Error publishing story.");
-         } else {
-             if (result == FBWebDialogResultDialogNotCompleted) {
-                 // User clicked the "x" icon
-                 NSLog(@"User canceled story publishing.");
-             } else {
-                 // Handle the publish feed callback
-                 NSDictionary *urlParams = [self parseURLParams:[resultURL query]];
-                 if (![urlParams valueForKey:@"post_id"]) {
-                     // User clicked the Cancel button
-                     NSLog(@"User canceled story publishing.");
-                 } else {
-                     // User clicked the Share button
-                     //TODO: mostrare hud di successo
-                 }
-             }
-         }
-     }];
-}
-
--(void)logoutFromFB:(id)sender{
-    AppDelegate *appDelegate =
-    [[UIApplication sharedApplication] delegate];
-    [appDelegate closeSession];
-}
-
-/*
- * Configure the logged in versus logged out UI
- */
 - (void)sessionStateChanged:(NSNotification*)notification {
     if (FBSession.activeSession.isOpen) {
         NSLog(@"LOGGATO");
@@ -413,56 +231,56 @@
         [tmpButton addTarget:self action:@selector(logoutFromFB:) forControlEvents:UIControlEventTouchUpInside];
         UIBarButtonItem *logoutBtn = [[UIBarButtonItem alloc] initWithCustomView:tmpButton];
         self.navigationItem.rightBarButtonItem = logoutBtn;
-        
-        [self postToFacebook:self];
     } else {
         NSLog(@"SLOGGATO");
         self.navigationItem.rightBarButtonItem = nil;
     }
 }
 
-/**
- * A function for parsing URL parameters.
- */
-- (NSDictionary*)parseURLParams:(NSString *)query {
-    NSArray *pairs = [query componentsSeparatedByString:@"&"];
-    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
-    for (NSString *pair in pairs) {
-        NSArray *kv = [pair componentsSeparatedByString:@"="];
-        NSString *val =
-        [[kv objectAtIndex:1]
-         stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-        
-        [params setObject:val forKey:[kv objectAtIndex:0]];
-    }
-    return params;
+
+-(void)logoutFromFB:(id)sender{
+    AppDelegate *appDelegate =
+    [[UIApplication sharedApplication] delegate];
+    [appDelegate closeSession];
 }
 
-#pragma mark - MFMailComposeViewControllerDelegate
 
 
-- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
+
+#pragma mark - IBActions
+
+
+
+- (IBAction)sharingAction:(id)sender {
+    _sharingProvider.iOS6String  = [NSString stringWithFormat:@"News ClubMedici: %@\n %@%@",
+                                    [[json objectAtIndex:0] objectForKey:@"titolo"],
+                                    URL_NEWS,
+                                    [[json objectAtIndex:0] objectForKey:@"id"]];
     
-    [self dismissModalViewControllerAnimated:YES];
-    if(result == MFMailComposeResultSent) {
-        NSLog(@"messaggio inviato");
-    }
-	else if (result == MFMailComposeResultFailed){
-		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Messaggio non inviato!" message:@"Non è stato possibile inviare la tua e-mail" delegate:self cancelButtonTitle:@"Chiudi" otherButtonTitles:nil];
-		[alert show];
-	}
-    else if (result == MFMailComposeResultCancelled){
-        NSLog(@"messaggio annullato");
-    }
+    _sharingProvider.mailObject  = [NSString stringWithFormat:@"News ClubMedici: \n%@",
+                                    [[json objectAtIndex:0] objectForKey:@"titolo"]];
+    
+    _sharingProvider.mailBody    = [NSString stringWithFormat:
+                                    @"Ciao leggi la nuova news di ClubMedici:\n%@%@",
+                                    URL_NEWS,
+                                    [[json objectAtIndex:0] objectForKey:@"id"]];
+    
+    _sharingProvider.initialText = [NSString stringWithFormat:@"News ClubMedici: \n%@",
+                                    [[json objectAtIndex:0] objectForKey:@"titolo"]];
+    
+    _sharingProvider.url         = [NSString stringWithFormat:@"%@%@",
+                                    URL_NEWS,
+                                    [[json objectAtIndex:0] objectForKey:@"id"]];
+    
+    _sharingProvider.title       = [[json objectAtIndex:0] objectForKey:@"titolo"];
+    
+    _sharingProvider.image       = [NSString stringWithFormat:
+                                    @"http://www.clubmedici.it/nuovo/%@",
+                                    [[json objectAtIndex:0]objectForKey:@"foto"]];
+    
+    
+    [_sharingProvider shareAction:sender];
 }
 
--(BOOL) webView:(UIWebView *)inWeb shouldStartLoadWithRequest:(NSURLRequest *)inRequest navigationType:(UIWebViewNavigationType)inType {
-    if ( inType == UIWebViewNavigationTypeLinkClicked ) {
-        [[UIApplication sharedApplication] openURL:[inRequest URL]];
-        return NO;
-    }
-    
-    return YES;
-}
 
 @end

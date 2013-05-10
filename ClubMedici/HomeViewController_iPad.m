@@ -33,18 +33,24 @@
     [titleLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:20]];
 }
 
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
+
+
 # pragma mark - iOS 5 specific
+
+
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     return YES;
 }
 
--(void) didRotateFromInterfaceOrientation:(UIInterfaceOrientation)orientation{
+
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)orientation {
     if (orientation == UIInterfaceOrientationPortrait || orientation == UIInterfaceOrientationPortraitUpsideDown) {
         NSLog(@"PORTRAIT");
     }
@@ -54,13 +60,21 @@
     }
 }
 
--(void)shareWithActionSheet:(UIButton*)sender{
-    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Condividi" delegate:self cancelButtonTitle:@"Annulla" destructiveButtonTitle:nil otherButtonTitles:@"Facebook",@"Twitter",@"E-mail", nil];
-    actionSheet.delegate = self;
+
+
+#pragma mark - SharingProvider informal protocol
+
+
+
+- (void)showShareActionSheet:(UIActionSheet *)actionSheet sender:(UIButton *)sender {
     [actionSheet showFromRect:sender.frame inView:sender.superview animated:YES];
 }
 
+
+
 #pragma mark - UISplitViewControllerDelegate
+
+
 
 - (void)splitViewController:(UISplitViewController*)svc
      willHideViewController:(UIViewController *)aViewController
@@ -79,13 +93,20 @@
     //[self setPopoverController:nil];
 }
 
+
 - (BOOL)splitViewController:(UISplitViewController *)svc
    shouldHideViewController:(UIViewController *)vc
               inOrientation:(UIInterfaceOrientation)orientation {
     return NO;
 }
 
--(void)didReceiveJSON:(NSArray *)jsonArray{
+
+
+#pragma mark - WMHTTPAccessDelegate
+
+
+
+- (void)didReceiveJSON:(NSArray *)jsonArray {
     //NSLog(@"JSON = %@",jsonArray);
     [super didReceiveJSON:jsonArray];
     
@@ -96,14 +117,18 @@
     [webView loadHTMLString:htmlPage baseURL:[NSURL URLWithString:BASE_URL]];
 }
 
--(void)didReceiveError:(NSError *)error{
+
+- (void)didReceiveError:(NSError *)error {
     [super didReceiveError:error];
 }
 
+
+
 #pragma mark - ErrorView methods
 
--(void)showErrorView:(NSString*)message{
-    
+
+
+- (void)showErrorView:(NSString*)message {
     if(errorView == nil || !errorView.showed){
         errorView = [[ErrorView alloc] initWithSize:self.view.frame.size];
         [super showErrorView:message];
