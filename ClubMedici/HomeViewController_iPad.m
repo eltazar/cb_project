@@ -136,7 +136,7 @@
                         h1, h2, h3, h4, h5, h6 {                \
                             margin: 0;                          \
                             font-family: helvetica;             \
-                            font-size:. 100%;                   \
+                            font-size:. 130%;                   \
                             color: #0D4383;\
                             text-shadow: rgba(0,0,0,0.5) -0.5px 0,\
                             rgba(0,0,0,0.3) 0 -0.5px, rgba(255,255,255,0.5) 0.5px,\

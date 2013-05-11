@@ -73,13 +73,13 @@
 }
 
 -(void)applyLabelEffect:(FXLabel*)label{
+    label.textColor = [UIColor colorWithWhite:0.5f alpha:1];
     label.shadowColor = [UIColor colorWithWhite:1.0f alpha:0.8f];
     label.shadowOffset = CGSizeMake(0.8f, 0.80f);
     label.shadowBlur = 1.0f;
     label.innerShadowBlur = 3.0f;
     label.innerShadowColor = [UIColor colorWithWhite:0.0f alpha:0.9f];
     label.innerShadowOffset = CGSizeMake(0.8f, 0.8f);
-    label.highlightedTextColor =[UIColor blackColor];
 }
 - (void)didReceiveMemoryWarning
 {

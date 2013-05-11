@@ -90,4 +90,14 @@
     return YES;
 }
 
+#pragma mark - WMHTTPAccessDelegate
+-(void)didReceiveJSON:(NSArray *)jsonArray{
+    [super didReceiveJSON:jsonArray];
+    NSString *htmlString = [[jsonArray objectAtIndex:0] objectForKey:@"testo"];
+    htmlPage = @"<html><head><style type=\"text/css\">%@</style></head>    <body>%@</body></html>";
+    NSString *style = @"body {font-family:helvetica;margin:15px 15px 15px 15px;background-color: #f6faff;}body,p {font-size: 18px;color: #333333;text-shadow: #fff 0px 1px 0px;}";//font-size: 16px;text-align: justify;color: #272727;text-shadow: 1px 4px 6px #f6faff, 0 0 0 #000, 1px 4px 6px #f6faff;}";//
+    htmlPage = [NSString stringWithFormat:htmlPage,style,htmlString];
+    [self.webView loadHTMLString:htmlPage baseURL:[NSURL URLWithString:nil]];
+}
+
 @end

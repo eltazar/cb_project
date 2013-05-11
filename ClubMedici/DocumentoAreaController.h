@@ -20,6 +20,7 @@
     ErrorView *errorView;
     CustomSpinnerView *spinner;
     IBOutlet UIView *footerView;
+    NSString *htmlPage;
 }
 
 @property(nonatomic, weak) IBOutlet UIButton *callButton;

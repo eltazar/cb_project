@@ -77,14 +77,14 @@
         }                                   \
         body, p {                           \
             margin:15px;                    \
-            font-size: 16px;                \
+            font-size: 17px;                \
             color: #212121;                 \
             text-shadow: #fff 0px 1px 0px;  \
         }                                   \
         h1, h2, h3, h4, h5, h6 {            \
             margin: 0;                      \
             font-family: helvetica;         \
-            font-size:. 110%;               \
+            font-size:. 115%;               \
     color: #0D4383;\
     text-shadow: rgba(0,0,0,0.5) -0.5px 0, rgba(0,0,0,0.3) 0 -0.5px, rgba(255,255,255,0.5) 0.5px, rgba(0,0,0,0.3) -0.5px -0.5px;\
         }";
