@@ -32,6 +32,7 @@
     self.frame = CGRectMake(0, 0, 320, 100);
     CGRect mapFrame = CGRectMake(0.0, 0.0, self.contentView.bounds.size.width, self.contentView.bounds.size.height);
     self.mapView = [[MKMapView alloc] initWithFrame:mapFrame];
+    _mapView.opaque = YES;
     _mapView.tag = 1;
     _mapView.userInteractionEnabled = NO;
     
@@ -42,10 +43,12 @@
     
     UIView *topView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, 1.5)];
     topView.backgroundColor = [UIColor colorWithRed:140/255.0f green:153/255.0f blue:168/253.0f alpha:1];
+    topView.opaque = YES;
     [self.contentView addSubview:topView];
     topView.alpha = 0.4f;
     
     UIView *bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, self.frame.size.height-1.5, self.frame.size.width, 1.5)];
+    bottomView.opaque = YES;
     bottomView.autoresizingMask =  UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin;
     bottomView.backgroundColor = [UIColor colorWithRed:140/255.0f green:153/255.0f blue:168/253.0f alpha:1];
     [self.mapView addSubview:bottomView];
