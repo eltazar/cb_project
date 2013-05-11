@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC0099A2173E2CA900A0B202 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0099A1173E2CA900A0B202 /* AudioToolbox.framework */; };
+		AC0099A7173E2CD000A0B202 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = AC0099A3173E2CCF00A0B202 /* arrow.png */; };
+		AC0099A8173E2CD000A0B202 /* arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC0099A4173E2CD000A0B202 /* arrow@2x.png */; };
+		AC0099A9173E2CD000A0B202 /* pop.wav in Resources */ = {isa = PBXBuildFile; fileRef = AC0099A5173E2CD000A0B202 /* pop.wav */; };
+		AC0099AA173E2CD000A0B202 /* psst1.wav in Resources */ = {isa = PBXBuildFile; fileRef = AC0099A6173E2CD000A0B202 /* psst1.wav */; };
 		AC03EA0D1730881F004307EE /* mail2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC03EA0C1730881F004307EE /* mail2@2x.png */; };
 		AC03EA0F1730882E004307EE /* phone2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC03EA0E1730882E004307EE /* phone2@2x.png */; };
 		AC1007F21731797C0021A89F /* ipadShadow.png in Resources */ = {isa = PBXBuildFile; fileRef = AC1007F11731797C0021A89F /* ipadShadow.png */; };
@@ -67,6 +72,7 @@
 		ACBA1D511725C413004EB8E4 /* DisclaimerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACBA1D501725C413004EB8E4 /* DisclaimerCell.xib */; };
 		ACBA1D561725C442004EB8E4 /* PDHTTPAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBA1D531725C442004EB8E4 /* PDHTTPAccess.m */; };
 		ACBA1D571725C442004EB8E4 /* WMHTTPAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBA1D551725C442004EB8E4 /* WMHTTPAccess.m */; };
+		ACBD38B3173E2ACD00D4F0B7 /* PullToRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBD38B2173E2ACD00D4F0B7 /* PullToRefreshView.m */; };
 		ACBE0A85173CEA1E0037E376 /* Contatti_ipad.plist in Resources */ = {isa = PBXBuildFile; fileRef = ACBE0A84173CEA1E0037E376 /* Contatti_ipad.plist */; };
 		ACBE63AD165A865000F64CDA /* SideMenuController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBE63AC165A865000F64CDA /* SideMenuController_iPhone.m */; };
 		ACBE63B4165A874900F64CDA /* SideMenuController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBE63B3165A874900F64CDA /* SideMenuController_iPad.m */; };
@@ -163,6 +169,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AC0099A1173E2CA900A0B202 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		AC0099A3173E2CCF00A0B202 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = arrow.png; path = img/arrow.png; sourceTree = SOURCE_ROOT; };
+		AC0099A4173E2CD000A0B202 /* arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "arrow@2x.png"; path = "img/arrow@2x.png"; sourceTree = SOURCE_ROOT; };
+		AC0099A5173E2CD000A0B202 /* pop.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = pop.wav; path = img/pop.wav; sourceTree = SOURCE_ROOT; };
+		AC0099A6173E2CD000A0B202 /* psst1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = psst1.wav; path = img/psst1.wav; sourceTree = SOURCE_ROOT; };
 		AC03EA0C1730881F004307EE /* mail2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "mail2@2x.png"; path = "img/mail2@2x.png"; sourceTree = SOURCE_ROOT; };
 		AC03EA0E1730882E004307EE /* phone2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "phone2@2x.png"; path = "img/phone2@2x.png"; sourceTree = SOURCE_ROOT; };
 		AC1007F11731797C0021A89F /* ipadShadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ipadShadow.png; path = img/ipadShadow.png; sourceTree = SOURCE_ROOT; };
@@ -246,6 +257,8 @@
 		ACBA1D531725C442004EB8E4 /* PDHTTPAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDHTTPAccess.m; sourceTree = "<group>"; };
 		ACBA1D541725C442004EB8E4 /* WMHTTPAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMHTTPAccess.h; sourceTree = "<group>"; };
 		ACBA1D551725C442004EB8E4 /* WMHTTPAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMHTTPAccess.m; sourceTree = "<group>"; };
+		ACBD38B1173E2ACD00D4F0B7 /* PullToRefreshView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PullToRefreshView.h; sourceTree = "<group>"; };
+		ACBD38B2173E2ACD00D4F0B7 /* PullToRefreshView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PullToRefreshView.m; sourceTree = "<group>"; };
 		ACBE0A84173CEA1E0037E376 /* Contatti_ipad.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Contatti_ipad.plist; sourceTree = "<group>"; };
 		ACBE63AB165A865000F64CDA /* SideMenuController_iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideMenuController_iPhone.h; sourceTree = "<group>"; };
 		ACBE63AC165A865000F64CDA /* SideMenuController_iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideMenuController_iPhone.m; sourceTree = "<group>"; };
@@ -395,6 +408,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC0099A2173E2CA900A0B202 /* AudioToolbox.framework in Frameworks */,
 				ACDA94371736E41A00A00092 /* Twitter.framework in Frameworks */,
 				AC168DAF173694DB00B7466A /* Security.framework in Frameworks */,
 				AC168DB0173694DB00B7466A /* Social.framework in Frameworks */,
@@ -624,6 +638,10 @@
 			children = (
 				ACBF78EF172D4B9700B4F230 /* spinner images */,
 				AC740AA3173D9899002099EC /* tw@2x.png */,
+				AC0099A3173E2CCF00A0B202 /* arrow.png */,
+				AC0099A4173E2CD000A0B202 /* arrow@2x.png */,
+				AC0099A5173E2CD000A0B202 /* pop.wav */,
+				AC0099A6173E2CD000A0B202 /* psst1.wav */,
 				AC740AA1173D96F6002099EC /* fb@2x.png */,
 				AC9E0317173D71A700B15AD6 /* mail3_disabled.png */,
 				AC9E0318173D71A800B15AD6 /* phone3_disabled.png */,
@@ -661,6 +679,8 @@
 				AC5E5486173523C50076DA6C /* ActionSheetPicker */,
 				ACB639281727236C00C26223 /* FXLabel */,
 				ACDED9B61725EDC500668C5C /* AreeEnum.h */,
+				ACBD38B1173E2ACD00D4F0B7 /* PullToRefreshView.h */,
+				ACBD38B2173E2ACD00D4F0B7 /* PullToRefreshView.m */,
 				ACDCC029172EC08E00E64879 /* Reachability.h */,
 				ACDCC02A172EC08E00E64879 /* Reachability.m */,
 				ACCA16F2172A804000B03095 /* PullableView.h */,
@@ -740,6 +760,7 @@
 		ACEBDC6416570CBE00CEFFE5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AC0099A1173E2CA900A0B202 /* AudioToolbox.framework */,
 				D915E18E17373FD300F78948 /* FacebookSDKResources.bundle */,
 				D915E18C17373F9900F78948 /* FacebookSDK.framework */,
 				ACDA94361736E41A00A00092 /* Twitter.framework */,
@@ -952,6 +973,10 @@
 				AC9E031C173D71A900B15AD6 /* share_disabled.png in Resources */,
 				AC740AA2173D96F6002099EC /* fb@2x.png in Resources */,
 				AC740AA4173D9899002099EC /* tw@2x.png in Resources */,
+				AC0099A7173E2CD000A0B202 /* arrow.png in Resources */,
+				AC0099A8173E2CD000A0B202 /* arrow@2x.png in Resources */,
+				AC0099A9173E2CD000A0B202 /* pop.wav in Resources */,
+				AC0099AA173E2CD000A0B202 /* psst1.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1028,6 +1053,7 @@
 				AC2230AA173C051500F75C97 /* WebViewCell.m in Sources */,
 				D9FDADCE173D2BEB002808A7 /* SharingProvider.m in Sources */,
 				D9FDADD1173DBE98002808A7 /* TurismoItemController.m in Sources */,
+				ACBD38B3173E2ACD00D4F0B7 /* PullToRefreshView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
