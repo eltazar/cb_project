@@ -29,11 +29,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+   [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"navBarLogo"] forBarMetrics:UIBarMetricsDefault];
+    //rimuove shadow sotto navBar
+    //self.navigationController.navigationBar.clipsToBounds = YES;
+    if ([self.navigationController.navigationBar
+         respondsToSelector:@selector(shadowImage)]) {
+        self.navigationController.navigationBar.shadowImage = [UIImage imageNamed:@"side_menu_separation_line"];
+    }
+    UIView *separatorLine = [[UIView alloc] initWithFrame:CGRectMake(0, 43,320, 2)];
+    separatorLine.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"side_menu_separation_line"]];
+
+    [self.navigationController.navigationBar addSubview:separatorLine];
+
+    UIImageView *logo = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cmLogo"]];
+    logo.frame = CGRectMake(52, 6, 158, 30);
+    //self.navigationItem.titleView = logo;
+
+    [self.navigationController.navigationBar addSubview:logo];
     
     //rimuove celle extra
     self.tableView.tableFooterView = [[UIView alloc] init];
@@ -49,15 +61,6 @@
 
 #pragma mark - Table view data source
 
-/*
-- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    UIView* bgview = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, 1)];
-    bgview.opaque = YES;
-    bgview.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"side_menu_cell_background"]];
-    [cell setBackgroundView:bgview];
-    cell.textLabel.text = [_dataModel valueForKey:@"LABEL" atIndexPath:indexPath];
-}*/
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     static NSString *CellIdentifier = @"Cell";
@@ -66,31 +69,32 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         UIView *v = [[UIView alloc] init];
         v.opaque = YES;
-        v.backgroundColor = [UIColor colorWithRed:133/255.0f green:196/255.0f blue:224/255.0f alpha:1];
+        v.backgroundColor = [UIColor colorWithRed:220/255.0f green:223/255.0f blue:224/255.0f alpha:1];
         cell.selectedBackgroundView = v;
     }
     
+    cell.textLabel.text = [NSString stringWithFormat:@"  %@",[_dataModel valueForKey:@"LABEL" atIndexPath:indexPath]];
     tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
+    UIView *separatorLine = [[UIView alloc] initWithFrame:CGRectMake(0, cell.frame.size.height-1,cell.frame.size.width, 2)];
+    separatorLine.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"side_menu_separation_line"]];
+    [cell.contentView addSubview:separatorLine];
+
     return cell;
 }
 
 
 #pragma mark - Table view delegate
 
-//- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-//    UIView* bgview = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, 44)];
-//    bgview.opaque = YES;
-//    bgview.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"side_menu_cell_background"]];
-//    [cell setBackgroundView:bgview];
-//
-//}
-
 - (NSString*) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     return [_dataModel tableView:tableView titleForHeaderInSection:section];
 }
 
-/*
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    cell.textLabel.textColor = [UIColor colorWithRed:10/255.0f green:78/255.0f blue:154/255.0f alpha:1];
+}
+
+
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     UIImageView *sectionView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"side_menu_sec_background"]];
     //sectionView.alpha = 0.95;
@@ -99,10 +103,10 @@
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(13, -9, 320, 40)];
     titleLabel.backgroundColor =[UIColor clearColor];
     [titleLabel setFont: [UIFont fontWithName:@"Helvetica-Bold" size:16.5f ]];
-    titleLabel.textColor = [UIColor whiteColor];
+    titleLabel.textColor = [UIColor colorWithRed:144/255.0 green:170/255.0 blue:201/255.0 alpha:1];
     titleLabel.text = [self tableView:tableView titleForHeaderInSection:section];
     [sectionView addSubview:titleLabel];
     
     return sectionView;
-}*/
+}
 @end
