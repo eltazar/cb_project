@@ -130,25 +130,12 @@
         
         FXLabel *contactLabel = (FXLabel *) [cell viewWithTag:1];
         contactLabel.textColor = [UIColor colorWithRed:11/255.0f green:67/255.0f blue:144/255.0f alpha:1];
-
-        //contactLabel.textColor = [UIColor colorWithWhite:0.09f alpha:0.8f];
-        //contactLabel.highlightedTextColor =[UIColor blackColor];
-        //contactLabel.shadowColor = [UIColor colorWithWhite:0.9f alpha:0.8f];
-        //contactLabel.shadowOffset = CGSizeMake(0.8f, 0.80f);
-        //contactLabel.shadowBlur = 1.0f;
-        //contactLabel.innerShadowBlur = 3.0f;
-        //contactLabel.innerShadowColor = [UIColor colorWithRed:1/255.0f green:70/255.0f blue:148/255.0f alpha:1];
-        //
-        //contactLabel.innerShadowOffset = CGSizeMake(0.8f, 0.8f);
         contactLabel.highlightedTextColor =[UIColor blackColor];
         
         UIImageView *img = (UIImageView *)[cell viewWithTag:2];
         img.opaque = YES;
-        
-        if ([dataKey isEqualToString:@"pdf"]) {
-            [img setImage:[UIImage imageNamed:@"pdfImage"]];  
-        }
-        else if ([dataKey isEqualToString:@"phone"]) {
+
+        if ([dataKey isEqualToString:@"phone"]) {
             [img setImage:[UIImage imageNamed:@"phone2"]];
             contactLabel.text = @"Telefono";
         }
@@ -230,7 +217,12 @@
     bottomBorder.backgroundColor = [UIColor whiteColor].CGColor;
     
     //linea separatrice alta 1px, posizionata alla base inferiore della cella
-    UIView *separatorView = [[UIView alloc] initWithFrame:CGRectMake(0, 43, 1024, 1)];
+    float y = 0;
+    NSLog(@"CELL HEIGHT = %f",cell.frame.size.height);
+    if(indexPath.section == 0)
+        y = 47;
+    else y = 43;
+    UIView *separatorView = [[UIView alloc] initWithFrame:CGRectMake(0, cell.frame.size.height-1, 1024, 1)];
     separatorView.opaque = YES;
     separatorView.layer.borderColor = [UIColor colorWithRed:214/255.0f green:226/255.0f blue:241/255.0f alpha:1].CGColor;
     separatorView.layer.borderWidth = 1.0;
@@ -308,14 +300,17 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *dataKey = [_dataModel valueForKey:@"DATA_KEY" atIndexPath:indexPath];
-    //if (indexPath.section == 0 && indexPath.row == 0) {
+    id cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
     if ([dataKey isEqualToString:@"description"] ||
         [dataKey isEqualToString:@"ViaggiTurismo"]) {
         id cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
         if ([cell respondsToSelector:@selector(getHeight)])
             return [cell getHeight];
     }
-    return [super tableView:tableView heightForRowAtIndexPath:indexPath];
+    else if(indexPath.section == 0 && indexPath.row > 0){
+        return [cell frame].size.height;
+    }
+    return UITableViewAutomaticDimension;
 }
 
 
