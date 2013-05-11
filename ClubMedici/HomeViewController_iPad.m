@@ -107,7 +107,9 @@
     [super didReceiveJSON:jsonArray];
     
     NSString *htmlPage = @"<html>                                                   \
-                            <head><style type=\"text/css\">%@</style>               \
+                            <head>                                                  \
+    <meta name=\"viewport\" content=\"width=device-width; initial-scale=1.0; maximum-scale=1.0;\">\
+    <style type=\"text/css\">%@</style>               \
                             </head>                                                 \
                             <body>                                                  \
                             <h3>%@</h3><br>                                         \
@@ -116,10 +118,7 @@
                             </html>";
     
     
-    NSString *style = @"img {padding:1px;                       \
-                            border:1px solid #000000;           \
-                            background-color:#f6faff;           \
-                        }                                       \
+    NSString *style = @"                                      \
                             img.floatLeft{height:150px;         \
                             width:150px;                        \
                             float: left;                        \
