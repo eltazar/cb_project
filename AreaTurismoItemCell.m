@@ -35,8 +35,7 @@
 
 - (void)setAreaTurismoItem:(AreaTurismoItem *)areaTurismoItem {
     _areaTurismoItem = areaTurismoItem;
-    NSMutableString *imgUrl = [NSMutableString stringWithFormat:@"http://www.clubmedici.it/nuovo/%@",areaTurismoItem.imageUrl];
-    imgUrl = [[imgUrl stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] mutableCopy];
+    NSMutableString *imgUrl = [[areaTurismoItem.imageUrl stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] mutableCopy];
     [imgUrl replaceOccurrencesOfString:@" " withString:@"%20" options:nil range:NSMakeRange(0, [imgUrl length])];
     [self.photo loadImageFromURL:[NSURL URLWithString:imgUrl]];
     self.titleLbl.text = areaTurismoItem.title;
