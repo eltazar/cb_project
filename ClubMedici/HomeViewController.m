@@ -11,7 +11,7 @@
 #import "SharingProvider.h"
 #import "Reachability.h"
 #import "Utilities.h"
-
+#import <AudioToolbox/AudioToolbox.h>
 
 
 @interface HomeViewController () {
@@ -33,16 +33,12 @@
     [webView setBackgroundColor:[UIColor clearColor]];
     [webView setOpaque:NO];
     webView.delegate = self;
+    webView.tag = 999;
+    
     //rimuove ombra dietro la pagina web
     for(UIView *wview in [[[webView subviews] objectAtIndex:0] subviews]) {
         if([wview isKindOfClass:[UIImageView class]]) { wview.hidden = YES; }
     }
- 
-    titleLabel = [[UnderlinedLabel alloc] init];
-    titleLabel.textColor = [UIColor colorWithRed:11/255.0f green:67/255.0f blue:144/255.0f alpha:1];
-    titleLabel.backgroundColor = [UIColor clearColor];
-
-    [webView.scrollView addSubview:titleLabel];
     
     shareButton.enabled = NO;
     
@@ -50,8 +46,34 @@
     spinner.frame = CGRectMake(self.navigationController.navigationBar.frame.size.width/2 - spinner.frame.size.width/2, self.view.frame.size.height/2 - spinner.frame.size.height/2, spinner.frame.size.width, spinner.frame.size.height);
     _sharingProvider = [[SharingProvider alloc] init];
     _sharingProvider.viewController = self;
+    
+    for (UIView* subView in webView.subviews) {
+        if ([subView isKindOfClass:[UIScrollView class]]) {
+            currentScrollView = (UIScrollView *)subView;
+            currentScrollView.delegate = (id) self;
+        }
+    }
+    
+    //[currentScrollView addSubview:titleLabel];
+
+    
+    // Set up Pull to Refresh code
+    PullToRefreshView *pull = [[PullToRefreshView alloc] initWithScrollView:currentScrollView];
+    [pull setDelegate:self];
+    pull.tag = 998;
+    [currentScrollView addSubview:pull];
 }
 
+-(void)pullToRefreshViewShouldRefresh:(PullToRefreshView *)view {
+    //[(UIWebView *)[self.view viewWithTag:999] reload];
+    //NSLog(@"RICARICATO");
+    [self fetchData];
+}
+
+- (void)webViewDidFinishLoad:(UIWebView *)wv
+{
+    //[(PullToRefreshView *)[self.view viewWithTag:998] finishedLoading];
+}
 
 - (IBAction)sendPost:(id)sender {
 
@@ -169,11 +191,6 @@
 }
 
 
-- (void)webViewDidFinishLoad:(UIWebView *)webView {
-    NSLog(@"Finito DOWNLOAD PDF");
-}
-
-
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
     NSLog(@"FALLITO DOWNLOAD PDF = %@", [error localizedDescription]);
 
@@ -186,13 +203,13 @@
 
 
 -(void)didReceiveJSON:(NSArray *)jsonArray{
-    //NSLog(@"JSON = %@",jsonArray);
+    NSLog(@"JSON = %@",jsonArray);
+    [(PullToRefreshView *)[self.view viewWithTag:998] finishedLoading];
     [spinner stopAnimating];
     [spinner removeFromSuperview];
     shareButton.enabled = YES;
     json = jsonArray;
     NSString *title = [[jsonArray objectAtIndex:0]objectForKey:@"titolo"];
-    titleLabel.text = [NSString stringWithFormat:@"%@",title];
     [Utilities logEvent:@"News_letta" arguments:[NSDictionary dictionaryWithObjectsAndKeys:title,@"Titolo_news",nil]];
 }
 

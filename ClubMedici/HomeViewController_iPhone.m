@@ -25,12 +25,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    webView.scrollView.contentInset =  UIEdgeInsetsMake(40.0,0.0,0.0,0.0);
-    titleLabel.frame = CGRectMake(15, -30, 300,40);
-    [titleLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:17]];
-    titleLabel.numberOfLines = 1;
-    titleLabel.minimumFontSize = 12;
-    titleLabel.adjustsFontSizeToFitWidth = YES;
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -52,7 +46,7 @@
 #pragma mark - WMHttpAccessDelegate
 
 -(void)didReceiveJSON:(NSArray *)jsonArray{
-    NSLog(@"json = %@",jsonArray);
+    //NSLog(@"json = %@",jsonArray);
     [super didReceiveJSON:jsonArray];
     
     NSString *htmlPage =
@@ -60,7 +54,7 @@
             <head>                                      \
                 <style type=\"text/css\">%@</style>     \
             </head>                                     \
-            <body>                                      \
+            <body> <h3>%@</h3><br>                         \
                 <img src=\"%@\" class=\"floatLeft\">    \
                 %@                                      \
             </body>                                     \
@@ -86,9 +80,19 @@
             font-size: 16px;                \
             color: #212121;                 \
             text-shadow: #fff 0px 1px 0px;  \
-        }";//font-size: 16px;text-align: justify;color: #272727;text-shadow: 1px 4px 6px #f6faff, 0 0 0 #000, 1px 4px 6px #f6faff;}";//
+        }                                   \
+        h1, h2, h3, h4, h5, h6 {            \
+            margin: 0;                      \
+            font-family: helvetica;         \
+            font-size:. 110%;               \
+    color: #0D4383;\
+    text-shadow: rgba(0,0,0,0.5) -0.5px 0, rgba(0,0,0,0.3) 0 -0.5px, rgba(255,255,255,0.5) 0.5px, rgba(0,0,0,0.3) -0.5px -0.5px;\
+        }";
+    
+    
+    //font-size: 16px;text-align: justify;color: #272727;text-shadow: 1px 4px 6px #f6faff, 0 0 0 #000, 1px 4px 6px #f6faff;}";//
     NSString *img = [NSString stringWithFormat:@"%@%@",URL_NEWS_IMG,[[jsonArray objectAtIndex:0] objectForKey:@"foto"]];
-    htmlPage = [NSString stringWithFormat:htmlPage,style,img,[[jsonArray objectAtIndex:0]objectForKey:@"testo"]];
+    htmlPage = [NSString stringWithFormat:htmlPage,style,[[jsonArray objectAtIndex:0]objectForKey:@"titolo"],img,[[jsonArray objectAtIndex:0]objectForKey:@"testo"]];
     [webView loadHTMLString:htmlPage baseURL:[NSURL URLWithString:BASE_URL]];
 }
 

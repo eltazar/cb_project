@@ -27,10 +27,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    webView.scrollView.contentInset =  UIEdgeInsetsMake(80.0,0.0,0.0,0.0);
-    titleLabel.frame = CGRectMake(15, -60, 700,60);
-    [titleLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:20]];
 }
 
 
@@ -110,10 +106,46 @@
     //NSLog(@"JSON = %@",jsonArray);
     [super didReceiveJSON:jsonArray];
     
-    NSString *htmlPage = @"<html><head><style type=\"text/css\">%@</style></head>    <body><img src=\"%@\" class=\"floatLeft\"> %@</body></html>";
-    NSString *style = @"img {padding:1px;border:1px solid #000000;background-color:#f6faff;}img.floatLeft{height:150px;width:150px;float: left;margin: 5px;}body {font-family:helvetica;background-color: #f6faff;}body,p{margin:15px;font-size: 18px;color: #212121;text-shadow: #fff 0px 1px 0px;}";//font-size: 16px;text-align: justify;color: #272727;text-shadow: 1px 4px 6px #f6faff, 0 0 0 #000, 1px 4px 6px #f6faff;}";//
+    NSString *htmlPage = @"<html>                                                   \
+                            <head><style type=\"text/css\">%@</style>               \
+                            </head>                                                 \
+                            <body>                                                  \
+                            <h3>%@</h3><br>                                         \
+                            <img src=\"%@\" class=\"floatLeft\"> %@                 \
+                            </body>                                                 \
+                            </html>";
+    
+    
+    NSString *style = @"img {padding:1px;                       \
+                            border:1px solid #000000;           \
+                            background-color:#f6faff;           \
+                        }                                       \
+                            img.floatLeft{height:150px;         \
+                            width:150px;                        \
+                            float: left;                        \
+                            margin: 5px;                        \
+                        }                                       \
+                            body {font-family:helvetica;        \
+                            background-color: #f6faff;          \
+                        }                                       \
+                            body,p{margin:15px;                 \
+                            font-size: 18px;                    \
+                            color: #212121;                     \
+                            text-shadow: #fff 0px 1px 0px;      \
+                        }                                       \
+                        h1, h2, h3, h4, h5, h6 {                \
+                            margin: 0;                          \
+                            font-family: helvetica;             \
+                            font-size:. 100%;                   \
+                            color: #0D4383;\
+                            text-shadow: rgba(0,0,0,0.5) -0.5px 0,\
+                            rgba(0,0,0,0.3) 0 -0.5px, rgba(255,255,255,0.5) 0.5px,\
+                            rgba(0,0,0,0.3) -0.5px -0.5px;    \
+                        }";
+    
+    //font-size: 16px;text-align: justify;color: #272727;text-shadow: 1px 4px 6px #f6faff, 0 0 0 #000, 1px 4px 6px #f6faff;}";//
     NSString *img = [NSString stringWithFormat:@"%@%@",URL_NEWS_IMG,[[jsonArray objectAtIndex:0] objectForKey:@"foto"]];
-    htmlPage = [NSString stringWithFormat:htmlPage,style,img,[[jsonArray objectAtIndex:0]objectForKey:@"testo"]];
+    htmlPage = [NSString stringWithFormat:htmlPage,style,[[jsonArray objectAtIndex:0]objectForKey:@"titolo"],img,[[jsonArray objectAtIndex:0]objectForKey:@"testo"]];
     [webView loadHTMLString:htmlPage baseURL:[NSURL URLWithString:BASE_URL]];
 }
 

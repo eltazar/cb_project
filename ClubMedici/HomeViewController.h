@@ -15,20 +15,21 @@
 #import "PDHTTPAccess.h"
 #import "AppDelegate.h"
 #import "SharingPanelView.h"
-#import "UnderlinedLabel.h"
 #import "CustomSpinnerView.h"
+#import "PullToRefreshView.h"
 
 #define URL_NEWS_IMG @"http://www.clubmedici.it/nuovo/"
 #define URL_NEWS @"http://www.clubmedici.it/nuovo/pagina.php?art=1&pgat="
 #define BASE_URL @"http://www.clubmedici.it/nuovo/"
-@interface HomeViewController : UIViewController<WMHTTPAccessDelegate, UIActionSheetDelegate, UIWebViewDelegate> {
+@interface HomeViewController : UIViewController<WMHTTPAccessDelegate, UIActionSheetDelegate, UIWebViewDelegate, PullToRefreshViewDelegate> {
     @protected
     ErrorView *errorView;
     IBOutlet UIWebView * webView;
-    FXLabel *titleLabel;
     IBOutlet UIView *footerView;
     IBOutlet UIButton *shareButton;
     CustomSpinnerView *spinner;
+    PullToRefreshView *pullView;
+    UIScrollView *currentScrollView;
 
 }
 
