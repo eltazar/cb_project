@@ -217,11 +217,6 @@
     bottomBorder.backgroundColor = [UIColor whiteColor].CGColor;
     
     //linea separatrice alta 1px, posizionata alla base inferiore della cella
-    float y = 0;
-    NSLog(@"CELL HEIGHT = %f",cell.frame.size.height);
-    if(indexPath.section == 0)
-        y = 47;
-    else y = 43;
     UIView *separatorView = [[UIView alloc] initWithFrame:CGRectMake(0, cell.frame.size.height-1, 1024, 1)];
     separatorView.opaque = YES;
     separatorView.layer.borderColor = [UIColor colorWithRed:214/255.0f green:226/255.0f blue:241/255.0f alpha:1].CGColor;
