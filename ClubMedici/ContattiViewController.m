@@ -101,7 +101,7 @@
         
         UIWebView *webView =(UIWebView*) [cell viewWithTag:3];
         NSString *htmlPage = @"<html><head><style type=\"text/css\">%@</style></head><body>%@</body></html>";
-        NSString *style = @"body {margin:10px 20px 0px;background-color: #f6faff;}p,strong {line-height: 14px;font-size: 15px;font-family:helvetica;color: #333333;text-shadow: #fff 0px 1px 0px;}";
+        NSString *style = @"body {margin:10px 20px 0px;background-color: #f6faff;}p,strong {line-height: 14px;font-size: 16px;font-family:helvetica;color: #333333;text-shadow: #fff 0px 1px 0px;}";
         [webView setBackgroundColor:[UIColor clearColor]];
         [webView setOpaque:NO];
         htmlPage = [NSString stringWithFormat:htmlPage,style,[_dataModel valueForKey:@"LABEL" atIndexPath:indexPath]];
