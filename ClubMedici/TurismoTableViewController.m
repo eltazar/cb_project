@@ -112,8 +112,6 @@
                                                             atIndexPath:indexPath];
     PDFviewerController *pdfViewController = [[PDFviewerController alloc] initWithNibName:nil bundle:nil];
     pdfViewController.title = item.title;
-    pdfViewController.urlString =
-        [NSString stringWithFormat:@"http://www.clubmedici.it/nuovo/%@", item.pdfUrl];
     [self.navigationController pushViewController:pdfViewController animated:YES];
 }
 

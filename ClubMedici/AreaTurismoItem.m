@@ -11,12 +11,15 @@
 @implementation AreaTurismoItem
 
 - (void)_buildFromJson:(NSArray *)json {
+    NSString *formatString = @"http://www.clubmedici.it/nuovo/%@";
     NSDictionary *dict = [json objectAtIndex:0];
     self.ID             = [[dict objectForKey:@"id"] integerValue];
     self.title          = [dict objectForKey:@"title"];
     self.description    = [dict objectForKey:@"description"];
-    self.imageUrl       = [dict objectForKey:@"imageUrl"];
-    self.pdfUrl         = [dict objectForKey:@"pdfUrl"];
+    self.imageUrl       = [NSString stringWithFormat:
+                           formatString, [dict objectForKey:@"imageUrl"]];
+    self.pdfUrl         = [NSString stringWithFormat:
+                           formatString, [dict objectForKey:@"pdfUrl"]];
     self.phone          = [dict objectForKey:@"phone"];
     self.email          = [dict objectForKey:@"email"];
     self.expiryDate     = [dict objectForKey:@"expiryDate"];
