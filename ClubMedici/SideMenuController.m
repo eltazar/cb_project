@@ -49,13 +49,14 @@
 
 #pragma mark - Table view data source
 
+/*
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     UIView* bgview = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, 1)];
     bgview.opaque = YES;
     bgview.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"side_menu_cell_background"]];
     [cell setBackgroundView:bgview];
     cell.textLabel.text = [_dataModel valueForKey:@"LABEL" atIndexPath:indexPath];
-}
+}*/
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -89,7 +90,7 @@
     return [_dataModel tableView:tableView titleForHeaderInSection:section];
 }
 
-
+/*
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     UIImageView *sectionView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"side_menu_sec_background"]];
     //sectionView.alpha = 0.95;
@@ -103,5 +104,5 @@
     [sectionView addSubview:titleLabel];
     
     return sectionView;
-}
+}*/
 @end

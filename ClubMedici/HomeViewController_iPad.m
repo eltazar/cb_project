@@ -125,7 +125,7 @@
                             margin: 5px;                        \
                         }                                       \
                             body {font-family:helvetica;        \
-                            background-color: #f6faff;          \
+                            background-color: #f3f4f5;          \
                         }                                       \
                             body,p{margin:15px;                 \
                             font-size: 18px;                    \

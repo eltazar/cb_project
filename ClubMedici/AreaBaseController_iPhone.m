@@ -105,7 +105,7 @@
                                      );
         [backgroundView addSubview:imageView];
         self.tableView.backgroundView = backgroundView;
-        self.tableView.backgroundColor = [UIColor colorWithRed:246/255.0f green:250/255.0f blue:255/255.0f alpha:1];
+        self.tableView.backgroundColor = [UIColor colorWithRed:243/255.0 green:244/255.0 blue:245/255.0 alpha:1];
         
         //per fare in modo che l'immagine nell'header diventi trasparente gradualmente verso la fine dell'immagine stessaUIView *backgroundView = [[UIView alloc] init];
         CAGradientLayer *l = [CAGradientLayer layer];

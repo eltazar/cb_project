@@ -192,7 +192,9 @@
       UITextAttributeTextShadowOffset,
       [UIFont fontWithName:@"System-Bold" size:0.0],
       UITextAttributeFont,
-      nil]];    // Change the appearance of back button
+      nil]];
+    
+    // Change the appearance of back button
 //    UIImage *backButtonImage = [[UIImage imageNamed:@"back_button"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 13, 0, 6)];
 //    [[UIBarButtonItem appearance] setBackButtonBackgroundImage:backButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
 //    
@@ -200,7 +202,14 @@
 //    UIImage *barButtonImage = [[UIImage imageNamed:@"normal_button"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 5, 0, 5)];
 //    [[UIBarButtonItem appearance] setBackgroundImage:barButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     
+    
+    //tintcolor per gli oggett nella navBar
     [[UIBarButtonItem appearance] setTintColor:[UIColor colorWithRed:3/255.0 green:84/255.0 blue:175/255.0 alpha:1] ];
+    
+    //tintColor per TableView
+    [[UITableView appearance] setBackgroundColor:[UIColor colorWithRed:243/255.0 green:244/255.0 blue:245/255.0 alpha:1]];
+    //tintColor per View
+    
 }
 
 @end

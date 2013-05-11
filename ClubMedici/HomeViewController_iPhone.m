@@ -73,7 +73,7 @@
         }                                   \
         body {                              \
             font-family:helvetica;          \
-            background-color: #f6faff;      \
+            background-color: #f3f4f5;      \
         }                                   \
         body, p {                           \
             margin:15px;                    \

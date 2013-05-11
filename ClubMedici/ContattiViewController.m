@@ -47,7 +47,7 @@
     
     sediPin = [[NSMutableArray alloc] init];
     
-    self.view.backgroundColor = [UIColor colorWithRed:246/255.0f green:250/255.0f blue:255/255.0f alpha:1];
+    //self.view.backgroundColor = [UIColor colorWithRed:246/255.0f green:250/255.0f blue:255/255.0f alpha:1];
     
     //alloco descrizione cell
     NSString *nibName = IDIOM_SPECIFIC_STRING(@"AreaDescriptionCell");
