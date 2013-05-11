@@ -7,7 +7,10 @@
 //
 
 #import "PDFviewerController.h"
+#import "AreaTurismoItem.h"
 
 @interface TurismoItemController : PDFviewerController
+
+@property(nonatomic, strong) AreaTurismoItem *areaTurismoItem;
 
 @end
