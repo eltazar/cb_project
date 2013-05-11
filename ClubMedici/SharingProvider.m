@@ -236,6 +236,17 @@
 
 
 
+#pragma mark - Facebook Observer
+
+
+
+- (void)sessionStateChanged:(NSNotification*)notification {
+    if (FBSession.activeSession.isOpen) {
+        [self postToFacebook:self];
+    }
+}
+
+
 
 #pragma mark - ActionSheetDelegate
 
