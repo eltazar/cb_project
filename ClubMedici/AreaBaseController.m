@@ -123,7 +123,7 @@
             cell = [[[NSBundle mainBundle] loadNibNamed:@"ContactCell" owner:self options:NULL] objectAtIndex:0];
             UIView *v = [[UIView alloc] init];
             v.opaque = YES;
-            v.backgroundColor = [UIColor colorWithRed:194/255.0f green:203/255.0f blue:219/255.0f alpha:1];
+            v.backgroundColor = [UIColor colorWithRed:220/255.0f green:223/255.0f blue:224/255.0f alpha:1];
             cell.selectedBackgroundView = v;
         }
         cell.opaque = YES;
@@ -192,7 +192,7 @@
                                                 options:NULL] objectAtIndex:0];
             UIView *v = [[UIView alloc] init];
             v.opaque = YES;
-            v.backgroundColor = [UIColor colorWithRed:194/255.0f green:203/255.0f blue:219/255.0f alpha:1];
+            v.backgroundColor = [UIColor colorWithRed:220/255.0f green:223/255.0f blue:224/255.0f alpha:1];
             cell.selectedBackgroundView = v;
         }
     }

@@ -47,7 +47,7 @@
     
     sediPin = [[NSMutableArray alloc] init];
     
-    //self.view.backgroundColor = [UIColor colorWithRed:246/255.0f green:250/255.0f blue:255/255.0f alpha:1];
+    self.view.backgroundColor = [UIColor colorWithRed:243/255.0f green:244/255.0f blue:245/255.0f alpha:1];
     
     //alloco descrizione cell
     NSString *nibName = IDIOM_SPECIFIC_STRING(@"AreaDescriptionCell");
@@ -101,7 +101,7 @@
         
         UIWebView *webView =(UIWebView*) [cell viewWithTag:3];
         NSString *htmlPage = @"<html><head><style type=\"text/css\">%@</style></head><body>%@</body></html>";
-        NSString *style = @"body {margin:10px 20px 0px;background-color: #f6faff;}p,strong {line-height: 14px;font-size: 16px;font-family:helvetica;color: #333333;text-shadow: #fff 0px 1px 0px;}";
+        NSString *style = @"body {margin:10px 20px 0px;background-color: #f3f4f5;}p,strong {line-height: 14px;font-size: 16px;font-family:helvetica;color: #333333;text-shadow: #fff 0px 1px 0px;}";
         [webView setBackgroundColor:[UIColor clearColor]];
         [webView setOpaque:NO];
         htmlPage = [NSString stringWithFormat:htmlPage,style,[_dataModel valueForKey:@"LABEL" atIndexPath:indexPath]];
@@ -121,7 +121,7 @@
         if (!cell) {
             cell = [[[NSBundle mainBundle] loadNibNamed:@"ContactCell" owner:self options:NULL] objectAtIndex:0];
             UIView *v = [[UIView alloc] init];
-            v.backgroundColor = [UIColor colorWithRed:194/255.0f green:203/255.0f blue:219/255.0f alpha:1];
+            v.backgroundColor = [UIColor colorWithRed:220/255.0f green:223/255.0f blue:224/255.0f alpha:1];
             cell.selectedBackgroundView = v;
         }
     //    cell.backgroundColor = [UIColor colorWithRed:246/255.0f green:250/255.0f blue:255/255.0f alpha:1];
@@ -189,7 +189,7 @@
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    //[cell setBackgroundColor:[UIColor colorWithRed:246/255.0f green:250/255.0f blue:255/255.0f alpha:1]];
+    [cell setBackgroundColor:[UIColor colorWithRed:243/255.0f green:244/255.0f blue:245/255.0f alpha:1]];
 }
 
 - (NSString*) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
