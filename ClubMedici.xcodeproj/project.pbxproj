@@ -159,6 +159,7 @@
 		D9FDADCA173C6887002808A7 /* background_iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = D9FDADC8173C6887002808A7 /* background_iPad.png */; };
 		D9FDADCB173C6887002808A7 /* background_iPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = D9FDADC9173C6887002808A7 /* background_iPhone.png */; };
 		D9FDADCE173D2BEB002808A7 /* SharingProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = D9FDADCD173D2BEB002808A7 /* SharingProvider.m */; };
+		D9FDADD1173DBE98002808A7 /* TurismoItemController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9FDADD0173DBE98002808A7 /* TurismoItemController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -385,6 +386,8 @@
 		D9FDADC9173C6887002808A7 /* background_iPhone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background_iPhone.png; path = img/background_iPhone.png; sourceTree = SOURCE_ROOT; };
 		D9FDADCC173D2BEB002808A7 /* SharingProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharingProvider.h; sourceTree = "<group>"; };
 		D9FDADCD173D2BEB002808A7 /* SharingProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharingProvider.m; sourceTree = "<group>"; };
+		D9FDADCF173DBE97002808A7 /* TurismoItemController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TurismoItemController.h; path = ClubMedici/TurismoItemController.h; sourceTree = "<group>"; };
+		D9FDADD0173DBE98002808A7 /* TurismoItemController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TurismoItemController.m; path = ClubMedici/TurismoItemController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -595,6 +598,8 @@
 				D915E1931739C1ED00F78948 /* TurismoTableViewController.h */,
 				D915E1941739C1ED00F78948 /* TurismoTableViewController.m */,
 				D915E1951739C1ED00F78948 /* TurismoTableViewController.xib */,
+				D9FDADCF173DBE97002808A7 /* TurismoItemController.h */,
+				D9FDADD0173DBE98002808A7 /* TurismoItemController.m */,
 				AC26298A165D1E2400510092 /* PDFviewerController.h */,
 				AC26298B165D1E2400510092 /* PDFviewerController.m */,
 				AC93CE92165DA6F400ABA3C2 /* PDFviewerController.xib */,
@@ -1022,6 +1027,7 @@
 				AC2230A5173BFFBF00F75C97 /* MapCell.m in Sources */,
 				AC2230AA173C051500F75C97 /* WebViewCell.m in Sources */,
 				D9FDADCE173D2BEB002808A7 /* SharingProvider.m in Sources */,
+				D9FDADD1173DBE98002808A7 /* TurismoItemController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
