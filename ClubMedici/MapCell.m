@@ -41,18 +41,16 @@
     
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     
-    UIView *topView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, 1.5)];
-    topView.backgroundColor = [UIColor colorWithRed:140/255.0f green:153/255.0f blue:168/253.0f alpha:1];
+    UIView *topView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, 8)];
+    topView.backgroundColor =[UIColor colorWithPatternImage:[UIImage imageNamed:@"topShadow"]];
     topView.opaque = YES;
-    [self.contentView addSubview:topView];
-    topView.alpha = 0.4f;
+    [self.mapView addSubview:topView];
     
-    UIView *bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, self.frame.size.height-1.5, self.frame.size.width, 1.5)];
+    UIView *bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, self.frame.size.height-8, self.frame.size.width, 9)];
     bottomView.opaque = YES;
     bottomView.autoresizingMask =  UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin;
-    bottomView.backgroundColor = [UIColor colorWithRed:140/255.0f green:153/255.0f blue:168/253.0f alpha:1];
+    bottomView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bottomShadow"]];
     [self.mapView addSubview:bottomView];
-    bottomView.alpha = 0.4f;
 }
 
 
