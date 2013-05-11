@@ -183,7 +183,10 @@
         return;
     }
 
-    _errorView = [[ErrorView alloc] init];
+    if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ){
+        _errorView = [[ErrorView alloc] initWithSize:self.view.frame.size];
+    }
+    else _errorView = [[ErrorView alloc] init];
 
     _errorView.label.text = message;
     [_errorView.tapRecognizer addTarget:self action:@selector(hideErrorView:)];
