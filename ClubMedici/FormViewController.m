@@ -134,17 +134,6 @@
 }
 
 -(void) setButtonsInView{
-    
-    float middleView = self.navigationController.navigationBar.frame.size.width/2;
-    float offsetFromMiddle = middleView - 30;
-    float buttonWidth = 100;
-    float x = 0.0f;
-    
-    x = offsetFromMiddle - buttonWidth;
-    
-    offsetFromMiddle = middleView + 30;
-    x = offsetFromMiddle;
-    
     sendButton.frame = CGRectMake(self.navigationController.navigationBar.frame.size.width/2 - sendButton.frame.size.width/2, BUTTON_Y, sendButton.frame.size.width, sendButton.frame.size.height);
     //CGRectMake(x,BUTTON_Y,sendButton.frame.size.width,sendButton.frame.size.height);
 }
