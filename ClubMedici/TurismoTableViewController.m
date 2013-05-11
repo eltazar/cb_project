@@ -110,28 +110,9 @@
     AreaTurismoItem *item =
         [(WMTableViewDataSource *)self.tableView.dataSource valueForKey:@"ITEM"
                                                             atIndexPath:indexPath];
-    PDFviewerController *pdfViewController = [[PDFviewerController alloc] initWithNibName:nil bundle:nil];
-    pdfViewController.title = item.title;
-    [self.navigationController pushViewController:pdfViewController animated:YES];
-}
-
-
-
-#pragma mark - Private methods
-
-
-
-- (void)setupBackgroundView {
-    
-}
-
-
-- (void)showData {
-    //rimuovo e fermo spinner
-    [_spinner removeFromSuperview];
-    [_spinner stopAnimating];
-    
-    [self.tableView reloadData];
+    TurismoItemController *turismoItemController = [[TurismoItemController alloc] initWithNibName:nil bundle:nil];
+    turismoItemController.areaTurismoItem = item;
+    [self.navigationController pushViewController:turismoItemController animated:YES];
 }
 
 
@@ -255,6 +236,24 @@
     [self.tableView reloadData];
 }
 
+
+
+#pragma mark - Private methods
+
+
+
+- (void)setupBackgroundView {
+    
+}
+
+
+- (void)showData {
+    //rimuovo e fermo spinner
+    [_spinner removeFromSuperview];
+    [_spinner stopAnimating];
+    
+    [self.tableView reloadData];
+}
 
 
 @end
