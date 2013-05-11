@@ -42,9 +42,10 @@
 							<object class="IBUILabel" id="336477277">
 								<reference key="NSNextResponder" ref="252840011"/>
 								<int key="NSvFlags">290</int>
-								<string key="NSFrame">{{15, 9}, {683, 100}}</string>
+								<string key="NSFrame">{{17, 9}, {683, 154}}</string>
 								<reference key="NSSuperview" ref="252840011"/>
 								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<object class="NSColor" key="IBUIBackgroundColor" id="193973444">
 									<int key="NSColorSpace">3</int>
@@ -56,7 +57,14 @@
 								<int key="IBUITag">1</int>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-								<string key="IBUIText">testo</string>
+								<string type="base64-UTF8" key="IBUIText">TOKAmWFyZWEgZmluYW56aWFyaWEgZGkgQ2x1YiBNZWRpY2kgw6ggY29zdGl0dWl0YSBkYSB1biB0ZWFt
+IGRpIHNwZWNpYWxpc3RpIGluZm9ybWF0aSBlIGRpc3BvbmliaWxpLCBwcm9udGkgYSBjb25zaWdsaWFy
+ZSBs4oCZb2ZmZXJ0YSBwacO5IGFkYXR0YSBhbGxlIHZvc3RyZSBuZWNlc3NpdMOgIGUgYSBzZWd1aXJ2
+aSwgcGFzc28gZG9wbyBwYXNzbywgbmVsIGNvcnNvIGRlbCBwcm9jZXNzbyBkaSBhcHByb3ZhemlvbmUg
+ZGVsbGEgdm9zdHJhIHJpY2hpZXN0YS4KCkzigJlhcmVhIGZpbmFuemlhcmlhIGRpIENsdWIgTWVkaWNp
+IG9mZnJlIHNlcnZpemlvIGRpIGNvbnN1bGVuemEgcGVyOiBtdXR1aSwgcHJlc3RpdGkgcGVyc29uYWxp
+IGUgY2Vzc2lvbmUgZGVsIHF1aW50byBwZXIgbWVkaWNpIG9zcGVkYWxpZXJpLCBkaSBiYXNlLCBwZWRp
+YXRyaSwgc3VtYWlzdGkgZSBwZW5zaW9uYXRpLiAKA</string>
 								<object class="NSColor" key="IBUITextColor">
 									<int key="NSColorSpace">1</int>
 									<bytes key="NSRGB">MCAwIDAAA</bytes>

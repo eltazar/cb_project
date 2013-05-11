@@ -42,7 +42,7 @@
 							<object class="IBUILabel" id="95168040">
 								<reference key="NSNextResponder" ref="130146411"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{14, 9}, {297, 115}}</string>
+								<string key="NSFrame">{{17, 9}, {296, 115}}</string>
 								<reference key="NSSuperview" ref="130146411"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
@@ -82,7 +82,7 @@ YXRyaSwgc3VtYWlzdGkgZSBwZW5zaW9uYXRpLiAKA</string>
 									<double key="NSSize">17</double>
 									<int key="NSfFlags">16</int>
 								</object>
-								<double key="preferredMaxLayoutWidth">297</double>
+								<double key="preferredMaxLayoutWidth">296</double>
 							</object>
 						</array>
 						<string key="NSFrameSize">{320, 130}</string>
