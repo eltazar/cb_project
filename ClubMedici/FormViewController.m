@@ -22,7 +22,7 @@
 @interface FormViewController () {
     TextFieldCell *textFieldCell;
     JASidePanelController *jasController;
-    IBOutlet FXLabel *headerLabel;
+    IBOutlet UILabel *headerLabel;
 }
 
 @end
@@ -61,13 +61,9 @@
     
     [jasController addObserver:self forKeyPath:@"state" options:NSKeyValueObservingOptionNew context:nil];
     
-    headerLabel.textColor = [UIColor colorWithWhite:0.4f alpha:1];
-    headerLabel.shadowColor = [UIColor colorWithWhite:1.0f alpha:0.8f];
-    headerLabel.shadowOffset = CGSizeMake(0.8f, 0.80f);
-    headerLabel.shadowBlur = 1.0f;
-    headerLabel.innerShadowBlur = 3.0f;
-    headerLabel.innerShadowColor = [UIColor colorWithWhite:0.0f alpha:0.9f];
-    headerLabel.innerShadowOffset = CGSizeMake(0.8f, 0.8f);
+    headerLabel.textColor     = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.2];
+    headerLabel.shadowColor   = [UIColor blackColor];
+    headerLabel.shadowOffset  = CGSizeMake(-0.5,-0.5);
     
     if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad){
 
