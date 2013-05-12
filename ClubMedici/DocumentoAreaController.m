@@ -52,9 +52,6 @@
         [Utilities logEvent:@"Pdf_vacanze_letto" arguments:[NSDictionary dictionaryWithObjectsAndKeys:self.title,@"Titolo_pdf_vacanze",nil]];
     }
     
-    
-    
-    
     footerView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"reverse_nav_bar"]];
 
     webView.delegate = self;
@@ -65,7 +62,6 @@
         if([wview isKindOfClass:[UIImageView class]]) { wview.hidden = YES; }
     }
     
-	// Do any additional setup after loading the view.
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(actionButtonPressed:)];
     self.navigationItem.rightBarButtonItem.enabled = NO;
     
@@ -211,36 +207,36 @@
 #pragma mark - MFMailComposeViewControllerDelegate
 
 
-- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
-    
-    [self dismissModalViewControllerAnimated:YES];
-    if(result == MFMailComposeResultSent) {
-        NSLog(@"messaggio inviato");
-        [Utilities logEvent:@"Documento_spedito" arguments:[NSDictionary dictionaryWithObjectsAndKeys:self.title,@"Titolo_documento",nil]];
-    }
-	else if (result == MFMailComposeResultFailed){
-		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Messaggio non inviato!" message:@"Non è stato possibile inviare la tua e-mail" delegate:self cancelButtonTitle:@"Chiudi" otherButtonTitles:nil];
-		[alert show];
-	}
-    else if (result == MFMailComposeResultCancelled){
-        NSLog(@"messaggio annullato");
-    }
-}
+//- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
+//    
+//    [self dismissModalViewControllerAnimated:YES];
+//    if(result == MFMailComposeResultSent) {
+//        NSLog(@"messaggio inviato");
+//        [Utilities logEvent:@"Documento_spedito" arguments:[NSDictionary dictionaryWithObjectsAndKeys:self.title,@"Titolo_documento",nil]];
+//    }
+//	else if (result == MFMailComposeResultFailed){
+//		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Messaggio non inviato!" message:@"Non è stato possibile inviare la tua e-mail" delegate:self cancelButtonTitle:@"Chiudi" otherButtonTitles:nil];
+//		[alert show];
+//	}
+//    else if (result == MFMailComposeResultCancelled){
+//        NSLog(@"messaggio annullato");
+//    }
+//}
 
-#pragma mark - ActionSheetDelegate
-
-
-- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-    NSLog(@"INDEX = %d",buttonIndex);
-    if(buttonIndex == 0){
-        //condivisione con mail
-        [Utilities sendEmail:nil object:self.title content:htmlPage html:YES controller:self delegate:self];
-    }
-    if(buttonIndex == 1){
-        //stampa
-        [self printWebView:self];
-    }
-}
+//#pragma mark - ActionSheetDelegate
+//
+//
+//- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+//    NSLog(@"INDEX = %d",buttonIndex);
+//    if(buttonIndex == 0){
+//        //condivisione con mail
+//        [Utilities sendEmail:nil object:self.title content:htmlPage html:YES controller:self delegate:self];
+//    }
+//    if(buttonIndex == 1){
+//        //stampa
+//        [self printWebView:self];
+//    }
+//}
 
 
 #pragma mark - AirPrint

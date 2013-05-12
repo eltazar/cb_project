@@ -135,4 +135,11 @@
     [self.webView loadHTMLString:htmlPage baseURL:[NSURL URLWithString:nil]];
 }
 
+#pragma mark - SharingProvider informal protocol
+
+-(void)showShareActionSheet:(UIActionSheet *)actionSheet sender:(UIBarButtonItem *)sender {
+    
+    [actionSheet showInView:self.view];
+}
+
 @end
