@@ -206,7 +206,7 @@
 
 
 -(void)didReceiveJSON:(NSArray *)jsonArray{
-    NSLog(@"JSON = %@",jsonArray);
+    //NSLog(@"JSON = %@",jsonArray);
     [(PullToRefreshView *)[self.view viewWithTag:998] finishedLoading];
     [spinner stopAnimating];
     [spinner removeFromSuperview];
