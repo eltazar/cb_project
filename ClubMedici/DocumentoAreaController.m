@@ -180,6 +180,25 @@
 -(IBAction)callNumber{
 }
 
+#pragma mark - MFMailComposeViewControllerDelegate
+
+
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
+    
+    [self dismissModalViewControllerAnimated:YES];
+    if(result == MFMailComposeResultSent) {
+        NSLog(@"messaggio inviato");
+        [Utilities logEvent:@"Documento_spedito" arguments:[NSDictionary dictionaryWithObjectsAndKeys:self.title,@"Titolo_documento",nil]];
+    }
+	else if (result == MFMailComposeResultFailed){
+		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Messaggio non inviato!" message:@"Non è stato possibile inviare la tua e-mail" delegate:self cancelButtonTitle:@"Chiudi" otherButtonTitles:nil];
+		[alert show];
+	}
+    else if (result == MFMailComposeResultCancelled){
+        NSLog(@"messaggio annullato");
+    }
+}
+
 #pragma mark - AirPrint
 
 
