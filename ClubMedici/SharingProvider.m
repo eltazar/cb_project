@@ -15,6 +15,7 @@
 
 @interface SharingProvider(){
     UIActionSheet *actionSheet;
+    BOOL isSocial;
 }
 @end
 
@@ -31,7 +32,14 @@
     return self;
 }
 
-
+- (id)initWithSocial:(BOOL)social{
+    
+    self = [self init];
+    if(self){
+        isSocial = social;
+    }
+    return self;
+}
 
 #pragma mark - SHARING
 
@@ -95,11 +103,14 @@
     //NSString *newsString = [NSString stringWithFormat:@"News ClubMedici: %@\n %@%@",[[json objectAtIndex:0]objectForKey:@"titolo"],URL_NEWS,[[json objectAtIndex:0] objectForKey:@"id"]];
     
     activityItems = @[/*newsString*/self.iOS6String];
+    if(isSocial){
+        activityController.excludedActivityTypes = @[UIActivityTypeCopyToPasteboard,UIActivityTypePostToWeibo];
+
+    }
+    else{
+        activityController.excludedActivityTypes = @[UIActivityTypePostToFacebook,UIActivityTypePostToTwitter,UIActivityTypeCopyToPasteboard,UIActivityTypePostToWeibo];
+    }
     
-    UIActivityViewController *activityController = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
-    activityController.excludedActivityTypes = @[UIActivityTypePrint,
-                                                 UIActivityTypeCopyToPasteboard,
-                                                 UIActivityTypePostToWeibo];
     [self.viewController presentViewController:activityController animated:YES completion:nil];
 }
 

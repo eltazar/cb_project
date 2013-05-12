@@ -25,6 +25,7 @@
 @property(nonatomic, strong) NSString *title;
 @property(nonatomic, strong) NSString *image;
 
+- (id)initWithSocial:(BOOL)social;
 - (IBAction)sharingAction:(id)sender;
 
 @end
