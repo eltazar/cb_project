@@ -60,11 +60,7 @@
             </body>                                     \
         </html>";
     NSString *style =
-        @"img {                             \
-            padding:1px;                    \
-            border:1px solid #000000;       \
-            background-color:#f6faff;       \
-        }                                   \
+        @"                                  \
         img.floatLeft {                     \
             height:100px;                   \
             width:100px;                    \

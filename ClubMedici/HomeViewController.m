@@ -121,6 +121,9 @@
 
 
 - (void)fetchData {
+    if(errorView.showed)
+      [self hideErrorView:nil];
+    
     if([Utilities networkReachable]){
         [spinner startAnimating];
         [self.view addSubview:spinner];

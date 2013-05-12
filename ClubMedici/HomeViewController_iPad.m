@@ -118,7 +118,7 @@
                             </html>";
     
     
-    NSString *style = @"                                      \
+    NSString *style = @"                                        \
                             img.floatLeft{height:150px;         \
                             width:150px;                        \
                             float: left;                        \
