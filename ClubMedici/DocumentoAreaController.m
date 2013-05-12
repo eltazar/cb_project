@@ -172,72 +172,12 @@
     _mailButton.enabled = enable;
 }
 
-#pragma mark - UIButton methods
-
-//- (void)actionButtonPressed:(id)sender {
-//    
-//    NSString *cancelButtonTitle = @"Annulla";
-//    
-//    
-////    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-////        cancelButtonTitle = nil;
-////    }
-////    
-////    if ([actionSheet isVisible]) {
-////        //[actionSheet dismissWithClickedButtonIndex:-1 animated:NO];
-////    }
-////    else{
-////        actionSheet = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:cancelButtonTitle destructiveButtonTitle:nil otherButtonTitles:@"E-mail",@"Stampa",nil,nil];
-////        actionSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
-////    }
-////    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-////        [actionSheet showFromBarButtonItem:self.navigationItem.rightBarButtonItem animated:YES];
-////    } else {
-////        [actionSheet showInView:self.view];
-////    }
-//}
-
 -(IBAction) writeEmail{
     [Utilities sendEmail:mail controller:self delegate:self];
 }
 
 -(IBAction)callNumber{
 }
-
-#pragma mark - MFMailComposeViewControllerDelegate
-
-
-//- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
-//    
-//    [self dismissModalViewControllerAnimated:YES];
-//    if(result == MFMailComposeResultSent) {
-//        NSLog(@"messaggio inviato");
-//        [Utilities logEvent:@"Documento_spedito" arguments:[NSDictionary dictionaryWithObjectsAndKeys:self.title,@"Titolo_documento",nil]];
-//    }
-//	else if (result == MFMailComposeResultFailed){
-//		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Messaggio non inviato!" message:@"Non è stato possibile inviare la tua e-mail" delegate:self cancelButtonTitle:@"Chiudi" otherButtonTitles:nil];
-//		[alert show];
-//	}
-//    else if (result == MFMailComposeResultCancelled){
-//        NSLog(@"messaggio annullato");
-//    }
-//}
-
-//#pragma mark - ActionSheetDelegate
-//
-//
-//- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-//    NSLog(@"INDEX = %d",buttonIndex);
-//    if(buttonIndex == 0){
-//        //condivisione con mail
-//        [Utilities sendEmail:nil object:self.title content:htmlPage html:YES controller:self delegate:self];
-//    }
-//    if(buttonIndex == 1){
-//        //stampa
-//        [self printWebView:self];
-//    }
-//}
-
 
 #pragma mark - AirPrint
 
