@@ -50,6 +50,7 @@
         mail = turismoItem.email;
         //flurry log
         [Utilities logEvent:@"Pdf_vacanze_letto" arguments:[NSDictionary dictionaryWithObjectsAndKeys:self.title,@"Titolo_pdf_vacanze",nil]];
+        webView.scalesPageToFit=YES; 
     }
     
     footerView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"reverse_nav_bar"]];
