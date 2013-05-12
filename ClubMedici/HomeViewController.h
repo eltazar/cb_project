@@ -21,7 +21,7 @@
 #define URL_NEWS_IMG @"http://www.clubmedici.it/nuovo/"
 #define URL_NEWS @"http://www.clubmedici.it/nuovo/pagina.php?art=1&pgat="
 #define BASE_URL @"http://www.clubmedici.it/nuovo/"
-@interface HomeViewController : UIViewController<WMHTTPAccessDelegate, UIActionSheetDelegate, UIWebViewDelegate, PullToRefreshViewDelegate> {
+@interface HomeViewController : UIViewController<WMHTTPAccessDelegate, UIActionSheetDelegate, UIWebViewDelegate, PullToRefreshViewDelegate, UIPrintInteractionControllerDelegate> {
     @protected
     ErrorView *errorView;
     IBOutlet UIWebView * webView;

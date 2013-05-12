@@ -301,7 +301,30 @@
     [_sharingProvider sharingAction:sender];    
 }
 
-
+- (void)printWebView:(id)sender {
+    UIPrintInteractionController *pc = [UIPrintInteractionController sharedPrintController];
+    pc.delegate = self;
+    UIPrintInfo *printInfo = [UIPrintInfo printInfo];
+    printInfo.outputType = UIPrintInfoOutputGeneral;
+    printInfo.jobName = self.navigationController.title;
+    pc.printInfo = printInfo;
+    
+    //pc.showsPageRange = YES;
+    pc.printFormatter = [webView viewPrintFormatter];
+    
+    UIPrintInteractionCompletionHandler completionHandler =
+    ^(UIPrintInteractionController *printController, BOOL completed, NSError *error) {
+        if(!completed && error){
+            NSLog(@"Print failed - domain: %@ error code %u", error.domain, error.code);
+        }
+    };
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        [pc presentFromBarButtonItem:self.navigationItem.rightBarButtonItem animated:YES completionHandler:completionHandler];
+    } else {
+        [pc presentAnimated:YES completionHandler:completionHandler];
+    }
+}
 
 
 

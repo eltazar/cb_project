@@ -15,7 +15,7 @@
 
 @class AreaTurismoItem;
 
-@interface DocumentoAreaController : UIViewController<WMHTTPAccessDelegate, UIActionSheetDelegate, UIPrintInteractionControllerDelegate, UIWebViewDelegate, MFMailComposeViewControllerDelegate>{
+@interface DocumentoAreaController : UIViewController<WMHTTPAccessDelegate, UIActionSheetDelegate, UIWebViewDelegate, MFMailComposeViewControllerDelegate,UIPrintInteractionControllerDelegate>{
     @protected
     NSString *phone;
     NSString *mail;

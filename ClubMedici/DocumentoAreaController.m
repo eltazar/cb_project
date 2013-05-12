@@ -203,36 +203,6 @@
     }
 }
 
-#pragma mark - AirPrint
-
-
-- (void)printWebView:(id)sender {
-    UIPrintInteractionController *pc = [UIPrintInteractionController sharedPrintController];
-    UIPrintInfo *printInfo = [UIPrintInfo printInfo];
-    printInfo.outputType = UIPrintInfoOutputGeneral;
-    printInfo.jobName = self.navigationController.title;
-    pc.printInfo = printInfo;
-    
-    //pc.showsPageRange = YES;
-    UIViewPrintFormatter *formatter = [self.webView viewPrintFormatter];
-    pc.printFormatter = formatter;
-    
-    UIPrintInteractionCompletionHandler completionHandler =
-    ^(UIPrintInteractionController *printController, BOOL completed, NSError *error) {
-        if(!completed && error){
-            NSLog(@"Print failed - domain: %@ error code %u", error.domain, error.code);
-        }
-    };
-    
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-        [pc presentFromBarButtonItem:self.navigationItem.rightBarButtonItem animated:YES completionHandler:completionHandler];
-    } else {
-        [pc presentAnimated:YES completionHandler:completionHandler];
-    }
-    
-    [Utilities logEvent:@"Documento_stampato" arguments:[NSDictionary dictionaryWithObjectsAndKeys:self.title,@"Titolo_documento",nil]];
-}
-
 #pragma mark - ErrorView methods
 -(void)showErrorView:(NSString*)message{
     
@@ -324,6 +294,36 @@
     _sharingProvider.printView = [self.webView viewPrintFormatter];
 
     [_sharingProvider sharingAction:sender];
+}
+
+#pragma mark - AirPrint
+
+
+- (void)printWebView:(id)sender {
+    UIPrintInteractionController *pc = [UIPrintInteractionController sharedPrintController];
+    pc.delegate = self;
+    UIPrintInfo *printInfo = [UIPrintInfo printInfo];
+    printInfo.outputType = UIPrintInfoOutputGeneral;
+    printInfo.jobName = self.navigationController.title;
+    pc.printInfo = printInfo;
+    
+    //pc.showsPageRange = YES;
+    pc.printFormatter = [self.webView viewPrintFormatter];
+    
+    UIPrintInteractionCompletionHandler completionHandler =
+    ^(UIPrintInteractionController *printController, BOOL completed, NSError *error) {
+        if(!completed && error){
+            NSLog(@"Print failed - domain: %@ error code %u", error.domain, error.code);
+        }
+    };
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        [pc presentFromBarButtonItem:self.navigationItem.rightBarButtonItem animated:YES completionHandler:completionHandler];
+    } else {
+        [pc presentAnimated:YES completionHandler:completionHandler];
+    }
+    
+    [Utilities logEvent:@"Documento_stampato" arguments:[NSDictionary dictionaryWithObjectsAndKeys:self.title,@"Titolo_documento",nil]];
 }
 
 @end
