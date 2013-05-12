@@ -36,13 +36,13 @@
          respondsToSelector:@selector(shadowImage)]) {
         self.navigationController.navigationBar.shadowImage = [UIImage imageNamed:@"side_menu_separation_line"];
     }
-    UIView *separatorLine = [[UIView alloc] initWithFrame:CGRectMake(0, 43,320, 2)];
+    UIView *separatorLine = [[UIView alloc] initWithFrame:CGRectMake(0, 43,320, 4)];
     separatorLine.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"side_menu_separation_line"]];
 
     [self.navigationController.navigationBar addSubview:separatorLine];
 
     UIImageView *logo = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cmLogo"]];
-    logo.frame = CGRectMake(52, 6, 158, 30);
+    logo.frame = CGRectMake(50, 7, 158, 30);
     //self.navigationItem.titleView = logo;
 
     [self.navigationController.navigationBar addSubview:logo];
@@ -69,7 +69,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         UIView *v = [[UIView alloc] init];
         v.opaque = YES;
-        v.backgroundColor = [UIColor colorWithRed:220/255.0f green:223/255.0f blue:224/255.0f alpha:1];
+        v.backgroundColor = [UIColor colorWithRed:144/255.0f green:170/255.0f blue:201/255.0f alpha:1];
         cell.selectedBackgroundView = v;
     }
     
@@ -86,6 +86,13 @@
 
 #pragma mark - Table view delegate
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    if(section == 0)
+        return 0.0;
+    
+    return UITableViewAutomaticDimension;
+}
+
 - (NSString*) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     return [_dataModel tableView:tableView titleForHeaderInSection:section];
 }
@@ -96,6 +103,10 @@
 
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    
+    if(section == 0)
+        return nil;
+    
     UIImageView *sectionView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"side_menu_sec_background"]];
     //sectionView.alpha = 0.95;
     
