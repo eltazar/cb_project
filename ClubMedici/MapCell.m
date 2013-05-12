@@ -41,12 +41,12 @@
     
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     
-    UIView *topView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, 8)];
+    UIView *topView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, 7)];
     topView.backgroundColor =[UIColor colorWithPatternImage:[UIImage imageNamed:@"topShadow"]];
     topView.opaque = YES;
     [self.mapView addSubview:topView];
     
-    UIView *bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, self.frame.size.height-8, self.frame.size.width, 9)];
+    UIView *bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, self.frame.size.height-10, self.frame.size.width, 11)];
     bottomView.opaque = YES;
     bottomView.autoresizingMask =  UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin;
     bottomView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bottomShadow"]];
