@@ -22,6 +22,7 @@
 		AC119CE117401101004C2C18 /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = AC119CDB17401101004C2C18 /* 3.png */; };
 		AC119CE217401101004C2C18 /* 4.png in Resources */ = {isa = PBXBuildFile; fileRef = AC119CDC17401101004C2C18 /* 4.png */; };
 		AC119CE317401101004C2C18 /* 5.png in Resources */ = {isa = PBXBuildFile; fileRef = AC119CDD17401101004C2C18 /* 5.png */; };
+		AC119CE51740227A004C2C18 /* sideShadow.png in Resources */ = {isa = PBXBuildFile; fileRef = AC119CE41740227A004C2C18 /* sideShadow.png */; };
 		AC168DA81736949B00B7466A /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC168DA71736949B00B7466A /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		AC168DAA173694A500B7466A /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC168DA9173694A500B7466A /* Accounts.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		AC168DAC173694CA00B7466A /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AC168DAB173694CA00B7466A /* libsqlite3.dylib */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -190,6 +191,7 @@
 		AC119CDB17401101004C2C18 /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 3.png; path = img/3.png; sourceTree = SOURCE_ROOT; };
 		AC119CDC17401101004C2C18 /* 4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 4.png; path = img/4.png; sourceTree = SOURCE_ROOT; };
 		AC119CDD17401101004C2C18 /* 5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 5.png; path = img/5.png; sourceTree = SOURCE_ROOT; };
+		AC119CE41740227A004C2C18 /* sideShadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sideShadow.png; path = img/sideShadow.png; sourceTree = SOURCE_ROOT; };
 		AC168DA71736949B00B7466A /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		AC168DA9173694A500B7466A /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		AC168DAB173694CA00B7466A /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
@@ -655,6 +657,7 @@
 			children = (
 				ACBF78EF172D4B9700B4F230 /* spinner images */,
 				AC740AA3173D9899002099EC /* tw@2x.png */,
+				AC119CE41740227A004C2C18 /* sideShadow.png */,
 				AC119CD6173FF387004C2C18 /* vertical_line.png */,
 				AC76D8BA173EC9F0006C44B4 /* cmLogo.png */,
 				AC76D8B6173EC34F006C44B4 /* navBarLogo@2x.png */,
@@ -1008,6 +1011,7 @@
 				AC119CE117401101004C2C18 /* 3.png in Resources */,
 				AC119CE217401101004C2C18 /* 4.png in Resources */,
 				AC119CE317401101004C2C18 /* 5.png in Resources */,
+				AC119CE51740227A004C2C18 /* sideShadow.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
