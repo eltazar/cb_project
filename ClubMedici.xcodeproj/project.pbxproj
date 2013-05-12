@@ -52,6 +52,11 @@
 		AC79B2D01739AF8700200118 /* iphone_nav_bar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC79B2CF1739AF8700200118 /* iphone_nav_bar@2x.png */; };
 		AC79B2DE1739BB2500200118 /* back_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC79B2DD1739BB2500200118 /* back_button@2x.png */; };
 		AC79B2E01739BD3F00200118 /* normal_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC79B2DF1739BD3F00200118 /* normal_button@2x.png */; };
+		AC865CC2173FB017001D4DEF /* DocumentoAreaController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC865CC1173FB017001D4DEF /* DocumentoAreaController.m */; };
+		AC865CD4173FB643001D4DEF /* DocumentoAreaController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = AC865CCF173FB642001D4DEF /* DocumentoAreaController_iPad.m */; };
+		AC865CD5173FB643001D4DEF /* DocumentoAreaController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC865CD0173FB642001D4DEF /* DocumentoAreaController_iPad.xib */; };
+		AC865CD6173FB643001D4DEF /* DocumentoAreaController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = AC865CD2173FB642001D4DEF /* DocumentoAreaController_iPhone.m */; };
+		AC865CD7173FB643001D4DEF /* DocumentoAreaController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC865CD3173FB642001D4DEF /* DocumentoAreaController_iPhone.xib */; };
 		AC87E46A173E706B0098663B /* bottomShadow.png in Resources */ = {isa = PBXBuildFile; fileRef = AC87E469173E706B0098663B /* bottomShadow.png */; };
 		AC87E46C173E72BA0098663B /* topShadow.png in Resources */ = {isa = PBXBuildFile; fileRef = AC87E46B173E72BA0098663B /* topShadow.png */; };
 		AC8E1777172D800300376720 /* ErrorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC8E1776172D800300376720 /* ErrorView.xib */; };
@@ -133,11 +138,6 @@
 		ACEBDC7F16570CBF00CEFFE5 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACEBDC7E16570CBE00CEFFE5 /* HomeViewController.m */; };
 		ACEBDC8216570CBF00CEFFE5 /* HomeViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACEBDC8016570CBF00CEFFE5 /* HomeViewController_iPhone.xib */; };
 		ACEBDC8516570CBF00CEFFE5 /* HomeViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACEBDC8316570CBF00CEFFE5 /* HomeViewController_iPad.xib */; };
-		ACF16D9A17302273000683A9 /* DocumentoAreaController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF16D9817302273000683A9 /* DocumentoAreaController_iPad.m */; };
-		ACF16D9B17302273000683A9 /* DocumentoAreaController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACF16D9917302273000683A9 /* DocumentoAreaController_iPad.xib */; };
-		ACF16D9E173022D8000683A9 /* DocumentoAreaController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF16D9D173022D8000683A9 /* DocumentoAreaController.m */; };
-		ACF16DA717302568000683A9 /* DocumentoAreaController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF16DA517302568000683A9 /* DocumentoAreaController_iPhone.m */; };
-		ACF16DA817302568000683A9 /* DocumentoAreaController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACF16DA617302568000683A9 /* DocumentoAreaController_iPhone.xib */; };
 		ACFADEC6172D6C2800437E43 /* spinner0.png in Resources */ = {isa = PBXBuildFile; fileRef = ACFADEC0172D6C2800437E43 /* spinner0.png */; };
 		ACFADEC7172D6C2800437E43 /* spinner1.png in Resources */ = {isa = PBXBuildFile; fileRef = ACFADEC1172D6C2800437E43 /* spinner1.png */; };
 		ACFADEC8172D6C2800437E43 /* spinner2.png in Resources */ = {isa = PBXBuildFile; fileRef = ACFADEC2172D6C2800437E43 /* spinner2.png */; };
@@ -236,6 +236,14 @@
 		AC79B2CF1739AF8700200118 /* iphone_nav_bar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iphone_nav_bar@2x.png"; path = "img/iphone_nav_bar@2x.png"; sourceTree = SOURCE_ROOT; };
 		AC79B2DD1739BB2500200118 /* back_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "back_button@2x.png"; path = "img/back_button@2x.png"; sourceTree = SOURCE_ROOT; };
 		AC79B2DF1739BD3F00200118 /* normal_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "normal_button@2x.png"; path = "img/normal_button@2x.png"; sourceTree = SOURCE_ROOT; };
+		AC865CC0173FB017001D4DEF /* DocumentoAreaController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DocumentoAreaController.h; path = ClubMedici/DocumentoAreaController.h; sourceTree = "<group>"; };
+		AC865CC1173FB017001D4DEF /* DocumentoAreaController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DocumentoAreaController.m; path = ClubMedici/DocumentoAreaController.m; sourceTree = "<group>"; };
+		AC865CCE173FB642001D4DEF /* DocumentoAreaController_iPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DocumentoAreaController_iPad.h; path = ClubMedici/DocumentoAreaController_iPad.h; sourceTree = "<group>"; };
+		AC865CCF173FB642001D4DEF /* DocumentoAreaController_iPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DocumentoAreaController_iPad.m; path = ClubMedici/DocumentoAreaController_iPad.m; sourceTree = "<group>"; };
+		AC865CD0173FB642001D4DEF /* DocumentoAreaController_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DocumentoAreaController_iPad.xib; path = ClubMedici/DocumentoAreaController_iPad.xib; sourceTree = "<group>"; };
+		AC865CD1173FB642001D4DEF /* DocumentoAreaController_iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DocumentoAreaController_iPhone.h; path = ClubMedici/DocumentoAreaController_iPhone.h; sourceTree = "<group>"; };
+		AC865CD2173FB642001D4DEF /* DocumentoAreaController_iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DocumentoAreaController_iPhone.m; path = ClubMedici/DocumentoAreaController_iPhone.m; sourceTree = "<group>"; };
+		AC865CD3173FB642001D4DEF /* DocumentoAreaController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DocumentoAreaController_iPhone.xib; path = ClubMedici/DocumentoAreaController_iPhone.xib; sourceTree = "<group>"; };
 		AC87E469173E706B0098663B /* bottomShadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bottomShadow.png; path = img/bottomShadow.png; sourceTree = SOURCE_ROOT; };
 		AC87E46B173E72BA0098663B /* topShadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = topShadow.png; path = img/topShadow.png; sourceTree = SOURCE_ROOT; };
 		AC8E1776172D800300376720 /* ErrorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ErrorView.xib; path = ClubMedici/ErrorView.xib; sourceTree = "<group>"; };
@@ -355,14 +363,6 @@
 		ACEBDC7E16570CBE00CEFFE5 /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		ACEBDC8116570CBF00CEFFE5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/HomeViewController_iPhone.xib; sourceTree = "<group>"; };
 		ACEBDC8416570CBF00CEFFE5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/HomeViewController_iPad.xib; sourceTree = "<group>"; };
-		ACF16D9717302273000683A9 /* DocumentoAreaController_iPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DocumentoAreaController_iPad.h; path = ClubMedici/DocumentoAreaController_iPad.h; sourceTree = "<group>"; };
-		ACF16D9817302273000683A9 /* DocumentoAreaController_iPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DocumentoAreaController_iPad.m; path = ClubMedici/DocumentoAreaController_iPad.m; sourceTree = "<group>"; };
-		ACF16D9917302273000683A9 /* DocumentoAreaController_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DocumentoAreaController_iPad.xib; path = ClubMedici/DocumentoAreaController_iPad.xib; sourceTree = "<group>"; };
-		ACF16D9C173022D8000683A9 /* DocumentoAreaController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DocumentoAreaController.h; path = ClubMedici/DocumentoAreaController.h; sourceTree = "<group>"; };
-		ACF16D9D173022D8000683A9 /* DocumentoAreaController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DocumentoAreaController.m; path = ClubMedici/DocumentoAreaController.m; sourceTree = "<group>"; };
-		ACF16DA417302568000683A9 /* DocumentoAreaController_iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DocumentoAreaController_iPhone.h; path = ClubMedici/DocumentoAreaController_iPhone.h; sourceTree = "<group>"; };
-		ACF16DA517302568000683A9 /* DocumentoAreaController_iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DocumentoAreaController_iPhone.m; path = ClubMedici/DocumentoAreaController_iPhone.m; sourceTree = "<group>"; };
-		ACF16DA617302568000683A9 /* DocumentoAreaController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DocumentoAreaController_iPhone.xib; path = ClubMedici/DocumentoAreaController_iPhone.xib; sourceTree = "<group>"; };
 		ACFADEC0172D6C2800437E43 /* spinner0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = spinner0.png; path = img/spinner0.png; sourceTree = SOURCE_ROOT; };
 		ACFADEC1172D6C2800437E43 /* spinner1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = spinner1.png; path = img/spinner1.png; sourceTree = SOURCE_ROOT; };
 		ACFADEC2172D6C2800437E43 /* spinner2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = spinner2.png; path = img/spinner2.png; sourceTree = SOURCE_ROOT; };
@@ -518,6 +518,21 @@
 			path = Pickers/Pickers;
 			sourceTree = "<group>";
 		};
+		AC865CCD173FB38B001D4DEF /* DocumentoAreaController */ = {
+			isa = PBXGroup;
+			children = (
+				AC865CC0173FB017001D4DEF /* DocumentoAreaController.h */,
+				AC865CC1173FB017001D4DEF /* DocumentoAreaController.m */,
+				AC865CCE173FB642001D4DEF /* DocumentoAreaController_iPad.h */,
+				AC865CCF173FB642001D4DEF /* DocumentoAreaController_iPad.m */,
+				AC865CD0173FB642001D4DEF /* DocumentoAreaController_iPad.xib */,
+				AC865CD1173FB642001D4DEF /* DocumentoAreaController_iPhone.h */,
+				AC865CD2173FB642001D4DEF /* DocumentoAreaController_iPhone.m */,
+				AC865CD3173FB642001D4DEF /* DocumentoAreaController_iPhone.xib */,
+			);
+			name = DocumentoAreaController;
+			sourceTree = "<group>";
+		};
 		AC9E0313173D55C500B15AD6 /* FlurrySDK */ = {
 			isa = PBXGroup;
 			children = (
@@ -629,14 +644,7 @@
 				AC26298A165D1E2400510092 /* PDFviewerController.h */,
 				AC26298B165D1E2400510092 /* PDFviewerController.m */,
 				AC93CE92165DA6F400ABA3C2 /* PDFviewerController.xib */,
-				ACF16D9C173022D8000683A9 /* DocumentoAreaController.h */,
-				ACF16D9D173022D8000683A9 /* DocumentoAreaController.m */,
-				ACF16DA417302568000683A9 /* DocumentoAreaController_iPhone.h */,
-				ACF16DA517302568000683A9 /* DocumentoAreaController_iPhone.m */,
-				ACF16DA617302568000683A9 /* DocumentoAreaController_iPhone.xib */,
-				ACF16D9717302273000683A9 /* DocumentoAreaController_iPad.h */,
-				ACF16D9817302273000683A9 /* DocumentoAreaController_iPad.m */,
-				ACF16D9917302273000683A9 /* DocumentoAreaController_iPad.xib */,
+				AC865CCD173FB38B001D4DEF /* DocumentoAreaController */,
 				ACBFA9FA1735135C00A22E18 /* CalcolaRataController.h */,
 				ACBFA9FB1735135C00A22E18 /* CalcolaRataController.m */,
 				ACBFA9FC1735135C00A22E18 /* CalcolaRataController_iPhone.xib */,
@@ -954,8 +962,6 @@
 				ACFADECB172D6C2800437E43 /* spinner5.png in Resources */,
 				AC8E1777172D800300376720 /* ErrorView.xib in Resources */,
 				ACB87144172F3A3900D25669 /* reload.png in Resources */,
-				ACF16D9B17302273000683A9 /* DocumentoAreaController_iPad.xib in Resources */,
-				ACF16DA817302568000683A9 /* DocumentoAreaController_iPhone.xib in Resources */,
 				AC03EA0D1730881F004307EE /* mail2@2x.png in Resources */,
 				AC03EA0F1730882E004307EE /* phone2@2x.png in Resources */,
 				AC1007F21731797C0021A89F /* ipadShadow.png in Resources */,
@@ -1001,6 +1007,8 @@
 				AC76D8B7173EC34F006C44B4 /* navBarLogo@2x.png in Resources */,
 				AC76D8B9173EC787006C44B4 /* navLogo@2x.png in Resources */,
 				AC76D8BB173EC9F0006C44B4 /* cmLogo.png in Resources */,
+				AC865CD5173FB643001D4DEF /* DocumentoAreaController_iPad.xib in Resources */,
+				AC865CD7173FB643001D4DEF /* DocumentoAreaController_iPhone.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1055,9 +1063,6 @@
 				ACBF78BC172D3D9200B4F230 /* CustomSpinnerView.m in Sources */,
 				ACFADECF172D75A500437E43 /* ErrorView.m in Sources */,
 				ACDCC02B172EC08E00E64879 /* Reachability.m in Sources */,
-				ACF16D9A17302273000683A9 /* DocumentoAreaController_iPad.m in Sources */,
-				ACF16D9E173022D8000683A9 /* DocumentoAreaController.m in Sources */,
-				ACF16DA717302568000683A9 /* DocumentoAreaController_iPhone.m in Sources */,
 				ACBFA9FD1735135C00A22E18 /* CalcolaRataController.m in Sources */,
 				AC5E5496173523DD0076DA6C /* AbstractActionSheetPicker.m in Sources */,
 				AC5E5497173523DD0076DA6C /* ActionSheetCustomPicker.m in Sources */,
@@ -1078,6 +1083,9 @@
 				D9FDADCE173D2BEB002808A7 /* SharingProvider.m in Sources */,
 				D9FDADD1173DBE98002808A7 /* TurismoItemController.m in Sources */,
 				ACBD38B3173E2ACD00D4F0B7 /* PullToRefreshView.m in Sources */,
+				AC865CC2173FB017001D4DEF /* DocumentoAreaController.m in Sources */,
+				AC865CD4173FB643001D4DEF /* DocumentoAreaController_iPad.m in Sources */,
+				AC865CD6173FB643001D4DEF /* DocumentoAreaController_iPhone.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
