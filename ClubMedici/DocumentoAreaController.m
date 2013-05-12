@@ -26,9 +26,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
-        _sharingProvider = [[SharingProvider alloc] init];
-        _sharingProvider.viewController = self;
+
     }
     return self;
 }
@@ -40,6 +38,8 @@
     
     if(docItem){
         self.title = [docItem objectForKey:@"LABEL"];
+        // Custom initialization
+        _sharingProvider = [[SharingProvider alloc] initWithSocial:NO];
         //flurry log
         [Utilities logEvent:@"Documento_letto" arguments:[NSDictionary dictionaryWithObjectsAndKeys:self.title,@"Titolo_documento", nil]];
         
@@ -48,10 +48,14 @@
         self.title = turismoItem.title;
         phone = turismoItem.phone;
         mail = turismoItem.email;
+        // Custom initialization
+        _sharingProvider = [[SharingProvider alloc] initWithSocial:YES];
+        _sharingProvider.viewController = self;
         //flurry log
         [Utilities logEvent:@"Pdf_vacanze_letto" arguments:[NSDictionary dictionaryWithObjectsAndKeys:self.title,@"Titolo_pdf_vacanze",nil]];
         webView.scalesPageToFit=YES; 
     }
+    _sharingProvider.viewController = self;
     
     footerView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"reverse_nav_bar"]];
 
@@ -307,15 +311,18 @@
         _sharingProvider.title       = self.turismoItem.title;
         
         _sharingProvider.image       = self.turismoItem.imageUrl;
+
         NSLog(@"imageUrl: %@", self.turismoItem.imageUrl);
     }
     
     if(docItem){
+        _sharingProvider.iOS6String = htmlPage;
         _sharingProvider.mailObject  =  [docItem objectForKey:@"LABEL"];
         
         _sharingProvider.mailBody    = htmlPage;
     }
-    
+    _sharingProvider.printView = [self.webView viewPrintFormatter];
+
     [_sharingProvider sharingAction:sender];
 }
 
