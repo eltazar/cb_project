@@ -12,7 +12,8 @@
 #import "CustomSpinnerView.h"
 #import "ErrorView.h"
 #import "Reachability.h"
-
+#import "UIViewController+InterfaceIdiom.h"
+#import "DocumentoAreaController.h"
 
 @interface TurismoTableViewController () {
     CustomSpinnerView *_spinner;
@@ -119,9 +120,9 @@
     AreaTurismoItem *item =
         [(WMTableViewDataSource *)self.tableView.dataSource valueForKey:@"ITEM"
                                                             atIndexPath:indexPath];
-    TurismoItemController *turismoItemController = [[TurismoItemController alloc] initWithNibName:nil bundle:nil];
-    turismoItemController.areaTurismoItem = item;
-    [self.navigationController pushViewController:turismoItemController animated:YES];
+    DocumentoAreaController *docAreaController = [DocumentoAreaController idiomAllocInit];
+    docAreaController.turismoItem = item;
+    [self.navigationController pushViewController:docAreaController animated:YES];
 }
 
 
