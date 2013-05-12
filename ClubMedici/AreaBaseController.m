@@ -123,14 +123,14 @@
             cell = [[[NSBundle mainBundle] loadNibNamed:@"ContactCell" owner:self options:NULL] objectAtIndex:0];
             UIView *v = [[UIView alloc] init];
             v.opaque = YES;
-            v.backgroundColor = [UIColor colorWithRed:220/255.0f green:223/255.0f blue:224/255.0f alpha:1];
+            v.backgroundColor = [UIColor colorWithRed:144/255.0f green:170/255.0f blue:201/255.0f alpha:1];
             cell.selectedBackgroundView = v;
         }
         cell.opaque = YES;
         
-        FXLabel *contactLabel = (FXLabel *) [cell viewWithTag:1];
+        UILabel *contactLabel = (UILabel *) [cell viewWithTag:1];
         contactLabel.textColor = [UIColor colorWithRed:11/255.0f green:67/255.0f blue:144/255.0f alpha:1];
-        contactLabel.highlightedTextColor =[UIColor blackColor];
+        contactLabel.highlightedTextColor =[UIColor whiteColor];
         
         UIImageView *img = (UIImageView *)[cell viewWithTag:2];
         img.opaque = YES;
@@ -192,22 +192,27 @@
                                                 options:NULL] objectAtIndex:0];
             UIView *v = [[UIView alloc] init];
             v.opaque = YES;
-            v.backgroundColor = [UIColor colorWithRed:220/255.0f green:223/255.0f blue:224/255.0f alpha:1];
+            v.backgroundColor = [UIColor colorWithRed:144/255.0f green:170/255.0f blue:201/255.0f alpha:1];
             cell.selectedBackgroundView = v;
         }
     }
     
     /*Testo della cella*/
-    FXLabel *label = (FXLabel *) [cell viewWithTag:3];
-    label.textColor = [UIColor colorWithWhite:0.5f alpha:1];
-    label.shadowColor = [UIColor colorWithWhite:1.0f alpha:0.8f];
-    label.shadowOffset = CGSizeMake(0.8f, 0.80f);
-    label.shadowBlur = 1.0f;
-    label.innerShadowBlur = 3.0f;
-    label.innerShadowColor = [UIColor colorWithWhite:0.0f alpha:0.9f];
-    label.innerShadowOffset = CGSizeMake(0.8f, 0.8f);
-    label.highlightedTextColor =[UIColor blackColor];
+    UILabel *label = (UILabel *) [cell viewWithTag:3];
+//    label.textColor = [UIColor colorWithWhite:0.5f alpha:1];
+//    label.shadowColor = [UIColor colorWithWhite:1.0f alpha:0.8f];
+//    label.shadowOffset = CGSizeMake(0.8f, 0.80f);
+//    label.shadowBlur = 1.0f;
+//    label.innerShadowBlur = 3.0f;
+//    label.innerShadowColor = [UIColor colorWithWhite:0.0f alpha:0.9f];
+//    label.innerShadowOffset = CGSizeMake(0.8f, 0.8f);
+//    label.highlightedTextColor =[UIColor whiteColor];
     label.text = [_dataModel valueForKey:@"LABEL" atIndexPath:indexPath];
+
+    label.textColor     = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.2];
+    label.shadowColor   = [UIColor blackColor];
+    label.shadowOffset  = CGSizeMake(-0.5,-0.5);
+
     
     /* Linea separatrice tra le celle*/
     tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
