@@ -13,6 +13,11 @@
 #import "AppDelegate.h"
 #import "Utilities.h"
 
+@interface SharingProvider(){
+    UIActionSheet *actionSheet;
+}
+@end
+
 @implementation SharingProvider
 
 
@@ -142,8 +147,15 @@
 
 
 - (void)shareWithActionSheet:(id)sender {
+    NSLog(@"ACTION SHEET");
     //TODO: andare a pescare la roba iPad
-    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Condividi" delegate:self cancelButtonTitle:@"Annulla" destructiveButtonTitle:nil otherButtonTitles:@"Facebook",@"Twitter",@"E-mail", nil];
+    
+    if([actionSheet isVisible] && [self.viewController respondsToSelector:@selector(dismissShareActionSheet:sender:)]){
+        [self.viewController performSelector:@selector(dismissShareActionSheet:sender:) withObject:actionSheet withObject:sender];
+        return;
+    }
+
+    actionSheet = [[UIActionSheet alloc] initWithTitle:@"Condividi" delegate:self cancelButtonTitle:@"Annulla" destructiveButtonTitle:nil otherButtonTitles:@"Facebook",@"Twitter",@"E-mail", nil];
     actionSheet.delegate = self;
     if ([self.viewController respondsToSelector:@selector(showShareActionSheet:sender:)]) {
         [self.viewController performSelector:@selector(showShareActionSheet:sender:) withObject:actionSheet withObject:sender];
