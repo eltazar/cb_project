@@ -144,6 +144,7 @@
 - (void) menuItemClicked:(id) sender {
     // called when Item clicked in menu
     [[UIPasteboard generalPasteboard] setString:phone];
+    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
 }
 - (BOOL) canPerformAction:(SEL)selector withSender:(id) sender {
     if (selector == @selector(menuItemClicked:) /*selector == @selector(copy:)*/){//*<--enable that if you want the copy item */) {

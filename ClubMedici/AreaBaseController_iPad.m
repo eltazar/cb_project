@@ -18,7 +18,9 @@
 #define LANDSCAPE_WIDTH 703.0
 
 
-@interface AreaBaseController_iPad () { }
+@interface AreaBaseController_iPad () {
+    NSString *phone;
+}
 @end
 
 
@@ -59,7 +61,7 @@
 #pragma mark - TableViewDelegate
 
 
-
+/*//decommentare se si vuole fare "copia" tenendo premuta la cella
 - (BOOL)tableView:(UITableView *)tableView shouldShowMenuForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     NSString *dataKey = [_dataModel valueForKey:@"DATA_KEY" atIndexPath:indexPath];
@@ -85,13 +87,14 @@
         [pb setString:copyString];
     }
 }
-
+*/
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *dataKey = [_dataModel valueForKey:@"DATA_KEY" atIndexPath:indexPath];
     
     if ([dataKey isEqualToString:@"phone"]) {
-        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+         phone = [_dataModel valueForKey:@"LABEL" atIndexPath:indexPath];
+        [self copyNumber:indexPath];
     }
     else if ([dataKey isEqualToString:@"noleggioAuto"] ||
              [dataKey isEqualToString:@"noleggioElettro"] ||
@@ -100,19 +103,49 @@
         NSLog(@" CELLA NOLEGGIO = %@", dataKey);
         RichiestaNoleggioController *formController = [[RichiestaNoleggioController alloc] init:dataKey];
         formController.delegate = self;
-        
-        /*che si fa?
-         idea: mostrare il form con una modalview che è più piccola rispetto le dimensioni del controller che la contiene. pero in portrait e split view non la gestisce. solo in landscape.
-         UINavigationController *navContr = [[UINavigationController alloc] initWithRootViewController:formController];
-         navContr.modalPresentationStyle = UIModalPresentationPageSheet;
-         [self.navigationController presentModalViewController:navContr  animated:YES];*/
-        
         //Per ora mostro aggiungendo normalmente la nuova view alla gerarchia
         [self.navigationController pushViewController:formController animated:YES];        
     }        
     else {
         [super tableView:tableView didSelectRowAtIndexPath:indexPath];
     }
+}
+
+-(void)copyNumber:(NSIndexPath*)indexPath{
+    [self becomeFirstResponder];
+    
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    
+    /*get the view from the UIBarButtonItem*/
+    //UIView *buttonView=[[event.allTouches anyObject] view];
+    //CGRect buttonFrame= [self.callButton convertRect:self.callButton.frame toView:footerView];
+    
+    UIMenuController *menuController = [UIMenuController sharedMenuController];
+    NSString *title = [NSString stringWithFormat:@"Copia %@", phone];
+    UIMenuItem *resetMenuItem = [[UIMenuItem alloc] initWithTitle:title action:@selector(menuItemClicked:)];
+    
+    NSAssert([self becomeFirstResponder], @"Sorry, UIMenuController will not work with %@ since it cannot become first responder", self);
+    [menuController setMenuItems:[NSArray arrayWithObject:resetMenuItem]];
+    [menuController setTargetRect:cell.frame inView:cell.superview];
+    [menuController setMenuVisible:YES animated:YES];
+    
+}
+
+- (void) menuItemClicked:(id) sender {
+    // called when Item clicked in menu
+    [[UIPasteboard generalPasteboard] setString:phone];
+    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
+//    [self.tableView deselectRowAtIndexPath:[self.tableView sele] animated:YES];
+
+}
+- (BOOL) canPerformAction:(SEL)selector withSender:(id) sender {
+    if (selector == @selector(menuItemClicked:) /*selector == @selector(copy:)*/){//*<--enable that if you want the copy item */) {
+        return YES;
+    }
+    return NO;
+}
+- (BOOL) canBecomeFirstResponder {
+    return YES;
 }
 
 
