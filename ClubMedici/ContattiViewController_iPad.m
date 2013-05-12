@@ -36,7 +36,6 @@
     [self.view addSubview:shadow];
     
     [self.view addSubview:mapView];
-    self.tableView.backgroundColor = [UIColor colorWithRed:246/255.0f green:250/255.0f blue:255/255.0f alpha:1];
     
     companyDescriptionCellCollapsedHeight = 90;
     

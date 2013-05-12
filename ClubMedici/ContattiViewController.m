@@ -46,9 +46,7 @@
     self.tableView.tableFooterView = [[UIView alloc] init];
     
     sediPin = [[NSMutableArray alloc] init];
-    
-    self.view.backgroundColor = [UIColor colorWithRed:243/255.0f green:244/255.0f blue:245/255.0f alpha:1];
-    
+        
     //alloco descrizione cell
     NSString *nibName = IDIOM_SPECIFIC_STRING(@"AreaDescriptionCell");
     companyDescriptionCell = [[[NSBundle mainBundle] loadNibNamed:nibName
