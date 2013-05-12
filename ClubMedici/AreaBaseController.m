@@ -259,8 +259,7 @@
         if ([Utilities networkReachable]) {
             //NSLog(@"DOCUMENTO AREA CLICCATO = %@",[_dataModel valueForKey:@"ID_PAG" atIndexPath:indexPath]);
             DocumentoAreaController *descController = [DocumentoAreaController idiomAllocInit];
-            descController.idPag = [_dataModel valueForKey:@"ID_PAG" atIndexPath:indexPath];
-            descController.title = [_dataModel valueForKey:@"LABEL" atIndexPath:indexPath];
+            descController.docItem = [self.area.itemList objectAtIndex:indexPath.row];
             [self.navigationController pushViewController:descController animated:YES];
         }
         else{
