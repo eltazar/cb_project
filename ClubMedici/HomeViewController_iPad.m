@@ -56,18 +56,6 @@
     }
 }
 
-
-
-#pragma mark - SharingProvider informal protocol
-
-
-
-- (void)showShareActionSheet:(UIActionSheet *)actionSheet sender:(UIButton *)sender {
-    [actionSheet showFromRect:sender.frame inView:sender.superview animated:YES];
-}
-
-
-
 #pragma mark - UISplitViewControllerDelegate
 
 
@@ -164,6 +152,18 @@
         errorView = [[ErrorView alloc] initWithSize:self.view.frame.size];
         [super showErrorView:message];
     }
+}
+
+#pragma mark - SharingProvider informal protocol
+
+-(void)showShareActionSheet:(UIActionSheet *)actionSheet sender:(UIBarButtonItem *)sender {
+    
+    [actionSheet showFromBarButtonItem:sender animated:YES];
+}
+
+-(void)dismissShareActionSheet:(UIActionSheet *)actionSheet sender:(UIBarButtonItem *)sender {
+    
+    [actionSheet dismissWithClickedButtonIndex:0 animated:YES];
 }
 
 @end

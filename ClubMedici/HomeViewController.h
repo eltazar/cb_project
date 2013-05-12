@@ -26,7 +26,6 @@
     ErrorView *errorView;
     IBOutlet UIWebView * webView;
     IBOutlet UIView *footerView;
-    IBOutlet UIButton *shareButton;
     CustomSpinnerView *spinner;
     PullToRefreshView *pullView;
     UIScrollView *currentScrollView;

@@ -106,4 +106,11 @@
     }
 }
 
+#pragma mark - SharingProvider informal protocol
+
+-(void)showShareActionSheet:(UIActionSheet *)actionSheet sender:(UIBarButtonItem *)sender {
+
+    [actionSheet showInView:self.view];
+}
+
 @end

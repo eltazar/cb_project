@@ -39,11 +39,15 @@
     for(UIView *wview in [[[webView subviews] objectAtIndex:0] subviews]) {
         if([wview isKindOfClass:[UIImageView class]]) { wview.hidden = YES; }
     }
-    
-    shareButton.enabled = NO;
+    NSLog(@"SELF = %@",self);
+    //share button
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(sharingAction:)];
+    self.navigationItem.rightBarButtonItem.enabled = NO;
+
     
     spinner = [[CustomSpinnerView alloc] initWithFrame:self.view.frame];
     spinner.frame = CGRectMake(self.navigationController.navigationBar.frame.size.width/2 - spinner.frame.size.width/2, self.view.frame.size.height/2 - spinner.frame.size.height/2, spinner.frame.size.width, spinner.frame.size.height);
+    
     _sharingProvider = [[SharingProvider alloc] init];
     _sharingProvider.viewController = self;
     
@@ -189,6 +193,7 @@
 }
 
 #pragma mark - UIWebViewDelegate
+
 - (void)webViewDidStartLoad:(UIWebView *)webView {
     NSLog(@"INIZIATO DOWNLOAD PDF");
 }
@@ -199,8 +204,6 @@
 
 }
 
-
-
 #pragma mark - WMHTTPAccessDelegate
 
 
@@ -210,7 +213,7 @@
     [(PullToRefreshView *)[self.view viewWithTag:998] finishedLoading];
     [spinner stopAnimating];
     [spinner removeFromSuperview];
-    shareButton.enabled = YES;
+    self.navigationItem.rightBarButtonItem.enabled = YES;
     json = jsonArray;
     NSString *title = [[jsonArray objectAtIndex:0]objectForKey:@"titolo"];
     [Utilities logEvent:@"News_letta" arguments:[NSDictionary dictionaryWithObjectsAndKeys:title,@"Titolo_news",nil]];
@@ -222,7 +225,7 @@
     [spinner removeFromSuperview];
     NSLog(@"Server error = %@",error.description);
     [self showErrorView:@"Errore server"];
-    shareButton.enabled = NO;
+    self.navigationItem.rightBarButtonItem.enabled = NO;
 }
 
 
@@ -245,16 +248,8 @@
         NSLog(@"LOGGATO");
         
         //appena loggato mostro pulsante logout, e lancio finestra per scrivere il post
-        UIImage *buttonImage = [UIImage imageNamed:@"fbLogout"];
-        UIButton *tmpButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [tmpButton setImage:buttonImage forState:UIControlStateNormal];
-        tmpButton.frame = CGRectMake(0.0, 0.0, buttonImage.size.width, buttonImage.size.height);
-        [tmpButton addTarget:self action:@selector(logoutFromFB:) forControlEvents:UIControlEventTouchUpInside];
-        UIBarButtonItem *logoutBtn = [[UIBarButtonItem alloc] initWithCustomView:tmpButton];
-        self.navigationItem.rightBarButtonItem = logoutBtn;
     } else {
         NSLog(@"SLOGGATO");
-        self.navigationItem.rightBarButtonItem = nil;
     }
 }
 
@@ -305,6 +300,9 @@
     
     [_sharingProvider sharingAction:sender];    
 }
+
+
+
 
 
 @end
