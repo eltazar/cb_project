@@ -13,6 +13,7 @@
 		<array key="IBDocument.IntegratedClassDependencies">
 			<string>IBProxyObject</string>
 			<string>IBUIButton</string>
+			<string>IBUIImageView</string>
 			<string>IBUILabel</string>
 			<string>IBUIView</string>
 			<string>IBUIWebView</string>
@@ -92,7 +93,7 @@
 								<string key="NSFrame">{{134, -6}, {64, 56}}</string>
 								<reference key="NSSuperview" ref="790728857"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="130289436"/>
+								<reference key="NSNextKeyView" ref="160132423"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -152,6 +153,7 @@
 								<string key="NSFrame">{{215, -18}, {80, 80}}</string>
 								<reference key="NSSuperview" ref="790728857"/>
 								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -179,6 +181,21 @@
 								<reference key="IBUIFontDescription" ref="101775421"/>
 								<reference key="IBUIFont" ref="830078902"/>
 							</object>
+							<object class="IBUIImageView" id="160132423">
+								<reference key="NSNextResponder" ref="790728857"/>
+								<int key="NSvFlags">292</int>
+								<string key="NSFrame">{{206.5, 5}, {3, 37}}</string>
+								<reference key="NSSuperview" ref="790728857"/>
+								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView" ref="130289436"/>
+								<string key="NSReuseIdentifierKey">_NS:9</string>
+								<bool key="IBUIUserInteractionEnabled">NO</bool>
+								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+								<object class="NSCustomResource" key="IBUIImage">
+									<string key="NSClassName">NSImage</string>
+									<string key="NSResourceName">vertical_line.png</string>
+								</object>
+							</object>
 						</array>
 						<string key="NSFrame">{{0, 415}, {320, 45}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
@@ -195,7 +212,7 @@
 				<string key="NSFrame">{{0, 20}, {320, 460}}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
-				<reference key="NSNextKeyView"/>
+				<reference key="NSNextKeyView" ref="558309662"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">3</int>
 					<bytes key="NSWhite">MQA</bytes>
@@ -309,18 +326,13 @@
 						<reference key="parent" ref="0"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">4</int>
-						<reference key="object" ref="558309662"/>
-						<array class="NSMutableArray" key="children"/>
-						<reference key="parent" ref="191373211"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">20</int>
 						<reference key="object" ref="790728857"/>
 						<array class="NSMutableArray" key="children">
 							<reference ref="326790287"/>
 							<reference ref="255320582"/>
 							<reference ref="130289436"/>
+							<reference ref="160132423"/>
 						</array>
 						<reference key="parent" ref="191373211"/>
 						<string key="objectName">ContactPanel</string>
@@ -340,6 +352,16 @@
 						<reference key="object" ref="130289436"/>
 						<reference key="parent" ref="790728857"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">40</int>
+						<reference key="object" ref="160132423"/>
+						<reference key="parent" ref="790728857"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">4</int>
+						<reference key="object" ref="558309662"/>
+						<reference key="parent" ref="191373211"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -355,12 +377,13 @@
 				<string key="35.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<real value="3" key="35.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
 				<string key="4.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="40.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">39</int>
+			<int key="maxID">40</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -452,6 +475,7 @@
 			<string key="phone3.png">{200, 200}</string>
 			<string key="phone3_disabled.png">{200, 200}</string>
 			<string key="phone3_high.png">{200, 200}</string>
+			<string key="vertical_line.png">{3, 166}</string>
 		</dictionary>
 		<string key="IBCocoaTouchPluginVersion">2083</string>
 	</data>
