@@ -7,7 +7,6 @@
 //
 
 #import "TurismoTableViewController.h"
-#import "TurismoItemController.h"
 #import "AreaTurismoItemCell.h"
 #import "CustomSpinnerView.h"
 #import "ErrorView.h"
