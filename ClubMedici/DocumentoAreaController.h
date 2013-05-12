@@ -13,6 +13,8 @@
 #import "CustomSpinnerView.h"
 #import "Utilities.h"
 
+@class AreaTurismoItem;
+
 @interface DocumentoAreaController : UIViewController<WMHTTPAccessDelegate,MFMailComposeViewControllerDelegate, UIActionSheetDelegate, UIPrintInteractionControllerDelegate, UIWebViewDelegate>{
     @protected
     NSString *phone;
@@ -23,9 +25,11 @@
     NSString *htmlPage;
 }
 
+@property(nonatomic, strong) NSDictionary *docItem;
+@property(nonatomic, strong) AreaTurismoItem *turismoItem;
+
 @property(nonatomic, weak) IBOutlet UIButton *callButton;
 @property(nonatomic, weak) IBOutlet UIButton *mailButton;
-@property(nonatomic, strong) NSString *idPag;
 @property(nonatomic, weak) IBOutlet UIWebView *webView;
 -(IBAction) writeEmail;
 -(IBAction)callNumber;

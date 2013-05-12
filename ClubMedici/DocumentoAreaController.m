@@ -10,20 +10,25 @@
 #import "PDHTTPAccess.h"
 #import "Utilities.h"
 #import "Reachability.h"
+#import "AreaTurismoItem.h"
+#import "SharingProvider.h"
 
 @interface DocumentoAreaController (){
-    UIActionSheet *actionSheet;
+    SharingProvider *_sharingProvider;
+
 }
 @end
 
 @implementation DocumentoAreaController
-@synthesize webView, idPag;
+@synthesize webView, docItem, turismoItem;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        _sharingProvider = [[SharingProvider alloc] init];
+        _sharingProvider.viewController = self;
     }
     return self;
 }
@@ -31,6 +36,24 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    
+    if(docItem){
+        self.title = [docItem objectForKey:@"LABEL"];
+        //flurry log
+        [Utilities logEvent:@"Documento_letto" arguments:[NSDictionary dictionaryWithObjectsAndKeys:self.title,@"Titolo_documento", nil]];
+        
+    }
+    if(turismoItem){
+        self.title = turismoItem.title;
+        phone = turismoItem.phone;
+        mail = turismoItem.email;
+        //flurry log
+        [Utilities logEvent:@"Pdf_vacanze_letto" arguments:[NSDictionary dictionaryWithObjectsAndKeys:self.title,@"Titolo_pdf_vacanze",nil]];
+    }
+    
+    
+    
     
     footerView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"reverse_nav_bar"]];
 
@@ -54,12 +77,7 @@
     _callButton.enabled = NO;
     _mailButton.enabled = NO;
     
-    //flurry log
-    NSDictionary *articleParams =
-    [NSDictionary dictionaryWithObjectsAndKeys:
-     self.title, @"Titolo_documento",
-     nil];
-    [Utilities logEvent:@"Documento_letto" arguments:articleParams];
+
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -74,6 +92,8 @@
     if(errorView && errorView.showed){
         [errorView removeFromSuperview];
     }
+    [self.webView stopLoading];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -85,14 +105,19 @@
 #pragma mark - UIWebViewDelegate
 - (void)webViewDidStartLoad:(UIWebView *)webView {
     NSLog(@"INIZIATO DOWNLOAD PDF");
+    [self startSpinner];
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     NSLog(@"Finito DOWNLOAD PDF");
+    [self stopSpinner];
+    [self enableButtonsView:YES];
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
     NSLog(@"FALLITO DOWNLOAD PDF = %@", [error localizedDescription]);
+    [self stopSpinner];
+    [self enableButtonsView:NO];
 }
 
 #pragma mark - WMHTTPAccessDelegate
@@ -101,31 +126,43 @@
     NSLog(@"JSON DESC : %@",[[jsonArray objectAtIndex:0] objectForKey:@"testo"]);
     
     [self stopSpinner];
+    [self enableButtonsView:YES];
+
     mail = [[jsonArray objectAtIndex:0] objectForKey:@"email"];
     phone = [[jsonArray objectAtIndex:0] objectForKey:@"telefono"];    
-    _callButton.enabled = YES;
-    _mailButton.enabled = YES;
-    self.navigationItem.rightBarButtonItem.enabled = YES;
-
 }
 
 -(void)didReceiveError:(NSError *)error{
     //NSLog(@"Error json = %@",error.description);
     [self showErrorView:@"Errore server"];
-    _callButton.enabled = NO;
-    _mailButton.enabled = NO;
+
     [self stopSpinner];
-    self.navigationItem.rightBarButtonItem.enabled = NO;
+    [self enableButtonsView:NO];
 }
 -(void)fetchData{
     if([Utilities networkReachable]){
-        [PDHTTPAccess getDocumentContents:[idPag intValue] delegate:self];
-        [spinner startAnimating];
-        [self.view addSubview:spinner];
+        
+        if(docItem){
+            [PDHTTPAccess getDocumentContents:[[docItem objectForKey:@"ID_PAG"] intValue] delegate:self];
+            [self startSpinner];
+        }
+        if(turismoItem){
+            NSString *encodedString=[turismoItem.pdfUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+            NSURL *weburl = [NSURL URLWithString:encodedString];
+            NSURLRequest *request = [NSURLRequest requestWithURL:weburl cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:60.0];
+            [self.webView loadRequest:request];
+        }
     }
     else{
         [self showErrorView:@"Connessione assente"];
     }
+}
+
+#pragma mark - Error&Spinner handler
+
+-(void)startSpinner{
+    [spinner startAnimating];
+    [self.view addSubview:spinner];
 }
 
 -(void)stopSpinner{
@@ -133,31 +170,36 @@
     [spinner removeFromSuperview];
 }
 
+-(void)enableButtonsView:(BOOL)enable{
+    self.navigationItem.rightBarButtonItem.enabled = enable;
+    _callButton.enabled = enable;
+    _mailButton.enabled = enable;
+}
 
 #pragma mark - UIButton methods
 
-- (void)actionButtonPressed:(id)sender {
-    
-    NSString *cancelButtonTitle = @"Annulla";
-    
-    
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-        cancelButtonTitle = nil;
-    }
-    
-    if ([actionSheet isVisible]) {
-        //[actionSheet dismissWithClickedButtonIndex:-1 animated:NO];
-    }
-    else{
-        actionSheet = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:cancelButtonTitle destructiveButtonTitle:nil otherButtonTitles:@"E-mail",@"Stampa",nil,nil];
-        actionSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
-    }
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-        [actionSheet showFromBarButtonItem:self.navigationItem.rightBarButtonItem animated:YES];
-    } else {
-        [actionSheet showInView:self.view];
-    }
-}
+//- (void)actionButtonPressed:(id)sender {
+//    
+//    NSString *cancelButtonTitle = @"Annulla";
+//    
+//    
+////    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+////        cancelButtonTitle = nil;
+////    }
+////    
+////    if ([actionSheet isVisible]) {
+////        //[actionSheet dismissWithClickedButtonIndex:-1 animated:NO];
+////    }
+////    else{
+////        actionSheet = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:cancelButtonTitle destructiveButtonTitle:nil otherButtonTitles:@"E-mail",@"Stampa",nil,nil];
+////        actionSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+////    }
+////    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+////        [actionSheet showFromBarButtonItem:self.navigationItem.rightBarButtonItem animated:YES];
+////    } else {
+////        [actionSheet showInView:self.view];
+////    }
+//}
 
 -(IBAction) writeEmail{
     [Utilities sendEmail:mail controller:self delegate:self];
@@ -282,5 +324,43 @@
     }
 }
 
+
+#pragma mark - Private methdos
+- (void)actionButtonPressed:(id)sender {
+    if(turismoItem){
+        _sharingProvider.iOS6String  = [NSString stringWithFormat:
+                                        @"Offerta Turismo ClubMedici: %@\n %@",
+                                        self.turismoItem.title,
+                                        self.turismoItem.pdfUrl];
+        
+        _sharingProvider.mailObject  = [NSString stringWithFormat:
+                                        @"Offerta Turismo ClubMedici: %@",
+                                        self.turismoItem.title];
+        
+        _sharingProvider.mailBody    = [NSString stringWithFormat:
+                                        @"Ciao, leggi l'offerta turismo di ClubMedici:\n%@",
+                                        self.turismoItem.pdfUrl];
+        
+        _sharingProvider.initialText = [NSString stringWithFormat:
+                                        @"Offerta Turismo ClubMedici: %@",
+                                        self.turismoItem.title];
+        
+        _sharingProvider.url         = [NSString stringWithFormat:@"%@",
+                                        self.turismoItem.pdfUrl];
+        
+        _sharingProvider.title       = self.turismoItem.title;
+        
+        _sharingProvider.image       = self.turismoItem.imageUrl;
+        NSLog(@"imageUrl: %@", self.turismoItem.imageUrl);
+    }
+    
+    if(docItem){
+        _sharingProvider.mailObject  =  [docItem objectForKey:@"LABEL"];
+        
+        _sharingProvider.mailBody    = htmlPage;
+    }
+    
+    [_sharingProvider sharingAction:sender];
+}
 
 @end
