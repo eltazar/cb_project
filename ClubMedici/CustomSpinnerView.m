@@ -18,17 +18,17 @@
         self.opaque = YES;
         
         //Create the first status image and the indicator view
-        UIImage *statusImage = [UIImage imageNamed:@"spinner0.png"];
+        UIImage *statusImage = [UIImage imageNamed:@"1.png"];
         
         self.image = statusImage;
         
         //Add more images which will be used for the animation
         self.animationImages = [NSArray arrayWithObjects:
-                                             [UIImage imageNamed:@"spinner1.png"],
-                                             [UIImage imageNamed:@"spinner2.png"],
-                                             [UIImage imageNamed:@"spinner3.png"],
-                                             [UIImage imageNamed:@"spinner4.png"],
-                                             [UIImage imageNamed:@"spinner5.png"],
+                                             [UIImage imageNamed:@"1.png"],
+                                             [UIImage imageNamed:@"2.png"],
+                                             [UIImage imageNamed:@"3.png"],
+                                             [UIImage imageNamed:@"4.png"],
+                                             [UIImage imageNamed:@"5.png"],
                                              nil];
         
         self.frame = CGRectMake( frame.size.width/2
