@@ -177,15 +177,20 @@
 
 
 - (void)shareWithActionSheet:(id)sender {
-    NSLog(@"ACTION SHEET");
     //TODO: andare a pescare la roba iPad
     
     if([actionSheet isVisible] && [self.viewController respondsToSelector:@selector(dismissShareActionSheet:sender:)]){
         [self.viewController performSelector:@selector(dismissShareActionSheet:sender:) withObject:actionSheet withObject:sender];
         return;
     }
-
-    actionSheet = [[UIActionSheet alloc] initWithTitle:@"Condividi" delegate:self cancelButtonTitle:@"Annulla" destructiveButtonTitle:nil otherButtonTitles:@"Facebook",@"Twitter",@"E-mail", nil];
+    
+    if(isSocial){
+        actionSheet = [[UIActionSheet alloc] initWithTitle:@"Condividi" delegate:self cancelButtonTitle:@"Annulla" destructiveButtonTitle:nil otherButtonTitles:@"Facebook",@"Twitter",@"E-mail",@"Stampa", nil];
+    }
+    else{
+        actionSheet = [[UIActionSheet alloc] initWithTitle:@"Condividi" delegate:self cancelButtonTitle:@"Annulla" destructiveButtonTitle:nil otherButtonTitles:@"E-mail",@"Stampa", nil];
+    }
+    
     actionSheet.delegate = self;
     if ([self.viewController respondsToSelector:@selector(showShareActionSheet:sender:)]) {
         [self.viewController performSelector:@selector(showShareActionSheet:sender:) withObject:actionSheet withObject:sender];
@@ -295,18 +300,19 @@
 
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-    switch (buttonIndex) {
-        case 0:
-            [self postToFacebook:self];
-            break;
-        case 1:
+    
+    NSString *title = [actionSheet buttonTitleAtIndex:buttonIndex];
+    NSLog(@"TITOLO = %@",title);
+    if([title isEqualToString:@"Facebook"])
+        [self postToFacebook:self];
+    else if([title isEqualToString:@"Twitter"])
             [self postToTwitter:self];
-            break;
-        case 2:
+    else if([title isEqualToString:@"E-mail"])
             [self postToMail:self];
-            break;
-        default:
-            break;
+    else if([title isEqualToString:@"Stampa"]){
+                    NSLog(@"STAMPA");
+        if([self.viewController respondsToSelector:@selector(printWebView:)])
+            [self.viewController performSelector:@selector(printWebView:) withObject:self];
     }
 }
 
@@ -333,7 +339,6 @@
 
 
 # pragma mark - Private Methods
-
 
 
 /**
