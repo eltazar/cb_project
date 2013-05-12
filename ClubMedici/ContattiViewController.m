@@ -121,7 +121,7 @@
         if (!cell) {
             cell = [[[NSBundle mainBundle] loadNibNamed:@"ContactCell" owner:self options:NULL] objectAtIndex:0];
             UIView *v = [[UIView alloc] init];
-            v.backgroundColor = [UIColor colorWithRed:220/255.0f green:223/255.0f blue:224/255.0f alpha:1];
+            v.backgroundColor = [UIColor colorWithRed:144/255.0f green:170/255.0f blue:201/255.0f alpha:1];
             cell.selectedBackgroundView = v;
         }
     //    cell.backgroundColor = [UIColor colorWithRed:246/255.0f green:250/255.0f blue:255/255.0f alpha:1];
