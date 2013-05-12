@@ -99,10 +99,13 @@
 
 - (void)shareWithIosActivity {
     NSArray *activityItems;
+        
+    if(self.printView)
+        activityItems = @[self.iOS6String, self.printView];
+    else activityItems = @[self.iOS6String];
     
-    //NSString *newsString = [NSString stringWithFormat:@"News ClubMedici: %@\n %@%@",[[json objectAtIndex:0]objectForKey:@"titolo"],URL_NEWS,[[json objectAtIndex:0] objectForKey:@"id"]];
+    UIActivityViewController *activityController = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
     
-    activityItems = @[/*newsString*/self.iOS6String];
     if(isSocial){
         activityController.excludedActivityTypes = @[UIActivityTypeCopyToPasteboard,UIActivityTypePostToWeibo];
 
@@ -112,6 +115,22 @@
     }
     
     [self.viewController presentViewController:activityController animated:YES completion:nil];
+   
+    
+    //TODO: blocco da gestire per dare feedback all'utente
+    /*[activityController setCompletionHandler:^(NSString *act, BOOL done)
+     {
+         NSString *ServiceMsg = nil;
+         if ( [act isEqualToString:UIActivityTypeMail] )           ServiceMsg = @"Mail sended!";
+         if ( [act isEqualToString:UIActivityTypePostToTwitter] )  ServiceMsg = @"Post on twitter, ok!";
+         if ( [act isEqualToString:UIActivityTypePostToFacebook] ) ServiceMsg = @"Post on facebook, ok!";
+         if ( [act isEqualToString:UIActivityTypeMessage] )        ServiceMsg = @"SMS sended!";
+         if ( done )
+         {
+             UIAlertView *Alert = [[UIAlertView alloc] initWithTitle:ServiceMsg message:@"" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
+             [Alert show];
+         }
+     }];*/
 }
 
 
