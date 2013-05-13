@@ -183,10 +183,12 @@
 
 #pragma mark - Apparence methods
 
--(void) setCustomApparence{
-    
+- (void)setCustomApparence {
     //permette di cambiare la navBar di tutte le view
-    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"iphone_nav_bar"]  forBarMetrics:UIBarMetricsDefault];
+    UIImage *image = [[UIImage imageNamed:@"iphone_nav_bar"]
+                       resizableImageWithCapInsets: UIEdgeInsetsMake(20, 0, 20, 0)];
+    [[UINavigationBar appearance] setBackgroundImage:image
+                                       forBarMetrics:UIBarMetricsDefault];
     // Customize the title text for *all* UINavigationBars
     [[UINavigationBar appearance] setTitleTextAttributes:
      [NSDictionary dictionaryWithObjectsAndKeys:
