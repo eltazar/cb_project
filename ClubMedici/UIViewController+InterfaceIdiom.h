@@ -12,3 +12,6 @@
 + (id) idiomAllocInit;
 
 @end
+
+BOOL iPhoneIdiom();
+BOOL iPadIdiom();

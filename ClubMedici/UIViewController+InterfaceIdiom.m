@@ -22,3 +22,11 @@
 
 
 @end
+
+BOOL iPhoneIdiom() {
+    return (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone);
+}
+
+BOOL iPadIdiom() {
+    return (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad);
+}
