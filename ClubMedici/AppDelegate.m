@@ -14,7 +14,7 @@
 
 #import "JASidePanelController.h"
 #import "Flurry.h"
-
+#import "SharingProvider.h"
 
 @implementation AppDelegate
 @synthesize jasSidePanelController, splitViewController;
@@ -57,6 +57,9 @@
 //                                                 name:kReachabilityChangedNotification
 //                                               object:nil];
     [reachability startNotifier];
+    
+    //sharingProvider
+    [SharingProvider sharedInstance];
     
     [self setCustomApparence];
         

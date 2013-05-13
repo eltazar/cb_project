@@ -25,7 +25,10 @@
 @property(nonatomic, strong) NSString *title;
 @property(nonatomic, strong) NSString *image;
 @property(nonatomic, strong) UIViewPrintFormatter *printView;
-- (id)initWithSocial:(BOOL)social;
+@property(nonatomic, assign) BOOL isSocial;
+
++ (SharingProvider *)sharedInstance;
+//- (id)initWithSocial:(BOOL)social;
 - (IBAction)sharingAction:(id)sender;
 
 @end

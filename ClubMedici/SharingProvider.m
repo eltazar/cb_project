@@ -15,28 +15,33 @@
 
 @interface SharingProvider(){
     UIActionSheet *actionSheet;
-    BOOL isSocial;
 }
 @end
 
 @implementation SharingProvider
 
 
+static SharingProvider *sharedInstance = nil;
+
++ (SharingProvider *)sharedInstance
+{
+    NSLog(@"CREO SHARING PROVIDER");
+    static SharingProvider *sharedInstance = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sharedInstance = [[SharingProvider alloc] init];
+        // Do any other initialisation stuff here
+        [[NSNotificationCenter defaultCenter] addObserver:sharedInstance
+                                                 selector:@selector(sessionStateChanged:)      name:FBSessionStateChangedNotification
+                                                   object:nil];
+    });
+    return sharedInstance;
+}
+
 - (id)init {
     self = [super init];
     if (self) {
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(sessionStateChanged:)      name:FBSessionStateChangedNotification
-                                                   object:nil];
-    }
-    return self;
-}
 
-- (id)initWithSocial:(BOOL)social{
-    
-    self = [self init];
-    if(self){
-        isSocial = social;
     }
     return self;
 }
@@ -106,7 +111,7 @@
     
     UIActivityViewController *activityController = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
     
-    if(isSocial){
+    if(_isSocial){
         activityController.excludedActivityTypes = @[UIActivityTypeCopyToPasteboard,UIActivityTypePostToWeibo];
 
     }
@@ -184,7 +189,7 @@
         return;
     }
     
-    if(isSocial){
+    if(_isSocial){
         actionSheet = [[UIActionSheet alloc] initWithTitle:@"Condividi" delegate:self cancelButtonTitle:@"Annulla" destructiveButtonTitle:nil otherButtonTitles:@"Facebook",@"Twitter",@"E-mail",@"Stampa", nil];
     }
     else{
