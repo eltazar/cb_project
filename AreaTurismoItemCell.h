@@ -18,4 +18,6 @@
 
 @property(nonatomic, strong) AreaTurismoItem *areaTurismoItem;
 
+- (NSInteger)getHeight;
+
 @end

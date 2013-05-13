@@ -9,8 +9,9 @@
 #import "AreaTurismoItemCell.h"
 #import "AsyncImageView.h"
 
-@interface AreaTurismoItemCell() { }
-    
+@interface AreaTurismoItemCell() {
+    CGFloat _minHeight;
+}    
 @end
 
 @implementation AreaTurismoItemCell
@@ -38,6 +39,10 @@
 
 
 - (void)initialize {
+    _minHeight = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ?
+                    self.photo.frame.size.height + 2 * self.photo.frame.origin.x :
+                    self.photo.frame.size.height + self.titleLbl.frame.size.height +
+                        self.titleLbl.frame.origin.y * 2;
     UIView *v = [[UIView alloc] init];
     v.opaque = YES;
     v.backgroundColor = v.backgroundColor = [UIColor colorWithRed:144/255.0f
@@ -57,6 +62,14 @@
                                                         alpha:0.2];
     self.descriptionLbl.shadowColor   = [UIColor blackColor];
     self.descriptionLbl.shadowOffset  = CGSizeMake(-0.5,-0.5);
+- (NSInteger)getHeight {    
+    CGFloat height;
+    CGRect txtFrame = self.descriptionLbl.frame;
+    CGRect titFrame = self.titleLbl.frame;
+    height = txtFrame.origin.y + txtFrame.size.height +
+             titFrame.origin.y; // La y fa da padding.
+
+    return (height < _minHeight) ? _minHeight : height;
 }
 
 
