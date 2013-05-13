@@ -154,7 +154,6 @@
 		D915E18D17373F9900F78948 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D915E18C17373F9900F78948 /* FacebookSDK.framework */; };
 		D915E18F17373FD300F78948 /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D915E18E17373FD300F78948 /* FacebookSDKResources.bundle */; };
 		D915E1961739C1EE00F78948 /* TurismoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D915E1941739C1ED00F78948 /* TurismoTableViewController.m */; };
-		D915E1971739C1EE00F78948 /* TurismoTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D915E1951739C1ED00F78948 /* TurismoTableViewController.xib */; };
 		D915E19B1739CBEE00F78948 /* BusinessLogicBase.m in Sources */ = {isa = PBXBuildFile; fileRef = D915E19A1739CBEE00F78948 /* BusinessLogicBase.m */; };
 		D915E19E1739D14400F78948 /* AreaTurismoSection.m in Sources */ = {isa = PBXBuildFile; fileRef = D915E19D1739D14400F78948 /* AreaTurismoSection.m */; };
 		D915E1A11739E12900F78948 /* AreaTurismoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D915E1A01739E12900F78948 /* AreaTurismoItem.m */; };
@@ -385,7 +384,6 @@
 		D915E18E17373FD300F78948 /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = FacebookSDKResources.bundle; path = FacebookSDK.framework/Versions/A/Resources/FacebookSDKResources.bundle; sourceTree = "<group>"; };
 		D915E1931739C1ED00F78948 /* TurismoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TurismoTableViewController.h; path = ClubMedici/TurismoTableViewController.h; sourceTree = "<group>"; };
 		D915E1941739C1ED00F78948 /* TurismoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TurismoTableViewController.m; path = ClubMedici/TurismoTableViewController.m; sourceTree = "<group>"; };
-		D915E1951739C1ED00F78948 /* TurismoTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TurismoTableViewController.xib; path = ClubMedici/TurismoTableViewController.xib; sourceTree = "<group>"; };
 		D915E1991739CBEE00F78948 /* BusinessLogicBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusinessLogicBase.h; sourceTree = "<group>"; };
 		D915E19A1739CBEE00F78948 /* BusinessLogicBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusinessLogicBase.m; sourceTree = "<group>"; };
 		D915E19C1739D14400F78948 /* AreaTurismoSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreaTurismoSection.h; sourceTree = "<group>"; };
@@ -639,7 +637,8 @@
 				AC26299F165D2A5300510092 /* AreaBaseController_iPad.m */,
 				D915E1931739C1ED00F78948 /* TurismoTableViewController.h */,
 				D915E1941739C1ED00F78948 /* TurismoTableViewController.m */,
-				D915E1951739C1ED00F78948 /* TurismoTableViewController.xib */,
+				D9FDADCF173DBE97002808A7 /* TurismoItemController.h */,
+				D9FDADD0173DBE98002808A7 /* TurismoItemController.m */,
 				AC26298A165D1E2400510092 /* PDFviewerController.h */,
 				AC26298B165D1E2400510092 /* PDFviewerController.m */,
 				AC93CE92165DA6F400ABA3C2 /* PDFviewerController.xib */,
@@ -977,7 +976,6 @@
 				ACC0E1B4173ACD830075492E /* normal_button_big@2x.png in Resources */,
 				ACC450F7173ACE0D0058B30A /* normal_button_big_selected@2x.png in Resources */,
 				ACB6A9F5173AFF1400068934 /* reverse_nav_bar@2x.png in Resources */,
-				D915E1971739C1EE00F78948 /* TurismoTableViewController.xib in Resources */,
 				D998F684173A567700D1ED41 /* AreaTurismoItemCell.xib in Resources */,
 				D9FDADCA173C6887002808A7 /* background_iPad.png in Resources */,
 				D9FDADCB173C6887002808A7 /* background_iPhone.png in Resources */,
