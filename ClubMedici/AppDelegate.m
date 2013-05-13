@@ -184,6 +184,8 @@
 #pragma mark - Apparence methods
 
 - (void)setCustomApparence {
+    UIColor *blue = [UIColor colorWithRed:3/255.0 green:84/255.0 blue:175/255.0 alpha:1];
+    
     //permette di cambiare la navBar di tutte le view
     UIImage *image = [[UIImage imageNamed:@"iphone_nav_bar"]
                        resizableImageWithCapInsets: UIEdgeInsetsMake(20, 0, 20, 0)];
@@ -212,12 +214,12 @@
     
     
     //tintcolor per gli oggett nella navBar
-    [[UIBarButtonItem appearance] setTintColor:[UIColor colorWithRed:3/255.0 green:84/255.0 blue:175/255.0 alpha:1] ];
+    [[UIBarButtonItem appearance] setTintColor: blue];
     
     //tintColor per TableView
     [[UITableView appearance] setBackgroundColor:[UIColor colorWithRed:243/255.0 green:244/255.0 blue:245/255.0 alpha:1]];
-    //tintColor per View
     
+    [[UISegmentedControl appearance] setTintColor:blue];
 }
 
 @end
