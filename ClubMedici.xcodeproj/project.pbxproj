@@ -157,6 +157,7 @@
 		D915E19B1739CBEE00F78948 /* BusinessLogicBase.m in Sources */ = {isa = PBXBuildFile; fileRef = D915E19A1739CBEE00F78948 /* BusinessLogicBase.m */; };
 		D915E19E1739D14400F78948 /* AreaTurismoSection.m in Sources */ = {isa = PBXBuildFile; fileRef = D915E19D1739D14400F78948 /* AreaTurismoSection.m */; };
 		D915E1A11739E12900F78948 /* AreaTurismoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D915E1A01739E12900F78948 /* AreaTurismoItem.m */; };
+		D91714F8174170740095515B /* AreaTurismoItemCell_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = D91714F7174170740095515B /* AreaTurismoItemCell_iPad.xib */; };
 		D91B3838166237D2001E9384 /* AreaAssicurativa.m in Sources */ = {isa = PBXBuildFile; fileRef = D91B3837166237D2001E9384 /* AreaAssicurativa.m */; };
 		D91B383B16624322001E9384 /* RichiestaNoleggioAuto.plist in Resources */ = {isa = PBXBuildFile; fileRef = D91B383A16624322001E9384 /* RichiestaNoleggioAuto.plist */; };
 		D91B383D166245A2001E9384 /* RichiestaNoleggioElettromedicale.plist in Resources */ = {isa = PBXBuildFile; fileRef = D91B383C166245A1001E9384 /* RichiestaNoleggioElettromedicale.plist */; };
@@ -166,7 +167,7 @@
 		D95680A51734988600CEAE63 /* AreaTurismoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D95680A41734988600CEAE63 /* AreaTurismoCell.xib */; };
 		D98131E71734985D00C919AB /* AreaTurismoItemList.plist in Resources */ = {isa = PBXBuildFile; fileRef = D98131E61734985D00C919AB /* AreaTurismoItemList.plist */; };
 		D998F682173A563000D1ED41 /* AreaTurismoItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D998F681173A563000D1ED41 /* AreaTurismoItemCell.m */; };
-		D998F684173A567700D1ED41 /* AreaTurismoItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D998F683173A567700D1ED41 /* AreaTurismoItemCell.xib */; };
+		D998F684173A567700D1ED41 /* AreaTurismoItemCell_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = D998F683173A567700D1ED41 /* AreaTurismoItemCell_iPhone.xib */; };
 		D9B04DD9165C63A9005EF35B /* AreaDescriptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D9B04DD8165C63A9005EF35B /* AreaDescriptionCell.m */; };
 		D9C6C518165FDBC400247448 /* UIViewController+InterfaceIdiom.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C6C517165FDBC400247448 /* UIViewController+InterfaceIdiom.m */; };
 		D9FDADCA173C6887002808A7 /* background_iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = D9FDADC8173C6887002808A7 /* background_iPad.png */; };
@@ -390,6 +391,7 @@
 		D915E19D1739D14400F78948 /* AreaTurismoSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaTurismoSection.m; sourceTree = "<group>"; };
 		D915E19F1739E12900F78948 /* AreaTurismoItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreaTurismoItem.h; sourceTree = "<group>"; };
 		D915E1A01739E12900F78948 /* AreaTurismoItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaTurismoItem.m; sourceTree = "<group>"; };
+		D91714F7174170740095515B /* AreaTurismoItemCell_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AreaTurismoItemCell_iPad.xib; sourceTree = "<group>"; };
 		D91B3836166237D2001E9384 /* AreaAssicurativa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreaAssicurativa.h; sourceTree = "<group>"; };
 		D91B3837166237D2001E9384 /* AreaAssicurativa.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaAssicurativa.m; sourceTree = "<group>"; };
 		D91B383A16624322001E9384 /* RichiestaNoleggioAuto.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = RichiestaNoleggioAuto.plist; path = ClubMedici/RichiestaNoleggioAuto.plist; sourceTree = "<group>"; };
@@ -403,7 +405,7 @@
 		D98131E61734985D00C919AB /* AreaTurismoItemList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AreaTurismoItemList.plist; sourceTree = "<group>"; };
 		D998F680173A563000D1ED41 /* AreaTurismoItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreaTurismoItemCell.h; sourceTree = "<group>"; };
 		D998F681173A563000D1ED41 /* AreaTurismoItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaTurismoItemCell.m; sourceTree = "<group>"; };
-		D998F683173A567700D1ED41 /* AreaTurismoItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AreaTurismoItemCell.xib; path = ClubMedici/AreaTurismoItemCell.xib; sourceTree = "<group>"; };
+		D998F683173A567700D1ED41 /* AreaTurismoItemCell_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AreaTurismoItemCell_iPhone.xib; path = ClubMedici/AreaTurismoItemCell_iPhone.xib; sourceTree = "<group>"; };
 		D9B04DD7165C63A9005EF35B /* AreaDescriptionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AreaDescriptionCell.h; path = ClubMedici/AreaDescriptionCell.h; sourceTree = "<group>"; };
 		D9B04DD8165C63A9005EF35B /* AreaDescriptionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AreaDescriptionCell.m; path = ClubMedici/AreaDescriptionCell.m; sourceTree = "<group>"; };
 		D9C6C516165FDBC400247448 /* UIViewController+InterfaceIdiom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+InterfaceIdiom.h"; sourceTree = "<group>"; };
@@ -456,7 +458,8 @@
 				D95680A41734988600CEAE63 /* AreaTurismoCell.xib */,
 				D998F680173A563000D1ED41 /* AreaTurismoItemCell.h */,
 				D998F681173A563000D1ED41 /* AreaTurismoItemCell.m */,
-				D998F683173A567700D1ED41 /* AreaTurismoItemCell.xib */,
+				D998F683173A567700D1ED41 /* AreaTurismoItemCell_iPhone.xib */,
+				D91714F7174170740095515B /* AreaTurismoItemCell_iPad.xib */,
 				AC2629AC165D2F4500510092 /* ContactCell.xib */,
 				ACB57B7E172AABDE004176AF /* ActionCell.xib */,
 				AC2230A8173C051500F75C97 /* WebViewCell.h */,
@@ -974,7 +977,7 @@
 				ACC0E1B4173ACD830075492E /* normal_button_big@2x.png in Resources */,
 				ACC450F7173ACE0D0058B30A /* normal_button_big_selected@2x.png in Resources */,
 				ACB6A9F5173AFF1400068934 /* reverse_nav_bar@2x.png in Resources */,
-				D998F684173A567700D1ED41 /* AreaTurismoItemCell.xib in Resources */,
+				D998F684173A567700D1ED41 /* AreaTurismoItemCell_iPhone.xib in Resources */,
 				D9FDADCA173C6887002808A7 /* background_iPad.png in Resources */,
 				D9FDADCB173C6887002808A7 /* background_iPhone.png in Resources */,
 				ACBE0A85173CEA1E0037E376 /* Contatti_ipad.plist in Resources */,
@@ -1008,6 +1011,7 @@
 				AC119CE217401101004C2C18 /* 4.png in Resources */,
 				AC119CE317401101004C2C18 /* 5.png in Resources */,
 				AC119CE51740227A004C2C18 /* sideShadow.png in Resources */,
+				D91714F8174170740095515B /* AreaTurismoItemCell_iPad.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
