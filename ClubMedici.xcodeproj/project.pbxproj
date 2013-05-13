@@ -637,8 +637,6 @@
 				AC26299F165D2A5300510092 /* AreaBaseController_iPad.m */,
 				D915E1931739C1ED00F78948 /* TurismoTableViewController.h */,
 				D915E1941739C1ED00F78948 /* TurismoTableViewController.m */,
-				D9FDADCF173DBE97002808A7 /* TurismoItemController.h */,
-				D9FDADD0173DBE98002808A7 /* TurismoItemController.m */,
 				AC26298A165D1E2400510092 /* PDFviewerController.h */,
 				AC26298B165D1E2400510092 /* PDFviewerController.m */,
 				AC93CE92165DA6F400ABA3C2 /* PDFviewerController.xib */,
