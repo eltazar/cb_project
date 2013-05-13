@@ -56,6 +56,17 @@
                            self.view.frame.size.height / 2 - _spinner.frame.size.height / 2,
                            _spinner.frame.size.width,
                            _spinner.frame.size.height);
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:
+                              [UIImage imageNamed:IDIOM_SPECIFIC_STRING(@"background")]];
+    [self.tableView.backgroundView addSubview:imageView];
+    CGFloat tableViewWidth = self.tableView.frame.size.width;
+    imageView.frame = CGRectMake(0, 0,
+                                 tableViewWidth,
+                                 tableViewWidth * (imageView.image.size.height / imageView.image.size.width)
+                                 );
+
+    
+    self.tableView.backgroundColor = [UIColor colorWithRed:243/255.0 green:244/255.0 blue:245/255.0 alpha:1];
     
     self.tableView.tableFooterView = [[UIView alloc] init];
     
@@ -125,6 +136,8 @@
         v.backgroundColor = [UIColor colorWithRed:194/255.0f green:203/255.0f blue:219/255.0f alpha:1];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         cell.selectedBackgroundView = v;
+        cell.backgroundColor = self.tableView.backgroundColor;
+        cell.opaque = YES;
     }
     ((AreaTurismoItemCell *)cell).areaTurismoItem = [(WMTableViewDataSource *)self.tableView.dataSource valueForKey:@"ITEM" atIndexPath:indexPath];
     return cell;
@@ -136,9 +149,9 @@
 
 
 
-/*- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    [cell setBackgroundColor:[UIColor colorWithRed:246/255.0f green:250/255.0f blue:255/255.0f alpha:1]];
-}*/
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    [cell setBackgroundColor:[UIColor colorWithRed:243/255.0 green:244/255.0 blue:245/255.0 alpha:1]];
+}
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
