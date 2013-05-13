@@ -20,6 +20,7 @@
 #import "FXLabel.h"
 #import "CustomSpinnerView.h"
 #import "Reachability.h"
+#import "SharingProvider.h"
 
 @interface AreaBaseController () {
 }
@@ -43,7 +44,9 @@
     Class areaClass = NSClassFromString([AreaBase getAreaType:self.areaId]);
     self.area = [[areaClass alloc] initWithAreaId:(int)areaId];
     self.area.delegate = self;
-      
+    
+    [SharingProvider sharedInstance].viewController = self;
+    
     //self.title = [self.area titolo];
                                         
     //rimuove celle extra
@@ -335,31 +338,8 @@
 
 
 - (void)sendEmail:(NSString*) mail {
-    [Utilities sendEmail:mail controller:self delegate:self];
+    [Utilities sendEmail:mail controller:self delegate:[SharingProvider sharedInstance]];
 }
-
-
-#pragma mark - MFMailComposeViewControllerDelegate
-
-
-
-- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
-    
-    [self dismissModalViewControllerAnimated:YES];
-    if (result == MFMailComposeResultSent) {
-        NSLog(@"messaggio inviato");
-    }
-	else if (result == MFMailComposeResultFailed) {
-		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Messaggio non inviato!" message:@"Non è stato possibile inviare la tua e-mail" delegate:self cancelButtonTitle:@"Chiudi" otherButtonTitles:nil];
-		[alert show];
-	}
-    else if (result == MFMailComposeResultCancelled) {
-        NSLog(@"messaggio annullato");
-        [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
-    }
-}
-
-
 
 #pragma mark - Private methods
 

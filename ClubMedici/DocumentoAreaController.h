@@ -8,14 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "WMHTTPAccess.h"
-#import <MessageUI/MessageUI.h>
 #import "ErrorView.h"
 #import "CustomSpinnerView.h"
 #import "Utilities.h"
 
 @class AreaTurismoItem;
 
-@interface DocumentoAreaController : UIViewController<WMHTTPAccessDelegate, UIActionSheetDelegate, UIWebViewDelegate, MFMailComposeViewControllerDelegate,UIPrintInteractionControllerDelegate>{
+@interface DocumentoAreaController : UIViewController<WMHTTPAccessDelegate, UIActionSheetDelegate, UIWebViewDelegate,UIPrintInteractionControllerDelegate>{
     @protected
     NSString *phone;
     NSString *mail;

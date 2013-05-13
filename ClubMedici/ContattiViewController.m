@@ -12,7 +12,7 @@
 #import "WebViewCell.h"
 #import "UIViewController+InterfaceIdiom.h"
 #import "AreaDescriptionCell.h"
-
+#import "SharingProvider.h"
 @interface ContattiViewController ()
 {
     AreaDescriptionCell *companyDescriptionCell;
@@ -65,6 +65,9 @@
         s.address = [o objectForKey:@"ADDRESS"];
         [sediPin addObject:s];
     }
+    
+    [SharingProvider sharedInstance].viewController = self;
+    
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -221,6 +224,9 @@
             NSURL *webURL = [NSURL URLWithString:@"https://twitter.com/Clubmedici"];
             [[UIApplication sharedApplication] openURL: webURL];
         }
+    }
+    else if([dataKey isEqualToString:@"mail"]){
+        [Utilities sendEmail:[_dataModel valueForKey:@"LABEL" atIndexPath:indexPath]controller:self delegate:[SharingProvider sharedInstance]];
     }
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];

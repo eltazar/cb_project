@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <MessageUI/MessageUI.h>
 
 #import "UIViewController+InterfaceIdiom.h"
 #import "RichiestaNoleggioController.h"
@@ -26,7 +25,7 @@
 
 @class AreaBase, WMTableViewDataSource;
 
-@interface AreaBaseController : UITableViewController <MFMailComposeViewControllerDelegate,
+@interface AreaBaseController : UITableViewController <
                                     CachedAsyncImageViewDelegate,
                                     FormViewControllerDelegate,
                                     WMHTTPAccessDelegate,
