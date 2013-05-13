@@ -49,23 +49,23 @@
     _dataModelAbroad.cellFactory = self;
     
     _spinner = [[CustomSpinnerView alloc] initWithFrame:self.view.frame];
-    _spinner.frame = CGRectMake(_spinner.frame.origin.x, _spinner.frame.origin.y, _spinner.frame.size.width * 2, _spinner.frame.size.height);
     
     self.tableView.tableFooterView = [[UIView alloc] init];
     
     _segmentedControl = [[UISegmentedControl alloc] initWithItems:@[@"Italia", @"Estero"]];
+    [_segmentedControl setSelectedSegmentIndex:0];
     _segmentedControl.segmentedControlStyle = UISegmentedControlStyleBar;
     [_segmentedControl addTarget:self
                           action:@selector(segmentedControlChanged)
                 forControlEvents:UIControlEventValueChanged];
     if (iPadIdiom()) {
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:_segmentedControl];
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
+                                                  initWithCustomView:_segmentedControl];
     }
     else {
+        _segmentedControl.frame = CGRectMake(0, 0, 300, 30);
         self.navigationItem.prompt = self.title;
-        self.title = nil;
         self.navigationItem.titleView = _segmentedControl;
-        //self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:_segmentedControl];
     }
 }
 
