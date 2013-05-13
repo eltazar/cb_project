@@ -87,7 +87,7 @@
         [sender isKindOfClass:[UITapGestureRecognizerWithTag class]]) {
         NSInteger tag = ((UITapGestureRecognizerWithTag *)sender).tag;
         NSDictionary *dict = (NSDictionary *) [_items objectAtIndex:tag];
-        TurismoTableViewController *viewController = [[TurismoTableViewController alloc] initWithNibName:@"TurismoTableViewController" bundle:nil];
+        TurismoTableViewController *viewController = [[TurismoTableViewController alloc] initWithNibName:nil bundle:nil];
         viewController.title = [dict objectForKey:@"LABEL"];
         AreaTurismoSection *areaTurismoSection = [[AreaTurismoSection alloc] init];
         areaTurismoSection.sectionId = [[dict valueForKey:@"DATA_KEY"] intValue];

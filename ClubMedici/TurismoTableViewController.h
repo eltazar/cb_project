@@ -17,10 +17,7 @@
         WMTableViewDataSource *_dataModelAbroad;
 }
 
-@property(nonatomic, weak) IBOutlet UISegmentedControl *segmentedControl;
-
 @property(nonatomic, strong) AreaTurismoSection *areaTurismoSection;
 
-- (IBAction)segmentedControlChanged;
 
 @end

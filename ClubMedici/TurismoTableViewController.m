@@ -8,6 +8,7 @@
 
 #import "TurismoTableViewController.h"
 #import "AreaTurismoItemCell.h"
+#import "UIViewController+InterfaceIdiom.h"
 #import "CustomSpinnerView.h"
 #import "ErrorView.h"
 #import "Reachability.h"
@@ -17,6 +18,7 @@
 @interface TurismoTableViewController () {
     CustomSpinnerView *_spinner;
     ErrorView *_errorView;
+    UISegmentedControl *_segmentedControl;
 }
 @end
 
@@ -47,8 +49,24 @@
     _dataModelAbroad.cellFactory = self;
     
     _spinner = [[CustomSpinnerView alloc] initWithFrame:self.view.frame];
+    _spinner.frame = CGRectMake(_spinner.frame.origin.x, _spinner.frame.origin.y, _spinner.frame.size.width * 2, _spinner.frame.size.height);
     
     self.tableView.tableFooterView = [[UIView alloc] init];
+    
+    _segmentedControl = [[UISegmentedControl alloc] initWithItems:@[@"Italia", @"Estero"]];
+    _segmentedControl.segmentedControlStyle = UISegmentedControlStyleBar;
+    [_segmentedControl addTarget:self
+                          action:@selector(segmentedControlChanged)
+                forControlEvents:UIControlEventValueChanged];
+    if (iPadIdiom()) {
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:_segmentedControl];
+    }
+    else {
+        self.navigationItem.prompt = self.title;
+        self.title = nil;
+        self.navigationItem.titleView = _segmentedControl;
+        //self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:_segmentedControl];
+    }
 }
 
 
@@ -235,8 +253,8 @@
 }
 
 
-- (IBAction)segmentedControlChanged {
-    switch(self.segmentedControl.selectedSegmentIndex) {
+- (void)segmentedControlChanged {
+    switch(_segmentedControl.selectedSegmentIndex) {
         case 0:
             self.tableView.dataSource = _dataModelItaly;
             break;
