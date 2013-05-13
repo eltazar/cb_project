@@ -266,6 +266,8 @@
                                     @"http://www.clubmedici.it/nuovo/%@",
                                     [item objectForKey:@"foto"]];
     
+    _sharingProvider.printView = [webView viewPrintFormatter];
+    
     [_sharingProvider sharingAction:sender];    
 }
 
