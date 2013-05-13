@@ -44,9 +44,11 @@
     
     _dataModelItaly  = [self.areaTurismoSection getDataModelItaly];
     _dataModelAbroad = [self.areaTurismoSection getDataModelAbroad];
-    self.tableView.dataSource = _dataModelItaly;
     _dataModelItaly .cellFactory = self;
     _dataModelAbroad.cellFactory = self;
+    _dataModelItaly.showSectionHeaders = NO;
+    _dataModelAbroad.showSectionHeaders = NO;
+    self.tableView.dataSource = _dataModelItaly;
     
     _spinner = [[CustomSpinnerView alloc] initWithFrame:self.view.frame];
     
@@ -86,8 +88,7 @@
 }
 
 //ios5 rotation
-- (BOOL)shouldAutorotateToInterfaceOrientation:
-(UIInterfaceOrientation)interfaceOrientation {
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     // Return YES for supported orientations
     if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
         return NO;
