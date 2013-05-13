@@ -62,6 +62,12 @@
                                                         alpha:0.2];
     self.descriptionLbl.shadowColor   = [UIColor blackColor];
     self.descriptionLbl.shadowOffset  = CGSizeMake(-0.5,-0.5);
+    
+    [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
+    [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(layout) name: UIDeviceOrientationDidChangeNotification object: nil];
+}
+
+
 - (NSInteger)getHeight {    
     CGFloat height;
     CGRect txtFrame = self.descriptionLbl.frame;
@@ -74,12 +80,51 @@
 
 
 - (void)setAreaTurismoItem:(AreaTurismoItem *)areaTurismoItem {
+    // Land 340px
+    // port 250px;
     _areaTurismoItem = areaTurismoItem;
-    NSMutableString *imgUrl = [[areaTurismoItem.imageUrl stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] mutableCopy];
-    [imgUrl replaceOccurrencesOfString:@" " withString:@"%20" options:nil range:NSMakeRange(0, [imgUrl length])];
-    [self.photo loadImageFromURL:[NSURL URLWithString:imgUrl]];
+    [self.photo loadImageFromURL:[NSURL URLWithString:areaTurismoItem.imageUrl]];
     self.titleLbl.text = areaTurismoItem.title;
     self.descriptionLbl.text = areaTurismoItem.description;
+    
+    [self layoutAnimated:NO];
+    //    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+//        CGRect frame = self.descriptionLbl.frame;
+//        UIDeviceOrientation o = [UIApplication sharedApplication].statusBarOrientation;
+//        if (UIDeviceOrientationIsLandscape(o)) {
+//            frame.size.width = 560.0;
+//        }
+//        else if (UIDeviceOrientationIsPortrait(o)) {
+//            frame.size.width = 300.0;
+//        }
+//        self.descriptionLbl.frame = frame;
+//    }    
+}
+
+- (void)layout {
+    [self layoutAnimated:YES];
+}
+
+- (void)layoutAnimated:(BOOL)animated {
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+            CGRect frame = self.descriptionLbl.frame;
+            UIDeviceOrientation o = [UIApplication sharedApplication].statusBarOrientation;
+            if (UIDeviceOrientationIsLandscape(o)) {
+                NSLog(@"L");
+                frame.size.width = 560.0;
+            }
+            else if (UIDeviceOrientationIsPortrait(o)) {
+                NSLog(@"P");
+                frame.size.width = 300.0;
+            }
+            
+            self.descriptionLbl.frame = frame;
+        }
+    [UIView
+     animateWithDuration:animated?0.4:0.0
+     animations:^{
+        [self.descriptionLbl sizeToFit];
+     }];
 }
 
 
