@@ -50,7 +50,12 @@
     _dataModelAbroad.showSectionHeaders = NO;
     self.tableView.dataSource = _dataModelItaly;
     
+    self.tableView.backgroundView = [[UIView alloc] initWithFrame:self.tableView.frame];
     _spinner = [[CustomSpinnerView alloc] initWithFrame:self.view.frame];
+    _spinner.frame = CGRectMake(self.view.frame.size.width / 2 - _spinner.frame.size.width / 2,
+                           self.view.frame.size.height / 2 - _spinner.frame.size.height / 2,
+                           _spinner.frame.size.width,
+                           _spinner.frame.size.height);
     
     self.tableView.tableFooterView = [[UIView alloc] init];
     
