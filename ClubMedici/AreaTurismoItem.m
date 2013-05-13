@@ -11,19 +11,30 @@
 @implementation AreaTurismoItem
 
 - (void)_buildFromJson:(NSArray *)json {
-    NSString *formatString = @"http://www.clubmedici.it/nuovo/%@";
     NSDictionary *dict = [json objectAtIndex:0];
     self.ID             = [[dict objectForKey:@"id"] integerValue];
     self.title          = [dict objectForKey:@"title"];
-    self.description    = [dict objectForKey:@"description"];
-    self.imageUrl       = [NSString stringWithFormat:
-                           formatString, [dict objectForKey:@"imageUrl"]];
-    self.pdfUrl         = [NSString stringWithFormat:
-                           formatString, [dict objectForKey:@"pdfUrl"]];
+    self.description    = [AreaTurismoItem stripWhiteSpaces:[dict objectForKey:@"description"]];
+    self.imageUrl       = [AreaTurismoItem buildUrl:[dict objectForKey:@"imageUrl"]];
+    self.pdfUrl         = [AreaTurismoItem buildUrl:[dict objectForKey:@"pdfUrl"]];
     self.phone          = [dict objectForKey:@"phone"];
     self.email          = [dict objectForKey:@"email"];
     self.expiryDate     = [dict objectForKey:@"expiryDate"];
     self.inItaly        = [[dict objectForKey:@"inItaly"] boolValue];
+}
+
++ (NSString *)buildUrl:(NSString *)url {
+    NSString *formatString = @"http://www.clubmedici.it/nuovo/%@";
+    NSMutableString *newUrl = [[self stripWhiteSpaces:url] mutableCopy];
+    [newUrl replaceOccurrencesOfString:@" "
+                            withString:@"%20"
+                               options:nil
+                                 range:NSMakeRange(0, [newUrl length])];
+    return [NSString stringWithFormat:formatString, newUrl];
+}
+
++ (NSString *)stripWhiteSpaces:(NSString *)string {
+    return [string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
 }
 
 @end
