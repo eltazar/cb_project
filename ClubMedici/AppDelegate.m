@@ -124,7 +124,7 @@
         case FBSessionStateOpen:
             if (!error) {
                 // We have a valid session
-                //NSLog(@"User session found");
+                NSLog(@"User session found");
             }
             break;
         case FBSessionStateClosed:
@@ -135,6 +135,7 @@
             break;
     }
     
+    NSLog(@"APP DELEGATE = MANDO notifica: %d, %@",state,session);
     [[NSNotificationCenter defaultCenter]
      postNotificationName:FBSessionStateChangedNotification
      object:session];
@@ -154,6 +155,7 @@
  * Opens a Facebook session and optionally shows the login UX.
  */
 - (BOOL)openSessionWithAllowLoginUI:(BOOL)allowLoginUI {
+    NSLog(@"OPEN SESSION WITH GUI");
     return [FBSession openActiveSessionWithReadPermissions:nil
                                               allowLoginUI:allowLoginUI
                                          completionHandler:^(FBSession *session,

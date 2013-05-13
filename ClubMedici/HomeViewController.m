@@ -48,7 +48,8 @@
     spinner = [[CustomSpinnerView alloc] initWithFrame:self.view.frame];
     spinner.frame = CGRectMake(self.navigationController.navigationBar.frame.size.width/2 - spinner.frame.size.width/2, self.view.frame.size.height/2 - spinner.frame.size.height/2, spinner.frame.size.width, spinner.frame.size.height);
     
-    _sharingProvider = [[SharingProvider alloc] initWithSocial:YES];
+    _sharingProvider = [SharingProvider sharedInstance];
+    _sharingProvider.isSocial = YES;
     _sharingProvider.viewController = self;
     
     for (UIView* subView in webView.subviews) {
@@ -87,12 +88,6 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(networkStatusChanged:) name:kReachabilityChangedNotification object:nil];
-    // Register for notifications on FB session state changes
-    [[NSNotificationCenter defaultCenter]
-     addObserver:self
-     selector:@selector(sessionStateChanged:)
-     name:FBSessionStateChangedNotification
-     object:nil];
     [self fetchData];
 }
 
@@ -100,7 +95,6 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kReachabilityChangedNotification object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:FBSessionStateChangedNotification object:nil];
     if(errorView && errorView.showed){
         [errorView removeFromSuperview];
     }
@@ -236,32 +230,6 @@
     }
     return YES;
 }
-
-
-
-#pragma mark - FacebookSessionState
-
-
-
-- (void)sessionStateChanged:(NSNotification*)notification {
-    if (FBSession.activeSession.isOpen) {
-        NSLog(@"LOGGATO");
-        
-        //appena loggato mostro pulsante logout, e lancio finestra per scrivere il post
-    } else {
-        NSLog(@"SLOGGATO");
-    }
-}
-
-
--(void)logoutFromFB:(id)sender{
-    AppDelegate *appDelegate =
-    [[UIApplication sharedApplication] delegate];
-    [appDelegate closeSession];
-}
-
-
-
 
 #pragma mark - IBActions
 

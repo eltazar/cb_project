@@ -35,11 +35,12 @@
 {
     [super viewDidLoad];
     
+    _sharingProvider = [SharingProvider sharedInstance];
     
     if(docItem){
         self.title = [docItem objectForKey:@"LABEL"];
         // Custom initialization
-        _sharingProvider = [[SharingProvider alloc] initWithSocial:NO];
+        _sharingProvider.isSocial = NO;
         //flurry log
         [Utilities logEvent:@"Documento_letto" arguments:[NSDictionary dictionaryWithObjectsAndKeys:self.title,@"Titolo_documento", nil]];
         
@@ -49,7 +50,7 @@
         phone = turismoItem.phone;
         mail = turismoItem.email;
         // Custom initialization
-        _sharingProvider = [[SharingProvider alloc] initWithSocial:YES];
+        _sharingProvider.isSocial = YES;
         _sharingProvider.viewController = self;
         //flurry log
         [Utilities logEvent:@"Pdf_vacanze_letto" arguments:[NSDictionary dictionaryWithObjectsAndKeys:self.title,@"Titolo_pdf_vacanze",nil]];
