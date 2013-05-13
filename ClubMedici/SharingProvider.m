@@ -91,7 +91,7 @@ static SharingProvider *sharedInstance = nil;
     /*NSString *urlString = [NSString stringWithFormat:@"Ciao leggi la nuova news di ClubMedici:\n%@%@",URL_NEWS,[[json objectAtIndex:0] objectForKey:@"id"]];
      [Utilities sendEmail:nil object:[NSString stringWithFormat:@"News ClubMedici: \n%@",[[json objectAtIndex:0] objectForKey:@"titolo"]] content:urlString html:NO controller:self];*/
     [Utilities sendEmail:nil                   object:self.mailObject
-                 content:self.mailBody           html:NO
+                 content:self.mailBody           html:YES
               controller:self.viewController delegate:self];
 }
 
