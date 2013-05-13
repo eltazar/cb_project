@@ -96,6 +96,7 @@
     return YES;
 }
 
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -111,7 +112,9 @@
     UITableViewCell *cell = nil;
     cell = [tableView dequeueReusableCellWithIdentifier:@"AreaTurismoItemCell"];
     if (!cell) {
-        cell = [[[NSBundle mainBundle] loadNibNamed:@"AreaTurismoItemCell" owner:self options:NULL] objectAtIndex:0];
+        cell = [[[NSBundle mainBundle]loadNibNamed:IDIOM_SPECIFIC_STRING(@"AreaTurismoItemCell")
+                                              owner:self
+                                            options:NULL] objectAtIndex:0];
         UIView *v = [[UIView alloc] init];
         v.opaque = YES;
         v.backgroundColor = [UIColor colorWithRed:194/255.0f green:203/255.0f blue:219/255.0f alpha:1];
@@ -119,7 +122,6 @@
         cell.selectedBackgroundView = v;
     }
     ((AreaTurismoItemCell *)cell).areaTurismoItem = [(WMTableViewDataSource *)self.tableView.dataSource valueForKey:@"ITEM" atIndexPath:indexPath];
-    NSLog(@"indexPath: %@", indexPath);
     return cell;
 }
 
@@ -142,6 +144,16 @@
     docAreaController.turismoItem = item;
     [self.navigationController pushViewController:docAreaController animated:YES];
 }
+
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    id cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
+    if ([cell respondsToSelector:@selector(getHeight)]) {
+        return [cell getHeight];
+    }
+    return UITableViewAutomaticDimension;
+}
+
 
 
 
