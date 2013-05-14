@@ -8,6 +8,8 @@
 		<key>ITEMS</key>
 		<array>
 			<dict>
+				<key>IMAGE</key>
+				<string>mareespiaggia</string>
 				<key>DATA_KEY</key>
 				<integer>1</integer>
 				<key>CONTROLLER</key>
@@ -16,6 +18,8 @@
 				<string>Mare e Spiaggia</string>
 			</dict>
 			<dict>
+				<key>IMAGE</key>
+				<string>montagna</string>
 				<key>DATA_KEY</key>
 				<integer>2</integer>
 				<key>CONTROLLER</key>
@@ -24,6 +28,8 @@
 				<string>Montagna</string>
 			</dict>
 			<dict>
+				<key>IMAGE</key>
+				<string>gruppiclubmedici</string>
 				<key>DATA_KEY</key>
 				<integer>3</integer>
 				<key>CONTROLLER</key>
@@ -32,6 +38,8 @@
 				<string>Gruppi ClubMedici</string>
 			</dict>
 			<dict>
+				<key>IMAGE</key>
+				<string>crociere</string>
 				<key>DATA_KEY</key>
 				<integer>4</integer>
 				<key>CONTROLLER</key>
@@ -40,6 +48,8 @@
 				<string>Crociere</string>
 			</dict>
 			<dict>
+				<key>IMAGE</key>
+				<string>lastminute</string>
 				<key>DATA_KEY</key>
 				<integer>5</integer>
 				<key>CONTROLLER</key>
