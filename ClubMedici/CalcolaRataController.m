@@ -15,7 +15,6 @@
 #define NUMERO_RATE_PICKER_TAG 60
 #define PERCENTUALE_ASSICURAZIONE 4.20f
 
-
 @interface CalcolaRataController ()
 {
     NSArray *listaTasso;
@@ -54,6 +53,10 @@
     tassoSelezionato = 0;
     listaNumeroRate = [NSArray arrayWithObjects:@"6",@"12",@"18",@"24",@"30",@"36",@"42",@"48",@"54",@"60", nil];
     numeroRateSelezionato = 0;
+    
+    tasso = 0.0;
+    importoRichiesto = 0.0;
+    numeroRate = 0.0;
     
     [self applyLabelEffect:_importoRata];
     [self applyLabelEffect:_importoRichiesto];
@@ -197,19 +200,16 @@
 -(IBAction)loanCalculator:(id)sender{
     
     [self.view endEditing:YES];
-
+    
     spesePratica = [_speseField.text doubleValue];
     importoRichiesto = [_importoRichiestoField.text doubleValue];
     numeroRate = [_numeroRateField.text intValue];
     [self setTasso];
 
     
-    if(importoRichiesto == 0 || numeroRate == 0){
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Inserisci l'importo del prestito e il numero di rate" message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [alert show];
+    if(![self checkFields])
         return;
-    }
-
+    
     [self calcolaAssicurazione];
     [self calcolaTotale];
 
@@ -261,6 +261,24 @@
             tasso = 9.9f;
             break;
     }
+}
+
+-(BOOL)checkFields{
+    BOOL result = TRUE;
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    
+    if(importoRichiesto == 0.0){
+        alert.title = @"Inserisci un importo valido";
+        result = FALSE;
+        [alert show];
+    }
+    if(numeroRate == 0.0){
+        alert.title = @"Inserisci il numero di rate";
+        result = FALSE;
+        [alert show];
+    }
+
+    return result;
 }
 
 -(void)goBackWithSwipe:(UISwipeGestureRecognizer*)gesture{
