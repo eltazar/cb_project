@@ -25,6 +25,7 @@
     ErrorView *_errorView;
     UISegmentedControl *_segmentedControl;
     FXLabel *_noDataLabel;
+    PullToRefreshView *_pullToRefresh;
 }
 @end
 
@@ -45,6 +46,7 @@
 
 
 - (void)viewDidLoad {
+    //TODO: sistemare sto disastro
     [super viewDidLoad];
     self.areaTurismoSection.delegate = self;
     
@@ -154,6 +156,12 @@
         self.navigationItem.prompt = self.title;
         self.navigationItem.titleView = _segmentedControl;
     }
+    
+    
+    _pullToRefresh = [[PullToRefreshView alloc]
+                               initWithScrollView:self.tableView];
+    [_pullToRefresh setDelegate:self];
+    [self.tableView addSubview:_pullToRefresh];
 }
 
 
@@ -274,16 +282,27 @@
 
 
 - (void)didReceiveBusinessLogicData {
-    NSLog(@"TurismoTableViewControllerDidReceiveBusinessLogicData");
-    if ([_dataModelItaly tableView:self.tableView numberOfRowsInSection:0] == 0)
-        NSLog(@"VOTO");
+    [_pullToRefresh finishedLoading];
     [self showData];
 }
 
 
 - (void)didReceiveBusinessLogicDataError:(NSString *)error {
+    [_pullToRefresh finishedLoading];
     [self stopSpinner];
     [self showErrorView:error];
+}
+
+
+
+#pragma mark - PullToRefreshDelegate
+
+
+
+- (void)pullToRefreshViewShouldRefresh:(PullToRefreshView *)view {
+    if(_errorView.showed)
+        [self hideErrorView:nil];
+    [self fetchData];
 }
 
 

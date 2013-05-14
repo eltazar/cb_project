@@ -10,8 +10,9 @@
 #import "AreaTurismoSection.h"
 #import "BusinessLogicBase.h"
 #import "WMTableViewDataSource.h"
+#import "PullToRefreshView.h"
 
-@interface TurismoTableViewController : UITableViewController<BusinessLogicDelegate> {
+@interface TurismoTableViewController : UITableViewController<BusinessLogicDelegate, PullToRefreshViewDelegate> {
     @protected
         WMTableViewDataSource *_dataModelItaly;
         WMTableViewDataSource *_dataModelAbroad;
