@@ -162,6 +162,11 @@
                                initWithScrollView:self.tableView];
     [_pullToRefresh setDelegate:self];
     [self.tableView addSubview:_pullToRefresh];
+    
+    //flurry log
+    NSDictionary *articleParams = [NSDictionary dictionaryWithObjectsAndKeys:
+                                   self.title, @"Nome_Categoria", nil];
+    [Utilities logEvent:@"Categoria_turismo_visitata" arguments:articleParams];
 }
 
 
@@ -238,6 +243,10 @@
     DocumentoAreaController *docAreaController = [DocumentoAreaController idiomAllocInit];
     docAreaController.turismoItem = item;
     [self.navigationController pushViewController:docAreaController animated:YES];
+    //flurry log
+    NSDictionary *articleParams = [NSDictionary dictionaryWithObjectsAndKeys:
+                                   [NSNumber numberWithInteger:item.ID], @"ID_Offerta", nil];
+    [Utilities logEvent:@"Offerta_turismo_visitata" arguments:articleParams];
 }
 
 
