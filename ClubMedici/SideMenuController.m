@@ -39,8 +39,12 @@
     UIView *separatorLine = [[UIView alloc] initWithFrame:CGRectMake(0, 43,320, 4)];
     separatorLine.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"side_menu_separation_line"]];
 
-    [self.navigationController.navigationBar addSubview:separatorLine];
+    //[self.navigationController.navigationBar addSubview:separatorLine];
 
+    UIImage *image = [UIImage imageNamed:@"side_nav_bar"];
+    [self.navigationController.navigationBar setBackgroundImage:image
+                                                  forBarMetrics:UIBarMetricsDefault];
+    
     UIImageView *logo = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cmLogo"]];
     logo.frame = CGRectMake(50, 7, 158, 30);
     //self.navigationItem.titleView = logo;
