@@ -205,7 +205,7 @@
 
 
 
--(void)didReceiveJSON:(NSArray *)jsonArray{
+-(void)didReceiveJSON:(NSArray *)jsonArray {
     //NSLog(@"JSON = %@",jsonArray);
     [(PullToRefreshView *)[self.view viewWithTag:998] finishedLoading];
     [spinner stopAnimating];
@@ -217,7 +217,8 @@
 }
 
 
--(void)didReceiveError:(NSError *)error{
+-(void)didReceiveError:(NSError *)error {
+    [(PullToRefreshView *)[self.view viewWithTag:998] finishedLoading];
     [spinner stopAnimating];
     [spinner removeFromSuperview];
     NSLog(@"Server error = %@",error.description);
