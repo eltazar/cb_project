@@ -20,8 +20,16 @@
 {
     NSArray *listaTasso;
     NSArray *listaNumeroRate;
-    NSInteger tassoSelezionato;
-    NSInteger numeroRateSelezionato;
+    int tassoSelezionato;
+    int numeroRateSelezionato;
+
+    double tasso;
+    int numeroRate;
+    double importoRichiesto;
+    double spesePratica;
+    double monthlyRate;
+    double assicurazione;
+    double totalePrestito;
 }
 @end
 
@@ -42,7 +50,7 @@
     self.title = @"Simulatore rate";
     self.view.backgroundColor = [UIColor colorWithRed:243/255.0f green:244/255.0f blue:245/255.0f alpha:1];
     // Do any additional setup after loading the view from its nib.
-    listaTasso = [NSArray arrayWithObjects:@"Ordinario 9,90",@"Ridotto 4,45",@"Zero 0", nil];
+    listaTasso = [NSArray arrayWithObjects:@"Ordinario 9.90",@"Ridotto 4.45",@"Zero 0", nil];
     tassoSelezionato = 0;
     listaNumeroRate = [NSArray arrayWithObjects:@"6",@"12",@"18",@"24",@"30",@"36",@"42",@"48",@"54",@"60", nil];
     numeroRateSelezionato = 0;
@@ -142,7 +150,7 @@
     NSLog(@"textFieldDidEndEditing");
 }
 
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+/*- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
     NSString *newString = [textField.text stringByReplacingCharactersInRange:range withString:string];
 
@@ -152,7 +160,7 @@
     _totaleField.text = [NSString stringWithFormat:@"%.2f",[self calcolaTotale:newString tag:textField.tag]];
     
     return YES;
-}
+}*/
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     // called when "Next" is pressed
@@ -169,27 +177,71 @@
 
 #pragma mark - Private methods
 
--(float)calcolaAssicurazione:(NSString*)text tag:(int)tag{
-    
-    if(tag == _importoRichiestoField.tag){
-        return ([text intValue] + [_speseField.text intValue]) * (4.20f/100.0f);
-    }
-    else if (tag == _speseField.tag){
-        return ([_importoRichiestoField.text intValue] + [text intValue]) * (PERCENTUALE_ASSICURAZIONE/100.0f);
-    }
-    return 0.0f;
+-(void)calcolaAssicurazione{
+    assicurazione = (importoRichiesto + spesePratica) * (PERCENTUALE_ASSICURAZIONE/100.0f);
+    _assicurazioneField.text = [NSString stringWithFormat:@"%.2f",assicurazione];
 }
 
--(float)calcolaTotale:(NSString*)text tag:(int)tag{
-    
-    if(tag == _importoRichiestoField.tag){
-        return [text floatValue]+[_assicurazioneField.text floatValue]+[_speseField.text floatValue];
+-(void)calcolaTotale{
+    totalePrestito = importoRichiesto + spesePratica + assicurazione;
+    _totaleField.text = [NSString stringWithFormat:@"%.2f",totalePrestito];
+}
 
+//http://stackoverflow.com/questions/9721462/how-to-calculate-loan-repayment
+-(IBAction)loanCalculator:(id)sender{
+    
+    [self.view endEditing:YES];
+
+    spesePratica = [_speseField.text doubleValue];
+    importoRichiesto = [_importoRichiestoField.text doubleValue];
+    numeroRate = [_numeroRateField.text intValue];
+    [self setTasso];
+
+    [self calcolaAssicurazione];
+    [self calcolaTotale];
+
+    //assicurazione calcolata su importo + spese
+    [self calcolaAssicurazione];
+    [self calcolaTotale];
+
+    double loan = totalePrestito;
+    double annualInterestRate = tasso; // 6%
+    annualInterestRate = annualInterestRate /100.0f; // 0.06 i.e. 6%
+    int numberOfPayments = numeroRate;
+
+    // (loan * (interest / 12)) / (1 - (1 + interest / 12) ^ -number)
+    //          ^^^^^^^^^^^^^ temp1
+    // ^^^^^^^^^^^^^^^^^^^^^^^^ temp2
+    //                                      ^^^^^^^^^^^^^ temp1
+    //                                 ^^^^^^^^^^^^^^^^^^^ temp4
+    //                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ temp5
+    //                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ temp6
+    double temp1 = annualInterestRate / 12;
+    double temp2 = (temp1 * loan); 
+    double temp4 = 1.0 + temp1;
+    double temp5 = 1.0 / pow(temp4,numberOfPayments);
+    double temp6 = 1.0 - temp5;
+
+    monthlyRate = temp2 / temp6;
+    _importoRataField.text = [NSString stringWithFormat:@"%.2f",monthlyRate];
+}
+
+-(void)setTasso{
+    
+    switch (tassoSelezionato) {
+        case 0:
+            tasso = 9.9f;
+            break;
+        case 1:
+            tasso = 4.9f;
+            break;
+        case 2:
+            tasso = 0.0f;
+            break;
+        default:
+            tasso = 9.9f;
+            break;
     }
-    else if (tag == _speseField.tag){
-        return [_importoRichiestoField.text floatValue]+[_assicurazioneField.text floatValue]+[text floatValue];
-    }
-    return 0.0f;
 }
 
 -(void)goBackWithSwipe:(UISwipeGestureRecognizer*)gesture{

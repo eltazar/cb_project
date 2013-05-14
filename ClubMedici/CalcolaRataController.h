@@ -27,7 +27,9 @@
 @property(nonatomic, weak) IBOutlet UITextField *importoRataField;
 @property(nonatomic, weak) IBOutlet UITextField *totaleField;
 @property(nonatomic, weak) IBOutlet UITextField *numeroRateField;
+@property(nonatomic, weak) IBOutlet UIButton *calcolaButton;
 
 -(IBAction)scegliTassoButton:(UIControl*)sender;
 -(IBAction)scegliNumeroRate:(UIControl*)sender;
+
 @end
