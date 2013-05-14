@@ -75,9 +75,13 @@
         FXLabel *label          = (FXLabel *)       [self viewWithTag:LABEL_OFFSET + i];
         UIImageView *imageView  = (UIImageView *)   [self viewWithTag:IMAGEVIEW_OFFSET + i];
         
-        UIImage *image = [UIImage imageNamed:IDIOM_SPECIFIC_STRING(@"AreaTurismoCellBg")];
+        NSString *imageName = @"AreaTurismoCellBg";
+        if (iPadIdiom()) imageName = ORIENTATION_SPECIFIC_STRING(imageName);
+        UIImage *image = [UIImage imageNamed:IDIOM_SPECIFIC_STRING(imageName)];
         [btn setBackgroundImage:image
                        forState:UIControlStateNormal];
+        imageName = @"AreaTurismoCellBgHigh";
+        if (iPadIdiom()) imageName = ORIENTATION_SPECIFIC_STRING(imageName);
         image = [UIImage imageNamed:IDIOM_SPECIFIC_STRING(@"AreaTurismoCellBgHigh")];
         [btn setBackgroundImage:image
                        forState:UIControlStateHighlighted];

@@ -175,9 +175,12 @@
     }
     else {
         if ([dataKey isEqualToString:@"ViaggiTurismo"]) {
-            cell = [tableView dequeueReusableCellWithIdentifier:@"ViaggiTurismo"];
+            NSString *nibName = @"AreaTurismoCell";
+            if (iPadIdiom()) nibName = ORIENTATION_SPECIFIC_STRING(nibName);
+            nibName = IDIOM_SPECIFIC_STRING(nibName);
+            cell = [tableView dequeueReusableCellWithIdentifier:nibName];
             if (!cell) {
-                cell = [[[NSBundle mainBundle] loadNibNamed:@"AreaTurismoCell"
+                cell = [[[NSBundle mainBundle] loadNibNamed:nibName
                                                       owner:self
                                                     options:NULL] objectAtIndex:0];
             }
