@@ -72,6 +72,8 @@
 -(void)pullToRefreshViewShouldRefresh:(PullToRefreshView *)view {
     //[(UIWebView *)[self.view viewWithTag:999] reload];
     //NSLog(@"RICARICATO");
+    if(errorView.showed)
+        [self hideErrorView:nil];
     [self fetchData];
 }
 
@@ -119,9 +121,8 @@
 
 
 - (void)fetchData {
-    if(errorView.showed)
-      [self hideErrorView:nil];
-    
+
+    NSLog(@"FETCH");
     if([Utilities networkReachable]){
         [spinner startAnimating];
         [self.view addSubview:spinner];
@@ -134,6 +135,7 @@
 
 
 - (void)showErrorView:(NSString*)message {
+    NSLog(@"MOSTRO");
     errorView.label.text = message;
     [errorView.tapRecognizer addTarget:self action:@selector(hideErrorView:)];
     
@@ -152,6 +154,7 @@
 
 
 - (void)hideErrorView:(UITapGestureRecognizer*)gesture {
+    NSLog(@"CANCELLO");
     if(errorView || errorView.showed){
         [UIView animateWithDuration:0.5
                          animations:^(void){
