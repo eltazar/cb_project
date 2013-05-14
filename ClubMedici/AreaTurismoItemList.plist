@@ -17,7 +17,7 @@
 			</dict>
 			<dict>
 				<key>DATA_KEY</key>
-				<integer>10</integer>
+				<integer>2</integer>
 				<key>CONTROLLER</key>
 				<string>TurismoTableViewController</string>
 				<key>LABEL</key>
@@ -33,7 +33,7 @@
 			</dict>
 			<dict>
 				<key>DATA_KEY</key>
-				<integer>10</integer>
+				<integer>4</integer>
 				<key>CONTROLLER</key>
 				<string>TurismoTableViewController</string>
 				<key>LABEL</key>

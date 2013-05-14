@@ -14,11 +14,17 @@
 #import "Reachability.h"
 #import "UIViewController+InterfaceIdiom.h"
 #import "DocumentoAreaController.h"
+#import "FXLabel.h"
+
+#define PORTRAIT_WIDTH 400.0
+#define LANDSCAPE_WIDTH 500.0
+
 
 @interface TurismoTableViewController () {
     CustomSpinnerView *_spinner;
     ErrorView *_errorView;
     UISegmentedControl *_segmentedControl;
+    FXLabel *_noDataLabel;
 }
 @end
 
@@ -50,21 +56,80 @@
     _dataModelAbroad.showSectionHeaders = NO;
     self.tableView.dataSource = _dataModelItaly;
     
-    self.tableView.backgroundView = [[UIView alloc] initWithFrame:self.tableView.frame];
+    self.tableView.backgroundView = [[UIView alloc] initWithFrame:self.tableView.bounds];
+    self.tableView.contentMode = UIViewContentModeScaleAspectFit;
     _spinner = [[CustomSpinnerView alloc] initWithFrame:self.view.frame];
-    _spinner.frame = CGRectMake(self.view.frame.size.width / 2 - _spinner.frame.size.width / 2,
-                           self.view.frame.size.height / 2 - _spinner.frame.size.height / 2,
-                           _spinner.frame.size.width,
-                           _spinner.frame.size.height);
+    _spinner.center = self.tableView.backgroundView.center;//CGRectMake(self.view.frame.size.width / 2 - _spinner.frame.size.width / 2,
+                           //self.view.frame.size.height / 2 - _spinner.frame.size.height / 2,
+                           //_spinner.frame.size.width,
+                           //_spinner.frame.size.height);
+    
     UIImageView *imageView = [[UIImageView alloc] initWithImage:
                               [UIImage imageNamed:IDIOM_SPECIFIC_STRING(@"background")]];
+    imageView.contentMode = UIViewContentModeScaleAspectFit;
+    imageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleBottomMargin;
+    CGFloat imgWidth;
+    //if (iPhoneIdiom())
+    imgWidth = self.view.frame.size.width;
+    /*else {
+        UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
+        if (UIInterfaceOrientationIsPortrait(orientation))
+            imgWidth = PORTRAIT_WIDTH;
+        else
+            imgWidth = LANDSCAPE_WIDTH;
+    }*/
+    imageView.frame = CGRectMake(0, 0, imgWidth,
+                                 (imageView.image.size.height/imageView.image.size.width) * imgWidth);
+    //imageView.backgroundColor = [UIColor blackColor];
+    //self.tableView.backgroundView.backgroundColor = [UIColor redColor];
     [self.tableView.backgroundView addSubview:imageView];
-    CGFloat tableViewWidth = self.tableView.frame.size.width;
-    imageView.frame = CGRectMake(0, 0,
-                                 tableViewWidth,
-                                 tableViewWidth * (imageView.image.size.height / imageView.image.size.width)
-                                 );
-
+    NSLog(@"bgview: %@",  NSStringFromCGRect(self.tableView.backgroundView.frame));
+    NSLog(@"imgView: %@", NSStringFromCGRect(imageView.frame));
+    NSLog(@"img: %@", NSStringFromCGSize(imageView.image.size));
+    
+    
+    /*if (iPadIdiom()) {
+        CGFloat scaleFactor = 0.0;
+        CGFloat width = 0.0;
+        CGFloat height = 0.0;
+        
+        
+        UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
+        if (UIInterfaceOrientationIsPortrait(orientation)) {
+            scaleFactor = PORTRAIT_WIDTH / imageView.image.size.width;
+            width = PORTRAIT_WIDTH;
+            height = scaleFactor * imageView.image.size.height;
+        }
+        else{
+            scaleFactor = LANDSCAPE_WIDTH/imageView.image.size.width;
+            height = scaleFactor * imageView.image.size.height;
+            width = LANDSCAPE_WIDTH;
+        }
+        
+        imageView.frame = CGRectMake(0, 0, width, height);
+    }
+    else {
+        CGFloat tableViewWidth = self.tableView.frame.size.width;
+        imageView.frame = CGRectMake(0, 0,
+                                     tableViewWidth,
+                                     tableViewWidth * (imageView.image.size.height / imageView.image.size.width)
+                                     );
+    }*/
+    
+    _noDataLabel = [[FXLabel alloc] initWithFrame:CGRectMake(0, imageView.frame.size.height, imageView.frame.size.width, 200)];
+    _noDataLabel.backgroundColor = [UIColor clearColor];
+    _noDataLabel.textColor = [UIColor colorWithRed:230.0/255.0
+                                             green:230.0/255.0
+                                              blue:230.0/255.0 alpha:1.0];
+    _noDataLabel.text = @"Non ci sono offerte disponibili\nin questa categoria";
+    _noDataLabel.textAlignment = UITextAlignmentCenter;
+    _noDataLabel.font = [UIFont boldSystemFontOfSize:25.0];
+    _noDataLabel.numberOfLines = 3;
+    _noDataLabel.shadowColor = [UIColor colorWithRed:210.0/255.0
+                                               green:210.0/255.0
+                                                blue:210.0/255.0 alpha:1.0];
+    _noDataLabel.shadowOffset = CGSizeMake(1, 0);
+    //[_noDataLabel sizeToFit];
     
     self.tableView.backgroundColor = [UIColor colorWithRed:243/255.0 green:244/255.0 blue:245/255.0 alpha:1];
     
@@ -206,6 +271,8 @@
 
 - (void)didReceiveBusinessLogicData {
     NSLog(@"TurismoTableViewControllerDidReceiveBusinessLogicData");
+    if ([_dataModelItaly tableView:self.tableView numberOfRowsInSection:0] == 0)
+        NSLog(@"VOTO");
     [self showData];
 }
 
@@ -228,26 +295,28 @@
 
 
 - (void)showErrorView:(NSString*)message {
+    CGFloat y = iPhoneIdiom() ? 74.0 : 43.0;
     if(_errorView && _errorView.showed){
         return;
     }
 
-    if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ){
+    if (iPadIdiom()) {
         _errorView = [[ErrorView alloc] initWithSize:self.view.frame.size];
     }
-    else _errorView = [[ErrorView alloc] init];
+    else
+        _errorView = [[ErrorView alloc] init];
 
     _errorView.label.text = message;
     [_errorView.tapRecognizer addTarget:self action:@selector(hideErrorView:)];
     
     CGRect oldFrame = [_errorView frame];
-    [_errorView setFrame:CGRectMake(0, 43, oldFrame.size.width, 0)];
+    [_errorView setFrame:CGRectMake(0, y, oldFrame.size.width, 0)];
     
     [self.navigationController.view addSubview:_errorView];
     
     [UIView animateWithDuration:0.5
                      animations:^(void){
-                         [_errorView setFrame:CGRectMake(0, 43, oldFrame.size.width, oldFrame.size.height)];
+                         [_errorView setFrame:CGRectMake(0, y, oldFrame.size.width, oldFrame.size.height)];
                      }
      ];
     _errorView.showed = YES;
@@ -255,10 +324,11 @@
 
 
 - (void)hideErrorView:(UITapGestureRecognizer*)gesture {
+    CGFloat y = iPhoneIdiom() ? 74.0 : 43.0;
     if(_errorView || _errorView.showed){
         [UIView animateWithDuration:0.5
                          animations:^(void){
-                             [_errorView setFrame:CGRectMake(0, 43, _errorView.frame.size.width,0)];
+                             [_errorView setFrame:CGRectMake(0, y, _errorView.frame.size.width,0)];
                          }
                          completion:^(BOOL finished){
                              //riprovo query quando faccio tap su riprova
@@ -266,6 +336,7 @@
                          }
          ];
         _errorView.showed = NO;
+        NSLog(@"%f", self.navigationController.navigationBar.frame.size.height);
     }
 }
 
@@ -294,7 +365,7 @@
             self.tableView.dataSource = _dataModelAbroad;
             break;
     }
-    [self.tableView reloadData];
+    [self tableViewReloadDataWrapper];
 }
 
 
@@ -313,6 +384,17 @@
     [_spinner removeFromSuperview];
     [_spinner stopAnimating];
     
+    [self tableViewReloadDataWrapper];
+}
+
+
+- (void)tableViewReloadDataWrapper {
+    if ([self.tableView.dataSource tableView:self.tableView numberOfRowsInSection:0] == 0) {
+        [self.tableView.backgroundView addSubview:_noDataLabel];
+        _noDataLabel.center = self.tableView.backgroundView.center;
+    }
+    else
+        [_noDataLabel removeFromSuperview];
     [self.tableView reloadData];
 }
 
