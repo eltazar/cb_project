@@ -162,6 +162,13 @@
 		D915E19E1739D14400F78948 /* AreaTurismoSection.m in Sources */ = {isa = PBXBuildFile; fileRef = D915E19D1739D14400F78948 /* AreaTurismoSection.m */; };
 		D915E1A11739E12900F78948 /* AreaTurismoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D915E1A01739E12900F78948 /* AreaTurismoItem.m */; };
 		D91714F8174170740095515B /* AreaTurismoItemCell_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = D91714F7174170740095515B /* AreaTurismoItemCell_iPad.xib */; };
+		D91714FF1742A2160095515B /* crociere_iPhone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D91714FA1742A2160095515B /* crociere_iPhone@2x.png */; };
+		D91715001742A2160095515B /* gruppiclubmedici_iPhone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D91714FB1742A2160095515B /* gruppiclubmedici_iPhone@2x.png */; };
+		D91715011742A2160095515B /* lastminute_iPhone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D91714FC1742A2160095515B /* lastminute_iPhone@2x.png */; };
+		D91715021742A2160095515B /* mareespiaggia_iPhone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D91714FD1742A2160095515B /* mareespiaggia_iPhone@2x.png */; };
+		D91715031742A2160095515B /* montagna_iPhone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D91714FE1742A2160095515B /* montagna_iPhone@2x.png */; };
+		D91715051742A6A30095515B /* AreaTurismoCellBg_iPhone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D91715041742A6A30095515B /* AreaTurismoCellBg_iPhone@2x.png */; };
+		D91715071742CA540095515B /* AreaTurismoCellBgHigh_iPhone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D91715061742CA540095515B /* AreaTurismoCellBgHigh_iPhone@2x.png */; };
 		D91B3838166237D2001E9384 /* AreaAssicurativa.m in Sources */ = {isa = PBXBuildFile; fileRef = D91B3837166237D2001E9384 /* AreaAssicurativa.m */; };
 		D91B383B16624322001E9384 /* RichiestaNoleggioAuto.plist in Resources */ = {isa = PBXBuildFile; fileRef = D91B383A16624322001E9384 /* RichiestaNoleggioAuto.plist */; };
 		D91B383D166245A2001E9384 /* RichiestaNoleggioElettromedicale.plist in Resources */ = {isa = PBXBuildFile; fileRef = D91B383C166245A1001E9384 /* RichiestaNoleggioElettromedicale.plist */; };
@@ -400,6 +407,13 @@
 		D915E19F1739E12900F78948 /* AreaTurismoItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreaTurismoItem.h; sourceTree = "<group>"; };
 		D915E1A01739E12900F78948 /* AreaTurismoItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaTurismoItem.m; sourceTree = "<group>"; };
 		D91714F7174170740095515B /* AreaTurismoItemCell_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AreaTurismoItemCell_iPad.xib; sourceTree = "<group>"; };
+		D91714FA1742A2160095515B /* crociere_iPhone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "crociere_iPhone@2x.png"; sourceTree = "<group>"; };
+		D91714FB1742A2160095515B /* gruppiclubmedici_iPhone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gruppiclubmedici_iPhone@2x.png"; sourceTree = "<group>"; };
+		D91714FC1742A2160095515B /* lastminute_iPhone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lastminute_iPhone@2x.png"; sourceTree = "<group>"; };
+		D91714FD1742A2160095515B /* mareespiaggia_iPhone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mareespiaggia_iPhone@2x.png"; sourceTree = "<group>"; };
+		D91714FE1742A2160095515B /* montagna_iPhone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "montagna_iPhone@2x.png"; sourceTree = "<group>"; };
+		D91715041742A6A30095515B /* AreaTurismoCellBg_iPhone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AreaTurismoCellBg_iPhone@2x.png"; sourceTree = "<group>"; };
+		D91715061742CA540095515B /* AreaTurismoCellBgHigh_iPhone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "AreaTurismoCellBgHigh_iPhone@2x.png"; path = "../AreaTurismoCellBgHigh_iPhone@2x.png"; sourceTree = "<group>"; };
 		D91B3836166237D2001E9384 /* AreaAssicurativa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreaAssicurativa.h; sourceTree = "<group>"; };
 		D91B3837166237D2001E9384 /* AreaAssicurativa.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaAssicurativa.m; sourceTree = "<group>"; };
 		D91B383A16624322001E9384 /* RichiestaNoleggioAuto.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = RichiestaNoleggioAuto.plist; path = ClubMedici/RichiestaNoleggioAuto.plist; sourceTree = "<group>"; };
@@ -663,6 +677,7 @@
 		ACCDDA52165C15280097C00C /* img */ = {
 			isa = PBXGroup;
 			children = (
+				D91714F91742A2000095515B /* Turismo */,
 				ACBF78EF172D4B9700B4F230 /* spinner images */,
 				AC740AA3173D9899002099EC /* tw@2x.png */,
 				AC119CE41740227A004C2C18 /* sideShadow.png */,
@@ -889,6 +904,20 @@
 			name = Turismo;
 			sourceTree = "<group>";
 		};
+		D91714F91742A2000095515B /* Turismo */ = {
+			isa = PBXGroup;
+			children = (
+				D91715041742A6A30095515B /* AreaTurismoCellBg_iPhone@2x.png */,
+				D91715061742CA540095515B /* AreaTurismoCellBgHigh_iPhone@2x.png */,
+				D91714FA1742A2160095515B /* crociere_iPhone@2x.png */,
+				D91714FB1742A2160095515B /* gruppiclubmedici_iPhone@2x.png */,
+				D91714FC1742A2160095515B /* lastminute_iPhone@2x.png */,
+				D91714FD1742A2160095515B /* mareespiaggia_iPhone@2x.png */,
+				D91714FE1742A2160095515B /* montagna_iPhone@2x.png */,
+			);
+			name = Turismo;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1028,6 +1057,13 @@
 				AC167A8E1742CD6C007986EA /* iconaretinaiphone.png in Resources */,
 				AC167A901742CD7E007986EA /* iconaIpad.png in Resources */,
 				AC167A921742CD86007986EA /* icona144ipad.png in Resources */,
+				D91714FF1742A2160095515B /* crociere_iPhone@2x.png in Resources */,
+				D91715001742A2160095515B /* gruppiclubmedici_iPhone@2x.png in Resources */,
+				D91715011742A2160095515B /* lastminute_iPhone@2x.png in Resources */,
+				D91715021742A2160095515B /* mareespiaggia_iPhone@2x.png in Resources */,
+				D91715031742A2160095515B /* montagna_iPhone@2x.png in Resources */,
+				D91715051742A6A30095515B /* AreaTurismoCellBg_iPhone@2x.png in Resources */,
+				D91715071742CA540095515B /* AreaTurismoCellBgHigh_iPhone@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
