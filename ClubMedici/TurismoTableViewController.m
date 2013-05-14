@@ -117,13 +117,17 @@
     }*/
     
     _noDataLabel = [[FXLabel alloc] initWithFrame:CGRectMake(0, imageView.frame.size.height, imageView.frame.size.width, 200)];
+    _noDataLabel.autoresizingMask = UIViewAutoresizingFlexibleTopMargin |
+                                    UIViewAutoresizingFlexibleRightMargin |
+                                    UIViewAutoresizingFlexibleBottomMargin |
+                                    UIViewAutoresizingFlexibleLeftMargin;
     _noDataLabel.backgroundColor = [UIColor clearColor];
     _noDataLabel.textColor = [UIColor colorWithRed:230.0/255.0
                                              green:230.0/255.0
                                               blue:230.0/255.0 alpha:1.0];
-    _noDataLabel.text = @"Non ci sono offerte disponibili\nin questa categoria";
+    _noDataLabel.text = @"Non ci sono offerte\ndisponibili\nin questa categoria";
     _noDataLabel.textAlignment = UITextAlignmentCenter;
-    _noDataLabel.font = [UIFont boldSystemFontOfSize:25.0];
+    _noDataLabel.font = [UIFont boldSystemFontOfSize:iPhoneIdiom()?18.0:25.0];
     _noDataLabel.numberOfLines = 3;
     _noDataLabel.shadowColor = [UIColor colorWithRed:210.0/255.0
                                                green:210.0/255.0
