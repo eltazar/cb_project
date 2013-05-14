@@ -149,7 +149,7 @@
     [formatter setLocale:[NSLocale currentLocale]];
     [formatter setDateStyle:NSDateFormatterMediumStyle];
     [formatter setTimeStyle:NSDateFormatterMediumStyle];
-    lastUpdatedLabel.text = [NSString stringWithFormat:@"Last Updated: %@", [formatter stringFromDate:date]];
+    lastUpdatedLabel.text = [NSString stringWithFormat:@"Ultimo aggiornamento: %@", [formatter stringFromDate:date]];
 }
 
 - (void)setState:(PullToRefreshViewState)state_ {
@@ -157,14 +157,14 @@
     
 	switch (state) {
 		case PullToRefreshViewStateReady:
-			statusLabel.text = @"Release to refresh...";
+			statusLabel.text = @"Rilascia per aggiornare...";
 			[self showActivity:NO animated:NO];
             [self setImageFlipped:YES];
             scrollView.contentInset = UIEdgeInsetsZero;
 			break;
             
 		case PullToRefreshViewStateNormal:
-			statusLabel.text = @"Pull down to refresh...";
+			statusLabel.text = @"Trascina verso il basso per aggiornare...";
 			[self showActivity:NO animated:NO];
             [self setImageFlipped:NO];
 			[self refreshLastUpdatedDate];
@@ -172,7 +172,7 @@
 			break;
             
 		case PullToRefreshViewStateLoading:
-			statusLabel.text = @"Loading...";
+			statusLabel.text = @"Aggiornamento in corso...";
 			[self showActivity:YES animated:YES];
             [self setImageFlipped:NO];
             scrollView.contentInset = UIEdgeInsetsMake(60.0f, 0.0f, 0.0f, 0.0f);
