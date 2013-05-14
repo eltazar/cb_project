@@ -70,7 +70,11 @@
         [swipeGestue setDirection:UISwipeGestureRecognizerDirectionRight];
         [self.view addGestureRecognizer:swipeGestue];
     }
-    
+        
+    UIImage* buttonImage = [[UIImage imageNamed:@"normal_button_big.png"] stretchableImageWithLeftCapWidth:5.0 topCapHeight:0.0];
+    UIImage* buttonPressedImage = [[UIImage imageNamed:@"normal_button_big_selected.png"] stretchableImageWithLeftCapWidth:5.0 topCapHeight:0.0];
+    [_calcolaButton setBackgroundImage:buttonImage forState:UIControlStateNormal];
+    [_calcolaButton setBackgroundImage:buttonPressedImage forState:UIControlStateHighlighted];
 }
 
 -(BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation{
