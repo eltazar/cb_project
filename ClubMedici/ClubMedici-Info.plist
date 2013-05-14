@@ -8,6 +8,19 @@
 	<string>${PRODUCT_NAME}</string>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
+	<key>CFBundleIcons</key>
+	<dict>
+		<key>CFBundlePrimaryIcon</key>
+		<dict>
+			<key>CFBundleIconFiles</key>
+			<array>
+				<string>iconaiphone.png</string>
+				<string>iconaretinaiphone.png</string>
+				<string>iconaIpad.png</string>
+				<string>icona144ipad.png</string>
+			</array>
+		</dict>
+	</dict>
 	<key>CFBundleIdentifier</key>
 	<string>com.clubmedici.appTest</string>
 	<key>CFBundleInfoDictionaryVersion</key>
