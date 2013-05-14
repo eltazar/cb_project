@@ -14,7 +14,11 @@
     NSDictionary *dict = [json objectAtIndex:0];
     self.ID             = [[dict objectForKey:@"id"] integerValue];
     self.title          = [dict objectForKey:@"title"];
-    self.description    = [AreaTurismoItem stripWhiteSpaces:[dict objectForKey:@"description"]];
+    if([[AreaTurismoItem stripWhiteSpaces:[dict objectForKey:@"description"]] isKindOfClass:[NSNull class]] ||
+       [[AreaTurismoItem stripWhiteSpaces:[dict objectForKey:@"description"]] isEqualToString:@""]){
+        self.description = @"Scopri di più...";
+    }
+    else self.description    = [AreaTurismoItem stripWhiteSpaces:[dict objectForKey:@"description"]];
     self.imageUrl       = [AreaTurismoItem buildUrl:[dict objectForKey:@"imageUrl"]];
     self.pdfUrl         = [AreaTurismoItem buildUrl:[dict objectForKey:@"pdfUrl"]];
     self.phone          = [dict objectForKey:@"phone"];
