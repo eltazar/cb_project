@@ -41,7 +41,7 @@
         splitViewController.viewControllers = [NSArray arrayWithObjects:self.sideMenuNavController, self.detailViewNavController, nil];
         splitViewController.delegate = [self.detailViewNavController.viewControllers objectAtIndex:0];
         
-        UIView *coverView = [[UIView alloc] initWithFrame:CGRectMake(312, 44, 9, 1000)];
+        UIView *coverView = [[UIView alloc] initWithFrame:CGRectMake(312, 0, 9, 1000)];
         [coverView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"sideShadow"]]];
         
         [splitViewController.view addSubview:coverView];
