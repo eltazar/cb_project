@@ -395,7 +395,7 @@
 - (void)tableViewReloadDataWrapper {
     if ([self.tableView.dataSource tableView:self.tableView numberOfRowsInSection:0] == 0) {
         [self.tableView.backgroundView addSubview:_noDataLabel];
-        _noDataLabel.center = self.tableView.backgroundView.center;
+        _noDataLabel.center = self.view.center;
     }
     else
         [_noDataLabel removeFromSuperview];
