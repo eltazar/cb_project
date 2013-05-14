@@ -25,6 +25,8 @@
 		AC167A8E1742CD6C007986EA /* iconaretinaiphone.png in Resources */ = {isa = PBXBuildFile; fileRef = AC167A8D1742CD6C007986EA /* iconaretinaiphone.png */; };
 		AC167A901742CD7E007986EA /* iconaIpad.png in Resources */ = {isa = PBXBuildFile; fileRef = AC167A8F1742CD7E007986EA /* iconaIpad.png */; };
 		AC167A921742CD86007986EA /* icona144ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = AC167A911742CD86007986EA /* icona144ipad.png */; };
+		AC167A941742E13F007986EA /* phone2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC167A931742E13F007986EA /* phone2@2x.png */; };
+		AC167A961742E14B007986EA /* mail2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC167A951742E14B007986EA /* mail2@2x.png */; };
 		AC168DA81736949B00B7466A /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC168DA71736949B00B7466A /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		AC168DAA173694A500B7466A /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC168DA9173694A500B7466A /* Accounts.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		AC168DAC173694CA00B7466A /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AC168DAB173694CA00B7466A /* libsqlite3.dylib */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -205,6 +207,8 @@
 		AC167A8D1742CD6C007986EA /* iconaretinaiphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconaretinaiphone.png; sourceTree = "<group>"; };
 		AC167A8F1742CD7E007986EA /* iconaIpad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconaIpad.png; sourceTree = "<group>"; };
 		AC167A911742CD86007986EA /* icona144ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icona144ipad.png; sourceTree = "<group>"; };
+		AC167A931742E13F007986EA /* phone2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "phone2@2x.png"; path = "img/phone2@2x.png"; sourceTree = SOURCE_ROOT; };
+		AC167A951742E14B007986EA /* mail2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "mail2@2x.png"; path = "img/mail2@2x.png"; sourceTree = SOURCE_ROOT; };
 		AC168DA71736949B00B7466A /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		AC168DA9173694A500B7466A /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		AC168DAB173694CA00B7466A /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
@@ -680,6 +684,8 @@
 				D91714F91742A2000095515B /* Turismo */,
 				ACBF78EF172D4B9700B4F230 /* spinner images */,
 				AC740AA3173D9899002099EC /* tw@2x.png */,
+				AC167A951742E14B007986EA /* mail2@2x.png */,
+				AC167A931742E13F007986EA /* phone2@2x.png */,
 				AC119CE41740227A004C2C18 /* sideShadow.png */,
 				AC119CD6173FF387004C2C18 /* vertical_line.png */,
 				AC76D8BA173EC9F0006C44B4 /* cmLogo.png */,
@@ -1064,6 +1070,8 @@
 				D91715731742DC580095515B /* ActionCell.xib in Resources */,
 				D91715751742DC6E0095515B /* ErrorView_iPad.xib in Resources */,
 				D91715771742DC8E0095515B /* CalcolaRataController_iPad.xib in Resources */,
+				AC167A941742E13F007986EA /* phone2@2x.png in Resources */,
+				AC167A961742E14B007986EA /* mail2@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
