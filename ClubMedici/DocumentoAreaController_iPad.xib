@@ -42,6 +42,7 @@
 						<int key="NSvFlags">274</int>
 						<string key="NSFrameSize">{773, 937}</string>
 						<reference key="NSSuperview" ref="766721923"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="732641274"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<object class="NSColor" key="IBUIBackgroundColor">
@@ -65,6 +66,7 @@
 										<int key="NSvFlags">268</int>
 										<string key="NSFrame">{{57, 10}, {113, 21}}</string>
 										<reference key="NSSuperview" ref="394187831"/>
+										<reference key="NSWindow"/>
 										<reference key="NSNextKeyView" ref="332620178"/>
 										<string key="NSReuseIdentifierKey">_NS:9</string>
 										<bool key="IBUIOpaque">NO</bool>
@@ -97,6 +99,7 @@
 										<int key="NSvFlags">268</int>
 										<string key="NSFrame">{{278, -13}, {77, 68}}</string>
 										<reference key="NSSuperview" ref="394187831"/>
+										<reference key="NSWindow"/>
 										<string key="NSReuseIdentifierKey">_NS:9</string>
 										<bool key="IBUIOpaque">NO</bool>
 										<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -139,6 +142,7 @@
 										<int key="NSvFlags">268</int>
 										<string key="NSFrame">{{184, -7}, {64, 56}}</string>
 										<reference key="NSSuperview" ref="394187831"/>
+										<reference key="NSWindow"/>
 										<reference key="NSNextKeyView" ref="435333093"/>
 										<string key="NSReuseIdentifierKey">_NS:9</string>
 										<bool key="IBUIOpaque">NO</bool>
@@ -172,20 +176,13 @@
 											<string key="NSClassName">NSImage</string>
 											<string key="NSResourceName">phone3.png</string>
 										</object>
-										<object class="NSCustomResource" key="IBUIDisabledBackgroundImage">
-											<string key="NSClassName">NSImage</string>
-											<string key="NSResourceName">contactButtonDisabled.png</string>
-										</object>
-										<object class="NSCustomResource" key="IBUISelectedBackgroundImage">
-											<string key="NSClassName">NSImage</string>
-											<string key="NSResourceName">contactButtonSelected.png</string>
-										</object>
 										<reference key="IBUIFontDescription" ref="1062922289"/>
 										<reference key="IBUIFont" ref="349034119"/>
 									</object>
 								</array>
 								<string key="NSFrame">{{192, 0}, {384, 42}}</string>
 								<reference key="NSSuperview" ref="732641274"/>
+								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="935806286"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<object class="NSColor" key="IBUIBackgroundColor">
@@ -197,6 +194,7 @@
 						</array>
 						<string key="NSFrame">{{0, 936}, {768, 44}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="394187831"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<object class="NSColor" key="IBUIBackgroundColor">
@@ -208,6 +206,7 @@
 				</array>
 				<string key="NSFrame">{{0, 44}, {768, 980}}</string>
 				<reference key="NSSuperview"/>
+				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="10040704"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">3</int>
@@ -381,7 +380,7 @@
 				<string key="10.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="12.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="13.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<real value="3" key="13.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
+				<real value="0.0" key="13.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
 				<string key="14.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<real value="3" key="14.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
 				<string key="2.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -457,8 +456,6 @@
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
-			<string key="contactButtonDisabled.png">{140, 40}</string>
-			<string key="contactButtonSelected.png">{140, 40}</string>
 			<string key="mail3.png">{200, 200}</string>
 			<string key="mail3_disabled.png">{200, 200}</string>
 			<string key="mail3_high.png">{200, 200}</string>
