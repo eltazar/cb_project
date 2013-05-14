@@ -70,7 +70,7 @@
         [swipeGestue setDirection:UISwipeGestureRecognizerDirectionRight];
         [self.view addGestureRecognizer:swipeGestue];
     }
-        
+    
     UIImage* buttonImage = [[UIImage imageNamed:@"normal_button_big.png"] stretchableImageWithLeftCapWidth:5.0 topCapHeight:0.0];
     UIImage* buttonPressedImage = [[UIImage imageNamed:@"normal_button_big_selected.png"] stretchableImageWithLeftCapWidth:5.0 topCapHeight:0.0];
     [_calcolaButton setBackgroundImage:buttonImage forState:UIControlStateNormal];
@@ -100,6 +100,7 @@
 }
 
 -(IBAction)scegliTassoButton:(UIControl*)sender{
+    [self.view endEditing:YES];
     ActionStringDoneBlock done = ^(ActionSheetStringPicker *picker, NSInteger selectedIndex, id selectedValue) {
         if ([sender respondsToSelector:@selector(setText:)]) {
             [sender performSelector:@selector(setText:) withObject:selectedValue];
@@ -117,6 +118,7 @@
 }
 
 -(IBAction)scegliNumeroRate:(UIControl*)sender{
+    [self.view endEditing:YES];
     ActionStringDoneBlock done = ^(ActionSheetStringPicker *picker, NSInteger selectedIndex, id selectedValue) {
         if ([sender respondsToSelector:@selector(setText:)]) {
             [sender performSelector:@selector(setText:) withObject:selectedValue];
@@ -202,35 +204,44 @@
     [self setTasso];
 
     
-    if(importoRichiesto == 0 || numeroRate == 0)
+    if(importoRichiesto == 0 || numeroRate == 0){
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Inserisci l'importo del prestito e il numero di rate" message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
         return;
-    
+    }
+
     [self calcolaAssicurazione];
     [self calcolaTotale];
 
-    //assicurazione calcolata su importo + spese
-    [self calcolaAssicurazione];
-    [self calcolaTotale];
+    if(tasso == 0){
+        monthlyRate = totalePrestito / numeroRate;
+    }
+    else{
+        //assicurazione calcolata su importo + spese
+        [self calcolaAssicurazione];
+        [self calcolaTotale];
 
-    double loan = totalePrestito;
-    double annualInterestRate = tasso; // 6%
-    annualInterestRate = annualInterestRate /100.0f; // 0.06 i.e. 6%
-    int numberOfPayments = numeroRate;
+        double loan = totalePrestito;
+        //NSLog(@"TASSO = %f",tasso);
+        double annualInterestRate = tasso; // 6%
+        annualInterestRate = annualInterestRate /100.0f; // 0.06 i.e. 6%
+        int numberOfPayments = numeroRate;
 
-    // (loan * (interest / 12)) / (1 - (1 + interest / 12) ^ -number)
-    //          ^^^^^^^^^^^^^ temp1
-    // ^^^^^^^^^^^^^^^^^^^^^^^^ temp2
-    //                                      ^^^^^^^^^^^^^ temp1
-    //                                 ^^^^^^^^^^^^^^^^^^^ temp4
-    //                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ temp5
-    //                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ temp6
-    double temp1 = annualInterestRate / 12;
-    double temp2 = (temp1 * loan); 
-    double temp4 = 1.0 + temp1;
-    double temp5 = 1.0 / pow(temp4,numberOfPayments);
-    double temp6 = 1.0 - temp5;
+        // (loan * (interest / 12)) / (1 - (1 + interest / 12) ^ -number)
+        //          ^^^^^^^^^^^^^ temp1
+        // ^^^^^^^^^^^^^^^^^^^^^^^^ temp2
+        //                                      ^^^^^^^^^^^^^ temp1
+        //                                 ^^^^^^^^^^^^^^^^^^^ temp4
+        //                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ temp5
+        //                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ temp6
+        double temp1 = annualInterestRate / 12;
+        double temp2 = (temp1 * loan); 
+        double temp4 = 1.0 + temp1;
+        double temp5 = 1.0 / pow(temp4,numberOfPayments);
+        double temp6 = 1.0 - temp5;
 
-    monthlyRate = temp2 / temp6;
+        monthlyRate = temp2 / temp6;
+    }
     _importoRataField.text = [NSString stringWithFormat:@"%.2f",monthlyRate];
 }
 
