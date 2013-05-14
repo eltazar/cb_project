@@ -197,6 +197,10 @@
     numeroRate = [_numeroRateField.text intValue];
     [self setTasso];
 
+    
+    if(importoRichiesto == 0 || numeroRate == 0)
+        return;
+    
     [self calcolaAssicurazione];
     [self calcolaTotale];
 
