@@ -60,12 +60,7 @@
     
     self.tableView.backgroundView = [[UIView alloc] initWithFrame:self.tableView.bounds];
     self.tableView.contentMode = UIViewContentModeScaleAspectFit;
-    _spinner = [[CustomSpinnerView alloc] initWithFrame:self.view.frame];
-    _spinner.center = self.tableView.backgroundView.center;//CGRectMake(self.view.frame.size.width / 2 - _spinner.frame.size.width / 2,
-                           //self.view.frame.size.height / 2 - _spinner.frame.size.height / 2,
-                           //_spinner.frame.size.width,
-                           //_spinner.frame.size.height);
-    
+        
     UIImageView *imageView = [[UIImageView alloc] initWithImage:
                               [UIImage imageNamed:IDIOM_SPECIFIC_STRING(@"background")]];
     imageView.contentMode = UIViewContentModeScaleAspectFit;
@@ -157,6 +152,15 @@
         self.navigationItem.titleView = _segmentedControl;
     }
     
+    _spinner = [[CustomSpinnerView alloc] initWithFrame:self.view.frame];
+    _spinner.frame = CGRectMake(self.navigationController.navigationBar.frame.size.width/2 - _spinner.frame.size.width/2, self.view.frame.size.height/2 - _spinner.frame.size.height/2, _spinner.frame.size.width, _spinner.frame.size.height);
+
+    
+   // _spinner.center = self.tableView.backgroundView.center;//CGRectMake(self.view.frame.size.width / 2 - _spinner.frame.size.width / 2,
+    //self.view.frame.size.height / 2 - _spinner.frame.size.height / 2,
+    //_spinner.frame.size.width,
+    //_spinner.frame.size.height);
+
     
     _pullToRefresh = [[PullToRefreshView alloc]
                                initWithScrollView:self.tableView];
@@ -169,6 +173,18 @@
     [Utilities logEvent:@"Categoria_turismo_visitata" arguments:articleParams];
 }
 
+
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)  interfaceOrientation duration:(NSTimeInterval)duration{
+    
+    NSLog(@"ROTAZIONE");
+    
+    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone){
+        return;
+    }
+    else{
+        _spinner.frame = CGRectMake(self.navigationController.navigationBar.frame.size.width/2 - _spinner.frame.size.width/2, self.view.frame.size.height/2 - _spinner.frame.size.height/2, _spinner.frame.size.width, _spinner.frame.size.height);
+    }
+}
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -382,7 +398,7 @@
     //Lancio spinner
     [_spinner startAnimating];
     //aggiungo spinner alla view
-    [self.tableView.backgroundView addSubview:_spinner];
+    [self.tableView addSubview:_spinner];
     [self.areaTurismoSection fetchData];
 }
 
