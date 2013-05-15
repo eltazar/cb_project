@@ -125,7 +125,8 @@
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     if(buttonIndex == 1){
-        [Utilities callNumber:phoneNumber];
+        NSLog(@"CHIAMA = %@", phoneNumber);
+        [Utilities callNumber:[phoneNumber stringByReplacingOccurrencesOfString:@" " withString:@""] ];
     }
 }
 
