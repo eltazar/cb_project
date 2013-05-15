@@ -149,7 +149,7 @@
     [formatter setLocale:[NSLocale currentLocale]];
     [formatter setDateStyle:NSDateFormatterMediumStyle];
     [formatter setTimeStyle:NSDateFormatterMediumStyle];
-    lastUpdatedLabel.text = [NSString stringWithFormat:@"Ultimo aggiornamento: %@", [formatter stringFromDate:date]];
+    lastUpdatedLabel.text = [NSString stringWithFormat:@"Aggiornato il: %@", [formatter stringFromDate:date]];
 }
 
 - (void)setState:(PullToRefreshViewState)state_ {
