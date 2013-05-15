@@ -25,7 +25,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    UIImageView *logo = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cmLogo"]];
+    logo.frame = CGRectMake(80, 7, 158, 30);
+    [self.navigationController.navigationBar addSubview:logo];
 }
 
 - (void)didReceiveMemoryWarning {

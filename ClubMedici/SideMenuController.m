@@ -29,27 +29,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-   [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"navBarLogo"] forBarMetrics:UIBarMetricsDefault];
+   //[self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"navBarLogo"] forBarMetrics:UIBarMetricsDefault];
     //rimuove shadow sotto navBar
     //self.navigationController.navigationBar.clipsToBounds = YES;
     if ([self.navigationController.navigationBar
          respondsToSelector:@selector(shadowImage)]) {
         self.navigationController.navigationBar.shadowImage = [UIImage imageNamed:@"side_menu_separation_line"];
     }
-    UIView *separatorLine = [[UIView alloc] initWithFrame:CGRectMake(0, 43,320, 4)];
-    separatorLine.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"side_menu_separation_line"]];
+//    UIView *separatorLine = [[UIView alloc] initWithFrame:CGRectMake(0, 43,320, 4)];
+//    separatorLine.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"side_menu_separation_line"]];
 
     //[self.navigationController.navigationBar addSubview:separatorLine];
 
     UIImage *image = [UIImage imageNamed:@"side_nav_bar"];
     [self.navigationController.navigationBar setBackgroundImage:image
                                                   forBarMetrics:UIBarMetricsDefault];
-    
-    UIImageView *logo = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cmLogo"]];
-    logo.frame = CGRectMake(50, 7, 158, 30);
-    //self.navigationItem.titleView = logo;
-
-    [self.navigationController.navigationBar addSubview:logo];
     
     //rimuove celle extra
     self.tableView.tableFooterView = [[UIView alloc] init];
