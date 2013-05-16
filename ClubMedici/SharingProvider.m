@@ -25,7 +25,7 @@ static SharingProvider *sharedInstance = nil;
 
 + (SharingProvider *)sharedInstance
 {
-    NSLog(@"CREO SHARING PROVIDER");
+    //nslog(@"CREO SHARING PROVIDER");
     static SharingProvider *sharedInstance = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -153,13 +153,13 @@ static SharingProvider *sharedInstance = nil;
                 case SLComposeViewControllerResultCancelled:
                 default:
                 {
-                    NSLog(@"Cancelled.....");
+                    //nslog(@"Cancelled.....");
                     
                 }
                     break;
                 case SLComposeViewControllerResultDone:
                 {
-                    NSLog(@"Posted....");
+                    //nslog(@"Posted....");
                     //TODO: mostrare hud successo
                 }
                     break;
@@ -218,10 +218,10 @@ static SharingProvider *sharedInstance = nil;
     twitter.completionHandler = ^(TWTweetComposeViewControllerResult res) {
         
         if(res == TWTweetComposeViewControllerResultDone) {
-            NSLog(@"tweet inviato");
+            //nslog(@"tweet inviato");
         }
         else if(res == TWTweetComposeViewControllerResultCancelled) {
-            NSLog(@"tweet annullato");
+            //nslog(@"tweet annullato");
         }
         [self.viewController dismissModalViewControllerAnimated:YES];
     };
@@ -266,17 +266,17 @@ static SharingProvider *sharedInstance = nil;
      ^(FBWebDialogResult result, NSURL *resultURL, NSError *error) {
          if (error) {
              // Error launching the dialog or publishing a story.
-             NSLog(@"Error publishing story.");
+             //nslog(@"Error publishing story.");
          } else {
              if (result == FBWebDialogResultDialogNotCompleted) {
                  // User clicked the "x" icon
-                 NSLog(@"User canceled story publishing.");
+                 //nslog(@"User canceled story publishing.");
              } else {
                  // Handle the publish feed callback
                  NSDictionary *urlParams = [self parseURLParams:[resultURL query]];
                  if (![urlParams valueForKey:@"post_id"]) {
                      // User clicked the Cancel button
-                     NSLog(@"User canceled story publishing.");
+                     //nslog(@"User canceled story publishing.");
                  } else {
                      // User clicked the Share button
                      //TODO: mostrare hud di successo
@@ -307,7 +307,7 @@ static SharingProvider *sharedInstance = nil;
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     
     NSString *title = [actionSheet buttonTitleAtIndex:buttonIndex];
-    NSLog(@"TITOLO = %@",title);
+    //nslog(@"TITOLO = %@",title);
     if([title isEqualToString:@"Facebook"])
         [self postToFacebook:self];
     else if([title isEqualToString:@"Twitter"])
@@ -315,7 +315,7 @@ static SharingProvider *sharedInstance = nil;
     else if([title isEqualToString:@"E-mail"])
             [self postToMail:self];
     else if([title isEqualToString:@"Stampa"]){
-                    NSLog(@"STAMPA");
+                    //nslog(@"STAMPA");
         if([self.viewController respondsToSelector:@selector(printWebView:)])
             [self.viewController performSelector:@selector(printWebView:) withObject:self];
     }
@@ -330,14 +330,14 @@ static SharingProvider *sharedInstance = nil;
     
     [self.viewController dismissModalViewControllerAnimated:YES];
     if(result == MFMailComposeResultSent) {
-        NSLog(@"messaggio inviato");
+        //nslog(@"messaggio inviato");
     }
 	else if (result == MFMailComposeResultFailed){
 		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Messaggio non inviato!" message:@"Non è stato possibile inviare la tua e-mail" delegate:self cancelButtonTitle:@"Chiudi" otherButtonTitles:nil];
 		[alert show];
 	}
     else if (result == MFMailComposeResultCancelled){
-        NSLog(@"messaggio annullato");
+        //nslog(@"messaggio annullato");
     }
 }
 

@@ -128,7 +128,7 @@
 - (void)tableView:(UITableView *)tableView performAction:(SEL)action forRowAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender
 {
     if (action == @selector(copy:)){
-        NSLog(@"Copio in clipboard");
+        //nslog(@"Copio in clipboard");
         NSString *text = [_dataModel valueForKey:@"LABEL" atIndexPath:indexPath];
         NSString *copyString = [[NSString alloc] initWithFormat:@"%@",text];
         UIPasteboard *pb = [UIPasteboard generalPasteboard];

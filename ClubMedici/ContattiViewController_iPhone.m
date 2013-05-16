@@ -143,7 +143,7 @@
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     if(buttonIndex == 1){
-        NSLog(@"CHIAMA = %@", phoneNumber);
+        //nslog(@"CHIAMA = %@", phoneNumber);
         [Utilities callNumber:[phoneNumber stringByReplacingOccurrencesOfString:@" " withString:@""] ];
     }
 }
@@ -161,7 +161,7 @@
 
 -(void)showTableView{
     
-    NSLog(@"MOSTRO TABELLA");
+    //nslog(@"MOSTRO TABELLA");
     
     isMapVisible = NO;
     self.tableView.scrollEnabled = YES;
@@ -190,7 +190,7 @@
 }
 
 -(void)showMap:(NSIndexPath*)indexPath{
-    NSLog(@"MOSTRO MAPPA");
+    //nslog(@"MOSTRO MAPPA");
     
     isMapVisible = YES;
     CGRect rectInTableView = [self.tableView rectForRowAtIndexPath:indexPath];

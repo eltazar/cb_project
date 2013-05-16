@@ -110,11 +110,11 @@
             CGRect frame = self.descriptionLbl.frame;
             UIDeviceOrientation o = [UIApplication sharedApplication].statusBarOrientation;
             if (UIDeviceOrientationIsLandscape(o)) {
-                NSLog(@"L");
+                //nslog(@"L");
                 frame.size.width = 560.0;
             }
             else if (UIDeviceOrientationIsPortrait(o)) {
-                NSLog(@"P");
+                //nslog(@"P");
                 frame.size.width = 300.0;
             }
             

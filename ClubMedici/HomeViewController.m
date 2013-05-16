@@ -39,7 +39,7 @@
     for(UIView *wview in [[[webView subviews] objectAtIndex:0] subviews]) {
         if([wview isKindOfClass:[UIImageView class]]) { wview.hidden = YES; }
     }
-    NSLog(@"SELF = %@",self);
+    //nslog(@"SELF = %@",self);
     //share button
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(sharingAction:)];
     self.navigationItem.rightBarButtonItem.enabled = NO;
@@ -104,7 +104,7 @@
 
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)  interfaceOrientation duration:(NSTimeInterval)duration{
     
-    NSLog(@"ROTAZIONE");
+    //nslog(@"ROTAZIONE");
     
     if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
         return;
@@ -122,7 +122,7 @@
 
 - (void)fetchData {
 
-    NSLog(@"FETCH");
+    //nslog(@"FETCH");
     if([Utilities networkReachable]){
         [spinner startAnimating];
         [self.view addSubview:spinner];
@@ -135,7 +135,7 @@
 
 
 - (void)showErrorView:(NSString*)message {
-    NSLog(@"MOSTRO");
+    //nslog(@"MOSTRO");
     errorView.label.text = message;
     [errorView.tapRecognizer addTarget:self action:@selector(hideErrorView:)];
     
@@ -154,7 +154,7 @@
 
 
 - (void)hideErrorView:(UITapGestureRecognizer*)gesture {
-    NSLog(@"CANCELLO");
+    //nslog(@"CANCELLO");
     if(errorView || errorView.showed){
         [UIView animateWithDuration:0.5
                          animations:^(void){
@@ -178,13 +178,13 @@
 
 - (void) networkStatusChanged:(NSNotification*) notification {
 	Reachability* reachability = notification.object;
-    NSLog(@"*** HomeViewController: network status changed ***");
+    //nslog(@"*** HomeViewController: network status changed ***");
 	if(reachability.currentReachabilityStatus == NotReachable){
-		NSLog(@"Internet off");
+		//nslog(@"Internet off");
         [self showErrorView:@"Connessione assente"];
     }
 	else{
-		NSLog(@"Internet on");
+		//nslog(@"Internet on");
         [self hideErrorView:nil];
     }
 }
@@ -192,12 +192,12 @@
 #pragma mark - UIWebViewDelegate
 
 - (void)webViewDidStartLoad:(UIWebView *)webView {
-    NSLog(@"INIZIATO DOWNLOAD PDF");
+    //nslog(@"INIZIATO DOWNLOAD PDF");
 }
 
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
-    NSLog(@"FALLITO DOWNLOAD PDF = %@", [error localizedDescription]);
+    //nslog(@"FALLITO DOWNLOAD PDF = %@", [error localizedDescription]);
 
 }
 
@@ -221,7 +221,7 @@
     [(PullToRefreshView *)[self.view viewWithTag:998] finishedLoading];
     [spinner stopAnimating];
     [spinner removeFromSuperview];
-    NSLog(@"Server error = %@",error.description);
+    //nslog(@"Server error = %@",error.description);
     [self showErrorView:@"Errore server"];
     self.navigationItem.rightBarButtonItem.enabled = NO;
 }
@@ -289,7 +289,7 @@
     UIPrintInteractionCompletionHandler completionHandler =
     ^(UIPrintInteractionController *printController, BOOL completed, NSError *error) {
         if(!completed && error){
-            NSLog(@"Print failed - domain: %@ error code %u", error.domain, error.code);
+            //nslog(@"Print failed - domain: %@ error code %u", error.domain, error.code);
         }
     };
     

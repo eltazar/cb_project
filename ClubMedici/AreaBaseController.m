@@ -378,19 +378,19 @@
 
 - (void)didErrorLoadingImage:(id)sender {
     //TODO: riprovare a fare il download dell'immagine in automatico?
-    NSLog(@"Errore download cachedImg in area base controller");
+    //nslog(@"Errore download cachedImg in area base controller");
 }
 
 
 - (void) networkStatusChanged:(NSNotification*) notification {
 	Reachability* reachability = notification.object;
-    NSLog(@"*** AreaBaseController: network status changed ***");
+    //nslog(@"*** AreaBaseController: network status changed ***");
 	if(reachability.currentReachabilityStatus == NotReachable){
-		NSLog(@"Internet off");
+		//nslog(@"Internet off");
         [self showErrorView:@"Connessione assente"];
     }
 	else{
-		NSLog(@"Internet on");
+		//nslog(@"Internet on");
         [self hideErrorView:nil];
     }
 }
@@ -401,7 +401,7 @@
 
 
 - (void)didReceiveBusinessLogicData {
-    NSLog(@"didReceiveAreaData");
+    //nslog(@"didReceiveAreaData");
    [self showData];
 }
 

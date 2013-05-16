@@ -90,7 +90,7 @@ static WMHTTPAccess *__sharedInstance = nil;
 
 
 -(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
-    NSLog(@"ERROR with the connection");
+    //nslog(@"ERROR with the connection");
     id<WMHTTPAccessDelegate> delegate = [self.delegateDict objectForKey:_key(connection)];
     [delegate didReceiveError:error];
     
@@ -113,9 +113,9 @@ static WMHTTPAccess *__sharedInstance = nil;
                                         options:NSJSONReadingMutableContainers
                                           error:&error];        
         if (error) {
-            NSLog(@"JSONError: reason[%@] desc[%@]",
-                  [error localizedFailureReason], 
-                  [error localizedDescription]);
+            //nslog(@"JSONError: reason[%@] desc[%@]",
+                  //[error localizedFailureReason],
+                  //[error localizedDescription]);
             [delegate didReceiveError:error];
         } else {
             [delegate didReceiveJSON:jsonArray];

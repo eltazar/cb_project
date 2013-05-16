@@ -49,7 +49,7 @@
 
 
 - (void)didReceiveError:(NSError *)error {
-    NSLog(@"ERRORE = %@",[error description]);
+    //nslog(@"ERRORE = %@",[error description]);
     [self.delegate didReceiveBusinessLogicDataError:@"Errore server"];
 }
 

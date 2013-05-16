@@ -837,7 +837,7 @@
         }
         default:
         {
-            NSLog(@"Unsupported gradient color format: %i", model);
+            //nslog(@"Unsupported gradient color format: %i", model);
             rgba[0] = 0.0f;
             rgba[1] = 0.0f;
             rgba[2] = 0.0f;

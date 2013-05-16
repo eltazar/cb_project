@@ -88,16 +88,16 @@
 - (void)fetchData {
     if([Utilities networkReachable]){
         //se è passato il limite di tempo per la query, fai la query
-        NSLog(@"DATA QUERY = %@", dateDoneQuery);
+        //nslog(@"DATA QUERY = %@", dateDoneQuery);
         if([dateDoneQuery timeIntervalSinceDate:[NSDate date]] == 0.0 ||
            (-[dateDoneQuery timeIntervalSinceDate:[NSDate date]]) >= QUERY_TIME_LIMIT){
             
-            NSLog(@"\n///**** \n FACCIO LA QUERY (%d)\n ///*****", self.areaID);
+            //nslog(@"\n///**** \n FACCIO LA QUERY (%d)\n ///*****", self.areaID);
             //è tempo di fare la query
             [PDHTTPAccess getAreaContents:self.areaID delegate:self];
         }
         else{
-            NSLog(@"\n///**** \n RECUPERO JSON SALVATO \n ///*****");
+            //nslog(@"\n///**** \n RECUPERO JSON SALVATO \n ///*****");
             //se precedemente scaricate mostra le info salvate
             [self _buildFromJson:(NSArray *)[Utilities loadCustomObjectWithKey:[AreaBase getAreaType:self.areaID]]];
             [self.delegate didReceiveBusinessLogicData];
@@ -109,7 +109,7 @@
             NSArray *oldJson = [Utilities loadCustomObjectWithKey:[AreaBase getAreaType:self.areaID]];
             if(-[dateDoneQuery timeIntervalSinceDate:[NSDate date]] < QUERY_TIME_LIMIT &&
                oldJson){
-                NSLog(@"///**** RECUPERO VECCHI DATI RECENTI///****");
+                //nslog(@"///**** RECUPERO VECCHI DATI RECENTI///****");
                 [self _buildFromJson:oldJson];
                 [self.delegate didReceiveBusinessLogicData];
             }
@@ -120,7 +120,7 @@
 
 
 - (void)didReceiveJSON:(NSArray *)jsonArray {
-    NSLog(@"JSON = %@",jsonArray);
+    //nslog(@"JSON = %@",jsonArray);
     [self _buildFromJson:jsonArray];
     //salvo ora in cui ho ricevuto l'oggetto e l'oggetto
     NSUserDefaults *pref = [NSUserDefaults standardUserDefaults];

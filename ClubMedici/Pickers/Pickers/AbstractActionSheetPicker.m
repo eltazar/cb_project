@@ -267,7 +267,7 @@
 #pragma mark - Popovers and ActionSheets
 
 - (void)presentPickerForView:(UIView *)aView {
-    NSLog(@"FROM RECT = %@",aView);
+    //nslog(@"FROM RECT = %@",aView);
     self.presentFromRect = aView.frame;
     
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
@@ -323,7 +323,7 @@
         return;
     }
     else if ((self.containerView) && NO == CGRectIsEmpty(self.presentFromRect)) {
-//        NSLog(@"CLASSE = %@, SUPER CLASSE = %@, SUPER SUPER = %@",[_containerView class],[_containerView.superview class],[_containerView.superview.superview.superview class]);
+//        //nslog(@"CLASSE = %@, SUPER CLASSE = %@, SUPER SUPER = %@",[_containerView class],[_containerView.superview class],[_containerView.superview.superview.superview class]);
         float y = 115;
         if([_containerView.superview.superview.superview isKindOfClass:([UITableView class])]){
             y = 230;

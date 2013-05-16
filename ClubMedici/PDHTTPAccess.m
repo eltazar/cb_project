@@ -127,7 +127,7 @@ NSString *baseUrl = @"http://www.clubmedici.it/app/iphone/";
         NSArray *keyValue = [pair componentsSeparatedByString:@"="];
         [postDict setObject:[keyValue objectAtIndex:1] forKey:[keyValue objectAtIndex:0]];
     }
-    NSLog(@"[%@ buyCouponRequest] string = [%@], \n\tpostDict = %@", [self class], string, postDict);
+    //nslog(@"[%@ buyCouponRequest] string = [%@], \n\tpostDict = %@", [self class], string, postDict);
     
     [[WMHTTPAccess sharedInstance] startHTTPConnectionWithURLString:urlString method:WMHTTPAccessConnectionMethodPOST parameters:postDict delegate:delegate];
 }
@@ -157,7 +157,7 @@ NSString *baseUrl = @"http://www.clubmedici.it/app/iphone/";
 }
 
 + (void)getCouponFromServerWithId:(NSInteger)idCoupon delegate:(id<WMHTTPAccessDelegate>) delegate {
-   // NSLog(@"QUERY PER COUPON CON ID");
+   // //nslog(@"QUERY PER COUPON CON ID");
     
 	NSString *urlString = [NSString stringWithFormat: @"http://www.cartaperdue.it/partner/offerta2.php?id=%d", idCoupon];
     [[WMHTTPAccess sharedInstance] startHTTPConnectionWithURLString:urlString method:WMHTTPAccessConnectionMethodGET parameters:nil delegate:delegate];

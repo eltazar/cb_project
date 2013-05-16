@@ -48,10 +48,10 @@
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)orientation {
     if (orientation == UIInterfaceOrientationPortrait || orientation == UIInterfaceOrientationPortraitUpsideDown) {
-        NSLog(@"PORTRAIT");
+        //nslog(@"PORTRAIT");
     }
     else{
-        NSLog(@"LANDSCAPE");
+        //nslog(@"LANDSCAPE");
 
     }
 }

@@ -80,9 +80,9 @@
     //imageView.backgroundColor = [UIColor blackColor];
     //self.tableView.backgroundView.backgroundColor = [UIColor redColor];
     [self.tableView.backgroundView addSubview:imageView];
-    NSLog(@"bgview: %@",  NSStringFromCGRect(self.tableView.backgroundView.frame));
-    NSLog(@"imgView: %@", NSStringFromCGRect(imageView.frame));
-    NSLog(@"img: %@", NSStringFromCGSize(imageView.image.size));
+    //nslog(@"bgview: %@",  NSStringFromCGRect(self.tableView.backgroundView.frame));
+    //nslog(@"imgView: %@", NSStringFromCGRect(imageView.frame));
+    //nslog(@"img: %@", NSStringFromCGSize(imageView.image.size));
     
     
     /*if (iPadIdiom()) {
@@ -176,7 +176,7 @@
 
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)  interfaceOrientation duration:(NSTimeInterval)duration{
     
-    NSLog(@"ROTAZIONE");
+    //nslog(@"ROTAZIONE");
     
     if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone){
         return;
@@ -283,19 +283,19 @@
 
 - (void)didErrorLoadingImage:(id)sender {
     //TODO: riprovare a fare il download dell'immagine in automatico?
-    NSLog(@"Errore download cachedImg in area base controller");
+    //nslog(@"Errore download cachedImg in area base controller");
 }
 
 
 - (void)networkStatusChanged:(NSNotification*) notification {
 	Reachability* reachability = notification.object;
-    NSLog(@"*** AreaBaseController: network status changed ***");
+    //nslog(@"*** AreaBaseController: network status changed ***");
 	if(reachability.currentReachabilityStatus == NotReachable){
-		NSLog(@"Internet off");
+		//nslog(@"Internet off");
         [self showErrorView:@"Connessione assente"];
     }
 	else{
-		NSLog(@"Internet on");
+		//nslog(@"Internet on");
         [self hideErrorView:nil];
     }
 }
@@ -384,7 +384,7 @@
                          }
          ];
         _errorView.showed = NO;
-        NSLog(@"%f", self.navigationController.navigationBar.frame.size.height);
+        //nslog(@"%f", self.navigationController.navigationBar.frame.size.height);
     }
 }
 

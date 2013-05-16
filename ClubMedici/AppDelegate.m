@@ -93,7 +93,7 @@
 
 - (void)addPanGestureToNavigationController:(UINavigationController *)navCon
                                    target:(id<UIGestureRecognizerDelegate>) target {
-    NSLog(@"addPanGestureToView");
+    //nslog(@"addPanGestureToView");
     UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:target action:@selector(_handlePan:)];
     panGesture.delegate = [DummyGestureRecognizerDelegate sharedInstance];
     panGesture.maximumNumberOfTouches = 1;
@@ -104,11 +104,11 @@
 - (void) reachabilityChanged:(NSNotification*) notification
 {
 	Reachability* reachability = notification.object;
-    NSLog(@"*** AppDelegate: networkStatusChanged ***");
-	if(reachability.currentReachabilityStatus == NotReachable)
-		NSLog(@"Internet off");
-	else
-		NSLog(@"Internet on");
+    //nslog(@"*** AppDelegate: networkStatusChanged ***");
+//	if(reachability.currentReachabilityStatus == NotReachable)
+//		//nslog(@"Internet off");
+//	else
+//		//nslog(@"Internet on");
 }
 
 #pragma mark - FACEBOOK API
@@ -124,7 +124,7 @@
         case FBSessionStateOpen:
             if (!error) {
                 // We have a valid session
-                NSLog(@"User session found");
+                //nslog(@"User session found");
             }
             break;
         case FBSessionStateClosed:
@@ -135,7 +135,7 @@
             break;
     }
     
-    NSLog(@"APP DELEGATE = MANDO notifica: %d, %@",state,session);
+    //nslog(@"APP DELEGATE = MANDO notifica: %d, %@",state,session);
     [[NSNotificationCenter defaultCenter]
      postNotificationName:FBSessionStateChangedNotification
      object:session];
@@ -155,7 +155,7 @@
  * Opens a Facebook session and optionally shows the login UX.
  */
 - (BOOL)openSessionWithAllowLoginUI:(BOOL)allowLoginUI {
-    NSLog(@"OPEN SESSION WITH GUI");
+    //nslog(@"OPEN SESSION WITH GUI");
     return [FBSession openActiveSessionWithReadPermissions:nil
                                               allowLoginUI:allowLoginUI
                                          completionHandler:^(FBSession *session,

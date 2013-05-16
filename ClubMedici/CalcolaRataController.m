@@ -112,12 +112,12 @@
 
     };
     ActionStringCancelBlock cancel = ^(ActionSheetStringPicker *picker) {
-        NSLog(@"Block Picker Canceled");
+        //nslog(@"Block Picker Canceled");
     };
     
     [ActionSheetStringPicker showPickerWithTitle:@"Scegli tasso" rows:listaTasso initialSelection:tassoSelezionato doneBlock:done cancelBlock:cancel origin:_tassoField];
     
-    NSLog(@"SENDER = %@, VIEW = %@",sender,self.view);
+    //nslog(@"SENDER = %@, VIEW = %@",sender,self.view);
 }
 
 -(IBAction)scegliNumeroRate:(UIControl*)sender{
@@ -130,7 +130,7 @@
         
     };
     ActionStringCancelBlock cancel = ^(ActionSheetStringPicker *picker) {
-        NSLog(@"Block Picker Canceled");
+        //nslog(@"Block Picker Canceled");
     };
     [ActionSheetStringPicker showPickerWithTitle:@"Numero di rate" rows:listaNumeroRate initialSelection:numeroRateSelezionato doneBlock:done cancelBlock:cancel origin:sender];
 }
@@ -156,7 +156,7 @@
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField{
-    NSLog(@"textFieldDidEndEditing");
+    //nslog(@"textFieldDidEndEditing");
 }
 
 /*- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string

@@ -94,14 +94,14 @@
 
 -(BOOL)validateFields{
     
-    NSLog(@"DATA = %@", bornDate);
+    //nslog(@"DATA = %@", bornDate);
     NSString *reason = @"";
     BOOL isValid = TRUE;
     //NSLog(@"telefono = %@",replaceSpace(phone));
     if([allTrim(name) length] == 0|| [allTrim(surname) length] == 0 ||
        [allTrim(phone) length] == 0 || [allTrim(email) length] == 0 || [allTrim(city) length] == 0
        || [allTrim(bornDate) length] == 0){
-        NSLog(@"mostra avviso completa tutti i campi");
+        //nslog(@"mostra avviso completa tutti i campi");
         reason = @"Per favore compila \n tutti i campi richiesti";
         isValid = FALSE;
     
@@ -132,7 +132,7 @@
     }
     
     if(!isValid){
-       // NSLog(@"mostra alert");
+       // //nslog(@"mostra alert");
         
         UIAlertView *alertView = [[UIAlertView alloc]init];
         alertView.title = reason;
@@ -152,7 +152,7 @@
 
 -(void)sendRequest{
     [super sendRequest];
-    NSLog(@"BODY = %@",[self createHtmlBody]);
+    //nslog(@"BODY = %@",[self createHtmlBody]);
     [PDHTTPAccess sendEmail:[self createHtmlBody] object:@"Richiesta iscrizione" address:ISCRIZIONE_MAIL delegate:self];
     [Utilities logEvent:@"Richiesta_iscrizione_inviata" arguments:nil];
     
@@ -178,7 +178,7 @@
     //may have originated from textField or barButtonItem, use an IBOutlet instead of element
     UITableViewCell *selectedCell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:4 inSection:0]];
     UITextField *textFieldDate = (UITextField*)[selectedCell viewWithTag:1];
-    NSLog(@"textfield = %@",textFieldDate);
+    //nslog(@"textfield = %@",textFieldDate);
     textFieldDate.text = dateString;
     bornDate = dateString;
 }

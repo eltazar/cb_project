@@ -81,7 +81,7 @@
 - (void)tableView:(UITableView *)tableView performAction:(SEL)action forRowAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender
 {
     if (action == @selector(copy:)){
-        NSLog(@"Copio in clipboard");
+        //nslog(@"Copio in clipboard");
         NSString *text = [_dataModel valueForKey:@"LABEL" atIndexPath:indexPath];
         NSString *copyString = [[NSString alloc] initWithFormat:@"%@",text];
         UIPasteboard *pb = [UIPasteboard generalPasteboard];
@@ -101,7 +101,7 @@
              [dataKey isEqualToString:@"noleggioElettro"] ||
              [dataKey isEqualToString:@"leasingElettro"]) {
         
-        NSLog(@" CELLA NOLEGGIO = %@", dataKey);
+        //nslog(@" CELLA NOLEGGIO = %@", dataKey);
         RichiestaNoleggioController *formController = [[RichiestaNoleggioController alloc] init:dataKey];
         formController.delegate = self;
         //Per ora mostro aggiungendo normalmente la nuova view alla gerarchia
@@ -217,13 +217,13 @@
     
     UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
     if (orientation == UIInterfaceOrientationPortrait || orientation == UIInterfaceOrientationPortraitUpsideDown) {
-        NSLog(@"PORTRAIT");
+        //nslog(@"PORTRAIT");
         scaleFactor = PORTRAIT_WIDTH / imageView.image.size.width;
         width = PORTRAIT_WIDTH;
         height = scaleFactor * imageView.image.size.height;
     }
     else{
-        NSLog(@"LANDSCAPE");
+        //nslog(@"LANDSCAPE");
         scaleFactor = LANDSCAPE_WIDTH/imageView.image.size.width;
         height = scaleFactor * imageView.image.size.height;
         width = LANDSCAPE_WIDTH;

@@ -60,7 +60,7 @@
     customTitle.shadowColor = [UIColor colorWithWhite:0.0 alpha:0.5];
     customTitle.textAlignment = UITextAlignmentCenter;
     customTitle.textColor = [UIColor whiteColor];
-    NSLog(@"kind = %@",kind);
+    //nslog(@"kind = %@",kind);
     if ([self.kind isEqualToString:@"noleggioAuto"]) {
         _dataModel = [[WMTableViewDataSource alloc]
                       initWithPList:@"RichiestaNoleggioAuto"];
@@ -140,7 +140,7 @@
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
     NSString *dataKey = [_dataModel valueForKey:@"DATA_KEY" atIndexPath:indexPath];
     
-    NSLog(@"2) dataKey %@", dataKey);
+    //nslog(@"2) dataKey %@", dataKey);
     if ([dataKey isEqualToString:@"ragSoc"]){
         ragSoc = textField.text;
     }
@@ -181,7 +181,7 @@
     if([self.kind isEqualToString:@"noleggioAuto"]){
         if([allTrim(iva) length] == 0|| [allTrim(modello) length] == 0 ||
            [allTrim(marca) length] == 0 ){
-           // NSLog(@"mostra avviso completa tutti i campi");
+           // //nslog(@"mostra avviso completa tutti i campi");
             reason = @"Per favore compila tutti i campi richiesti";
             isValid = FALSE;
             
@@ -230,7 +230,7 @@
     }
     if([allTrim(ragSoc) length] == 0|| [allTrim(phone) length] == 0 ||
        [allTrim(citta) length] == 0){
-       // NSLog(@"mostra avviso completa tutti i campi");
+       // //nslog(@"mostra avviso completa tutti i campi");
         reason = @"Per favore compila tutti i campi richiesti";
         isValid = FALSE;
         
@@ -249,7 +249,7 @@
             isValid = FALSE;
         }
         if (![Utilities isNumeric:replaceSpace(phone)]) {
-           // NSLog(@"mostra avviso telefono errato");
+           // //nslog(@"mostra avviso telefono errato");
             reason = @"Per favore inserisci un numero di telefono valido";
             isValid = FALSE;
         }
@@ -332,7 +332,7 @@
 }
 
 -(void)showErrorView:(NSString*)message{
-    NSLog(@"CIAOOOO");
+    //nslog(@"CIAOOOO");
     float y = self.navigationController.navigationBar.frame.size.height;
     if(errorView == nil || !errorView.showed){
         if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone){
@@ -355,7 +355,7 @@
         [UIView animateWithDuration:0.5
                          animations:^(void){
                              [errorView setFrame:CGRectMake(0,y, oldFrame.size.width, oldFrame.size.height)];
-                             NSLog(@"ORIGIN Y = %f", errorView.frame.origin.y);
+                             //nslog(@"ORIGIN Y = %f", errorView.frame.origin.y);
                          }
          ];
         errorView.showed = YES;

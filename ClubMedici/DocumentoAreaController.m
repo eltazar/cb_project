@@ -55,7 +55,7 @@
         //flurry log
         [Utilities logEvent:@"Pdf_vacanze_letto" arguments:[NSDictionary dictionaryWithObjectsAndKeys:self.title,@"Titolo_pdf_vacanze",nil]];
         webView.scalesPageToFit=YES;
-        NSLog(@"URL  = %@",turismoItem.pdfUrl);
+        //nslog(@"URL  = %@",turismoItem.pdfUrl);
     }
     _sharingProvider.viewController = self;
     
@@ -107,18 +107,18 @@
 
 #pragma mark - UIWebViewDelegate
 - (void)webViewDidStartLoad:(UIWebView *)webView {
-    NSLog(@"INIZIATO DOWNLOAD PDF");
+    //nslog(@"INIZIATO DOWNLOAD PDF");
     [self startSpinner];
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
-    NSLog(@"Finito DOWNLOAD PDF");
+    //nslog(@"Finito DOWNLOAD PDF");
     [self stopSpinner];
     [self enableButtonsView:YES];
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
-    NSLog(@"FALLITO DOWNLOAD PDF = %@", [error localizedDescription]);
+    //nslog(@"FALLITO DOWNLOAD PDF = %@", [error localizedDescription]);
     [self stopSpinner];
     [self enableButtonsView:NO];
 }
@@ -126,7 +126,7 @@
 #pragma mark - WMHTTPAccessDelegate
 
 -(void)didReceiveJSON:(NSArray *)jsonArray{
-    NSLog(@"JSON DESC : %@",[[jsonArray objectAtIndex:0] objectForKey:@"testo"]);
+    //nslog(@"JSON DESC : %@",[[jsonArray objectAtIndex:0] objectForKey:@"testo"]);
     
     [self stopSpinner];
     [self enableButtonsView:YES];
@@ -226,13 +226,13 @@
 - (void) networkStatusChanged:(NSNotification*) notification
 {
 	Reachability* reachability = notification.object;
-    NSLog(@"*** AreaBaseController: network status changed ***");
+    //nslog(@"*** AreaBaseController: network status changed ***");
 	if(reachability.currentReachabilityStatus == NotReachable){
-		NSLog(@"Internet off");
+		//nslog(@"Internet off");
         [self showErrorView:@"Connessione assente"];
     }
 	else{
-		NSLog(@"Internet on");
+		//nslog(@"Internet on");
         [self hideErrorView:nil];
     }
 }
@@ -265,7 +265,7 @@
         
         _sharingProvider.image       = self.turismoItem.imageUrl;
 
-        NSLog(@"imageUrl: %@", self.turismoItem.imageUrl);
+        //nslog(@"imageUrl: %@", self.turismoItem.imageUrl);
     }
     
     if(docItem){
@@ -296,7 +296,7 @@
     UIPrintInteractionCompletionHandler completionHandler =
     ^(UIPrintInteractionController *printController, BOOL completed, NSError *error) {
         if(!completed && error){
-            NSLog(@"Print failed - domain: %@ error code %u", error.domain, error.code);
+            //nslog(@"Print failed - domain: %@ error code %u", error.domain, error.code);
         }
     };
     

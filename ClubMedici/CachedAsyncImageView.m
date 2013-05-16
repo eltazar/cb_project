@@ -234,7 +234,7 @@ static ImageCache *__sharedInstance;
 - (void)setImage:(UIImage *)image forURLString :(NSString *)urlString {
     @synchronized (_cache) {
         if (!image) {
-            NSLog(@"Attempt to put nil image in cache (key: %@)", urlString);
+            //nslog(@"Attempt to put nil image in cache (key: %@)", urlString);
             return;
         }
         [_cache setObject:image forKey:urlString];

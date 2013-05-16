@@ -93,13 +93,13 @@
         [jasController removeObserver:self forKeyPath:@"state"];
     }@catch(id anException){
         //do nothing, obviously it wasn't attached because an exception was thrown
-        NSLog(@"TRY CATCH");
+        //nslog(@"TRY CATCH");
     }
 }
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    NSLog(@"APPEAR content offset y = %f",self.tableView.contentSize.height);
+    //nslog(@"APPEAR content offset y = %f",self.tableView.contentSize.height);
 
 }
 
@@ -122,7 +122,7 @@
 
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)  interfaceOrientation duration:(NSTimeInterval)duration{
     
-    NSLog(@"ROTAZIONE");
+    //nslog(@"ROTAZIONE");
     
      if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
          return;
@@ -150,7 +150,7 @@
     }
     else{
         //mostra avviso rete assente
-        NSLog(@"rete assente");
+        //nslog(@"rete assente");
         [self showErrorView:@"Connessione assente"];
     }
 }
@@ -183,7 +183,7 @@
 
 //per annullare editing cliccando ovunque nella view
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
-    NSLog(@"ciaooo");
+    //nslog(@"ciaooo");
     [self.view endEditing:YES];
     [super touchesBegan:touches withEvent:event];
 }
@@ -286,7 +286,7 @@
 
 #pragma mark - WMHTPPAccessDelegate 
 -(void)didReceiveString:(NSString *)receivedString{
-    NSLog(@"Invio mail esito positivo: %@",receivedString);
+    //nslog(@"Invio mail esito positivo: %@",receivedString);
     if(errorView && errorView.showed){
         [self hideErrorView:nil];
     }
@@ -305,7 +305,7 @@
     }
 }
 -(void)didReceiveError:(NSError *)error{
-    NSLog(@"Invio mail errore");
+    //nslog(@"Invio mail errore");
     [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
 //    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
 //    //hud.mode = MBProgressHUDModeAnnularDeterminate;
@@ -365,7 +365,7 @@
     
     if([keyPath isEqualToString:@"state"]){
         if(JASidePanelLeftVisible == [[change objectForKey:NSKeyValueChangeNewKey] intValue]){
-            NSLog(@"FormViewController: JASSidePanelLeft mostrato");
+            //nslog(@"FormViewController: JASSidePanelLeft mostrato");
             [self hideKeyboard];
         }
     }

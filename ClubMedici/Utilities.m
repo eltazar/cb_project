@@ -57,7 +57,7 @@
     
     BOOL isPlus = FALSE;
     
-    NSLog(@"_PHONE = %@",_phone);
+    //nslog(@"_PHONE = %@",_phone);
     
     //se il numero di telefono ha il prefisso internazionale che comincia con +
     if([[_phone substringWithRange:NSMakeRange(0,1)] isEqualToString:@"+"])
@@ -87,7 +87,7 @@
         }
     }
     
-    NSLog(@"STRIPPED STRING = %@",strippedString);
+    //nslog(@"STRIPPED STRING = %@",strippedString);
     
     return valid;
 }
@@ -160,7 +160,7 @@
 }
 
 +(void)logEvent:(NSString*)key arguments:(NSDictionary*)arguments{
-    NSLog(@"CIAOOO");
+    //nslog(@"CIAOOO");
     if(arguments == nil)
        [Flurry logEvent:key];
     else [Flurry logEvent:key withParameters:arguments];

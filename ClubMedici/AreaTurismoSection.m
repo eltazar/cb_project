@@ -88,7 +88,7 @@
         NSMutableArray *workingDataModel = (areaTurismoItem.inItaly)?_itemsItaly:_itemsAbroad;
         NSNumber *itemID = [NSNumber numberWithInteger:areaTurismoItem.ID];
         if (filteredSet.count == 0) {
-            NSLog(@"aggiungo: %d", areaTurismoItem.ID);
+            //nslog(@"aggiungo: %d", areaTurismoItem.ID);
             [workingDataModel addObject:[NSDictionary dictionaryWithObject:areaTurismoItem
                                                                     forKey:@"ITEM"]];
             [workingSet addObject:itemID];

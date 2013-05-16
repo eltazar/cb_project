@@ -40,7 +40,7 @@
 
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)  interfaceOrientation duration:(NSTimeInterval)duration{
     
-    NSLog(@"ROTAZIONE");
+    //nslog(@"ROTAZIONE");
     
     if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
         return;
