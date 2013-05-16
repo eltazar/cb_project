@@ -40,10 +40,25 @@
     companyDescriptionCellCollapsedHeight = 90;
     
     [super viewDidLoad];
+    
+    NSArray *sedi = [[NSArray alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Sedi" ofType:@"plist"]];
+    
+    for(NSDictionary *o in sedi){
+        CLLocationCoordinate2D c = CLLocationCoordinate2DMake([[o objectForKey:@"LAT"] floatValue],[[o objectForKey:@"LONG"]floatValue]);
+        Sede *s = [[Sede alloc] initWithCoordinate:c];
+        [o objectForKey:@"LAT"];
+        s.name = [o objectForKey:@"NAME"];
+        s.city = [o objectForKey:@"CITY"];
+        s.address = [o objectForKey:@"ADDRESS"];
+        [sediPin addObject:s];
+    }
 }
 
--(void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [mapView addAnnotations:sediPin];
+    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(((Sede*)[sediPin objectAtIndex:0]).coordinate, 700000, 700000);
+    [mapView setRegion:viewRegion];
     [mapView selectAnnotation:[sediPin objectAtIndex:0] animated:YES];
 }
 

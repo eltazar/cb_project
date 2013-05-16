@@ -54,23 +54,13 @@
                                             options:nil] objectAtIndex:0];
     
     [Utilities logEvent:@"Sezione_contatti_visitata" arguments:nil];
-    NSArray *sedi = [[NSArray alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Sedi" ofType:@"plist"]];
-    
-    for(NSDictionary *o in sedi){
-        CLLocationCoordinate2D c = CLLocationCoordinate2DMake([[o objectForKey:@"LAT"] floatValue],[[o objectForKey:@"LONG"]floatValue]);
-        Sede *s = [[Sede alloc] initWithCoordinate:c];
-        [o objectForKey:@"LAT"];
-        s.name = [o objectForKey:@"NAME"];
-        s.city = [o objectForKey:@"CITY"];
-        s.address = [o objectForKey:@"ADDRESS"];
-        [sediPin addObject:s];
-    }
     
     [SharingProvider sharedInstance].viewController = self;
     
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
     self.mapView.delegate = nil;
 }
 
@@ -82,7 +72,6 @@
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    [mapView addAnnotations:sediPin];
 }
 
 #pragma mark - Table view data source

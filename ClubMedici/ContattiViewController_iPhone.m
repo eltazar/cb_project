@@ -51,6 +51,22 @@
     
     [super viewDidLoad];
     
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    NSArray *sedi = [[NSArray alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Sedi" ofType:@"plist"]];
+    
+    for(NSDictionary *o in sedi){
+        CLLocationCoordinate2D c = CLLocationCoordinate2DMake([[o objectForKey:@"LAT"] floatValue],[[o objectForKey:@"LONG"]floatValue]);
+        Sede *s = [[Sede alloc] initWithCoordinate:c];
+        [o objectForKey:@"LAT"];
+        s.name = [o objectForKey:@"NAME"];
+        s.city = [o objectForKey:@"CITY"];
+        s.address = [o objectForKey:@"ADDRESS"];
+        [sediPin addObject:s];
+    }
+    [self.mapView addAnnotations:sediPin];
     sedeNazionale = [sediPin objectAtIndex:0];
 }
 
@@ -74,13 +90,15 @@
     
     UITableViewCell *cell = nil;
     NSString *dataKey = [_dataModel valueForKey:@"DATA_KEY" atIndexPath:indexPath];
-    
+    static int x = 0;
     if([dataKey isEqualToString:@"map"]){   
         self.mapView =(MKMapView*) [mapCell viewWithTag:1];
         mapView.delegate = self;
-        [mapView removeAnnotations:sediPin];
-        [mapView addAnnotations:sediPin];
-        
+        if (x==0){
+            [mapView removeAnnotations:sediPin];
+            [mapView addAnnotations:sediPin];
+            x++;
+        }
         
         MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(sedeNazionale.coordinate, 200000, 200000);
         [mapCell setMapCenter:viewRegion];
@@ -148,6 +166,10 @@
     isMapVisible = NO;
     self.tableView.scrollEnabled = YES;
     self.navigationItem.rightBarButtonItem = nil;
+    
+    for (NSObject<MKAnnotation> *annotation in [mapView selectedAnnotations]) {
+        [mapView deselectAnnotation:(id <MKAnnotation>)annotation animated:NO];
+    }
     
     [UIView animateWithDuration:.25f
                      animations:^(void){
