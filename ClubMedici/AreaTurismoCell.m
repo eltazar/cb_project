@@ -82,7 +82,8 @@
                        forState:UIControlStateNormal];
         imageName = @"AreaTurismoCellBgHigh";
         if (iPadIdiom()) imageName = ORIENTATION_SPECIFIC_STRING(imageName);
-        image = [UIImage imageNamed:IDIOM_SPECIFIC_STRING(@"AreaTurismoCellBgHigh")];
+
+        image = [UIImage imageNamed: IDIOM_SPECIFIC_STRING(imageName)];
         [btn setBackgroundImage:image
                        forState:UIControlStateHighlighted];
         [btn addTarget:self
