@@ -12,7 +12,6 @@
 #import "AreaDescriptionCell.h"
 #import "AreaTurismoCell.h"
 #import "AreaBase.h"
-#import "PDFviewerController.h"
 #import "WMTableViewDataSource.h"
 #import "CachedAsyncImageView.h"
 #import "AreeEnum.h"
@@ -272,11 +271,6 @@
             [self showErrorView:@"Connessione assente"];
             [tableView deselectRowAtIndexPath:indexPath animated:YES];
         }
-    }
-    else if ([dataKey isEqualToString:@"pdf"]) {
-        NSString *title = [_dataModel valueForKey:@"LABEL" atIndexPath:indexPath];
-        PDFviewerController *pdfViewer = [[PDFviewerController alloc]initWithTitle:title                                                                      url:nil];
-        [self.navigationController presentViewController:pdfViewer animated:YES completion:nil];
     }
     else if ([dataKey isEqualToString:@"email"]) {
         [self sendEmail:[_dataModel valueForKey:@"LABEL" atIndexPath:indexPath]];

@@ -53,7 +53,6 @@
 		AC26297D165D01EE00510092 /* AreaCureMediche.m in Sources */ = {isa = PBXBuildFile; fileRef = AC26297C165D01EE00510092 /* AreaCureMediche.m */; };
 		AC262980165D07F100510092 /* AreaLeasing.m in Sources */ = {isa = PBXBuildFile; fileRef = AC26297F165D07F100510092 /* AreaLeasing.m */; };
 		AC26298D165D1E2400510092 /* AreaDescriptionCell_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC262989165D1E2400510092 /* AreaDescriptionCell_iPhone.xib */; };
-		AC26298E165D1E2400510092 /* PDFviewerController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC26298B165D1E2400510092 /* PDFviewerController.m */; };
 		AC262992165D1E4900510092 /* AreaBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC262991165D1E4900510092 /* AreaBaseController.m */; };
 		AC2629A1165D2A5300510092 /* AreaBaseController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = AC26299F165D2A5300510092 /* AreaBaseController_iPad.m */; };
 		AC2629AD165D2F4500510092 /* ContactCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC2629AC165D2F4500510092 /* ContactCell.xib */; };
@@ -78,11 +77,8 @@
 		AC865CD7173FB643001D4DEF /* DocumentoAreaController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC865CD3173FB642001D4DEF /* DocumentoAreaController_iPhone.xib */; };
 		AC8E1777172D800300376720 /* ErrorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC8E1776172D800300376720 /* ErrorView.xib */; };
 		AC9168E416B9EC1900AF402E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC9168E316B9EC1900AF402E /* CoreLocation.framework */; };
-		AC93CE93165DA6F400ABA3C2 /* PDFviewerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC93CE92165DA6F400ABA3C2 /* PDFviewerController.xib */; };
 		AC9E0316173D55C500B15AD6 /* libFlurry.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC9E0315173D55C500B15AD6 /* libFlurry.a */; };
-		ACB57B7B172A8287004176AF /* NewsPullableView.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB57B7A172A8287004176AF /* NewsPullableView.m */; };
 		ACB6392B1727236C00C26223 /* FXLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB6392A1727236C00C26223 /* FXLabel.m */; };
-		ACB6A9F1173AF19600068934 /* UnderlinedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB6A9F0173AF19600068934 /* UnderlinedLabel.m */; };
 		ACB6A9F5173AFF1400068934 /* reverse_nav_bar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ACB6A9F4173AFF1400068934 /* reverse_nav_bar@2x.png */; };
 		ACB8FADA172564BA00AFB645 /* DisclaimerController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB8FAD8172564BA00AFB645 /* DisclaimerController.m */; };
 		ACB8FADB172564BA00AFB645 /* DisclaimerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACB8FAD9172564BA00AFB645 /* DisclaimerController.xib */; };
@@ -103,7 +99,6 @@
 		ACC0E1B4173ACD830075492E /* normal_button_big@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ACC0E1B3173ACD830075492E /* normal_button_big@2x.png */; };
 		ACC450F7173ACE0D0058B30A /* normal_button_big_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ACC450F6173ACE0D0058B30A /* normal_button_big_selected@2x.png */; };
 		ACCA16F1172A7E9300B03095 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACCA16F0172A7E9300B03095 /* SystemConfiguration.framework */; };
-		ACCA16F4172A804000B03095 /* PullableView.m in Sources */ = {isa = PBXBuildFile; fileRef = ACCA16F3172A804000B03095 /* PullableView.m */; };
 		ACCC531916C1AB7000994AA0 /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = ACCC531816C1AB7000994AA0 /* Utilities.m */; };
 		ACCC531C16C1D97300994AA0 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = ACCC531B16C1D97300994AA0 /* MBProgressHUD.m */; };
 		ACCE98A4174407FC00FDBEE9 /* background_iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = ACCE98A0174407FC00FDBEE9 /* background_iPad.png */; };
@@ -119,7 +114,6 @@
 		ACD4C7731657158D0025F3F5 /* JASidePanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD4C7721657158D0025F3F5 /* JASidePanelController.m */; };
 		ACD4C77C16571A5D0025F3F5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACD4C77B16571A5D0025F3F5 /* QuartzCore.framework */; };
 		ACDA94371736E41A00A00092 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACDA94361736E41A00A00092 /* Twitter.framework */; };
-		ACDA943A1736EF9900A00092 /* SharingPanelView.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDA94391736EF9900A00092 /* SharingPanelView.m */; };
 		ACDCC02B172EC08E00E64879 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDCC02A172EC08E00E64879 /* Reachability.m */; };
 		ACDCC6E016B34A7900745FFB /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDCC6DF16B34A7900745FFB /* AsyncImageView.m */; };
 		ACDCC6E416B34B0900745FFB /* CachedAsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDCC6E316B34B0900745FFB /* CachedAsyncImageView.m */; };
@@ -263,8 +257,6 @@
 		AC26297E165D07F100510092 /* AreaLeasing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreaLeasing.h; sourceTree = "<group>"; };
 		AC26297F165D07F100510092 /* AreaLeasing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaLeasing.m; sourceTree = "<group>"; };
 		AC262989165D1E2400510092 /* AreaDescriptionCell_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AreaDescriptionCell_iPhone.xib; path = ClubMedici/AreaDescriptionCell_iPhone.xib; sourceTree = "<group>"; };
-		AC26298A165D1E2400510092 /* PDFviewerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDFviewerController.h; path = ClubMedici/PDFviewerController.h; sourceTree = "<group>"; };
-		AC26298B165D1E2400510092 /* PDFviewerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PDFviewerController.m; path = ClubMedici/PDFviewerController.m; sourceTree = "<group>"; };
 		AC262990165D1E4900510092 /* AreaBaseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AreaBaseController.h; path = ClubMedici/AreaBaseController.h; sourceTree = "<group>"; };
 		AC262991165D1E4900510092 /* AreaBaseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AreaBaseController.m; path = ClubMedici/AreaBaseController.m; sourceTree = "<group>"; };
 		AC26299E165D2A5300510092 /* AreaBaseController_iPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AreaBaseController_iPad.h; path = ClubMedici/AreaBaseController_iPad.h; sourceTree = "<group>"; };
@@ -302,15 +294,10 @@
 		AC865CD3173FB642001D4DEF /* DocumentoAreaController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DocumentoAreaController_iPhone.xib; path = ClubMedici/DocumentoAreaController_iPhone.xib; sourceTree = "<group>"; };
 		AC8E1776172D800300376720 /* ErrorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ErrorView.xib; path = ClubMedici/ErrorView.xib; sourceTree = "<group>"; };
 		AC9168E316B9EC1900AF402E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		AC93CE92165DA6F400ABA3C2 /* PDFviewerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PDFviewerController.xib; path = ClubMedici/PDFviewerController.xib; sourceTree = "<group>"; };
 		AC9E0314173D55C500B15AD6 /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
 		AC9E0315173D55C500B15AD6 /* libFlurry.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry.a; sourceTree = "<group>"; };
-		ACB57B79172A8286004176AF /* NewsPullableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsPullableView.h; sourceTree = "<group>"; };
-		ACB57B7A172A8287004176AF /* NewsPullableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsPullableView.m; sourceTree = "<group>"; };
 		ACB639291727236C00C26223 /* FXLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXLabel.h; sourceTree = "<group>"; };
 		ACB6392A1727236C00C26223 /* FXLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXLabel.m; sourceTree = "<group>"; };
-		ACB6A9EF173AF19600068934 /* UnderlinedLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UnderlinedLabel.h; path = ClubMedici/UnderlinedLabel.h; sourceTree = "<group>"; };
-		ACB6A9F0173AF19600068934 /* UnderlinedLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UnderlinedLabel.m; path = ClubMedici/UnderlinedLabel.m; sourceTree = "<group>"; };
 		ACB6A9F4173AFF1400068934 /* reverse_nav_bar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "reverse_nav_bar@2x.png"; path = "img/reverse_nav_bar@2x.png"; sourceTree = SOURCE_ROOT; };
 		ACB8FAD7172564BA00AFB645 /* DisclaimerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisclaimerController.h; sourceTree = "<group>"; };
 		ACB8FAD8172564BA00AFB645 /* DisclaimerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisclaimerController.m; sourceTree = "<group>"; };
@@ -343,8 +330,6 @@
 		ACC0E1B3173ACD830075492E /* normal_button_big@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "normal_button_big@2x.png"; path = "img/normal_button_big@2x.png"; sourceTree = SOURCE_ROOT; };
 		ACC450F6173ACE0D0058B30A /* normal_button_big_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "normal_button_big_selected@2x.png"; path = "img/normal_button_big_selected@2x.png"; sourceTree = SOURCE_ROOT; };
 		ACCA16F0172A7E9300B03095 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		ACCA16F2172A804000B03095 /* PullableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PullableView.h; sourceTree = "<group>"; };
-		ACCA16F3172A804000B03095 /* PullableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PullableView.m; sourceTree = "<group>"; };
 		ACCC531716C1AB7000994AA0 /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
 		ACCC531816C1AB7000994AA0 /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };
 		ACCC531A16C1D97300994AA0 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
@@ -366,8 +351,6 @@
 		ACD4C7721657158D0025F3F5 /* JASidePanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JASidePanelController.m; sourceTree = "<group>"; };
 		ACD4C77B16571A5D0025F3F5 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		ACDA94361736E41A00A00092 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
-		ACDA94381736EF9900A00092 /* SharingPanelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SharingPanelView.h; path = ClubMedici/SharingPanelView.h; sourceTree = "<group>"; };
-		ACDA94391736EF9900A00092 /* SharingPanelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SharingPanelView.m; path = ClubMedici/SharingPanelView.m; sourceTree = "<group>"; };
 		ACDCC029172EC08E00E64879 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		ACDCC02A172EC08E00E64879 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		ACDCC6DE16B34A7900745FFB /* AsyncImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncImageView.h; sourceTree = "<group>"; };
@@ -653,8 +636,6 @@
 				ACBE63B6165A87A800F64CDA /* HomeViewController_iPhone.h */,
 				ACBE63B7165A87A800F64CDA /* HomeViewController_iPhone.m */,
 				ACEBDC8016570CBF00CEFFE5 /* HomeViewController_iPhone.xib */,
-				ACB57B79172A8286004176AF /* NewsPullableView.h */,
-				ACB57B7A172A8287004176AF /* NewsPullableView.m */,
 			);
 			name = HomeViewController_iPhone;
 			sourceTree = "<group>";
@@ -714,9 +695,6 @@
 				AC26299F165D2A5300510092 /* AreaBaseController_iPad.m */,
 				D915E1931739C1ED00F78948 /* TurismoTableViewController.h */,
 				D915E1941739C1ED00F78948 /* TurismoTableViewController.m */,
-				AC26298A165D1E2400510092 /* PDFviewerController.h */,
-				AC26298B165D1E2400510092 /* PDFviewerController.m */,
-				AC93CE92165DA6F400ABA3C2 /* PDFviewerController.xib */,
 				AC865CCD173FB38B001D4DEF /* DocumentoAreaController */,
 				ACBFA9FA1735135C00A22E18 /* CalcolaRataController.h */,
 				ACBFA9FB1735135C00A22E18 /* CalcolaRataController.m */,
@@ -783,8 +761,6 @@
 				ACBD38B2173E2ACD00D4F0B7 /* PullToRefreshView.m */,
 				ACDCC029172EC08E00E64879 /* Reachability.h */,
 				ACDCC02A172EC08E00E64879 /* Reachability.m */,
-				ACCA16F2172A804000B03095 /* PullableView.h */,
-				ACCA16F3172A804000B03095 /* PullableView.m */,
 				ACCC531A16C1D97300994AA0 /* MBProgressHUD.h */,
 				ACCC531B16C1D97300994AA0 /* MBProgressHUD.m */,
 				ACE03DCB16593B71009B6B0D /* UIViewController+JASidePanel.h */,
@@ -926,10 +902,6 @@
 		ACFADECC172D752700437E43 /* Custom views */ = {
 			isa = PBXGroup;
 			children = (
-				ACB6A9EF173AF19600068934 /* UnderlinedLabel.h */,
-				ACB6A9F0173AF19600068934 /* UnderlinedLabel.m */,
-				ACDA94381736EF9900A00092 /* SharingPanelView.h */,
-				ACDA94391736EF9900A00092 /* SharingPanelView.m */,
 				ACBF78BA172D3D9200B4F230 /* CustomSpinnerView.h */,
 				ACBF78BB172D3D9200B4F230 /* CustomSpinnerView.m */,
 				ACFADECD172D75A500437E43 /* ErrorView.h */,
@@ -1061,7 +1033,6 @@
 				ACE03DDA16594922009B6B0D /* SideMenuController_iPhone.xib in Resources */,
 				AC26298D165D1E2400510092 /* AreaDescriptionCell_iPhone.xib in Resources */,
 				AC2629AD165D2F4500510092 /* ContactCell.xib in Resources */,
-				AC93CE93165DA6F400ABA3C2 /* PDFviewerController.xib in Resources */,
 				AC31D7AA165ECF5A00CCC001 /* TextFieldCell.xib in Resources */,
 				AC31D7B6165EF1A100CCC001 /* FormViewController.xib in Resources */,
 				ACD24B97165F80AA00C97CD2 /* TextAreaCell.xib in Resources */,
@@ -1194,7 +1165,6 @@
 				ACD24BA1165FB34B00C97CD2 /* AreaBaseController_iPhone.m in Sources */,
 				AC2629A1165D2A5300510092 /* AreaBaseController_iPad.m in Sources */,
 				D9B04DD9165C63A9005EF35B /* AreaDescriptionCell.m in Sources */,
-				AC26298E165D1E2400510092 /* PDFviewerController.m in Sources */,
 				ACD24B9B165F945F00C97CD2 /* RichiestaNoleggioController.m in Sources */,
 				ACD24B9E165F967E00C97CD2 /* RichiestaIscrizioneController.m in Sources */,
 				D9C6C518165FDBC400247448 /* UIViewController+InterfaceIdiom.m in Sources */,
@@ -1213,8 +1183,6 @@
 				ACBA1D561725C442004EB8E4 /* PDHTTPAccess.m in Sources */,
 				ACBA1D571725C442004EB8E4 /* WMHTTPAccess.m in Sources */,
 				ACB6392B1727236C00C26223 /* FXLabel.m in Sources */,
-				ACCA16F4172A804000B03095 /* PullableView.m in Sources */,
-				ACB57B7B172A8287004176AF /* NewsPullableView.m in Sources */,
 				ACBF78BC172D3D9200B4F230 /* CustomSpinnerView.m in Sources */,
 				ACFADECF172D75A500437E43 /* ErrorView.m in Sources */,
 				ACDCC02B172EC08E00E64879 /* Reachability.m in Sources */,
@@ -1225,9 +1193,7 @@
 				AC5E5499173523DD0076DA6C /* ActionSheetDistancePicker.m in Sources */,
 				AC5E549A173523DD0076DA6C /* ActionSheetStringPicker.m in Sources */,
 				AC5E549B173523DD0076DA6C /* DistancePickerView.m in Sources */,
-				ACDA943A1736EF9900A00092 /* SharingPanelView.m in Sources */,
 				D915E18B17372C8600F78948 /* AreaTurismoCell.m in Sources */,
-				ACB6A9F1173AF19600068934 /* UnderlinedLabel.m in Sources */,
 				D915E1961739C1EE00F78948 /* TurismoTableViewController.m in Sources */,
 				D915E19B1739CBEE00F78948 /* BusinessLogicBase.m in Sources */,
 				D915E19E1739D14400F78948 /* AreaTurismoSection.m in Sources */,

@@ -7,9 +7,8 @@
 //
 
 #import "HomeViewController.h"
-#import "NewsPullableView.h"
 
-@interface HomeViewController_iPhone : HomeViewController<PullableViewDelegate>
+@interface HomeViewController_iPhone : HomeViewController
 {
     IBOutlet UILabel *descriptionLabel;
 }

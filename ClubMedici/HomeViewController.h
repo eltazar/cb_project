@@ -14,7 +14,6 @@
 #import "WMHTTPAccess.h"
 #import "PDHTTPAccess.h"
 #import "AppDelegate.h"
-#import "SharingPanelView.h"
 #import "CustomSpinnerView.h"
 #import "PullToRefreshView.h"
 
