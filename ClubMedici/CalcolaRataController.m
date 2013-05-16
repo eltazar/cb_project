@@ -267,16 +267,17 @@
     BOOL result = TRUE;
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     
-    if(importoRichiesto == 0.0){
-        alert.title = @"Inserisci un importo valido";
-        result = FALSE;
-        [alert show];
-    }
     if(numeroRate == 0.0){
         alert.title = @"Inserisci il numero di rate";
         result = FALSE;
-        [alert show];
     }
+    
+    if(importoRichiesto == 0.0){
+        alert.title = @"Inserisci un importo valido";
+        result = FALSE;
+    }
+    
+    if(!result) [alert show];
 
     return result;
 }
