@@ -54,7 +54,8 @@
         _sharingProvider.viewController = self;
         //flurry log
         [Utilities logEvent:@"Pdf_vacanze_letto" arguments:[NSDictionary dictionaryWithObjectsAndKeys:self.title,@"Titolo_pdf_vacanze",nil]];
-        webView.scalesPageToFit=YES; 
+        webView.scalesPageToFit=YES;
+        NSLog(@"URL  = %@",turismoItem.pdfUrl);
     }
     _sharingProvider.viewController = self;
     
@@ -149,8 +150,8 @@
             [self startSpinner];
         }
         if(turismoItem){
-            NSString *encodedString=[turismoItem.pdfUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-            NSURL *weburl = [NSURL URLWithString:encodedString];
+            //NSString *encodedString=[turismoItem.pdfUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+            NSURL *weburl = [NSURL URLWithString:turismoItem.pdfUrl];
             NSURLRequest *request = [NSURLRequest requestWithURL:weburl cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:60.0];
             [self.webView loadRequest:request];
         }
