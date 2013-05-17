@@ -13,6 +13,8 @@
 #import "UIViewController+InterfaceIdiom.h"
 #import "AreaDescriptionCell.h"
 #import "SharingProvider.h"
+#import "CreditsViewController.h"
+
 @interface ContattiViewController ()
 {
     AreaDescriptionCell *companyDescriptionCell;
@@ -36,6 +38,11 @@
 {
     [super viewDidLoad];
 
+    UIButton* infoButton = [UIButton buttonWithType:UIButtonTypeInfoLight];
+	[infoButton addTarget:self action:@selector(credits:) forControlEvents:UIControlEventTouchUpInside];
+	UIBarButtonItem *modalButton = [[UIBarButtonItem alloc] initWithCustomView:infoButton];
+	[self.navigationItem setRightBarButtonItem:modalButton animated:YES];
+    
     self.title = @"Contatti";
 	// Do any additional setup after loading the view.
     self.tableView.dataSource = _dataModel;
@@ -57,6 +64,11 @@
     
     [SharingProvider sharedInstance].viewController = self;
     
+}
+
+-(void)credits:(id)sender{
+    CreditsViewController *c = [CreditsViewController idiomAllocInit];
+    [self.navigationController pushViewController:c animated:YES];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
