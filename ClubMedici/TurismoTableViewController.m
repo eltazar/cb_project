@@ -327,6 +327,7 @@
 - (void)pullToRefreshViewShouldRefresh:(PullToRefreshView *)view {
     if(_errorView.showed)
         [self hideErrorView:nil];
+    
     [self fetchData];
 }
 
@@ -345,6 +346,8 @@
 - (void)showErrorView:(NSString*)message {
     CGFloat y = iPhoneIdiom() ? 74.0 : 43.0;
     if(_errorView && _errorView.showed){
+        //aggiorno messaggio d'errore se già visibile
+        _errorView.label.text = message;
         return;
     }
 
@@ -368,6 +371,7 @@
                      }
      ];
     _errorView.showed = YES;
+    [self stopSpinner];
 }
 
 
@@ -395,11 +399,15 @@
 
 
 - (void)fetchData {
+    NSLog(@"FETCH");
     //Lancio spinner
     [_spinner startAnimating];
     //aggiungo spinner alla view
     [self.tableView addSubview:_spinner];
-    [self.areaTurismoSection fetchData];
+    
+    if([Utilities networkReachable])
+        [self.areaTurismoSection fetchData];
+    else [self showErrorView:@"Connessione assente"];
 }
 
 
