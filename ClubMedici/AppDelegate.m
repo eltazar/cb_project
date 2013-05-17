@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import "Reachability.h"
+#import "PushNotificationManager.h"
+
 
 #import "SideMenuController.h"
 #import "HomeViewController.h"
@@ -62,7 +64,12 @@
     [SharingProvider sharedInstance];
     
     [self setCustomApparence];
-        
+    
+    //push handling
+	PushNotificationManager * pushManager = [PushNotificationManager pushManager];
+    pushManager.supportedOrientations = PWOrientationPortrait;
+
+    
     [self.window makeKeyAndVisible];
     return YES;
 }
@@ -75,6 +82,8 @@
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
@@ -225,6 +234,16 @@
     [[UITableView appearance] setBackgroundColor:[UIColor colorWithRed:243/255.0 green:244/255.0 blue:245/255.0 alpha:1]];
     
     [[UISegmentedControl appearance] setTintColor:blue];
+}
+
+#pragma mark - PushWoosh
+
+- (void) onPushAccepted:(PushNotificationManager *)pushManager withNotification:(NSDictionary *)pushNotification onStart:(BOOL)onStart{
+    
+    NSLog(@" \n \n \n \n PUSH = %@ \n\n\n\n\n, onStart = %d",pushNotification, onStart);
+    NSLog(@"PUSH MANAGER PAYLOAD = %@", [[PushNotificationManager pushManager] getApnPayload:pushNotification]);
+    [PushNotificationManager clearNotificationCenter];
+    
 }
 
 @end
