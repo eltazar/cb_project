@@ -58,6 +58,9 @@
 		AC2629AD165D2F4500510092 /* ContactCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC2629AC165D2F4500510092 /* ContactCell.xib */; };
 		AC31D7AA165ECF5A00CCC001 /* TextFieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC31D7A9165ECF5A00CCC001 /* TextFieldCell.xib */; };
 		AC31D7B6165EF1A100CCC001 /* FormViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC31D7B5165EF1A100CCC001 /* FormViewController.xib */; };
+		AC4FF45217463FE800873060 /* libPushNotificationManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC4FF44E17463E0000873060 /* libPushNotificationManager.a */; };
+		AC4FF4551746739300873060 /* CreditsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4FF4541746739300873060 /* CreditsViewController.m */; };
+		AC4FF4571746797D00873060 /* CreditsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC4FF4561746797D00873060 /* CreditsViewController.xib */; };
 		AC5E5496173523DD0076DA6C /* AbstractActionSheetPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5E548A173523DD0076DA6C /* AbstractActionSheetPicker.m */; };
 		AC5E5497173523DD0076DA6C /* ActionSheetCustomPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5E548C173523DD0076DA6C /* ActionSheetCustomPicker.m */; };
 		AC5E5498173523DD0076DA6C /* ActionSheetDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5E548F173523DD0076DA6C /* ActionSheetDatePicker.m */; };
@@ -212,6 +215,23 @@
 		D9FDADCE173D2BEB002808A7 /* SharingProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = D9FDADCD173D2BEB002808A7 /* SharingProvider.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		AC4FF44D17463E0000873060 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AC4FF44917463DFF00873060 /* PushNotificationManager.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D2AAC07E0554694100DB518D;
+			remoteInfo = PushNotificationManager;
+		};
+		AC4FF45017463FDF00873060 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AC4FF44917463DFF00873060 /* PushNotificationManager.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+			remoteInfo = PushNotificationManager;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		AC0099A1173E2CA900A0B202 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		AC0099A3173E2CCF00A0B202 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = arrow.png; path = img/arrow.png; sourceTree = SOURCE_ROOT; };
@@ -271,6 +291,10 @@
 		AC2629AC165D2F4500510092 /* ContactCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ContactCell.xib; path = ClubMedici/ContactCell.xib; sourceTree = "<group>"; };
 		AC31D7A9165ECF5A00CCC001 /* TextFieldCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TextFieldCell.xib; path = ClubMedici/TextFieldCell.xib; sourceTree = "<group>"; };
 		AC31D7B5165EF1A100CCC001 /* FormViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FormViewController.xib; path = ClubMedici/FormViewController.xib; sourceTree = "<group>"; };
+		AC4FF44917463DFF00873060 /* PushNotificationManager.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PushNotificationManager.xcodeproj; path = PushWooshFramework/PushNotificationManager.xcodeproj; sourceTree = "<group>"; };
+		AC4FF4531746739300873060 /* CreditsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditsViewController.h; sourceTree = "<group>"; };
+		AC4FF4541746739300873060 /* CreditsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreditsViewController.m; sourceTree = "<group>"; };
+		AC4FF4561746797D00873060 /* CreditsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreditsViewController.xib; sourceTree = "<group>"; };
 		AC5E5487173523DD0076DA6C /* ActionSheetPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActionSheetPicker.h; path = Pickers/ActionSheetPicker.h; sourceTree = "<group>"; };
 		AC5E5489173523DD0076DA6C /* AbstractActionSheetPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractActionSheetPicker.h; sourceTree = "<group>"; };
 		AC5E548A173523DD0076DA6C /* AbstractActionSheetPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbstractActionSheetPicker.m; sourceTree = "<group>"; };
@@ -490,6 +514,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC4FF45217463FE800873060 /* libPushNotificationManager.a in Frameworks */,
 				AC0099A2173E2CA900A0B202 /* AudioToolbox.framework in Frameworks */,
 				ACDA94371736E41A00A00092 /* Twitter.framework in Frameworks */,
 				AC168DAF173694DB00B7466A /* Security.framework in Frameworks */,
@@ -559,6 +584,14 @@
 				D91B383E16624986001E9384 /* RichiestaIscrizione.plist */,
 			);
 			name = "Form controllers";
+			sourceTree = "<group>";
+		};
+		AC4FF44A17463DFF00873060 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AC4FF44E17463E0000873060 /* libPushNotificationManager.a */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		AC5E5486173523C50076DA6C /* ActionSheetPicker */ = {
@@ -804,6 +837,9 @@
 				ACB8FAD7172564BA00AFB645 /* DisclaimerController.h */,
 				ACB8FAD8172564BA00AFB645 /* DisclaimerController.m */,
 				ACB8FAD9172564BA00AFB645 /* DisclaimerController.xib */,
+				AC4FF4531746739300873060 /* CreditsViewController.h */,
+				AC4FF4541746739300873060 /* CreditsViewController.m */,
+				AC4FF4561746797D00873060 /* CreditsViewController.xib */,
 				ACE40A7416BC93C500FDCA18 /* Sede.h */,
 				ACE40A7D16BC93C500FDCA18 /* Sede.m */,
 				ACE683BE16B86CE200530D22 /* ContattiViewController.h */,
@@ -825,6 +861,7 @@
 		ACEBDC5616570CBE00CEFFE5 = {
 			isa = PBXGroup;
 			children = (
+				AC4FF44917463DFF00873060 /* PushNotificationManager.xcodeproj */,
 				D9A35E091745A2AF002B5385 /* Default-Landscape@2x~ipad.png */,
 				D9A35E071745A2A9002B5385 /* Default-Landscape~ipad.png */,
 				D9A35E051745A2A3002B5385 /* Default-Portrait@2x~ipad.png */,
@@ -1000,6 +1037,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				AC4FF45117463FDF00873060 /* PBXTargetDependency */,
 			);
 			name = ClubMedici;
 			productName = ClubMedici;
@@ -1026,12 +1064,28 @@
 			mainGroup = ACEBDC5616570CBE00CEFFE5;
 			productRefGroup = ACEBDC6216570CBE00CEFFE5 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = AC4FF44A17463DFF00873060 /* Products */;
+					ProjectRef = AC4FF44917463DFF00873060 /* PushNotificationManager.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				ACEBDC6016570CBE00CEFFE5 /* ClubMedici */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		AC4FF44E17463E0000873060 /* libPushNotificationManager.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libPushNotificationManager.a;
+			remoteRef = AC4FF44D17463E0000873060 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		ACEBDC5F16570CBE00CEFFE5 /* Resources */ = {
@@ -1163,6 +1217,7 @@
 				D9A35E061745A2A3002B5385 /* Default-Portrait@2x~ipad.png in Resources */,
 				D9A35E081745A2A9002B5385 /* Default-Landscape~ipad.png in Resources */,
 				D9A35E0A1745A2AF002B5385 /* Default-Landscape@2x~ipad.png in Resources */,
+				AC4FF4571746797D00873060 /* CreditsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1234,10 +1289,19 @@
 				AC865CD4173FB643001D4DEF /* DocumentoAreaController_iPad.m in Sources */,
 				AC865CD6173FB643001D4DEF /* DocumentoAreaController_iPhone.m in Sources */,
 				D917151B1742D8BB0095515B /* AreaTurismoItemCell.m in Sources */,
+				AC4FF4551746739300873060 /* CreditsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AC4FF45117463FDF00873060 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = PushNotificationManager;
+			targetProxy = AC4FF45017463FDF00873060 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		ACEBDC6E16570CBE00CEFFE5 /* InfoPlist.strings */ = {
@@ -1337,13 +1401,17 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ClubMedici/ClubMedici-Prefix.pch";
+				HEADER_SEARCH_PATHS = ./PushWooshFramework/Classes;
 				INFOPLIST_FILE = "ClubMedici/ClubMedici-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/FlurrySDK\"",
 				);
-				OTHER_LDFLAGS = "-lsqlite3.0";
+				OTHER_LDFLAGS = (
+					"-lsqlite3.0",
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "573816DC-500B-437A-A290-4A3C33612D96";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "573816DC-500B-437A-A290-4A3C33612D96";
@@ -1363,13 +1431,17 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ClubMedici/ClubMedici-Prefix.pch";
+				HEADER_SEARCH_PATHS = ./PushWooshFramework/Classes;
 				INFOPLIST_FILE = "ClubMedici/ClubMedici-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/FlurrySDK\"",
 				);
-				OTHER_LDFLAGS = "-lsqlite3.0";
+				OTHER_LDFLAGS = (
+					"-lsqlite3.0",
+					"-ObjC",
+				);
 				"OTHER_LDFLAGS[arch=*]" = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "573816DC-500B-437A-A290-4A3C33612D96";
