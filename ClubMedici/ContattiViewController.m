@@ -13,7 +13,6 @@
 #import "UIViewController+InterfaceIdiom.h"
 #import "AreaDescriptionCell.h"
 #import "SharingProvider.h"
-#import "CreditsViewController.h"
 
 @interface ContattiViewController ()
 {
@@ -66,11 +65,6 @@
     
 }
 
--(void)credits:(id)sender{
-    CreditsViewController *c = [CreditsViewController idiomAllocInit];
-    [self.navigationController pushViewController:c animated:YES];
-}
-
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     self.mapView.delegate = nil;
@@ -80,10 +74,6 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
--(void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
 }
 
 #pragma mark - Table view data source
@@ -259,7 +249,7 @@
 #pragma mark - MapViewDelegate
 
 - (MKAnnotationView *)mapView:(MKMapView *)map viewForAnnotation:(id )annotation
-{    
+{
     MKPinAnnotationView* pinView = (MKPinAnnotationView *)[map dequeueReusableAnnotationViewWithIdentifier:@"pin"];
     
     if(pinView == nil){

@@ -31,11 +31,6 @@
     self.title = @"Credits";
     
     self.tableView.backgroundColor = [UIColor colorWithRed:243/255.0 green:244/255.0 blue:245/255.0 alpha:1];
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning
@@ -82,15 +77,25 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
     if(indexPath.section == 0){
-        [Utilities sendEmail:@"informatica@clubmedici.com" object:@"Segnalazione bug ClubMedici app" content:@"" html:NO controller:self delegate:[SharingProvider sharedInstance]];
+        [Utilities sendEmail:@"informatica@clubmedici.com" object:@"Segnalazione bug ClubMedici app" content:@"" html:NO controller:self delegate:self];
+    }
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
+        
+    [self dismissModalViewControllerAnimated:YES];
+    if(result == MFMailComposeResultSent) {
+        //nslog(@"messaggio inviato");
+    }
+	else if (result == MFMailComposeResultFailed){
+		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Messaggio non inviato!" message:@"Non è stato possibile inviare la tua e-mail" delegate:self cancelButtonTitle:@"Chiudi" otherButtonTitles:nil];
+		[alert show];
+	}
+    else if (result == MFMailComposeResultCancelled){
+        //nslog(@"messaggio annullato");
     }
 }
 

@@ -51,10 +51,6 @@
     
     [super viewDidLoad];
     
-}
-
--(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
     NSArray *sedi = [[NSArray alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Sedi" ofType:@"plist"]];
     
     for(NSDictionary *o in sedi){
@@ -66,8 +62,20 @@
         s.address = [o objectForKey:@"ADDRESS"];
         [sediPin addObject:s];
     }
-    [self.mapView addAnnotations:sediPin];
     sedeNazionale = [sediPin objectAtIndex:0];
+    
+    mapView = mapCell.mapView;
+    [mapView addAnnotations:sediPin];
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    mapView.delegate = self;
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    //[self.mapView removeAnnotations:[self.mapView annotations]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -93,12 +101,12 @@
     static int x = 0;
     if([dataKey isEqualToString:@"map"]){   
         self.mapView =(MKMapView*) [mapCell viewWithTag:1];
-        mapView.delegate = self;
-        if (x==0){
-            [mapView removeAnnotations:sediPin];
-            [mapView addAnnotations:sediPin];
-            x++;
-        }
+//        mapView.delegate = self;
+//        if (x==0){
+//            [mapView removeAnnotations:sediPin];
+//            [mapView addAnnotations:sediPin];
+//            x++;
+//        }
         
         MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(sedeNazionale.coordinate, 200000, 200000);
         [mapCell setMapCenter:viewRegion];
@@ -150,6 +158,11 @@
 
 #pragma mark - metodi privati
 
+-(void)credits:(id)sender{
+    CreditsViewController *c = [[CreditsViewController alloc] initWithNibName:@"CreditsViewController" bundle:nil];
+    [self.navigationController pushViewController:c animated:YES];
+}
+
 -(void)removeCloseButton{
     self.navigationItem.rightBarButtonItem = nil;
 }
@@ -185,7 +198,12 @@
     
     MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(sedeNazionale.coordinate, 200000, 200000);
     [cell setMapCenter:viewRegion];
-
+    
+    //Rimostro info button
+    UIButton* infoButton = [UIButton buttonWithType:UIButtonTypeInfoLight];
+	[infoButton addTarget:self action:@selector(credits:) forControlEvents:UIControlEventTouchUpInside];
+	UIBarButtonItem *modalButton = [[UIBarButtonItem alloc] initWithCustomView:infoButton];
+	[self.navigationItem setRightBarButtonItem:modalButton animated:YES];
     
 }
 

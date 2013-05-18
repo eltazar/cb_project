@@ -11,6 +11,7 @@
 #import <MapKit/MapKit.h>
 #import "Sede.h"
 #import "Utilities.h"
+#import "CreditsViewController.h"
 
 @interface ContattiViewController : UIViewController<UITableViewDataSource,UITableViewDelegate, MKMapViewDelegate>{
     

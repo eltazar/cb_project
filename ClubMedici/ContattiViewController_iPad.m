@@ -8,11 +8,15 @@
 
 #import "ContattiViewController_iPad.h"
 #import <QuartzCore/QuartzCore.h>
+#import "CreditsViewController.h"
+
 
 @interface ContattiViewController_iPad ()
 {
     //IBOutlet UIView *shadow;
     NSString *phone;
+    UIPopoverController *creditsPopover;
+    UIBarButtonItem *modalButton;
 }
 @end
 
@@ -51,6 +55,25 @@
         s.city = [o objectForKey:@"CITY"];
         s.address = [o objectForKey:@"ADDRESS"];
         [sediPin addObject:s];
+    }
+    
+	modalButton = self.navigationItem.rightBarButtonItem;
+    
+    CreditsViewController *c = [[CreditsViewController alloc] initWithNibName:@"CreditsViewController" bundle:nil];
+    c.tableView.frame = CGRectMake(0, 0, 300, 180);
+    creditsPopover = [[UIPopoverController alloc] initWithContentViewController:c];
+    creditsPopover.popoverContentSize = c.view.frame.size;
+}
+
+-(void)credits:(id)sender{
+    //popover.delegate = self;
+    
+    if ([creditsPopover isPopoverVisible]) {
+        [creditsPopover dismissPopoverAnimated:YES];
+    }
+    else{
+        [creditsPopover presentPopoverFromBarButtonItem:modalButton
+                               permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
     }
 }
 
