@@ -8,8 +8,6 @@
 
 #import "AppDelegate.h"
 #import "Reachability.h"
-#import "PushNotificationManager.h"
-
 
 #import "SideMenuController.h"
 #import "HomeViewController.h"
@@ -68,7 +66,7 @@
     //push handling
 	PushNotificationManager * pushManager = [PushNotificationManager pushManager];
     pushManager.supportedOrientations = PWOrientationPortrait;
-
+    pushManager.delegate = self;
     
     [self.window makeKeyAndVisible];
     return YES;
@@ -82,8 +80,6 @@
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
-
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
@@ -191,8 +187,36 @@
             openURL:(NSURL *)url
   sourceApplication:(NSString *)sourceApplication
          annotation:(id)annotation {
-    // attempt to extract a token from the url
+    
+//    NSLog(@"url recieved: %@", url);
+//    NSLog(@"query string: %@", [url query]);
+//    NSLog(@"host: %@", [url host]);
+//    NSLog(@"url path: %@", [url path]);
+//    NSDictionary *dict = [self parseQueryString:[url query]];
+//    NSLog(@"query dict: %@", dict);
+//    NSLog(@"totale = %@",[NSString stringWithFormat:@"%@%@%@",[url host], [url path],[url query]]);
+//    NSLog(@"scheme = %@",[url scheme]);    
+    
+    // controllo scheme e lancio qualche controller
+    if([[url scheme] isEqualToString:@"uncontroller"]){
+        return YES;
+    }
+    
     return [FBAppCall handleOpenURL:url sourceApplication:sourceApplication];
+}
+
+- (NSDictionary *)parseQueryString:(NSString *)query {
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc] initWithCapacity:6];
+    NSArray *pairs = [query componentsSeparatedByString:@"&"];
+    
+    for (NSString *pair in pairs) {
+        NSArray *elements = [pair componentsSeparatedByString:@"="];
+        NSString *key = [[elements objectAtIndex:0] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        NSString *val = [[elements objectAtIndex:1] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        
+        [dict setObject:val forKey:key];
+    }
+    return dict;
 }
 
 #pragma mark - Apparence methods
@@ -240,10 +264,11 @@
 
 - (void) onPushAccepted:(PushNotificationManager *)pushManager withNotification:(NSDictionary *)pushNotification onStart:(BOOL)onStart{
     
-    NSLog(@" \n \n \n \n PUSH = %@ \n\n\n\n\n, onStart = %d",pushNotification, onStart);
-    NSLog(@"PUSH MANAGER PAYLOAD = %@", [[PushNotificationManager pushManager] getApnPayload:pushNotification]);
-    [PushNotificationManager clearNotificationCenter];
+    //NSLog(@" \n \n \n ******** PUSH = %@ ******\n\n\n\n\n, onStart = %d",pushNotification, onStart);
+    //NSLog(@"PUSH MANAGER PAYLOAD = %@", [[PushNotificationManager pushManager] getApnPayload:pushNotification]);
     
+    //cliccata la push 
+    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
 }
 
 @end
