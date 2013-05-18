@@ -203,9 +203,6 @@
 		D95680A51734988600CEAE63 /* AreaTurismoCell_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = D95680A41734988600CEAE63 /* AreaTurismoCell_iPhone.xib */; };
 		D98131E71734985D00C919AB /* AreaTurismoItemList.plist in Resources */ = {isa = PBXBuildFile; fileRef = D98131E61734985D00C919AB /* AreaTurismoItemList.plist */; };
 		D998F684173A567700D1ED41 /* AreaTurismoItemCell_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = D998F683173A567700D1ED41 /* AreaTurismoItemCell_iPhone.xib */; };
-		D9A35DFE1745A272002B5385 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = D9A35DFD1745A272002B5385 /* Default.png */; };
-		D9A35E001745A27C002B5385 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D9A35DFF1745A27C002B5385 /* Default-568h@2x.png */; };
-		D9A35E021745A285002B5385 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D9A35E011745A285002B5385 /* Default@2x.png */; };
 		D9A35E041745A29B002B5385 /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = D9A35E031745A29B002B5385 /* Default-Portrait~ipad.png */; };
 		D9A35E061745A2A3002B5385 /* Default-Portrait@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = D9A35E051745A2A3002B5385 /* Default-Portrait@2x~ipad.png */; };
 		D9A35E081745A2A9002B5385 /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = D9A35E071745A2A9002B5385 /* Default-Landscape~ipad.png */; };
@@ -1210,9 +1207,6 @@
 				ACCE98A6174407FC00FDBEE9 /* background_iPhone.png in Resources */,
 				ACCE98A7174407FC00FDBEE9 /* background_iPhone@2x.png in Resources */,
 				ACCE98A9174408F900FDBEE9 /* area_sec_background.png in Resources */,
-				D9A35DFE1745A272002B5385 /* Default.png in Resources */,
-				D9A35E001745A27C002B5385 /* Default-568h@2x.png in Resources */,
-				D9A35E021745A285002B5385 /* Default@2x.png in Resources */,
 				D9A35E041745A29B002B5385 /* Default-Portrait~ipad.png in Resources */,
 				D9A35E061745A2A3002B5385 /* Default-Portrait@2x~ipad.png in Resources */,
 				D9A35E081745A2A9002B5385 /* Default-Landscape~ipad.png in Resources */,
