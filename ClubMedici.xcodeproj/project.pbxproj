@@ -107,6 +107,8 @@
 		ACC442DC1748D0A300F1DEBF /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = ACC442D71748D06A00F1DEBF /* Default.png */; };
 		ACC442DE1748D0A800F1DEBF /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ACC442D61748D06A00F1DEBF /* Default-568h@2x.png */; };
 		ACC442E11748D0C700F1DEBF /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ACC442E01748D0C700F1DEBF /* Default@2x.png */; };
+		ACC442E6174949A900F1DEBF /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACC442E5174949A900F1DEBF /* FacebookSDK.framework */; };
+		ACC442E8174949E700F1DEBF /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = ACC442E7174949E700F1DEBF /* FacebookSDKResources.bundle */; };
 		ACC450F7173ACE0D0058B30A /* normal_button_big_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ACC450F6173ACE0D0058B30A /* normal_button_big_selected@2x.png */; };
 		ACCA16F1172A7E9300B03095 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACCA16F0172A7E9300B03095 /* SystemConfiguration.framework */; };
 		ACCC531916C1AB7000994AA0 /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = ACCC531816C1AB7000994AA0 /* Utilities.m */; };
@@ -152,8 +154,6 @@
 		D90EA9BF1661217100D29490 /* WMTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D90EA9BE1661217100D29490 /* WMTableViewDataSource.m */; };
 		D90EA9D21661660300D29490 /* AreaTurismo.m in Sources */ = {isa = PBXBuildFile; fileRef = D90EA9D11661660300D29490 /* AreaTurismo.m */; };
 		D915E18B17372C8600F78948 /* AreaTurismoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D915E18A17372C8600F78948 /* AreaTurismoCell.m */; };
-		D915E18D17373F9900F78948 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D915E18C17373F9900F78948 /* FacebookSDK.framework */; };
-		D915E18F17373FD300F78948 /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D915E18E17373FD300F78948 /* FacebookSDKResources.bundle */; };
 		D915E1961739C1EE00F78948 /* TurismoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D915E1941739C1ED00F78948 /* TurismoTableViewController.m */; };
 		D915E19B1739CBEE00F78948 /* BusinessLogicBase.m in Sources */ = {isa = PBXBuildFile; fileRef = D915E19A1739CBEE00F78948 /* BusinessLogicBase.m */; };
 		D915E19E1739D14400F78948 /* AreaTurismoSection.m in Sources */ = {isa = PBXBuildFile; fileRef = D915E19D1739D14400F78948 /* AreaTurismoSection.m */; };
@@ -363,6 +363,8 @@
 		ACC442D61748D06A00F1DEBF /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		ACC442D71748D06A00F1DEBF /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		ACC442E01748D0C700F1DEBF /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		ACC442E5174949A900F1DEBF /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
+		ACC442E7174949E700F1DEBF /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = FacebookSDKResources.bundle; path = ../../Documents/FacebookSDK/FacebookSDK.framework/Versions/A/Resources/FacebookSDKResources.bundle; sourceTree = "<group>"; };
 		ACC450F6173ACE0D0058B30A /* normal_button_big_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "normal_button_big_selected@2x.png"; path = "img/normal_button_big_selected@2x.png"; sourceTree = SOURCE_ROOT; };
 		ACCA16F0172A7E9300B03095 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		ACCC531716C1AB7000994AA0 /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
@@ -435,8 +437,6 @@
 		D90EA9D11661660300D29490 /* AreaTurismo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaTurismo.m; sourceTree = "<group>"; };
 		D915E18917372C8600F78948 /* AreaTurismoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AreaTurismoCell.h; path = ClubMedici/AreaTurismoCell.h; sourceTree = "<group>"; };
 		D915E18A17372C8600F78948 /* AreaTurismoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AreaTurismoCell.m; path = ClubMedici/AreaTurismoCell.m; sourceTree = "<group>"; };
-		D915E18C17373F9900F78948 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
-		D915E18E17373FD300F78948 /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = FacebookSDKResources.bundle; path = FacebookSDK.framework/Versions/A/Resources/FacebookSDKResources.bundle; sourceTree = "<group>"; };
 		D915E1931739C1ED00F78948 /* TurismoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TurismoTableViewController.h; path = ClubMedici/TurismoTableViewController.h; sourceTree = "<group>"; };
 		D915E1941739C1ED00F78948 /* TurismoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TurismoTableViewController.m; path = ClubMedici/TurismoTableViewController.m; sourceTree = "<group>"; };
 		D915E1991739CBEE00F78948 /* BusinessLogicBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusinessLogicBase.h; sourceTree = "<group>"; };
@@ -527,8 +527,8 @@
 				ACEBDC6616570CBE00CEFFE5 /* UIKit.framework in Frameworks */,
 				ACEBDC6816570CBE00CEFFE5 /* Foundation.framework in Frameworks */,
 				ACEBDC6A16570CBE00CEFFE5 /* CoreGraphics.framework in Frameworks */,
-				D915E18D17373F9900F78948 /* FacebookSDK.framework in Frameworks */,
 				AC9E0316173D55C500B15AD6 /* libFlurry.a in Frameworks */,
+				ACC442E6174949A900F1DEBF /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -895,9 +895,9 @@
 		ACEBDC6416570CBE00CEFFE5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				ACC442E7174949E700F1DEBF /* FacebookSDKResources.bundle */,
+				ACC442E5174949A900F1DEBF /* FacebookSDK.framework */,
 				AC0099A1173E2CA900A0B202 /* AudioToolbox.framework */,
-				D915E18E17373FD300F78948 /* FacebookSDKResources.bundle */,
-				D915E18C17373F9900F78948 /* FacebookSDK.framework */,
 				ACDA94361736E41A00A00092 /* Twitter.framework */,
 				AC168DAD173694DB00B7466A /* Security.framework */,
 				AC168DAE173694DB00B7466A /* Social.framework */,
@@ -1120,7 +1120,6 @@
 				D98131E71734985D00C919AB /* AreaTurismoItemList.plist in Resources */,
 				D95680A51734988600CEAE63 /* AreaTurismoCell_iPhone.xib in Resources */,
 				ACBFA9FE1735135C00A22E18 /* CalcolaRataController_iPhone.xib in Resources */,
-				D915E18F17373FD300F78948 /* FacebookSDKResources.bundle in Resources */,
 				AC79B2D01739AF8700200118 /* iphone_nav_bar@2x.png in Resources */,
 				AC79B2E01739BD3F00200118 /* normal_button@2x.png in Resources */,
 				ACC0E1B4173ACD830075492E /* normal_button_big@2x.png in Resources */,
@@ -1212,6 +1211,7 @@
 				ACC442DC1748D0A300F1DEBF /* Default.png in Resources */,
 				ACC442DE1748D0A800F1DEBF /* Default-568h@2x.png in Resources */,
 				ACC442E11748D0C700F1DEBF /* Default@2x.png in Resources */,
+				ACC442E8174949E700F1DEBF /* FacebookSDKResources.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1390,8 +1390,9 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Vincenzo Pezzuti (J8N9FMZDSB)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../../../Documents/FacebookSDK\"",
-					"\"$(SRCROOT)\"",
+					"\"$(HOME)/Documents/FacebookSDK\"",
+					"\"$(HOME)\"",
+					"\"$(HOME)/Documents/FacebookSDK\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ClubMedici/ClubMedici-Prefix.pch";
@@ -1420,8 +1421,9 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Vincenzo Pezzuti (J8N9FMZDSB)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../../../Documents/FacebookSDK\"",
-					"\"$(SRCROOT)\"",
+					"\"$(HOME)/Documents/FacebookSDK\"",
+					"\"$(HOME)\"",
+					"\"$(HOME)/Documents/FacebookSDK\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ClubMedici/ClubMedici-Prefix.pch";
