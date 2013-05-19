@@ -127,6 +127,7 @@
             v.opaque = YES;
             v.backgroundColor = [UIColor colorWithRed:144/255.0f green:170/255.0f blue:201/255.0f alpha:1];
             cell.selectedBackgroundView = v;
+            [self separatorLine:cell];
         }
         cell.opaque = YES;
         
@@ -199,35 +200,30 @@
             v.opaque = YES;
             v.backgroundColor = [UIColor colorWithRed:144/255.0f green:170/255.0f blue:201/255.0f alpha:1];
             cell.selectedBackgroundView = v;
+            [self separatorLine:cell];
         }
     }
     
     /*Testo della cella*/
     UILabel *label = (UILabel *) [cell viewWithTag:3];
-//    label.textColor = [UIColor colorWithWhite:0.5f alpha:1];
-//    label.shadowColor = [UIColor colorWithWhite:1.0f alpha:0.8f];
-//    label.shadowOffset = CGSizeMake(0.8f, 0.80f);
-//    label.shadowBlur = 1.0f;
-//    label.innerShadowBlur = 3.0f;
-//    label.innerShadowColor = [UIColor colorWithWhite:0.0f alpha:0.9f];
-//    label.innerShadowOffset = CGSizeMake(0.8f, 0.8f);
-//    label.highlightedTextColor =[UIColor whiteColor];
     label.text = [_dataModel valueForKey:@"LABEL" atIndexPath:indexPath];
-
     label.textColor     = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.2];
     label.shadowColor   = [UIColor blackColor];
     label.shadowOffset  = CGSizeMake(-0.5,-0.5);
-
     
+    return cell;
+}
+
+-(void)separatorLine:(UITableViewCell*)cell{
     /* Linea separatrice tra le celle*/
-    tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     //bordo inferiore da applicare alla linea
     CALayer *bottomBorder = [CALayer layer];
     bottomBorder.frame = CGRectMake(0.0f, 0.0f,1024, 1.5f);
     bottomBorder.backgroundColor = [UIColor whiteColor].CGColor;
     
     //linea separatrice alta 1px, posizionata alla base inferiore della cella
-    UIView *separatorView = [[UIView alloc] initWithFrame:CGRectMake(0, cell.frame.size.height-1, 1024, 1)];
+    UIView *separatorView = [[UIView alloc] initWithFrame:CGRectMake(0, cell.frame.size.height-1.5, 1024, 1)];
     separatorView.opaque = YES;
     separatorView.layer.borderColor = [UIColor colorWithRed:214/255.0f green:226/255.0f blue:241/255.0f alpha:1].CGColor;
     separatorView.layer.borderWidth = 1.0;
@@ -235,12 +231,8 @@
     [separatorView.layer addSublayer:bottomBorder];
     //applico linea alla cella
     [cell.contentView addSubview:separatorView];
-    /*Fine linea separatrice*/   
-    
-    return cell;
+    /*Fine linea separatrice*/
 }
-
-
 
 #pragma mark - Table view delegate
 
