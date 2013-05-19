@@ -81,14 +81,18 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = nil;
-    //NSString *cellIdentifier;
     NSString *dataKey = [_dataModel valueForKey:@"DATA_KEY" atIndexPath:indexPath];
 
+    if([dataKey isEqualToString:@"aboutUs"]){
+        companyDescriptionCell.collapsedHeight = companyDescriptionCellCollapsedHeight;
+        companyDescriptionCell.text = @"Club Medici è l'associazione per Medici Chirurghi e Odontoiatri iscritti agli Albi Provinciali. Da venti anni, Club Medici è il punto di riferimento dei medici per tutte le esigenze della vita quotidiana e del tempo libero. Il Club Medici offre ai suoi associati una vasta gamma di servizi nelle sue aree di attività: Area Finanziaria, Area Assicurativa e Area Turismo. E in più: eventi e cultura! ";        
+        return companyDescriptionCell;
+    }
+    
     if([dataKey isEqualToString:@"company"]){
-        static NSString *CellIdentifier = @"WebViewCell";
-        cell = (WebViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-        if (cell == nil) {
-            cell = [[WebViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] ;
+        cell = [self.tableView dequeueReusableCellWithIdentifier: @"WebViewCell"];
+        if (!cell) {
+            cell = [[WebViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier: @"WebViewCell"] ;
         }
         
         UIWebView *webView =(UIWebView*) [cell viewWithTag:3];
@@ -98,15 +102,6 @@
         [webView setOpaque:NO];
         htmlPage = [NSString stringWithFormat:htmlPage,style,[_dataModel valueForKey:@"LABEL" atIndexPath:indexPath]];
         [webView loadHTMLString:htmlPage baseURL:nil];
-        
-        
-        return cell;
-    }
-    else if([dataKey isEqualToString:@"aboutUs"]){
-        companyDescriptionCell.collapsedHeight = companyDescriptionCellCollapsedHeight;
-        companyDescriptionCell.text = @"Club Medici è l'associazione per Medici Chirurghi e Odontoiatri iscritti agli Albi Provinciali. Da venti anni, Club Medici è il punto di riferimento dei medici per tutte le esigenze della vita quotidiana e del tempo libero. Il Club Medici offre ai suoi associati una vasta gamma di servizi nelle sue aree di attività: Area Finanziaria, Area Assicurativa e Area Turismo. E in più: eventi e cultura! ";
-
-        return companyDescriptionCell;
     }
     else{
         cell = [self.tableView dequeueReusableCellWithIdentifier:@"ContactCell"];
@@ -114,21 +109,33 @@
             cell = [[[NSBundle mainBundle] loadNibNamed:@"ContactCell" owner:self options:NULL] objectAtIndex:0];
             UIView *v = [[UIView alloc] init];
             v.backgroundColor = [UIColor colorWithRed:144/255.0f green:170/255.0f blue:201/255.0f alpha:1];
+            v.opaque = YES;
             cell.selectedBackgroundView = v;
+            NSLog(@"nuovo contact cell");
+            
+            /* Linea separatrice tra le celle*/
+            self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+            //bordo inferiore da applicare alla linea
+            CALayer *bottomBorder = [CALayer layer];
+            bottomBorder.frame = CGRectMake(0.0f, 0.0f,1024, 1.5f);
+            bottomBorder.backgroundColor = [UIColor whiteColor].CGColor;
+            
+            //linea separatrice alta 1px, posizionata alla base inferiore della cella
+            UIView *separatorView = [[UIView alloc] initWithFrame:CGRectMake(0, cell.frame.size.height-2, 1024, 1)];
+            separatorView.opaque = YES;
+            separatorView.layer.borderColor = [UIColor colorWithRed:214/255.0f green:226/255.0f blue:241/255.0f alpha:1].CGColor;
+            separatorView.layer.borderWidth = 1.0;
+            //applico bordo inferiore
+            [separatorView.layer addSublayer:bottomBorder];
+            //applico linea alla cella
+            [cell.contentView addSubview:separatorView];
+            
+            /*Fine linea separatrice*/
+            
         }
-    //    cell.backgroundColor = [UIColor colorWithRed:246/255.0f green:250/255.0f blue:255/255.0f alpha:1];
         
         UIImageView *img = (UIImageView *)[cell viewWithTag:2];
-
         UILabel *label   = (UILabel*)    [cell viewWithTag:3];
-//        label.textColor = [UIColor colorWithWhite:0.5f alpha:1];
-//        label.shadowColor = [UIColor colorWithWhite:1.0f alpha:0.8f];
-//        label.shadowOffset = CGSizeMake(0.8f, 0.80f);
-//        label.shadowBlur = 1.0f;
-//        label.innerShadowBlur = 3.0f;
-//        label.innerShadowColor = [UIColor colorWithWhite:0.0f alpha:0.9f];
-//        label.innerShadowOffset = CGSizeMake(0.8f, 0.8f);
-//        label.highlightedTextColor =[UIColor blackColor];
         label.textColor     = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.2];
         label.shadowColor   = [UIColor blackColor];
         label.shadowOffset  = CGSizeMake(-0.5,-0.5);
@@ -137,31 +144,8 @@
         label.text = [_dataModel valueForKey:@"LABEL" atIndexPath:indexPath];
         
         UILabel *contactLabel = (UILabel *) [cell viewWithTag:1];
-//        contactLabel.textColor = [UIColor colorWithRed:11/255.0f green:67/255.0f blue:144/255.0f alpha:1];
-//        contactLabel.highlightedTextColor =[UIColor blackColor];
         contactLabel.textColor = [UIColor colorWithRed:11/255.0f green:67/255.0f blue:144/255.0f alpha:1];
         contactLabel.highlightedTextColor =[UIColor whiteColor];
-        //contactLabel.textColor     = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.2];
-
-        
-        
-        /* Linea separatrice tra le celle*/
-        tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-        //bordo inferiore da applicare alla linea
-        CALayer *bottomBorder = [CALayer layer];
-        bottomBorder.frame = CGRectMake(0.0f, 0.0f,1024, 1.5f);
-        bottomBorder.backgroundColor = [UIColor whiteColor].CGColor;
-        
-        //linea separatrice alta 1px, posizionata alla base inferiore della cella
-        UIView *separatorView = [[UIView alloc] initWithFrame:CGRectMake(0, cell.frame.size.height, 1024, 1)];
-        separatorView.layer.borderColor = [UIColor colorWithRed:214/255.0f green:226/255.0f blue:241/255.0f alpha:1].CGColor;
-        separatorView.layer.borderWidth = 1.0;
-        //applico bordo inferiore
-        [separatorView.layer addSublayer:bottomBorder];
-        //applico linea alla cella
-        [cell.contentView addSubview:separatorView];
-        
-        /*Fine linea separatrice*/
         
         //immagini
         
@@ -181,6 +165,7 @@
             contactLabel.text = @"Twitter";
             [img setImage:[UIImage imageNamed:@"tw"]];
         }
+
     }
     return cell;
 }

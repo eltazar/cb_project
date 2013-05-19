@@ -38,9 +38,7 @@
     UIImageView *shadow = [[UIImageView alloc] initWithFrame:CGRectMake(0, self.mapView.frame.size.height, 1536, 5)];
     shadow.image = [UIImage imageNamed:@"ipadShadow"];
     [self.view addSubview:shadow];
-    
-    [self.view addSubview:mapView];
-    
+        
     companyDescriptionCellCollapsedHeight = 90;
     
     [super viewDidLoad];
