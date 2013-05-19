@@ -229,7 +229,7 @@ static SharingProvider *sharedInstance = nil;
 
 
 - (void)authButtonAction:(id)sender {
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
     
     // The user has initiated a login, so call the openSession method
     // and show the login UX if necessary.

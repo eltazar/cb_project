@@ -98,7 +98,7 @@
     
     UITableViewCell *cell = nil;
     NSString *dataKey = [_dataModel valueForKey:@"DATA_KEY" atIndexPath:indexPath];
-    static int x = 0;
+    //static int x = 0;
     if([dataKey isEqualToString:@"map"]){   
         self.mapView =(MKMapView*) [mapCell viewWithTag:1];
 //        mapView.delegate = self;

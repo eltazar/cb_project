@@ -108,7 +108,7 @@
 
 - (void) reachabilityChanged:(NSNotification*) notification
 {
-	Reachability* reachability = notification.object;
+	//Reachability* reachability = notification.object;
     //nslog(@"*** AppDelegate: networkStatusChanged ***");
 //	if(reachability.currentReachabilityStatus == NotReachable)
 //		//nslog(@"Internet off");
