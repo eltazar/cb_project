@@ -231,8 +231,7 @@
                                             options:NULL] objectAtIndex:0];
         UIView *v = [[UIView alloc] init];
         v.opaque = YES;
-        v.backgroundColor = [UIColor colorWithRed:194/255.0f green:203/255.0f blue:219/255.0f alpha:1];
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        v.backgroundColor =  [UIColor colorWithRed:144/255.0f green:170/255.0f blue:201/255.0f alpha:1];        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         cell.selectedBackgroundView = v;
         cell.backgroundColor = self.tableView.backgroundColor;
         cell.opaque = YES;
