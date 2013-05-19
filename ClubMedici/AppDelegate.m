@@ -21,7 +21,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    [Flurry startSession:@"8XSPVFTVH247HKGKXB7T"];      
+    [Flurry startSession:@"8XSPVFTVH247HKGKXB7T"];
+    //push handling
+	PushNotificationManager * pushManager = [PushNotificationManager pushManager];
+    pushManager.delegate = self;
+
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
    
     self.sideMenuNavController = [[UINavigationController alloc] initWithRootViewController:[SideMenuController idiomAllocInit]];
@@ -35,6 +39,7 @@
         jasSidePanelController.shouldDelegateAutorotateToVisiblePanel = YES;
         self.window.rootViewController = jasSidePanelController;
         [self addPanGestureToNavigationController:self.detailViewNavController target:jasSidePanelController];
+        pushManager.supportedOrientations = PWOrientationPortrait;
     }
     else {
         splitViewController = [[UISplitViewController alloc] init];
@@ -62,12 +67,7 @@
     [SharingProvider sharedInstance];
     
     [self setCustomApparence];
-    
-    //push handling
-	PushNotificationManager * pushManager = [PushNotificationManager pushManager];
-    pushManager.supportedOrientations = PWOrientationPortrait;
-    pushManager.delegate = self;
-    
+        
     [self.window makeKeyAndVisible];
     return YES;
 }
