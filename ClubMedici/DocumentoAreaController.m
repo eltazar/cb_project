@@ -57,6 +57,7 @@
         webView.scalesPageToFit=YES;
         //nslog(@"URL  = %@",turismoItem.pdfUrl);
     }
+
     _sharingProvider.viewController = self;
     
     footerView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"reverse_nav_bar"]];
@@ -80,6 +81,11 @@
     _callButton.enabled = NO;
     _mailButton.enabled = NO;
     
+    if(_isPush){
+        //se documento è ottenuto da push nascondo il superfluo
+        [footerView setHidden:YES];
+        self.navigationItem.rightBarButtonItem = nil;
+    }
 
 }
 

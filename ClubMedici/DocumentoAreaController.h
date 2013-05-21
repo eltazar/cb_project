@@ -26,7 +26,7 @@
 
 @property(nonatomic, strong) NSDictionary *docItem;
 @property(nonatomic, strong) AreaTurismoItem *turismoItem;
-
+@property(nonatomic, assign) BOOL isPush;
 @property(nonatomic, weak) IBOutlet UIButton *callButton;
 @property(nonatomic, weak) IBOutlet UIButton *mailButton;
 @property(nonatomic, weak) IBOutlet UIWebView *webView;
