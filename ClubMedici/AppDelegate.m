@@ -212,7 +212,7 @@
             [(UINavigationController*)jasSidePanelController.centerPanel pushViewController:docController animated:YES];
         }
         else{
-            
+            [[splitViewController.viewControllers  objectAtIndex:1] pushViewController:docController animated:YES];
         }
         return YES;
     }
@@ -229,7 +229,7 @@
             [(UINavigationController*)jasSidePanelController.centerPanel pushViewController:docController animated:YES];
         }
         else{
-            
+             [[splitViewController.viewControllers  objectAtIndex:1] pushViewController:docController animated:YES];
         }
         return YES;
     }
@@ -245,7 +245,7 @@
             [(UINavigationController*)jasSidePanelController.centerPanel pushViewController:areaContr animated:YES];
         }
         else{
-            
+             [[splitViewController.viewControllers  objectAtIndex:1] pushViewController:areaContr animated:YES];
         }
         return YES;
     }
