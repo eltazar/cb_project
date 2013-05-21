@@ -35,11 +35,11 @@
 	[self.view addSubview:webview];
 
 	UIButton *closeButton = [UIButton buttonWithType:UIButtonTypeCustom];
-	closeButton.frame = CGRectMake(self.view.frame.size.width - 60.0f, -11.0f, 44.0f, 44.0f);
+	closeButton.frame = CGRectMake(self.view.frame.size.width - 60.0f, -11.0f, 60.0f, 44.0f);
 	closeButton.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleLeftMargin;
 	[closeButton addTarget:self action:@selector(closeButtonAction) forControlEvents:UIControlEventTouchUpInside];
 	//closeButton.titleLabel.font = [UIFont fontWithName:@"AppleColorEmoji" size:22.0f];
-    [closeButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    [closeButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
     [closeButton setTitle:@"Chiudi" forState:UIControlStateNormal];
 	[webview.scrollView addSubview:closeButton];
 	
