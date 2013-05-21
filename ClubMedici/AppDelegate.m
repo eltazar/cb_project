@@ -16,6 +16,11 @@
 #import "Flurry.h"
 #import "SharingProvider.h"
 
+#import "DocumentoAreaController.h"
+#import "AreaTurismoItem.h"
+#import "AreaBaseController.h"
+#import "AreaBase.h"
+
 @implementation AppDelegate
 @synthesize jasSidePanelController, splitViewController;
 
@@ -46,7 +51,7 @@
         splitViewController.viewControllers = [NSArray arrayWithObjects:self.sideMenuNavController, self.detailViewNavController, nil];
         splitViewController.delegate = [self.detailViewNavController.viewControllers objectAtIndex:0];
         
-        UIView *coverView = [[UIView alloc] initWithFrame:CGRectMake(312, 0, 9, 1000)];
+        UIView *coverView = [[UIView alloc] initWithFrame:CGRectMake(312, 0, 9, 1020)];
         [coverView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"sideShadow"]]];
         
         [splitViewController.view addSubview:coverView];
@@ -188,17 +193,60 @@
   sourceApplication:(NSString *)sourceApplication
          annotation:(id)annotation {
     
-//    NSLog(@"url recieved: %@", url);
-//    NSLog(@"query string: %@", [url query]);
-//    NSLog(@"host: %@", [url host]);
-//    NSLog(@"url path: %@", [url path]);
-//    NSDictionary *dict = [self parseQueryString:[url query]];
-//    NSLog(@"query dict: %@", dict);
-//    NSLog(@"totale = %@",[NSString stringWithFormat:@"%@%@%@",[url host], [url path],[url query]]);
-//    NSLog(@"scheme = %@",[url scheme]);    
+    NSLog(@"url recieved: %@", url);
+    NSLog(@"query string: %@", [url query]);
+    NSLog(@"host: %@", [url host]);
+    NSLog(@"url path: %@", [url path]);
+    NSDictionary *dict = [self parseQueryString:[url query]];
+    NSLog(@"query dict: %@", dict);
+    NSLog(@"totale = %@",[NSString stringWithFormat:@"%@%@%@",[url host], [url path],[url query]]);
+    NSLog(@"scheme = %@",[url scheme]);    
     
     // controllo scheme e lancio qualche controller
-    if([[url scheme] isEqualToString:@"uncontroller"]){
+    if([[url scheme] isEqualToString:@"doccontroller"]){
+        DocumentoAreaController *docController = [DocumentoAreaController idiomAllocInit];
+        docController.docItem = dict;
+        docController.isPush = YES;
+        //per aprire la push in qls controller dove è l'utente
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+            [(UINavigationController*)jasSidePanelController.centerPanel pushViewController:docController animated:YES];
+        }
+        else{
+            
+        }
+        return YES;
+    }
+    else if([[url scheme] isEqualToString:@"pdfcontroller"]){
+        
+        AreaTurismoItem *turismo = [[AreaTurismoItem alloc] init];
+        turismo.title = [dict objectForKey:@"title"];
+        turismo.pdfUrl = [dict objectForKey:@"url"];
+        DocumentoAreaController *docController = [DocumentoAreaController idiomAllocInit];
+        docController.turismoItem = turismo;
+        docController.isPush = YES;
+        
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+            [(UINavigationController*)jasSidePanelController.centerPanel pushViewController:docController animated:YES];
+        }
+        else{
+            
+        }
+        return YES;
+    }
+    else if([[url scheme] isEqualToString:@"areacontroller"]){
+        Class areaClass = NSClassFromString([AreaBase getAreaType:[[dict objectForKey:@"id"]intValue]]);
+        AreaBase *area = [[areaClass alloc] initWithAreaId:[[dict objectForKey:@"id"]intValue]];
+        NSLog(@"app delegate area id = %d",area.areaID);
+        AreaBaseController *areaContr = [AreaBaseController idiomAllocInit];
+        areaContr.area.areaID = area.areaID;
+        areaContr.title = [dict objectForKey:@"title"];
+        
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+            [(UINavigationController*)jasSidePanelController.centerPanel pushViewController:areaContr animated:YES];
+        }
+        else{
+            
+        }
         return YES;
     }
     
