@@ -421,9 +421,6 @@
 		ACEBDC7316570CBE00CEFFE5 /* ClubMedici-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ClubMedici-Prefix.pch"; sourceTree = "<group>"; };
 		ACEBDC7416570CBE00CEFFE5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		ACEBDC7516570CBE00CEFFE5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		ACEBDC7716570CBE00CEFFE5 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		ACEBDC7916570CBE00CEFFE5 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		ACEBDC7B16570CBE00CEFFE5 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		ACEBDC7D16570CBE00CEFFE5 /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		ACEBDC7E16570CBE00CEFFE5 /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		ACEBDC8116570CBF00CEFFE5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/HomeViewController_iPhone.xib; sourceTree = "<group>"; };
@@ -946,9 +943,6 @@
 				ACEBDC6E16570CBE00CEFFE5 /* InfoPlist.strings */,
 				ACEBDC7116570CBE00CEFFE5 /* main.m */,
 				ACEBDC7316570CBE00CEFFE5 /* ClubMedici-Prefix.pch */,
-				ACEBDC7716570CBE00CEFFE5 /* Default.png */,
-				ACEBDC7916570CBE00CEFFE5 /* Default@2x.png */,
-				ACEBDC7B16570CBE00CEFFE5 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
 			path = ClubMedici;
