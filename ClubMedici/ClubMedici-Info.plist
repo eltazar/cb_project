@@ -50,7 +50,9 @@
 			<string>com.clubmedici.appTest</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>uncontroller</string>
+				<string>doccontroller</string>
+				<string>pdfcontroller</string>
+				<string>areacontroller</string>
 			</array>
 		</dict>
 	</array>
@@ -63,7 +65,7 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>Pushwoosh_APPID</key>
-	<string>9904D-931D6</string>
+	<string>7C281-70E49</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
