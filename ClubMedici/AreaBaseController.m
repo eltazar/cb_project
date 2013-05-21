@@ -40,8 +40,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    Class areaClass = NSClassFromString([AreaBase getAreaType:self.areaId]);
-    self.area = [[areaClass alloc] initWithAreaId:(int)areaId];
+    if(!area){
+        Class areaClass = NSClassFromString([AreaBase getAreaType:self.areaId]); 
+        //in questo modo se area viene settato con i setter non viene resettato dal didload
+        self.area = [[areaClass alloc] initWithAreaId:(int)areaId];
+    }
+    
     self.area.delegate = self;
     
     [SharingProvider sharedInstance].viewController = self;
@@ -84,6 +88,7 @@
     [super viewWillAppear:animated];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(networkStatusChanged:) name:kReachabilityChangedNotification object:nil];
     [self fetchData];
+    NSLog(@"area id = %d", area.areaID);
 }
 
 
@@ -458,7 +463,5 @@
     [self.tableView.backgroundView addSubview:spinner];
     [self.area fetchData];
 }
-
-
 
 @end

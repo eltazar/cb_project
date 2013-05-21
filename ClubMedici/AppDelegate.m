@@ -238,7 +238,7 @@
         AreaBase *area = [[areaClass alloc] initWithAreaId:[[dict objectForKey:@"id"]intValue]];
         NSLog(@"app delegate area id = %d",area.areaID);
         AreaBaseController *areaContr = [AreaBaseController idiomAllocInit];
-        areaContr.area.areaID = area.areaID;
+        [areaContr setArea:area];
         areaContr.title = [dict objectForKey:@"title"];
         
         if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
