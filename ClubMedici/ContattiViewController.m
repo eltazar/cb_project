@@ -111,7 +111,6 @@
             v.backgroundColor = [UIColor colorWithRed:144/255.0f green:170/255.0f blue:201/255.0f alpha:1];
             v.opaque = YES;
             cell.selectedBackgroundView = v;
-            NSLog(@"nuovo contact cell");
             
             /* Linea separatrice tra le celle*/
             self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;

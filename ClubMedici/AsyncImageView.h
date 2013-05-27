@@ -21,7 +21,7 @@
 @property (nonatomic, retain) id<AsyncImageViewDelegate> delegate;
 
 - (void)loadImageFromURL:(NSURL*)url;
-- (void)connection:(NSURLConnection *)theConnection;
+//- (void)connection:(NSURLConnection *)theConnection;
 - (void)connectionDidFinishLoading:(NSURLConnection*)theConnection;
 - (UIImage*) image;
 

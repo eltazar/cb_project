@@ -15,7 +15,7 @@
 
 + (BOOL)networkReachable;
 + (BOOL)checkEmail:(NSString*)email;
-+ (BOOL)checkPhone:(NSString *)_phone;
+//+ (BOOL)checkPhone:(NSString *)_phone;
 + (BOOL)isNumeric:(NSString*)inputString;
 + (void)saveCustomObject:(id)obj key:(NSString*)key;
 + (id)loadCustomObjectWithKey:(NSString *)key;
