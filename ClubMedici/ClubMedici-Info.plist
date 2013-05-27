@@ -26,7 +26,7 @@
 		</dict>
 	</dict>
 	<key>CFBundleIdentifier</key>
-	<string>com.clubmedici.appTest</string>
+	<string>com.clubmedici.ClubMediciApp</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -42,12 +42,12 @@
 		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>fb428965217200139</string>
+				<string>fb146214408900220</string>
 			</array>
 		</dict>
 		<dict>
 			<key>CFBundleURLName</key>
-			<string>com.clubmedici.appTest</string>
+			<string>com.clubmedici.ClubMediciApp</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>doccontroller</string>
@@ -59,9 +59,9 @@
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
 	<key>FacebookAppID</key>
-	<string>428965217200139</string>
+	<string>146214408900220</string>
 	<key>FacebookDisplayName</key>
-	<string>Prova</string>
+	<string>ClubMedici</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>Pushwoosh_APPID</key>
