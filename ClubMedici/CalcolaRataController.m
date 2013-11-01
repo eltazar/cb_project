@@ -45,6 +45,10 @@
 
 - (void)viewDidLoad
 {
+    if([self respondsToSelector:@selector(edgesForExtendedLayout)]) {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+    }
+    
     [super viewDidLoad];
     self.title = @"Simulatore rate";
     self.view.backgroundColor = [UIColor colorWithRed:243/255.0f green:244/255.0f blue:245/255.0f alpha:1];

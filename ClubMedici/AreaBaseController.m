@@ -40,6 +40,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    if([self respondsToSelector:@selector(edgesForExtendedLayout)]) {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+    }
+    
     if(!area){
         Class areaClass = NSClassFromString([AreaBase getAreaType:self.areaId]); 
         //in questo modo se area viene settato con i setter non viene resettato dal didload
