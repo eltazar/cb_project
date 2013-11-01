@@ -16,6 +16,8 @@
 #import "JASidePanelController.h"
 #import "FXLabel.h"
 
+#define IOS_VERSION [[[UIDevice currentDevice] systemVersion] floatValue]
+
 #define KEYBOARD_ORIGIN_Y self.tableView.frame.size.height - 216.0f
 #define BUTTON_Y 446+50 // il primo addendo è preso dal content_size_height della tabella una volta visualizzata
 
@@ -23,6 +25,7 @@
     TextFieldCell *textFieldCell;
     JASidePanelController *jasController;
     IBOutlet UILabel *headerLabel;
+    int lastIndexPathRow;
 }
 
 @end
@@ -42,6 +45,9 @@
     [super viewDidLoad];
     //self.title = @"Richiesta preventivo";
 
+    
+    lastIndexPathRow = 0;
+    
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     //per staccare un po la prima cella dal bordo superiore
@@ -193,9 +199,19 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     // called when "Next" is pressed
     
-    NSIndexPath *indexPath = [self.tableView indexPathForCell:(TextFieldCell*)[[textField superview]superview]];
+    TextFieldCell *cell = nil;
+    
+    if(IOS_VERSION >= 7.0){
+        cell = (TextFieldCell*) [[[textField superview]superview]superview];
+    }
+    else{
+        cell = (TextFieldCell*) [[[textField superview]superview]superview];
+
+    }
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
     
     NSIndexPath *nextIndexPath = [NSIndexPath indexPathForRow:indexPath.row+1 inSection:0];
+    
     
     if(nextIndexPath.row < [self.tableView numberOfRowsInSection:0])
         [[((TextFieldCell*)[self.tableView cellForRowAtIndexPath:nextIndexPath]) viewWithTag:1] becomeFirstResponder];
