@@ -14,6 +14,9 @@
 #import "AreaDescriptionCell.h"
 #import "SharingProvider.h"
 
+#define IOS_VERSION [[[UIDevice currentDevice] systemVersion] floatValue]
+
+
 @interface ContattiViewController ()
 {
     AreaDescriptionCell *companyDescriptionCell;
@@ -113,7 +116,15 @@
             cell.selectedBackgroundView = v;
             
             /* Linea separatrice tra le celle*/
-            self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+            //self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+            
+            if(IOS_VERSION >= 7.0){
+                [self.tableView setSeparatorInset:UIEdgeInsetsZero];
+            }
+            else{
+                self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+            }
+            
             //bordo inferiore da applicare alla linea
             CALayer *bottomBorder = [CALayer layer];
             bottomBorder.frame = CGRectMake(0.0f, 0.0f,1024, 1.5f);
