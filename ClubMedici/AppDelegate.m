@@ -21,6 +21,8 @@
 #import "AreaBaseController.h"
 #import "AreaBase.h"
 
+#import "Utilities.h"
+
 @implementation AppDelegate
 @synthesize jasSidePanelController, splitViewController;
 
@@ -300,7 +302,8 @@
     
     
     //tintcolor per gli oggett nella navBar
-    [[UIBarButtonItem appearance] setTintColor: blue];
+    if([Utilities getIOSversion] < 7.0)
+        [[UIBarButtonItem appearance] setTintColor: blue];
     
     //tintColor per TableView
     [[UITableView appearance] setBackgroundColor:[UIColor colorWithRed:243/255.0 green:244/255.0 blue:245/255.0 alpha:1]];
