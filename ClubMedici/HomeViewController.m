@@ -144,6 +144,7 @@
     [errorView.tapRecognizer addTarget:self action:@selector(hideErrorView:)];
     
     CGRect oldFrame = [errorView frame];
+    
     [errorView setFrame:CGRectMake(0, 43, oldFrame.size.width, 0)];
     
     [self.navigationController.view addSubview:errorView];
