@@ -8,12 +8,14 @@
 
 #import "CalcolaRataController.h"
 #import "ActionSheetPicker.h"
+#import "Utilities.h"
 
 #define KEYBOARD_ORIGIN_Y self.view.frame.size.height - 216.0f
 
 #define TASSO_PICKER_TAG 55
 #define NUMERO_RATE_PICKER_TAG 60
 #define PERCENTUALE_ASSICURAZIONE 4.20f
+
 
 @interface CalcolaRataController ()
 {
@@ -92,13 +94,20 @@
 }
 
 -(void)applyLabelEffect:(FXLabel*)label{
-    label.textColor = [UIColor colorWithWhite:0.5f alpha:1];
-    label.shadowColor = [UIColor colorWithWhite:1.0f alpha:0.8f];
-    label.shadowOffset = CGSizeMake(0.8f, 0.80f);
-    label.shadowBlur = 1.0f;
-    label.innerShadowBlur = 3.0f;
-    label.innerShadowColor = [UIColor colorWithWhite:0.0f alpha:0.9f];
-    label.innerShadowOffset = CGSizeMake(0.8f, 0.8f);
+   
+    if([Utilities getIOSversion] >= 7.0){
+        label.textColor     =  [UIColor colorWithRed:43.0/255.0 green:43.0/255.0 blue:43.0/255.0 alpha:1.0];
+        label.shadowColor   = [UIColor whiteColor];
+    }
+    else{
+        label.textColor = [UIColor colorWithWhite:0.5f alpha:1];
+        label.shadowColor = [UIColor colorWithWhite:1.0f alpha:0.8f];
+        label.shadowOffset = CGSizeMake(0.8f, 0.80f);
+        label.shadowBlur = 1.0f;
+        label.innerShadowBlur = 3.0f;
+        label.innerShadowColor = [UIColor colorWithWhite:0.0f alpha:0.9f];
+        label.innerShadowOffset = CGSizeMake(0.8f, 0.8f);
+    }
 }
 - (void)didReceiveMemoryWarning
 {
