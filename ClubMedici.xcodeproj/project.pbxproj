@@ -107,8 +107,6 @@
 		ACC442DC1748D0A300F1DEBF /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = ACC442D71748D06A00F1DEBF /* Default.png */; };
 		ACC442DE1748D0A800F1DEBF /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ACC442D61748D06A00F1DEBF /* Default-568h@2x.png */; };
 		ACC442E11748D0C700F1DEBF /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ACC442E01748D0C700F1DEBF /* Default@2x.png */; };
-		ACC442E6174949A900F1DEBF /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACC442E5174949A900F1DEBF /* FacebookSDK.framework */; };
-		ACC442E8174949E700F1DEBF /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = ACC442E7174949E700F1DEBF /* FacebookSDKResources.bundle */; };
 		ACC450F7173ACE0D0058B30A /* normal_button_big_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ACC450F6173ACE0D0058B30A /* normal_button_big_selected@2x.png */; };
 		ACCA16F1172A7E9300B03095 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACCA16F0172A7E9300B03095 /* SystemConfiguration.framework */; };
 		ACCC531916C1AB7000994AA0 /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = ACCC531816C1AB7000994AA0 /* Utilities.m */; };
@@ -210,6 +208,8 @@
 		D9B04DD9165C63A9005EF35B /* AreaDescriptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D9B04DD8165C63A9005EF35B /* AreaDescriptionCell.m */; };
 		D9C6C518165FDBC400247448 /* UIViewController+InterfaceIdiom.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C6C517165FDBC400247448 /* UIViewController+InterfaceIdiom.m */; };
 		D9FDADCE173D2BEB002808A7 /* SharingProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = D9FDADCD173D2BEB002808A7 /* SharingProvider.m */; };
+		FC3DAB581823F01C001982FC /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC3DAB571823F01C001982FC /* FacebookSDK.framework */; };
+		FCC5158A1825603500F177B1 /* sideNavIOS7.png in Resources */ = {isa = PBXBuildFile; fileRef = FCC515891825603500F177B1 /* sideNavIOS7.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -363,8 +363,6 @@
 		ACC442D61748D06A00F1DEBF /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		ACC442D71748D06A00F1DEBF /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		ACC442E01748D0C700F1DEBF /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		ACC442E5174949A900F1DEBF /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
-		ACC442E7174949E700F1DEBF /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = FacebookSDKResources.bundle; path = ../../Documents/FacebookSDK/FacebookSDK.framework/Versions/A/Resources/FacebookSDKResources.bundle; sourceTree = "<group>"; };
 		ACC450F6173ACE0D0058B30A /* normal_button_big_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "normal_button_big_selected@2x.png"; path = "img/normal_button_big_selected@2x.png"; sourceTree = SOURCE_ROOT; };
 		ACCA16F0172A7E9300B03095 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		ACCC531716C1AB7000994AA0 /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
@@ -501,6 +499,8 @@
 		D9C6C517165FDBC400247448 /* UIViewController+InterfaceIdiom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+InterfaceIdiom.m"; sourceTree = "<group>"; };
 		D9FDADCC173D2BEB002808A7 /* SharingProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharingProvider.h; sourceTree = "<group>"; };
 		D9FDADCD173D2BEB002808A7 /* SharingProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharingProvider.m; sourceTree = "<group>"; };
+		FC3DAB571823F01C001982FC /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
+		FCC515891825603500F177B1 /* sideNavIOS7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sideNavIOS7.png; path = img/sideNavIOS7.png; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -513,6 +513,7 @@
 				ACDA94371736E41A00A00092 /* Twitter.framework in Frameworks */,
 				AC168DAF173694DB00B7466A /* Security.framework in Frameworks */,
 				AC168DB0173694DB00B7466A /* Social.framework in Frameworks */,
+				FC3DAB581823F01C001982FC /* FacebookSDK.framework in Frameworks */,
 				AC168DAC173694CA00B7466A /* libsqlite3.dylib in Frameworks */,
 				AC168DAA173694A500B7466A /* Accounts.framework in Frameworks */,
 				AC168DA81736949B00B7466A /* AdSupport.framework in Frameworks */,
@@ -525,7 +526,6 @@
 				ACEBDC6816570CBE00CEFFE5 /* Foundation.framework in Frameworks */,
 				ACEBDC6A16570CBE00CEFFE5 /* CoreGraphics.framework in Frameworks */,
 				AC9E0316173D55C500B15AD6 /* libFlurry.a in Frameworks */,
-				ACC442E6174949A900F1DEBF /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -775,6 +775,7 @@
 				AC167A951742E14B007986EA /* mail2@2x.png */,
 				AC167A931742E13F007986EA /* phone2@2x.png */,
 				AC76D8B6173EC34F006C44B4 /* navBarLogo@2x.png */,
+				FCC515891825603500F177B1 /* sideNavIOS7.png */,
 				AC76D8B8173EC787006C44B4 /* navLogo@2x.png */,
 				AC0099A3173E2CCF00A0B202 /* arrow.png */,
 				AC0099A4173E2CD000A0B202 /* arrow@2x.png */,
@@ -892,8 +893,7 @@
 		ACEBDC6416570CBE00CEFFE5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				ACC442E7174949E700F1DEBF /* FacebookSDKResources.bundle */,
-				ACC442E5174949A900F1DEBF /* FacebookSDK.framework */,
+				FC3DAB571823F01C001982FC /* FacebookSDK.framework */,
 				AC0099A1173E2CA900A0B202 /* AudioToolbox.framework */,
 				ACDA94361736E41A00A00092 /* Twitter.framework */,
 				AC168DAD173694DB00B7466A /* Security.framework */,
@@ -1205,7 +1205,7 @@
 				ACC442DC1748D0A300F1DEBF /* Default.png in Resources */,
 				ACC442DE1748D0A800F1DEBF /* Default-568h@2x.png in Resources */,
 				ACC442E11748D0C700F1DEBF /* Default@2x.png in Resources */,
-				ACC442E8174949E700F1DEBF /* FacebookSDKResources.bundle in Resources */,
+				FCC5158A1825603500F177B1 /* sideNavIOS7.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1384,9 +1384,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Vincenzo Pezzuti (J8N9FMZDSB)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(HOME)/Documents/FacebookSDK\"",
-					"\"$(HOME)\"",
-					"\"$(HOME)/Documents/FacebookSDK\"",
+					"\\\"$(HOME)/Documents/FacebookSDK\\\"",
+					"$(HOME)",
+					"\\\"$(HOME)/Documents/FacebookSDK\\\"",
+					/Users/eltazar/Documents/FacebookSDK,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ClubMedici/ClubMedici-Prefix.pch";
@@ -1415,9 +1416,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Vincenzo Pezzuti (J8N9FMZDSB)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(HOME)/Documents/FacebookSDK\"",
-					"\"$(HOME)\"",
-					"\"$(HOME)/Documents/FacebookSDK\"",
+					"\\\"$(HOME)/Documents/FacebookSDK\\\"",
+					"$(HOME)",
+					"\\\"$(HOME)/Documents/FacebookSDK\\\"",
+					/Users/eltazar/Documents/FacebookSDK,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ClubMedici/ClubMedici-Prefix.pch";
