@@ -13,8 +13,7 @@
 #import "UIViewController+InterfaceIdiom.h"
 #import "AreaDescriptionCell.h"
 #import "SharingProvider.h"
-
-#define IOS_VERSION [[[UIDevice currentDevice] systemVersion] floatValue]
+#import "Utilities.h"
 
 
 @interface ContattiViewController ()
@@ -118,7 +117,7 @@
             /* Linea separatrice tra le celle*/
             //self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
             
-            if(IOS_VERSION >= 7.0){
+            if([Utilities getIOSversion] >= 7.0){
                 [self.tableView setSeparatorInset:UIEdgeInsetsZero];
             }
             else{
