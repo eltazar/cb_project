@@ -165,4 +165,10 @@
        [Flurry logEvent:key];
     else [Flurry logEvent:key withParameters:arguments];
 }
+
+
++(CGFloat)getIOSversion{
+    return [[[UIDevice currentDevice] systemVersion] floatValue];
+}
+
 @end

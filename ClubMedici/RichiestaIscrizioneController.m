@@ -68,7 +68,15 @@
 }
 
 - (void) textFieldDidEndEditing:(UITextField *)textField{
-    UITableViewCell *cell = (UITableViewCell*) [[textField superview] superview];
+    UITableViewCell *cell = nil;
+    
+    if([Utilities getIOSversion] >= 7.0){
+        cell = (UITableViewCell*) [[[textField superview]superview]superview];
+    }
+    else{
+        cell = (UITableViewCell*) [[textField superview]superview];
+        
+    }
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
     NSString *dataKey = [_dataModel valueForKey:@"DATA_KEY" atIndexPath:indexPath];
     

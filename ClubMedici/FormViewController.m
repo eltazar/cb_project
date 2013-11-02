@@ -15,8 +15,7 @@
 #import "AppDelegate.h"
 #import "JASidePanelController.h"
 #import "FXLabel.h"
-
-#define IOS_VERSION [[[UIDevice currentDevice] systemVersion] floatValue]
+#import "Utilities.h"
 
 #define KEYBOARD_ORIGIN_Y self.tableView.frame.size.height - 216.0f
 #define BUTTON_Y 446+50 // il primo addendo è preso dal content_size_height della tabella una volta visualizzata
@@ -201,11 +200,11 @@
     
     TextFieldCell *cell = nil;
     
-    if(IOS_VERSION >= 7.0){
+    if([Utilities getIOSversion] >= 7.0){
         cell = (TextFieldCell*) [[[textField superview]superview]superview];
     }
     else{
-        cell = (TextFieldCell*) [[[textField superview]superview]superview];
+        cell = (TextFieldCell*) [[textField superview]superview];
 
     }
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
