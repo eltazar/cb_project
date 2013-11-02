@@ -145,14 +145,24 @@
         
         UIImageView *img = (UIImageView *)[cell viewWithTag:2];
         UILabel *label   = (UILabel*)    [cell viewWithTag:3];
-        label.textColor     = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.2];
-        label.shadowColor   = [UIColor blackColor];
+       
+        
+        if([Utilities getIOSversion] >= 7.0){
+            label.textColor     =  [UIColor colorWithRed:43.0/255.0 green:43.0/255.0 blue:43.0/255.0 alpha:1.0];
+            label.shadowColor   = [UIColor whiteColor];
+        }
+        else{
+            label.textColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.2];
+            label.shadowColor   = [UIColor blackColor];
+        }
+        
         label.shadowOffset  = CGSizeMake(-0.5,-0.5);
         
         //NSLog(@"LABEL = %@",[_dataModel valueForKey:@"LABEL" atIndexPath:indexPath]);
         label.text = [_dataModel valueForKey:@"LABEL" atIndexPath:indexPath];
         
         UILabel *contactLabel = (UILabel *) [cell viewWithTag:1];
+        
         contactLabel.textColor = [UIColor colorWithRed:11/255.0f green:67/255.0f blue:144/255.0f alpha:1];
         contactLabel.highlightedTextColor =[UIColor whiteColor];
         

@@ -20,6 +20,7 @@
 #import "CustomSpinnerView.h"
 #import "Reachability.h"
 #import "SharingProvider.h"
+#import "Utilities.h"
 
 @interface AreaBaseController () {
 }
@@ -216,8 +217,15 @@
     /*Testo della cella*/
     UILabel *label = (UILabel *) [cell viewWithTag:3];
     label.text = [_dataModel valueForKey:@"LABEL" atIndexPath:indexPath];
-    label.textColor     = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.2];
-    label.shadowColor   = [UIColor blackColor];
+    
+    if([Utilities getIOSversion] >= 7.0){
+        label.textColor     =  [UIColor colorWithRed:43.0/255.0 green:43.0/255.0 blue:43.0/255.0 alpha:1.0];
+        label.shadowColor   = [UIColor whiteColor];
+    }
+    else{
+        label.textColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.2];
+        label.shadowColor   = [UIColor blackColor];
+    }
     label.shadowOffset  = CGSizeMake(-0.5,-0.5);
     
     return cell;

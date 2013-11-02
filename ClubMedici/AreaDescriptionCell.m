@@ -9,7 +9,7 @@
 #import "QuartzCore/QuartzCore.h"
 
 #import "AreaDescriptionCell.h"
-
+#import "Utilities.h"
 @interface AreaDescriptionCell() {
     UILabel *_label;
     UILabel *_label_full;
@@ -161,8 +161,15 @@
     _label_full.opaque = _label.opaque;
     _label_full.alpha = _isExpanded ? 1 : 0;
     
-    _label_full.textColor     = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.2];
-    _label_full.shadowColor   = [UIColor blackColor];
+    if([Utilities getIOSversion] >= 7.0){
+        _label.textColor     = [UIColor colorWithRed:43.0/255.0 green:43.0/255.0 blue:43.0/255.0 alpha:1.0];
+        _label.shadowColor   = [UIColor whiteColor];
+    }
+    else{
+        _label_full.textColor     = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.2];
+        _label_full.shadowColor   = [UIColor blackColor];
+    }
+    
     _label_full.shadowOffset  = CGSizeMake(-0.5,-0.5);
 }
 
