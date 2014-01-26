@@ -202,13 +202,13 @@
 		D91B383F16624986001E9384 /* RichiestaIscrizione.plist in Resources */ = {isa = PBXBuildFile; fileRef = D91B383E16624986001E9384 /* RichiestaIscrizione.plist */; };
 		D91B384216625919001E9384 /* FormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D91B384116625919001E9384 /* FormViewController.m */; };
 		D91B38451662598F001E9384 /* TextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D91B38441662598F001E9384 /* TextFieldCell.m */; };
+		D9313AC3189539AC004CC775 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9313AC2189539AC004CC775 /* FacebookSDK.framework */; };
 		D95680A51734988600CEAE63 /* AreaTurismoCell_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = D95680A41734988600CEAE63 /* AreaTurismoCell_iPhone.xib */; };
 		D98131E71734985D00C919AB /* AreaTurismoItemList.plist in Resources */ = {isa = PBXBuildFile; fileRef = D98131E61734985D00C919AB /* AreaTurismoItemList.plist */; };
 		D998F684173A567700D1ED41 /* AreaTurismoItemCell_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = D998F683173A567700D1ED41 /* AreaTurismoItemCell_iPhone.xib */; };
 		D9B04DD9165C63A9005EF35B /* AreaDescriptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D9B04DD8165C63A9005EF35B /* AreaDescriptionCell.m */; };
 		D9C6C518165FDBC400247448 /* UIViewController+InterfaceIdiom.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C6C517165FDBC400247448 /* UIViewController+InterfaceIdiom.m */; };
 		D9FDADCE173D2BEB002808A7 /* SharingProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = D9FDADCD173D2BEB002808A7 /* SharingProvider.m */; };
-		FC3DAB581823F01C001982FC /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC3DAB571823F01C001982FC /* FacebookSDK.framework */; };
 		FCC5158A1825603500F177B1 /* sideNavIOS7.png in Resources */ = {isa = PBXBuildFile; fileRef = FCC515891825603500F177B1 /* sideNavIOS7.png */; };
 /* End PBXBuildFile section */
 
@@ -490,6 +490,7 @@
 		D91B384116625919001E9384 /* FormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FormViewController.m; path = ClubMedici/FormViewController.m; sourceTree = "<group>"; };
 		D91B38431662598F001E9384 /* TextFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TextFieldCell.h; path = ClubMedici/TextFieldCell.h; sourceTree = "<group>"; };
 		D91B38441662598F001E9384 /* TextFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TextFieldCell.m; path = ClubMedici/TextFieldCell.m; sourceTree = "<group>"; };
+		D9313AC2189539AC004CC775 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 		D95680A41734988600CEAE63 /* AreaTurismoCell_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AreaTurismoCell_iPhone.xib; path = ClubMedici/AreaTurismoCell_iPhone.xib; sourceTree = "<group>"; };
 		D98131E61734985D00C919AB /* AreaTurismoItemList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AreaTurismoItemList.plist; sourceTree = "<group>"; };
 		D998F683173A567700D1ED41 /* AreaTurismoItemCell_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AreaTurismoItemCell_iPhone.xib; path = ClubMedici/AreaTurismoItemCell_iPhone.xib; sourceTree = "<group>"; };
@@ -499,7 +500,6 @@
 		D9C6C517165FDBC400247448 /* UIViewController+InterfaceIdiom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+InterfaceIdiom.m"; sourceTree = "<group>"; };
 		D9FDADCC173D2BEB002808A7 /* SharingProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharingProvider.h; sourceTree = "<group>"; };
 		D9FDADCD173D2BEB002808A7 /* SharingProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharingProvider.m; sourceTree = "<group>"; };
-		FC3DAB571823F01C001982FC /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 		FCC515891825603500F177B1 /* sideNavIOS7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sideNavIOS7.png; path = img/sideNavIOS7.png; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -509,11 +509,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC4FF45217463FE800873060 /* libPushNotificationManager.a in Frameworks */,
+				D9313AC3189539AC004CC775 /* FacebookSDK.framework in Frameworks */,
 				AC0099A2173E2CA900A0B202 /* AudioToolbox.framework in Frameworks */,
 				ACDA94371736E41A00A00092 /* Twitter.framework in Frameworks */,
 				AC168DAF173694DB00B7466A /* Security.framework in Frameworks */,
 				AC168DB0173694DB00B7466A /* Social.framework in Frameworks */,
-				FC3DAB581823F01C001982FC /* FacebookSDK.framework in Frameworks */,
 				AC168DAC173694CA00B7466A /* libsqlite3.dylib in Frameworks */,
 				AC168DAA173694A500B7466A /* Accounts.framework in Frameworks */,
 				AC168DA81736949B00B7466A /* AdSupport.framework in Frameworks */,
@@ -893,7 +893,7 @@
 		ACEBDC6416570CBE00CEFFE5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				FC3DAB571823F01C001982FC /* FacebookSDK.framework */,
+				D9313AC2189539AC004CC775 /* FacebookSDK.framework */,
 				AC0099A1173E2CA900A0B202 /* AudioToolbox.framework */,
 				ACDA94361736E41A00A00092 /* Twitter.framework */,
 				AC168DAD173694DB00B7466A /* Security.framework */,
@@ -1384,10 +1384,12 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Vincenzo Pezzuti (J8N9FMZDSB)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\\\"$(HOME)/Documents/FacebookSDK\\\"",
+					"\\\\\\\"$(HOME)/Documents/FacebookSDK\\\\\\\"",
 					"$(HOME)",
-					"\\\"$(HOME)/Documents/FacebookSDK\\\"",
+					"\\\\\\\"$(HOME)/Documents/FacebookSDK\\\\\\\"",
 					/Users/eltazar/Documents/FacebookSDK,
+					/Users/fastfading/Development/cb_project,
+					/Users/fastfading/Development/cb_project/FacebookSDK,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ClubMedici/ClubMedici-Prefix.pch";
@@ -1416,10 +1418,12 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Vincenzo Pezzuti (J8N9FMZDSB)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\\\"$(HOME)/Documents/FacebookSDK\\\"",
+					"\\\\\\\"$(HOME)/Documents/FacebookSDK\\\\\\\"",
 					"$(HOME)",
-					"\\\"$(HOME)/Documents/FacebookSDK\\\"",
+					"\\\\\\\"$(HOME)/Documents/FacebookSDK\\\\\\\"",
 					/Users/eltazar/Documents/FacebookSDK,
+					/Users/fastfading/Development/cb_project,
+					/Users/fastfading/Development/cb_project/FacebookSDK,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ClubMedici/ClubMedici-Prefix.pch";
