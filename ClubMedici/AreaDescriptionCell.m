@@ -114,6 +114,10 @@
     [UIView animateWithDuration:0.3 animations:^{
         UITableView *tableView = (UITableView *)self.superview;
         if (![tableView isKindOfClass:[UITableView class]]) {
+            // iOS 7
+            tableView = (UITableView *)tableView.superview;
+        }
+        if (![tableView isKindOfClass:[UITableView class]]) {
             tableView = nil;
         }
         [tableView beginUpdates];
