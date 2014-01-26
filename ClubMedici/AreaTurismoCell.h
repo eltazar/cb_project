@@ -15,6 +15,7 @@
 
 - (void)setItems:(NSArray *)items;
 - (void)handleTap:(UITapGestureRecognizer *)sender;
+//- (void)buttonClicked:(id)sender;
 - (NSInteger)getHeight;
 
 @end

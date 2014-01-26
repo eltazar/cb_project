@@ -19,7 +19,9 @@
 
 @interface AreaTurismoCell () {
     NSArray *_items;
+    UIButton* _lastButtonTouched;
 }
+- (UIView *)getViewForLocation:(CGPoint)location;
 @end
 
 @interface UITapGestureRecognizerWithTag : UITapGestureRecognizer
@@ -45,6 +47,7 @@
 
 
 - (void)initialize {
+    _lastButtonTouched = nil;
 }
 
 
@@ -59,8 +62,22 @@
 # pragma mark - Private Methods
 
 
-- (void)handleTap {
+- (UIView *)getViewForLocation:(CGPoint)location {
+    // Il motivo per cui devo scendere di DUE livelli nelle subviews è mistero della fede -_-
+    for (UIView *view in ((UIView*)[self.subviews objectAtIndex:0]).subviews) {
+        CGRect subviewFrame = view.frame;
+        if (view.tag != 0 && CGRectContainsPoint(subviewFrame, location)) {
+            NSLog(@"tag view tappata: %d", view.tag);
+            return view;
+        }
+    }
+    return nil;
+}
 
+- (void)setImage:(NSString *)imageName ForButton:(UIButton *)btn {
+    if (iPadIdiom()) imageName = ORIENTATION_SPECIFIC_STRING(imageName);
+    UIImage* image = [UIImage imageNamed: IDIOM_SPECIFIC_STRING(imageName)];
+    [btn setBackgroundImage:image forState:UIControlStateNormal];
 }
 
 
@@ -75,7 +92,8 @@
         FXLabel *label          = (FXLabel *)       [self viewWithTag:LABEL_OFFSET + i];
         UIImageView *imageView  = (UIImageView *)   [self viewWithTag:IMAGEVIEW_OFFSET + i];
         
-        NSString *imageName = @"AreaTurismoCellBg";
+        [self setImage:@"AreaTurismoCellBg" ForButton:btn];
+        /*NSString *imageName = @"AreaTurismoCellBg";
         if (iPadIdiom()) imageName = ORIENTATION_SPECIFIC_STRING(imageName);
         UIImage *image = [UIImage imageNamed:IDIOM_SPECIFIC_STRING(imageName)];
         [btn setBackgroundImage:image
@@ -85,10 +103,10 @@
 
         image = [UIImage imageNamed: IDIOM_SPECIFIC_STRING(imageName)];
         [btn setBackgroundImage:image
-                       forState:UIControlStateHighlighted];
-        [btn addTarget:self
-                action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
-        
+                       forState:UIControlStateHighlighted];*/
+        //[btn addTarget:self
+        //        action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
+      
         label.text      = [dict objectForKey:@"LABEL"];
         label.shadowBlur = 6.0;
         label.shadowColor = [UIColor colorWithRed:3/255.0
@@ -96,34 +114,61 @@
                                              blue:175/255.0 alpha:1];
         
         
-        image = [UIImage imageNamed:IDIOM_SPECIFIC_STRING([dict objectForKey:@"IMAGE"])];
+        UIImage* image = [UIImage imageNamed:IDIOM_SPECIFIC_STRING([dict objectForKey:@"IMAGE"])];
         imageView.image = image;
         
-        //UITapGestureRecognizerWithTag *tapGestureRecognizer = [[UITapGestureRecognizerWithTag alloc] initWithTarget:self action:@selector(handleTap:)];
-        //[tapGestureRecognizer setCancelsTouchesInView:NO];
-        //[imageView addGestureRecognizer:tapGestureRecognizer];
-        //tapGestureRecognizer.tag = i;
+        //UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
+        //[self addGestureRecognizer:tapGestureRecognizer];
     }
 }
 
-
-- (void)buttonClicked:(id)sender {
-//- (void)handleTap:(UITapGestureRecognizer *)sender {
-    /*if (![sender isKindOfClass:[UITapGestureRecognizerWithTag class]]) {
-        return;
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    for (UITouch* touch in touches) {
+        UIButton* btn = (UIButton*)[self getViewForLocation:[touch locationInView:self]];
+        [self setImage:@"AreaTurismoCellBgHigh" ForButton:btn];
+        _lastButtonTouched = btn;
     }
-    if (sender.state == UIGestureRecognizerStateEnded) {
-        NSInteger tag = ((UITapGestureRecognizerWithTag *)sender).tag;*/
+}
+
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
+    for (UITouch* touch in touches) {
+        UIButton* btn = (UIButton*)[self getViewForLocation:[touch locationInView:self]];
+        if (!btn || btn != _lastButtonTouched) {
+            [self setImage:@"AreaTurismoCellBg" ForButton:_lastButtonTouched];
+        }
+    }
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+    for (UITouch* touch in touches) {
+        UIButton* btn = (UIButton*)[self getViewForLocation:[touch locationInView:self]];
+        if (btn == _lastButtonTouched) {
+            [self setImage:@"AreaTurismoCellBg" ForButton:btn];
+        }
+    }
+}
+
+- (void)handleTap:(UITapGestureRecognizer *)recognizer {
+    if (recognizer.state == UIGestureRecognizerStateBegan) {
+        NSLog(@"Began");
+    }
+    else if (recognizer.state == UIGestureRecognizerStateEnded) {
+        NSLog(@"Ended");
+    }
     
-    NSInteger tag = ((UIView *)sender).tag - BUTTON_OFFSET;
+    NSInteger tag = [((UIView*)[self getViewForLocation:
+                               [recognizer locationInView:self]]) tag] - BUTTON_OFFSET;
     
-        NSDictionary *dict = (NSDictionary *) [_items objectAtIndex:tag];
-        TurismoTableViewController *viewController = [[TurismoTableViewController alloc] initWithNibName:nil bundle:nil];
-        viewController.title = [dict objectForKey:@"LABEL"];
-        AreaTurismoSection *areaTurismoSection = [[AreaTurismoSection alloc] init];
-        areaTurismoSection.sectionId = [[dict valueForKey:@"DATA_KEY"] intValue];
-        viewController.areaTurismoSection = areaTurismoSection;
-        [self.navController pushViewController:viewController animated:YES];
+    if (tag < 0) return;
+    
+    
+    NSDictionary *dict = (NSDictionary *) [_items objectAtIndex:tag];
+    TurismoTableViewController *viewController = [[TurismoTableViewController alloc] initWithNibName:nil bundle:nil];
+    viewController.title = [dict objectForKey:@"LABEL"];
+    AreaTurismoSection *areaTurismoSection = [[AreaTurismoSection alloc] init];
+    areaTurismoSection.sectionId = [[dict valueForKey:@"DATA_KEY"] intValue];
+    viewController.areaTurismoSection = areaTurismoSection;
+    [self.navController pushViewController:viewController animated:YES];
     /*}
      else if (sender.state == UIGestureRecognizerStateBegan) {
         UIImageView *imageView
@@ -134,6 +179,8 @@
 - (NSInteger)getHeight {
     return self.frame.size.height;
 }
+
+
 
 
 @end
