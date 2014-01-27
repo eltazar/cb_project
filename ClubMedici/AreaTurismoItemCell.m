@@ -9,6 +9,8 @@
 #import "AreaTurismoItemCell.h"
 #import "AsyncImageView.h"
 
+#import "Utilities.h"
+
 @interface AreaTurismoItemCell() {
     CGFloat _minHeight;
 }    
@@ -56,12 +58,18 @@
                                                blue:144/255.0f
                                               alpha:1];
     /*Testo della cella*/
-    self.descriptionLbl.textColor     = [UIColor colorWithRed:1.0
-                                                        green:1.0
-                                                         blue:1.0
-                                                        alpha:0.2];
-    self.descriptionLbl.shadowColor   = [UIColor blackColor];
-    self.descriptionLbl.shadowOffset  = CGSizeMake(-0.5,-0.5);
+    self.descriptionLbl.textColor     = [UIColor colorWithRed:70/255.0f
+                                                        green:70/255.0f
+                                                         blue:70/255.0f
+                                                        alpha:1];
+    
+    if (IS_OS_7_OR_LATER) {
+        
+    }
+    else {
+        self.descriptionLbl.shadowColor   = [UIColor blackColor];
+        self.descriptionLbl.shadowOffset  = CGSizeMake(-0.01,-0.01);
+    }
     
     [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
     [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(layout) name: UIDeviceOrientationDidChangeNotification object: nil];

@@ -275,22 +275,32 @@
     UIColor *blue = [UIColor colorWithRed:3/255.0 green:84/255.0 blue:175/255.0 alpha:1];
     
     //permette di cambiare la navBar di tutte le view
-    UIImage *image = [[UIImage imageNamed:@"iphone_nav_bar"]
-                       resizableImageWithCapInsets: UIEdgeInsetsMake(20, 0, 20, 0)];
-    [[UINavigationBar appearance] setBackgroundImage:image
-                                       forBarMetrics:UIBarMetricsDefault];
+    if (IS_OS_7_OR_LATER) {
+        [[UINavigationBar appearance] setBarTintColor:blue];
+    }
+    else {
+        UIImage *image = [[UIImage imageNamed:@"iphone_nav_bar"]
+                           resizableImageWithCapInsets: UIEdgeInsetsMake(20, 0, 20, 0)];
+        [[UINavigationBar appearance] setBackgroundImage:image
+                                           forBarMetrics:UIBarMetricsDefault];
+    }
+
+    
     // Customize the title text for *all* UINavigationBars
-    [[UINavigationBar appearance] setTitleTextAttributes:
-     [NSDictionary dictionaryWithObjectsAndKeys:
-      [UIColor whiteColor],
-      UITextAttributeTextColor,
-      [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.8],
-      UITextAttributeTextShadowColor,
-      [NSValue valueWithUIOffset:UIOffsetMake(0, -1)],
-      UITextAttributeTextShadowOffset,
-      [UIFont fontWithName:@"System-Bold" size:0.0],
-      UITextAttributeFont,
-      nil]];
+    NSMutableDictionary *titleTextAttributes = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+          [UIColor whiteColor],                                    UITextAttributeTextColor,
+          [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.8], UITextAttributeTextShadowColor,
+          [NSValue valueWithUIOffset:UIOffsetMake(0, -1)],         UITextAttributeTextShadowOffset,
+          [UIFont fontWithName:@"System-Bold" size:0.0],           UITextAttributeFont,
+        nil];
+    
+    if (IS_OS_7_OR_LATER) {
+        [titleTextAttributes removeObjectForKey:UITextAttributeTextShadowColor];
+        [titleTextAttributes removeObjectForKey:UITextAttributeTextShadowOffset];
+    }
+    
+    [[UINavigationBar appearance] setTitleTextAttributes:titleTextAttributes];
+
     
     // Change the appearance of back button
 //    UIImage *backButtonImage = [[UIImage imageNamed:@"back_button"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 13, 0, 6)];
@@ -304,11 +314,18 @@
     //tintcolor per gli oggett nella navBar
     if([Utilities getIOSversion] < 7.0)
         [[UIBarButtonItem appearance] setTintColor: blue];
+    else
+        [[UIBarButtonItem appearance] setTintColor: [UIColor whiteColor]];
     
     //tintColor per TableView
     [[UITableView appearance] setBackgroundColor:[UIColor colorWithRed:243/255.0 green:244/255.0 blue:245/255.0 alpha:1]];
     
-    [[UISegmentedControl appearance] setTintColor:blue];
+    if (IS_OS_7_OR_LATER) {
+        [[UISegmentedControl appearance] setTintColor:[UIColor whiteColor]];
+    }
+    else {
+        [[UISegmentedControl appearance] setTintColor:blue];
+    }
 }
 
 #pragma mark - PushWoosh

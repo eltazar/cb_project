@@ -43,7 +43,11 @@
     return NO;
 }
 
+
+
 #pragma mark - WMHttpAccessDelegate
+
+
 
 -(void)didReceiveJSON:(NSArray *)jsonArray{
     //NSLog(@"json = %@",jsonArray);
@@ -54,41 +58,55 @@
             <head>                                      \
                 <style type=\"text/css\">%@</style>     \
             </head>                                     \
-            <body> <h3>%@</h3><br>                         \
+            <body>                                      \
+                <h3>%@</h3>                             \
                 <img src=\"%@\" class=\"floatLeft\">    \
                 %@                                      \
             </body>                                     \
         </html>";
     NSString *style =
-        @"                                  \
-        img.floatLeft {                     \
-            height:100px;                   \
-            width:100px;                    \
-            float: left;                    \
-            margin: 5px;                    \
-        }                                   \
-        body {                              \
-            font-family:helvetica;          \
-            background-color: #f3f4f5;      \
-        }                                   \
-        body, p {                           \
-            margin:15px;                    \
-            font-size: 17px;                \
-            color: #212121;                 \
-            text-shadow: #fff 0px 1px 0px;  \
-        }                                   \
-        h1, h2, h3, h4, h5, h6 {            \
-            margin: 0;                      \
-            font-family: helvetica;         \
-            font-size:. 115%;               \
-    color: #0D4383;\
-    text-shadow: rgba(0,0,0,0.5) -0.5px 0, rgba(0,0,0,0.3) 0 -0.5px, rgba(255,255,255,0.5) 0.5px, rgba(0,0,0,0.3) -0.5px -0.5px;\
+        @"                                              \
+        img.floatLeft {                                 \
+            height: 100px;                              \
+            width:  100px;                              \
+            float:  left;                               \
+            margin: 5px 10px 5px 0;                     \
+        }                                               \
+                                                        \
+        body {                                          \
+            font-family: helvetica;                     \
+            background-color: #f3f4f5;                  \
+        }                                               \
+                                                        \
+        body, p {                                       \
+            margin:      15px;                          \
+            font-size:   14.5px;                        \
+            color:       #464646;                       \
+            text-shadow: #fff 0px 1px 0px;              \
+            text-align:  justify                        \
+        }                                               \
+                                                        \
+        h1, h2, h3, h4, h5, h6 {                        \
+            margin: 0;                                  \
+            margin-bottom: 40px;                        \
+            font-family: helvetica;                     \
+            font-size:  115%;                           \
+            color: #0D4383;                             \
+            text-shadow: rgba(0,0,0,0.5) -0.5px 0,      \
+                         rgba(0,0,0,0.3) 0 -0.5px,      \
+                         rgba(255,255,255,0.5) 0.5px,   \
+                         rgba(0,0,0,0.3) -0.5px -0.5px; \
         }";
     
     
     //font-size: 16px;text-align: justify;color: #272727;text-shadow: 1px 4px 6px #f6faff, 0 0 0 #000, 1px 4px 6px #f6faff;}";//
-    NSString *img = [NSString stringWithFormat:@"%@%@",URL_NEWS_IMG,[[jsonArray objectAtIndex:0] objectForKey:@"foto"]];
-    htmlPage = [NSString stringWithFormat:htmlPage,style,[[jsonArray objectAtIndex:0]objectForKey:@"titolo"],img,[[jsonArray objectAtIndex:0]objectForKey:@"testo"]];
+    NSString *img = [NSString stringWithFormat:@"%@%@",
+                     URL_NEWS_IMG,
+                     [[jsonArray objectAtIndex:0] objectForKey:@"foto"]];
+    htmlPage = [NSString stringWithFormat:htmlPage,style,
+                [[jsonArray objectAtIndex:0]objectForKey:@"titolo"],
+                img,
+                [[jsonArray objectAtIndex:0]objectForKey:@"testo"]];
     [webView loadHTMLString:htmlPage baseURL:[NSURL URLWithString:BASE_URL]];
 }
 
@@ -96,7 +114,11 @@
     [super didReceiveError:error];
 }
 
+
+
 #pragma mark - ErrorView methods
+
+
 
 -(void)showErrorView:(NSString*)message{
     
@@ -106,7 +128,11 @@
     }
 }
 
+
+
 #pragma mark - SharingProvider informal protocol
+
+
 
 -(void)showShareActionSheet:(UIActionSheet *)actionSheet sender:(UIBarButtonItem *)sender {
 

@@ -152,6 +152,10 @@
         self.navigationItem.titleView = _segmentedControl;
     }
     
+    if (IS_OS_7_OR_LATER) {
+        [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+    }
+    
     _spinner = [[CustomSpinnerView alloc] initWithFrame:self.view.frame];
     _spinner.frame = CGRectMake(self.navigationController.navigationBar.frame.size.width/2 - _spinner.frame.size.width/2, self.view.frame.size.height/2 - _spinner.frame.size.height/2, _spinner.frame.size.width, _spinner.frame.size.height);
 

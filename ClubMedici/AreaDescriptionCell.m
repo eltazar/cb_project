@@ -114,7 +114,7 @@
     [UIView animateWithDuration:0.3 animations:^{
         UITableView *tableView = (UITableView *)self.superview;
         if (![tableView isKindOfClass:[UITableView class]]) {
-            // iOS 7
+            
             tableView = (UITableView *)tableView.superview;
         }
         if (![tableView isKindOfClass:[UITableView class]]) {
@@ -165,16 +165,24 @@
     _label_full.opaque = _label.opaque;
     _label_full.alpha = _isExpanded ? 1 : 0;
     
-    if([Utilities getIOSversion] >= 7.0){
-        _label.textColor     = [UIColor colorWithRed:43.0/255.0 green:43.0/255.0 blue:43.0/255.0 alpha:1.0];
-        _label.shadowColor   = [UIColor whiteColor];
-    }
-    else{
-        _label_full.textColor     = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.2];
-        _label_full.shadowColor   = [UIColor blackColor];
-    }
-    
+    _label_full.textColor     = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.2];
+    _label_full.shadowColor   = [UIColor blackColor];
     _label_full.shadowOffset  = CGSizeMake(-0.5,-0.5);
+    
+    if (IS_OS_7_OR_LATER) {
+        _label.textColor     = [UIColor colorWithRed:70/255.0f
+                                               green:70/255.0f
+                                                blue:70/255.0f
+                                               alpha:1];
+        _label.shadowColor   = [UIColor clearColor];
+        _label_full.textColor     = [UIColor colorWithRed:70/255.0f
+                                                    green:70/255.0f
+                                                     blue:70/255.0f
+                                                    alpha:1];
+        _label_full.shadowColor   = [UIColor clearColor];
+
+    }
+
 }
 
 - (void)addExpandIndicator {
